@@ -9,7 +9,7 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-
+#include <cstring>
 
 
 
@@ -30,9 +30,12 @@ class SendC{
   int sock;
   struct sockaddr_in sa;
   int bytes_sent;
-  char buffer[255]; // ####
-  
-  strcpy(buffer, data);
+  //char buffer[255]; // ####
+
+  char * buffer = new char[data.length()];
+  strcpy(buffer, data.c_str());
+
+  //strcpy(buffer, data);
   //Erzeugen eines UDP-Sockets
   sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP);
   if (-1 == sock) /* Beenden falls Socket nicht erzeugt/initialisiert werden konnte */
@@ -48,7 +51,7 @@ class SendC{
   //festgelegter Port
   sa.sin_port = htons(9999); // ##PORT##
   //sendto(int Socket, char Daten, int Dateilaenge, Flags, ZeilAddresse, int ZielStructurLaenge)
-  bytes_sent = sendto(sock, data, strlen(buffer), 0,(struct sockaddr*)&sa, sizeof sa);
+  bytes_sent = sendto(sock, buffer, strlen(buffer), 0,(struct sockaddr*)&sa, sizeof sa);
   if (bytes_sent < 0)
   {
     printf("Packet konnte nicht gesendet werden: %s\n", strerror(errno));
@@ -68,11 +71,11 @@ class SendC{
 int main()
 {
 	cout << "Testprogramm zur Verdeutlichung der Programmstruktur." << endl;
-	cout << " Definiere Testsignal" << endl;
+	cout << "Definiere Testsignal" << endl;
 	string testString = "Testsignal vom Embedded-PC.";
 
 	
-	cout << " Rufe Funktion recvData auf.\n";
+	cout << "Rufe Funktion recvData auf.\n\n";
 	recvData(testString);
 
 
@@ -83,33 +86,26 @@ int main()
 
  void recvData(string estr)
 {
-	cout << "  recvData aufgerufen. Erhaltene Daten:\n";
+	cout << "recvData aufgerufen. Erhaltene Daten:\n";
 	cout << "   " + estr << endl;
 	
-	cout << " Rufe Funktion handleData auf.\n";
+	cout << "Rufe Funktion handleData auf.\n\n";
 	handleData(estr);
 }
 
 void handleData(string estr)
 {
-	cout << "  handleData aufgerufen. Erweiterung des Testsignals.\n";
-	estr = estr + " Von handleData hinzugefügter String.";
+	cout << "handleData aufgerufen. Erweiterung des Testsignals.\n";
+	estr = estr + "Von handleData hinzugefueger String.";
 
-	cout << " Rufe Funktion sendData auf.\n";
+	cout << "Rufe Funktion sendData auf.\n\n";
 	sendData(estr);
 }
 
 void sendData(string estr)
 {
-	cout << "  sendData aufgerufen. Erhaltene Daten:\n";
-	cout << "   " + estr << endl;
-        string a;
-	//std::string::c_str() a;
-	cin >> a;
-
-	//char a[255] = a.c_str();
-	//cin >> a;
+	cout << "sendData aufgerufen. Daten werden via UDP gesendet.\n";
    	SendC sc;
-	sc.sChar(a);
+	sc.sChar(estr);
 }
 
