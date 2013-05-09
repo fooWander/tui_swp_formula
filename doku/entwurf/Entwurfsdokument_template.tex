@@ -1,0 +1,274 @@
+\documentclass[fontsize = 12pt, paper = a4]{scrreprt} 
+
+\setlength{\parindent}{0pt}
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{amssymb,amsmath}
+
+%------------ Überschriften verkleinern und hochsetzen ----------%
+
+\makeatletter
+\renewcommand*\@makechapterhead[1]{%
+{\parindent \z@ \raggedright \normalfont
+\LARGE\bfseries
+\ifnum \c@secnumdepth >\m@ne
+\thechapter\space
+\fi
+#1\par\nobreak
+\vskip 20\p@
+}} 
+
+% ------------------------ Blattlayout- -------------------------%
+
+\usepackage {geometry}   
+\geometry   {left     = 2.5cm,
+             right    = 2.5cm, 
+             top      = 1.5cm,
+             bottom   = 1.5cm,
+             includehead, includefoot}
+             
+% ------------------------ Seitenstil ---------------------------%           
+
+% Umdefinieren von Befehlen zur Vermeidung von Bugs:
+
+\renewcommand*{\chapterpagestyle}{scrheadings} 
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
+
+% Gestaltung der Kopf- und Fußzeile:
+
+\pagenumbering{arabic}
+            
+\usepackage[automark]{scrpage2}
+\automark[chapter]{section}
+\pagestyle{scrheadings} 
+\ohead[\pagemark]{\pagemark}
+\setlength{\footskip}{5mm} 
+
+\clearscrheadfoot
+\lohead{Entwurfsdokument}
+\rohead{\headmark}
+\lofoot{Softwareprojekt TU Ilmenau SS 2013}
+\rofoot{\pagemark}
+
+% Kopf- und Fußzeilenlinie:
+
+\setheadsepline{.6pt} % Linie für Kopfzeile
+\setfootsepline{.6pt} % Linie für Fußzeile 
+
+% Für Unterstreichungen:
+
+\usepackage[normalem]{ulem}
+
+% Buchstabenglättung am Rand:
+  
+\usepackage {microtype}  
+
+%-------------------------------------------------------------------%
+
+% Für die Einbindung von Bildern:
+
+\usepackage[pdftex]{graphicx} % .pdf, .png oder .eps möglich! pdftex
+\usepackage{rotating}         % Grafiken rotieren
+
+% Nutzung in drei Umgebungen möglich:
+
+% (1) \begin{turn}{Winkel} ...  \end{turn}
+% (2) \begin{sideways} ... \end{sideways} 90° im math. pos. Sinn
+% (3) \begin{rotate}{Winkel} ... \end{rotate} 
+%     ---> 90° im math. pos. Sinn, allerdings keine Platzreservierung 
+
+\usepackage{wrapfig}
+\usepackage{picinpar} % Textumflossene Grafiken
+\usepackage{picins}
+
+
+%-------------------------------------------------------------------%
+ 
+
+% Packete für schöne Tabellen:
+
+\usepackage{booktabs}
+\usepackage{array}    % optional
+\usepackage{tabularx} % optional
+
+\usepackage[font=footnotesize,labelfont=bf,singlelinecheck=false,
+            format=plain,,justification=justified,indention=0cm]                     {caption} 
+
+\usepackage{setspace}
+
+%--------------------  Anfang des Dokuments  -----------------------%
+
+\begin{document}
+
+%*******************************************************************%
+
+% Entwurf Titelseite:
+
+\titlehead{\begin{center}
+\textbf{\Huge Entwurfsdokument}
+\end{center}}
+		   
+\title{Service-Interface \\ für ein Formula-Student-Fahrzeug}
+
+\subtitle{Technische Universität Ilmenau \\
+		  Softwareprojekt SS 2013 \\ Gruppe 19}			
+		
+\author{Christian Boxdörfer \\ Thomas Golda \\ Daniel Häger \\ 
+		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
+		Tobias Zehner \\ Sebastian Zehnter}
+		
+\date{Hier Datum einfügen}	 
+	  
+\publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
+
+\maketitle		
+
+%*******************************************************************%
+
+% --------------------- Inhaltsverzeichnis -----------------------%
+
+\begin{spacing}{0.95} 
+\tableofcontents
+\setcounter{tocdepth}{4} % Anzeige bis Gliederungsstufe 4
+\addtocontents{toc}{\protect\enlargethispage{2\baselineskip}} 
+\end{spacing}
+
+
+\newpage % Seitenumbruch
+
+%--------------------------  Einleitung  ---------------------------%
+
+\chapter{Einleitung}
+
+Hier Text einfügen!
+
+%------------------------  Randbedingungen  ------------------------%
+
+\chapter{Randbedingungen} 
+
+Hier Text einfügen!
+
+%--------------------------  Grobentwurf  --------------------------%
+
+\chapter{Grobentwurf}
+
+Hier Text einfügen!
+
+\section{Architekturmuster und Systemzerlegung}
+\subsection{dSPACE MicroAutoBox II}
+\subsection{Embedded-PC}
+\subsection{Webserver}
+\subsection{Webseite}
+\subsection{Datenbanken}
+\subsubsection{Fahrzeugdaten-Datenbank}
+\subsubsection{Benutzerdaten-Datenbank}
+
+%--------------------------  Feinentwurf  --------------------------%
+
+\chapter{Feinentwurf}
+\section{Simulink-Modell}
+\subsection{Verwendete Blöcke}
+
+Um den Einstieg in unsere im folgenden aufgeführte Modellausschnitte für Außenstehende zu erleichtern, werden im Verlauf dieses Abschnittes alle zur Erstellung des Simulink-Modells für die dSPACE MicroAutoBox II verwendeten Blöcke vorgestellt und ihre Funktionsweise kurz erläutert.
+
+\subsubsection{Sources}
+\begin{itemize}
+
+\item[1)] \textit{Constant-Block}
+
+Der Constant-Block ermöglicht die Generierung eines reellen oder komplexen konstanten Wertes. Je nach Modifikation der Einstellungen 
+des Blocks wird es zudem ermöglicht, neben einem konstanten Skalar einen konstanten Vektor oder eine konstante Matrix als Eingangssignal bereitzustellen. Als Datentypen für das Eingangssignal stehen die unter X.Y. aufgeführten Datentypen zur Verfügung.
+
+\item[2)] \textit{"`Repeating-Sequence-Interpolated" \ - Block}
+
+Im Gegensatz zum Costant-Block ermöglicht dieser Block die Erzeugung eines individuellen, sich periodisch wiederholenden und kontinuierlichen Signals mittels einer Interpolation anhand zuvor selbst definierter diskreter Zeit- und Funktionswerte, welche in zwei Vektoren gleicher Länge gespeichert sind.
+
+\end{itemize}
+
+
+\subsubsection{Ports \& Subsystems}
+\begin{itemize}
+
+
+\item[1)] \textit{Inport-Block}
+
+Dieser Block hat in unserem Modell die Aufgabe, die zuvor festgelegten Eingangssignale des Subsystems auf der Modellebene des Subsystems selbst zu repräsentieren. Darüber hinaus mit ist es in der Top-Level-Ebene des Systems mit diesem Block auch möglich, externe Eingangssignale aus dem Arbeitsbereich für das Modell bereitzustellen. 
+
+\item[2)] \textit{Outport-Block}
+
+Die Aufgabe des Outport-Blockes ist es, eine Verknüpfung vom aktuellen System zu einem Zielsystem außerhalb der Modellebene herzustellen.
+
+\item[3)] \textit{Subsystem}
+
+Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, was eine Strukturierung und Gliederung der Signalflüsse erleichtert und zudem eine deutlich übersichtlichere Darstellung des Modells zur Folge hat. Weiterhin ist es auch möglich, mehrere Subsysteme in einem Subsystem zusammenzufassen, um eine beliebige Tiefe innerhalb der Hierarchie eines Modells zu realisieren.   
+
+\end{itemize}
+
+\subsubsection{Signal Routing}
+
+\begin{itemize}
+
+\item[1)] \textit{Bus Creator}
+
+Mit Hilfe eines solchen Bus Creators wird es ermöglicht, mehrere Signale (a, b, c) zu einem Gesamtsignal (d\_gesamt) zu bündeln.
+
+\item[2)] \textit{Bus Selector}
+
+Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Signale zu selektieren und diese gesondert weiterzuleiten. So wird wie in Abb. X.Y. dargestellt wieder aus dem Gesamtsignal d\_gesamt die Signale a, b und c herausgeführt.
+
+\end{itemize}
+
+\subsubsection{Signal Attributes}
+
+\begin{itemize}
+
+\item[1)] \textit{Convert-Block}
+
+Mit dem Convert-Block können verschiedene Anforderungen realisiert werden:
+
+\begin{itemize}
+\item Konvertierung eines Signals bzw. eines Signalvektors in einen anderen Datentyp, hierbei kann die Art der Rundung selbst festgelegt werden.
+
+\item Umbenennung eines Signals bzw. eines Signalvektors. \\
+Dies hat den Zweck, dass man nach dem Convert-Block unabhängig vom  angelegten Eingangssignal mit einem festen Datentyp und einem fest vergebenem Variablennamen in anderen Systemen bzw. auf anderen Plattformen arbeiten kann.  
+
+\end{itemize} 
+
+\end{itemize}
+
+\subsubsection{Sinks}
+
+\begin{itemize}
+
+\item[1)] \textit{Terminator}
+
+Der Terminator dient dazu, Blöcke oder Signale, deren Ausgänge nicht mit Blöcken verbunden sind, abzuschließen. 
+
+\end{itemize}
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+%---------------------------  Glossar  -----------------------------%
+
+\chapter*{Glossar}
+
+%----------------------  Abbildungsverzeichnis  --------------------%
+
+%\chapter*{Abbildungsverzeichnis}
+
+\listoffigures
+
+\end{document}
