@@ -1,0 +1,99 @@
+.paradate {
+	width: 60px;
+	height: 50px;
+	position: relative;
+	margin: 5px 0;
+	overflow: hidden;
+}
+
+.paraday {
+	width: 38px;
+	height: 27px;
+	background: url(../images/pcal.gif) no-repeat;
+	position: absolute;
+	top: 23px;
+	left: 0;
+	overflow: hidden;
+}
+
+.paramonth {
+	width: 38px;
+	height: 23px;
+	background: url(../images/pcal.gif) no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+.parayear {
+	width: 22px;
+	height: 50px;
+	background: url(../images/pcal.gif) no-repeat;
+	position: absolute;
+	top: 0;
+	left: 38px;
+	overflow: hidden;
+}
+
+.paramonth-1 {background-position: -76px 0;}
+.paramonth-2 {background-position: -76px -23px;}
+.paramonth-3 {background-position: -76px -46px;}
+.paramonth-4 {background-position: -76px -69px;}
+.paramonth-5 {background-position: -76px -92px;}
+.paramonth-6 {background-position: -76px -115px;}
+.paramonth-7 {background-position: -76px -138px;}
+.paramonth-8 {background-position: -76px -161px;}
+.paramonth-9 {background-position: -76px -184px;}
+.paramonth-10 {background-position: -76px -207px;}
+.paramonth-11 {background-position: -76px -230px;}
+.paramonth-12 {background-position: -76px -253px;}
+
+.paraday-1 {background-position: 0 0;}
+.paraday-2 {background-position: 0 -28px;}
+.paraday-3 {background-position: 0 -56px;}
+.paraday-4 {background-position: 0 -84px;}
+.paraday-5 {background-position: 0 -112px;}
+.paraday-6 {background-position: 0 -140px;}
+.paraday-7 {background-position: 0 -168px;}
+.paraday-8 {background-position: 0 -196px;}
+.paraday-9 {background-position: 0 -224px;}
+.paraday-10 {background-position: 0 -252px;}
+.paraday-11 {background-position: 0 -280px;}
+.paraday-12 {background-position: 0 -308px;}
+.paraday-13 {background-position: 0 -336px;}
+.paraday-14 {background-position: 0 -364px;}
+.paraday-15 {background-position: 0 -392px;}
+.paraday-16 {background-position: 0 -420px;}
+.paraday-17 {background-position: -38px 0;}
+.paraday-18 {background-position: -38px -28px;}
+.paraday-19 {background-position: -38px -56px;}
+.paraday-20 {background-position: -38px -84px;}
+.paraday-21 {background-position: -38px -112px;}
+.paraday-22 {background-position: -38px -140px;}
+.paraday-23 {background-position: -38px -168px;}
+.paraday-24 {background-position: -38px -196px;}
+.paraday-25 {background-position: -38px -224px;}
+.paraday-26 {background-position: -38px -252px;}
+.paraday-27 {background-position: -38px -280px;}
+.paraday-28 {background-position: -38px -308px;}
+.paraday-29 {background-position: -38px -336px;}
+.paraday-30 {background-position: -38px -364px;}
+.paraday-31 {background-position: -38px -392px;}
+
+.parayear-2010 {background-position: -114px 0;}
+.parayear-2011 {background-position: -114px -50px;}
+.parayear-2012 {background-position: -114px -100px;}
+.parayear-2013 {background-position: -114px -150px;}
+.parayear-2014 {background-position: -114px -200px;}
+.parayear-2015 {background-position: -114px -250px;}
+.parayear-2016 {background-position: -114px -300px;}
+.parayear-2017 {background-position: -114px -350px;}
+.parayear-2018 {background-position: -136px 0;}
+.parayear-2019 {background-position: -136px -50px;}
+.parayear-2020 {background-position: -136px -100px;}
+.parayear-2021 {background-position: -136px -150px;}
+.parayear-2022 {background-position: -136px -200px;}
+.parayear-2023 {background-position: -136px -250px;}
+.parayear-2024 {background-position: -136px -300px;}
+.parayear-2025 {background-position: -136px -350px;}
