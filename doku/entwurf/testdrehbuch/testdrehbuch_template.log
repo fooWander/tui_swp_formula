@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.5.11)  11 MAY 2013 22:44
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.5.11)  11 MAY 2013 22:49
 entering extended mode
 **testdrehbuch_template.tex
 (D:\GIT\tui_swp_formula\doku\entwurf\testdrehbuch\testdrehbuch_template.tex
@@ -871,40 +871,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--214
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
-
- []
-
 [2]
 Underfull \hbox (badness 10000) in paragraph at lines 225--228
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--236
+Underfull \hbox (badness 10000) in paragraph at lines 236--239
 
  []
 
 [3] (D:\GIT\tui_swp_formula\doku\entwurf\testdrehbuch\testdrehbuch_template.aux
 ) ) 
 Here is how much of TeX's memory you used:
- 7677 strings out of 494045
- 112959 string characters out of 3154029
+ 7673 strings out of 494045
+ 112927 string characters out of 3154029
  251308 words of memory out of 3000000
  10809 multiletter control sequences out of 15000+200000
- 11167 words of font info for 55 fonts, out of 3000000 for 9000
+ 11069 words of font info for 53 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  40i,11n,46p,343b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
 <E:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><E:/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmr12.pfb><E:/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmsl12.pfb><E:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on testdrehbuch_template.pdf (3 pages, 61278 bytes).
+Output written on testdrehbuch_template.pdf (3 pages, 64246 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
