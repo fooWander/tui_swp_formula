@@ -79,8 +79,11 @@
 %     ---> 90° im math. pos. Sinn, allerdings keine Platzreservierung 
 
 \usepackage{wrapfig}
-\usepackage{picinpar} % Textumflossene Grafiken
-\usepackage{picins}
+\usepackage{picins}   % Textumflossene Grafiken
+\usepackage{subfigure}
+\usepackage{floatflt}
+ \usepackage[justification=centering]{caption}
+
 
 
 %-------------------------------------------------------------------%
@@ -157,6 +160,12 @@ Hier Text einfügen!
 
 \section{Architekturmuster und Systemzerlegung}
 \subsection{dSPACE MicroAutoBox II}
+\subsection{Embedded-PC}
+\subsection{Webserver}
+\subsection{Webseite}
+\subsection{Datenbanken}
+\subsubsection{Fahrzeugdaten-Datenbank}
+\subsubsection{Benutzerdaten-Datenbank}
 
 \section{Simulink-Modell}
 \subsection{Verwendete Blöcke}
@@ -166,7 +175,24 @@ Um den Einstieg in unsere im folgenden aufgeführte Modellausschnitte  zu erleic
 \subsubsection{Sources}
 \begin{itemize}
 
+\begin{figure}[h]
+  \centering
+\begin{minipage}[b]{2.5cm}
+    \includegraphics[scale = 0.6]{constant}
+    \caption{Constant-Block \label{Constant-Block }}
+  \end{minipage}
+\hspace*{3cm}  
+  \begin{minipage}[b]{5 cm}
+    \includegraphics[scale = 0.6]{rsip}
+    \caption{Repeating Sequence Interpolated - Block \label{Repeating Sequence Interpolated - Block}}
+  \end{minipage}
+\end{figure}
+
 \item[1)] \textit{Constant-Block}
+
+%\pichskip{3em}
+%\piccaption{Constant-Block \label{Constant-Block}}
+%\parpic[r]{\includegraphics[height = 1.5cm]{constant}}
 
 Der Constant-Block ermöglicht die Generierung eines reellen oder komplexen konstanten Wertes. Je nach Modifikation der Einstellungen 
 des Blocks wird es zudem ermöglicht, neben einem konstanten Skalar einen konstanten Vektor oder eine konstante Matrix als Eingangssignal bereitzustellen. Als Datentypen für das Eingangssignal stehen die unter X.Y. aufgeführten Datentypen zur Verfügung.
@@ -177,9 +203,29 @@ Im Gegensatz zum Costant-Block ermöglicht dieser Block die Erzeugung eines indi
 
 \end{itemize}
 
+%\newpage
 
 \subsubsection{Ports \& Subsystems}
+
 \begin{itemize}
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[b]{2.5 cm}
+    \includegraphics[scale = 0.6]{inport}
+    \caption{Inport-Block \label{Inport}}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{2.5 cm}
+    \includegraphics[scale = 0.6]{outport}
+    \caption{Outport-Block \label{Outport}}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{3.5 cm}
+    \includegraphics[scale = 0.6]{subsystem}
+    \caption{Subsystem \label{Subsystem}}
+  \end{minipage}  
+\end{figure}
 
 
 \item[1)] \textit{Inport-Block}
@@ -192,13 +238,22 @@ Die Aufgabe des Outport-Blockes ist es, eine Verknüpfung vom aktuellen System z
 
 \item[3)] \textit{Subsystem}
 
-Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, was eine Strukturierung und Gliederung der Signalflüsse erleichtert und zudem eine deutlich übersichtlichere Darstellung des Modells zur Folge hat. Weiterhin ist es auch möglich, mehrere Subsysteme in einem Subsystem zusammenzufassen, um eine beliebige Tiefe innerhalb der Hierarchie eines Modells zu realisieren.   
+Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, was eine Strukturierung und Gliederung der Signalflüsse erleichtert und zudem eine deutlich übersichtlichere Darstellung des Modells zur Folge hat. Weiterhin ist es auch möglich, mehrere Subsysteme in einem Subsystem zusammenzufassen, um eine beliebige Tiefe innerhalb der Hierarchie eines Modells zu realisieren. 
+
+%\newpage  
 
 \end{itemize}
 
 \subsubsection{Signal Routing}
 
 \begin{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.45]{bus_gesamt}
+\caption{Bussystem bestehend aus einem Bus Creator (l.) und einem Bus Selector (r.)}
+\end{figure}
+
 
 \item[1)] \textit{Bus Creator}
 
@@ -213,6 +268,19 @@ Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Si
 \subsubsection{Signal Attributes}
 
 \begin{itemize}
+
+\begin{figure}[h]
+  \centering
+\begin{minipage}[b]{2.5cm}
+    \includegraphics[scale = 0.6]{convert}
+    \caption{Convert-Block \label{Convert-Block}}
+  \end{minipage}
+\hspace*{3cm}  
+  \begin{minipage}[b]{5 cm}
+    \includegraphics[scale = 0.6]{bustovector}
+    \caption{Bus to Vector - Block \label{Bus to Vector - Block}}
+  \end{minipage}
+\end{figure}
 
 \item[1)] \textit{Convert-Block}
 
@@ -236,6 +304,25 @@ Dieser Block konvertiert ein virtuelles Bussignal in ein Vektorsignal. Hierbei i
 
 \begin{itemize}
 
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[b]{2.5 cm}
+    \includegraphics[scale = 0.6]{terminator}
+    \caption{Terminator-Block \label{Terminator-Block}}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{2.5 cm}
+    \includegraphics[scale = 0.6]{scope}
+    \caption{Scope \label{Scope}}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{3.5 cm}
+    \includegraphics[scale = 0.6]{display}
+    \caption{Display \label{Display}}
+  \end{minipage}  
+\end{figure}
+
+
 \item[1)] \textit{Terminator}
 
 Der Terminator dient dazu, die Signale, deren Ausgänge nicht mit Blöcken o.ä. verbunden sind, abzuschließen. 
@@ -252,7 +339,7 @@ Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anze
 
 \subsubsection{dSPACE-Blöcke}
 
-Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche für eine Verwendung mit der MicroAutoBox II konzipiert wurden und u.a. für eine Kommunikation ebendieser mit dem Embedded-PC unerlässlich sind. 
+Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell für eine Verwendung mit der MicroAutoBox II konzipiert wurden und u.a. für eine Kommunikation ebendieser mit dem Embedded-PC unerlässlich sind. 
 
 \begin{itemize}
 
@@ -262,14 +349,33 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche für eine 
 
 \end{itemize}
 
+\subsection{Signalgenerator}
+
+Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin per GPRS / UMTS an einen vServer gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
+
+\subsubsection{Struktur des Subsystems}
+
+Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird an den Vorgaben von Team Starcraft e.V. anlehnend das Subsystem des Signalgenerators nochmals in einzelne Subsysteme unterteilt, die die verschieden Kategorien der jeweiligen Fahrzeugdaten repräsentieren.
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale = 1]{signalgen}
+%\caption{Subsysteme}
+%\end{figure}
+
+  
+
+\subsubsection{Config-Datei "`signalgenerator\_microautobox.m" }
 
 
-\subsection{Embedded-PC}
-\subsection{Webserver}
-\subsection{Webseite}
-\subsection{Datenbanken}
-\subsubsection{Fahrzeugdaten-Datenbank}
-\subsubsection{Benutzerdaten-Datenbank}
+\subsection{Signalkollektor}
+
+\subsubsection{Struktur des Subsystems}
+
+\subsection{UDP-Schnittstelle}
+
+
+
 
 %--------------------------  Feinentwurf  --------------------------%
 
@@ -284,9 +390,19 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche für eine 
 %\chapter*{Abbildungsverzeichnis}
 
 \listoffigures
-
+%
 %---------------------------  Anhang  ------------------------------%
 
 \chapter*{Anhang}
+
+%\textbf{Datentypen in Simulink}
+%
+%\begin{itemize}
+%
+%\item xd
+%
+%\end{itemize}
+
+
 
 \end{document}
