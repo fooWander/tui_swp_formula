@@ -68,7 +68,7 @@
 
 % Für die Einbindung von Bildern:
 
-\usepackage[pdftex]{graphicx} % .pdf, .png oder .eps möglich! pdftex
+\usepackage[pdftex]{graphicx} % .pdf, .png oder .jpg möglich!
 \usepackage{rotating}         % Grafiken rotieren
 
 % Nutzung in drei Umgebungen möglich:
@@ -157,20 +157,11 @@ Hier Text einfügen!
 
 \section{Architekturmuster und Systemzerlegung}
 \subsection{dSPACE MicroAutoBox II}
-\subsection{Embedded-PC}
-\subsection{Webserver}
-\subsection{Webseite}
-\subsection{Datenbanken}
-\subsubsection{Fahrzeugdaten-Datenbank}
-\subsubsection{Benutzerdaten-Datenbank}
 
-%--------------------------  Feinentwurf  --------------------------%
-
-\chapter{Feinentwurf}
 \section{Simulink-Modell}
 \subsection{Verwendete Blöcke}
 
-Um den Einstieg in unsere im folgenden aufgeführte Modellausschnitte für Außenstehende zu erleichtern, werden im Verlauf dieses Abschnittes alle zur Erstellung des Simulink-Modells für die dSPACE MicroAutoBox II verwendeten Blöcke vorgestellt und ihre Funktionsweise kurz erläutert.
+Um den Einstieg in unsere im folgenden aufgeführte Modellausschnitte  zu erleichtern, werden im Verlauf dieses Abschnittes alle zur Erstellung des Simulink-Modells für die dSPACE MicroAutoBox II verwendeten Blöcke vorgestellt und ihre Funktionsweise kurz erläutert.
 
 \subsubsection{Sources}
 \begin{itemize}
@@ -235,6 +226,10 @@ Dies hat den Zweck, dass man nach dem Convert-Block unabhängig vom  angelegten 
 
 \end{itemize} 
 
+\item[2)] \textit{"`Bus to Vector"\ - Block}
+
+Dieser Block konvertiert ein virtuelles Bussignal in ein Vektorsignal. Hierbei ist es erforderlich, dass alle am zu konvertierenden Bus anliegenden Signale im Datentyp, Signaltyp und im gewählten Sampling-Verfahren übereinstimmen.
+
 \end{itemize}
 
 \subsubsection{Sinks}
@@ -243,23 +238,42 @@ Dies hat den Zweck, dass man nach dem Convert-Block unabhängig vom  angelegten 
 
 \item[1)] \textit{Terminator}
 
-Der Terminator dient dazu, Blöcke oder Signale, deren Ausgänge nicht mit Blöcken verbunden sind, abzuschließen. 
+Der Terminator dient dazu, die Signale, deren Ausgänge nicht mit Blöcken o.ä. verbunden sind, abzuschließen. 
+
+\item[2)] \textit{Scope}
+
+Der Scope-Block stellt den Signalverlauf eines Signals über der Simulationszeit dar, weswegen er sich hervorragend dafür eignet ein erstelltes Modell auf dessen Korrektheit zu überprüfen.
+
+\item[3)] \textit{Display}
+
+Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anzeige des Displays anzupassen, kann der Entwickler über die Einstellungen der Format-Parameter Einfluss darauf nehmen.  
+
+\end{itemize}
+
+\subsubsection{dSPACE-Blöcke}
+
+Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche für eine Verwendung mit der MicroAutoBox II konzipiert wurden und u.a. für eine Kommunikation ebendieser mit dem Embedded-PC unerlässlich sind. 
+
+\begin{itemize}
+
+\item[1)] \textit{Encode32-Block}
+
+\item[2)] \textit{"`UDP Send" \ - Block} 
 
 \end{itemize}
 
 
 
+\subsection{Embedded-PC}
+\subsection{Webserver}
+\subsection{Webseite}
+\subsection{Datenbanken}
+\subsubsection{Fahrzeugdaten-Datenbank}
+\subsubsection{Benutzerdaten-Datenbank}
 
- 
+%--------------------------  Feinentwurf  --------------------------%
 
-
-
-
-
-
-
-
- 
+\chapter{Feinentwurf} 
 
 %---------------------------  Glossar  -----------------------------%
 
@@ -270,5 +284,9 @@ Der Terminator dient dazu, Blöcke oder Signale, deren Ausgänge nicht mit Blöc
 %\chapter*{Abbildungsverzeichnis}
 
 \listoffigures
+
+%---------------------------  Anhang  ------------------------------%
+
+\chapter*{Anhang}
 
 \end{document}
