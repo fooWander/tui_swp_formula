@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.5.11)  12 MAY 2013 12:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.5.11)  12 MAY 2013 13:02
 entering extended mode
 **testdrehbuch_template.tex
 (D:\GIT\tui_swp_formula\doku\entwurf\testdrehbuch\testdrehbuch_template.tex
@@ -866,32 +866,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 208--211
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--219
+
+ []
+
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 226--229
+Underfull \hbox (badness 10000) in paragraph at lines 220--223
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--240
+Underfull \hbox (badness 10000) in paragraph at lines 236--239
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--250
 
  []
 
 [3] (D:\GIT\tui_swp_formula\doku\entwurf\testdrehbuch\testdrehbuch_template.aux
 ) ) 
 Here is how much of TeX's memory you used:
- 7677 strings out of 494045
- 112953 string characters out of 3154029
+ 7691 strings out of 494045
+ 113100 string characters out of 3154029
  251308 words of memory out of 3000000
- 10809 multiletter control sequences out of 15000+200000
- 11167 words of font info for 55 fonts, out of 3000000 for 9000
+ 10814 multiletter control sequences out of 15000+200000
+ 11890 words of font info for 60 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  40i,11n,46p,343b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
 <E:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><E:/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmr12.pfb><E:/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmsl12.pfb><E:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on testdrehbuch_template.pdf (3 pages, 65205 bytes).
+/cm/cmsl12.pfb><E:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><E:/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on testdrehbuch_template.pdf (3 pages, 75561 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 32 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 9217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11265 words of extra memory for PDF output out of 12000 (max. 10000000)
 

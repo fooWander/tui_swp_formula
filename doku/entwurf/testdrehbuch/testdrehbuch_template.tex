@@ -215,9 +215,19 @@ Registrierte Nutzer, die mit Rechten ausgestattet wurden, können diese ohne Ein
 
 \textbf{11.TW421}
 \hangindent+65pt \hangafter=1
-Wird ein Nutzer durch den Vorstand gelöscht, so werden alle Daten zu diesem Nutzer aus der Nutzer-Datenbank gelöscht.
+Wird ein Nutzer durch den Vorstand gelöscht, so werden alle Daten zu diesem Nutzer aus der Nutzer-Datenbank gelöscht.\\
 
+\textbf{12.test-neu}
+\hangindent+65pt \hangafter=1
+Wird die "'Passwort vergessen"'-Funktion genutzt und eine E-mail-Adresse eingegeben, die in der Benutzerdatenbank steht, dann wird eine E-Mail an die Adresse gesendet. Inhalt der E-mail ist ein zufälliges Token, sowie ein Link zur Passwortänderung. \\
 
+\textbf{13.test-neu}
+\hangindent+65pt \hangafter=1
+Es wird geprüft, ob der Link aus \textit{12.test-neu} gültig ist und auf die Aktivierungsseite der Passwortwiederherstellung führt.
+
+\textbf{14.test-neu}
+\hangindent+65pt \hangafter=1
+Wird auf der Aktivierungsseite der Passwortwiederherstellung die E-mail-Adresse, das Token und das neue Passwort eingegeben, soll die Änderung korrekt in die Benutzerdatenbank übernommen werden.
 
 \subsection*{Test auf Robustheit}
 \subsubsection*{Matlab/Simulink werden Testwerte generiert, die ausserhalb der vereinbarten Wertebreiche liegen. }
@@ -237,6 +247,9 @@ Fehlerbehandlung wird ausgeführt?\\
 \textbf{1./TW400/TW410/TW420/TW421/TW430/}\\
 \hangindent+65pt \hangafter=1
 Eine Registrierung mit E-Mail und Passwort (weniger als 6 Zeichen) resultiert in einer Fehlermeldung.\\
+
+\textbf{2.to do}
+\hangindent+65pt \hangafter=1
 
 
 %------------------------  Randbedingungen  ------------------------%
