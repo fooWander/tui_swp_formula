@@ -1,0 +1,245 @@
+\documentclass[fontsize = 12pt, paper = a4]{scrreprt} 
+
+\setlength{\parindent}{0pt}
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{amssymb,amsmath}
+
+%------------ Überschriften verkleinern und hochsetzen ----------%
+
+\makeatletter
+\renewcommand*\@makechapterhead[1]{%
+{\parindent \z@ \raggedright \normalfont
+\LARGE\bfseries
+\ifnum \c@secnumdepth >\m@ne
+\thechapter\space
+\fi
+#1\par\nobreak
+\vskip 20\p@
+}} 
+
+% ------------------------ Blattlayout- -------------------------%
+
+\usepackage {geometry}   
+\geometry   {left     = 2.5cm,
+             right    = 2.5cm, 
+             top      = 1.5cm,
+             bottom   = 1.5cm,
+             includehead, includefoot}
+             
+% ------------------------ Seitenstil ---------------------------%           
+
+% Umdefinieren von Befehlen zur Vermeidung von Bugs:
+
+\renewcommand*{\chapterpagestyle}{scrheadings} 
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
+
+% Gestaltung der Kopf- und Fußzeile:
+
+\pagenumbering{arabic}
+            
+\usepackage[automark]{scrpage2}
+\automark[chapter]{section}
+\pagestyle{scrheadings} 
+\ohead[\pagemark]{\pagemark}
+\setlength{\footskip}{5mm} 
+
+\clearscrheadfoot
+\lohead{Entwurfsdokument}
+\rohead{\headmark}
+\lofoot{Softwareprojekt TU Ilmenau SS 2013}
+\rofoot{\pagemark}
+
+% Kopf- und Fußzeilenlinie:
+
+\setheadsepline{.6pt} % Linie für Kopfzeile
+\setfootsepline{.6pt} % Linie für Fußzeile 
+
+% Für Unterstreichungen:
+
+\usepackage[normalem]{ulem}
+
+% Buchstabenglättung am Rand:
+  
+\usepackage {microtype}  
+
+%-------------------------------------------------------------------%
+
+% Für die Einbindung von Bildern:
+
+\usepackage[pdftex]{graphicx} % .pdf, .png oder .eps möglich! pdftex
+\usepackage{rotating}         % Grafiken rotieren
+
+% Nutzung in drei Umgebungen möglich:
+
+% (1) \begin{turn}{Winkel} ...  \end{turn}
+% (2) \begin{sideways} ... \end{sideways} 90° im math. pos. Sinn
+% (3) \begin{rotate}{Winkel} ... \end{rotate} 
+%     ---> 90° im math. pos. Sinn, allerdings keine Platzreservierung 
+
+\usepackage{wrapfig}
+\usepackage{picinpar} % Textumflossene Grafiken
+\usepackage{picins}
+
+
+%-------------------------------------------------------------------%
+ 
+
+% Packete für schöne Tabellen:
+
+\usepackage{booktabs}
+\usepackage{array}    % optional
+\usepackage{tabularx} % optional
+
+\usepackage[font=footnotesize,labelfont=bf,singlelinecheck=false,
+            format=plain,,justification=justified,indention=0cm]                     {caption} 
+
+\usepackage{setspace}
+
+%--------------------  Anfang des Dokuments  -----------------------%
+
+\begin{document}
+
+%*******************************************************************%
+
+% Entwurf Titelseite:
+
+
+
+%*******************************************************************%
+
+% --------------------- Inhaltsverzeichnis -----------------------%
+
+ % Seitenumbruch
+
+%--------------------------  Einleitung  ---------------------------%
+
+\chapter*{Testdrehbuch}
+Im folgenden wir der Ablauf der durchzuführenden Test geschildert. Dabei wird im ersten Teil darauf getestet, dass unter optimalen Umständen alle Funktionen korrekt ausgeführt werden. Im zweiten Teil wird auf die Robustheit geprüft, so dass auftretende Grenzfälle erkannt und korrekt behandelt werden.
+
+
+\subsection*{Test auf Funktionalität}
+\subsubsection*{In Matlab/Simulink werden Testwerte generiert, die innerhalb der vereinbarten Wertebreiche liegen.} 
+
+
+
+\textbf{1.TM100}
+\hangindent+65pt \hangafter=1
+\ \ \  Es wird geprüft, alle Daten korrekt gebündelt und an die Ethernet-Schnittstelle der MikroAutoBox weitergegeben werden. \\
+
+\textbf{2.TE120/TE300}\\
+\hangindent+65pt \hangafter=1
+Im embedded-PC wird der Empfang und die korrekte Aufbereitung der Daten überprüft.\\
+
+\textbf{3.TE100}
+\hangindent+65pt \hangafter=1 
+\ \ \ Bei einem Neustart durch Unterbrechung der Stromzufuhr des embedded-PC soll dieser selbstständig die Verbindung zur MicroAutoBox wiederaufbauen, sowie das GRPS/UMTS Modul aktivieren und die Verbindung zum Webserver wiederherstellen.\\
+
+\textbf{4.TE200}
+\hangindent+65pt \hangafter=1 
+\ \  Die Signalqualität und Stabilität der GRPS/UMTS Verbindung wird im Ruhezustand überprüft.\\
+
+\textbf{5.TE200}
+\hangindent+65pt \hangafter=1 
+\ \ Die Signalqualität und Stabilität der GRPS/UMTS Verbindung wird bei Bewegung überprüft.\\
+
+\textbf{6.TE200}
+\hangindent+65pt \hangafter=1 
+\ \ \  Die Signalqualität und Stabilität der GRPS/UMTS Verbindung wird bei großer Entfernung zum nächsten Sendemast überprüft.\\
+
+\textbf{7.Test-neu}
+\hangindent+65pt \hangafter=1
+ Es wird auf dem Webserver überprüft, dass die Testdaten vollständig und fehlerfrei über GRPS/UMTS übermittelt werden.\\
+ 
+\textbf{8.TW200}
+\hangindent+65pt \hangafter=1
+\ \  Nach mehr als 10 Stunden kontinuierlichen Datentransfers sollen die Werte der letzten 10 Stunden in der Datenbank vorliegen. Ausgangspunkt für die 10 Stunden ist der Zeitpunkt der Datenentnahme.\\
+ 
+\textbf{9.TW210}
+\hangindent+65pt \hangafter=1
+\ \ Der korrekte Export der Fahrzeugdaten in der Datenbank als CSV-Datei wird auf ihr Fehlerfreiheit überprüft.\\
+
+\newpage
+
+\textbf{10.TW100/TW110}\\
+\hangindent+65pt \hangafter=1
+Auf der Webseite wird die korrekte Visualisierung und Aufbereitung der Daten überprüft. Darin eingeschlossen ist Überprüfung der fehlerfreien Darstellung auf den zuvor spezifizierten Browsern. \\
+
+
+
+
+\subsubsection*{Unabhängig davon können die Verwaltungsprozesse auf der Webseite überprüft werden:}
+
+
+\textbf{1.Test-neu}
+\hangindent+65pt \hangafter=1
+Beim aufrufen der Webseite wird der Nutzer zur Anmeldung aufgefordert.\\
+
+\textbf{2.TW441}
+\hangindent+65pt \hangafter=1
+\ \ Bei einem nicht registrierten Nutzer schlägt der Anmeldeversuch fehl. (erscheint Nachricht?)\\
+ 
+\textbf{3.TW440}
+\hangindent+65pt \hangafter=1
+\ \ Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an: der Vorgang verläuft ohne Fehler.\\
+ 
+\textbf{4./TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+65pt \hangafter=1
+Eine Registrierung mit E-Mail und Passwort (mind. 6 Zeichen) verläuft ohne Fehler.\\
+
+\textbf{5./TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+65pt \hangafter=1
+Bei erfolgreichem Registrierungsversuch wird der Vorstand über das System (private Nachricht/pop-up/E-mail?) informiert.\\
+
+\textbf{6./TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+65pt \hangafter=1
+Es wird darauf getestet, das beim Akzeptieren durch den Vorstand der Nutzer auch tatsächlich für die Anmeldung freigeschaltet wird.\\
+
+\textbf{7./TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+65pt \hangafter=1
+Wird der Nutzer freigeschaltet, so werden die temporären Daten, wie E-Mail, Passwort und ggf. Rechte in die Benutzerdatenbank geschrieben.\\
+
+\textbf{8./TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+65pt \hangafter=1
+Es wird darauf getestet, dass beim Abweisen eines Registrierungsgesuches durch den Vorstand auch tatsächlich alle Daten zu dem Nutzer verworfen werden und der Nutzer keinen Zugang zu Anmeldung/Webseite bekommt. \\
+
+\textbf{9./TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+65pt \hangafter=1
+Beim Zuweisen von Rechten an registrierte Nutzer werden diese Änderung korrekt in die Benutzerdatenbank übernommen.\\
+
+\textbf{10.test-neu}
+\hangindent+65pt \hangafter=1
+Registrierte Nutzer, die mit Rechten ausgestattet wurden, können diese ohne Einschränkungen nutzen.\\
+
+\textbf{11.TW421}
+\hangindent+65pt \hangafter=1
+Wir ein Nutzer durch den Vorstand gelöscht, so werden alle Daten zu diesem Nutzer aus der Datenbank gelöscht.
+
+
+
+\subsection*{Test auf Robustheit}
+\subsubsection*{Matlab/Simulink werden Testwerte generiert, die ausserhalb der vereinbarten Wertebreiche liegen. }
+
+
+\textbf{1.Test-neu}
+\hangindent+65pt \hangafter=1
+Fehlerbehandlung wird ausgeführt?\\
+
+\textbf{2.to do}
+\hangindent+65pt \hangafter=1
+
+
+\subsubsection*{Tests auf der Webseite.}
+
+
+\textbf{1./TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+65pt \hangafter=1
+Eine Registrierung mit E-Mail und Passwort (weniger als 6 Zeichen) verursacht einen Fehler.\\
+
+
+%------------------------  Randbedingungen  ------------------------%
+
+
+
+\end{document}

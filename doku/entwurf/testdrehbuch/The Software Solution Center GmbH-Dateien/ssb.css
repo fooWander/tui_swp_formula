@@ -1,0 +1,54 @@
+/* Sidebar-Elemente */
+
+#sidebar h2 {
+	font-size: 100%;
+	font-weight : bold;
+	margin: 10px 0 5px 0;
+	padding: 0;
+}
+
+#sidebar p {
+	line-height: 160%;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+
+#sidebar div.paragraph {
+	padding: 0;
+	margin: 10px 0 20px 0;
+}
+
+#sidebar a {
+	text-decoration: none;
+	font-weight : bold;
+	color: #64604F;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+}
+
+/* Liste */
+
+#sidebar ul {
+	list-style: none;
+	padding: 0px;
+	margin: 6px 0px 6px 10px;
+}
+
+#sidebar li {
+	padding: 2px 0px 2px 16px;
+	background: url(../images/pbull.gif) no-repeat top left;
+}
+
+/* Picture */
+
+#sidebar img.picture {
+	padding: 7px;
+	border: 1px solid #dddddd;	
+}
+
+#sidebar a:hover img.picture {
+	border: 1px solid #64604F;
+}
+
