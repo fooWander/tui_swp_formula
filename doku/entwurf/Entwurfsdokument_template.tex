@@ -82,14 +82,11 @@
 %\usepackage{picins}   % Textumflossene Grafiken
 \usepackage{subfigure}
 \usepackage{floatflt}
- \usepackage[justification=centering]{caption}
-
-
+\usepackage[justification=centering]{caption}
 
 %-------------------------------------------------------------------%
  
-
-% Packete für schöne Tabellen:
+% Packete für Tabellen:
 
 \usepackage{booktabs}
 \usepackage{array}    % optional
@@ -100,7 +97,7 @@
 
 \usepackage{setspace}
 
-%--------------------  Anfang des Dokuments  -----------------------%
+%----------------  Anfang des Dokuments ------------------%
 
 \begin{document}
 
@@ -156,10 +153,18 @@ Hier Text einfügen!
 
 \chapter{Grobentwurf}
 
-Hier Text einfügen!
-
 \section{Architekturmuster und Systemzerlegung}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.75]{verteilungsdiagramm}
+\caption{Gesamtsystem als Verteilungsdiagramm}
+\end{figure}
+
 \subsection{dSPACE MicroAutoBox II}
+
+
+
 \subsection{Embedded-PC}
 \subsection{Webserver}
 \subsection{Webseite}
@@ -440,13 +445,6 @@ Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden dieser e
 
 
 \subsection{UDP-Schnittstelle}
-
-
-
-
-%--------------------------  Feinentwurf  --------------------------%
-
-\chapter{Feinentwurf} 
 
 %---------------------------  Glossar  -----------------------------%
 
