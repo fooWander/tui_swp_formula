@@ -1,0 +1,278 @@
+body {
+	padding:0;
+	margin:0;
+	background: #e9e9e9 url(../images/pbckg.gif);
+	color: #444444;
+}
+
+#maincontainer {
+	width: 960px;
+		margin: 0 auto;
+	}
+
+#topshadow {
+	width: 920px;
+	padding: 30px 20px 5px 20px;
+	height: 20px;
+	background: url(../images/ptshdw.gif) no-repeat left bottom;
+	text-align: right;
+}
+
+#topshadow a {
+	text-decoration: none;
+	color: #888888;
+}
+
+#topshadow a:hover {
+	color: #000000;
+}
+
+#bottomshadow {
+	width: 920px;
+	min-height: 20px;
+	padding: 10px 20px;
+	background: url(../images/pbtshdw.gif) no-repeat;
+	text-align: center;
+	color: #888888;
+}
+
+#mainshadow {
+	width: 920px;
+	background: url(../images/pmnshdw.gif) repeat-y;
+	padding: 0 20px;
+}
+
+#mainbox {
+	width: 880px;
+	border: 10px solid #413E35;
+	padding: 10px;
+}
+
+.clearer {
+	clear: both;
+}
+
+#sidebar {
+	width: 170px;
+	float: left;
+	padding: 0 10px 0 20px;
+}
+
+#navbar {
+	width: 200px;
+	float: left;
+	position: relative;
+	z-index: 52;
+}
+
+#content {
+	width: 460px;
+	float: left;
+	padding: 0 10px;
+}
+
+#navbar .maintopic {
+	position: relative;
+	overflow: hidden;
+	height: 24px;
+}
+
+#navbar .sel {
+	height: auto;
+}
+
+#navbar .maintopic a, #navbar .shopping a {
+	display: block;
+	text-decoration: none;
+	color: #888888;
+	width: 170px;
+	padding: 4px 10px 4px 20px;
+	line-height: 16px;
+	height: 16px;
+	outline: none;
+}
+
+#navbar .shopping {
+	padding-bottom: 16px;
+}
+
+#navbar .shopping a {
+	background: url(../images/pshopping.gif) no-repeat;
+}
+
+#navbar .shopping p {
+	margin: 0;
+	padding: 0px 10px 4px 20px;
+	color: #888888;
+	line-height: 160%;
+}
+
+#navbar .maintopic a em {
+	display: none;
+}
+
+#navbar .maintopic a:hover, #navbar .shopping a:hover {
+	color: #000000;
+}
+
+#navbar .maintopic a.first {
+	font-weight: bold;
+	color: #413E35;
+}
+
+#navbar .maintopic a.current {
+	font-weight: bold;
+	color: #000000;
+}
+
+
+#navbar .handle {
+	width: 16px;
+	height: 16px;
+	background: url(../images/phndl.gif) no-repeat;
+	position: absolute;
+	top: 4px;
+	cursor: pointer;
+	background-position: 0 0;
+}
+
+#navbar .handle:hover {
+	background-position: -16px 0;
+}
+
+
+#navbar .sel .handle {
+	background-position: 0 -16px;
+}
+
+#navbar .sel .handle:hover {
+	background-position: -16px -16px;
+}
+
+#searchbox {
+	width: 880px;
+	height: 50px;
+	background: url(../images/psrchbx.gif);
+	margin-bottom: 10px;
+	position: relative;
+}
+
+#searchcriteria {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 610px;
+	border: 0;
+	outline: 0;
+	color: #aaaaaa;
+	font-size: 15px;
+}
+
+#searchsubmit {
+	position: absolute;
+	top: 10px;
+	left: 700px;
+}
+
+#eyecatcher {
+	display: block;
+	padding-bottom: 10px;
+	height: 180px;
+	width: 880px;
+	border: 0;
+}
+
+#bubble {
+	position: absolute;
+	left: 200px;
+	width: 170px;
+	background: url(../images/pbubl.gif);
+	color: #ffffff;
+	padding: 10px 10px 10px 20px;
+	display: none;
+	z-index: 53;
+}
+
+#annoybox {
+	width: 100%;
+	height: 0;
+	background-color: #ffffff;
+	position: relative;
+	overflow: hidden;
+}
+
+#annoybox a {
+	line-height: 19px;
+	padding: 15px 20px;
+	width: 100%;
+	color: #888888;
+	text-decoration: none;
+	display: block;
+	border-bottom: 1px solid #aaaaaa;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+#annoybox img {
+	position: absolute;
+	bottom: 17px;
+	right: 17px;
+	display: block;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+	border: 0;
+}
+
+#subnav a {
+	color: #888888 !important;
+	padding: 0 10px 4px 10px !important;
+	font-weight: normal !important;
+	text-decoration: none;
+	background: url(../images/psbnav.gif) no-repeat;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+#subnav a:hover {
+	color: #000000 !important;
+	text-decoration: none !important;
+}
+
+#trustedshops {
+	padding: 20px 10px 10px 0;
+}
+
+#trustedshops input {
+	display: block;
+	width: 64px;
+	height: 64px;
+	border: none;
+	float: left;
+	padding-top: 2px;
+}
+
+#trustedshops a {
+	display: block;
+	float: right;
+	width: 110px;
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+	line-height: 13px;
+	color: #888888;
+	text-decoration: none;
+}
+
+#trustedshops a:hover {
+	color: #000000;
+}
+
+
+#trustedshops form {
+	margin: 0;
+}
