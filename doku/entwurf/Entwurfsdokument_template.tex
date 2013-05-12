@@ -153,22 +153,32 @@ Hier Text einfügen!
 
 \section{Architekturmuster und Systemzerlegung}
 
+Aufgrund der Komplexität des Systems, was aus einer Vielzahl an unterschieldlichen Plattformen und Funktionen resultiert, lässt sich die Architektur des Systems keinem vorgegebenen Architekturmuster zuordnen. Um dennoch einen Überblick über die einzelnen Systemkomponenten zu ermöglichen, wurden diese in dem folgenden Verteilungsdiagramm modelliert.
+
 \begin{figure}[h]
 \centering
-\includegraphics[scale = 0.75]{verteilungsdiagramm}
+\includegraphics[scale = 0.7]{verteilungsdiagramm.png}
 \caption{Gesamtsystem als Verteilungsdiagramm}
 \end{figure}
 
 \subsection{dSPACE MicroAutoBox II}
 
-
+Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeiteigenschaften, welches fest im Forumla-Student-Fahrzeug verbaut ist und es ermöglicht sämtliche Fahrzeugdaten aus ebendiesem auszulesen. Auf diesem Gerät wird ein Simulink-Modell implementiert, das die als Busarray empfangen Daten entgegennimmt, aufbereitet, enkodiert und über eine UDP-Schnittstelle an einen Embedded-PC überträgt. 
 
 \subsection{Embedded-PC}
-\subsection{Webserver}
+
+Tino
+
+\subsection{Virtueller Server}
+
+Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP* erreichbar. Darauf wird eine Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
+
 \subsection{Webseite}
 \subsection{Datenbanken}
 \subsubsection{Fahrzeugdaten-Datenbank}
 \subsubsection{Benutzerdaten-Datenbank}
+
+%------------------Feiner Rotz-----------------------------------------
 
 \section{Simulink-Modell}
 \subsection{Verwendete Blöcke}
@@ -439,10 +449,25 @@ Mit dem Convert-Block ist es zudem möglich, dem Ausgangssignal unabhängig vom 
 
 \end{itemize}  
 
-Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden dieser erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor der UDP-Schnittstelle zugeführt.
+Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden dieser erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Enkoder (s. X.Y) zugeführt.
 
+\subsection{Enkoder-Block}
+
+Der Enkoder-Block basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{unit32}.
 
 \subsection{UDP-Schnittstelle}
+
+Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Einer ?????????????????????????????
+
+\section{Embedded-PC}
+
+\subsection{Empfangen der Fahrzeugdaten}
+
+Der Embedded-PC lauscht an einem fest definierten Port nach Paketen welche zuvor von der MicroAutoBox II 
+
+\subsection{Hinzufügen eines Zeitstempels}
+
+\subsection{Senden der Fahrzeugdaten}
 
 %---------------------------  Glossar  -----------------------------%
 
