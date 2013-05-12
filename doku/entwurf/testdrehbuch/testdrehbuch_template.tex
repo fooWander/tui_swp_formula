@@ -146,11 +146,11 @@ Im embedded-PC wird der Empfang und die korrekte Aufbereitung der Daten überpr�
 
 \textbf{6.TE200}
 \hangindent+65pt \hangafter=1 
-\ \ \  Die Signalqualität und Stabilität der GRPS/UMTS Verbindung wird bei großer Entfernung zum nächsten Sendemast überprüft.\\
+\ \ \  Die Signalqualität und Stabilität der GRPS/UMTS Verbindung wird bei großer Entfernung zum nächsten Sendemast, bzw. bei schlechter Empfangsqualität überprüft.\\
 
 \textbf{7.Test-neu}
 \hangindent+65pt \hangafter=1
- Es wird auf dem Webserver überprüft, dass die Testdaten vollständig und fehlerfrei über GRPS/UMTS übermittelt werden.\\
+ Es wird auf dem Webserver überprüft, dass die Testdaten vollständig und fehlerfrei über GRPS/UMTS übermittelt werden.Jeweils zu Punkt 4, Punkt 5 und Punkt 6.\\
  
 \textbf{8.TW200}
 \hangindent+65pt \hangafter=1
@@ -174,35 +174,36 @@ Auf der Webseite wird die korrekte Visualisierung und Aufbereitung der Daten üb
 
 \textbf{1.Test-neu}
 \hangindent+65pt \hangafter=1
-Beim aufrufen der Webseite wird der Nutzer zur Anmeldung aufgefordert.\\
+Beim Aufrufen der Webseite wird der Nutzer zur Anmeldung aufgefordert.\\
 
 \textbf{2.TW441}
 \hangindent+65pt \hangafter=1
-\ \ Bei einem nicht registrierten Nutzer schlägt der Anmeldeversuch fehl. (erscheint Nachricht?)\\
- 
+\ \ Bei einem nicht registrierten Nutzer schlägt der Anmeldeversuch fehl und eine Fehlermeldung wird ausgegeben.(Nutzer nicht gefunden) \\
+
 \textbf{3.TW440}
 \hangindent+65pt \hangafter=1
-\ \ Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an: der Vorgang verläuft ohne Fehler.\\
+\ \ Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an, ist aber noch nicht freigeschaltet (Status-Bit$==$0): Der Anmeldeversuch schlägt fehl und eine Fehlermeldung wird ausgegeben.(Nutzer noch nicht aktiviert)\\
  
-\textbf{4./TW400/TW410/TW420/TW421/TW430/}\\
+\textbf{4.TW440}
 \hangindent+65pt \hangafter=1
-Eine Registrierung mit E-Mail und Passwort (mind. 6 Zeichen) verläuft ohne Fehler.\\
-
+\ \ Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an.(Status-Bit $==$ 1): der Vorgang verläuft ohne Fehler.\\
+ 
 \textbf{5./TW400/TW410/TW420/TW421/TW430/}\\
 \hangindent+65pt \hangafter=1
-Bei erfolgreichem Registrierungsversuch wird der Vorstand über das System (private Nachricht/pop-up/E-mail?) informiert.\\
+Eine Registrierung mit E-Mail und Passwort (mind. 6 Zeichen) verläuft ohne Fehler. Der Nutzer wird auf die Startseite weitergeleitet.\\
 
 \textbf{6./TW400/TW410/TW420/TW421/TW430/}\\
 \hangindent+65pt \hangafter=1
-Es wird darauf getestet, das beim Akzeptieren durch den Vorstand der Nutzer auch tatsächlich für die Anmeldung freigeschaltet wird.\\
+Bei erfolgreichem Registrierungsversuch wird der Vorstand über das System per E-mail  informiert und die Daten der Registrierung in die Nutzerdatenbank geschrieben. Das Status-Bit des Nutzers ist 0.\\
 
 \textbf{7./TW400/TW410/TW420/TW421/TW430/}\\
 \hangindent+65pt \hangafter=1
-Wird der Nutzer freigeschaltet, so werden die temporären Daten, wie E-Mail, Passwort und ggf. Rechte in die Benutzerdatenbank geschrieben.\\
+Es wird darauf getestet, das beim Akzeptieren durch den Vorstand der Nutzer auch tatsächlich für die Anmeldung freigeschaltet wird. Das Status-Bit wird auf 1 gesetzt. Der Nutzer wird per E-mail über die Freischaltung informiert. \\
+
 
 \textbf{8./TW400/TW410/TW420/TW421/TW430/}\\
 \hangindent+65pt \hangafter=1
-Es wird darauf getestet, dass beim Abweisen eines Registrierungsgesuches durch den Vorstand auch tatsächlich alle Daten zu dem Nutzer verworfen werden und der Nutzer keinen Zugang zu Anmeldung/Webseite bekommt. \\
+Es wird darauf getestet, dass beim Abweisen eines Registrierungsgesuches durch den Vorstand auch alle Daten des Registrierungsvorgangs aus der Nutzer-Datenbank gelöscht werden. \\
 
 \textbf{9./TW400/TW410/TW420/TW421/TW430/}\\
 \hangindent+65pt \hangafter=1
@@ -210,13 +211,23 @@ Beim Zuweisen von Rechten an registrierte Nutzer werden diese Änderung korrekt 
 
 \textbf{10.test-neu}
 \hangindent+65pt \hangafter=1
-Registrierte Nutzer, die mit Rechten ausgestattet wurden, können diese ohne Einschränkungen nutzen.\\
+Registrierte Nutzer, die mit Rechten ausgestattet wurden, können diese ohne Einschränkungen nutzen.
 
 \textbf{11.TW421}
 \hangindent+65pt \hangafter=1
-Wir ein Nutzer durch den Vorstand gelöscht, so werden alle Daten zu diesem Nutzer aus der Datenbank gelöscht.
+Wird ein Nutzer durch den Vorstand gelöscht, so werden alle Daten zu diesem Nutzer aus der Nutzer-Datenbank gelöscht.\\
 
+\textbf{12.test-neu}
+\hangindent+65pt \hangafter=1
+Wird die "'Passwort vergessen"'-Funktion genutzt und eine E-mail-Adresse eingegeben, die in der Benutzerdatenbank steht, dann wird eine E-Mail an die Adresse gesendet. Inhalt der E-mail ist ein zufälliges Token, sowie ein Link zur Passwortänderung. \\
 
+\textbf{13.test-neu}
+\hangindent+65pt \hangafter=1
+Es wird geprüft, ob der Link aus \textit{12.test-neu} gültig ist und auf die Aktivierungsseite der Passwortwiederherstellung führt.
+
+\textbf{14.test-neu}
+\hangindent+65pt \hangafter=1
+Wird auf der Aktivierungsseite der Passwortwiederherstellung die E-mail-Adresse, das Token und das neue Passwort eingegeben, soll die Änderung korrekt in die Benutzerdatenbank übernommen werden.
 
 \subsection*{Test auf Robustheit}
 \subsubsection*{Matlab/Simulink werden Testwerte generiert, die ausserhalb der vereinbarten Wertebreiche liegen. }
@@ -235,7 +246,10 @@ Fehlerbehandlung wird ausgeführt?\\
 
 \textbf{1./TW400/TW410/TW420/TW421/TW430/}\\
 \hangindent+65pt \hangafter=1
-Eine Registrierung mit E-Mail und Passwort (weniger als 6 Zeichen) verursacht einen Fehler.\\
+Eine Registrierung mit E-Mail und Passwort (weniger als 6 Zeichen) resultiert in einer Fehlermeldung.\\
+
+\textbf{2.to do}
+\hangindent+65pt \hangafter=1
 
 
 %------------------------  Randbedingungen  ------------------------%
