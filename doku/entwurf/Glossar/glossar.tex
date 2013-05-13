@@ -1,0 +1,345 @@
+\documentclass[fontsize = 12pt, paper = a4]{scrreprt} 
+
+\setlength{\parindent}{0pt}
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{amssymb,amsmath}
+
+%------------ Überschriften verkleinern und hochsetzen ----------%
+
+\makeatletter
+\renewcommand*\@makechapterhead[1]{%
+{\parindent \z@ \raggedright \normalfont
+\LARGE\bfseries
+\ifnum \c@secnumdepth >\m@ne
+\thechapter\space
+\fi
+#1\par\nobreak
+\vskip 20\p@
+}} 
+
+% ------------------------ Blattlayout- -------------------------%
+
+\usepackage {geometry}   
+\geometry   {left     = 2.5cm,
+             right    = 2.5cm, 
+             top      = 1.5cm,
+             bottom   = 1.5cm,
+             includehead, includefoot}
+             
+% ------------------------ Seitenstil ---------------------------%           
+
+% Umdefinieren von Befehlen zur Vermeidung von Bugs:
+
+\renewcommand*{\chapterpagestyle}{scrheadings} 
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
+
+% Gestaltung der Kopf- und Fußzeile:
+
+\pagenumbering{arabic}
+            
+\usepackage[automark]{scrpage2}
+\automark[chapter]{section}
+\pagestyle{scrheadings} 
+\ohead[\pagemark]{\pagemark}
+\setlength{\footskip}{5mm} 
+
+\clearscrheadfoot
+\lohead{Entwurfsdokument}
+\rohead{\headmark}
+\lofoot{Softwareprojekt TU Ilmenau SS 2013}
+\rofoot{\pagemark}
+
+% Kopf- und Fußzeilenlinie:
+
+\setheadsepline{.6pt} % Linie für Kopfzeile
+\setfootsepline{.6pt} % Linie für Fußzeile 
+
+% Für Unterstreichungen:
+
+\usepackage[normalem]{ulem}
+
+% Buchstabenglättung am Rand:
+  
+\usepackage {microtype}  
+
+%-------------------------------------------------------------------%
+
+% Für die Einbindung von Bildern:
+
+\usepackage[pdftex]{graphicx} % .pdf, .png oder .eps möglich! pdftex
+\usepackage{rotating}         % Grafiken rotieren
+
+% Nutzung in drei Umgebungen möglich:
+
+% (1) \begin{turn}{Winkel} ...  \end{turn}
+% (2) \begin{sideways} ... \end{sideways} 90° im math. pos. Sinn
+% (3) \begin{rotate}{Winkel} ... \end{rotate} 
+%     ---> 90° im math. pos. Sinn, allerdings keine Platzreservierung 
+
+\usepackage{wrapfig}
+\usepackage{picinpar} % Textumflossene Grafiken
+\usepackage{picins}
+
+
+%-------------------------------------------------------------------%
+ 
+
+% Packete für schöne Tabellen:
+
+\usepackage{booktabs}
+\usepackage{array}    % optional
+\usepackage{tabularx} % optional
+
+\usepackage[font=footnotesize,labelfont=bf,singlelinecheck=false,
+            format=plain,,justification=justified,indention=0cm]                     {caption} 
+
+\usepackage{setspace}
+
+%--------------------  Anfang des Dokuments  -----------------------%
+
+\begin{document}
+
+%*******************************************************************%
+
+% Entwurf Titelseite:
+
+
+
+%*******************************************************************%
+
+% --------------------- Inhaltsverzeichnis -----------------------%
+
+ % Seitenumbruch
+
+%--------------------------  Einleitung  ---------------------------%
+
+\chapter*{Glossar}
+
+
+
+\textbf{Ajax}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ \ \ \ \ Ajax ist ein Apronym für die Wortfolge „Asynchronous JavaScript and XML“. Es bezeichnet ein Konzept der asynchronen Datenübertragung zwischen einem Browser und dem Server.\\
+
+\textbf{API}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ \ \ \ \ \ \ Eine API (applictation programming interface) ist eine Programmierschnitt\-stelle, die Funktionalitäten einer Software anderen Programmen zur Verfügung stellt.\\
+
+\textbf{Architekturmuster}
+\hangindent+65pt \hangafter=1 \\
+Ein Architekturmuster ist eine aus Erfahrung entstandene und optimierte Schablone für häufig wiederkehrende Probleme, anhand derer man Software entwerfen kann.\\
+
+\textbf{Balancing}
+\hangindent+65pt \hangafter=1
+\ Der Begriff Balancer, zu deutsch (Zellen-Ladungszustands-) Ausgleicher oder Ausgleichsregler, bezeichnet ein elektrisches Gerät, das die gleichmäßige Ladung aller Zellen innerhalb eines Akkupacks gewährleistet.\\
+
+\textbf{bidirektional}
+\hangindent+65pt \hangafter=1 \\
+Datenübertragung, die in beide Richtungen funktioniert. \\
+
+\textbf{boolean}
+\hangindent+65pt \hangafter=1 \\
+Ein Datentyp für die Darstellung der Werte "`wahr"\ und "`falsch"\.\\
+
+\textbf{Browser}
+\hangindent+65pt \hangafter=1
+\ \ \ Ein spezielles Computerprogramm, das für die Darstellung von Webseiten oder Daten verwendet wird.\\
+
+\textbf{Busarray}
+\hangindent+65pt \hangafter=1
+\ \ \ Ein Busarray ist eine gebündelte und zusammengefasste Anzahl von Bussen.\\
+
+\textbf{CAN-Bus}
+\hangindent+65pt \hangafter=1
+\ Der CAN-Bus (Controlled Area Network) ist ein asynchrones, serielles Bussystem und gehört zu der Klasse der Feldbusse.\\
+
+\textbf{CSS}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ \ \ \ \   Cascading Style Sheets sind eine deklarative Sprache für Stilvorlagen (engl. stylesheets) von strukturierten Dokumenten. Sie werden vor allem zusammen mit HTML eingesetzt.\\
+
+
+\textbf{CSV}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ \ \ \ \ \  Das Dateiformat CSV steht für den englischen Begriff Comma-separated values (gelegentlich auch Character-separated values) und beschreibt den Aufbau einer Textdatei zur Speicherung oder zum Austausch einfach strukturierter Daten.\\
+
+\textbf{DC}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ \ \ \ \ \ Die Abkürzung DC (direct current) steht für Gleichstrom.\\
+
+\textbf{Dongle}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ Ein Gerät (hier: USB Stick), das an einen Computer oder ähnliches angeschlossen wird, um eine Verbindung zu kontrollieren. Dies dient zum Datenschutz und zur Kontrolle von gültigen Lizenzen.\\
+
+\textbf{Embedded-PC}
+\hangindent+65pt \hangafter=1 \\
+Ein modular aufgebauter Industrierechner, dessen besonderer Fokus auf Kompaktheit liegt.\\
+
+\textbf{Ethernet}
+\hangindent+65pt \hangafter=1 
+\ \ Übertragungstechnologie für Daten durch kabelgebundene Netze.\\
+
+\textbf{Gierrate}
+\hangindent+65pt \hangafter=1 
+\ \ \ Gierrate bezeichnet die Geschwindigkeit der Drehung eines Fahrzeugs um die Hochachse.\\
+
+\textbf{GRPS}
+\hangindent+65pt \hangafter=1 
+\ \ \ \ \ \ General Packet Radio Service ist eine Übertragungstechnologie für die Mobilfunkübertragung von Daten (langsamer als UMTS.\\
+
+\textbf{GPS}
+\hangindent+65pt \hangafter=1 
+\ \ \ \ \ \ \  \ Global Positiong System ist eine Technologie zur Positionsbestimmung und Zeitmessung.\\
+
+\textbf{GUI}
+\hangindent+65pt \hangafter=1 
+\ \ \ \ \ \ \ \ \ \   Das Graphical User Interface (zu deutsch: Benutzeroberfläche) ist die graf\-ische Schnittstelle zwischen Software und dem Benutzer.\\
+
+\textbf{Hashing}
+\hangindent+65pt \hangafter=1 \\
+Hashing bezeichnet einen Vorgang, bei dem mittels einer Hashfunktion (auch Streufunktion) ein Eingabewert auf einen Ausgabewert abbildet. Man kann auf diese Weise sehr schnell an Daten kommen oder auch auf diese Weise Daten durch die Hashfunktion verschlüsselt speichern.\\
+
+\textbf{HTML}
+\hangindent+65pt \hangafter=1
+\ \ \ \ Hypertext Markup Language ist eine textbasierte Auszeichnungssprache zur Strukturierung von Inhalten wie Texten, Bildern und Hyperlinks in Dokumenten und im Internet.\\
+
+\textbf{int16}
+\hangindent+65pt \hangafter=1 \\
+Ein Datentyp für die vorzeichenbehaftete Darstellung von Ganzzahlen. Benötigt 16 Bit für die Zahlendarstellung.\\
+
+\textbf{Interface}
+\hangindent+65pt \hangafter=1
+\ \ Schnittstelle, über die Daten von verschiedenen Komponenten ausgetauscht werden können.\\
+
+\textbf{JavaScript}
+\hangindent+65pt \hangafter=1
+JavaScript ist eine Skriptsprache, die hauptsächlich für dynamisches HTML in Webbrowsern eingesetzt wird. \\
+
+\textbf{Latenz}
+\hangindent+65pt \hangafter=1
+\ \ \ \ Laufzeit von Signalen, die sich aus der Differenz von dem Absenden und Ankommen von Daten ergibt.\\
+
+\textbf{Matlab/Simulink}
+\hangindent+65pt \hangafter=1 \\
+Software, die hier verwendet wird, um die von der MicroAutoBox II bereitgestellten Daten zu verpacken und an den Embedded-PC weiterzuleiten.\\
+
+\textbf{Matlab/Simulink-Block}
+\hangindent+65pt \hangafter=1 \\
+Mit der blockorientierten und graphischen Oberfläche von Simulink werden Gleichungen in Form von (Übertragungs-)Blöcken eingegeben und dargestellt.\\
+
+\textbf{MicroAutoBox II}
+\hangindent+65pt \hangafter=1 \\
+Ein Echtzeitsystem, welches für schnelles Funktions-Prototyping in Fullpass- und Bypass-Szenarien geeignet ist.\\
+
+
+\textbf{MySQL}
+\hangindent+65pt \hangafter=1 
+\ \ \  MySQL ist eines der weltweit am weitesten verbreiteten relationalen Datenbankverwaltungssysteme. Es bildet die Grundlage für viele dynamische Webauftritte.\\
+
+\textbf{Nutzersystem}
+\hangindent+65pt \hangafter=1 \\
+Verwaltung von Personen und deren Rechte im Rechtesystem.\\
+
+
+%\textbf{Orgware}
+%\hangindent+65pt \hangafter=1 
+%\ \ Aus dem Englischen stammender Begriff, der die Rahmenbedingungen bei IT-Produkten und deren Projektabwicklung beschreibt.
+
+\textbf{PHP}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ \ PHP ist eine Skriptsprache, die hauptsächlich zur Erstellung dynamischer Webseiten oder Webanwendungen verwendet wird.\\
+
+\textbf{PID-Regler}
+\hangindent+65pt \hangafter=1 \\
+Ein PID-Regler besteht aus 3 Teilen, einem P-Anteil, einem I-Anteil und einem D-Anteil. PI steht für proportional integral wirkend (wie beim PI-Regler) und D steht für differentiell wirkend.\\
+
+\textbf{Recht}
+\hangindent+65pt \hangafter=1 
+\ \ \ \ \ \ \ hier: Synonym für Erlaubnis.\\
+
+\textbf{Rechtesystem}
+\hangindent+65pt \hangafter=1 \\
+Vergabe von Rechten für definierte Aktionen.\\
+
+\textbf{Sampling}
+\hangindent+65pt \hangafter=1 \\
+Sampling ist Englisch für "`Abtastung"\. Hierbei wird ein kontinuierliches Signal in festgelegten Zeitabständen abgetastet und der Wert bestimmt.\\
+
+\textbf{Service-Interface}
+\hangindent+65pt \hangafter=1 \\
+Ein Service Interface ist eine Mensch-Fahrzeug-Schnittstelle, die es dem Menschen ermöglichen soll auf alle wichtigen Daten zuzugreifen.\\
+
+\textbf{single}
+\hangindent+65pt \hangafter=1 \\
+Ein von der IEEE festgelegter Datentyp für die Darstellung von Gleitkommazahlen. Benötigt 32 Bit für die Zahlendarstellung.\\
+
+\textbf{Smartphone}
+\hangindent+65pt \hangafter=1 \\
+Ein Smartphone (zu dt. intelligentes Telefon) beschreibt die aktuelle Gene\-ration von Mobilfunktelefonen, deren Eingabe auf einem berührungsempfindlichen Bildschirm erfolgt.\\
+
+\textbf{Socket}
+\hangindent+65pt \hangafter=1
+\ \ \ Ein Socket ist eine plattformunabhängige Schnittstelle, mit der man ein Netzwerkprotokoll implementieren kann. Dies ermöglicht es Rechnern, über Systemgrenzen hinweg miteinander zu kommunizieren.\\
+
+\textbf{SSL/TLS}
+\hangindent+65pt \hangafter=1 
+\ \ Secure Sockets Layer/Transport Layer Security (zu Deutsch: Transportsicherheitsschicht) TLS ist die Weiterentwicklung von SSL, einem Protokoll zur verschlüsselten Datenübertragung im Internet.\\
+
+\textbf{Tablet-PC}
+\hangindent+65pt \hangafter=1 
+Ein tragbarer, flacher Computer in besonders leichter Ausführung mit einem Touchscreen-Display, wobei im Unterschied zu Notebooks auf eine physische Tastatur verzichtet wird.\\
+
+\textbf{Timeout}
+\hangindent+65pt \hangafter=1 
+\ \ \ Eine festgelegte Zeitgröße, die eine Aktion auslöst, wenn für einen mit dem Timeout festgelegten Zeitraum bestimmte Ereignisse ausgeblieben sind.\\
+
+\textbf{Token}
+\hangindent+65pt \hangafter=1 \\
+Ein Token dient als Sicherheitsmaßnahme zur zusätzlichen Authentifizierung einer Aktion im Internet (beispielsweise dem Setzen eines neuen Passworts) und besteht meist aus einer Aneinanderreihung von Buchstaben und Ziffern.\\
+
+\textbf{Torque Vectoring}
+\hangindent+65pt \hangafter=1 \\
+Mit dem "`gezielt eingesetztem Drehmoment" (so die wörtliche Übersetzung von "`Torque Vectoring") lenkt das Fahrzeug noch spontaner und direkter in die Kurve ein, außerdem bleibt es deutlich länger spurstabil.\\
+
+\textbf{Touchscreen}
+\hangindent+65pt \hangafter=1 \\
+{Ein Touchscreen (zu dt. berührungsempfindlcher Bildschirm) beschreibt einen Bildschirm, auf dem gleichzeitig Inhalte angezeigt werden können und Eingaben am Telefon durch Berührung erfolgen können.\\
+
+\textbf{UDP}
+\hangindent+65pt \hangafter=1 
+\ \ \ \ \ \ \ \ UDP ist ein verbindungsloses Protokoll für Datenübertragungen zwischen zwei Anwendungen durch ein Netzwerk hindurch.\\
+
+\newpage
+
+\textbf{uint32}
+\hangindent+65pt \hangafter=1 \\
+Ein Datentyp für die vorzeichenlose Darstellung von Ganzzahlen. Benötigt 32 Bit für die Zahlendarstellung.\\
+
+\textbf{Umrichter}
+\hangindent+65pt \hangafter=1
+Hierbei handelt es sich um einen Stromrichter, der aus einer Wechselspannung eine in der Frequenz und Amplitude unterschiedliche Wechselspannung generiert.\\
+
+\textbf{UMTS}
+\hangindent+65pt \hangafter=1
+\ \ \ \ \ \ Universal Mobile Telecommunications System ist eine Übertragungstechnologie für die Mobilfunkübertragung von Daten (schneller als GPRS).\\
+
+%\textbf{Webspace}
+%\hangindent+65pt \hangafter=1
+%Als Webspace wird der bei einem Anbieter gemietete, aus dem Internet zugängliche Speicher bezeichnet, der für die Aufbewahrung von Daten und Webseiten verwendet wird.\\
+
+\textbf{weiche Echtzeit}
+\hangindent+65pt \hangafter=1 \\
+Das System soll Daten in einem festgelegten Zeitrahmen zur Verfügung stellen, es muss aber nicht gewährleistet werden, dass es das immer tut.\\
+
+
+
+
+
+
+
+%------------------------  Randbedingungen  ------------------------%
+
+
+
+\end{document}
