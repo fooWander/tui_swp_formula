@@ -512,11 +512,37 @@ Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - n
 
 \section{Virtueller Server}
 
+Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert.  
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{activity_vserver.png}
 \caption{SOME TEXT}
 \end{figure}
+
+\subsection{Empfangen der Fahrzeugdaten}
+
+Durch die starke Ähnlichkeit in der Funktionsweise mit 3.3.1 werden sich diese Abschnitte große, wenn nicht sogar alle Teile der Implementation teilen. Diese Maßnahme soll nicht nur dazu führen, dass Fehler in der Programmierung und Konzipierung reduziert werden, sonder auch, dass zusätzlicher Zeitaufwand vermieden wird. 
+
+\subsection{Abfragen Zeitstempels}
+
+Hier wird der in 3.3.2 hinzugefügte Zeitstempel abgefragt. Um veraltete Pakete identifizieren zu können wird in einer Variable der aktuellste Zeitstempel zwischengespeichert und mit allen ankommenden Paketen verglichen. Pakete die zu alt sind (ein genauer Wert hierfür muss bei praktischen Versuchen ermittelt werden) werden verworfen. 
+
+\subsection{Daten enkodieren}
+
+Die in 3.2.4 enkodierten Daten werden in diesem Schritt wieder dekodiert und so aufbereitet, dass sie in die Datenbank geschrieben werden können. Der Algorithmus zur Dekodierung kann aus einer von dSPACE erstellten sFunction (C Code) ermittelt werden. Treten beim Dekodiervorgang keine Fehler auf, gehen wir davon aus, dass das Paket korrekt übertragen wurde und führen bis auf das Prüfen der Wertebereiche keine weitere Fehlerkontrolle durch. Falls Fehler auftreten wird das Paket verworfen. Eine Fehlerkorrektur findet nicht statt. Die Daten liegen anschließend in einem Vektor bestehend aus int16-Werten vor. 
+
+\subsection{Daten validieren}
+
+WOLLEN WIR DAS SICHER MACHEN? WAS WOLLEN WIR VALIDIEREN???
+
+\subsection{Daten verwerfen}
+
+Daten die veraltet, nicht dekodiert werden konnten oder die Validierung nicht bestanden haben werden verworfen. 
+
+\subsection{Daten in Datenbank schreiben}
+
+Die Anfragen an die MySQL-Datenbank erfolgen mittels des MySQL Connector/C++. Dabei handelt es sich um eine C++ API die es erlaubt mittels TCP- oder UNIX-Sockets die Verbindung zu einer MySQL-Datenbank herzustellen und Anfragen zu übergeben. 
 
 \section{Webseite}
 
