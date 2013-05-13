@@ -473,7 +473,7 @@ Der Enkoder-Block basiert auf einer sFunction die von dSPACE implementiert wurde
 
 \subsection{UDP-Schnittstelle}
 
-Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden. Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ uint32 übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet. 
+Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden. Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet. 
  
 \begin{figure}[h]
   \centering
@@ -498,7 +498,7 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Bloc
 
 \subsection{Empfangen der Fahrzeugdaten}
 
-Der Embedded-PC lauscht an einem fest definierten Port nach Paketen welche zuvor von der MicroAutoBox II über eine Ethernet-Vebindung verschickt wurden. Die Übertragung erfolgt mittels des verbindungslosen Netzwerkprotokolls UDP und wird mithilfe von Unix Domain Sockets (SOCK\_DGRAM) realisiert. 
+Der Embedded-PC lauscht an einem fest definierten Port nach Paketen, welche zuvor von der MicroAutoBox II über eine Ethernet-Vebindung verschickt wurden. Die Übertragung erfolgt mittels des verbindungslosen Netzwerkprotokolls UDP und wird mithilfe von Unix Domain Sockets (SOCK\_DGRAM) realisiert. 
 
 \subsection{Hinzufügen eines Zeitstempels}
 
