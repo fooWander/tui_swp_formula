@@ -6,5 +6,8 @@ boolean
 single
 int16
 uint32
+vServer
+Token
+Hashing
 
 [Hier einfügen!]
