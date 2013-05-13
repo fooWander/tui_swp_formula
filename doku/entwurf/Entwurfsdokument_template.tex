@@ -157,7 +157,7 @@ Hier Text einfügen!
 
 \section{Architekturmuster und Systemzerlegung}
 
-Aufgrund der Komplexität des Systems, was aus einer Vielzahl an unterschiedlichen Plattformen und Funktionen resultiert, lässt sich die Architektur des Systems keinem vorgegebenen Architekturmuster zuordnen. Um dennoch einen Überblick über die einzelnen Systemkomponenten zu ermöglichen, wurden diese in dem folgenden Verteilungsdiagramm modelliert.
+Aufgrund der Komplexität des Systems, die aus einer Vielzahl an unterschiedlichen Plattformen und Funktionen resultiert, lässt sich die Architektur des Systems keinem vorgegebenen Architekturmuster zuordnen. Um dennoch einen Überblick über die einzelnen Systemkomponenten zu ermöglichen, wurden diese in dem folgenden Verteilungsdiagramm modelliert.
 
 \begin{figure}[h]
 \centering
@@ -167,11 +167,11 @@ Aufgrund der Komplexität des Systems, was aus einer Vielzahl an unterschiedlich
 
 \subsection{dSPACE MicroAutoBox II}
 
-Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeiteigenschaften, welches fest im Forumla-Student-Fahrzeug verbaut ist und es ermöglicht sämtliche Fahrzeugdaten aus ebendiesem auszulesen. Auf diesem Gerät wird ein Simulink-Modell implementiert, das die als Busarray empfangen Daten entgegennimmt, aufbereitet, enkodiert und über eine UDP-Schnittstelle an einen Embedded-PC überträgt. 
+Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeiteigenschaften, welches fest im Forumla-Student-Fahrzeug verbaut ist und es ermöglicht, sämtliche Fahrzeugdaten aus ebendiesem auszulesen. Auf diesem Gerät wird ein Simulink-Modell implementiert, das die als Busarray empfangen Daten entgegennimmt, aufbereitet, enkodiert und über eine UDP-Schnittstelle an einen Embedded-PC überträgt. 
 
 \subsection{Embedded-PC}
 
-Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets* über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets*. Für die eigentliche Übertragung zum virtuellen Server über UMTS* sind zwei in der Programmiersprache C++ selbst entwickelten Programme - das Server-Programm und das Client-Programm - zuständig. Beide Programme laufen eigenständig auf dem Embedded-PC und werden automatisch beim Systemstart ausgeführt. Ein von der eigentlichen Übertragung ausgeschlossenes und selbst entwickeltes Programm [namens AAAA] garantiert das Ausführen beider Programme und startet die Programme bei einem auftretenden Absturz oder schwerwiegenden Fehler neu. Dabei wird während des Vorgangs das Server-Programm jedem UDP-Packet des Datenstroms* ein Zeitstempel* hinzugefügt, wobei später ankommende Packete ignoriert und erst nach dessen Fertigstellung ein neues Packet behandelt werden \textbf{(Klären?)}. Der hinzugefügte Zeitstempel beinhaltet die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend leitet das Programm die Daten an das Client-Programm weiter, welches die empfangenen Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weiterleitet. 		
+Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets* über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets*. Für die eigentliche Übertragung zum virtuellen Server über UMTS* sind zwei in der Programmiersprache C++ selbst entwickelte Programme - das Server-Programm und das Client-Programm - zuständig. Beide Programme laufen eigenständig auf dem Embedded-PC und werden automatisch beim Systemstart ausgeführt. Ein von der eigentlichen Übertragung ausgeschlossenes und selbst entwickeltes Programm [namens AAAA] garantiert das Ausführen beider Programme und startet die Programme bei einem auftretenden Absturz oder schwerwiegenden Fehler neu. Dabei wird während des Vorgangs das Server-Programm jedem UDP-Packet des Datenstroms* ein Zeitstempel* hinzugefügt, wobei später ankommende Packete ignoriert und erst nach dessen Fertigstellung ein neues Packet behandelt werden \textbf{(Klären?)}. Der hinzugefügte Zeitstempel beinhaltet die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend leitet das Programm die Daten an das Client-Programm weiter, welches die empfangenen Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weiterleitet. 		
 
 
 \subsection{Virtueller Server}
@@ -180,7 +180,7 @@ Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit
 
 \subsection{Webseite}
 
-Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Benutzeroberfläche. Sie besitzt zwei Kernaufgaben: das Darstellen der Fahrzeugdaten, die sich in einer Datenbank auf dem Webserver befinden und das Vermeiden von Zugriffen unbefugter Personen auf eben diese Daten. Dies wird durch ein Benutzersystem erreicht, welches nur ausgewählten Personen ermöglicht an die Informationen der Datenbank zu kommen und sich diese somit darstellen oder exportieren zu lassen.
+Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Benutzeroberfläche. Sie besitzt zwei Kernaufgaben: das Darstellen der Fahrzeugdaten, die sich in einer Datenbank auf dem Webserver befinden und das Vermeiden von Zugriffen unbefugter Personen auf eben diese Daten. Dies wird durch ein Benutzersystem erreicht, welches nur ausgewählten Personen den Zugang zu den Informationen der Datenbank ermöglicht und diesen somit die Darstellung oder den Export selbiger Informationen zulässt.
 
 \subsection{Datenbanken}
 
