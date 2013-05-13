@@ -488,9 +488,11 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Bloc
   \end{minipage}
 \end{figure}
 
+\newpage
+
 \section{Embedded-PC}
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics[scale = 0.70]{activity_embedded_pc.png}
 \caption{SOME TEXT}
@@ -502,8 +504,11 @@ Der Embedded-PC lauscht an einem fest definierten Port nach Paketen welche zuvor
 
 \subsection{Hinzufügen eines Zeitstempels}
 
+Da es nicht ausgeschlossen ist, dass sich Pakete bei der Übertragung überholen und/oder aufgrund einer schlechten Verbindung erst sehr spät das Ziel erreichen, erhält ein Paket sobald es entgegengenommen wird einen Zeitstempel um im späteren Verlauf veraltete Pakete identifizieren zu können. 
+
 \subsection{Senden der Fahrzeugdaten}
 
+Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - nicht verändert. Sie werden also lediglich durchgereicht und mittels Unix Domain Sockets (SOCK\_DGRAM) an den virtuellen Server über eine UMTS-Verbindung übertragen. 
 
 \section{Virtueller Server}
 
