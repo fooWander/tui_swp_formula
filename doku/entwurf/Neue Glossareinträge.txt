@@ -1,3 +1,10 @@
 Architekturmuster
+Busarray
+Sockets
+Sampling
+boolean
+single
+int16
+uint32
 
 [Hier einfügen!]
