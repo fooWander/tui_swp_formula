@@ -8,16 +8,16 @@
 
 %------------ Überschriften verkleinern und hochsetzen ----------%
 
-\makeatletter
-\renewcommand*\@makechapterhead[1]{%
-{\parindent \z@ \raggedright \normalfont
-\LARGE\bfseries
-\ifnum \c@secnumdepth >\m@ne
-\thechapter\space
-\fi
-#1\par\nobreak
-\vskip 20\p@
-}} 
+%\makeatlettern
+%\renewcommand*\@makechapterhead[1]{%
+%{\parindent \z@ \raggedright \normalfont
+%\LARGE\bfseries
+%\ifnum \c@secnumdepth >\m@ne
+%\thechapter\space
+%\fi
+%#1\par\nobreak
+%\vskip 20\p@
+%}} 
 
 % ------------------------ Blattlayout- -------------------------%
 
@@ -473,11 +473,24 @@ Der Enkoder-Block basiert auf einer sFunction die von dSPACE implementiert wurde
 
 Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Einer ??? 
 
+\begin{figure}[h]
+  \centering
+\begin{minipage}[b]{2.5cm}
+    \includegraphics[scale = 1]{ethernet_udp_setup_block.png}
+    \caption{UDP-Block zur Einstellung der Netzwerkschnittstelle}
+  \end{minipage}
+\hspace*{3cm}  
+  \begin{minipage}[b]{5 cm}
+    \includegraphics[scale = 1]{ethernet_udp_send_block.png}
+    \caption{UDP-Block zum Senden von uint32-Datenströmen}
+  \end{minipage}
+\end{figure}
+
 \section{Embedded-PC}
 
 \subsection{Empfangen der Fahrzeugdaten}
 
-Der Embedded-PC lauscht an einem fest definierten Port nach Paketen welche zuvor von der MicroAutoBox II...  
+Der Embedded-PC lauscht an einem fest definierten Port nach Paketen welche zuvor von der MicroAutoBox II über eine Ethernet-Vebindung verschickt wurden. Die Übertragung erfolgt mittels des verbindungslosen Netzwerkprotokolls UDP und wird mithilfe von Unix Domain Sockets (SOCK\_DGRAM) realisiert. 
 
 \subsection{Hinzufügen eines Zeitstempels}
 
