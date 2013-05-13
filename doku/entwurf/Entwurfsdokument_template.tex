@@ -365,13 +365,17 @@ Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anze
 
 \subsubsection{Math Operations}
 
-
 \begin{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.6]{gain}
+\caption{Gain-Block zur Verstärkung von Signalen}
+\end{figure}
 
 \item[1)] \textit{Gain-Block}
 
 Der Gain-Block multipliziert das Eingangssignal mit einer selbst gewählten Konstante, wobei das Eingangssignal selbst ein Skalar, ein Vektor oder eine Matrix sein kann.
-
 
 \end{itemize}
 
@@ -477,12 +481,12 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Bloc
  
 \begin{figure}[h]
   \centering
-\begin{minipage}[b]{2.5cm}
-    \includegraphics[scale = 1]{ethernet_udp_setup_block.png}
+\begin{minipage}[b]{7.5cm}
+    \includegraphics[scale = 1]{ethernet_udp_setup_block}
     \caption{UDP-Block zur Einstellung der Netzwerkschnittstelle}
   \end{minipage}
-\hspace*{3cm}  
-  \begin{minipage}[b]{5 cm}
+\hfill  
+  \begin{minipage}[b]{7.5cm}
     \includegraphics[scale = 1]{ethernet_udp_send_block.png}
     \caption{UDP-Block zum Senden von uint32-Datenströmen}
   \end{minipage}
@@ -552,7 +556,14 @@ Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reit
 
 \subsection{Registrierung}
 
-Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten:
+Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. XY):
+
+\begin{figure}
+\centering
+\includegraphics[scale = 0.6]{anmeldungsvorgang}
+\caption{Aktivitätsdiagramm des Anmeldungsvorgangs}
+%\label{Aktivitätsdiagramm Anmeldungsvorgang}
+\end{figure} 
 
 \begin{itemize}
 
@@ -566,13 +577,20 @@ Sollte er sich noch nicht registriert haben, kann er dies über einen Klick auf 
 \begin{itemize}
 
 \item \textit{Fall 2: Der Benutzer ist bereits angemeldet.} \\ 
-Zum Anmelden im System ruft der Nutzer die Login-Seite auf und wird anschließend aufgefordert seine Emailadresse und sein Passwort einzugeben. Durch einen Klick auf den Login-Button werden die eingegebenen Daten mit der Nutzerdatenbank verglichen. Sollte die Konstellation aus Emailadresse und dazugehörigem Passwort in der Nutzerdatenbank nicht entdeckt werden, gibt das System eine Fehlermeldung aus, die den Nutzer darauf hinweist, dass die von ihm eingegebenen Daten inkorrekt sind. Sollte das System hingegen einen passenden Eintrag finden, wird abhängig davon, ob der Nutzer bereits aktiviert ist, entweder eine Fehlermeldung (Fall "`nicht aktiviert"\) ausgegeben, oder der Nutzer auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet (Fall "`aktiviert"\). Der Nutzer kann nun auf der Seite nach Belieben, aber unter Berücksichtung der ihm gegebenen Rechte, auf der Seite des Service Interfaces navigieren.
+Zum Anmelden im System ruft der Nutzer die Login-Seite auf und wird anschließend aufgefordert seine Emailadresse und sein Passwort einzugeben. Durch einen Klick auf den Login-Button werden die eingegebenen Daten mit der Nutzerdatenbank verglichen. Sollte die Konstellation aus Emailadresse und dazugehörigem Passwort in der Nutzerdatenbank nicht entdeckt werden, gibt das System eine Fehlermeldung aus, die den Nutzer darauf hinweist, dass die von ihm eingegebenen Daten inkorrekt sind. Sollte das System hingegen einen passenden Eintrag finden, wird abhängig davon, ob der Nutzer bereits aktiviert ist, entweder eine Fehlermeldung (Fall "`nicht aktiviert") ausgegeben, oder der Nutzer auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet (Fall "`aktiviert"). Der Nutzer kann nun auf der Seite nach Belieben, aber unter Berücksichtung der ihm gegebenen Rechte, auf der Seite des Service Interfaces navigieren.
 Sollte in einer gewissen Zeitspanne keine Aktivität vom Benutzer erkannt werden, wird er automatisch aus dem System ausgeloggt.
 Ansonsten steht ihm die Möglichkeit nach getaner Arbeit offen, sich über den "`Logout"\ - Button auszuloggen und die Seite zu verlassen.
 
 \end{itemize}
 
 \subsection{Passwort vergessen}
+
+\begin{figure}
+\centering
+\includegraphics[scale = 0.6]{passwort_vergessen_vorgang}
+\caption{Aktivitätsdiagramm des "`Passwort vergessen"\ - Vorgangs}
+%\label{Aktivitätsdiagramm "`Passwort vergessen"\ - Vorgang}
+\end{figure} 
 
 \begin{itemize}
 
@@ -641,6 +659,193 @@ Die wichtigsten und allgemeinsten Informationen des Fahrzeugs befinden sich in d
 
 \chapter{Testdrehbuch}
 
+Im Folgenden wird der Ablauf der durchzuführenden Test geschildert. Dabei wird im ersten Teil darauf getestet, dass unter optimalen Umständen alle Funktionen korrekt ausgeführt werden. Im zweiten Teil wird anschließend das System auf dessen Robustheit geprüft, wobei auftretende Grenzfälle erkannt und korrekt behandelt werden sollen.
+
+
+\section{Test auf Funktionalität}
+\subsubsection*{
+\hangindent+20pt \hangafter=1
+I) In Matlab/Simulink werden Testwerte generiert, die innerhalb der vereinbarten Wertebereiche liegen \\}
+
+\vspace*{3mm}
+
+\textbf{1. /TM100/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm} 
+Es wird geprüft, dass alle Daten korrekt gebündelt und an die Ethernet-Schnittstelle der MikroAutoBox II weitergeleitet werden. \\
+
+\textbf{2. /TE120/TE300/}\\
+\hangindent+95pt \hangafter=1
+Im Embedded-PC wird der Empfang der Datenpakte überprüft.\\
+
+\textbf{3. /TE100/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm} 
+Bei einem Neustart durch Unterbrechung der Stromzufuhr des Embedded-PC soll dieser selbstständig die Verbindung zur MicroAutoBox II wiederaufbauen, sowie das GRPS/UMTS - Modul aktivieren und die Verbindung zum Webserver erneut etablieren.\\
+
+\textbf{4. /TE200/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm} 
+Die Signalqualität und Stabilität der GRPS/UMTS Verbindung wird im Ruhezustand, bei Bewegung und bei großer Entfernung zum Sendemast bzw. bei schlechter Empfangsqualität überprüft.\\
+
+\textbf{5. /TE300/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm}
+Es wird zu TE200 auf dem virtuellen Server überprüft, ob die Testdaten vollständig und korrekt über GRPS/UMTS an ebendiesen übermittelt wurden. \\
+ 
+\textbf{6. /TW200/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm} 
+Nach mehr als 10 Stunden kontinuierlichen Datentransfers sollen die Fahrzeugdaten der letzten 10 Stunden in der Datenbank vorliegen. Den Ausgangspunkt für dieses Zeitintervall stellt den Zeitpunkt der Datenentnahme dar.\\
+ 
+\textbf{7. /TW210/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm} 
+Der korrekte Export der in der Datenbank enthaltenen Fahrzeugdaten als CSV-Datei wird auf dessen Fehlerfreiheit überprüft.\\
+
+\textbf{8. /TW100/TW110/}\\
+\hangindent+95pt \hangafter=1
+Auf der Webseite wird die korrekte Visualisierung und Aufbereitung der Daten überprüft. Darin ist ebenfalls eine Überprüfung der fehlerfreien Darstellung auf den zuvor spezifizierten Browsern eingeschlossen. 
+
+\newpage
+
+\subsubsection*{
+\hangindent+20pt \hangafter=1
+II) Unabhängig davon können die Verwaltungsprozesse auf der Webseite überprüft werden:}
+
+\vspace*{3mm}
+
+\textbf{1. /TW440/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm}
+Beim Aufrufen der Webseite wird der Nutzer zur Anmeldung \\ aufgefordert.\\
+
+\textbf{2. /TW450/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm}
+Bei einem nicht registrierten Nutzer schlägt der Anmeldeversuch fehl und eine Fehlermeldung wird ausgegeben (Nutzer nicht gefunden).\\
+
+\textbf{3. /TW451/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm}
+Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an, ist aber noch nicht freigeschaltet (Status-Bit $==$ 0): Der Anmeldeversuch schlägt fehl und eine Fehlermeldung wird ausgegeben.(Nutzer noch nicht aktiviert)\\
+ 
+\textbf{4. /TW452/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm}
+Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an.\\ (Status-Bit $==$ 1): der Vorgang verläuft ohne Fehler.\\
+ 
+\textbf{5. /TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+95pt \hangafter=1
+Eine Registrierung mit E-Mail und Passwort (mind. 6 Zeichen) verläuft ohne Fehler. Der Nutzer wird daraufhin auf die Startseite weitergeleitet.\\
+
+\textbf{6. /TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+95pt \hangafter=1
+Bei erfolgreichem Registrierungsversuch wird der Vorstand über das System per E-Mail  informiert und die Daten der Registrierung in die Nutzerdatenbank geschrieben. Das Status-Bit des Nutzers ist 0.\\
+
+\textbf{7. /TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+95pt \hangafter=1
+Es wird darauf getestet, das beim Akzeptieren durch den Vorstand der Nutzer auch tatsächlich für die Anmeldung freigeschaltet wird. Das Status-Bit wird auf 1 gesetzt. Der Nutzer wird per E-Mail über dessen Freischaltung informiert. \\
+
+\textbf{8. /TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+95pt \hangafter=1
+Es wird darauf getestet, dass beim Abweisen eines Registrierungsgesuches durch den Vorstand auch alle Daten des Registrierungsvorgangs aus der Nutzer-Datenbank gelöscht werden. \\
+
+\textbf{9. /TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+95pt \hangafter=1
+Beim Zuweisen von Rechten an registrierte Nutzer werden diese Änderung korrekt in die Benutzerdatenbank übernommen.\\
+
+\textbf{10. /TW460/}
+\hangindent+95pt \hangafter=1
+\hspace*{3.5mm}
+Registrierte Nutzer, die mit Rechten ausgestattet wurden, können diese ohne Einschränkungen nutzen. \\
+
+\newpage
+
+\textbf{11. /TW421/}
+\hangindent+95pt \hangafter=1
+\hspace*{3.5mm}
+Wird ein Nutzer durch den Vorstand gelöscht, so werden alle Daten zu diesem Nutzer aus der Nutzer-Datenbank gelöscht.\\
+
+\textbf{12. /TW470/}
+\hangindent+95pt \hangafter=1
+\hspace*{2mm}
+Wird die "`Passwort vergessen"\ - Funktion genutzt und eine E-Mail-Adresse eingegeben, die in der Benutzerdatenbank steht, dann wird eine E-Mail an die Adresse gesendet. Inhalt der E-Mail ist ein zufälliges Token, sowie ein Link zur Passwortänderung. \\
+
+\textbf{13. /TW480/}
+\hangindent+95pt \hangafter=1
+\hspace*{2.5mm}
+Es wird geprüft, ob der Link aus /TW470/ gültig ist und auf die Aktivierungsseite der Passwortwiederherstellung führt. \\
+
+\textbf{14. /TW490/}
+\hangindent+95pt \hangafter=1
+\hspace*{2mm}
+Wird auf der Aktivierungsseite der Passwortwiederherstellung die E-Mail-Adresse, das Token und das neue Passwort eingegeben, soll die Änderung korrekt in die Benutzerdatenbank übernommen werden.
+
+\subsubsection*{
+\hangindent+20pt \hangafter=1
+III) Folgende Tests müssen auf dem virtuellen Server durchgeführt werden:}
+
+\vspace*{3mm}
+
+\textbf{1. /TS010/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm}
+Die Dekodierung der vom Embedded-PC via GPRS/UMTS versendeten 
+Datenpakete verläuft ohne Probleme. \\
+
+\textbf{2. /TS020/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm}
+Es wird anschließend getestet, ob die nunmehr dekodierten Datensätze anschließend korrekt aufbereitet werden (für die Durchführung der Aufbereitung s. X.Y). \\
+
+Hier bitte ergänzen....
+
+
+\newpage
+
+
+\section{Test auf Robustheit}
+\subsubsection*{
+\hangindent+20pt \hangafter=1
+I) In Matlab/Simulink werden Testwerte generiert, die außerhalb der vereinbarten Wertebereiche liegen \\} 
+
+\vspace*{3mm}
+
+\textbf{1. /TR010/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm}
+Das für die Plausibilitätsüberprüfung auf dem virtuellen Server zuständige Modul (s. X.Y) erkennt die Werte, welche außerhalb des Wertebereiches liegen und leitet diesbezüglich eine Warnmeldung an die Webseite weiter. \\
+
+\textbf{2. /TR020/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm}
+Auf der Webseite wird daraufhin die aufgetretene Überschreitung der Wertebereiche bei den jeweiligen Werten für den Nutzer kenntlich gemacht.
+
+
+
+\subsubsection*{II) Tests auf der Webseite}
+
+\vspace*{3mm}
+
+\textbf{1. /TW400/TW410/TW420/TW421/TW430/}\\
+\hangindent+95pt \hangafter=1
+Eine Registrierung mit E-Mail und Passwort, welches weniger als 6 Zeichen aufweist, resultiert in einer Fehlermeldung.\\
+
+\textbf{2. /TR030/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm}
+Bei einer Anmeldung mit inkorrekter Email-Adresse und / oder falschem Passwort soll fehlschlagen und eine Fehlermeldung ausgegeben werden. \\
+
+\textbf{3. /TR040/}
+\hangindent+95pt \hangafter=1
+\hspace*{6.5mm}
+Meldet sich ein noch angemeldeter Nutzer erneut an, soll dies fehlschlagen eine Statusmeldung über den aktuellen Zustand (angemeldet / nicht angemeldet) des Nutzers ausgegeben werden. \\
+
+\textbf{4. /TR050/}
+\hangindent+95pt \hangafter=1
+\hspace*{5.5mm}
+Falls dem Nutzer, nachdem er den "`Passwort vergessen"\ - Button ausgewählt hat, bei der Eingabe der Emailadresse zu Übersendung des Tokens und des Links zur Aktivierungsseite ein Fehler unterläuft, soll dies fehlschlagen und der Nutzer eine Statusmeldung darüber erhalten, dass seine eingegebene Emailadresse nicht im System existiert.  
 
 
 
@@ -651,27 +856,61 @@ Die wichtigsten und allgemeinsten Informationen des Fahrzeugs befinden sich in d
 
 %----------------------  Abbildungsverzeichnis  --------------------%
 
-%\chapter*{Abbildungsverzeichnis}
-
 \listoffigures
 
 \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 %
 %---------------------------  Anhang  ------------------------------%
 
-\chapter*{Anhang}
-\addcontentsline{toc}{chapter}{Anhang}
+%\addcontentsline{toc}{chapter}{Anhang}
 
 \appendix
+\addchap{Anhang} 
+\refstepcounter{chapter}
 
-%\textbf{Datentypen in Simulink}
-%
-%\begin{itemize}
-%
-%\item xd
-%
-%\end{itemize}
+\section{Datentypen in Simulink}
+
+Simulink unterstützt die folgenden von Matlab unterstützen Datentypen:
+
+\begin{itemize}
+
+\item \textit{double} (double-precision floating point nach IEEE Standard 754 mit 64 bit Speicherbedarf pro Zahl)
+
+\item \textit{single} (single-precision floating point nach IEEE Standard 754 mit 32 bit Speicherbedarf pro Zahl)
+
+\item \textit{int8, uint8, int16, uint16, int32, uint32} (signed/unsigned 8-, 16- bzw. 32-bit integer)
+
+\end{itemize}
+
+Darüber hinaus kennt Simulink noch den Datentyp
+
+\begin{itemize}
+
+\item \textit{boolean} (0 oder 1, wird intern als \textit{uint8} behandelt)
+
+\end{itemize} 
+\hangindent+40pt \hangafter=1
+\textit{Quelle:} Angermann | Beuschel | Rau | Wohlfahrt: \\         "` MATLAB - Simulink - Stateflow: Grundlagen, Toolboxen, Beispiele"\ \\
+Oldenbourg Verlag München
 
 
+
+\section{UML-Diagramme}
+
+\begin{sidewaysfigure}[t]
+\centering
+\includegraphics[scale = 0.55]{webseite}
+\caption{Sequenzdiagramm der Webseite}
+\end{sidewaysfigure} 
+
+\newpage
+
+\begin{sidewaysfigure}[t]
+\centering
+\includegraphics[scale = 0.75]{registrierungsvorgang}
+\caption{Aktivitätsdiagramm des Registrierungsvorgangs}
+\end{sidewaysfigure} 
+
+\newpage
 
 \end{document}
