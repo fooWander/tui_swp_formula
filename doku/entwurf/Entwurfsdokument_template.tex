@@ -465,14 +465,16 @@ Mit dem Convert-Block ist es zudem möglich, dem Ausgangssignal unabhängig vom 
 
 Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden dieser erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Enkoder (s. X.Y) zugeführt.
 
+\newpage
+
 \subsection{Enkoder-Block}
 
-Der Enkoder-Block basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{unit32}.
+Der Enkoder-Block basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{unit32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels UDP vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
 
 \subsection{UDP-Schnittstelle}
 
-Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Einer ??? 
-
+Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden. Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ uint32 übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet. 
+ 
 \begin{figure}[h]
   \centering
 \begin{minipage}[b]{2.5cm}
