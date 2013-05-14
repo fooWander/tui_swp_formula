@@ -177,7 +177,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \item[1)] Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach einer möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
 
-\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch keine Unterstützung für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
+\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL Connector/C++ erfolgen. Da dieser jedoch keine Unterstützung für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
 
 \end{itemize}
 
@@ -1125,7 +1125,7 @@ Ein Echtzeitsystem, welches für schnelles Funktions-Prototyping in Fullpass- un
 \hspace*{7.5mm}
 MySQL ist eines der weltweit am weitesten verbreiteten relationalen Datenbankverwaltungssysteme. Es bildet die Grundlage für viele dynamische Webauftritte.\\
 
-\textbf{MySQL/C++ - Connector}
+\textbf{MySQL Connector/C++}
 \hangindent+75pt \hangafter=1
 \\
 Diese Software ermöglicht einen Zugriff auf eine MySQL-Datenbank. Dabei wird ein Programm in der Sprache C++ eingebunden.\\
