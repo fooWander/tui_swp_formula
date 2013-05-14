@@ -241,7 +241,7 @@ Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Ben
 
 \subsection{Datenbanken}
 
-Auf dem virtuellen Server läuft ein MySQL-Server der unserem Projekt zur Verfügung steht.Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Script erstellt.
+Auf dem virtuellen Server läuft ein MySQL-Server der unserem Projekt zur Verfügung steht. Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Script erstellt.
 
 \subsubsection{Benutzerdaten-Datenbank}
 
@@ -1004,12 +1004,15 @@ Cascading Style Sheets sind eine deklarative Sprache für Stilvorlagen (engl. st
 \hspace*{13.5mm}
 Das Dateiformat CSV steht für den englischen Begriff Comma-separated values (gelegentlich auch Character-separated values) und beschreibt den Aufbau einer Textdatei zur Speicherung oder zum Austausch einfach strukturierter Daten.\\
 
+\textbf{Datenbank}
+\hangindent+75pt \hangafter=1
+\hspace*{1.25mm}
+Eine Datenbank ermöglicht die permanente Speicherung von Daten. Die genaue Realisierung der Aufbewahrung wird von der Datenbank verwaltet, die Daten kann man mit speziellen Anfragen extrahieren.\\
+
 \textbf{DC}
 \hangindent+75pt \hangafter=1
 \hspace*{16.5mm}
 Die Abkürzung DC (direct current) steht für Gleichstrom.\\
-
-\newpage
 
 \textbf{Dongle}
 \hangindent+75pt \hangafter=1
@@ -1055,11 +1058,6 @@ Als Hashing bezeichnet man einen Vorgang, bei dem mittels einer Hashfunktion (au
 \hspace*{9mm}
 Die Hypertext Markup Language ist eine textbasierte Auszeichnungssprache zur Strukturierung von Inhalten wie Texten, Bildern und Hyperlinks in Dokumenten und im Internet.\\
 
-\textbf{int16}
-\hangindent+75pt \hangafter=1
-\hspace*{12mm}
-Ein Datentyp für die vorzeichenbehaftete Darstellung von Ganzzahlen. Benötigt 16 Bit für die Zahlendarstellung.\\
-
 \textbf{Interface}
 \hangindent+75pt \hangafter=1
 \hspace*{6mm}
@@ -1074,9 +1072,6 @@ JavaScript ist eine Skriptsprache, die hauptsächlich für dynamisches HTML in W
 \hangindent+75pt \hangafter=1
 \hspace*{10mm}
 Laufzeit von Signalen, die sich aus der Differenz von dem Absenden und Ankommen von Daten ergibt.\\
-
-
-\newpage
 
 \begin{spacing}{0.95} 
 
@@ -1097,6 +1092,16 @@ Ein Echtzeitsystem, welches für schnelles Funktions-Prototyping in Fullpass- un
 \hangindent+75pt \hangafter=1 
 \hspace*{7.5mm}
 MySQL ist eines der weltweit am weitesten verbreiteten relationalen Datenbankverwaltungssysteme. Es bildet die Grundlage für viele dynamische Webauftritte.\\
+
+\textbf{MySQL/C++ - Connector}
+\hangindent+75pt \hangafter=1
+\\
+Diese Software ermöglicht einen Zugriff auf eine MySQL-Datenbank. Dabei wird ein Programm in der Sprache C++ eingebunden.\\
+
+\textbf{MySQL-Server}
+\hangindent+75pt \hangafter=1
+\\
+Der MySQL-Server verwaltet die einzelnen Datenbanken und ermöglicht es, mehrere von diesen nebeneinander führen zu können. Es ist daher gleichzusetzen mit dem Begriff "`MySQL-Datenbankverwaltungssystem".\\
 
 \textbf{Nutzersystem}
 \hangindent+75pt \hangafter=1 \\
@@ -1131,11 +1136,6 @@ Sampling ist Englisch für "`Abtastung". Hierbei wird ein kontinuierliches Signa
 \textbf{Service-Interface} \\
 \hangindent+75pt \hangafter=1 
 Ein Service Interface ist eine Mensch-Fahrzeug-Schnittstelle, die es dem Menschen ermöglichen soll auf alle wichtigen Daten zuzugreifen.\\
-
-\textbf{single}
-\hangindent+75pt \hangafter=1 
-\hspace*{12mm}
-Ein von der IEEE festgelegter Datentyp für die Darstellung von Gleitkommazahlen. Benötigt 32 Bit für die Zahlendarstellung. \\
 
 \textbf{Smartphone}
 \hangindent+75pt \hangafter=1 \\
@@ -1181,10 +1181,15 @@ Mit dem "`gezielt eingesetztem Drehmoment" (so die wörtliche Übersetzung von "
 \hspace*{13mm}
 UDP ist ein verbindungsloses Protokoll für Datenübertragungen zwischen zwei Anwendungen durch ein Netzwerk hindurch.\\
 
-\textbf{uint32}
-\hangindent+75pt \hangafter=1 
-\hspace*{11mm}
-Ein Datentyp für die vorzeichenlose Darstellung von ganzen Zahlen. Benötigt 32 Bit für die Zahlendarstellung.\\
+\textbf{UDP-Paket}
+\hangindent+75pt \hangafter=1
+\hspace*{0mm}
+UDP zerlegt die zu verschickenden Daten in einzelne Datenpakete, die dann mit Zusatzinformationen versehen verschickt werden.\\
+
+\textbf{UML}
+\hangindent+75pt \hangafter=1
+\hspace*{13mm}
+Unified Modeling Language (dt. Vereinheitlichte Modellierungssprache)  ist eine standardisierte, graphische Modellierungssprache, die zur Spezifikation, Aufbau und Konstruktion von Software genutzt wird. In ihr enthalten sind aufgrund der Vielfältigkeit von Softwareproblemen viele verschiedene Diagrammtypen, die sich zur Problembeschreibung beziehungsweise deren Lösung unterschiedlich gut eignen.\\
 
 \textbf{Umrichter}
 \hangindent+75pt \hangafter=1
@@ -1196,16 +1201,19 @@ Hierbei handelt es sich um einen Stromrichter, der aus einer Wechselspannung ein
 \hspace*{10.5mm}
 Universal Mobile Telecommunications System ist eine Übertragungstechnologie für die Mobilfunkübertragung von Daten (schneller als GPRS).\\
 
-\newpage
-
 \textbf{virtueller Server}
 \hangindent+75pt \hangafter=1
 \\
-Eine Servervirutalisierung ist eine Softwarelösung, um mehrere virtuelle Server (auch vServer) auf einer Servermaschine laufen zu lassen. Dabei wird nur vorgegeben, dass der virtuelle Server ein richtiger Server ist, der getrennt von den anderen Instanzen läuft. Man kann den virtuellen Server allerdings wie einen normalen behandeln. Bei dem unserem Team vorliegenden vServer wird vom Provider 1\&1 das Betriebssystem Cent OS 6 emuliert.\\
+Eine Servervirtualisierung ist eine Softwarelösung, um mehrere virtuelle Server (auch vServer) auf einer Servermaschine laufen zu lassen. Dabei wird nur vorgegeben, dass der virtuelle Server ein richtiger Server ist, der getrennt von den anderen Instanzen läuft. Man kann den virtuellen Server allerdings wie einen normalen behandeln. Bei dem unserem Team vorliegenden vServer wird vom Provider 1\&1 das Betriebssystem Cent OS 6 emuliert.\\
 
 %\textbf{Webspace}
 %\hangindent+65pt \hangafter=1
 %Als Webspace wird der bei einem Anbieter gemietete, aus dem Internet zugängliche Speicher bezeichnet, der für die Aufbewahrung von Daten und Webseiten verwendet wird.\\
+
+\textbf{Webseite}
+\hangindent+75pt \hangafter=1
+\hspace*{13mm}
+Eine Webseite ist ein meist interaktives Dokument, das auf einem Webserver liegt und aus dem Internet erreichbar ist.\\
 
 \textbf{weiche Echtzeit}
 \hangindent+75pt \hangafter=1 \\
