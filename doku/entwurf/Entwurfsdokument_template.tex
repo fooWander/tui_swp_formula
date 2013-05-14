@@ -234,7 +234,7 @@ Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeite
 
 \subsection{Embedded-PC}
 
-Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen, der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet, und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. Für die eigentliche Übertragung zum virtuellen Server über eine GPRS/UMTS-Verbindung ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig.		
+Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen, der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dazu dient, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. Für die eigentliche Übertragung zum virtuellen Server über eine GPRS/UMTS-Verbindung ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig.		
 
 \subsection{Virtueller Server}
 
@@ -242,14 +242,14 @@ Der virtuelle Server wird von dem Provider 1\&1 bereitgestellt und ist jederzeit
 
 \subsection{Webseite}
 
-Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Benutzer-oberfläche. Sie besitzt zwei Kernaufgaben: das Darstellen der Fahrzeugdaten, die sich in einer Datenbank auf dem Webserver befinden und das Vermeiden von Zugriffen unbefugter Personen auf eben diese Daten. Dies wird durch ein Benutzersystem erreicht, welches nur ausgewählten Personen den Zugang zu den Informationen der Datenbank ermöglicht und diesen somit die Darstellung oder den Export selbiger Informationen zulässt.
+Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Benutzer-oberfläche. Sie besitzt zwei Kernaufgaben: das Darstellen der Fahrzeugdaten, die sich in einer Datenbank auf dem Webserver befinden und das Vermeiden von Zugriffen unbefugter Personen auf ebendiese Daten. Dies wird durch ein Benutzersystem erreicht, welches nur ausgewählten Personen den Zugang zu den Informationen der Datenbank ermöglicht und diesen somit die Darstellung oder den Export selbiger Informationen zulässt.
 
 \newpage
 
 
 \subsection{Datenbanken}
 
-Auf dem virtuellen Server läuft ein MySQL-Server der unserem Projekt zur Verfügung steht. Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrzeugdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Skript erstellt.
+Auf dem virtuellen Server läuft ein MySQL-Server, der unserem Projekt zur Verfügung steht. Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrzeugdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Skript erstellt.
 
 \subsubsection{Benutzerdaten-Datenbank}
 
@@ -431,7 +431,7 @@ Der Terminator dient dazu, die Signale, deren Ausgänge nicht mit Blöcken o.Ä.
 
 \item[2)] \textit{Scope}
 
-Der Scope-Block stellt den Signalverlauf eines Signals über der Simulationszeit dar, weswegen er sich hervorragend dafür eignet, ein erstelltes Modell auf dessen Korrektheit zu überprüfen.
+Der Scope-Block stellt den Signalverlauf eines Signals über der Simulationszeit dar, weswegen er sich hervorragend dafür eignet ein erstelltes Modell auf dessen Korrektheit zu überprüfen.
 
 \item[3)] \textit{Display}
 
@@ -473,7 +473,7 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 \label{DSEncode32-Block}
 \end{figure} 
 
-Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Verbindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
+Der Encoder-Block DSEncode32 basiert auf einer sFunction, die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig, um die Daten für die Übertragung mittels einer UDP-Verbindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
 
 \item[2)] \textit{UDP-Setup-Block} 
 
@@ -495,7 +495,7 @@ Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung de
 \caption{UDP-Block zum Senden eines \textit{uint32}-Datenstroms}
 \end{figure}
 
-Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet.
+Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1.\\ Diesem wird ein Datenstrom vom Typ \textit{uint32} sowie die Größe der zu übermittelnden Daten übergeben. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet.
 
 \end{itemize}
 
@@ -681,12 +681,12 @@ Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reit
 
 \subsection{Registrierung}
 
-Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. \ref{Anmeldevorgang}): 
+Durch das Aufrufen der Seite des Team StarCraft e. V. lässt sich das Service-Interface für das Formula-Student-Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. \ref{Anmeldevorgang}): 
 
 \begin{itemize}
 
 \item \textit{Fall 1: Der Besucher ist noch nicht registriert.} \\
-Sollte er sich noch nicht registriert haben, kann er dies über einen Klick auf einen "`Hier registrieren"\ - Button tun. Der Besucher wird auf eine neue Seite weitergeleitet, die ihm mehrere Formularfelder zur Verfügung stellt. Neben dem Namen (Vor- und Nachname) wird er noch aufgefordert seine E-Mail-Adresse und ein Password eingeben. Das eingegebene Passwort muss aus mindestens 6 Zeichen (erlaubt sind Buchstaben in Groß- und /oder Kleinschreibung sowie Ziffern und Sonderzeichen, wobei von jeder Sorte mindestens eines enthalten sein muss) bestehen und muss einmal wiederholt werden. Anschließend kann der Besucher das Anmeldeformular durch einen Klick auf einen Button abschicken. Entsprechen alle Eingaben den Vorgaben werden die Formulardaten in die Nutzerdatenbank eingetragen, andernfalls wird der Nutzer aufgefordert sich mit anderen Daten zu registrieren. Dabei wird das Passwort in verschlüsselter Form und nicht im Klartext abgespeichert. Es wird zudem der Status des Benutzers auf "`nicht aktiviert"\ gesetzt. Anschließend wird eine E-Mail an den Vorstand generiert, die ihn auf die neue Registrierung im System hinweist. Der Vorstand erhält die Möglichkeit die Daten (mit Ausnahme des Passwortes) der registrierten Nutzer einzusehen und deren Status von "`nicht aktiviert"\ auf "`aktiviert"\ zu setzen oder einzelne Benutzer aus dem System zu löschen. Im Falle der Aktivierung des Accounts generiert das System eine E-Mail, die es an die eingetragene E-Mail-Adresse versendet und den Nutzer über die erfolgreiche Aktivierung seines Accounts hinweist.
+Sollte er sich noch nicht registriert haben, kann er dies über einen Klick auf einen "`Hier registrieren"\ - Button tun. Der Besucher wird auf eine neue Seite weitergeleitet, die ihm mehrere Formularfelder zur Verfügung stellt. Neben dem Namen (Vor- und Nachname) wird er noch aufgefordert seine E-Mail-Adresse und ein Passwort eingeben. Das eingegebene Passwort muss aus mindestens 6 Zeichen (erlaubt sind Buchstaben in Groß- und /oder Kleinschreibung sowie Ziffern und Sonderzeichen, wobei von jeder Sorte mindestens eines enthalten sein muss) bestehen und muss einmal wiederholt werden. Anschließend kann der Besucher das Anmeldeformular durch einen Klick auf einen Button abschicken. Falls alle Eingaben den Vorgaben entsprechen, werden die Formulardaten in die Nutzerdatenbank eingetragen. Andernfalls wird der Nutzer aufgefordert sich mit anderen Daten zu registrieren. Dabei wird das Passwort in verschlüsselter Form und nicht im Klartext abgespeichert. Es wird zudem der Status des Benutzers auf "`nicht aktiviert"\ gesetzt. Anschließend wird eine E-Mail an den Vorstand generiert, die ihn auf die neue Registrierung im System hinweist. Der Vorstand erhält die Möglichkeit die Daten (mit Ausnahme des Passwortes) der registrierten Nutzer einzusehen und deren Status von "`nicht aktiviert"\ auf "`aktiviert"\ zu setzen oder einzelne Benutzer aus dem System zu löschen. Im Falle der Aktivierung des Accounts generiert das System eine E-Mail, die es an die eingetragene E-Mail-Adresse versendet und den Nutzer über die erfolgreiche Aktivierung seines Accounts hinweist.
 
 \end{itemize}
 
@@ -695,7 +695,7 @@ Sollte er sich noch nicht registriert haben, kann er dies über einen Klick auf 
 \begin{itemize}
 
 \item \textit{Fall 2: Der Benutzer ist bereits angemeldet.} \\ 
-Zum Anmelden im System ruft der Nutzer die Login-Seite auf und wird anschließend aufgefordert seine E-Mail-Adresse und sein Passwort einzugeben. Durch einen Klick auf den Login-Button werden die eingegebenen Daten mit der Nutzerdatenbank verglichen. Sollte die Konstellation aus E-Mail-Adresse und dazugehörigem Passwort in der Nutzerdatenbank nicht entdeckt werden, gibt das System eine Fehlermeldung aus, die den Nutzer darauf hinweist, dass die von ihm eingegebenen Daten inkorrekt sind. Sollte das System hingegen einen passenden Eintrag finden, wird abhängig davon, ob der Nutzer bereits aktiviert ist, entweder eine Fehlermeldung (Fall "`nicht aktiviert") ausgegeben, oder der Nutzer auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet (Fall "`aktiviert"). Der Nutzer kann nun auf der Seite nach Belieben, aber unter Berücksichtung der ihm gegebenen Rechte, auf der Seite des Service Interfaces navigieren.
+Zum Anmelden im System ruft der Nutzer die Login-Seite auf und wird anschließend aufgefordert seine E-Mail-Adresse und sein Passwort einzugeben. Durch einen Klick auf den Login-Button werden die eingegebenen Daten mit der Nutzerdatenbank verglichen. Sollte die Konstellation aus E-Mail-Adresse und dazugehörigem Passwort in der Nutzerdatenbank nicht entdeckt werden, gibt das System eine Fehlermeldung aus, die den Nutzer darauf hinweist, dass die von ihm eingegebenen Daten inkorrekt sind. Sollte das System hingegen einen passenden Eintrag finden, wird abhängig davon, ob der Nutzer bereits aktiviert ist, entweder eine Fehlermeldung (Fall "`nicht aktiviert") ausgegeben oder der Nutzer auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet (Fall "`aktiviert"). Der Nutzer kann nun auf der Seite nach Belieben, aber unter Berücksichtung der ihm gegebenen Rechte, auf der Seite des Service Interfaces navigieren.
 Sollte in einer gewissen Zeitspanne keine Aktivität vom Benutzer erkannt werden, wird er automatisch aus dem System ausgeloggt.
 Ansonsten steht ihm die Möglichkeit nach getaner Arbeit offen, sich über den "`Logout"\ - Button auszuloggen und die Seite zu verlassen.
 
