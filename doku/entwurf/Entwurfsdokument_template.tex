@@ -286,7 +286,7 @@ Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erlei
 \item[1)] \textit{Constant-Block}
 
 Der Constant-Block ermöglicht die Generierung eines reellen oder komplexen konstanten Wertes. Je nach Modifikation der Einstellungen 
-des Blocks wird es zudem ermöglicht, neben einem konstanten Skalar einen konstanten Vektor oder eine konstante Matrix als Eingangssignal bereitzustellen. Als Datentypen für das Eingangssignal stehen die unter X.Y. aufgeführten Datentypen zur Verfügung.
+des Blocks wird es zudem ermöglicht, neben einem konstanten Skalar einen konstanten Vektor oder eine konstante Matrix als Eingangssignal bereitzustellen. Als Datentypen für das Eingangssignal stehen die unter A.1 aufgeführten Datentypen zur Verfügung.
 
 \item[2)] \textit{Repeating-Sequence-Interpolated - Block}
 
@@ -340,6 +340,7 @@ Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, 
 \includegraphics[scale = 0.45]{bus_gesamt}
 \caption[Bussystem]
 {Bussystem bestehend aus einem Bus Creator (l.) und einem Bus Selector (r.)}
+\label{Signal Routing}
 \end{figure}
 
 \newpage
@@ -352,7 +353,7 @@ Mit Hilfe eines solchen Bus Creators wird es ermöglicht, mehrere Signale (a, b,
 
 \item[2)] \textit{Bus Selector}
 
-Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Signale zu selektieren und diese gesondert weiterzuleiten. So werden wie in Abb. X.Y. dargestellt aus dem Gesamtsignal d\_gesamt wieder die Signale a, b und c herausgeführt. \\
+Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Signale zu selektieren und diese gesondert weiterzuleiten. So werden wie in Abb. \ref{Signal Routing} dargestellt aus dem Gesamtsignal d\_gesamt wieder die Signale a, b und c herausgeführt. \\
 
 \end{itemize}
 
@@ -365,11 +366,13 @@ Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Si
 \begin{minipage}[b]{2.5cm}
     \includegraphics[scale = 0.5]{convert}
     \caption[Convert-Block]{Convert-Block}
+    \label{Convert-Block}
   \end{minipage}
 \hspace*{3cm}  
   \begin{minipage}[b]{5 cm}
     \includegraphics[scale = 0.5]{bustovector}
-    \caption[Bus to Vector - Block]{Bus to Vector - Block}    
+    \caption[Bus to Vector - Block]{Bus to Vector - Block}
+    \label{Bus to Vector - Block}
   \end{minipage}
 \end{figure}
 
@@ -438,6 +441,7 @@ Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anze
 \centering
 \includegraphics[scale = 0.5]{gain}
 \caption[Gain-Block]{Gain-Block zur Verstärkung von Signalen}
+\label{Gain-Block}
 \end{figure}
 
 \item[1)] \textit{Gain-Block}
@@ -460,6 +464,7 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 \centering
 \includegraphics[scale = 1]{dsencode32}
 \caption{Block zur Erzeugung eines uint32-Datenstroms}
+\label{DSEncode32-Block}
 \end{figure} 
 
 Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Vebindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
@@ -503,13 +508,14 @@ Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt z
 
 \subsubsection{Struktur des Subsystems}
 
-Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird an den Vorgaben von Team StarCraft e.V. orientierend das Subsystem des Signalgenerators nochmals in einzelne Subsysteme unterteilt, die die verschieden Kategorien der jeweiligen Fahrzeugdaten repräsentieren (s. Abb. X.Y): \\
+Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird an den Vorgaben von Team StarCraft e.V. orientierend das Subsystem des Signalgenerators nochmals in einzelne Subsysteme unterteilt, die die verschieden Kategorien der jeweiligen Fahrzeugdaten repräsentieren (s. Abb. \ref{Subsysteme}): \\
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.85]{signalgen}
 \caption[Subsysteme des Signalgenerators]
 {Subsysteme des Signalgenerators nach den Kategorien der Fahrzeugdaten}
+\label{Subsysteme}
 \end{figure}
 
 \newpage
@@ -518,9 +524,10 @@ Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird
 \centering
 \includegraphics[scale = 0.65]{suballgemein}
 \caption[Subsystem "`Allgemeine Daten" des Signalgenerators]{Subsystem "`Allgemeine Daten"\ des Signalgenerators}
+\label{Signalgenerator}
 \end{figure}
 
-Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am Subsystem "`Daten Allgemein"\ erläutert - die Signalerzeugung (Geschwindigkeit, Gesamtspannung des Akkus und der Fahrzeugzeit) statt, wobei wie in X.Y dargestellt die Signalerzeugung mehrere Signale der gleichen "`Signalgruppe"\ wiederum zu Subsystemen (Notausfunktionen, Temperaturen und Gaswerte)  innerhalb des Subsystems "`Allgemeine Daten"\ zusammengefasst werden. Die eigentliche Erzeugung der Signale wird wie in Abbildung X.Y. gezeigt mittels Blöcken aus der Kategorie "`Sources" (s. X.Y) realisiert. Hierbei wird je nach Input entweder ein Constant-Block mit dem Datentyp \textit{boolean} zur Realisierung von Schaltern etc. (s. Notausfunktionen) oder ein Repeating Sequence Interpolated (RSI) - Block mit dem Datentyp \textit{single} zur Modellierung der restlichen Fahrzeugkomponenten verwendet (s. Gaswerte). Der Datentyp \textit{single} wurde deshalb gewählt, um auch wie von Team StarCraft e.V. gefordert als Input Werte mit mehreren Nachkommastellen realisieren zu können. Die auf analoge Weise zu X.Y mit Constant- oder RSI-Blöcken erzeugten 386 Input-Signale werden schließlich im Umkehrschluss zur obigen Beschreibung über mehrere Bussysteme und Subsysteme zu einem Busarray im Signalgenerator zusammengefasst, welcher nunmehr dieses an den Signalkollektor übergibt.   
+Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am Subsystem "`Daten Allgemein"\ erläutert - die Signalerzeugung (Geschwindigkeit, Gesamtspannung des Akkus und der Fahrzeugzeit) statt, wobei wie in Abbildung \ref{Signalgenerator} dargestellt die Signalerzeugung mehrere Signale der gleichen "`Signalgruppe"\ wiederum zu Subsystemen (Notausfunktionen, Temperaturen und Gaswerte)  innerhalb des Subsystems "`Allgemeine Daten"\ zusammengefasst werden. Die eigentliche Erzeugung der Signale wird wie in Abbildung \ref{Signalerzeugung_temp} gezeigt mittels Blöcken aus der Kategorie "`Sources" (s. Seite 8) realisiert. Hierbei wird je nach Input entweder ein Constant-Block mit dem Datentyp \textit{boolean} zur Realisierung von Schaltern etc. (s. Notausfunktionen) oder ein Repeating Sequence Interpolated (RSI) - Block mit dem Datentyp \textit{single} zur Modellierung der restlichen Fahrzeugkomponenten verwendet (s. Gaswerte). Der Datentyp \textit{single} wurde deshalb gewählt, um auch wie von Team StarCraft e.V. gefordert als Input Werte mit mehreren Nachkommastellen realisieren zu können. Die auf analoge Weise in Abbildung \ref{Signalerzeugung_temp} mit Constant- oder RSI-Blöcken erzeugten 386 Input-Signale werden schließlich im Umkehrschluss zur obigen Beschreibung über mehrere Bussysteme und Subsysteme zu einem Busarray im Signalgenerator zusammengefasst, welcher nunmehr dieses an den Signalkollektor übergibt.   
 
 \newpage
 
@@ -529,33 +536,36 @@ Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am
 \centering
 \includegraphics[scale = 0.65]{subsubtemp}
 \caption[Subsystem "`Temperaturen" \ ]{Signalerzeugung im Subsystem "'Temperaturen" \ }
+\label{Signalerzeugung_temp}
 \end{figure}
 
 \subsubsection{Config-Datei "`signalgenerator\_microautobox.m" }
 
-Um eine mögliche Änderung der Testsignale zu vereinfachen und eine übersichtliche Darstellung aller Testsignale zu realisieren, sorgt eine Konfigurationsdatei in Matlab für die Spezifizierung der Testsignale des Simulink-Modells. Die in dem *.m-File aufgeführten Parameter für die Zeit- und Funktionsvektoren dienen als Referenz für die signalerzeugenden Blöcke, welche über den Workspace von Matlab auf diese nach dem Ausführen der Datei zugreifen können (s. Abb. X.Y). Hierbei sollte jedoch beachtet werden, dass vor dem Kompilieren des Simulink-Modells und der Implementierung ebendiesem auf der MicroAutoBox II einmalig das *.m-File ausgeführt werden muss. Demzufolge muss auch nach dem Ändern von Parametern die Datei neu ausgeführt werden, damit bei einer erneuten Implementierung des Simulink-Modells die geänderten Parameter korrekt übernommen werden können. Zudem wurde jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen, um die Benennung der Parameter im *.m-File zu standardisieren. \\
+Um eine mögliche Änderung der Testsignale zu vereinfachen und eine übersichtliche Darstellung aller Testsignale zu realisieren, sorgt eine Konfigurationsdatei in Matlab für die Spezifizierung der Testsignale des Simulink-Modells. Die in dem *.m-File aufgeführten Parameter für die Zeit- und Funktionsvektoren dienen als Referenz für die signalerzeugenden Blöcke, welche über den Workspace von Matlab auf diese nach dem Ausführen der Datei zugreifen können (s. Abb. \ref{Ref. RSI}). Hierbei sollte jedoch beachtet werden, dass vor dem Kompilieren des Simulink-Modells und der Implementierung ebendiesem auf der MicroAutoBox II einmalig das *.m-File ausgeführt werden muss. Demzufolge muss auch nach dem Ändern von Parametern die Datei neu ausgeführt werden, damit bei einer erneuten Implementierung des Simulink-Modells die geänderten Parameter korrekt übernommen werden können. Zudem wurde jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen, um die Benennung der Parameter im *.m-File zu standardisieren. \\
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.55]{referenz}
 \caption[Referenzierung der Config-Datei]{Referenzierung im RSI-Block}
+\label{Ref. RSI}
 \end{figure}
 
 \newpage
 
 \subsection{Signalkollektor}
 
-Der Signalkollektor stellt wie bereits erwähnt das zweite große Subsystem innerhalb des Simulink-Modells dar. Er hat die Aufgabe, den vom Subsystem "`Signalgenerator"\ (s. X.Y) oder von einem späteren Subsystem von Team StarCraft e.V. erhaltenen Busarray wieder in die einzelnen Signale zu unterteilen, ggf. geeignet aufzubereiten und diese dann an eine UDP-Schnittstelle innerhalb des Subsystems weiterzuleiten, welche die erzeugten Testsignale bzw. Testdaten an den Embedded-PC sendet.  
+Der Signalkollektor stellt wie bereits erwähnt das zweite große Subsystem innerhalb des Simulink-Modells dar. Er hat die Aufgabe, den vom Subsystem "`Signalgenerator"\ (s. 3.2.2) oder von einem späteren Subsystem von Team StarCraft e.V. erhaltenen Busarray wieder in die einzelnen Signale zu unterteilen, ggf. geeignet aufzubereiten und diese dann an eine UDP-Schnittstelle innerhalb des Subsystems weiterzuleiten, welche die erzeugten Testsignale bzw. Testdaten an den Embedded-PC sendet.  
 
 \subsubsection{Struktur des Subsystems}
 
 Das Subsystem selbst besitzt die folgende innere Struktur: \\
-In einem ersten Schritt wird das Busarray wieder in den Kategorien A) - E) der Fahrzeugdaten entsprechenden Signalgruppen aufgeteilt und den fünf Subsystemen (vgl. Abb. X.Y) zugeführt. Dort werden die nunmehr fünf Busarrays wieder über mehrere Busselektoren und Subsysteme hinweg in die 368 einzelnen Signale aufgelöst, welche somit einzeln aufbereitet werden können (s. Abb. X.Y). \\
+In einem ersten Schritt wird das Busarray wieder in den Kategorien A) - E) der Fahrzeugdaten entsprechenden Signalgruppen aufgeteilt und den fünf Subsystemen (analog zu Abb. \ref{Subsysteme}) zugeführt. Dort werden die nunmehr fünf Busarrays wieder über mehrere Busselektoren und Subsysteme hinweg in die 368 einzelnen Signale aufgelöst, welche somit einzeln aufbereitet werden können (s. Abb. \ref{Signalaufbereitung_allg}). \\
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{collallgemein}
 \caption[Signalaufbereitung im Subsystem "`daten\_allgemein" \ ]{Signalaufbereitung im Subsystem "`daten\_allgemein" \ }
+\label{Signalaufbereitung_allg}
 \end{figure} 
 
 \newpage
@@ -567,11 +577,11 @@ Während der Aufbereitung der Signale werden die folgenden Schritte durchgeführ
 
 \item[1)] \textit{Verstärkung der Signale}
 
-Abhängig von der Anzahl der Nachkommastellen des Testsignals $n\ mit\ n>0$ wird dieses nun durch einen Gain-Block (s. X.Y) mit dem Faktor $10^n$ multipliziert, um für den aktuellen Wert des Testsignals jeweils einen ganzzahligen Wert zu erhalten, was zur Vereinheitlichung der zu übertragenden Daten beiträgt.
+Abhängig von der Anzahl der Nachkommastellen des Testsignals $n\ mit\ n>0$ wird dieses nun durch einen Gain-Block (s. Abb. \ref{Gain-Block}) mit dem Faktor $10^n$ multipliziert, um für den aktuellen Wert des Testsignals jeweils einen ganzzahligen Wert zu erhalten, was zur Vereinheitlichung der zu übertragenden Daten beiträgt.
 
 \item[2)] \textit{Konvertierung der Datentypen}
 
-Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks (s. X.Y) in den Datentyp \textit{int16} konvertiert, wodurch somit alle Signale den gleichen Datentyp aufweisen.  
+Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks (s. Abb. \ref{Convert-Block}) in den Datentyp \textit{int16} konvertiert, wodurch somit alle Signale den gleichen Datentyp aufweisen.  
 
 \item[3)] \textit{Umbenennung der Variablennamen}
 
@@ -579,15 +589,15 @@ Mit dem Convert-Block ist es zudem möglich, dem Ausgangssignal unabhängig vom 
 
 \end{itemize}  
 
-Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Encoder (s. X.Y) zugeführt.
+Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. Abb. \ref{Bus to Vector - Block}) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Encoder (s. Abb. \ref{DSEncode32-Block}) zugeführt.
 
 \subsection{Enkodierung}
 
-Die Enkodierung der Signale erfolgt in einem DSEncode32-Block von dSPACE (siehe ???). Dort werden die Signale so aufbereitet, dass sie über eine UDP-Schnittstelle übertragen werden können. 
+Die Enkodierung der Signale erfolgt in einem DSEncode32-Block von dSPACE (s. Seite 12). Dort werden die Signale so aufbereitet, dass sie über eine UDP-Schnittstelle übertragen werden können. 
 
 \subsection{UDP-Schnittstelle} 
 
-Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert (siehe ???). 
+Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert (s. Seite 12). 
 
 \section{Embedded-PC}
 
@@ -656,13 +666,14 @@ Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reit
 \centering
 \includegraphics[scale = 0.6]{anmeldungsvorgang}
 \caption[Aktivitätsdiagramm Anmeldevorgang]{Aktivitätsdiagramm des Anmeldevorgangs}
+\label{Anmeldevorgang}
 \end{figure}
 
 \newpage
 
 \subsection{Registrierung}
 
-Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. XY): 
+Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. \ref{Anmeldevorgang}): 
 
 \begin{itemize}
 
@@ -710,12 +721,13 @@ Der Vorstand besitzt als einziger Nutzer im System die Möglichkeit der Verwaltu
 
 \subsection{Nutzerdatenbank}
 
-Die Aufgabe der Nutzerdatenbank ist das Aufbewahren aller Informationen der registrierten Benutzer. Sie besteht aus drei Tabellen (s. X.Y), welche im Folgenden erläutert werden sollen:
+Die Aufgabe der Nutzerdatenbank ist das Aufbewahren aller Informationen der registrierten Benutzer. Sie besteht aus drei Tabellen (s. Abb. \ref{Nutzerdatenbank}), welche im Folgenden erläutert werden sollen:
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.6]{nutzerdatenbank} 
 \caption [Entwurf Nutzerdatenbank]{Entwurf der Nutzerdatenbank}
+\label{Nutzerdatenbank}
 \end{figure} 
 
 \newpage
@@ -734,12 +746,13 @@ Diese Tabelle speichert Nutzer-IDs und Zeitstempel und gibt somit Auskunft über
 
 \subsection{Fahrzeugdatenbank}
 
-Die zweite Datenbank beinhaltet die aus dem Fahrzeug entnommen Daten und bildet gleichzeitig auch die Schnittstelle zur Webseite. Sie besteht aus fünf Tabellen, die jeweils sämtliche Informationen einer Kategorie in sich kapseln (s. Abb. X.Y). Alle Tabellen besitzen über ihre Daten hinaus jeweils noch ein Feld, in dem sich ein Zeitstempel befindet und eines, das für Testzwecke Informationen speichern kann. Anhand des (im Fahrzeug erzeugten) Zeitstempels lassen sich die Datentupel der einzelnen Tabellen einander zuordnen. Im Folgenden werden die Informationen der einzelnen Tabellen erläutert:
+Die zweite Datenbank beinhaltet die aus dem Fahrzeug entnommen Daten und bildet gleichzeitig auch die Schnittstelle zur Webseite. Sie besteht aus fünf Tabellen, die jeweils sämtliche Informationen einer Kategorie in sich kapseln (s. Abb. \ref{Fahrzeugdatenbank}). Alle Tabellen besitzen über ihre Daten hinaus jeweils noch ein Feld, in dem sich ein Zeitstempel befindet und eines, das für Testzwecke Informationen speichern kann. Anhand des (im Fahrzeug erzeugten) Zeitstempels lassen sich die Datentupel der einzelnen Tabellen einander zuordnen. Im Folgenden werden die Informationen der einzelnen Tabellen erläutert:
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.43]{fahrzeugdatenbank} % Anm: neue Grafik!
 \caption[Entwurf Fahrzeugdatenbank]{Entwurf der Fahrzeugdatenbank}
+\label{Fahrzeugdatenbank}
 \end{figure} 
 
 \begin{itemize}
@@ -900,7 +913,7 @@ Die Dekodierung der vom Embedded-PC über eine GPRS/UMTS-Verbindung versendeten 
 \textbf{2. /TS020/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm}
-Es wird anschließend getestet, ob die nunmehr dekodierten Datensätze anschließend korrekt aufbereitet werden (für die Durchführung der Aufbereitung s. X.Y). \\
+Es wird anschließend getestet, ob die nunmehr dekodierten Datensätze anschließend korrekt aufbereitet werden (für die Durchführung der Aufbereitung s. 3.4.3). \\
 
 Hier bitte ergänzen....
 
@@ -918,7 +931,7 @@ I) In Matlab/Simulink werden Testwerte generiert, die außerhalb der vereinbarte
 \textbf{1. /TR010/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm}
-Das für die Plausibilitätsüberprüfung auf dem virtuellen Server zuständige Modul (s. X.Y) erkennt die Werte, welche außerhalb des Wertebereiches liegen und leitet diesbezüglich eine Warnmeldung an die Webseite weiter. \\
+Das für die Plausibilitätsüberprüfung auf dem virtuellen Server zuständige Modul (s. 3.4.3) erkennt die Werte, welche außerhalb des Wertebereiches liegen und leitet diesbezüglich eine Warnmeldung an die Webseite weiter. \\
 
 \textbf{2. /TR020/}
 \hangindent+95pt \hangafter=1
@@ -1331,7 +1344,7 @@ Darüber hinaus kennt Simulink noch den Datentyp
 Oldenbourg Verlag München
 
 
-\section{weitere Datentypen}
+\section{Datentypen (Titel überarbeiten)}
 
 Folgende Datentypen kommen in C++ oder MySQL-Datenbanken zu den bereits oben genannten Typen hinzu:
 
