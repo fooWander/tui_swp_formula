@@ -147,7 +147,7 @@
 
 \chapter{Einleitung}
 
-Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per UDP-Ethernetverbindung in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen, sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
+Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per UDP-Ethernetverbindung in einem \textit{uint32}-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen, sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
 
 %------------------------  Randbedingungen  ------------------------%
 
@@ -163,7 +163,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 %--------------DIAGRAMM------------EINFÜGEN----------!!!!!!!!!!---------
 
-\item Vor der Übertragung der Datenpakete von der MicroAutoBox II ist es notwendig diese in einen uint32-Datenstrom zu konvertieren, da man bei einer Kommunikation der MicroAutoBox II via UDP mit externer Peripherie auf speziell für diesen Einsatzzweck konzipierte Blöcke der Firma dSPACE angewiesen ist. \\
+\item Vor der Übertragung der Datenpakete von der MicroAutoBox II ist es notwendig diese in einen \textit{uint32}-Datenstrom zu konvertieren, da man bei einer Kommunikation der MicroAutoBox II via UDP mit externer Peripherie auf speziell für diesen Einsatzzweck konzipierte Blöcke der Firma dSPACE angewiesen ist. \\
 
 \end{itemize}
 
@@ -175,7 +175,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \begin{itemize}
 
-\item[1)] Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach einer möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
+\item[1)] Durch die Kodierung des \textit{uint32}-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach einer möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
 
 \item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL Connector/C++ erfolgen. Da dieser jedoch keine Unterstützung für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
 
@@ -463,7 +463,7 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 1]{dsencode32}
-\caption{Block zur Erzeugung eines uint32-Datenstroms}
+\caption{Block zur Erzeugung eines \textit{uint32}-Datenstroms}
 \label{DSEncode32-Block}
 \end{figure} 
 
@@ -484,7 +484,7 @@ Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung de
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 1]{ethernet_udp_send_block.png}
-\caption{UDP-Block zum Senden eines uint32-Datenstroms}
+\caption{UDP-Block zum Senden eines \textit{uint32}-Datenstroms}
 \end{figure}
 
 Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet.
@@ -642,7 +642,11 @@ Hier wird der in 3.3.2 hinzugefügte Zeitstempel abgefragt. Um veraltete Pakete 
 
 \subsection{Daten dekodieren}
 
+<<<<<<< HEAD
 Die in 3.2.4 enkodierten Daten werden in diesem Schritt wieder dekodiert und so aufbereitet, dass sie in die Datenbank geschrieben werden können. Der Algorithmus zur Dekodierung kann aus einer von dSPACE erstellten sFunction (C Code) DSDecode32 ermittelt werden. Treten beim Dekodiervorgang keine Fehler auf, gehen wir davon aus, dass das Paket korrekt übertragen wurde und führen bis auf das Prüfen der Wertebereiche keine weitere Fehlerkontrolle durch. Das Paket wird verworfen, falls Fehler auftreten. Eine Fehlerkorrektur findet nicht statt. Die Daten liegen anschließend in einem Vektor bestehend aus \textit{int16}-Werten vor. 
+=======
+Die in 3.2.4 enkodierten Daten werden in diesem Schritt wieder dekodiert und so aufbereitet, dass sie in die Datenbank geschrieben werden können. Der Algorithmus zur Dekodierung kann aus einer von dSPACE erstellten sFunction (C Code) DSDecode32 ermittelt werden. Treten beim Dekodiervorgang keine Fehler auf, gehen wir davon aus, dass das Paket korrekt übertragen wurde und führen bis auf das Prüfen der Wertebereiche keine weitere Fehlerkontrolle durch. Falls Fehler auftreten wird das Paket verworfen und eine Fehlermeldung in den entsprechenden Eintrag in der Datenbank geschrieben. Eine Fehlerkorrektur findet nicht statt. Die Daten liegen anschließend in einem Vektor bestehend aus \textit{int16}-Werten vor. 
+>>>>>>> ea92da67ef861e12ff57d7160ac048f25c510076
 
 \subsection{Daten verwerfen}
 
