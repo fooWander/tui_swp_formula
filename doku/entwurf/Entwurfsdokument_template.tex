@@ -175,7 +175,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \newpage
 
-\textbf{3) vServer}
+\textbf{3) Virtueller Server}
 
 \begin{itemize}
 
@@ -223,11 +223,11 @@ Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeite
 
 \subsection{Embedded-PC}
 
-Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets* über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets*. Für die eigentliche Übertragung zum virtuellen Server über UMTS* ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. 		
+Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Für die eigentliche Übertragung zum virtuellen Server über UMTS ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. 		
 
 \subsection{Virtueller Server}
 
-Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP* erreichbar. Darauf wird eine Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
+Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP erreichbar. Darauf wird eine Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
 
 \subsection{Webseite}
 
@@ -444,7 +444,7 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 
 \subsection{Signalgenerator}
 
-Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin per GPRS / UMTS an einen vServer gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
+Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin per GPRS / UMTS an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
 
 \subsubsection{Struktur des Subsystems}
 
@@ -545,7 +545,7 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Bloc
 \hfill  
   \begin{minipage}[b]{7.5cm}
     \includegraphics[scale = 1]{ethernet_udp_send_block.png}
-    \caption{UDP-Block zum Senden von uint32-Datenströmen}
+    \caption{UDP-Block zum Senden eines uint32-Datenstroms}
   \end{minipage}
 \end{figure}
 
@@ -554,7 +554,7 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Bloc
 \begin{figure}[t]
 \centering
 \includegraphics[scale = 0.70]{activity_embedded_pc.png}
-\caption{SOME TEXT}
+\caption{Aktivitätsdiagramm des Embedded-PCs}
 \end{figure} 
 
 \subsection{Empfangen der Fahrzeugdaten}
@@ -576,7 +576,7 @@ Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivit
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{activity_vserver.png}
-\caption{SOME TEXT}
+\caption{Aktivitätsdiagramm des virtuellen Servers}
 \end{figure}
 
 \subsection{Empfangen der Fahrzeugdaten}
