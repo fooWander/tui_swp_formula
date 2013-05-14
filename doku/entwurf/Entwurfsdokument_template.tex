@@ -133,7 +133,7 @@
 
 % --------------------- Inhaltsverzeichnis -----------------------%
 
-\begin{spacing}{0.88} 
+\begin{spacing}{0.86} 
 \tableofcontents
 %\setcounter{secnumdepth}{4} % Tiefere Gliederungsebene  
 \setcounter{tocdepth}{4} % Anzeige bis Gliederungsstufe 4
@@ -244,6 +244,9 @@ Der virtuelle Server wird von dem Provider 1\&1 bereitgestellt und ist jederzeit
 
 Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Benutzer-oberfläche. Sie besitzt zwei Kernaufgaben: das Darstellen der Fahrzeugdaten, die sich in einer Datenbank auf dem Webserver befinden und das Vermeiden von Zugriffen unbefugter Personen auf eben diese Daten. Dies wird durch ein Benutzersystem erreicht, welches nur ausgewählten Personen den Zugang zu den Informationen der Datenbank ermöglicht und diesen somit die Darstellung oder den Export selbiger Informationen zulässt.
 
+\newpage
+
+
 \subsection{Datenbanken}
 
 Auf dem virtuellen Server läuft ein MySQL-Server der unserem Projekt zur Verfügung steht. Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrzeugdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Skript erstellt.
@@ -269,12 +272,12 @@ Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erlei
 
 \begin{figure}[h]
   \centering
-\begin{minipage}[b]{3cm}
+\begin{minipage}[b]{2.5cm}
     \includegraphics[scale = 0.5]{constant}
     \caption[Constant-Block]{Constant-Block}
   \end{minipage}
-\hspace*{5cm}  
-  \begin{minipage}[b]{4 cm}
+\hspace*{3cm}  
+  \begin{minipage}[b]{5 cm}
     \includegraphics[scale = 0.5]{rsip}
     \caption[Repeating Sequence Interpolated - Block]
     {Repeating Sequence Interpolated - Block}     
@@ -283,6 +286,8 @@ Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erlei
 
 \vspace*{-5mm}
 
+\newpage
+
 \item[1)] \textit{Constant-Block}
 
 Der Constant-Block ermöglicht die Generierung eines reellen oder komplexen, konstanten Wertes. Je nach Modifikation der Einstellungen 
@@ -290,7 +295,7 @@ des Blocks wird es zudem ermöglicht, neben einem konstanten Skalar einen konsta
 
 \item[2)] \textit{Repeating-Sequence-Interpolated - Block}
 
-Im Gegensatz zum Costant-Block ermöglicht dieser Block die Erzeugung eines individuellen, sich periodisch wiederholenden und kontinuierlichen Signals mittels einer Interpolation anhand zuvor selbst definierter diskreter Zeit- und Funktionswerte, welche in zwei Vektoren gleicher Länge gespeichert sind.
+Im Gegensatz zum Costant-Block ermöglicht dieser Block die Erzeugung eines individuellen, sich periodisch wiederholenden und kontinuierlichen Signals mittels einer Interpolation anhand zuvor selbst definierter diskreter Zeit- und Funktionswerte, welche in zwei Vektoren gleicher Länge gespeichert sind. 
 
 \end{itemize}
 
@@ -333,6 +338,8 @@ Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, 
 
 \end{itemize}
 
+\newpage
+
 \subsubsection{Signal Routing}
 
 \begin{figure}[h]
@@ -343,7 +350,6 @@ Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, 
 \label{Signal Routing}
 \end{figure}
 
-\newpage
 
 \begin{itemize}
 
@@ -353,7 +359,7 @@ Mit Hilfe eines solchen Bus Creators wird es ermöglicht, mehrere Signale (a, b,
 
 \item[2)] \textit{Bus Selector}
 
-Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Signale zu selektieren und diese gesondert weiterzuleiten. So werden wie in Abb. \ref{Signal Routing} dargestellt aus dem Gesamtsignal d\_gesamt wieder die Signale a, b und c herausgeführt. \\
+Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Signale zu selektieren und diese gesondert weiterzuleiten. So werden wie in Abb. \ref{Signal Routing} dargestellt aus dem Gesamtsignal d\_gesamt wieder die Signale a, b und c herausgeführt. 
 
 \end{itemize}
 
@@ -376,6 +382,8 @@ Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Si
   \end{minipage}
 \end{figure}
 
+\vspace*{-3mm}
+
 \item[1)] \textit{Convert-Block}
 
 Mit dem Convert-Block können verschiedene Anforderungen realisiert werden:
@@ -393,8 +401,6 @@ Dies hat den Zweck, dass man nach dem Convert-Block unabhängig vom  angelegten 
 Dieser Block konvertiert ein virtuelles Bussignal in ein Vektorsignal. Hierbei ist es erforderlich, dass alle am zu konvertierenden Bus anliegenden Signale im Datentyp, Signaltyp und im gewählten Sampling-Verfahren übereinstimmen.
 
 \end{itemize}
-
-\newpage
 
 \subsubsection{Sinks}
 
@@ -469,7 +475,7 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 
 Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Verbindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
 
-\item[2)] \textit{UDP-Setup - Block} 
+\item[2)] \textit{UDP-Setup-Block} 
 
 \begin{figure}[h]
 \centering
@@ -479,7 +485,9 @@ Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implemen
 
 Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden.
 
-\item[3)] \textit{UDP-Send -Block}
+\newpage
+
+\item[3)] \textit{UDP-Send-Block}
 
 \begin{figure}[h]
 \centering
@@ -488,8 +496,6 @@ Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung de
 \end{figure}
 
 Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet.
-
-
 
 \end{itemize}
 
@@ -598,6 +604,8 @@ Die Enkodierung der Signale erfolgt in einem DSEncode32-Block von dSPACE (s. Sei
 \subsection{UDP-Schnittstelle} 
 
 Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert (s. Seite 12). 
+
+\newpage
 
 \section{Embedded-PC}
 
