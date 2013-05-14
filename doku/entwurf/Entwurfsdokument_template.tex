@@ -142,7 +142,11 @@
 
 \chapter{Einleitung}
 
+<<<<<<< HEAD
 Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per UDP-Ethernetverbindung in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen, sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
+=======
+Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per Ethernetverbindung mit Hilfe von UDP in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
+>>>>>>> edit_Sebastian
 
 
 %------------------------  Randbedingungen  ------------------------%
@@ -458,7 +462,15 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 
 \subsection{Signalgenerator}
 
-Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
+Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten. \vspace*{5mm}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{opt_autobox}
+\caption{Sequenzdiagramm des auf der MicroAutoBox II implementierten Simulink-Modells}
+%\label{Aktivitätsdiagramm Anmeldungsvorgang}
+\end{figure}
+  
 
 \newpage
 
@@ -1196,6 +1208,13 @@ Hierbei handelt es sich um einen Stromrichter, der aus einer Wechselspannung ein
 \hspace*{10.5mm}
 Universal Mobile Telecommunications System ist eine Übertragungstechnologie für die Mobilfunkübertragung von Daten (schneller als GPRS).\\
 
+<<<<<<< HEAD
+=======
+\textbf{virtueller Server}
+\hangindent+65pt \hangafter=1 \\
+Eine Servervirutalisierung ist eine Softwarelösung, um mehrere virtuelle Server (auch vServer) auf einer Servermaschine laufen zu lassen. Dabei wird nur vorgegeben, dass der virtuelle Server ein richtiger Server ist, der getrennt von den anderen Instanzen läuft. Man kann den virtuellen Server allerdings wie einen normalen behandeln. Bei dem unserem Team vorliegenden vServer wird vom Provider 1\&1 das Betriebssystem Cent OS 6 emuliert.\\
+
+>>>>>>> edit_Sebastian
 %\textbf{Webspace}
 %\hangindent+65pt \hangafter=1
 %Als Webspace wird der bei einem Anbieter gemietete, aus dem Internet zugängliche Speicher bezeichnet, der für die Aufbewahrung von Daten und Webseiten verwendet wird.\\
