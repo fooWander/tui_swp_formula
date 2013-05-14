@@ -142,8 +142,7 @@
 
 \chapter{Einleitung}
 
-Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per Ethernetverbindung (UDP) in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
-
+Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per UDP-Ethernetverbindung in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen, sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
 
 %------------------------  Randbedingungen  ------------------------%
 
@@ -171,9 +170,9 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \begin{itemize}
 
-\item[1)] Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach eine möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
+\item[1)] Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach einer möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
 
-\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch keine Unterstützugn für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
+\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch keine Unterstützung für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
 
 \end{itemize}
 
@@ -185,7 +184,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \begin{itemize}
 
-\item MYSQL, APACHE, PHP etc. MÜSSEN INSTALLIERT SEIN
+\item Auf dem virtuellen Server müssen die Dienste MySQL, Apache, PHP, sftp und ssh installiert und funktionstüchtig sein.  
 
 \end{itemize}
 
@@ -193,7 +192,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \begin{itemize}
 
-\item SERVER MUSS ONLINE SEIN
+\item Um auf die Webseite zugreifen zu können muss der virtuelle Server online sein.
 
 \end{itemize}
 
@@ -229,11 +228,11 @@ Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeite
 
 \subsection{Embedded-PC}
 
-Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Für die eigentliche Übertragung zum virtuellen Server über eine GPRS/UMTS-Verbindung ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. 		
+Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. Für die eigentliche Übertragung zum virtuellen Server über eine GPRS/UMTS-Verbindung ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig.		
 
 \subsection{Virtueller Server}
 
-Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP erreichbar. Darauf wird eine Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
+Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP-Adresse erreichbar. Darauf wird eine in der Programmiersprache C++ entwickelte Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
 
 \subsection{Webseite}
 
@@ -249,7 +248,7 @@ Diese Datenbank bildet die Grundlage für das optionale Benutzersystem, in ihr w
 
 \subsubsection{Fahrzeugdaten-Datenbank}
 
-Diese Datenbank bildet die Schnittstelle zwischen dem C++ - Programm, welches die Fahrzeugdaten aus den UDP-Paketen kontinuierlich entgegennimmt und in die Datenbank speichert sowie der Webseite, welche die Daten anzeigt. Die Tabelle soll mindestens zehn Stunden an Fahrdaten mit einem Intervall von einer Sekunde aufnehmen (36000 Datensätze), ältere Daten werden aus der Datenbank entfernt. Über die Webseite ist ein Export der Daten im CSV-Format möglich. 
+Diese Datenbank bildet die Schnittstelle zwischen dem C++ - Programm, welches die Fahrzeugdaten aus den UDP-Paketen kontinuierlich entgegennimmt und in die Datenbank speichert, sowie der Webseite, welche die Daten anzeigt. Die Tabelle soll mindestens zehn Stunden an Fahrdaten mit einem Intervall von einer Sekunde aufnehmen (36000 Datensätze), ältere Daten werden aus der Datenbank entfernt. Über die Webseite ist ein Export der Daten im CSV-Format möglich. 
 
 
 %------------------Feiner Rotz-----------------------------------------
@@ -282,7 +281,7 @@ Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erlei
 Der Constant-Block ermöglicht die Generierung eines reellen oder komplexen konstanten Wertes. Je nach Modifikation der Einstellungen 
 des Blocks wird es zudem ermöglicht, neben einem konstanten Skalar einen konstanten Vektor oder eine konstante Matrix als Eingangssignal bereitzustellen. Als Datentypen für das Eingangssignal stehen die unter X.Y. aufgeführten Datentypen zur Verfügung.
 
-\item[2)] \textit{"`Repeating-Sequence-Interpolated" \ - Block}
+\item[2)] \textit{Repeating-Sequence-Interpolated - Block}
 
 Im Gegensatz zum Costant-Block ermöglicht dieser Block die Erzeugung eines individuellen, sich periodisch wiederholenden und kontinuierlichen Signals mittels einer Interpolation anhand zuvor selbst definierter diskreter Zeit- und Funktionswerte, welche in zwei Vektoren gleicher Länge gespeichert sind.
 
@@ -380,7 +379,7 @@ Dies hat den Zweck, dass man nach dem Convert-Block unabhängig vom  angelegten 
 
 \end{itemize} 
 
-\item[2)] \textit{"`Bus to Vector"\ - Block}
+\item[2)] \textit{Bus to Vector - Block}
 
 Dieser Block konvertiert ein virtuelles Bussignal in ein Vektorsignal. Hierbei ist es erforderlich, dass alle am zu konvertierenden Bus anliegenden Signale im Datentyp, Signaltyp und im gewählten Sampling-Verfahren übereinstimmen.
 
@@ -452,13 +451,49 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 
 \item[1)] \textit{Encode32-Block}
 
-\item[2)] \textit{"`UDP Send" \ - Block} 
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{dsencode32}
+\caption{Block zur Erzeugung eines uint32-Datenstroms}
+\end{figure} 
+
+Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Vebindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
+
+\item[2)] \textit{UDP-Setup - Block} 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{ethernet_udp_setup_block}
+\caption{UDP-Block zur Einstellung der Netzwerkschnittstelle}
+\end{figure}
+
+Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden.
+
+\item[3)] \textit{UDP-Send -Block}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{ethernet_udp_send_block.png}
+\caption{UDP-Block zum Senden eines uint32-Datenstroms}
+\end{figure}
+
+Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet.
+
+
 
 \end{itemize}
 
 \subsection{Signalgenerator}
 
-Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
+Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten. \vspace*{5mm}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{opt_autobox}
+\caption{Sequenzdiagramm des auf der MicroAutoBox II implementierten Simulink-Modells}
+%\label{Aktivitätsdiagramm Anmeldungsvorgang}
+\end{figure}
+  
 
 \newpage
 
@@ -494,7 +529,7 @@ Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am
 
 \subsubsection{Config-Datei "`signalgenerator\_microautobox.m" }
 
-Um eine mögliche Änderung der Testsignale zu vereinfachen und eine übersichtliche Darstellung aller Testsignale zu realisieren, sorgt eine Konfigurationsdatei in Matlab für die Spezifizierung der Testsignale des Simulink-Modells. Die in dem *.m-File aufgeführten Parameter für die Zeit- und Funktionsvektoren dienen als Referenz für die signalerzeugenden Blöcke, welche über den Workspace von Matlab auf diese nach dem Ausführen der Datei zugreifen können (s. Abb. X.Y). Hierbei sollte jedoch beachtet werden, dass vor dem Compilieren des Simulink-Modells und der Implementierung ebendiesem auf der MicroAutoBox II einmalig das *.m-File ausgeführt werden muss. Demzufolge muss auch nach dem Ändern von Parametern die Datei neu ausgeführt werden, damit bei einer erneuten Implementierung des Simulink-Modells die geänderten Parameter korrekt übernommen werden können. Zudem wurde jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen, um die Benennung der Parameter im *.m-File zu standardisieren. \\
+Um eine mögliche Änderung der Testsignale zu vereinfachen und eine übersichtliche Darstellung aller Testsignale zu realisieren, sorgt eine Konfigurationsdatei in Matlab für die Spezifizierung der Testsignale des Simulink-Modells. Die in dem *.m-File aufgeführten Parameter für die Zeit- und Funktionsvektoren dienen als Referenz für die signalerzeugenden Blöcke, welche über den Workspace von Matlab auf diese nach dem Ausführen der Datei zugreifen können (s. Abb. X.Y). Hierbei sollte jedoch beachtet werden, dass vor dem Kompilieren des Simulink-Modells und der Implementierung ebendiesem auf der MicroAutoBox II einmalig das *.m-File ausgeführt werden muss. Demzufolge muss auch nach dem Ändern von Parametern die Datei neu ausgeführt werden, damit bei einer erneuten Implementierung des Simulink-Modells die geänderten Parameter korrekt übernommen werden können. Zudem wurde jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen, um die Benennung der Parameter im *.m-File zu standardisieren. \\
 
 \begin{figure}[h]
 \centering
@@ -543,37 +578,13 @@ Mit dem Convert-Block ist es zudem möglich, dem Ausgangssignal unabhängig vom 
 
 Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Encoder (s. X.Y) zugeführt.
 
+\subsection{Enkodierung}
 
-\subsection{Encoder-Block}
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale = 1]{dsencode32}
-\caption{Block zur Erzeugung eines uint32-Datenstroms}
-\end{figure} 
-
-Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Vebindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
-
-\newpage
+Die Enkodierung der Signale erfolgt in einem DSEncode32-Block von dSPACE (siehe ???). Dort werden die Signale so aufbereitet, dass sie über eine UDP-Schnittstelle übertragen werden können. 
 
 \subsection{UDP-Schnittstelle} 
 
-Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden. Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet. \\
- 
-\begin{figure}[h]
-  \centering
-\begin{minipage}[b]{7.5cm}
-    \includegraphics[scale = 1]{ethernet_udp_setup_block}
-    \caption{UDP-Block zur Einstellung der Netzwerkschnittstelle}
-  \end{minipage}
-\hfill  
-  \begin{minipage}[b]{7.5cm}
-    \includegraphics[scale = 1]{ethernet_udp_send_block.png}
-    \caption{UDP-Block zum Senden eines uint32-Datenstroms}
-  \end{minipage}
-\end{figure}
-
-\newpage
+Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert (siehe ???). 
 
 \section{Embedded-PC}
 
@@ -597,7 +608,7 @@ Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - n
 
 \section{Virtueller Server}
 
-Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert. Innerhalb des Programmes werden die Paketdaten in einem Datenobjekt gespeichert, in dem bereits grundlegende Funktionen (zum Bsp. Abfrage des Embedded-PC-Zeitstempels) implementiert sind. Das Objekt wird in den einzelnen Schritten so aufbereitet, dass es letztendlich in die Datenbank geschrieben werden kann. Zur besseren Fehlerbehandlung in der Implementierungs- und Testphase wird eine Logging-Klasse eingerichtet. Diese wird im fertigen Programm nicht mehr zur Verfügung stehen, die Aktivierung erfolgt während der Kompilierung über Makros. \\
+Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert. Innerhalb des Programmes werden die Paketdaten in einem Datenobjekt gespeichert, in dem bereits grundlegende Funktionen (z.B. Abfrage des Embedded-PC-Zeitstempels) implementiert sind. Das Objekt wird in den einzelnen Schritten so aufbereitet, dass es letztendlich in die Datenbank geschrieben werden kann. Zur besseren Fehlerbehandlung in der Implementierungs- und Testphase wird eine Logging-Klasse eingerichtet. Diese wird im fertigen Programm nicht mehr zur Verfügung stehen, die Aktivierung erfolgt während der Kompilierung über Makros. \\
 
 \begin{figure}[h]
 \centering
@@ -633,7 +644,7 @@ Die Anfragen an die MySQL-Datenbank erfolgen mittels des MySQL Connector/C++. Da
 
 \section{Webseite}
 
-Anhand des nachfolgenden Diagramms soll das Verhalten der Webseite exemplarisch dargestellt werden. Ein registrierter Benutzer ruft in einem Webbrowser die Seite des Service Interfaces auf und loggt sich anschließend über das ihm angezeigte Formular im System ein. Anschließend wird er auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet. Über das Menü steht ihm die Auswahl frei, sich die nach unterschiedlichen Kategorien sortierten Fahrzeugdaten anzeigen zu lassen. Am Beispiel der Akkudaten ruft der Nutzer im Menü über einen Klick auf den Reiter "`Akkudaten"\ die Seite akkudaten.php auf. Dieses PHP-Skript öffnet eine MySQL-Verbindung und führt nach einem erfolgreichen Verbindungsaufbau eine MySQL-Anfrage aus, die die aktuellsten Akkudaten aus der Fahrzeugdatenbank ermittelt und schließt die Verbindung anschließend wieder. Diese ermittelten Daten werden nun auf unterschiedlichster Art und Weise auf der Webseite dargestellt, sei es nun zum Beispiel als Tabelle oder als einzeln hervorgehobene und gekennzeichnete Sonderinformationen.
+Anhand des nachfolgenden Diagramms soll das Verhalten der Webseite exemplarisch dargestellt werden. Ein registrierter Benutzer ruft in einem Webbrowser die Seite des Service Interfaces auf und loggt sich anschließend über das ihm angezeigte Formular im System ein. Anschließend wird er auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet. Über das Menü steht ihm die Auswahl frei, sich die nach unterschiedlichen Kategorien sortierten Fahrzeugdaten anzeigen zu lassen. Am Beispiel der Akkudaten ruft der Nutzer im Menü über einen Klick auf den Reiter "`Akkudaten"\ die Seite akkudaten.php auf. Dieses PHP-Skript öffnet eine MySQL-Verbindung und führt nach einem erfolgreichen Verbindungsaufbau eine MySQL-Anfrage aus, die die aktuellsten Akkudaten aus der Fahrzeugdatenbank ermittelt und schließt die Verbindung anschließend wieder. Diese ermittelten Daten werden nun auf unterschiedlichster Art und Weise auf der Webseite dargestellt, sei es nun z.B. als Tabelle oder als einzeln hervorgehobene und gekennzeichnete Sonderinformationen.
 Ein JavaScript, welches gleichzeitig im Hintergrund läuft, sorgt dafür, dass die Daten alle $1000 ms$ aktualisiert werden ohne die komplette Seite vollständig neu zu laden. Dabei - und unter Berufung auf die weichen Echtzeitanforderungen - wird die Aktualisierung mittels Timeout realisiert. Anstelle den Server alle $1000 ms$ aufzufordern neue Daten zu schicken, wird nach dem Erhalt der Daten $1000 ms$ gewartet bis eine neue Anfrage gestartet wird. Dies hat zum Vorteil, dass der Server nicht unnötig belastet wird.
 Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reiters im Menü, sich andere Fahrzeugdaten darstellen zu lassen. Das Verhalten läuft analog ab. Vor dem Verlassen wird der Benutzer angehalten sich auszuloggen und seine aktuelle Sitzung somit zu beenden. \\
 
@@ -747,7 +758,7 @@ Alle Daten, die den Motor und Umrichter betreffen, werden hier gespeichert. Info
 Alle Informationen, die die dynamischen Aspekte des Fahrzeugs betreffen, sind hier enthalten. Dies sind beispielsweise die Geschwindigkeiten, Be\-schleunigungen und Gierraten jeweils in x-, y- und z-Richtung, genau wie die Drehzahlen jedes einzelnen Rads. Desweiteren finden sich hier auch Informationen zu den Bremsen, wie Bremsdruck, -kraft und -position wieder. Auch der Lenkwinkel, der Federweg und die Gaspedalstellung ergänzen das Set der Daten.
 
 \item[4)] \textit{allgemeine\_fahrzeugdaten:} 
-Die wichtigsten und allgemeinsten Informationen des Fahrzeugs befinden sich in dieser Tabelle. Neben den wichtigen Informationen wie zum Beispiel den Status der einzelnen Notaus-Schalter des Fahrzeuges, finden sich hier die Werte der drei wichtigsten Temperatursensoren, die aktuelle Fahrgeschwindigkeit, die Gaswerte der beiden Elektromotoren sowie die Gesamtspannung des Akkus und die aktuelle Fahrzeugzeit.
+Die wichtigsten und allgemeinsten Informationen des Fahrzeugs befinden sich in dieser Tabelle. Neben den wichtigen Informationen wie z.B. den Status der einzelnen Notaus-Schalter des Fahrzeuges, finden sich hier die Werte der drei wichtigsten Temperatursensoren, die aktuelle Fahrgeschwindigkeit, die Gaswerte der beiden Elektromotoren sowie die Gesamtspannung des Akkus und die aktuelle Fahrzeugzeit.
 
 \item[5)] \textit{akkudaten:} Dies ist die letzte und zugleich auch die umfangreichste Tabelle. \\Hier befinden sich sämtliche Informationen über die im Fahrzeug verbauten Akkus. Neben globaleren Informationen wie die maximale und minimale Zellspannung und dem Strom bzw. der Spannung zum Ladegerät, finden sich die Zelldaten aller 144 Akkuzellen sowie die Temperaturen aller 48 Temperatursensoren wieder. Das Feld "`Balancing"\ gibt darüber hinaus Informationen darüber, ob für die einzelnen Zellen die Balancing-Option aktiviert oder deaktiviert ist.
 
@@ -773,7 +784,7 @@ Es wird geprüft, dass alle Daten korrekt gebündelt und an die Ethernet-Schnitt
 
 \textbf{2. /TE120/TE300/}\\
 \hangindent+95pt \hangafter=1
-Im Embedded-PC wird der Empfang der Datenpakte überprüft.\\
+Am Embedded-PC wird der Empfang der Datenpakte überprüft.\\
 
 \textbf{3. /TE100/}
 \hangindent+95pt \hangafter=1
@@ -825,7 +836,7 @@ Bei einem nicht registrierten Nutzer schlägt der Anmeldeversuch fehl und eine F
 \textbf{3. /TW451/}
 \hangindent+95pt \hangafter=1
 \hspace*{5.5mm}
-Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an, ist aber noch nicht freigeschaltet (Status-Bit $==$ 0): Der Anmeldeversuch schlägt fehl und eine Fehlermeldung wird ausgegeben.(Nutzer noch nicht aktiviert)\\
+Ein registrierter Nutzer meldet sich mit E-Mail und Passwort an, ist aber noch nicht freigeschaltet (Status-Bit $==$ 0): Der Anmeldeversuch schlägt fehl und eine Fehlermeldung wird ausgegeben.(Nutzer noch nicht aktiviert)\\
  
 \textbf{4. /TW452/}
 \hangindent+95pt \hangafter=1
@@ -931,12 +942,12 @@ Eine Registrierung mit E-Mail und Passwort, welches weniger als 6 Zeichen aufwei
 \textbf{2. /TR030/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm}
-Bei einer Anmeldung mit inkorrekter Email-Adresse und / oder falschem Passwort soll fehlschlagen und eine Fehlermeldung ausgegeben werden. \\
+Bei einer Anmeldung mit inkorrekter Email-Adresse und/oder falschem Passwort soll fehlschlagen und eine Fehlermeldung ausgegeben werden. \\
 
 \textbf{3. /TR040/}
 \hangindent+95pt \hangafter=1
 \hspace*{6.5mm}
-Meldet sich ein noch angemeldeter Nutzer erneut an, soll dies fehlschlagen eine Statusmeldung über den aktuellen Zustand (angemeldet / nicht angemeldet) des Nutzers ausgegeben werden. \\
+Meldet sich ein noch angemeldeter Nutzer erneut an, soll dies fehlschlagen und eine Statusmeldung über den aktuellen Zustand (angemeldet / nicht angemeldet) des Nutzers ausgegeben werden. \\
 
 \textbf{4. /TR050/}
 \hangindent+95pt \hangafter=1
@@ -1033,7 +1044,7 @@ Ein modular aufgebauter Industrierechner, dessen besonderer Fokus auf Kompakthei
 \hspace*{6.5mm}
 Die Gierrate bezeichnet die Geschwindigkeit der Drehung eines Fahrzeugs um die Hochachse.\\
 
-\textbf{GPRS}
+\textbf{GRPS}
 \hangindent+75pt \hangafter=1
 \hspace*{10.5mm}
 Der General Packet Radio Service ist eine Übertragungstechnologie für die Mobilfunkübertragung von Daten (langsamer als UMTS).\\
