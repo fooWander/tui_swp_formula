@@ -451,7 +451,35 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 
 \item[1)] \textit{Encode32-Block}
 
-\item[2)] \textit{UDP-Send - Block} 
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{dsencode32}
+\caption{Block zur Erzeugung eines uint32-Datenstroms}
+\end{figure} 
+
+Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Vebindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
+
+\item[2)] \textit{UDP-Setup - Block} 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{ethernet_udp_setup_block}
+\caption{UDP-Block zur Einstellung der Netzwerkschnittstelle}
+\end{figure}
+
+Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden.
+
+\item[3)] \textit{UDP-Send -Block}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{ethernet_udp_send_block.png}
+\caption{UDP-Block zum Senden eines uint32-Datenstroms}
+\end{figure}
+
+Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet.
+
+
 
 \end{itemize}
 
@@ -550,37 +578,13 @@ Mit dem Convert-Block ist es zudem möglich, dem Ausgangssignal unabhängig vom 
 
 Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Encoder (s. X.Y) zugeführt.
 
+\subsection{Enkodierung}
 
-\subsection{Encoder-Block}
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale = 1]{dsencode32}
-\caption{Block zur Erzeugung eines uint32-Datenstroms}
-\end{figure} 
-
-Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Vebindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
-
-\newpage
+Die Enkodierung der Signale erfolgt in einem DSEncode32-Block von dSPACE (siehe ???). Dort werden die Signale so aufbereitet, dass sie über eine UDP-Schnittstelle übertragen werden können. 
 
 \subsection{UDP-Schnittstelle} 
 
-Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden. Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet. \\
- 
-\begin{figure}[h]
-  \centering
-\begin{minipage}[b]{7.5cm}
-    \includegraphics[scale = 1]{ethernet_udp_setup_block}
-    \caption{UDP-Block zur Einstellung der Netzwerkschnittstelle}
-  \end{minipage}
-\hfill  
-  \begin{minipage}[b]{7.5cm}
-    \includegraphics[scale = 1]{ethernet_udp_send_block.png}
-    \caption{UDP-Block zum Senden eines uint32-Datenstroms}
-  \end{minipage}
-\end{figure}
-
-\newpage
+Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert (siehe ???). 
 
 \section{Embedded-PC}
 
