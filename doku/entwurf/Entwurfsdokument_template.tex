@@ -62,7 +62,12 @@
 
 % Buchstabenglättung am Rand:
   
-\usepackage {microtype}  
+\usepackage {microtype} 
+
+% Bildunterschriften zentrieren:
+
+%\usepackage{caption}
+%\captionsetup{margin=10pt,font=small,labelfont=bf, justification = centering}
 
 %-------------------------------------------------------------------%
 
@@ -214,12 +219,13 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \section{Architekturmuster und Systemzerlegung}
 
-Aufgrund der Komplexität des Systems, die aus einer Vielzahl an unterschiedlichen Plattformen und Funktionen resultiert, lässt sich die Architektur des Systems keinem vorgegebenen Architekturmuster zuordnen. Um dennoch einen Überblick über die einzelnen Systemkomponenten zu ermöglichen, wurden diese in dem folgenden Verteilungsdiagramm modelliert.
+Aufgrund der Komplexität des Systems, die aus einer Vielzahl an unterschiedlichen Plattformen und Funktionen resultiert, lässt sich die Architektur des Systems keinem vorgegebenen Architekturmuster zuordnen. Um dennoch einen Überblick über die einzelnen Systemkomponenten zu ermöglichen, wurden diese in dem folgenden Verteilungsdiagramm modelliert. \\
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.7]{verteilungsdiagramm.png}
-\caption{Gesamtsystem als Verteilungsdiagramm}
+\caption[Verteilungsdiagramm Gesamtsystem]{Gesamtsystem als Verteilungsdiagramm} 
+
 \end{figure}
 
 \subsection{dSPACE MicroAutoBox II}
@@ -263,14 +269,15 @@ Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erlei
 
 \begin{figure}[h]
   \centering
-\begin{minipage}[b]{2.5cm}
+\begin{minipage}[b]{3cm}
     \includegraphics[scale = 0.5]{constant}
-    \caption{Constant-Block \label{Constant-Block }}
+    \caption[Constant-Block]{Constant-Block}
   \end{minipage}
-\hspace*{3cm}  
-  \begin{minipage}[b]{5 cm}
+\hspace*{5cm}  
+  \begin{minipage}[b]{4 cm}
     \includegraphics[scale = 0.5]{rsip}
-    \caption{Repeating Sequence Interpolated - Block \label{Repeating Sequence Interpolated - Block}}
+    \caption[Repeating Sequence Interpolated - Block]
+    {Repeating Sequence Interpolated - Block}     
   \end{minipage}
 \end{figure}
 
@@ -297,17 +304,17 @@ Im Gegensatz zum Costant-Block ermöglicht dieser Block die Erzeugung eines indi
   \centering
   \begin{minipage}[b]{2.5 cm}
     \includegraphics[scale = 0.6]{inport}
-    \caption{Inport-Block \label{Inport}}
+    \caption[Inport-Block]{Inport-Block}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{2.5 cm}
     \includegraphics[scale = 0.6]{outport}
-    \caption{Outport-Block \label{Outport}}
+    \caption[Outport-Block]{Outport-Block}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{3.5 cm}
     \includegraphics[scale = 0.5]{subsystem}
-    \caption{Subsystem \label{Subsystem}}
+    \caption[Subsystem]{Subsystem}
   \end{minipage}  
 \end{figure}
 
@@ -326,14 +333,13 @@ Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, 
 
 \end{itemize}
 
-
-
 \subsubsection{Signal Routing}
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.45]{bus_gesamt}
-\caption{Bussystem bestehend aus einem Bus Creator (l.) und einem Bus Selector (r.)}
+\caption[Bussystem]
+{Bussystem bestehend aus einem Bus Creator (l.) und einem Bus Selector (r.)}
 \end{figure}
 
 \newpage
@@ -358,12 +364,12 @@ Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Si
   \centering
 \begin{minipage}[b]{2.5cm}
     \includegraphics[scale = 0.5]{convert}
-    \caption{Convert-Block \label{Convert-Block}}
+    \caption[Convert-Block]{Convert-Block}
   \end{minipage}
 \hspace*{3cm}  
   \begin{minipage}[b]{5 cm}
     \includegraphics[scale = 0.5]{bustovector}
-    \caption{Bus to Vector - Block \label{Bus to Vector - Block}}
+    \caption[Bus to Vector - Block]{Bus to Vector - Block}    
   \end{minipage}
 \end{figure}
 
@@ -387,7 +393,6 @@ Dieser Block konvertiert ein virtuelles Bussignal in ein Vektorsignal. Hierbei i
 
 \newpage
 
-
 \subsubsection{Sinks}
 
 \begin{itemize}
@@ -396,17 +401,17 @@ Dieser Block konvertiert ein virtuelles Bussignal in ein Vektorsignal. Hierbei i
   \centering
   \begin{minipage}[b]{2.75 cm}
     \includegraphics[scale = 0.6]{terminator}
-    \caption{Terminator-Block \label{Terminator-Block}}
+    \caption[Terminator-Block]{Terminator-Block}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{2.5 cm}
     \includegraphics[scale = 0.6]{scope}
-    \caption{Scope \label{Scope}}
+    \caption[Scope]{Scope}
   \end{minipage}
   \hfill
   \begin{minipage}[b]{3.5 cm}
     \includegraphics[scale = 0.6]{display}
-    \caption{Display \label{Display}}
+    \caption[Display]{Display}
   \end{minipage}  
 \end{figure}
 
@@ -432,7 +437,7 @@ Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anze
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.5]{gain}
-\caption{Gain-Block zur Verstärkung von Signalen}
+\caption[Gain-Block]{Gain-Block zur Verstärkung von Signalen}
 \end{figure}
 
 \item[1)] \textit{Gain-Block}
@@ -490,10 +495,9 @@ Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt z
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 1]{opt_autobox}
-\caption{Sequenzdiagramm des auf der MicroAutoBox II implementierten Simulink-Modells}
-%\label{Aktivitätsdiagramm Anmeldungsvorgang}
+\caption[Sequenzdiagramm Simulink-Modell]
+{Sequenzdiagramm des auf der MicroAutoBox II implementierten Simulink-Modells}
 \end{figure}
-  
 
 \newpage
 
@@ -504,7 +508,8 @@ Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.85]{signalgen}
-\caption{Subsysteme des Signalgenerators nach den Kategorien der Fahrzeugdaten}
+\caption[Subsysteme des Signalgenerators]
+{Subsysteme des Signalgenerators nach den Kategorien der Fahrzeugdaten}
 \end{figure}
 
 \newpage
@@ -512,7 +517,7 @@ Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.65]{suballgemein}
-\caption{Subsystem "`Allgemeine Daten"\ im Signalgenerator}
+\caption[Subsystem "`Allgemeine Daten" des Signalgenerators]{Subsystem "`Allgemeine Daten"\ des Signalgenerators}
 \end{figure}
 
 Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am Subsystem "`Daten Allgemein"\ erläutert - die Signalerzeugung (Geschwindigkeit, Gesamtspannung des Akkus und der Fahrzeugzeit) statt, wobei wie in X.Y dargestellt die Signalerzeugung mehrere Signale der gleichen "`Signalgruppe"\ wiederum zu Subsystemen (Notausfunktionen, Temperaturen und Gaswerte)  innerhalb des Subsystems "`Allgemeine Daten"\ zusammengefasst werden. Die eigentliche Erzeugung der Signale wird wie in Abbildung X.Y. gezeigt mittels Blöcken aus der Kategorie "`Sources" (s. X.Y) realisiert. Hierbei wird je nach Input entweder ein Constant-Block mit dem Datentyp \textit{boolean} zur Realisierung von Schaltern etc. (s. Notausfunktionen) oder ein Repeating Sequence Interpolated (RSI) - Block mit dem Datentyp \textit{single} zur Modellierung der restlichen Fahrzeugkomponenten verwendet (s. Gaswerte). Der Datentyp \textit{single} wurde deshalb gewählt, um auch wie von Team StarCraft e.V. gefordert als Input Werte mit mehreren Nachkommastellen realisieren zu können. Die auf analoge Weise zu X.Y mit Constant- oder RSI-Blöcken erzeugten 386 Input-Signale werden schließlich im Umkehrschluss zur obigen Beschreibung über mehrere Bussysteme und Subsysteme zu einem Busarray im Signalgenerator zusammengefasst, welcher nunmehr dieses an den Signalkollektor übergibt.   
@@ -523,9 +528,8 @@ Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.65]{subsubtemp}
-\caption{Signalerzeugung im Subsystem "'Temperaturen"}
+\caption[Subsystem "`Temperaturen" \ ]{Signalerzeugung im Subsystem "'Temperaturen" \ }
 \end{figure}
-
 
 \subsubsection{Config-Datei "`signalgenerator\_microautobox.m" }
 
@@ -534,11 +538,10 @@ Um eine mögliche Änderung der Testsignale zu vereinfachen und eine übersichtl
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.55]{referenz}
-\caption{Referenzierung im RSI-Block}
+\caption[Referenzierung der Config-Datei]{Referenzierung im RSI-Block}
 \end{figure}
 
 \newpage
-
 
 \subsection{Signalkollektor}
 
@@ -552,7 +555,7 @@ In einem ersten Schritt wird das Busarray wieder in den Kategorien A) - E) der F
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{collallgemein}
-\caption{Signalaufbereitung im Subsystem "`daten\_allgemein"}
+\caption[Signalaufbereitung im Subsystem "`daten\_allgemein" \ ]{Signalaufbereitung im Subsystem "`daten\_allgemein" \ }
 \end{figure} 
 
 \newpage
@@ -591,7 +594,7 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert (siehe ??
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{activity_embedded_pc.png}
-\caption{Aktivitätsdiagramm des Embedded-PCs}
+\caption[Aktivitätsdiagramm Embedded-PC]{Aktivitätsdiagramm des Embedded-PCs}
 \end{figure} 
 
 \subsection{Empfangen der Fahrzeugdaten}
@@ -613,9 +616,8 @@ Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivit
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{activity_vserver.png}
-\caption{Aktivitätsdiagramm des virtuellen Servers}
+\caption[Aktivitätsdiagramm vServer]{Aktivitätsdiagramm des virtuellen Servers}
 \end{figure}
-
 
 \newpage
 
@@ -653,17 +655,14 @@ Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reit
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.6]{anmeldungsvorgang}
-\caption{Aktivitätsdiagramm des Anmeldungsvorgangs}
-%\label{Aktivitätsdiagramm Anmeldungsvorgang}
+\caption[Aktivitätsdiagramm Anmeldevorgang]{Aktivitätsdiagramm des Anmeldevorgangs}
 \end{figure}
 
 \newpage
 
 \subsection{Registrierung}
 
-Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. XY):
-
- 
+Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. XY): 
 
 \begin{itemize}
 
@@ -690,8 +689,7 @@ Ansonsten steht ihm die Möglichkeit nach getaner Arbeit offen, sich über den "
 \begin{figure}
 \centering
 \includegraphics[scale = 0.6]{passwort_vergessen_vorgang}
-\caption{Aktivitätsdiagramm des "`Passwort vergessen"\ - Vorgangs}
-%\label{Aktivitätsdiagramm "`Passwort vergessen"\ - Vorgang}
+\caption[Aktivitätsdiagramm Passwort vergessen - Vorgang] {Aktivitätsdiagramm des "`Passwort vergessen"\ - Vorgangs}
 \end{figure} 
 
 \begin{itemize}
@@ -710,19 +708,17 @@ Der Vorstand besitzt als einziger Nutzer im System die Möglichkeit der Verwaltu
 
 \section{Datenbanken}
 
-\subsection{Benutzerdaten-Datenbank}
+\subsection{Nutzerdatenbank}
 
 Die Aufgabe der Nutzerdatenbank ist das Aufbewahren aller Informationen der registrierten Benutzer. Sie besteht aus drei Tabellen (s. X.Y), welche im Folgenden erläutert werden sollen:
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.6]{nutzerdatenbank} 
-\caption{Entwurf der Fahrzeugdatenbank}
+\caption [Entwurf Nutzerdatenbank]{Entwurf der Nutzerdatenbank}
 \end{figure} 
 
-
 \newpage
-
 
 \begin{itemize}
 \item[1)] \textit{rechte:} 
@@ -736,14 +732,14 @@ Diese Tabelle speichert Nutzer-IDs und Zeitstempel und gibt somit Auskunft über
 
 \end{itemize}
 
-\subsection{Fahrzeugdaten-Datenbank}
+\subsection{Fahrzeugdatenbank}
 
 Die zweite Datenbank beinhaltet die aus dem Fahrzeug entnommen Daten und bildet gleichzeitig auch die Schnittstelle zur Webseite. Sie besteht aus fünf Tabellen, die jeweils sämtliche Informationen einer Kategorie in sich kapseln (s. Abb. X.Y). Alle Tabellen besitzen über ihre Daten hinaus jeweils noch ein Feld, in dem sich ein Zeitstempel befindet und eines, das für Testzwecke Informationen speichern kann. Anhand des (im Fahrzeug erzeugten) Zeitstempels lassen sich die Datentupel der einzelnen Tabellen einander zuordnen. Im Folgenden werden die Informationen der einzelnen Tabellen erläutert:
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.43]{fahrzeugdatenbank} % Anm: neue Grafik!
-\caption{Entwurf der Fahrzeugdatenbank}
+\caption[Entwurf Fahrzeugdatenbank]{Entwurf der Fahrzeugdatenbank}
 \end{figure} 
 
 \begin{itemize}
@@ -1276,6 +1272,7 @@ Eine Servervirtualisierung ist eine Softwarelösung, um mehrere virtuelle Server
 \\
 Voyage Linux ist ein Debian-basiertes Linux-Betriebssystem für einen Embedded-PC.\\
 
+
 %\textbf{Webspace}
 %\hangindent+65pt \hangafter=1
 %Als Webspace wird der bei einem Anbieter gemietete, aus dem Internet zugängliche Speicher bezeichnet, der für die Aufbewahrung von Daten und Webseiten verwendet wird.\\
@@ -1334,7 +1331,7 @@ Darüber hinaus kennt Simulink noch den Datentyp
 Oldenbourg Verlag München
 
 
-\section{Datentypen (Titel überarbeiten)}
+\section{weitere Datentypen}
 
 Folgende Datentypen kommen in C++ oder MySQL-Datenbanken zu den bereits oben genannten Typen hinzu:
 
@@ -1360,7 +1357,7 @@ Weiterhin kann eine MySQL-Datenbank noch folgenden Datentyp behandeln:
 \begin{sidewaysfigure}[t]
 \centering
 \includegraphics[scale = 0.55]{webseite}
-\caption{Sequenzdiagramm der Webseite}
+\caption[Sequenzdiagramm Webseite]{Sequenzdiagramm der Webseite}
 \end{sidewaysfigure} 
 
 \newpage
@@ -1368,7 +1365,7 @@ Weiterhin kann eine MySQL-Datenbank noch folgenden Datentyp behandeln:
 \begin{sidewaysfigure}[t]
 \centering
 \includegraphics[scale = 0.75]{registrierungsvorgang}
-\caption{Aktivitätsdiagramm des Registrierungsvorgangs}
+\caption[Aktivitätsdiagramm Registrierungsvorgang]{Aktivitätsdiagramm des Registrierungsvorgangs}
 \end{sidewaysfigure} 
 
 \newpage
