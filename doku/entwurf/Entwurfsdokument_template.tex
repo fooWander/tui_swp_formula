@@ -581,7 +581,7 @@ Abhängig von der Anzahl der Nachkommastellen des Testsignals $n\ mit\ n>0$ wird
 
 \item[2)] \textit{Konvertierung der Datentypen}
 
-Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks (s. Abb. \ref{Convert-Block}) in den Datentyp \textit{int16} konvertiert, wodurch somit alle Signale den gleichen Datentyp aufweisen.  
+Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks (s. Abb. \ref{Convert-Block}) in den Datentyp \textit{int16} konvertiert, wodurch alle Signale den gleichen Datentyp aufweisen.  
 
 \item[3)] \textit{Umbenennung der Variablennamen}
 
@@ -634,19 +634,19 @@ Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivit
 
 \subsection{Empfangen der Fahrzeugdaten}
 
-Durch die starke Ähnlichkeit in der Funktionsweise mit 3.3.1 werden sich diese Abschnitte große, wenn nicht sogar alle Teile der Implementation teilen. Diese Maßnahme soll nicht nur dazu führen, dass Fehler in der Programmierung und Konzipierung reduziert werden, sonder auch, dass zusätzlicher Zeitaufwand vermieden wird. 
+Durch die starke Ähnlichkeit in der Funktionsweise mit 3.3.1 werden sich diese Abschnitte große, wenn nicht sogar alle Teile der Implementation teilen. Diese Maßnahme soll nicht nur dazu führen, dass Fehler in der Programmierung und Konzipierung reduziert werden, sondern auch, dass zusätzlicher Zeitaufwand vermieden wird. 
 
 \subsection{Abfragen des Zeitstempels}
 
-Hier wird der in 3.3.2 hinzugefügte Zeitstempel abgefragt. Um veraltete Pakete identifizieren zu können wird in einer Variable der aktuellste Zeitstempel zwischengespeichert und mit allen ankommenden Paketen verglichen. Pakete die zu alt sind (ein genauer Wert hierfür muss bei praktischen Versuchen ermittelt werden) werden verworfen. 
+Hier wird der in 3.3.2 hinzugefügte Zeitstempel abgefragt. Um veraltete Pakete identifizieren zu können wird in einer Variable der aktuellste Zeitstempel zwischengespeichert und mit allen ankommenden Paketen verglichen. Pakete, die zu alt sind (ein genauer Wert hierfür muss bei praktischen Versuchen ermittelt werden) werden verworfen. 
 
 \subsection{Daten dekodieren}
 
-Die in 3.2.4 enkodierten Daten werden in diesem Schritt wieder dekodiert und so aufbereitet, dass sie in die Datenbank geschrieben werden können. Der Algorithmus zur Dekodierung kann aus einer von dSPACE erstellten sFunction (C Code) DSDecode32 ermittelt werden. Treten beim Dekodiervorgang keine Fehler auf, gehen wir davon aus, dass das Paket korrekt übertragen wurde und führen bis auf das Prüfen der Wertebereiche keine weitere Fehlerkontrolle durch. Falls Fehler auftreten wird das Paket verworfen. Eine Fehlerkorrektur findet nicht statt. Die Daten liegen anschließend in einem Vektor bestehend aus int16-Werten vor. 
+Die in 3.2.4 enkodierten Daten werden in diesem Schritt wieder dekodiert und so aufbereitet, dass sie in die Datenbank geschrieben werden können. Der Algorithmus zur Dekodierung kann aus einer von dSPACE erstellten sFunction (C Code) DSDecode32 ermittelt werden. Treten beim Dekodiervorgang keine Fehler auf, gehen wir davon aus, dass das Paket korrekt übertragen wurde und führen bis auf das Prüfen der Wertebereiche keine weitere Fehlerkontrolle durch. Das Paket wird verworfen, falls Fehler auftreten. Eine Fehlerkorrektur findet nicht statt. Die Daten liegen anschließend in einem Vektor bestehend aus \textit{int16}-Werten vor. 
 
 \subsection{Daten verwerfen}
 
-Daten die veraltet sind oder nicht dekodiert werden konnten werden verworfen. 
+Daten, die veraltet sind oder nicht dekodiert werden konnten, werden verworfen. 
 
 \subsection{Daten in Datenbank schreiben}
 
