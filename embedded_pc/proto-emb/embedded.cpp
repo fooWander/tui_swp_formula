@@ -71,9 +71,11 @@ class SendC{
 int main()
 {
 	cout << "Testprogramm zur Verdeutlichung der Programmstruktur." << endl;
-	cout << "Definiere Testsignal" << endl;
-	string testString = "Testsignal vom Embedded-PC.";
+	//cout << "Definiere Testsignal" << endl;
+	cout << "Bitte geben geben Sie die Daten ein:" << endl;
 
+	string testString;// = "Testsignal vom Embedded-PC.";
+	getline(std::cin, testString); 
 	
 	cout << "Rufe Funktion recvData auf.\n\n";
 	recvData(testString);
@@ -95,8 +97,12 @@ int main()
 
 void handleData(string estr)
 {
-	cout << "handleData aufgerufen. Erweiterung des Testsignals.\n";
-	estr = estr + "Von handleData hinzugefueger String.";
+	cout << "handleData aufgerufen. Bitte erweitern Sie das Testsignal:\n";
+	//estr = estr + "Von handleData hinzugefueger String.";
+	string erw;
+	getline(std::cin, erw);
+
+	estr = estr + erw;
 
 	cout << "Rufe Funktion sendData auf.\n\n";
 	sendData(estr);
