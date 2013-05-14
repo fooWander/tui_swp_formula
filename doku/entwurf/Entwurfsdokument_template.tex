@@ -142,7 +142,7 @@
 
 \chapter{Einleitung}
 
-Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per Ethernetverbindung (UDP) in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen, sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
+Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per UDP-Ethernetverbindung in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen, sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
 
 
 %------------------------  Randbedingungen  ------------------------%
@@ -173,7 +173,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \item[1)] Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach einer möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
 
-\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch keine Unterstützugn für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
+\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch keine Unterstützung für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
 
 \end{itemize}
 
@@ -233,7 +233,7 @@ Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit 
 
 \subsection{Virtueller Server}
 
-Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP erreichbar. Darauf wird eine Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
+Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP-Adresse erreichbar. Darauf wird eine in der Programmiersprache C++ entwickelte Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
 
 \subsection{Webseite}
 
@@ -597,7 +597,7 @@ Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - n
 
 \section{Virtueller Server}
 
-Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert. Innerhalb des Programmes werden die Paketdaten in einem Datenobjekt gespeichert, in dem bereits grundlegende Funktionen (zum Bsp. Abfrage des Embedded-PC-Zeitstempels) implementiert sind. Das Objekt wird in den einzelnen Schritten so aufbereitet, dass es letztendlich in die Datenbank geschrieben werden kann. Zur besseren Fehlerbehandlung in der Implementierungs- und Testphase wird eine Logging-Klasse eingerichtet. Diese wird im fertigen Programm nicht mehr zur Verfügung stehen, die Aktivierung erfolgt während der Kompilierung über Makros. \\
+Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert. Innerhalb des Programmes werden die Paketdaten in einem Datenobjekt gespeichert, in dem bereits grundlegende Funktionen (z.B. Abfrage des Embedded-PC-Zeitstempels) implementiert sind. Das Objekt wird in den einzelnen Schritten so aufbereitet, dass es letztendlich in die Datenbank geschrieben werden kann. Zur besseren Fehlerbehandlung in der Implementierungs- und Testphase wird eine Logging-Klasse eingerichtet. Diese wird im fertigen Programm nicht mehr zur Verfügung stehen, die Aktivierung erfolgt während der Kompilierung über Makros. \\
 
 \begin{figure}[h]
 \centering
@@ -633,7 +633,7 @@ Die Anfragen an die MySQL-Datenbank erfolgen mittels des MySQL Connector/C++. Da
 
 \section{Webseite}
 
-Anhand des nachfolgenden Diagramms soll das Verhalten der Webseite exemplarisch dargestellt werden. Ein registrierter Benutzer ruft in einem Webbrowser die Seite des Service Interfaces auf und loggt sich anschließend über das ihm angezeigte Formular im System ein. Anschließend wird er auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet. Über das Menü steht ihm die Auswahl frei, sich die nach unterschiedlichen Kategorien sortierten Fahrzeugdaten anzeigen zu lassen. Am Beispiel der Akkudaten ruft der Nutzer im Menü über einen Klick auf den Reiter "`Akkudaten"\ die Seite akkudaten.php auf. Dieses PHP-Skript öffnet eine MySQL-Verbindung und führt nach einem erfolgreichen Verbindungsaufbau eine MySQL-Anfrage aus, die die aktuellsten Akkudaten aus der Fahrzeugdatenbank ermittelt und schließt die Verbindung anschließend wieder. Diese ermittelten Daten werden nun auf unterschiedlichster Art und Weise auf der Webseite dargestellt, sei es nun zum Beispiel als Tabelle oder als einzeln hervorgehobene und gekennzeichnete Sonderinformationen.
+Anhand des nachfolgenden Diagramms soll das Verhalten der Webseite exemplarisch dargestellt werden. Ein registrierter Benutzer ruft in einem Webbrowser die Seite des Service Interfaces auf und loggt sich anschließend über das ihm angezeigte Formular im System ein. Anschließend wird er auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet. Über das Menü steht ihm die Auswahl frei, sich die nach unterschiedlichen Kategorien sortierten Fahrzeugdaten anzeigen zu lassen. Am Beispiel der Akkudaten ruft der Nutzer im Menü über einen Klick auf den Reiter "`Akkudaten"\ die Seite akkudaten.php auf. Dieses PHP-Skript öffnet eine MySQL-Verbindung und führt nach einem erfolgreichen Verbindungsaufbau eine MySQL-Anfrage aus, die die aktuellsten Akkudaten aus der Fahrzeugdatenbank ermittelt und schließt die Verbindung anschließend wieder. Diese ermittelten Daten werden nun auf unterschiedlichster Art und Weise auf der Webseite dargestellt, sei es nun z.B. als Tabelle oder als einzeln hervorgehobene und gekennzeichnete Sonderinformationen.
 Ein JavaScript, welches gleichzeitig im Hintergrund läuft, sorgt dafür, dass die Daten alle $1000 ms$ aktualisiert werden ohne die komplette Seite vollständig neu zu laden. Dabei - und unter Berufung auf die weichen Echtzeitanforderungen - wird die Aktualisierung mittels Timeout realisiert. Anstelle den Server alle $1000 ms$ aufzufordern neue Daten zu schicken, wird nach dem Erhalt der Daten $1000 ms$ gewartet bis eine neue Anfrage gestartet wird. Dies hat zum Vorteil, dass der Server nicht unnötig belastet wird.
 Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reiters im Menü, sich andere Fahrzeugdaten darstellen zu lassen. Das Verhalten läuft analog ab. Vor dem Verlassen wird der Benutzer angehalten sich auszuloggen und seine aktuelle Sitzung somit zu beenden. \\
 
@@ -747,7 +747,7 @@ Alle Daten, die den Motor und Umrichter betreffen, werden hier gespeichert. Info
 Alle Informationen, die die dynamischen Aspekte des Fahrzeugs betreffen, sind hier enthalten. Dies sind beispielsweise die Geschwindigkeiten, Be\-schleunigungen und Gierraten jeweils in x-, y- und z-Richtung, genau wie die Drehzahlen jedes einzelnen Rads. Desweiteren finden sich hier auch Informationen zu den Bremsen, wie Bremsdruck, -kraft und -position wieder. Auch der Lenkwinkel, der Federweg und die Gaspedalstellung ergänzen das Set der Daten.
 
 \item[4)] \textit{allgemeine\_fahrzeugdaten:} 
-Die wichtigsten und allgemeinsten Informationen des Fahrzeugs befinden sich in dieser Tabelle. Neben den wichtigen Informationen wie zum Beispiel den Status der einzelnen Notaus-Schalter des Fahrzeuges, finden sich hier die Werte der drei wichtigsten Temperatursensoren, die aktuelle Fahrgeschwindigkeit, die Gaswerte der beiden Elektromotoren sowie die Gesamtspannung des Akkus und die aktuelle Fahrzeugzeit.
+Die wichtigsten und allgemeinsten Informationen des Fahrzeugs befinden sich in dieser Tabelle. Neben den wichtigen Informationen wie z.B. den Status der einzelnen Notaus-Schalter des Fahrzeuges, finden sich hier die Werte der drei wichtigsten Temperatursensoren, die aktuelle Fahrgeschwindigkeit, die Gaswerte der beiden Elektromotoren sowie die Gesamtspannung des Akkus und die aktuelle Fahrzeugzeit.
 
 \item[5)] \textit{akkudaten:} Dies ist die letzte und zugleich auch die umfangreichste Tabelle. \\Hier befinden sich sämtliche Informationen über die im Fahrzeug verbauten Akkus. Neben globaleren Informationen wie die maximale und minimale Zellspannung und dem Strom bzw. der Spannung zum Ladegerät, finden sich die Zelldaten aller 144 Akkuzellen sowie die Temperaturen aller 48 Temperatursensoren wieder. Das Feld "`Balancing"\ gibt darüber hinaus Informationen darüber, ob für die einzelnen Zellen die Balancing-Option aktiviert oder deaktiviert ist.
 
@@ -773,7 +773,7 @@ Es wird geprüft, dass alle Daten korrekt gebündelt und an die Ethernet-Schnitt
 
 \textbf{2. /TE120/TE300/}\\
 \hangindent+95pt \hangafter=1
-Im Embedded-PC wird der Empfang der Datenpakte überprüft.\\
+Am Embedded-PC wird der Empfang der Datenpakte überprüft.\\
 
 \textbf{3. /TE100/}
 \hangindent+95pt \hangafter=1
@@ -825,7 +825,7 @@ Bei einem nicht registrierten Nutzer schlägt der Anmeldeversuch fehl und eine F
 \textbf{3. /TW451/}
 \hangindent+95pt \hangafter=1
 \hspace*{5.5mm}
-Ein registrierten Nutzer meldet sich mit E-Mail und Passwort an, ist aber noch nicht freigeschaltet (Status-Bit $==$ 0): Der Anmeldeversuch schlägt fehl und eine Fehlermeldung wird ausgegeben.(Nutzer noch nicht aktiviert)\\
+Ein registrierter Nutzer meldet sich mit E-Mail und Passwort an, ist aber noch nicht freigeschaltet (Status-Bit $==$ 0): Der Anmeldeversuch schlägt fehl und eine Fehlermeldung wird ausgegeben.(Nutzer noch nicht aktiviert)\\
  
 \textbf{4. /TW452/}
 \hangindent+95pt \hangafter=1
@@ -931,12 +931,12 @@ Eine Registrierung mit E-Mail und Passwort, welches weniger als 6 Zeichen aufwei
 \textbf{2. /TR030/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm}
-Bei einer Anmeldung mit inkorrekter Email-Adresse und / oder falschem Passwort soll fehlschlagen und eine Fehlermeldung ausgegeben werden. \\
+Bei einer Anmeldung mit inkorrekter Email-Adresse und/oder falschem Passwort soll fehlschlagen und eine Fehlermeldung ausgegeben werden. \\
 
 \textbf{3. /TR040/}
 \hangindent+95pt \hangafter=1
 \hspace*{6.5mm}
-Meldet sich ein noch angemeldeter Nutzer erneut an, soll dies fehlschlagen eine Statusmeldung über den aktuellen Zustand (angemeldet / nicht angemeldet) des Nutzers ausgegeben werden. \\
+Meldet sich ein noch angemeldeter Nutzer erneut an, soll dies fehlschlagen und eine Statusmeldung über den aktuellen Zustand (angemeldet / nicht angemeldet) des Nutzers ausgegeben werden. \\
 
 \textbf{4. /TR050/}
 \hangindent+95pt \hangafter=1
@@ -1030,7 +1030,7 @@ Ein modular aufgebauter Industrierechner, dessen besonderer Fokus auf Kompakthei
 \hspace*{6.5mm}
 Die Gierrate bezeichnet die Geschwindigkeit der Drehung eines Fahrzeugs um die Hochachse.\\
 
-\textbf{GPRS}
+\textbf{GRPS}
 \hangindent+75pt \hangafter=1
 \hspace*{10.5mm}
 Der General Packet Radio Service ist eine Übertragungstechnologie für die Mobilfunkübertragung von Daten (langsamer als UMTS).\\
@@ -1195,13 +1195,6 @@ Hierbei handelt es sich um einen Stromrichter, der aus einer Wechselspannung ein
 \hangindent+75pt \hangafter=1
 \hspace*{10.5mm}
 Universal Mobile Telecommunications System ist eine Übertragungstechnologie für die Mobilfunkübertragung von Daten (schneller als GPRS).\\
-
-\newpage
-
-\textbf{virtueller Server}
-\hangindent+75pt \hangafter=1
-\\
-Eine Servervirutalisierung ist eine Softwarelösung, um mehrere virtuelle Server (auch vServer) auf einer Servermaschine laufen zu lassen. Dabei wird nur vorgegeben, dass der virtuelle Server ein richtiger Server ist, der getrennt von den anderen Instanzen läuft. Man kann den virtuellen Server allerdings wie einen normalen behandeln. Bei dem unserem Team vorliegenden vServer wird vom Provider 1\&1 das Betriebssystem Cent OS 6 emuliert.\\
 
 %\textbf{Webspace}
 %\hangindent+65pt \hangafter=1
