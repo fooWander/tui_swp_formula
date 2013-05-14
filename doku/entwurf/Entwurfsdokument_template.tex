@@ -142,7 +142,7 @@
 
 \chapter{Einleitung}
 
-Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. aufbereitet und anschließend kodiert per Ethernetverbindung (UDP) in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
+Diese Software ermöglicht es Team StarCraft e.V. ausgelesene Fahrzeugdaten ihres Formula-Student-Fahrzeugs in weicher Echtzeit an eine Webseite zu übertragen und dort geeignet zu visualisieren. Hierfür werden auf einer dSPACE MicroAutoBox II, auf der ein selbst erstelltes Simulink-Modell implementiert ist, die ausgelesenen Fahrzeugdaten ggf. auf\-be\-reitet und anschließend kodiert per Ethernetverbindung (UDP) in einem uint32-Datenstrom an einen Embedded-PC gesendet. Dieser leitet daraufhin die Datenpakete mittels einer GPRS/UMTS-Verbindung an einen virtuellen Server weiter, der diese dekodiert, aufbereitet und an eine Datenbank übergibt, welche die Daten der letzten 10 Stunden speichern soll. Die Darstellung dieser Daten erfolgt schließlich über eine Webseite, die die einzelnen Fahrzeugdaten aus der Datenbank ausliest und geeignet visualisiert. Die Webseite selbst soll sich vor allem durch eine hohe Übersichtlichkeit und eine leichte Bedienbarkeit auszeichnen sowie ein Nutzersystem bereitstellen. Das Projekt ist daher viergeteilt in die Abschnitte dSPACE MicroAutoBox II, Embedded-PC, virtueller Server und Webseite. Im Folgenden werden nun anhand des Datenflusses der Fahrzeugdaten der Datenaustausch bzw. die Kommunikation zwischen den einzelnen Abschnitten erläutert sowie die Ideen zu deren interner Realisierung anhand verschiedener Simulink-Modelle bzw. UML-Diagramme vorgestellt.
 
 
 %------------------------  Randbedingungen  ------------------------%
@@ -156,6 +156,8 @@ Folgende Randbedingungen werden an das System gestellt: \\
 \begin{itemize}
 
 \item Die Kommunikation der MicroAutoBox II mit dem Embedded-PC wird aufgrund fehlender technischer Machbarkeit statt über einer API nun über eine UDP-Ethernet\-schnittstelle realisiert.
+
+%--------------DIAGRAMM------------EINFÜGEN----------!!!!!!!!!!---------
 
 \item Vor der Übertragung der Datenpakete von der MicroAutoBox II ist es notwendig diese in einen uint32-Datenstrom zu konvertieren, da man bei einer Kommunikation der MicroAutoBox II via UDP mit externer Peripherie auf speziell für diesen Einsatzzweck konzipierte Blöcke der Firma dSPACE angewiesen ist. \\
 
@@ -171,7 +173,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \item[1)] Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach eine möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
 
-\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch kein UDP unterstützt und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
+\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch keine Unterstützugn für das UDP-Protokoll bietet und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
 
 \end{itemize}
 
@@ -183,7 +185,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \begin{itemize}
 
-\item text
+\item MYSQL, APACHE, PHP etc. MÜSSEN INSTALLIERT SEIN
 
 \end{itemize}
 
@@ -191,7 +193,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \begin{itemize}
 
-\item text
+\item SERVER MUSS ONLINE SEIN
 
 \end{itemize}
 
@@ -201,7 +203,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \item Da viele der von uns benötigten Komponenten wie z.B. der MicroAutoBox II lokal an die Maschinenhalle EIT gebunden sind, können bestimmte Arbeiten und Tests für das Softwareprojekt nur an dieser Örtlichkeit durchgeführt werden.
 
-\item Darüber hinaus existiert in der Maschinenhalle an dem uns zugewiesenen Arbeitsplatz nur ein Rechner mit der benötigten Software, welchen wir uns mit externen Nutzern teilen müssen. Dementsprechend sind exakte Absprachen bezüglich der Nutzung des Rechner bzw. der Rechnerkapazitäten erforderlich.
+\item Darüber hinaus existiert in der Maschinenhalle an dem uns zugewiesenen Arbeitsplatz nur ein Rechner mit der benötigten Software, welchen wir uns mit externen Nutzern teilen müssen. Dementsprechend sind exakte Absprachen bezüglich der Nutzung des Rechners bzw. der Rechnerkapazitäten erforderlich.
 
 \item Zudem ist eine Arbeit an diesem Arbeitsplatz ohne Beaufsichtigung nur durch eine vorherige Einweisung und Arbeitsschutzbelehrung möglich.
 
@@ -227,7 +229,7 @@ Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeite
 
 \subsection{Embedded-PC}
 
-Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Für die eigentliche Übertragung zum virtuellen Server über UMTS ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. 		
+Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Für die eigentliche Übertragung zum virtuellen Server über eine GPRS/UMTS-Verbindung ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. 		
 
 \subsection{Virtueller Server}
 
@@ -456,7 +458,7 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 
 \subsection{Signalgenerator}
 
-Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin per GPRS / UMTS an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
+Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
 
 \newpage
 
@@ -539,10 +541,10 @@ Mit dem Convert-Block ist es zudem möglich, dem Ausgangssignal unabhängig vom 
 
 \end{itemize}  
 
-Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Enkoder (s. X.Y) zugeführt.
+Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Encoder (s. X.Y) zugeführt.
 
 
-\subsection{Enkoder-Block}
+\subsection{Encoder-Block}
 
 \begin{figure}[h]
 \centering
@@ -550,7 +552,7 @@ Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese er
 \caption{Block zur Erzeugung eines uint32-Datenstroms}
 \end{figure} 
 
-Der Enkoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels UDP vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
+Der Encoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels einer UDP-Vebindung vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
 
 \newpage
 
@@ -591,7 +593,7 @@ Da es nicht ausgeschlossen ist, dass sich Pakete bei der Übertragung überholen
 
 \subsection{Senden der Fahrzeugdaten}
 
-Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - nicht verändert. Sie werden also lediglich durchgereicht und mittels Unix Domain Sockets (SOCK\_DGRAM) an den virtuellen Server über eine UMTS-Verbindung übertragen. 
+Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - nicht verändert. Sie werden also lediglich durchgereicht und mittels Unix Domain Sockets (SOCK\_DGRAM) an den virtuellen Server über eine GPRS/UMTS-Verbindung übertragen. 
 
 \section{Virtueller Server}
 
@@ -776,17 +778,17 @@ Im Embedded-PC wird der Empfang der Datenpakte überprüft.\\
 \textbf{3. /TE100/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm} 
-Bei einem Neustart durch Unterbrechung der Stromzufuhr des Embedded-PC soll dieser selbstständig die Verbindung zur MicroAutoBox II wiederaufbauen, sowie das GRPS/UMTS - Modul aktivieren und die Verbindung zum Webserver erneut etablieren.\\
+Bei einem Neustart durch Unterbrechung der Stromzufuhr des Embedded-PC soll dieser selbstständig die Verbindung zur MicroAutoBox II wiederaufbauen, sowie das GRPS/UMTS-Modul aktivieren und die Verbindung zum Webserver erneut etablieren.\\
 
 \textbf{4. /TE200/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm} 
-Die Signalqualität und Stabilität der GRPS/UMTS Verbindung wird im Ruhezustand, bei Bewegung und bei großer Entfernung zum Sendemast bzw. bei schlechter Empfangsqualität überprüft.\\
+Die Signalqualität und Stabilität der GPRS/UMTS-Verbindung wird im Ruhezustand, bei Bewegung und bei großer Entfernung zum Sendemast bzw. bei schlechter Empfangsqualität überprüft.\\
 
 \textbf{5. /TE300/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm}
-Es wird zu TE200 auf dem virtuellen Server überprüft, ob die Testdaten vollständig und korrekt über GRPS/UMTS an ebendiesen übermittelt wurden. \\
+Es wird zu TE200 auf dem virtuellen Server überprüft, ob die Testdaten vollständig und korrekt über eine GPRS/UMTS-Verbindung an ebendiesen übermittelt wurden. \\
  
 \textbf{6. /TW200/}
 \hangindent+95pt \hangafter=1
@@ -886,8 +888,7 @@ III) Folgende Tests müssen auf dem virtuellen Server durchgeführt werden:}
 \textbf{1. /TS010/}
 \hangindent+95pt \hangafter=1
 \hspace*{8mm}
-Die Dekodierung der vom Embedded-PC via GPRS/UMTS versendeten 
-Datenpakete verläuft ohne Probleme. \\
+Die Dekodierung der vom Embedded-PC über eine GPRS/UMTS-Verbindung versendeten Datenpakete verläuft ohne Probleme. \\
 
 \textbf{2. /TS020/}
 \hangindent+95pt \hangafter=1
