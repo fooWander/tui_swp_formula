@@ -1,0 +1,9 @@
+*.save
+*.save
+*.toc
+*.gz
+*.log
+*.lof
+*.fls
+*.fdb_latexmk
+*.aux
