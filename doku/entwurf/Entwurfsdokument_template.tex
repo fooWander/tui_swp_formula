@@ -223,8 +223,7 @@ Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeite
 
 \subsection{Embedded-PC}
 
-Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets* über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets*. Für die eigentliche Übertragung zum virtuellen Server über UMTS* sind zwei in der Programmiersprache C++ selbst entwickelte Programme - das Server-Programm und das Client-Programm - zuständig. Beide Programme laufen eigenständig auf dem Embedded-PC und werden automatisch beim Systemstart ausgeführt. Ein von der eigentlichen Übertragung ausgeschlossenes und selbst entwickeltes Programm [namens AAAA] garantiert das Ausführen beider Programme und startet die Programme bei einem auftretenden Absturz oder schwerwiegenden Fehler neu. Dabei wird während des Vorgangs das Server-Programm jedem UDP-Packet des Datenstroms* ein Zeitstempel* hinzugefügt, wobei später ankommende Packete ignoriert und erst nach dessen Fertigstellung ein neues Packet behandelt werden \textbf{(Klären?)}. Der hinzugefügte Zeitstempel beinhaltet die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend leitet das Programm die Daten an das Client-Programm weiter, welches die empfangenen Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weiterleitet. 		
-
+Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets* über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets*. Für die eigentliche Übertragung zum virtuellen Server über UMTS* ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. 		
 
 \subsection{Virtueller Server}
 
@@ -525,7 +524,13 @@ Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese er
 
 \subsection{Enkoder-Block}
 
-Der Enkoder-Block basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels UDP vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 1]{dsencode32}
+\caption{Block zur Erzeugung eines uint32-Datenstroms}
+\end{figure} 
+
+Der Enkoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels UDP vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
 
 \subsection{UDP-Schnittstelle}
 
@@ -543,8 +548,6 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Bloc
     \caption{UDP-Block zum Senden von uint32-Datenströmen}
   \end{minipage}
 \end{figure}
-
-\newpage
 
 \section{Embedded-PC}
 
@@ -568,11 +571,33 @@ Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - n
 
 \section{Virtueller Server}
 
+Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert. Innerhalb des Programmes werden die Paketdaten in einem Datenobjekt gespeichert, in dem bereits grundlegende Funktionen (zum Bsp. Abfrage des Embedded-PC-Zeitstempels) implementiert sind. Das Objekt wird in den einzelnen Schritten so aufbereitet, dass es letztendlich in die Datenbank geschrieben werden kann. Zur besseren Fehlerbehandlung in der Implementierungs- und Testphase wird eine Logging-Klasse eingerichtet. Diese wird im fertigen Programm nicht mehr zur Verfügung stehen, die Aktivierung erfolgt während der Kompilierung über Makros.
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{activity_vserver.png}
 \caption{SOME TEXT}
 \end{figure}
+
+\subsection{Empfangen der Fahrzeugdaten}
+
+Durch die starke Ähnlichkeit in der Funktionsweise mit 3.3.1 werden sich diese Abschnitte große, wenn nicht sogar alle Teile der Implementation teilen. Diese Maßnahme soll nicht nur dazu führen, dass Fehler in der Programmierung und Konzipierung reduziert werden, sonder auch, dass zusätzlicher Zeitaufwand vermieden wird. 
+
+\subsection{Abfragen des Zeitstempels}
+
+Hier wird der in 3.3.2 hinzugefügte Zeitstempel abgefragt. Um veraltete Pakete identifizieren zu können wird in einer Variable der aktuellste Zeitstempel zwischengespeichert und mit allen ankommenden Paketen verglichen. Pakete die zu alt sind (ein genauer Wert hierfür muss bei praktischen Versuchen ermittelt werden) werden verworfen. 
+
+\subsection{Daten dekodieren}
+
+Die in 3.2.4 enkodierten Daten werden in diesem Schritt wieder dekodiert und so aufbereitet, dass sie in die Datenbank geschrieben werden können. Der Algorithmus zur Dekodierung kann aus einer von dSPACE erstellten sFunction (C Code) DSDecode32 ermittelt werden. Treten beim Dekodiervorgang keine Fehler auf, gehen wir davon aus, dass das Paket korrekt übertragen wurde und führen bis auf das Prüfen der Wertebereiche keine weitere Fehlerkontrolle durch. Falls Fehler auftreten wird das Paket verworfen. Eine Fehlerkorrektur findet nicht statt. Die Daten liegen anschließend in einem Vektor bestehend aus int16-Werten vor. 
+
+\subsection{Daten verwerfen}
+
+Daten die veraltet sind oder nicht dekodiert werden konnten werden verworfen. 
+
+\subsection{Daten in Datenbank schreiben}
+
+Die Anfragen an die MySQL-Datenbank erfolgen mittels des MySQL Connector/C++. Dabei handelt es sich um eine C++ API die es erlaubt mittels TCP- oder UNIX-Sockets die Verbindung zu einer MySQL-Datenbank herzustellen und Anfragen zu übergeben. 
 
 \section{Webseite}
 
