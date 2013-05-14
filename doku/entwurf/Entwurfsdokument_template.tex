@@ -128,7 +128,7 @@
 
 % --------------------- Inhaltsverzeichnis -----------------------%
 
-\begin{spacing}{0.95} 
+\begin{spacing}{0.88} 
 \tableofcontents
 %\setcounter{secnumdepth}{4} % Tiefere Gliederungsebene  
 \setcounter{tocdepth}{4} % Anzeige bis Gliederungsstufe 4
@@ -167,9 +167,13 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \item Die ursprünglich auf dem Embedded-PC vorgesehene Auswertung und Aufbereitung der Fahrzeugdaten muss nunmehr aus zweierlei Gründen auf den virtuellen Server ausgelagert werden: \\
 
-1) Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach eine möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
+\begin{itemize}
 
-2) Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch kein UDP unterstützt und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
+\item[1)] Durch die Kodierung des uint32-Datenstromes mittels des proprietären Simulink-Blocks der Firma dSPACE müssten die Daten nach eine möglichen Auswertung auf dem Embedded-PC erneut zu einem einzelnen Datenpaket gebündelt, kodiert und wiederum auf dem virtuellen Server dekodiert werden, was neben einem deutlichen Verkomplizieren der Software einen unnötigen Arbeitsaufwand gegenüber einer Auslagerung der Aufbereitung auf dem virtuellen Server zur Folge hätte. \\
+
+\item[2)] Die Anbindung des Embedded-PCs an die Fahrzeugdatenbank sollte ursprünglich über den MySQL/C++ - Connector erfolgen. Da dieser jedoch kein UDP unterstützt und eine Kommunikation der beiden Komponenten via TCP/IP wegen eines möglicherweise auftretenden Paketstaus nicht eingesetzt werden kann, kommt nur eine Auslagerung des Arbeitsschrittes auf den virtuellen Server infrage. Zudem wäre bei TCP/IP  das Zeitintervall zwischen einem verlorenem Datenpaket und dem erneuten Versenden von Datenpaketen gegenüber der Forderung nach weicher Echtzeit unter Umständen zu groß bemessen. \\
+
+\end{itemize}
 
 \end{itemize}
 
@@ -235,11 +239,15 @@ Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Ben
 
 \subsection{Datenbanken}
 
+Auf dem virtuellen Server läuft ein MySQL-Server der unserem Projekt zur Verfügung steht.Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Script erstellt.
+
 \subsubsection{Benutzerdaten-Datenbank}
+
+Diese Datenbank bildet die Grundlage für das optionale Benutzersystem, in ihr werden später die Nutzer und ihre zugehörigen Berechtigungen gespeichert. Zudem wird der Zeitpunkt des letzten Logins erfasst um angemeldete Benutzer automatisch abmelden zu können.
 
 \subsubsection{Fahrzeugdaten-Datenbank}
 
-
+Diese Datenbank bildet die Schnittstelle zwischen dem C++ - Programm, welches die Fahrzeugdaten aus den UDP-Paketen kontinuierlich entgegennimmt und in die Datenbank speichert sowie der Webseite, welche die Daten anzeigt. Die Tabelle soll mindestens zehn Stunden an Fahrdaten mit einem Intervall von einer Sekunde aufnehmen (36000 Datensätze), ältere Daten werden aus der Datenbank entfernt. Über die Webseite ist ein Export der Daten im CSV-Format möglich. 
 
 
 %------------------Feiner Rotz-----------------------------------------
@@ -247,7 +255,7 @@ Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Ben
 \section{Simulink-Modell}
 \subsection{Verwendete Blöcke}
 
-Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erleichtern, werden im Verlauf dieses Abschnittes alle zur Erstellung des Simulink-Modells für die dSPACE MicroAutoBox II verwendeten Blöcke vorgestellt und ihre Funktionsweise kurz erläutert.
+Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erleichtern, werden im Verlauf dieses Abschnittes alle zur Erstellung des Simulink-Modells für die dSPACE MicroAutoBox II verwendeten Blöcke vorgestellt und ihre Funktionsweise kurz erläutert. 
 
 \subsubsection{Sources}
 \begin{itemize}
@@ -255,21 +263,19 @@ Um den Einstieg in unsere im folgenden aufgeführten Modellausschnitte  zu erlei
 \begin{figure}[h]
   \centering
 \begin{minipage}[b]{2.5cm}
-    \includegraphics[scale = 0.6]{constant}
+    \includegraphics[scale = 0.5]{constant}
     \caption{Constant-Block \label{Constant-Block }}
   \end{minipage}
 \hspace*{3cm}  
   \begin{minipage}[b]{5 cm}
-    \includegraphics[scale = 0.6]{rsip}
+    \includegraphics[scale = 0.5]{rsip}
     \caption{Repeating Sequence Interpolated - Block \label{Repeating Sequence Interpolated - Block}}
   \end{minipage}
 \end{figure}
 
-\item[1)] \textit{Constant-Block}
+\vspace*{-5mm}
 
-%\pichskip{3em}
-%\piccaption{Constant-Block \label{Constant-Block}}
-%\parpic[r]{\includegraphics[height = 1.5cm]{constant}}
+\item[1)] \textit{Constant-Block}
 
 Der Constant-Block ermöglicht die Generierung eines reellen oder komplexen konstanten Wertes. Je nach Modifikation der Einstellungen 
 des Blocks wird es zudem ermöglicht, neben einem konstanten Skalar einen konstanten Vektor oder eine konstante Matrix als Eingangssignal bereitzustellen. Als Datentypen für das Eingangssignal stehen die unter X.Y. aufgeführten Datentypen zur Verfügung.
@@ -315,15 +321,13 @@ Die Aufgabe des Outport-Blockes ist es, eine Verknüpfung vom aktuellen System z
 
 \item[3)] \textit{Subsystem}
 
-Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, was eine Strukturierung und Gliederung der Signalflüsse erleichtert und zudem eine deutlich übersichtlichere Darstellung des Modells zur Folge hat. Weiterhin ist es auch möglich, mehrere Subsysteme in einem Subsystem zusammenzufassen, um eine beliebige Tiefe innerhalb der Hierarchie eines Modells zu realisieren. 
-
-%\newpage  
+Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, was eine Strukturierung und Gliederung der Signalflüsse erleichtert und zudem eine deutlich übersichtlichere Darstellung des Modells zur Folge hat. Weiterhin ist es auch möglich, mehrere Subsysteme in einem Subsystem zusammenzufassen, um eine beliebige Tiefe innerhalb der Hierarchie eines Modells zu realisieren. \\
 
 \end{itemize}
 
-\subsubsection{Signal Routing}
 
-\begin{itemize}
+
+\subsubsection{Signal Routing}
 
 \begin{figure}[h]
 \centering
@@ -331,6 +335,9 @@ Innerhalb eines Subsystems können verschiedene Blöcke zusammengefasst werden, 
 \caption{Bussystem bestehend aus einem Bus Creator (l.) und einem Bus Selector (r.)}
 \end{figure}
 
+\newpage
+
+\begin{itemize}
 
 \item[1)] \textit{Bus Creator}
 
@@ -338,7 +345,7 @@ Mit Hilfe eines solchen Bus Creators wird es ermöglicht, mehrere Signale (a, b,
 
 \item[2)] \textit{Bus Selector}
 
-Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Signale zu selektieren und diese gesondert weiterzuleiten. So werden wie in Abb. X.Y. dargestellt aus dem Gesamtsignal d\_gesamt wieder die Signale a, b und c herausgeführt.
+Umgekehrt erlaubt es der Bus Selector, aus einem Gesamtsignal wieder einzelne Signale zu selektieren und diese gesondert weiterzuleiten. So werden wie in Abb. X.Y. dargestellt aus dem Gesamtsignal d\_gesamt wieder die Signale a, b und c herausgeführt. \\
 
 \end{itemize}
 
@@ -377,6 +384,9 @@ Dieser Block konvertiert ein virtuelles Bussignal in ein Vektorsignal. Hierbei i
 
 \end{itemize}
 
+\newpage
+
+
 \subsubsection{Sinks}
 
 \begin{itemize}
@@ -410,7 +420,7 @@ Der Scope-Block stellt den Signalverlauf eines Signals über der Simulationszeit
 
 \item[3)] \textit{Display}
 
-Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anzeige des Displays anzupassen, kann der Entwickler über die Einstellungen der Format-Parameter Einfluss darauf nehmen.  
+Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anzeige des Displays anzupassen, kann der Entwickler über die Einstellungen der Format-Parameter Einfluss darauf nehmen. \\ 
 
 \end{itemize}
 
@@ -420,7 +430,7 @@ Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anze
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale = 0.6]{gain}
+\includegraphics[scale = 0.5]{gain}
 \caption{Gain-Block zur Verstärkung von Signalen}
 \end{figure}
 
@@ -429,6 +439,8 @@ Der Display-Block zeigt den konkreten Wert eines Eingangssignals an. Um die Anze
 Der Gain-Block multipliziert das Eingangssignal mit einer selbst gewählten Konstante, wobei das Eingangssignal selbst ein Skalar, ein Vektor oder eine Matrix sein kann.
 
 \end{itemize}
+
+\newpage
 
 \subsubsection{dSPACE-Blöcke}
 
@@ -446,27 +458,30 @@ Im Folgenden sollen nun diejenigen Blöcke vorgestellt werden, welche speziell f
 
 Das Modell, welches auf der dSPACE MicroAutoBox II implementiert wird, besitzt zwei Subsysteme - den Signalgenerator und den Signalkollektor. Der Signalgenerator hat hierbei die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche anschließend zum Embedded-PC via UDP-Schnittstelle gelangen und daraufhin per GPRS / UMTS an einen virtuellen Server gesendet werden. Dieses Subsystem wird jedoch nach einem erfolgreichen Test des Service-Interfaces durch ein Subsystem von Team Starcraft e.V. ersetzt, welches im Stande ist, die im Formula-Student-Fahrzeug verbauten Komponenten anzusprechen und somit im Unterschied zu dem aktuell verwendeten Signalgenerator statt künstlich erzeugter Daten die realen Daten auszulesen und an den Signalkollektor weiterzuleiten.   
 
+\newpage
+
 \subsubsection{Struktur des Subsystems}
 
-Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird an den Vorgaben von Team StarCraft e.V. orientierend das Subsystem des Signalgenerators nochmals in einzelne Subsysteme unterteilt, die die verschieden Kategorien der jeweiligen Fahrzeugdaten repräsentieren. 
+Um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten, wird an den Vorgaben von Team StarCraft e.V. orientierend das Subsystem des Signalgenerators nochmals in einzelne Subsysteme unterteilt, die die verschieden Kategorien der jeweiligen Fahrzeugdaten repräsentieren (s. Abb. X.Y): \\
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale = 0.8]{signalgen}
+\includegraphics[scale = 0.85]{signalgen}
 \caption{Subsysteme des Signalgenerators nach den Kategorien der Fahrzeugdaten}
 \end{figure}
 
-Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am Subsystem "`Daten Allgemein"\ erläutert - die Signalerzeugung (Geschwindigkeit, Gesamtspannung des Akkus und der Fahrzeugzeit) statt, wobei wie in X.Y dargestellt die Signalerzeugung mehrere Signale der gleichen "`Signalgruppe"\ wiederum zu Subsystemen (Notausfunktionen, Temperaturen und Gaswerte)  innerhalb des Subsystems "`Allgemeine Daten"\ zusammengefasst werden. Die eigentliche Erzeugung der Signale wird wie in Abbildung X.Y. gezeigt mittels Blöcken aus der Kategorie "`Sources" (s. X.Y) realisiert. Hierbei wird je nach Input entweder ein Constant-Block mit dem Datentyp \textit{boolean} zur Realisierung von Schaltern etc. (s. Notausfunktionen) oder ein Repeating Sequence Interpolated (RSI) - Block mit dem Datentyp \textit{single} zur Modellierung der restlichen Fahrzeugkomponenten verwendet (s. Gaswerte). Der Datentyp \textit{single} wurde deshalb gewählt, um auch wie von Team StarCraft e.V. gefordert als Input Werte mit mehreren Nachkommastellen realisieren zu können. Die auf analoge Weise zu X.Y mit Constant- oder RSI-Blöcken erzeugten 386 Input-Signale werden schließlich im Umkehrschluss zur obigen Beschreibung über mehrere Bussysteme und Subsysteme zu einem Busarray im Signalgenerator zusammengefasst, welcher nunmehr dieses an den Signalkollektor übergibt.   
-
-%\newpage
-
-
+\newpage
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.65]{suballgemein}
 \caption{Subsystem "`Allgemeine Daten"\ im Signalgenerator}
 \end{figure}
+
+Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am Subsystem "`Daten Allgemein"\ erläutert - die Signalerzeugung (Geschwindigkeit, Gesamtspannung des Akkus und der Fahrzeugzeit) statt, wobei wie in X.Y dargestellt die Signalerzeugung mehrere Signale der gleichen "`Signalgruppe"\ wiederum zu Subsystemen (Notausfunktionen, Temperaturen und Gaswerte)  innerhalb des Subsystems "`Allgemeine Daten"\ zusammengefasst werden. Die eigentliche Erzeugung der Signale wird wie in Abbildung X.Y. gezeigt mittels Blöcken aus der Kategorie "`Sources" (s. X.Y) realisiert. Hierbei wird je nach Input entweder ein Constant-Block mit dem Datentyp \textit{boolean} zur Realisierung von Schaltern etc. (s. Notausfunktionen) oder ein Repeating Sequence Interpolated (RSI) - Block mit dem Datentyp \textit{single} zur Modellierung der restlichen Fahrzeugkomponenten verwendet (s. Gaswerte). Der Datentyp \textit{single} wurde deshalb gewählt, um auch wie von Team StarCraft e.V. gefordert als Input Werte mit mehreren Nachkommastellen realisieren zu können. Die auf analoge Weise zu X.Y mit Constant- oder RSI-Blöcken erzeugten 386 Input-Signale werden schließlich im Umkehrschluss zur obigen Beschreibung über mehrere Bussysteme und Subsysteme zu einem Busarray im Signalgenerator zusammengefasst, welcher nunmehr dieses an den Signalkollektor übergibt.   
+
+\newpage
+
   
 \begin{figure}[h]
 \centering
@@ -477,13 +492,15 @@ Innerhalb dieser Subsysteme findet nun - ohne Beschränkung der Allgemeinheit am
 
 \subsubsection{Config-Datei "`signalgenerator\_microautobox.m" }
 
-Um eine mögliche Änderung der Testsignale zu vereinfachen und eine übersichtliche Darstellung aller Testsignale zu realisieren, sorgt eine Konfigurationsdatei in Matlab für die Spezifizierung der Testsignale des Simulink-Modells. Die in dem *.m-File aufgeführten Parameter für die Zeit- und Funktionsvektoren dienen als Referenz für die signalerzeugenden Blöcke, welche über den Workspace von Matlab auf diese nach dem Ausführen der Datei zugreifen können (s. Abb. X.Y). Hierbei sollte jedoch beachtet werden, dass vor dem Compilieren des Simulink-Modells und der Implementierung ebendiesem auf der MicroAutoBox II einmalig das *.m-File ausgeführt werden muss. Demzufolge muss auch nach dem Ändern von Parametern die Datei neu ausgeführt werden, damit bei einer erneuten Implementierung des Simulink-Modells die geänderten Parameter korrekt übernommen werden können. Zudem wurde jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen, um die Benennung der Parameter im *.m-File zu standardisieren . 
+Um eine mögliche Änderung der Testsignale zu vereinfachen und eine übersichtliche Darstellung aller Testsignale zu realisieren, sorgt eine Konfigurationsdatei in Matlab für die Spezifizierung der Testsignale des Simulink-Modells. Die in dem *.m-File aufgeführten Parameter für die Zeit- und Funktionsvektoren dienen als Referenz für die signalerzeugenden Blöcke, welche über den Workspace von Matlab auf diese nach dem Ausführen der Datei zugreifen können (s. Abb. X.Y). Hierbei sollte jedoch beachtet werden, dass vor dem Compilieren des Simulink-Modells und der Implementierung ebendiesem auf der MicroAutoBox II einmalig das *.m-File ausgeführt werden muss. Demzufolge muss auch nach dem Ändern von Parametern die Datei neu ausgeführt werden, damit bei einer erneuten Implementierung des Simulink-Modells die geänderten Parameter korrekt übernommen werden können. Zudem wurde jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen, um die Benennung der Parameter im *.m-File zu standardisieren. \\
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale = 0.75]{referenz}
+\includegraphics[scale = 0.55]{referenz}
 \caption{Referenzierung im RSI-Block}
 \end{figure}
+
+\newpage
 
 
 \subsection{Signalkollektor}
@@ -493,7 +510,7 @@ Der Signalkollektor stellt wie bereits erwähnt das zweite große Subsystem inne
 \subsubsection{Struktur des Subsystems}
 
 Das Subsystem selbst besitzt die folgende innere Struktur: \\
-In einem ersten Schritt wird das Busarray wieder in den Kategorien A) - E) der Fahrzeugdaten entsprechenden Signalgruppen aufgeteilt und den fünf Subsystemen (vgl. Abb. X.Y) zugeführt. Dort werden die nunmehr fünf Busarrays wieder über mehrere Busselektoren und Subsysteme hinweg in die 368 einzelnen Signale aufgelöst, welche somit einzeln aufbereitet werden können (s. Abb. X.Y). Während der Aufbereitung der Signale werden die folgenden Schritte durchgeführt:
+In einem ersten Schritt wird das Busarray wieder in den Kategorien A) - E) der Fahrzeugdaten entsprechenden Signalgruppen aufgeteilt und den fünf Subsystemen (vgl. Abb. X.Y) zugeführt. Dort werden die nunmehr fünf Busarrays wieder über mehrere Busselektoren und Subsysteme hinweg in die 368 einzelnen Signale aufgelöst, welche somit einzeln aufbereitet werden können (s. Abb. X.Y). \\
 
 \begin{figure}[h]
 \centering
@@ -501,6 +518,10 @@ In einem ersten Schritt wird das Busarray wieder in den Kategorien A) - E) der F
 \caption{Signalaufbereitung im Subsystem "`daten\_allgemein"}
 \end{figure} 
 
+\newpage
+
+
+Während der Aufbereitung der Signale werden die folgenden Schritte durchgeführt:
 
 \begin{itemize}
 
@@ -520,7 +541,6 @@ Mit dem Convert-Block ist es zudem möglich, dem Ausgangssignal unabhängig vom 
 
 Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und auf einen Bus to Vector - Block (s. X.Y.) gegeben, welcher das Busarray in einen Vektor umwandelt. Anschließend wird dieser Vektor einem Enkoder (s. X.Y) zugeführt.
 
-\newpage
 
 \subsection{Enkoder-Block}
 
@@ -532,9 +552,11 @@ Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese er
 
 Der Enkoder-Block DSEncode32 basiert auf einer sFunction die von dSPACE implementiert wurde. Diese konvertiert einen Eingangsvektor in einen Datenstrom mit dem Datentyp \textit{uint32}. Dieser Schritt ist notwendig um die Daten für die Übertragung mittels UDP vorzubereiten, da die dafür vorgesehenen Blöcke nur Daten dieses Typs übertragen können. 
 
-\subsection{UDP-Schnittstelle}
+\newpage
 
-Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden. Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet. 
+\subsection{UDP-Schnittstelle} 
+
+Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Block ETHERNET\_UDP\_SETUP\_BL1 (\*Abbildung\*) dient zur Initialisierung der Netzwerkschnittstelle. Dort können lokale Portnummern für bis zu 4 Sockets pro Ethernet Interface vergeben und die IP-Adresse sowie Portnummer eines entfernten Geräts (hier: Embedded-PC) konfiguriert werden. Das Senden der Daten erfolgt über den Block ETHERNET\_UDP\_TX\_BL1. Diesem wird ein Datenstrom vom Typ \textit{uint32} übergeben, sowie die Größe der zu übermittelnden Daten. Anschließend werden die Daten entsprechend der Konfiguration im ETHERNET\_UDP\_SETUP\_BL1 Block versendet. \\
  
 \begin{figure}[h]
   \centering
@@ -549,9 +571,11 @@ Die UDP-Schnittstelle wird mithilfe zweier Simulink-Blöcke realisiert. Der Bloc
   \end{minipage}
 \end{figure}
 
+\newpage
+
 \section{Embedded-PC}
 
-\begin{figure}[t]
+\begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{activity_embedded_pc.png}
 \caption{Aktivitätsdiagramm des Embedded-PCs}
@@ -571,13 +595,17 @@ Im Embedded-PC werden die Daten - bis auf das Hinzufügen eines Zeitstempels - n
 
 \section{Virtueller Server}
 
-Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert. Innerhalb des Programmes werden die Paketdaten in einem Datenobjekt gespeichert, in dem bereits grundlegende Funktionen (zum Bsp. Abfrage des Embedded-PC-Zeitstempels) implementiert sind. Das Objekt wird in den einzelnen Schritten so aufbereitet, dass es letztendlich in die Datenbank geschrieben werden kann. Zur besseren Fehlerbehandlung in der Implementierungs- und Testphase wird eine Logging-Klasse eingerichtet. Diese wird im fertigen Programm nicht mehr zur Verfügung stehen, die Aktivierung erfolgt während der Kompilierung über Makros.
+Im Folgenden wird die Funktionsweise des virtuellen Servers anhand eines Aktivitäts-Diagrammes modelliert. Innerhalb des Programmes werden die Paketdaten in einem Datenobjekt gespeichert, in dem bereits grundlegende Funktionen (zum Bsp. Abfrage des Embedded-PC-Zeitstempels) implementiert sind. Das Objekt wird in den einzelnen Schritten so aufbereitet, dass es letztendlich in die Datenbank geschrieben werden kann. Zur besseren Fehlerbehandlung in der Implementierungs- und Testphase wird eine Logging-Klasse eingerichtet. Diese wird im fertigen Programm nicht mehr zur Verfügung stehen, die Aktivierung erfolgt während der Kompilierung über Makros. \\
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.70]{activity_vserver.png}
 \caption{Aktivitätsdiagramm des virtuellen Servers}
 \end{figure}
+
+
+\newpage
+
 
 \subsection{Empfangen der Fahrzeugdaten}
 
@@ -599,22 +627,30 @@ Daten die veraltet sind oder nicht dekodiert werden konnten werden verworfen.
 
 Die Anfragen an die MySQL-Datenbank erfolgen mittels des MySQL Connector/C++. Dabei handelt es sich um eine C++ API die es erlaubt mittels TCP- oder UNIX-Sockets die Verbindung zu einer MySQL-Datenbank herzustellen und Anfragen zu übergeben. 
 
+\newpage
+
 \section{Webseite}
 
 Anhand des nachfolgenden Diagramms soll das Verhalten der Webseite exemplarisch dargestellt werden. Ein registrierter Benutzer ruft in einem Webbrowser die Seite des Service Interfaces auf und loggt sich anschließend über das ihm angezeigte Formular im System ein. Anschließend wird er auf die Seite der allgemeinen Fahrzeugdaten weitergeleitet. Über das Menü steht ihm die Auswahl frei, sich die nach unterschiedlichen Kategorien sortierten Fahrzeugdaten anzeigen zu lassen. Am Beispiel der Akkudaten ruft der Nutzer im Menü über einen Klick auf den Reiter "`Akkudaten"\ die Seite akkudaten.php auf. Dieses PHP-Skript öffnet eine MySQL-Verbindung und führt nach einem erfolgreichen Verbindungsaufbau eine MySQL-Anfrage aus, die die aktuellsten Akkudaten aus der Fahrzeugdatenbank ermittelt und schließt die Verbindung anschließend wieder. Diese ermittelten Daten werden nun auf unterschiedlichster Art und Weise auf der Webseite dargestellt, sei es nun zum Beispiel als Tabelle oder als einzeln hervorgehobene und gekennzeichnete Sonderinformationen.
 Ein JavaScript, welches gleichzeitig im Hintergrund läuft, sorgt dafür, dass die Daten alle $1000 ms$ aktualisiert werden ohne die komplette Seite vollständig neu zu laden. Dabei - und unter Berufung auf die weichen Echtzeitanforderungen - wird die Aktualisierung mittels Timeout realisiert. Anstelle den Server alle $1000 ms$ aufzufordern neue Daten zu schicken, wird nach dem Erhalt der Daten $1000 ms$ gewartet bis eine neue Anfrage gestartet wird. Dies hat zum Vorteil, dass der Server nicht unnötig belastet wird.
-Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reiters im Menü, sich andere Fahrzeugdaten darstellen zu lassen. Das Verhalten läuft analog ab. Vor dem Verlassen wird der Benutzer angehalten sich auszuloggen und seine aktuelle Sitzung somit zu beenden.
+Der Benutzer hat jederzeit die Möglichkeit durch die Auswahl eines anderen Reiters im Menü, sich andere Fahrzeugdaten darstellen zu lassen. Das Verhalten läuft analog ab. Vor dem Verlassen wird der Benutzer angehalten sich auszuloggen und seine aktuelle Sitzung somit zu beenden. \\
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.6]{anmeldungsvorgang}
+\caption{Aktivitätsdiagramm des Anmeldungsvorgangs}
+%\label{Aktivitätsdiagramm Anmeldungsvorgang}
+\end{figure}
+
+\newpage
 
 \subsection{Registrierung}
 
 Durch das Aufrufen der Seite des TeamStarcraft e. V. Teams lässt sich das Service Interface für das Formula Student Fahrzeug erreichen. Der Besucher erhält eine Aufforderung sich einzuloggen. Es können hierbei unterschiedliche Fälle eintreten (s. Abb. XY):
 
-\begin{figure}
-\centering
-\includegraphics[scale = 0.6]{anmeldungsvorgang}
-\caption{Aktivitätsdiagramm des Anmeldungsvorgangs}
-%\label{Aktivitätsdiagramm Anmeldungsvorgang}
-\end{figure} 
+ 
 
 \begin{itemize}
 
@@ -634,6 +670,8 @@ Ansonsten steht ihm die Möglichkeit nach getaner Arbeit offen, sich über den "
 
 \end{itemize}
 
+\newpage
+
 \subsection{Passwort vergessen}
 
 \begin{figure}
@@ -649,6 +687,8 @@ Ansonsten steht ihm die Möglichkeit nach getaner Arbeit offen, sich über den "
 Tritt der Fall ein, dass ein im System registrierter Benutzer sein Passwort vergisst, bietet das Nutzersystem ihm die Möglichkeit, sich ein neues Passwort zu setzen. Nach dem Aufruf der Login-Seite muss der Nutzer hierfür auf den Button "`Passwort vergessen"\ klicken und wird anschließend auf eine Seite weitergeleitet, die ihn auffordert seine E-Mail-Adresse einzugeben. Durch die Bestätigung der E-Mail-Adresse durch den Benutzer prüft das Nutzersystem im Hintergrund, ob ein Eintrag zu dieser E-Mail-Adresse existiert. Falls nicht, wird der Vorgang abgebrochen. Der Benutzer erhält aus Sicherheitsgründen kein Feedback darüber. Sollte ein entsprechender Nutzer existieren, generiert das System einen Token, den es mitsamt eines Aktivierungslinks an die angegebene E-Mail-Adresse verschickt. Auf der Aktivierungsseite wird der Nutzer erneut aufgefordert seine E-Mail-Adresse und den Token anzugeben. Des Weiteren kann er sich an dieser Stelle ein neues Passwort auswählen (selbe Bedingungen wie bei der erstmaligen Registrierung), welches anschließend das alte Passwort im System überschreibt.
 
 \end{itemize}
+
+\newpage
 
 \subsection{Benutzerverwaltung}
 
@@ -666,6 +706,10 @@ Die Aufgabe der Nutzerdatenbank ist das Aufbewahren aller Informationen der regi
 \includegraphics[scale = 0.6]{nutzerdatenbank} 
 \caption{Entwurf der Fahrzeugdatenbank}
 \end{figure} 
+
+
+\newpage
+
 
 \begin{itemize}
 \item[1)] \textit{rechte:} 
