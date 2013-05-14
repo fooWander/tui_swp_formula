@@ -159,7 +159,7 @@ Folgende Randbedingungen werden an das System gestellt: \\
 
 \begin{itemize}
 
-\item Die Kommunikation der MicroAutoBox II mit dem Embedded-PC wird aufgrund fehlender technischer Machbarkeit statt über einer API nun über eine UDP-Ethernet\-schnittstelle realisiert.
+\item Die Kommunikation der MicroAutoBox II mit dem Embedded-PC wird aufgrund fehlender technischer Machbarkeit statt über eine API nun über eine UDP-Ethernet\-schnittstelle realisiert.
 
 %--------------DIAGRAMM------------EINFÜGEN----------!!!!!!!!!!---------
 
@@ -230,27 +230,27 @@ Aufgrund der Komplexität des Systems, die aus einer Vielzahl an unterschiedlich
 
 \subsection{dSPACE MicroAutoBox II}
 
-Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeiteigenschaften, welches fest im Forumla-Student-Fahrzeug verbaut ist und es ermöglicht, sämtliche Fahrzeugdaten aus ebendiesem auszulesen. Auf diesem Gerät wird ein Simulink-Modell implementiert, das die als Busarray empfangen Daten entgegennimmt, aufbereitet, enkodiert und über eine UDP-Schnittstelle an einen Embedded-PC überträgt. 
+Bei der dSPACE MicroAutoBox II handelt es sich um ein Steuergerät mit Echtzeiteigenschaften, welches fest im Formula-Student-Fahrzeug verbaut ist und es ermöglicht, sämtliche Fahrzeugdaten aus ebendiesem auszulesen. Auf diesem Gerät wird ein Simulink-Modell implementiert, das die als Busarray empfangen Daten entgegen nimmt, aufbereitet, enkodiert und über eine UDP-Schnittstelle an einen Embedded-PC überträgt. 
 
 \subsection{Embedded-PC}
 
-Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. Für die eigentliche Übertragung zum virtuellen Server über eine GPRS/UMTS-Verbindung ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig.		
+Die verwendete MicroAutoBox II sendet die zuvor aufbereiteten Fahrzeugwerte mit Hilfe des auf ebendieser implementierten Simulink-Modells per UDP-Sockets über einen kabelgebundenen Netzwerkanschluss (LAN) an den Embedded-PC M2M-PC NANO der Firma Adyna. Die Übertragung der Fahrzeugdaten von dem Embedded-PC zu dem virtuellen Server geschieht ebenfalls über UDP-Sockets. Das Programm läuft eigenständig auf dem Embedded-PC und wird automatisch beim Systemstart ausgeführt. Sobald ein UDP-Paket vollständig empfangen wurde, wird es mit einem Zeitstempel versehen, der die Systemzeit des Embedded-PC zum Zeitpunkt des Hinzufügens beinhaltet, und dient dazu, die Aktualität der Daten bei dem Eintreffen auf dem virtuellen Server festzustellen. Anschließend werden die Daten über eine mobile Breitbandverbindung mittels UDP-Sockets an den virtuellen Server weitergeleitet. Für die eigentliche Übertragung zum virtuellen Server über eine GPRS/UMTS-Verbindung ist ein in der Programmiersprache C++ selbst entwickeltes Programm zuständig.		
 
 \subsection{Virtueller Server}
 
-Der virtuelle Server wird vom den Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP-Adresse erreichbar. Darauf wird eine in der Programmiersprache C++ entwickelte Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
+Der virtuelle Server wird von dem Provider 1\&1 bereitgestellt und ist jederzeit über eine feste IP-Adresse erreichbar. Darauf wird eine in der Programmiersprache C++ entwickelte Software implementiert, die eingehende Pakete an einem bestimmten Port entgegennimmt, deren Nutzdaten dekodiert, validiert und in eine auf dem virtuellen Server laufende MySQL-Datenbank schreibt. 
 
 \subsection{Webseite}
 
-Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Benutzeroberfläche. Sie besitzt zwei Kernaufgaben: das Darstellen der Fahrzeugdaten, die sich in einer Datenbank auf dem Webserver befinden und das Vermeiden von Zugriffen unbefugter Personen auf eben diese Daten. Dies wird durch ein Benutzersystem erreicht, welches nur ausgewählten Personen den Zugang zu den Informationen der Datenbank ermöglicht und diesen somit die Darstellung oder den Export selbiger Informationen zulässt.
+Die Webseite übernimmt im Rahmen dieses Systems die Aufgaben der grafischen Benutzer-oberfläche. Sie besitzt zwei Kernaufgaben: das Darstellen der Fahrzeugdaten, die sich in einer Datenbank auf dem Webserver befinden und das Vermeiden von Zugriffen unbefugter Personen auf eben diese Daten. Dies wird durch ein Benutzersystem erreicht, welches nur ausgewählten Personen den Zugang zu den Informationen der Datenbank ermöglicht und diesen somit die Darstellung oder den Export selbiger Informationen zulässt.
 
 \subsection{Datenbanken}
 
-Auf dem virtuellen Server läuft ein MySQL-Server der unserem Projekt zur Verfügung steht. Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Script erstellt.
+Auf dem virtuellen Server läuft ein MySQL-Server der unserem Projekt zur Verfügung steht. Es werden zwei Datenbanken angelegt um Benutzerdaten und die Fahrzeugdaten aufzunehmen. Zusätzlich wird ein Benutzer mit zugehörigem Passwort eingerichtet, der alle Rechte auf die Datenbanken erhält und so dem Programm den Zugriff auf die Datenbanken zu ermöglichen. Für die Initialisierung der Datenbanken wird ein Skript erstellt.
 
 \subsubsection{Benutzerdaten-Datenbank}
 
-Diese Datenbank bildet die Grundlage für das optionale Benutzersystem, in ihr werden später die Nutzer und ihre zugehörigen Berechtigungen gespeichert. Zudem wird der Zeitpunkt des letzten Logins erfasst um angemeldete Benutzer automatisch abmelden zu können.
+Diese Datenbank bildet die Grundlage für das optionale Benutzersystem, in ihr werden später die Nutzer und ihre zugehörigen Berechtigungen gespeichert. Zudem wird der Zeitpunkt des letzten Logins erfasst, um angemeldete Benutzer automatisch abmelden zu können.
 
 \subsubsection{Fahrzeugdaten-Datenbank}
 
