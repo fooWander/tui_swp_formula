@@ -894,7 +894,7 @@ III) Folgende Tests müssen auf dem virtuellen Server durchgeführt werden:}
 
 \textbf{1. /TS010/}
 \hangindent+95pt \hangafter=1
-\hspace*{8mm}
+\hspace*{6mm}
 Die Dekodierung der vom Embedded-PC über eine GPRS/UMTS-Verbindung versendeten Datenpakete verläuft ohne Probleme. \\
 
 \textbf{2. /TS020/}
@@ -902,7 +902,10 @@ Die Dekodierung der vom Embedded-PC über eine GPRS/UMTS-Verbindung versendeten 
 \hspace*{8mm}
 Es wird anschließend getestet, ob die nunmehr dekodierten Datensätze anschließend korrekt aufbereitet werden (für die Durchführung der Aufbereitung s. X.Y). \\
 
-Hier bitte ergänzen....
+\textbf{3. /TS030/}
+\hangindent+95pt \hangafter=1
+\hspace*{8mm}
+Es wird darauf geprüft, dass bei längerer Laufzeit des Programms für die Paketverarbeitung der Speicherbedarf nicht unbegrenzt steigt.\\
 
 
 \newpage
@@ -950,8 +953,14 @@ Meldet sich ein noch angemeldeter Nutzer erneut an, soll dies fehlschlagen und e
 \hspace*{5.5mm}
 Falls dem Nutzer, nachdem er den "`Passwort vergessen"\ - Button ausgewählt hat, bei der Eingabe der E-Mail-Adresse zu Übersendung des Tokens und des Links zur Aktivierungsseite ein Fehler unterläuft, soll dies fehlschlagen und der Nutzer eine Statusmeldung darüber erhalten, dass seine eingegebene E-Mail-Adresse nicht im System existiert.  
 
+\subsubsection*{
+\hangindent+20pt \hangafter=1
+III) Tests auf dem virtuellen Server:}
 
-
+\textbf{1. /TS040/}
+\hangindent+95pt \hangafter=1
+\hspace*{6mm}
+Wenn durch äußere Einflüsse das Programm zum Absturz gebracht wurde, soll sich dieses Neustarten lassen können.
 %---------------------------  Glossar  -----------------------------%
 
 \chapter*{Glossar}
