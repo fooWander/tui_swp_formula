@@ -50,7 +50,7 @@ char muell[6416];       //HIER PROBLEM  // (401 Werte * 16 Bit )-1 = eigentlich 
 
 
 
-void Logzeit()
+void logTime()
 {
     time_t now;
     the_date[0] = '\0';
@@ -197,10 +197,10 @@ int Senden()
 int main()
 {
     for(;;) {
-        Logzeit();
+        logTime();
         Erzeugen(); //----mit Dateiausgabe: DEZ----
         the_date[0] = '\0';
-        Logzeit();
+        logTime();
         Ausgabe();  //----mit Dateiausgabe: BIN----
         the_date[0] = '\0';
         Senden();   //----mit Host- & IP-Angabe----

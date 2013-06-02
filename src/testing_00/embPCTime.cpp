@@ -21,15 +21,15 @@
 #include <sys/time.h> //fuer  gettimeofday
 using namespace std;
 
-char timestamp[6433];       //Zeitstempel String groesse 20 Zeichen
+char timestamp[6433];       //Timestamp String groesse 20 Zeichen
 char muell[6433];
 char buf[6416];
 
 
 
-void Empfangen()
+void receiveData()
 {
-    cout << "\n EMPFANGEN:" << endl;
+    cout << "\n receiveData:" << endl;
     int sockfd;
     struct sockaddr_in my_addr, remote_addr;
     socklen_t remote_addr_size = sizeof(remote_addr);
@@ -65,7 +65,7 @@ void Empfangen()
 
 
 
-void Zeitstempel()
+void createTimestamp()
 {
     cout << "\n TIME:" << endl;
     int sekund=0;           //dek. Sekunden
@@ -82,10 +82,10 @@ void Zeitstempel()
 
 
 
-void Senden()
+void sendData()
 {
     cout << "\n SENDEN:" << endl;
-    //strcat(rack,muell);  //evtl fuer Zeitstempel
+    //strcat(rack,muell);  //evtl fuer createTimestamp
     int sockfd;
     struct sockaddr_in remote_addr;
     struct hostent *host_addr;
@@ -133,17 +133,17 @@ void Senden()
 int main()
 {
     for(;;) {
-        Empfangen();
+        receiveData();
         printf("Daten: %s\n", buf);
-        Zeitstempel();
-        printf("\n Zeitstempel: %s\n",timestamp);
+        createTimestamp();
+        printf("\n createTimestamp: %s\n",timestamp);
         strcat(timestamp,buf);
         strcat(muell,timestamp);
-        Senden();
+        sendData();
         muell[0]='\0';
         buf[0]='\0';
     }
-// schauen das gelichzeitig gesendet und empfangen werden kann?
+// schauen das gelichzeitig gesendet und receiveData werden kann?
 }
 
 
