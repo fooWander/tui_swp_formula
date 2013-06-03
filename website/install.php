@@ -219,13 +219,13 @@ include 'includes/config.php';
 		// SQL-Code der Allgemeine Fahrzeugdaten Tabelle
 		$query_general_data = "CREATE  TABLE IF NOT EXISTS $dbname_fd.$general_data(
 							  `StatusNotaus` CHAR(10) NULL ,
-							  `Temperatur01` SMALLINT(4) NULL ,
-							  `Temperatur02` SMALLINT(4) NULL ,
-							  `Temperatur03` SMALLINT(4) NULL ,
+							  `Temperatur01` DECIMAL(4,1) NULL ,
+							  `Temperatur02` DECIMAL(4,1) NULL ,
+							  `Temperatur03` DECIMAL(4,1) NULL ,
 							  `Geschwindigkeit` DECIMAL(4,1) NULL ,
-							  `Gaswert01` TINYINT(3) NULL ,
-							  `Gaswert02` TINYINT(3) NULL ,
-							  `AkkuGesamtspannung` SMALLINT(5) NULL ,
+							  `Gaswert01` DECIMAL(4,1) NULL ,
+							  `Gaswert02` DECIMAL(4,1) NULL ,
+							  `AkkuGesamtspannung` DECIMAL(5,1) NULL ,
 							  `AktuelleFahrzeugzeit` INT(10) NULL ,
 							  `Zeitpunkt` INT(8) NULL ,
 							  `FehlerFeld` VARCHAR(45) NULL )";
@@ -279,10 +279,10 @@ include 'includes/config.php';
 		
 		// SQL-Code der Fahrdynamikregelung Tabelle
 		$query_driving_data = "CREATE  TABLE IF NOT EXISTS $dbname_fd.$driving_data(
-							  `Antriebschlupfregelung` INT(3) NULL ,
-							  `TorqueVectoring01` INT(3) NULL ,
-							  `TorqueVectoring02` INT(3) NULL ,
-							  `TorqueVectoring03` INT(3) NULL ,
+							  `Antriebschlupfregelung` DECIMAL(4,3) NULL ,
+							  `TorqueVectoring01` DECIMAL(4,3) NULL ,
+							  `TorqueVectoring02` DECIMAL(4,3) NULL ,
+							  `TorqueVectoring03` DECIMAL(4,3) NULL ,
 							  `Lenkwinkel` SMALLINT(3) NULL ,
 							  `Zeitpunkt` INT(8) NULL ,
 							  `FehlerFeld` VARCHAR(45) NULL )";
