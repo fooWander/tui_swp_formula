@@ -1,7 +1,7 @@
 <?php
 	include 'core/init.php';
 	include 'includes/overall/header.php';
-
+	
 	if(!logged_in()) {
 	echo "<div class=\"content\">
 		<form action=\"login.php\" method=\"post\">
