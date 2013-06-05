@@ -30,14 +30,17 @@ if (empty($_POST) == false) {
 
 include 'includes/overall/header.php';
 
+if (empty($errors) == false) {
 ?>
 
 <div class="content">
 	<div class="item">
+	<h2>Anmeldung fehlgeschlagen</h2>
 	<?php echo output_errors($errors)?> 
 	</div>
 </div>
 
 <?php
+}
 include 'includes/overall/footer.php'; 
 ?>
