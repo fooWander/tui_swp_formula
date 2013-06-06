@@ -2,6 +2,12 @@
 
 include 'includes/config.php';
 
+function user_count() {
+	global $connect, $dbname_ud, $user;
+	mysqli_select_db($connect,$dbname_ud);
+	return mysqli_num_rows(mysqli_query($connect, "SELECT `id` FROM `" . $user . "` WHERE status = 1"));
+}
+
 /**
  * Gibt auf Eingabe einer User-ID den zugehörigen Datensatz, wie Vor- und Nachname, Email, etc. aus. Diese können nach Belieben ausgewählt werden und müssen lediglich bei den Parametern ergänzt werden. (Siehe 'init.php')
  * @param unknown $user_id

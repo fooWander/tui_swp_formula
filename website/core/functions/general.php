@@ -20,7 +20,7 @@ function sanitize($data) {
 function output_errors($errors) {
 	$output = array();
 	foreach ($errors as $error) {
-		$output[] = '<li>' . $error . '</li>';
+		$output[] = '<li><p>' . $error . '</p></li>';
 	}
 	return '<ul class="error">' . implode('', $output) . '</ul>';
 }
