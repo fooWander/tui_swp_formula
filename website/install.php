@@ -196,7 +196,7 @@ include 'includes/config.php';
 							  `Zelltemperatur27` DECIMAL(4,1) NULL ,
 							  `Zelltemperatur28` DECIMAL(4,1) NULL ,
 							  `Zelltemperatur29` DECIMAL(4,1) NULL ,
-							  `Zelltemperatur31` DECIMAL(4,1) NULL ,
+							  `Zelltemperatur30` DECIMAL(4,1) NULL ,
 							  `Zelltemperatur31` DECIMAL(4,1) NULL ,
 							  `Zelltemperatur32` DECIMAL(4,1) NULL ,
 							  `Zelltemperatur33` DECIMAL(4,1) NULL ,

@@ -94,11 +94,24 @@ footer p {
 	margin-bottom: 15px;
 }
 
+h1 {
+	color: #447998;
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+h2 {
+	color: #447998;
+	margin-top: 0px;
+	text-align: center;
+}
+
 ul {
 	list-style: none;
-	position: absolute;
 	margin: 0;
 	padding: 0;
+	clear: both;
 }
 
 .error {
@@ -106,6 +119,9 @@ ul {
 	padding: 0px;
 }
 
+nav ul {
+	position: absolute;
+}
 
 nav ul li {
 	display: inline;
@@ -114,7 +130,18 @@ nav ul li {
 	padding: 0;
 }
 
-p {margin: 0; padding: 0;}
+p {
+	margin: 0;
+	padding: 0;
+}
+
+p strong {
+	color: #C00000;
+}
+
+a {
+	color: #447998;
+}
 
 .active {
 	display: block;
@@ -174,18 +201,33 @@ nav ul li a:not(.active):hover {
 }
 
 #login {
-	margin: 0;
-	padding: 20px 20px 20px 20px;
-	width: 450px;
-	background-color: #FEFEFE;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #E6E6E6;
+    display: table;
+    margin: 0 auto;
+	padding: 20px 20px 35px 20px;
 }
 
 form ul li {
 	margin-bottom: 10px;
 }
+
+/* * * * * * * * * * * * * * * * * * * *
+ *									   *
+ *    	 Formularformatierungen   	   *
+ *									   *
+ * * * * * * * * * * * * * * * * * * * */
+
+input {
+	width: 200px;
+	color: #343434;
+	padding: 5px;
+	border: #808080;	
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+}
+
 
 /* * * * * * * * * * * * * * * * * * * *
  *									   *
@@ -258,6 +300,6 @@ tr:not(:first-child):hover {
 	}
     
 p {
-    color: #447998;
-    text-indent: 20px;   
+    color: #343434;
+    text-indent: 0px;   
     }
