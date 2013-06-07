@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <stdio.h>
-#include <netinet/in.h>
 #include <netdb.h>
 #include <string.h>
 //#include <string>
