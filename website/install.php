@@ -165,7 +165,9 @@ include 'includes/config.php';
 							  `zelldaten144` DECIMAL(4,3) NULL ,
 							  `MaxZellspannung` DECIMAL(4,3) NULL ,
 							  `MinZellspannung` DECIMAL(4,3) NULL ,
+							  `GesamtspannungAkku` DECIMAL(5,1) NULL,
 							  `StromLadegerät` DECIMAL(5,1) NULL ,
+							  `SpannungLadegerät` DECIMAL(5,1) NULL;
 							  `Balancing` CHAR(144) NULL ,
 							  `Zelltemperatur01` DECIMAL(4,1) NULL ,
 							  `Zelltemperatur02` DECIMAL(4,1) NULL ,
@@ -256,7 +258,8 @@ include 'includes/config.php';
 							  `Federweg02` TINYINT(3) NULL ,
 							  `Federweg03` TINYINT(3) NULL ,
 							  `Federweg04` TINYINT(3) NULL ,
-							  `Gaspedalstellung` DECIMAL(4,1) NULL ,
+							  `Gaspedalstellung01` DECIMAL(4,1) NULL ,
+							  `Gaspedalstellung02` DECIMAL(4,1) NULL ,
 							  `Lenkwinkel` SMALLINT(3) NULL ,
 							  `Zeitpunkt` INT(8) NULL ,
 							  `FehlerFeld` VARCHAR(45) NULL )";
@@ -285,9 +288,7 @@ include 'includes/config.php';
 		// SQL-Code der Fahrdynamikregelung Tabelle
 		$query_driving_data = "CREATE  TABLE IF NOT EXISTS $dbname_fd.$driving_data(
 							  `Antriebschlupfregelung` DECIMAL(4,3) NULL ,
-							  `TorqueVectoring01` DECIMAL(4,3) NULL ,
-							  `TorqueVectoring02` DECIMAL(4,3) NULL ,
-							  `TorqueVectoring03` DECIMAL(4,3) NULL ,
+							  `TorqueVectoring` DECIMAL(4,3) NULL ,
 							  `Lenkwinkel` SMALLINT(3) NULL ,
 							  `Zeitpunkt` INT(8) NULL ,
 							  `FehlerFeld` VARCHAR(45) NULL )";
