@@ -4,10 +4,11 @@
 #include <stdexcept>
 /* uncomment for applications that use vectors */
 /*#include <vector>*/
-
-#include "mysql_connection.h"
+#include "C:\Program Files\MySQL\MySQL Connector C++ 1.1.3\include\cppconn\connection.h"
+#include "C:\Program Files\MySQL\MySQL Connector C++ 1.1.3\include\mysql_connection.h"
+//#include "mysql_connection.h"
 //#include "mysql_driver.h"
-
+#include "C:\Program Files\MySQL\MySQL Connector C++ 1.1.3\include\cppconn\connection.h"
 #include <cppconn/driver.h>
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
