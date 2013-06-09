@@ -1,15 +1,15 @@
 class Data
 {
 public:
-    Data(int value, unsigned int datatype, unsigned int position);
+    Data(double value, unsigned int datatype, unsigned int position);
     //~Data();
     
-    int getValue();
+    double getValue();
     unsigned int getDatatype();
     unsigned int getPosition();
 
 private:
-    int myValue;
+    double myValue;
     unsigned int myDatatype;
     unsigned int myPosition;
 };
@@ -25,4 +25,13 @@ public:
 private:
     unsigned int myBufferSizeData;
     char myData[bufferSizeData];
+};
+
+class Location
+{
+public:
+    Location(arguments);
+    ~Location();
+
+    /* data */
 };

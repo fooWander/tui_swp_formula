@@ -1,34 +1,56 @@
+void sendPackage(const Location remote, const void * msg)
+{
+    UDPSocket sock;
+    int msgSize = strlen(msg);
+    sock.sendTo(msg, msgSize, remote.getAddress(), remote.getPort());
+}
+
+void receivePackage(const Location remote, void * buffer)
+{
+    UDPSocket sock;
+    int recvMsgSize;
+
+    // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
+    recvMsgSize = sock.recvFrom(buffer, PACKAGESIZE_MAX, 
+                                remote.getAddress(), remote.getPort());
+}
+
+void initalize()
+{
+    while(true) {
+        sendPackage(HOST_MABXII, MSG_INFO_REQUEST);
+        if(receivePackage(HOST_MABXII, DATA_PACKAGE_INFO)) {
+            // TODO: process/check package information??
+            break;
+        }
+    }
+
+    while(true) {
+        sendPackage(HOST_VSERVER, MSG_READY);
+        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER)) {
+            // TODO: process/check acknowledgement??
+            break;
+        }        
+    }
+
+    
+    while(true) {
+        sendPackage(HOST_VSERVER, DATA_PACKAGE_INFO);
+        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER)) {
+            // TODO: process/check acknowledgement??
+            break;
+        }      
+    }
+}
+
+
 int main(int argc, char const *argv[])
 {
-    unsigned short localPort = atoi(argv[1]);
+    initalize();
 
-    unsigned int maxBufferSize = 64; // Maximal size of an UDP-package
-    UDPSocket sock(localPort);                
-    char buffer[maxBufferSize];
-    int recvMsgSize;                  // Size of received message
-    string sourceAddress;             // Address of datagram source
-    unsigned short sourcePort;        // Port of datagram source
-    for (;;) {  // Run forever
-        // Block until receive message from a client
-        recvMsgSize = sock.recvFrom(buffer, maxBufferSize, sourceAddress, 
-                                    sourcePort);
+    while (true) {
+        receiveData();
+        processData();
+        sendData();
     }
-    buffer[recvMsgSize] = '\0';     // terminate string after received data
-
-    Decoder dec;
-    Data package;
-    package = dec.decode(*buffer);
-
-    Encoder enc;
-    enc.encode(*package);   // encode data (compress, add timestamp and ID, etc.)
-
-    UDPSocket sock2;
-
-    for (int i = 0; i < packageNum; ++i)
-    {
-        //send each package to vServer
-        sock2.sendTo(enc.getData(i), sizeof(enc.getData(i)), servAddress, servPort);
-    }
-
-    return 0;
 }
