@@ -167,7 +167,7 @@ include 'includes/config.php';
 							  `MinZellspannung` DECIMAL(4,3) NULL ,
 							  `GesamtspannungAkku` DECIMAL(5,1) NULL,
 							  `StromLadegerät` DECIMAL(5,1) NULL ,
-							  `SpannungLadegerät` DECIMAL(5,1) NULL;
+							  `SpannungLadegerät` DECIMAL(5,1) NULL,
 							  `Balancing` CHAR(144) NULL ,
 							  `Zelltemperatur01` DECIMAL(4,1) NULL ,
 							  `Zelltemperatur02` DECIMAL(4,1) NULL ,
