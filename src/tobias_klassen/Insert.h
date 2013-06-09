@@ -1,4 +1,3 @@
-//Achtung: Dummy-Objekt, dient nur zur Darstellung des Aufrufes!
 #ifndef Insert_H
 #define Insert_H
 #include <stdlib.h>
