@@ -4,7 +4,7 @@
 	
 	if (empty($_POST) == false) {
 		// echo "<p>Ihre Registrierung wurde verschickt. Nachdem die Daten überprüft wurden erhalten Sie Zugang zum Service Interface.</p>";
-		$datafields = array('vorname','nachname','mail','passwort','passwort_wdh');
+		$datafields = array('vorname','nachname','email','passwort','passwort_wdh');
 		
 		foreach ($_POST as $key => $value) {
 			if (empty($value) && in_array($key, $datafields) == true) {
@@ -13,8 +13,9 @@
 			}
 			
 			if (empty($errors)) {
-				if (user_exists($_POST['mail'])) {
-					$errors[] = 'Es existiert bereits ein Nutzer mit diesen Zugangsdaten.';
+				
+				if (user_exists($_POST['email'])) {
+					$errors[] = 'Es existiert bereits ein Nutzer zu dieser E-Mail-Adresse.';
 				}
 				
 				if (preg_match("/\\s/", $_POST['passwort']) == true ) {
@@ -29,6 +30,10 @@
 					$errors[] = 'Ihr Passwortwiederholung stimmt nicht mit dem zuerst angegebenen Passwort überein.';
 				}
 				
+				if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == false) {
+					$errors[] = 'Bitte geben Sie eine gültige E-Mail-Adresse an.';
+				}
+				
 			}
 			
 		}
@@ -37,9 +42,32 @@
 	
 ?>
 	<div class="content">
-		<div class="item">
+		<div class="single">
 			<h2>Registrierung</h2>
-			<p>Bitte füllen Sie für den Registriervorgang die nachfolgenden Formularfelder vollständig aus.</p>
+			<?php if (!isset($_GET['success'])) { echo '<p><center>Bitte füllen Sie für den Registriervorgang die nachfolgenden Formularfelder vollständig aus.</center></p>'; } ?>
+			<?php 
+			
+			if (isset($_GET['success']) && empty($_GET['success'])) {
+				echo '<p><center>Ihre Registrierung wurde verschickt. Nachdem die Daten überprüft wurden, erhalten Sie Zugang zum Service Interface.</center></p>';
+			} else {			
+				if (!empty($_POST) && empty($errors)) {
+	
+					$register_data = array(
+							'vorname' 	=> $_POST['vorname'],
+							'nachname' 	=> $_POST['nachname'],
+							'email' 	=> $_POST['email'],
+							'passwort' 	=> $_POST['passwort']
+					);
+					register_user($register_data);
+					header('Location: register.php?success');
+					exit();
+					
+				} else if (empty($errors) == false) {
+			?>
+			<p class="hinweis"><br><center><?php echo output_errors($errors); ?></center></p>
+			<?php
+				}
+			?>
 			<form action="" method="post">
 				<ul id="login">
 					<li>
@@ -52,7 +80,7 @@
 					</li>
 					<li>
 						E-Mail-Adresse:<br>
-						<input type="text" name="mail">
+						<input type="text" name="email">
 					</li>								
 					<li>
 						Passwort:<br>
@@ -67,9 +95,9 @@
 					</li>
 				</ul>
 			</form>
-			<p class="hinweis"><?php if (!empty($errors)) { echo "<br>\n<p><strong>Achtung:</strong></p>\n" . output_errors($errors); } ?></p>
 		</div>
 	</div>
 <?php	
+}
 include 'includes/overall/footer.php';
 ?>

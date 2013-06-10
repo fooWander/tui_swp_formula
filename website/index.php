@@ -5,8 +5,14 @@
 	if(!logged_in()) {
 ?>
 	<div class="content">
-		<div class="item">
+		<div class="single">
 			<h1>Service Interface Login</h1>
+			<?php 
+			if (isset($_GET['denied']) && empty($_GET['denied'])) { ?>
+				<p class="alert">Sie haben keine Berechtigung diese Seite anzeigen zu lassen. Bitte loggen Sie sich ein oder registrieren Sie sich.</p>
+			<?php
+			}
+			?>
 			<form action="login.php" method="post">
 				<ul id="login">
 					<li>
@@ -25,6 +31,10 @@
 			</form>
 		</div>
 	</div>
+<?php
+	} else {
+?>
+<!-- Hier ELSE-Inhalt -->
 <?php
 	}
 	
