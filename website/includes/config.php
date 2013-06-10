@@ -24,5 +24,7 @@ $user = 'benutzerdaten';					// Tabelle: Benutzerdaten
 $rights = 'rechte';							// Tabelle: Rechtegruppen
 $online = 'online_benutzer';				// Tabelle: Onlineuser
 
+/* Sonstige Werte */
+$salt = 'tuilmenaufakia';					// Für Passwörter als zusätzlicher Schutz
 
 ?>

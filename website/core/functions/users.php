@@ -2,6 +2,24 @@
 
 include 'includes/config.php';
 
+/**
+ * Bekommt eine ID und einen String übergeben und ändert das zur ID gehörende Passwort in der Datenbank
+ * @param int $user_id
+ * @param string $password
+ */
+function change_password($user_id, $password) {
+	global $connect, $user, $dbname_ud;
+	$user_id = (int)$user_id;
+	$password = md5($password);
+	
+	mysqli_select_db($connect,$dbname_ud);
+	mysqli_query($connect, "UPDATE `" . $user . "` SET passwort = '" . $password ."' WHERE id = " . $user_id);
+}
+
+/**
+ * Legt in der Datenbank einen neuen (deaktivieren) Nutzer in der Datenbank an und zwar mitsamt allen angegeben Daten und verschlüsseltem Passwort.
+ * @param array $register_data
+ */
 function register_user($register_data) {
 	global $connect, $user, $dbname_ud;
 	array_walk($register_data, 'array_sanitize');

@@ -3,6 +3,9 @@
 	include 'includes/overall/header.php';
 	logged_in_redirect();
 	
+	/**
+	 * Überprüfung der Vollständigkeit der eingegebenen Daten und gleichzeitige Validierung ebendieser
+	 */
 	if (empty($_POST) == false) {
 		$datafields = array('vorname','nachname','email','passwort','passwort_wdh');
 		
@@ -44,12 +47,25 @@
 	<div class="content">
 		<div class="single">
 			<h2>Registrierung</h2>
-			<?php if (!isset($_GET['success'])) { echo '<p><center>Bitte füllen Sie für den Registriervorgang die nachfolgenden Formularfelder vollständig aus.</center></p>'; } ?>
-			<?php 
+			<?php
 			
+			/**
+			 * Benachrichtigung über erfolgreiche Registrierung.
+			 */
+			if (!isset($_GET['success'])) {
+				echo '<p><center>Bitte füllen Sie für den Registriervorgang die nachfolgenden Formularfelder vollständig aus.</center></p>';
+			}			
+			
+			/**
+			 * Registrierung bereits verschickt?
+			 */
 			if (isset($_GET['success']) && empty($_GET['success'])) {
 				echo '<p><center>Ihre Registrierung wurde verschickt. Nachdem die Daten überprüft wurden, erhalten Sie Zugang zum Service Interface.</center></p>';
-			} else {			
+			} else {	
+		
+				/**
+				 * Registrierung des Nutzers mit den angegeben Daten
+				 */
 				if (!empty($_POST) && empty($errors)) {
 	
 					$register_data = array(
@@ -58,9 +74,9 @@
 							'email' 	=> $_POST['email'],
 							'passwort' 	=> $_POST['passwort']
 					);
-					register_user($register_data);
-					header('Location: register.php?success');
-					exit();
+					install_system($register_data);
+					// header('Location: register.php?success');
+					// exit();
 					
 				} else if (empty($errors) == false) {
 			?>

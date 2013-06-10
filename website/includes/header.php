@@ -1,8 +1,11 @@
 <header>
 	<div><img src="logo.png" class="tsc-02e"></div>
 	<?php 
-		if(logged_in()) {
-	?>	
+	/**
+	 * Falls eingeloggt, Einblenden des Auswahlmenüs, andernfalls Ausblenden. 
+	 */
+	if(logged_in()) {
+	?>
 	<nav>
 		<ul>
 			<li><a id="logout" href="logout.php">Ausloggen</a></li>
@@ -21,3 +24,8 @@
 	}
 	?>	
 </header>
+<?php
+if (logged_in()) {
+	include 'includes/widgets/loggedin.php';
+}
+?>
