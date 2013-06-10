@@ -1,4 +1,12 @@
-
+html, body {
+	min-width: 100%;
+	height: 100%;
+	margin:0;
+	padding:0;
+	background-color: #FDFDFD;
+	background-image: url(bg.jpg);
+	font-family: 'Archivo Narrow', sans-serif;
+	color: #505050;
 }
 
 header {
@@ -19,8 +27,83 @@ header {
 	font-size: 11pt;
 }
 
+header nav {width: 1000px;  margin: 0 auto;}
+header nav ul {width: 1000px;}
+header nav ul li {float: right;}
 
+header div {width: 1000px; margin: 0 auto;}
 
+.tsc-02e {
+	float: left;
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+.item {
+	width: 445px;
+	margin: 10px;
+	padding: 15px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E6E6E6;
+	float: left;
+}
+
+/**
+ *	Clearfix, ansonsten wird die Box ".single" nicht richtig dagestellt.
+ *  Notwendig für masonry plugin!	
+ */
+.single:before, .single:after { content: ""; display: table; }
+.single:after { clear: both; }
+
+.single {
+	width: 950px;
+	margin: 10px;
+	padding: 15px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E6E6E6;
+}
+
+.content {
+	width: 1000px;
+	height: auto;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 15px;
+}
+
+h1 {
+	color: #447998;
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+h2 {
+	color: #447998;
+	margin-top: 0px;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+.error {
+	margin: 0px;
+	padding: 0px;
+}
+
+.fehlermeldung {
+	color: #C00000;
+}
 
 .alert {
 	color: #C00000;
@@ -31,6 +114,17 @@ header {
 	padding: 5px;
 	border: 1px;
 	border-style: solid;
+}
+
+nav ul {
+	position: absolute;
+}
+
+nav ul li {
+	display: inline;
+	float: left;
+	margin: 0;
+	padding: 0;
 }
 
 p {
@@ -46,8 +140,65 @@ p strong {
 	color: #C00000;
 }
 
+a {
+	color: #447998;
+}
 
-#logout {color: #E86D12;}
+.active {
+	display: block;
+	margin-top: 0px;
+	margin-left: 0px;
+	/* width: 100px; */
+	height: 65px;
+	line-height: 55px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: rgba(68,121,152,0);
+	border-style: solid;
+	border-top-width: 5px;
+	border-top-color: #447998;
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	text-align: center;
+	color: #447998;
+}
+
+nav ul li a {
+	display: block;
+	width: auto;
+	height: 65px;
+	padding-left: 15px;
+	padding-right: 15px;
+	line-height: 65px;
+	margin-top: 0px;
+	margin-left: 0px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	color: #D6D6D6;
+}
+
+nav ul li a:not(.active):hover {
+	padding-top: 0;
+	border-top-color: #F2F2F2;
+	border-style: solid;
+	border-top-width: 5px;
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	line-height: 55px;
+}
+
+#logout {
+	color: #E86D12;
+	border: 0;
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+	height: 70px;
+	line-height: 65px;
+}
+
 #logout:hover {
 	color: #E86D12;
 	border: 0;
@@ -67,111 +218,6 @@ form ul li {
 	margin-bottom: 10px;
 }
 
-/* * * * * * * * * * * * * * * * * * * *
- *									   *
- *    	 Formularformatierungen   	   *
- *									   *
- * * * * * * * * * * * * * * * * * * * */
-
-input {
-	width: 200px;
-	color: #343434;
-	padding: 5px;
-	border: #808080;	
-	border-style: solid;
-	border-top-width: 1px;
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-left-width: 1px;
-}
-
-
-
-html {
-	min-width: 100%;
-	height: 100%;
-	overflow-y:scroll;	/* erzwinge scrollbar (besonders chrome) */
-	margin: 0px;		
-	padding:0;
-	background-color: #FDFDFD;
-	background-image: url(bg.jpg);
-	font-family: 'Archivo Narrow', sans-serif;
-}
-
-body {
-	min-width: 100%;
-	height: 100%;
-	margin: 0 0 0px;		
-	padding:0;
-	background-color: #FDFDFD;
-	background-image: url(bg.jpg);
-	font-family: 'Archivo Narrow', sans-serif;
-}
-
-header {
-	width: 100%;
-	min-width: 1000px;
-	height: 70px;
-	margin-top: 0px;
-	margin-left: 0px;
-	padding: 0;
-	background-color: #FFFFFF;
-	border-style: solid;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-width: 1px;
-	border-color: #E6E6E6;
-	text-align: center;
-	font-size: 11pt;
-}
-
-
-header div {width: 1000px; margin: 0 auto;}
-
-.tsc-02e {
-	float: left;
-	margin-top: 8px;
-	margin-left: 5px;
-	border:0px;
-}
-
-/*
-footer {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	margin-top: -50px;;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 0 auto;
-	background-color: #FFFFFF;
-	border-style: solid;
-	border-bottom: none;
-	border-left: none;
-	border-right: none;
-	border-width: 1px;
-	border-color: #E6E6E6;
-	clear: both;
-}
-
-footer p {
-	margin-top: 6px;
-	text-align: center;
-	font-size: 10pt;
-	color: #908F8F;
-} */
-
-.item {
-	width: 445px;
-	margin: 10px;
-	padding: 15px;
-	background-color: #FEFEFE;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #E6E6E6;
-	float: left;
-}
 
 /**
  *	    
@@ -507,7 +553,7 @@ footer p {
 	float:right;
 }
 
-.nav_inactive:not(.active):hover {	/* Hover für inaktiven NavButton*/
+.nav_inactive:hover {	/* Hover für inaktiven NavButton*/
 	display: block;
 	width:auto;
 	padding-top: 0;
@@ -613,82 +659,25 @@ footer p {
 	padding: 0px;
 	
 } 
- 
 
 
+/* * * * * * * * * * * * * * * * * * * *
+ *									   *
+ *    	 Formularformatierungen   	   *
+ *									   *
+ * * * * * * * * * * * * * * * * * * * */
 
-/**
- *	Clearfix, ansonsten wird die Box ".single" nicht richtig dagestellt.
- *  Notwendig für masonry plugin!	
- */
-.single:before, .single:after { content: ""; display: table; }
-.single:after { clear: both; }
-
-
-/**
- *	    
- *
- *		</KUDA!!!>
- *
- *
- */
-
-.single {
-	width: 950px;
-	margin: 10px;
-	padding: 15px;
-	background-color: #FEFEFE;
+input {
+	width: 200px;
+	color: #343434;
+	padding: 5px;
+	border: #808080;	
 	border-style: solid;
-	border-width: 1px;
-	border-color: #E6E6E6;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
 }
-
-.content {
-	width: 1000px;
-	height: auto;
-	margin-top: 15px;
-	margin-right: auto;
-	margin-left: auto;
-	margin-bottom: 15px;
-}
-
-ul {
-	list-style: none;
-	position: absolute;
-	margin: 0;
-	padding: 0;
-}
-
-
-.error {
-	margin: 0px;
-	padding: 0px;
-}
-
-
-p {margin: 0; padding: 0;}
-
-
-
-
-
-#login {
-	margin: 0;
-	padding: 20px 20px 20px 20px;
-	width: 450px;
-	background-color: #FEFEFE;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #E6E6E6;
-}
-
-form ul li {
-	margin-bottom: 10px;
-}
-
-
-
-
 
 
 /* * * * * * * * * * * * * * * * * * * *
@@ -762,9 +751,6 @@ tr:not(:first-child):hover {
 	}
     
 p {
-    color: #447998;
-    text-indent: 20px;   
+    color: #343434;
+    text-indent: 0px;   
     }
-	
-	
-

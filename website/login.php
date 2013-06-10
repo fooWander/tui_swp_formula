@@ -1,5 +1,6 @@
 <?php 
 include 'core/init.php';
+logged_in_redirect();
 
 if (empty($_POST) == false) {
 	$mail = $_POST['mail'];
@@ -34,9 +35,11 @@ if (empty($errors) == false) {
 ?>
 
 <div class="content">
-	<div class="item">
+	<div class="single">
 	<h2>Anmeldung fehlgeschlagen</h2>
 	<?php echo output_errors($errors)?> 
+	<br>
+	<p><a href="index.php">Zurück zum Login</a></p>
 	</div>
 </div>
 

@@ -9,7 +9,7 @@
 /* Datenbankzugriff - Zugangsdatens */
 $dbhost = 'localhost';						// Das kann so stehen bleiben.
 $dbuname = 'root';  						// Hier den Datenbanknutzernamen eingeben.
-$dbpass = '12345678';   							// Hier das Datenbankpasswort eintragen.
+$dbpass = '';   							// Hier das Datenbankpasswort eintragen.
 
 $dbname_fd = 'fahrzeugdaten';				// Datenbanknamen für Fahrzeugdaten festlegen
 $dbname_ud = 'nutzerdaten';					// Datenbanknamen für Userdaten festlegen

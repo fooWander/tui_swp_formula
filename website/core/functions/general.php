@@ -3,6 +3,16 @@
 include 'includes/config.php';
 
 /**
+ * Arbeitet ähnlich wie protect_page(), verhindert dass angemeldete Benutzer auf Seiten zugreifen, deren Zugriff für einen bereits registrierten Nutzer keinen Sinn ergibt. (z.B. die Registrierungsseite)
+ */
+function logged_in_redirect() {
+	if (logged_in() == true) {
+		header('Location: index.php');
+		exit();		
+	}
+}
+
+/**
  * Prüft beim Aufruf der Funktion ob der Benutzer eingeloggt ist und leitet ihn, falls dies nicht der Fall ist, auf die Startseite um.
  */
 function protect_page() {

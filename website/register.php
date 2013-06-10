@@ -1,9 +1,9 @@
 <?php
 	include 'core/init.php';
 	include 'includes/overall/header.php';
+	logged_in_redirect();
 	
 	if (empty($_POST) == false) {
-		// echo "<p>Ihre Registrierung wurde verschickt. Nachdem die Daten überprüft wurden erhalten Sie Zugang zum Service Interface.</p>";
 		$datafields = array('vorname','nachname','email','passwort','passwort_wdh');
 		
 		foreach ($_POST as $key => $value) {
