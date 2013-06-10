@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-html, body {
-	min-width: 100%;
-	height: 100%;
-	margin:0;
-	padding:0;
-	background-color: #FDFDFD;
-	background-image: url(bg.jpg);
-	font-family: 'Archivo Narrow', sans-serif;
-	color: #505050;
+
 }
 
 header {
@@ -28,109 +19,8 @@ header {
 	font-size: 11pt;
 }
 
-header nav {width: 1000px;  margin: 0 auto;}
-header nav ul {width: 1000px;}
-header nav ul li {float: right;}
 
-header div {width: 1000px; margin: 0 auto;}
 
-.tsc-02e {
-	float: left;
-	margin-top: 8px;
-	margin-left: 5px;
-}
-
-/*
-footer {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	margin-top: -50px;;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 0 auto;
-	background-color: #FFFFFF;
-	border-style: solid;
-	border-bottom: none;
-	border-left: none;
-	border-right: none;
-	border-width: 1px;
-	border-color: #E6E6E6;
-	clear: both;
-}
-
-footer p {
-	margin-top: 6px;
-	text-align: center;
-	font-size: 10pt;
-	color: #908F8F;
-} */
-
-.item {
-	width: 445px;
-	margin: 10px;
-	padding: 15px;
-	background-color: #FEFEFE;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #E6E6E6;
-	float: left;
-}
-
-/**
- *	Clearfix, ansonsten wird die Box ".single" nicht richtig dagestellt.
- *  Notwendig für masonry plugin!	
- */
-.single:before, .single:after { content: ""; display: table; }
-.single:after { clear: both; }
-
-.single {
-	width: 950px;
-	margin: 10px;
-	padding: 15px;
-	background-color: #FEFEFE;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #E6E6E6;
-}
-
-.content {
-	width: 1000px;
-	height: auto;
-	margin-top: 15px;
-	margin-right: auto;
-	margin-left: auto;
-	margin-bottom: 15px;
-}
-
-h1 {
-	color: #447998;
-	margin-top: 20px;
-	width: 100%;
-	text-align: center;
-}
-
-h2 {
-	color: #447998;
-	margin-top: 0px;
-	text-align: center;
-}
-
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	clear: both;
-}
-
-.error {
-	margin: 0px;
-	padding: 0px;
-}
-
-.fehlermeldung {
-	color: #C00000;
-}
 
 .alert {
 	color: #C00000;
@@ -141,17 +31,6 @@ ul {
 	padding: 5px;
 	border: 1px;
 	border-style: solid;
-}
-
-nav ul {
-	position: absolute;
-}
-
-nav ul li {
-	display: inline;
-	float: left;
-	margin: 0;
-	padding: 0;
 }
 
 p {
@@ -167,56 +46,6 @@ p strong {
 	color: #C00000;
 }
 
-a {
-	color: #447998;
-}
-
-.active {
-	display: block;
-	margin-top: 0px;
-	margin-left: 0px;
-	/* width: 100px; */
-	height: 65px;
-	line-height: 55px;
-	padding-left: 15px;
-	padding-right: 15px;
-	background-color: rgba(68,121,152,0);
-	border-style: solid;
-	border-top-width: 5px;
-	border-top-color: #447998;
-	border-left: none;
-	border-bottom: none;
-	border-right: none;
-	text-align: center;
-	color: #447998;
-}
-
-nav ul li a {
-	display: block;
-	width: auto;
-	height: 65px;
-	padding-left: 15px;
-	padding-right: 15px;
-	line-height: 65px;
-	margin-top: 0px;
-	margin-left: 0px;
-	text-align: center;
-	text-decoration: none;
-	font-weight: bold;
-	color: #D6D6D6;
-}
-
-nav ul li a:not(.active):hover {
-	padding-top: 0;
-	/*background-color: #FAFAFA;*/
-	border-top-color: #F2F2F2;
-	border-style: solid;
-	border-top-width: 5px;
-	border-left: none;
-	border-bottom: none;
-	border-right: none;
-	line-height: 55px;
-}
 
 #logout {color: #E86D12;}
 #logout:hover {
@@ -257,81 +86,7 @@ input {
 }
 
 
-/* * * * * * * * * * * * * * * * * * * *
- *									   *
- *  	 Tabellenformatierungen 	   *
- *									   *
- * * * * * * * * * * * * * * * * * * * */
 
-table {
-    background-color: #FDFDFD;
-	border-collapse: collapse;
-    border: 1px solid #DCDCDC;
-    width: 100%;
-    }
-    
-/*
-table tr {
-	display: table-row;
-	}
-*/
-
-table tr:first-child {
-	display: table-row;
-	border: 1px solid #E6E6E6;
-    background-color: #FAFAFA;
-    height: 25px;
-    color: #808080;
-    text-align: center;
-    font-weight: normal;
-    font-style: italic;
-	}
-    
-td {
-	height: 25px;
-	}
-
-.tit {
-	width: 350px;
-	}
-
-.int {
-	width: 190px;
-	}
-
-.year {
-	width: 60px;
-	}
-
-tr:nth-child(even) td, tr:nth-child(odd) td {
-    border: 1px solid #DCDCDC;
-    text-align: center;
-    }
-    
-tr:nth-child(even) {
-	border: 1px solid #DCDCDC;
-	background-color: #FDFDFD;
-	height: 25px;
-	}
-	
-tr:nth-child(odd) {
-	border: 1px solid #DCDCDC;
-	background-color: #FAFAFA;
-	height: 25px;
-	}
-
-tr:not(:first-child):hover {
-	border: 1px solid #DCDCDC;
-	background-color: #447998;
-	height: 25px;
-	color: #F8F8F8;
-	}
-    
-p {
-    color: #343434;
-    text-indent: 0px;   
-    }
-=======
 html {
 	min-width: 100%;
 	height: 100%;
@@ -1012,4 +767,4 @@ p {
     }
 	
 	
->>>>>>> origin/webseite_david
+

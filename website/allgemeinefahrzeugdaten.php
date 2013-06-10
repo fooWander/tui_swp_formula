@@ -1,4 +1,8 @@
-<?php include 'includes/overall/header.php'; ?>
+<?php
+ include 'core/init.php';
+ include 'includes/overall/header.php';
+ protect_page();
+?>	
 
 <!-- Laden aus der SQL DB -->
 <script src="scripts/allgemeinefahrzeugdaten_script.js"></script>
