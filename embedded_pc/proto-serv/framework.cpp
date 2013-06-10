@@ -13,8 +13,8 @@
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
 
-#define EXAMPLE_HOST "localhost"
-#define EXAMPLE_USER "root"
+#define EXAMPLE_HOST "192.168.1.3"
+#define EXAMPLE_USER "u1"
 #define EXAMPLE_PASS "stdvj"
 #define EXAMPLE_DB "swp"
 
@@ -31,6 +31,18 @@ int main(int argc, const char **argv)
   cout << endl;
 
   try {
+
+
+	sql::Driver* driver = get_driver_instance();
+	std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass));
+	con->setSchema(database);
+	std::auto_ptr<sql::Statement> stmt(con->createStatement());
+		
+	// We need not check the return value explicitly. If it indicates
+	// // an error, Connector/C++ generates an exception.
+	stmt->execute("CALL add_text('ATL')");
+	//add_text("Hallo hier ist das Programm, gz");
+	
 
     /* INSERT TUTORIAL CODE HERE! */
 
