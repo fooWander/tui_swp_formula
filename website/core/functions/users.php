@@ -2,6 +2,20 @@
 
 include 'includes/config.php';
 
+function register_user($register_data) {
+	global $connect, $user, $dbname_ud;
+	array_walk($register_data, 'array_sanitize');
+	$register_data['passwort'] = md5($register_data['passwort']);
+	$fields = '`' . implode('`, `', array_keys($register_data)) . '`';
+	$data = '\'' . implode('\', \'', $register_data) . '\'';
+	
+	mysqli_select_db($connect,$dbname_ud);
+	mysqli_query($connect, "INSERT INTO `" . $user . "` ($fields) VALUES ($data)");
+}
+
+/**
+ * Bestimmt die Anzahl der im System registrierten Nutzer. Betroffen sind hiervon lediglich aktivierte Accounts.
+ */
 function user_count() {
 	global $connect, $dbname_ud, $user;
 	mysqli_select_db($connect,$dbname_ud);
@@ -10,7 +24,7 @@ function user_count() {
 
 /**
  * Gibt auf Eingabe einer User-ID den zugehörigen Datensatz, wie Vor- und Nachname, Email, etc. aus. Diese können nach Belieben ausgewählt werden und müssen lediglich bei den Parametern ergänzt werden. (Siehe 'init.php')
- * @param unknown $user_id
+ * @param int $user_id
  */
 function user_data($user_id) {
 	global $connect, $user, $dbname_ud;

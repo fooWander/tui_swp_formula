@@ -6,6 +6,7 @@ html, body {
 	background-color: #FDFDFD;
 	background-image: url(bg.jpg);
 	font-family: 'Archivo Narrow', sans-serif;
+	color: #505050;
 }
 
 header {
@@ -75,6 +76,13 @@ footer p {
 	float: left;
 }
 
+/**
+ *	Clearfix, ansonsten wird die Box ".single" nicht richtig dagestellt.
+ *  Notwendig für masonry plugin!	
+ */
+.single:before, .single:after { content: ""; display: table; }
+.single:after { clear: both; }
+
 .single {
 	width: 950px;
 	margin: 10px;
@@ -119,6 +127,21 @@ ul {
 	padding: 0px;
 }
 
+.fehlermeldung {
+	color: #C00000;
+}
+
+.alert {
+	color: #C00000;
+	background-color: #ffbbbb;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+}
+
 nav ul {
 	position: absolute;
 }
@@ -136,6 +159,10 @@ p {
 }
 
 p strong {
+	color: #C00000;
+}
+
+.hinweis {
 	color: #C00000;
 }
 
