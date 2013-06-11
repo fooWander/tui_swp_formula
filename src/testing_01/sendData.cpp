@@ -43,6 +43,25 @@ void initalize()
     }
 }
 
+void receiveData()
+{
+	receivePackage(HOST_MABXII, DATA_PACKAGE)
+}
+
+void processData()
+{
+	// Is there anything to decode?
+	Decoder dec;
+	unsigned int packageSum = dec.getPackageSum();
+
+	Encoder enc;
+
+	for (int i = 0; i < packageSum; ++i)
+	{
+		/* code */
+	}
+
+}
 
 int main(int argc, char const *argv[])
 {
