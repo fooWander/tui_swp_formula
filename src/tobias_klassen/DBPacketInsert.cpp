@@ -214,7 +214,7 @@ void DBPacketInsert::insert_dynamischeDaten()
 	//Gaspedalstellungen einfügen:
 	sql_anw += "Gaspedalstellung01, Gaspedalstellung02, ";
 	//Lenkwinkel einfügen:
-	sql_anw += "Lenkwinkel, ";
+	sql_anw += "Lenkwinkel2, ";
 	//Zeitpunkt einfügen:
 	sql_anw += "Zeitpunkt, ";
 	//FehlerFeld einfügen:
