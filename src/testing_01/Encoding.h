@@ -62,12 +62,12 @@ private:
     char MyVecDatatypes;
     */
     const char * buffer; // delete
-
 };
 
 class Decoder : public Encoding
 {
 public:
+
     Decoder(char *buffer, const int bufferlen);
     Decoder(char *buffer, const int bufferlen, char *vecLayout, const int vecLayoutlen, 
             char *vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen);

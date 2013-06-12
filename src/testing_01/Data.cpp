@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  *  Service Interface for Formula Student Car.
  *  Copyright (C) 2013  Christian Boxdörfer
@@ -18,6 +19,8 @@
  */
 
 
+=======
+>>>>>>> dbd8ace5a4d2c0496e023403eb39583b6ff95651
 #include "Data.h"
 
 Data::Data(int value, unsigned int datatype, unsigned int position)

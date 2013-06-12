@@ -1,0 +1,814 @@
+html {
+	 overflow-y: scroll; /* erzwinge scrollbar (besonders chrome) */
+}
+
+html, body {
+	min-width: 100%;
+	height: 100%;
+	margin:0;
+	padding:0;
+	background-color: #FDFDFD;
+	background-image: url(bg.jpg);
+	font-family: 'Archivo Narrow', sans-serif;
+	color: #505050;
+}
+
+header {
+	width: 100%;
+	min-width: 1000px;
+	height: 70px;
+	margin-top: 0px;
+	margin-left: 0px;
+	padding: 0;
+	background-color: #FFFFFF;
+	border-style: solid;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-width: 1px;
+	border-color: #E6E6E6;
+	text-align: center;
+	font-size: 11pt;
+}
+
+header nav {width: 1000px;  margin: 0 auto;}
+header nav ul {width: 1000px;}
+header nav ul li {float: right;}
+
+header div {width: 1000px; margin: 0 auto;}
+
+.tsc-02e {
+	float: left;
+	margin-top: 8px;
+	margin-left: 5px;
+}
+
+.item {
+	width: 445px;
+	margin: 10px;
+	padding: 15px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E6E6E6;
+	float: left;
+}
+
+/**
+ *	Clearfix, ansonsten wird die Box ".single" nicht richtig dagestellt.
+ *  Notwendig für masonry plugin!	
+ */
+.single:before, .single:after { content: ""; display: table; }
+.single:after { clear: both; }
+
+.single {
+	width: 950px;
+	margin: 10px;
+	padding: 15px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E6E6E6;
+}
+
+.verwaltung {
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 960px;
+	padding: 10px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-top-width: 0px;
+	border-color: #E6E6E6;	
+}
+
+div.verwaltung div {
+	display: inline;
+	float: right;
+	margin-left: 7px;
+	margin-right: 7px;
+	padding: 0;	
+	position: relative;
+}
+
+div.verwaltung div a {
+	text-decoration: none;
+	position: relative;
+}
+
+.content {
+	width: 1000px;
+	height: auto;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 15px;
+}
+
+h1 {
+	color: #447998;
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+h2 {
+	color: #447998;
+	margin-top: 0px;
+	text-align: center;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	clear: both;
+}
+
+.error {
+	margin: 0px;
+	padding: 0px;
+}
+
+.fehlermeldung {
+	color: #C00000;
+}
+
+/* alert-Klassen für formatierte Hinweise */
+.alert {
+	color: #C00000;
+	background-color: #ffbbbb;
+	margin-left: auto;
+	margin-right: auto;
+	width: 450px;
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+}
+
+.alert_short {
+	color: #447998;
+	background-color: #bed4e2;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+}
+
+nav ul {
+	position: absolute;
+}
+
+nav ul li {
+	display: inline;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+p strong {
+	color: #C00000;
+}
+
+.hinweis {
+	color: #C00000;
+}
+
+a {
+	color: #447998;
+}
+
+.active {
+	display: block;
+	margin-top: 0px;
+	margin-left: 0px;
+	/* width: 100px; */
+	height: 65px;
+	line-height: 55px;
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: rgba(68,121,152,0);
+	border-style: solid;
+	border-top-width: 5px;
+	border-top-color: #447998;
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	text-align: center;
+	color: #447998;
+}
+
+nav ul li a {
+	display: block;
+	width: auto;
+	height: 65px;
+	padding-left: 15px;
+	padding-right: 15px;
+	line-height: 65px;
+	margin-top: 0px;
+	margin-left: 0px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold; 
+	color: #D6D6D6;
+}
+
+nav ul li a:not(.active):hover {
+	padding-top: 0;
+	border-top-color: #F2F2F2;
+	border-style: solid;
+	border-top-width: 5px;
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	line-height: 55px;
+}
+
+#logout {
+	color: #E86D12;
+	border: 0;
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+	height: 70px;
+	line-height: 65px;
+}
+
+#logout:hover {
+	color: #E86D12;
+	border: 0;
+	border-color: #FFFFFF;
+	background-color: #FFFFFF;
+	height: 70px;
+	line-height: 65px;
+}
+
+#login {
+    display: table;
+    margin: 0 auto;
+	padding: 20px 20px 35px 20px;
+}
+
+
+/**
+ *	    
+ *
+ *		<KUDA!!!>
+ *
+ *
+ */
+
+.allitem {
+	width: 445px;
+	margin: 10px;
+	padding: 15px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E6E6E6;
+	float: left;
+}
+
+
+ 
+.akku_div{						/* Container für Top-Leiste*/
+	width:180px;
+	height:80px;
+	margin-top:15px;
+	float:left;
+}
+
+.akku_divline{					/* Trennlinie senkrecht Navigationsleiste */
+	background-color:#d3d3d3;	
+	width:1px;
+	height:70px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:5px;
+	margin-right:5px;
+	float:left;
+} 
+
+.akku_big{						/* Restkpazität */
+	width: 270px;
+	background-color: #FEFEFE;
+	font-size:60px;
+	text-align:center;
+	margin-left:10px;
+}
+
+.akku_small{					/* Restkpazität */
+	width: 270px;
+	height:40px;
+	background-color: #FEFEFE;
+	font-size:18px;
+	text-align:center;
+	margin-left:10px;
+}
+
+.akku_akku{						/* Pedalbalken */	
+	height:50px;
+	width:200px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d3d3d3;
+	margin-left:40px;
+	float:left;	
+}
+
+.akku_indica{					/* Gesamtspannung Indikatorbalken weiß */
+	width:20px;
+	height:100%;
+	background-color: #FFFFFF;
+	float:left;
+}
+
+.akku_indica1{					/* Gesamtspannung Indikatorbalken blau */
+	width:20px;
+	height:100%;
+	background-color: #447998;
+	float:left;
+}
+
+.akkuitem {						/* Akkudaten große Tabelle */
+	width: 600px;
+	margin: 10px;
+	padding: 15px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E6E6E6;
+	float: left;
+}
+
+.akkuitem2{						/* Akkudaten kleine Tabelle */
+	width: 290px;
+	margin: 10px;
+	padding: 15px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #E6E6E6;
+	float: right;
+}
+
+.akkubutton{					/* Akkubutton */
+	height:30px;
+	width:30px;
+	background-color:#FFEBCD ;
+}
+
+.akkubutton2{					/* Akkubutton */
+
+	transform:rotate(180.0deg);
+	-webkit-transform: rotate(180.0deg);
+}
+
+.akkubig{						/* Akku Topleiste */	
+	height:40px;
+	text-align: center;
+	font-size:20pt;
+	font-weight:bold
+}
+
+.akkusmall{						/* Akku Topleiste */
+	height:40px;			
+	text-align: center;
+	font-size:12pt;
+}
+
+.balance{						/* Spaltenanpassung Akkudaten */
+	width:80px;			/* minimal Größe durch "Balancing"-Überschrift eingegrenzt */
+}
+
+.ddata{							/* Tabelle dynamische Daten*/
+	width:80px;
+}
+
+.fahrdyn_div{						
+	width:305px;
+	height:80px;
+	margin-top:15px;
+	float:left;
+}
+
+
+
+.fhzdata{						/* Spaltengröße der Werte auf der Seite Allgemeine Fahrzeugdaten */
+	width:100px;
+}
+
+.fhz_div{						/* Container für Top-Leiste */
+	width:165px;
+	height:80px;
+	margin-top:15px;
+	margin-left:30px;
+	margin-right:30px;
+	text-align:center;
+	float:left;
+}
+
+.fhz_div2{						/* Container für Top-Leiste */
+	width:240px;
+	height:80px;
+	margin-top:15px;
+	margin-left:30px;
+	margin-right:30px;
+	text-align:center;
+	float:left;
+}
+
+.fhz_divline{					/* Trennlinie */
+	background-color:#d3d3d3;
+	height:1px;
+	width:100%;
+
+	margin-top:20px;
+	margin-bottom:20px;
+	float:left;
+}
+
+.fhz_gaugediv{float:left;}
+
+.fhz_feder{						/* Container für Feder-Anzeige */
+	height:100px;
+	width:24px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d3d3d3;
+	margin-left:20px;
+	margin-right:20px;
+	float:left;
+}
+
+.fhz_federmenu{					/* Container für Federweg-Gestaltung */
+	height:104px;
+	width:77px;
+	margin-top:10px;
+	margin-bottom:10px;
+	text-align:center;
+	font-size:16px;
+	float:left;
+}
+
+.fhz_federindi{					/* Feder Indikatorbalken blau */
+	width: 100%;
+	height:10px;
+	background-color: #447998;
+}
+
+.fhz_federindi2{				/* Feder Indikatorbalken weiß */
+	width: 100%;
+	height:10px;
+	background-color: #FFFFFF;
+}
+
+
+.fhz_lenkindica{				/* Lenkungs Indikatorbalken blau */
+	width:2px;
+	height:100%;
+	background-color: #447998;
+	float:left;
+}
+
+.fhz_lenkindica2{				/* Lenkungs Indikatorbalken weiß */
+	width:2px;
+	height:100%;
+	background-color: #FFFFFF;
+	float:left;
+}
+
+.fhz_lenkwinkel{				/* Lenkwinkel */	
+	height:20px;
+	width:361px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d3d3d3;
+	margin-left:39px;	
+}
+
+.fhz_pedal{						/* Pedalbalken */	
+	height:20px;
+	width:200px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #d3d3d3;
+	margin-left:20px;
+	float:left;	
+}
+
+.fhz_pedalindica{				/* Lenkungs Indikatorbalken weiß */
+	width:10px;
+	height:100%;
+	background-color: #FFFFFF;
+	float:left;
+}
+
+.fhz_pedalindica1{				/* Wasser Indikatorbalken blau */
+	width:10px;
+	height:100%;
+	background-color: #447998;
+	float:left;
+}
+
+
+.fhz_pedalindica2{				/* Pedal Indikatorbalken grün */
+	width:10px;
+	height:100%;
+	background-color: #3cb371;
+	float:left;
+}
+
+.fhz_pedalindica3{				/* Pedal Indikatorbalken rot */
+	width:10px;
+	height:100%;
+	background-color: #ff4500;
+	float:left;
+}
+
+.fhz_pedalround{				/* Container für Pedal Gestaltung */	
+	height:41px;
+	width:130px;
+	border-width: 2px;
+	border-color: #000000;
+	margin-left:1px;
+	float:left;	
+} 
+
+.fhz_pedalround2{				/* Container für Pedal Gestaltung */	
+	height:41px;
+	width:90px;
+	border-width: 2px;
+	border-color: #000000;
+	margin-left:1px;
+	float:left;	
+} 
+
+
+.gauge1{						/* Geschwindigkeit allgemeine Fahrzeugdaten */
+	height:250px;
+	
+}
+
+.gaugerpm{						/* Drehzahl für Motoren */
+	height:160px;
+	width:220px;
+	float:left;
+}
+
+.moto_div{						/* Trennlinie senkrecht */
+	width:165px;
+	height:80px;
+	margin-top:15px;
+	margin-left:30px;
+	margin-right:30px;
+	text-align:center;
+	float:left;
+}
+
+.moto_temp{
+	width:50px
+}
+
+.nav-a{							/* Container für Navigationsleiste */
+	display: block;
+	width: auto;
+	height: 65px;
+	line-height: 65px;
+	margin-top: 0px;
+	margin-left: 0px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	color: #D6D6D6;
+	float:right;
+}
+
+.nav_inactive:hover {	/* Hover für inaktiven NavButton*/
+	display: block;
+	width:auto;
+	padding-top: 0;
+	/*background-color: #FAFAFA;*/
+	border-top-color: #F2F2F2;
+	border-style: solid;
+	border-top-width: 5px;
+	border-left: none;
+	text-decoration: none;
+	border-bottom: none;
+	border-right: none;
+	line-height: 55px;
+}
+
+.nav_active {					/* Klass für aktiven NavButton */
+	display: block;
+	margin-top: 0px;
+	margin-left: 0px;
+	/* width: 100px; */
+	height: 65px;
+	line-height: 55px;
+	padding-left: 12px;
+	padding-right: 12px;
+	background-color: rgba(68,121,152,0);
+	border-style: solid;
+	border-top-width: 5px;
+	border-top-color: #447998;
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+	text-decoration: none;
+	text-align: center;
+	color: #447998;
+}
+
+.nav_inactive {					/* Klass für inaktiven NavButton */
+	display: block;
+	margin-top: 0px;
+	margin-left: 0px;
+	/* width: 100px; */
+	height: 65px;
+	line-height: 55px;
+	padding-left: 12px;
+	padding-right: 12px;
+	border-style: solid;
+	border-top-color: #FFFFFF;
+	border-top-width: 5px;
+	border-left: none;
+	text-decoration: none;
+	border-bottom: none;
+	border-right: none;
+	text-align: center;
+	color: #D6D6D6;
+}
+
+.nav_logout {					/* Klass für inaktiven LogoutButton */
+	
+	display: block;
+	margin-top: 0px;
+	margin-left: 0px;
+	/* width: 100px; */
+	height: 65px;
+	line-height: 55px;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-style: solid;
+	border-top-color: #FFFFFF;
+	border-top-width: 5px;
+	border-left: none;
+	text-decoration: none;
+	border-bottom: none;
+	border-right: none;
+	text-align: center;
+	color: #E86D12;
+}
+
+
+.notaus{						/* Container für Notaus */
+	width:40px;
+}
+ 
+.status_an{						/* Status Notaus */
+	margin-top: 0px;
+	margin-left: 0px;	
+	background-color: #C00000;
+}
+
+.status_balance_an{	  			/* Status Balance */
+	margin-top: 0px;
+	margin-left: 0px;	
+	background-color: #447998;
+}
+
+.text_center{					/* Zentrierter Text */
+	text-align:center;
+	color: #000000;
+	font-size:20px;
+} 
+ 
+.top{							/* Akku Topleiste */
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	
+} 
+
+
+/* * * * * * * * * * * * * * * * * * * *
+ *									   *
+ *    	 Formularformatierungen   	   *
+ *									   *
+ * * * * * * * * * * * * * * * * * * * */
+
+input[type=text], input[type=submit] {
+	width: 260px;
+	color: #343434;
+	padding: 7px;
+	border: #808080;	
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.submit {
+	margin-top: 5px;
+	background-color: #F8F8F8;
+	color: #343434;
+}
+
+form ul li {
+	margin-bottom: 10px;
+}
+
+form li p {
+	float: right;	
+}
+
+.choice1, .choice3, .choice3, .choice4, .choice5 {
+	width: auto;
+} 
+
+/* * * * * * * * * * * * * * * * * * * *
+ *									   *
+ *  	 Tabellenformatierungen 	   *
+ *									   *
+ * * * * * * * * * * * * * * * * * * * */
+
+table {
+    background-color: #FDFDFD;
+	border-collapse: collapse;
+    border: 1px solid #DCDCDC;
+    width: 100%;
+    }
+    
+/*
+table tr {
+	display: table-row;
+	}
+*/
+
+table tr:first-child {
+	display: table-row;
+	border: 1px solid #E6E6E6;
+    background-color: #FAFAFA;
+    height: 25px;
+    color: #808080;
+    text-align: center;
+    font-weight: normal;
+    font-style: italic;
+	}
+    
+td {
+	height: 25px;
+	}
+
+.tit {
+	width: 350px;
+	}
+
+.int {
+	width: 190px;
+	}
+
+.year {
+	width: 60px;
+	}
+
+tr:nth-child(even) td, tr:nth-child(odd) td {
+    border: 1px solid #DCDCDC;
+    text-align: center;
+    }
+    
+tr:nth-child(even) {
+	border: 1px solid #DCDCDC;
+	background-color: #FDFDFD;
+	height: 25px;
+	}
+	
+tr:nth-child(odd) {
+	border: 1px solid #DCDCDC;
+	background-color: #FAFAFA;
+	height: 25px;
+	}
+
+tr:not(:first-child):hover {
+	border: 1px solid #DCDCDC;
+	background-color: #447998;
+	height: 25px;
+	color: #F8F8F8;
+	}
+    
+p {
+    color: #343434;
+    text-indent: 0px;   
+    }
