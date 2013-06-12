@@ -22,26 +22,26 @@
 
 Encoder::Encoder(const char * buffer, const int bufferlen, const char * vecLayout, const int vecLayoutlen,
                 const char * vecDatatypes, const int vecDatatypeslen) 
-    : myPackagesSum(0), myPackagesPointer(0), myPackageNum(0)
+    : myPackageSum(0), myPackagePointer(0), myPackageNum(0)
 {
-    myPackagesSum = vecLayoutlen/2;
-    myPackagesPos[myPackagesSum];
+    myPackageSum = vecLayoutlen/2;
+    myPackagePos[myPackageSum];
     splitData(buffer, bufferlen,vecLayout, vecLayoutlen);
     //compressData();
 }
 
-unsigned int Encoder::getPackagesSum()
+unsigned int Encoder::getPackageSum()
 {
-    return myPackagesSum;
+    return myPackageSum;
 }
 
 unsigned int Encoder::getPackageSize(unsigned short packageNumber)
 {
     if (packageNumber == 1)
     {
-        return (myPackagesPos[0] - 1);
+        return (myPackagePos[0] - 1);
     } else {
-        return ((myPackagesPos[packageNumber - 1] - myPackagesPos[packageNumber - 2]) - 1)
+        return ((myPackagePos[packageNumber - 1] - myPackagePos[packageNumber - 2]) - 1)
     }
 }
 
@@ -50,42 +50,42 @@ int Encoder::getPackage(char * package, unsigned short packageNumber)
     int len;
     if (packageNumber == 1)
     {
-        len = myPackagesPos[packageNumber] - 1;
-        //std::cout << myPackagesPos[packageNumber] - 1 << std::endl;
+        len = myPackagePos[packageNumber] - 1;
+        //std::cout << myPackagePos[packageNumber] - 1 << std::endl;
     } else {
-        len = myPackagesPos[packageNumber] - myPackagesPos[packageNumber-1];
-        //std::cout << myPackagesPos[packageNumber] << std::endl;
-        //std::cout << myPackagesPos[packageNumber - 1] << std::endl;
+        len = myPackagePos[packageNumber] - myPackagePos[packageNumber-1];
+        //std::cout << myPackagePos[packageNumber] << std::endl;
+        //std::cout << myPackagePos[packageNumber - 1] << std::endl;
     }
     for (int i = 0; i < len; ++i)
     {
-        package[i] = myPackages[myPackagesPos[packageNumber - 1] + i];
-        //std::cout << myPackagesPos[packageNumber - 1 + i] << std::endl;
+        package[i] = myPackages[myPackagePos[packageNumber - 1] + i];
+        //std::cout << myPackagePos[packageNumber - 1 + i] << std::endl;
     }
     return len;
 }
 
 int Encoder::getNextPackage(char * package)
 {
-    return getPackage(package, myPackagesPointer++);
+    return getPackage(package, myPackagePointer++);
 
 }
 
 Encoder::createHeader()
 {
     // add timestamp
-    myPackages[myPackagesPointer+3] = PACKAGE_COUNTER & 0xff;
-    myPackages[myPackagesPointer+2] = (PACKAGE_COUNTER >> 8) & 0xff;
-    myPackages[myPackagesPointer+1] = (PACKAGE_COUNTER >> 16) & 0xff;
-    myPackages[myPackagesPointer] = (PACKAGE_COUNTER >> 24) & 0xff;
+    myPackages[myPackagePointer+3] = PACKAGE_COUNTER & 0xff;
+    myPackages[myPackagePointer+2] = (PACKAGE_COUNTER >> 8) & 0xff;
+    myPackages[myPackagePointer+1] = (PACKAGE_COUNTER >> 16) & 0xff;
+    myPackages[myPackagePointer] = (PACKAGE_COUNTER >> 24) & 0xff;
     myPackagePointer += 4;
     PACKAGE_COUNTER++;
 
     // create ID
-    myPackages[myPackagesPointer+3] = myPackageNum & 0xff;
-    myPackages[myPackagesPointer+2] = (myPackageNum >> 8) & 0xff;
-    myPackages[myPackagesPointer+1] = (myPackageNum >> 16) & 0xff;
-    myPackages[myPackagesPointer] = (myPackageNum >> 24) & 0xff;
+    myPackages[myPackagePointer+3] = myPackageNum & 0xff;
+    myPackages[myPackagePointer+2] = (myPackageNum >> 8) & 0xff;
+    myPackages[myPackagePointer+1] = (myPackageNum >> 16) & 0xff;
+    myPackages[myPackagePointer] = (myPackageNum >> 24) & 0xff;
     myPackagePointer += 4;
     myPackageNum++;
 }
@@ -105,14 +105,14 @@ void Encoder::splitData(const char *buffer, const int bufferlen,
         createHeader();
         splitPos = joinUnsigShort(vecLayout[i],vecLayout[i+1]);
         for (int j = 0; j < splitPos; ++j) {
-            myPackages[myPackagesPointer] = buffer[j];
+            myPackages[myPackagePointer] = buffer[j];
             myPackagePointer++;
         }
 
         if (pointer == 0) {
-            myPackagesPos[pointer] = splitPos + 8;
-        } else if (pointer != myPackagesSum) {
-            myPackagesPos[pointer] = myPackagesPos[pointer-1] + splitPos + 8;
+            myPackagePos[pointer] = splitPos + 8;
+        } else if (pointer != myPackageSum) {
+            myPackagePos[pointer] = myPackagePos[pointer-1] + splitPos + 8;
         }
 
         pointer++;

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  *  Service Interface for Formula Student Car.
  *  Copyright (C) 2013  Christian Boxdörfer
@@ -18,9 +17,6 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-
-=======
->>>>>>> dbd8ace5a4d2c0496e023403eb39583b6ff95651
 #include "Data.h"
 
 Data::Data(int value, unsigned int datatype, unsigned int position)
