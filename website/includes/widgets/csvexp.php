@@ -5,7 +5,9 @@ protect_page();
 <div class="content">
 	<div class ="item">
 		<h2>CSV Export</h2>
-		<form id="login" action="core/functions/csvexp_sql.php" method="post">
+		<p class="alert_short">Hinweis: Die Datei muss im Programm ihrer Wahl importiert 
+		werden um korrekt angezeigt zu werden!</p><br>
+		<form id="login" action="core/functions/csvexp_sql.php" method="post" accept-charset="utf-8">
 			<ul>
 				<li>
 					<p>alle Fahrzeugdaten</p> <input type="checkbox" name="alledaten" value="true">
@@ -31,6 +33,4 @@ protect_page();
 				</li>
 			</ul>
 		</form>
-		<p class="alert_short">Hinweis: Die Datei muss im Programm ihrer Wahl importiert 
-		werden um korrekt angezeigt zu werden!</p>
 	</div>

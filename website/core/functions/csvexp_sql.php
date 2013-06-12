@@ -15,8 +15,10 @@ include '../../includes/config.php';
 if (empty($_POST) == false) {
 	$connect = mysqli_connect("$dbhost", "$dbuname" , "$dbpass") or die("<tr><td colspan=\"3\">Verbindung zur Datenbank konnte nicht hergestellt werden.</td></tr>");
 	$use = mysqli_select_db($connect,"$dbname_fd");
+	
+	//print_r $_POST;
 
-	if($_POST['alledaten']=="true")
+	if(array_key_exists('alledaten',$_POST))
 	{
 		$sql = "SELECT  *
 		FROM `$general_data`
@@ -28,11 +30,11 @@ if (empty($_POST) == false) {
 	else
 	{
 		$val=array();
-		if($_POST['choice1']=="true"){$val=array_merge($val,[$general_data]);};
-		if($_POST['choice2']=="true"){$val=array_merge($val,[$accu_data]);};
-		if($_POST['choice3']=="true"){$val=array_merge($val,[$dynamic_data]);};
-		if($_POST['choice4']=="true"){$val=array_merge($val,[$driving_data]);};
-		if($_POST['choice5']=="true"){$val=array_merge($val,[$engine_data]);};
+		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$general_data]);};
+		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$accu_data]);};
+		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$dynamic_data]);};
+		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$driving_data]);};
+		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$engine_data]);};
 		$sql = "SELECT  *  FROM	`".implode("` NATURAL JOIN `",$val);
 	}
 		
@@ -47,7 +49,7 @@ if (empty($_POST) == false) {
 
 
 	$csvString = "";
-	$csvcolums= "";
+	$csvcolumns= "";
 	$count=0;
 	while($ret=$query->fetch_row())
 	{

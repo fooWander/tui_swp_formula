@@ -149,8 +149,8 @@ ul {
 }
 
 .alert_short {
-	color: #C00000;
-	background-color: #ffbbbb;
+	color: #447998;
+	background-color: #bed4e2;
 	margin-left: auto;
 	margin-right: auto;
 	width: 95%;
@@ -255,10 +255,6 @@ nav ul li a:not(.active):hover {
     display: table;
     margin: 0 auto;
 	padding: 20px 20px 35px 20px;
-}
-
-form ul li {
-	margin-bottom: 10px;
 }
 
 
@@ -710,7 +706,7 @@ form ul li {
  *									   *
  * * * * * * * * * * * * * * * * * * * */
 
-input {
+input[type=text], input[type=submit] {
 	width: 260px;
 	color: #343434;
 	padding: 7px;
@@ -730,12 +726,16 @@ input {
 	color: #343434;
 }
 
-li p {
+form ul li {
+	margin-bottom: 10px;
+}
+
+form li p {
 	float: right;	
 }
 
 .choice1, .choice3, .choice3, .choice4, .choice5 {
-
+	width: auto;
 } 
 
 /* * * * * * * * * * * * * * * * * * * *
