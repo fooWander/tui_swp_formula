@@ -1,0 +1,38 @@
+<?php
+/**
+ * Widget für die Verwaltungsseite. Ausgabe aller im System registrierten Benutzer. Nur für den Vorstand vorgesehen.
+ */
+?>
+<div class="single">
+	<h2>Benutzerliste</h2>
+	<p>Hier werden sämtlich im System registrierten Benutzer angezeigt.</p>
+	<br>
+	<table border="1" class="click">
+		<tr>
+			<td>ID</td>
+			<td>Vorname</td>
+			<td>Nachname</td>
+			<td>E-Mail</td>
+			<td>Rechte</td>
+			<td>Status</td>
+			<td>Online?</td>
+		</tr>
+		<?php 	
+			// Ausgabe der Tabelle mit allen Daten, ohne Passwörter
+			$connection = mysqli_connect("$dbhost", "$dbuname" , "$dbpass") or die("<tr><td colspan=\"7\">Verbindung zur Datenbank konnte nicht hergestellt werde</td></tr>");
+			$query = "SELECT benutzerdaten.id, vorname, nachname, email, rechte, status, zeitpunkt FROM $user LEFT OUTER JOIN $online ON $user.id = $online.id";
+			mysqli_select_db($connection,$dbname_ud) or die ("<tr><td colspan=\"7\">Die Datenbank konnte nicht ausgewählt werden</td></tr>");
+			$result = mysqli_query($connection,$query);
+			
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+				$tmp = (empty($row['zeitpunkt'])) ? "offline" : "online";
+				printf ("	<tr>\n<td>%s</td>\n<td>%s</td>\n<td>%s</td>\n<td>%s</td>\n<td>%s</td>\n<td>%s</td>\n<td><p class=\"$tmp\">%s</p></td>\n</tr>\n",$row['id'],$row['vorname'],$row['nachname'],$row['email'],$row['rechte'],$row['status'],$tmp);
+			}
+			
+			mysqli_close($connection);
+		?>
+	</table>
+	<br><p><b>Erklärungen:</b><br>
+	Status: 0 (Deaktiviert) und 1 (Aktiviert)<br>
+	Rechte: 1 (Vorstand), 2 (Beobachter) und 3 (Techniker)<br></p>
+</div>

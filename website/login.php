@@ -24,6 +24,9 @@ if (empty($_POST) == false) {
 			$errors[] = 'Ihre Eingabe ist inkorrekt. Bitte überprüfen Sie Ihre Login-Daten und versuchen Sie es erneut.';
 		} else {
 			$_SESSION['user_id'] = $login;
+			$_SESSION['time'] = time();
+			mysqli_select_db($connect,$dbname_ud);
+			mysqli_query($connect, "INSERT INTO `" . $online . "` (`id`,`zeitpunkt`) VALUES (" . $_SESSION['user_id'] . "," . $_SESSION['time'] . ")");
 			header('Location: index.php');
 			exit();
 		}

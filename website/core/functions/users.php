@@ -62,11 +62,66 @@ function user_data($user_id) {
 }
 
 /**
- * Gibt zurück, ob Nutzer eingeloggt ist oder nicht.
+ * Prüft ob es ich beim aktiven Nutzer um einen Nutzer der Rechtegruppe 'Vorstand' handelt.
+ * @return boolean
+ */
+function isVorstand() {
+	global $user_data;
+	return ($user_data['rechte'] == 1) ? true : false ;
+}
+
+/**
+* Prüft ob es ich beim aktiven Nutzer um einen Nutzer der Rechtegruppe 'Techniker' handelt.
+* @return boolean
+*/
+function isTechniker() {
+	global $user_data;
+	return ($user_data['rechte'] == 3) ? true : false ;	
+}
+
+/**
+* Prüft ob es ich beim aktiven Nutzer um einen Nutzer der Rechtegruppe 'Beobachter' handelt.
+* @return boolean
+*/
+function isBeobachter() {
+	global $user_data;
+	return ($user_data['rechte'] == 2) ? true : false ;
+}
+
+/**
+ * Überprüft ob der Zeitstempel in der SESSION-Variable 'time' älter als $time Minuten ist. In diesem Fall $time = 60 Minuten.
+ * @return boolean
+ */
+function timeout() {
+	$time = 60;
+	return ((time() - $_SESSION['time']) < ($time*60)) ? true : false ;
+}
+
+/**
+ * Gibt zurück, ob Nutzer eingeloggt ist oder nicht. Dies impliziert auch eine Überprüfung ob seine letzte Aktivität weiter als eine in der Funktion timeout() festgelegte Zeitspanne her ist.
+ * Setzt beim Aufruf den 'time' Wert auf einen aktuellen Wert.
  * @return boolean
  */
 function logged_in() {
+	if (isset($_SESSION['user_id']) && timeout()) {
+		$_SESSION['time'] = time();		
+		return true;
+	} else {
+		return false;
+	}
 	return (isset($_SESSION['user_id'])) ? true : false;
+}
+
+/**
+ * Diese Funktion aktualisiert den Zeitwert in der Tabelle der momentan sich online befindlichen Nutzer. Außerdem löscht sie alle Einträge, deren Timeout bereits abgelaufen ist. (Hier: 60 Minuten) 
+ */
+function refresh() {
+	global $connect, $dbname_ud, $online;
+	mysqli_select_db($connect,$dbname_ud);
+	mysqli_query($connect, "UPDATE `" . $online . "` SET zeitpunkt = " . $_SESSION['time'] . " WHERE id = " . $_SESSION['user_id']);
+	$tmpVar = time() - (60*60);
+	mysqli_query($connect, "DELETE FROM `" . $online . "` WHERE zeitpunkt < " . $tmpVar);
+	mysqli_close($connect);	
 }
 
 /**
@@ -98,9 +153,8 @@ function user_active($mail) {
 	return (mysqli_num_rows($query) == 1) ? true : false;
 }
 
-// ermitteln der id aus der zum login benutzten emailadresse
 /**
- * 
+ * Ermittelt die ID des Nutzers, der zur übergebenen Emailadresse gehört.
  * @param String $mail
  * @return number
  */

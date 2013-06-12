@@ -33,8 +33,15 @@
 	</div>
 <?php
 	} else {
-		include 'includes/widgets/csvexp.php';
+?>
+	<div class="content">
+		<?php
+		if(isVorstand()) {include 'includes/widgets/userlist.php';}
+		include 'includes/widgets/csvexp.php'; 
+		if(!isVorstand()) {include 'includes/widgets/onlineusers.php';}
+		?>
+	</div>
+<?php
 	}
-	
 include 'includes/overall/footer.php';
 ?>

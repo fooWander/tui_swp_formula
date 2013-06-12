@@ -315,7 +315,7 @@ function install_system($register_data) {
 	ON UPDATE NO ACTION)";
 	$query_online = "CREATE  TABLE IF NOT EXISTS $dbname_ud.$online (
 	`id` INT NOT NULL ,
-	`zeitpunkt` TIMESTAMP NULL ,
+	`zeitpunkt` INT(10) NULL ,
 	INDEX `id_idx` (`id` ASC) ,
 	CONSTRAINT `id`
 	FOREIGN KEY (`id` )

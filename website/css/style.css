@@ -45,7 +45,7 @@ header div {width: 1000px; margin: 0 auto;}
 
 .item {
 	width: 445px;
-	margin: 10px;
+	margin: 11px;
 	padding: 15px;
 	background-color: #FEFEFE;
 	border-style: solid;
@@ -53,6 +53,9 @@ header div {width: 1000px; margin: 0 auto;}
 	border-color: #E6E6E6;
 	float: left;
 }
+
+.offline {color: #C00000; font-weight: bold;}
+.online {color: #3CB371; font-weight: bold;}
 
 /**
  *	Clearfix, ansonsten wird die Box ".single" nicht richtig dagestellt.
@@ -63,12 +66,16 @@ header div {width: 1000px; margin: 0 auto;}
 
 .single {
 	width: 950px;
-	margin: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 25px;
+	margin-bottom: 15px;
 	padding: 15px;
 	background-color: #FEFEFE;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #E6E6E6;
+	clear: both;
 }
 
 .verwaltung {
@@ -109,14 +116,14 @@ div.verwaltung div a {
 
 h1 {
 	color: #447998;
-	margin-top: 20px;
+	margin-top: 10px;
 	width: 100%;
 	text-align: center;
 }
 
 h2 {
 	color: #447998;
-	margin-top: 0px;
+	margin-top: 10px;
 	text-align: center;
 }
 
@@ -153,21 +160,10 @@ ul {
 	background-color: #bed4e2;
 	margin-left: auto;
 	margin-right: auto;
-	width: 95%;
+	width: 300px;
 	padding: 5px;
 	border: 1px;
 	border-style: solid;
-}
-
-nav ul {
-	position: absolute;
-}
-
-nav ul li {
-	display: inline;
-	float: left;
-	margin: 0;
-	padding: 0;
 }
 
 p {
@@ -179,12 +175,25 @@ p strong {
 	color: #C00000;
 }
 
+/* Sonstiges */
 .hinweis {
 	color: #C00000;
 }
 
 a {
 	color: #447998;
+}
+
+/* Navigationsleiste */
+nav ul {
+	position: absolute;
+}
+
+nav ul li {
+	display: inline;
+	float: left;
+	margin: 0;
+	padding: 0;
 }
 
 .active {
@@ -706,7 +715,7 @@ nav ul li a:not(.active):hover {
  *									   *
  * * * * * * * * * * * * * * * * * * * */
 
-input[type=text], input[type=submit] {
+input[type=text], input[type=submit], input[type=password] {
 	width: 260px;
 	color: #343434;
 	padding: 7px;
@@ -750,18 +759,12 @@ table {
     border: 1px solid #DCDCDC;
     width: 100%;
     }
-    
-/*
-table tr {
-	display: table-row;
-	}
-*/
 
 table tr:first-child {
 	display: table-row;
 	border: 1px solid #E6E6E6;
     background-color: #FAFAFA;
-    height: 25px;
+    height: 30px;
     color: #808080;
     text-align: center;
     font-weight: normal;
@@ -769,7 +772,7 @@ table tr:first-child {
 	}
     
 td {
-	height: 25px;
+	height: 30px;
 	}
 
 .tit {
