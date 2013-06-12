@@ -1,4 +1,7 @@
 <?php 
+	/**
+	 * Logik zum Ändern des eigenen Passworts
+	 */
 	include 'core/init.php';
 	protect_page();
 	include 'includes/overall/header.php';

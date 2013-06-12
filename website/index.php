@@ -33,9 +33,7 @@
 	</div>
 <?php
 	} else {
-?>
-<!-- Hier ELSE-Inhalt -->
-<?php
+		include 'includes/widgets/csvexp.php';
 	}
 	
 include 'includes/overall/footer.php';

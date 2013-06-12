@@ -136,12 +136,24 @@ ul {
 	color: #C00000;
 }
 
+/* alert-Klassen für formatierte Hinweise */
 .alert {
 	color: #C00000;
 	background-color: #ffbbbb;
 	margin-left: auto;
 	margin-right: auto;
 	width: 450px;
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+}
+
+.alert_short {
+	color: #C00000;
+	background-color: #ffbbbb;
+	margin-left: auto;
+	margin-right: auto;
+	width: 95%;
 	padding: 5px;
 	border: 1px;
 	border-style: solid;
@@ -717,6 +729,14 @@ input {
 	background-color: #F8F8F8;
 	color: #343434;
 }
+
+li p {
+	float: right;	
+}
+
+.choice1, .choice3, .choice3, .choice4, .choice5 {
+
+} 
 
 /* * * * * * * * * * * * * * * * * * * *
  *									   *

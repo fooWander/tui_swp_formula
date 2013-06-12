@@ -1,4 +1,7 @@
 <?php
+	/**
+	 * Durchführung des Registriervorgangs, mit Entnehmen der Nutzerdaten und Eintragen der Werte in die Nutzer-Tabelle in der Datenbank.
+	 */
 	include 'core/init.php';
 	include 'includes/overall/header.php';
 	logged_in_redirect();
@@ -74,9 +77,9 @@
 							'email' 	=> $_POST['email'],
 							'passwort' 	=> $_POST['passwort']
 					);
-					install_system($register_data);
-					// header('Location: register.php?success');
-					// exit();
+					register_user($register_data);
+					header('Location: register.php?success');
+					exit();
 					
 				} else if (empty($errors) == false) {
 			?>

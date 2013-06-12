@@ -1,4 +1,9 @@
 <?php 
+
+/**
+ * Logik für den Einlogvorgang auf der Webseite 
+ */
+
 include 'core/init.php';
 logged_in_redirect();
 

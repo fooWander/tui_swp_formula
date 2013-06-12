@@ -1,4 +1,7 @@
 <?php
+/**
+ * Testumgebung um Funktionen mit vorhandenem Layout auszuprobieren
+ */
 	include 'core/init.php';
 	include 'includes/overall/header.php';	
 ?>
