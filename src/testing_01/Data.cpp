@@ -18,45 +18,25 @@
  */
 
 
-class Data
+#include "Data.h"
+
+Data::Data(int value, unsigned int datatype, unsigned int position)
+	: myValue(value), myDatatype(datatype), myPosition(position)
 {
-public:
-    Data(double value, unsigned int datatype, unsigned int position);
-    //~Data();
-    
-    double getValue();
-    unsigned int getDatatype();
-    unsigned int getPosition();
+	// check for validity
+}
 
-private:
-    double myValue;
-    unsigned int myDatatype;
-    unsigned int myPosition;
-};
-
-class Message
+int Data::getValue()
 {
-public:
-    Message(arguments);
-    ~Message();
+	return myValue;
+}
 
-    void setMessage(char *data, unsigned int bufferSizeData);
-    char *getMessageData();
-private:
-    unsigned int myBufferSizeData;
-    char myData[bufferSizeData];
-};
-
-class Location
+unsigned int Data::getDatatype()
 {
-public:
-    Location(arguments);
-    ~Location();
+	return myDatatype;
+}
 
-    int getAddress();
-    int getPort();
-
-private:
-    int myAddress; 
-    int myPort;
-};
+unsigned int Data::getPosition()
+{
+	return myPosition;
+}

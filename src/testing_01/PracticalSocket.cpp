@@ -377,4 +377,8 @@ void UDPSocket::leaveGroup(const string &multicastGroup) throw(SocketException) 
                  sizeof(multicastRequest)) < 0) {
     throw SocketException("Multicast group leave failed (setsockopt())", true);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 56c23bdd1e66364dfe5556b88a828f18ed218e4f

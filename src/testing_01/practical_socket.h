@@ -336,8 +336,4 @@ private:
   void setBroadcast();
 };
 
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> 56c23bdd1e66364dfe5556b88a828f18ed218e4f
