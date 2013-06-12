@@ -71,7 +71,7 @@ void initalize()
 
 void receiveData()
 {
-	receivePackage(HOST_MABXII, DATA_PACKAGE);
+    receivePackage(HOST_MABXII, DATA_PACKAGE);
 }
 
 void sendData(Encoder enc) {
@@ -83,7 +83,7 @@ void sendData(Encoder enc) {
 
 Encoder  processData()
 {
-	Encoder enc(DATA_PACKAGE, VEC_LAYOUT, VEC_DATATYPES);
+    Encoder enc(DATA_PACKAGE, VEC_LAYOUT, VEC_DATATYPES);
     return enc;
 }
 
