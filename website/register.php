@@ -78,6 +78,7 @@
 							'passwort' 	=> $_POST['passwort']
 					);
 					register_user($register_data);
+					//mail($mail,'Neue Registrierung im Service Interface','Guten Tag. Eine Person hat sich im Service Interface registriert. Bitte loggen Sie sich ein und überprüfen Sie ob es sich um eine authorisierte Person handelt und schalten Sie sie ggf. frei bzw. löschen Sie wieder aus dem System.','From: noreply@teamstarcraft.de');
 					header('Location: register.php?success');
 					exit();
 					

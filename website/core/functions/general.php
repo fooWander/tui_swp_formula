@@ -8,10 +8,10 @@ include 'includes/config.php';
  * @param array $register_data
  */
 function install_system($register_data) {
-	global $connect, $dbhost, $dbuname, $dbpass, $dbname_ud, $dbname_fd, $accu_data, $general_data, $dynamic_data, $engine_data, $driving_data, $user, $rights, $online;
+	global $connect, $dbhost, $dbuname, $dbpass, $dbname_ud, $dbname_fd, $accu_data, $general_data, $dynamic_data, $engine_data, $driving_data, $user, $rights, $online, $cryptsalt;
 	
 	array_walk($register_data, 'array_sanitize');
-	$register_data['passwort'] = md5($register_data['passwort']);
+	$register_data['passwort'] = crypt($register_data['passwort'],$cryptsalt);
 	$fields = '`' . implode('`, `', array_keys($register_data)) . '`';
 	$data = '\'' . implode('\', \'', $register_data) . '\'';
 	
@@ -303,7 +303,7 @@ function install_system($register_data) {
 	`email` VARCHAR(45) NOT NULL ,
 	`vorname` VARCHAR(45) NOT NULL ,
 	`nachname` VARCHAR(45) NOT NULL ,
-	`passwort` CHAR(64) NOT NULL ,
+	`passwort` CHAR(116) NOT NULL ,
 	`status` BIT NULL DEFAULT 0 ,
 	`rechte` INT NULL ,
 	PRIMARY KEY (`id`, `email`) ,

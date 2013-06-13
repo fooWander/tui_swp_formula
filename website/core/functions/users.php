@@ -8,9 +8,9 @@ include 'includes/config.php';
  * @param string $password
  */
 function change_password($user_id, $password) {
-	global $connect, $user, $dbname_ud;
+	global $connect, $user, $dbname_ud, $cryptsalt;
 	$user_id = (int)$user_id;
-	$password = md5($password);
+	$password = crypt($password,$cryptsalt);
 	
 	mysqli_select_db($connect,$dbname_ud);
 	mysqli_query($connect, "UPDATE `" . $user . "` SET passwort = '" . $password ."' WHERE id = " . $user_id);
@@ -21,9 +21,9 @@ function change_password($user_id, $password) {
  * @param array $register_data
  */
 function register_user($register_data) {
-	global $connect, $user, $dbname_ud;
+	global $connect, $user, $dbname_ud, $cryptsalt;
 	array_walk($register_data, 'array_sanitize');
-	$register_data['passwort'] = md5($register_data['passwort']);
+	$register_data['passwort'] = crypt($register_data['passwort'],$cryptsalt);
 	$fields = '`' . implode('`, `', array_keys($register_data)) . '`';
 	$data = '\'' . implode('\', \'', $register_data) . '\'';
 	
@@ -176,10 +176,10 @@ function user_id_from_mail($mail) {
  * @return Ambigous <boolean, number>
  */
 function login($mail, $password) {
-	global $connect, $user;
+	global $connect, $user, $cryptsalt;
 	$user_id = user_id_from_mail($mail);
 	$mail = sanitize($mail);
-	$password = md5($password); // lieber password_hash() verwenden !!!
+	$password = crypt($password, $cryptsalt); // lieber password_hash() verwenden !!!
 	$query = mysqli_query($connect,"SELECT `id` FROM `" . $user . "` WHERE email = '" . $mail . "' AND passwort = '" . $password . "'");
 	
 	return (mysqli_num_rows($query) == 1) ? $user_id : false ;

@@ -19,7 +19,7 @@
 		}
 	}
 	
-	if (md5($_POST['altes_passwort']) == $user_data['passwort']) {
+	if (crypt($_POST['altes_passwort'],$cryptsalt) == $user_data['passwort']) {
 		if (trim($_POST['passwort']) != trim($_POST['passwort_wdh'])) {
 			$errors[] = 'Ihr neues Passwort und dessen Wiederholung stimmen nicht überein.';
 		} else if (strlen($_POST['passwort']) < 6) {

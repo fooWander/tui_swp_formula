@@ -28,9 +28,9 @@
 			</li>
 			<li>
 				<select name="rights">
+					<option value="beobachter">Beobachter</option>
 					<option value="vorstand">Vorstand</option>
 					<option value="techniker">Techniker</option>
-					<option value="beobachter">Beobachter</option>
 				</select>
 			</li>
 			<li>
