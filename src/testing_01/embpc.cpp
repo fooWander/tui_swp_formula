@@ -28,7 +28,7 @@ void sendPackage(const Location remote, const void * msg)
 
 void receivePackage(const Location remote, void * buffer)
 {
-    UDPSocket sock;
+    UDPSocket sock(LOCALPORT);
     int recvMsgSize;
     //http://www.beej.us/guide/bgnet/output/html/multipage/pollman.html 
     //fuer Polling, gez.Tino

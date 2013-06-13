@@ -19,13 +19,13 @@
 
 #include "Data.h"
 
-Data::Data(int value, unsigned int datatype, unsigned int position)
+Data::Data(double value, unsigned int datatype, unsigned int position)
     : myValue(value), myDatatype(datatype), myPosition(position)
 {
     // check for validity
 }
 
-int Data::getValue()
+double Data::getValue()
 {
     return myValue;
 }
@@ -38,4 +38,10 @@ unsigned int Data::getDatatype()
 unsigned int Data::getPosition()
 {
     return myPosition;
+}
+
+Location::Location(string address, short port)
+	: myAddress(address), myPort(port)
+{
+	
 }

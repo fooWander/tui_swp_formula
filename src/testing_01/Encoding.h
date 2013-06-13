@@ -17,7 +17,7 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-class Encoding
+/*class Encoding
 {
 public:
     Encoding(arguments);
@@ -26,8 +26,11 @@ public:
     // Don't know whether this makes sense
     
 };
+*/
 
-class Encoder : public Encoding
+#include "Data.h"
+
+class Encoder
 {
 public:
     /* 
@@ -103,7 +106,7 @@ private:
     const char * buffer; // delete
 };
 
-class Decoder : public Encoding
+class Decoder
 {
 public:
     /*
