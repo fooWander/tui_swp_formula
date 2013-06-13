@@ -22,7 +22,7 @@
 
 Encoder::Encoder(const char * buffer, const int bufferlen, const char * vecLayout, const int vecLayoutlen,
                 const char * vecDatatypes, const int vecDatatypeslen) 
-    : myPackageSum(0), myPackagePointer(0), myPackageNum(0)
+    : myPackageSum(0), myPackagePointer(0), myPackageNum(1)
 {
     myPackageSum = vecLayoutlen/2;
     myPackagePos[myPackageSum];
@@ -67,7 +67,12 @@ int Encoder::getPackage(char * package, unsigned short packageNumber)
 
 int Encoder::getNextPackage(char * package)
 {
-    return getPackage(package, myPackagePointer++);
+    if (myPackageNum == myPackageSum) {
+        int len = getPackage(package,myPackageNum);
+        myPackageNum = 1;
+        return len;
+    }
+    return getPackage(package, myPackageNum++);
 
 }
 
@@ -132,7 +137,104 @@ void Encoder::splitData(const char *buffer, const int bufferlen,
 
 Decoder::Decoder(char * buffer, const int bufferlen)
 {
+    VEC_DATATYPES_SIZE = joinUnsigShort(buffer[0],buffer[1]);
+    VEC_LAYOUT_SIZE = joinUnsigShort(buffer[2],buffer[3]);
+    VEC_COMMA_SIZE = joinUnsigShort(buffer[4],buffer[5]);
 
+    int border_0 = 6 + 2*(VEC_DATATYPES_SIZE);
+    int border_1 = border_0 + 2*(VEC_LAYOUT_SIZE);
+    int border_2 = border_1 + 2*(VEC_COMMA_SIZE);
+
+    int j = 0;
+    for (int i = 6; i < border_0; i=i+2) {
+        VEC_DATATYPES[j] = joinUnsigShort(buffer[i],buffer[i+1]);
+        //std::cout << "VEC_DATATYPES" << std::endl;
+        std::cout << VEC_DATATYPES[j] << std::endl;
+        j++;
+    }
+    
+    j = 0;
+    for (int i = border_0 ;i < border_1; i=i+2) {
+        VEC_LAYOUT[j] = joinUnsigShort(buffer[i],buffer[i+1]);
+        //std::cout << "VEC_LAYOUT" << std::endl;
+        std::cout << VEC_LAYOUT[j] << std::endl;
+        j++;
+    }
+
+    j = 0;
+    for (int i= border_1;i < border_2; i=i+2) {
+        VEC_COMMA[j] = joinUnsigShort(buffer[i],buffer[i+1]);
+        //std::cout << "VEC_COMMA" << std::endl;
+        std::cout << VEC_COMMA[j] << std::endl;
+        j++;
+    }
 }
 
-Decoder::Decoder(char * buffer, const int bufferlen, )
+Decoder::Decoder(char * buffer, const int bufferlen, char * vecLayout, const int vecLayoutlen,
+                char * vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommaDlen)
+    : myDataPos(8),myPackagePos(0),myTimestamp(0),myDataLength(0)
+{
+    decodeHeader(buffer, bufferlen);
+    checkTimestamp();
+    myPackagePos = getPackagePos(vecLayout, vecLayoutlen);
+    //decompress();
+}
+
+/*
+    Decode header of currently processed package (timestamp and ID (myPackageNum)).
+*/
+void Decoder::decodeHeader(char * buffer, const int bufferLen)
+{
+    myTimestamp = (myPackages[3] & 0xff)  
+                + ((myPackages[2] << 8) & 0xff00)
+                + ((myPackages[1] << 16) & 0xff0000)
+                + ((myPackages[0] << 24) & 0xff000000);
+
+    myPackageNum = (myPackages[7] & 0xff)  
+                + ((myPackages[6] << 8) & 0xff00)
+                + ((myPackages[5] << 16) & 0xff0000)
+                + ((myPackages[4] << 24) & 0xff000000);
+}
+
+void Decoder::checkTimestamp()
+{
+    if (LOCAL_TIMESTAMP - myTimestamp > TIME_THRESHOLD) {
+        getNextPackage();
+    } else {
+        return;
+    }
+}
+
+int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
+{
+    int packagePos = joinUnsigShort(vecLayout[myPackageNum-1],vecLayout[myPackageNum]);
+}
+
+Data getNextData(char * buffer, const int bufferlen)
+{
+    double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1] 
+            * exp10(VEC_COMMA[myPackagePos+myDataPos]);
+
+    int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
+    int pos = myDataPos;
+    
+    if (myDataPos + 1 == bufferlen)
+    {
+        Data datEnd;
+        return datEnd(-1,-1,-1);
+    }
+    Data dat(value,datatype,pos);
+    myDataPos++;
+    return dat;
+}
+
+int exp10(int exp)
+{
+    int res = 1;
+    for (int i = 1; i <= exp; ++i)
+    {
+        res = res / 10;
+    }
+
+    return res;
+}
