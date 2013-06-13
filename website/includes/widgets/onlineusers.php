@@ -16,7 +16,7 @@
 				$con = mysqli_connect("$dbhost", "$dbuname" , "$dbpass") or die("<tr><td colspan=\"3\">Verbindung zur Datenbank konnte nicht hergestellt werden.</td></tr>");
 				$use = mysqli_select_db($con,"$dbname_ud"); 
 					 
-				$sql = "SELECT vorname,nachname, zeitpunkt 
+				$sql = "SELECT DISTINCT vorname,nachname, zeitpunkt 
 						FROM `$user`, `$online`
 						WHERE `$user`.id=`$online`.id";
 						

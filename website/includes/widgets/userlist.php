@@ -20,7 +20,7 @@
 		<?php 	
 			// Ausgabe der Tabelle mit allen Daten, ohne Passwörter
 			$connection = mysqli_connect("$dbhost", "$dbuname" , "$dbpass") or die("<tr><td colspan=\"7\">Verbindung zur Datenbank konnte nicht hergestellt werde</td></tr>");
-			$query = "SELECT benutzerdaten.id, vorname, nachname, email, rechte, status, zeitpunkt FROM $user LEFT OUTER JOIN $online ON $user.id = $online.id";
+			$query = "SELECT DISTINCT benutzerdaten.id, vorname, nachname, email, rechte, status, zeitpunkt FROM $user LEFT OUTER JOIN $online ON $user.id = $online.id";
 			mysqli_select_db($connection,$dbname_ud) or die ("<tr><td colspan=\"7\">Die Datenbank konnte nicht ausgewählt werden</td></tr>");
 			$result = mysqli_query($connection,$query);
 			
@@ -33,6 +33,11 @@
 		?>
 	</table>
 	<br><p><b>Erklärungen:</b><br>
-	Status: 0 (Deaktiviert) und 1 (Aktiviert)<br>
-	Rechte: 1 (Vorstand), 2 (Beobachter) und 3 (Techniker)<br></p>
+	<b>Status</b>:<br>
+	0 - Deaktiviert<br>
+	1 - Aktiviert<br>
+	<b>Rechte</b>:<br>
+	1 - Vorstand<br>
+	2 - Beobachter<br>
+	3 - Techniker<br></p>
 </div>

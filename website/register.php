@@ -56,7 +56,7 @@
 			 * Benachrichtigung über erfolgreiche Registrierung.
 			 */
 			if (!isset($_GET['success'])) {
-				echo '<p><center>Bitte füllen Sie für den Registriervorgang die nachfolgenden Formularfelder vollständig aus.</center></p>';
+				echo '<p><center>Bitte füllen Sie für den Registriervorgang die nachfolgenden Formularfelder vollständig aus.<br><a href="index.php">Zurück zum Login</a></center></p>';
 			}			
 			
 			/**

@@ -33,6 +33,8 @@
 		exit();
 	}
 	
+	
+	// Überprüfen der gewählten Rechtegruppe und setzen der entsprechenden Gruppennummer
 	$formdata['rights'] = $_POST['rights'];
 	
 	if ($formdata['rights'] == 'vorstand') {
