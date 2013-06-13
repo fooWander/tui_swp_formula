@@ -29,7 +29,8 @@ void receivePackage(const Location remote, void * buffer)
 {
     UDPSocket sock;
     int recvMsgSize;
-
+    //http://www.beej.us/guide/bgnet/output/html/multipage/pollman.html 
+    //fuer Polling, gez.Tino
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
     recvMsgSize = sock.recvFrom(buffer, PACKAGESIZE_MAX, 
                                 remote.getAddress(), remote.getPort());
