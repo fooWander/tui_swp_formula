@@ -94,12 +94,7 @@
 			</tr>
 		</table>
 	</div>
-	
-	
-	
-	<div class="akkuitem2">
-		<div id="zeitp">N/A</div>
-	</div>
+
 </div>
 	
 	

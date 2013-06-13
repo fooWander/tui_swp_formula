@@ -125,10 +125,6 @@
 		</div>
 		
 	</div>
-
-	<div class="item">
-		<div id="zeitp">N/A</div>
-	</div>
 	
 	<div class="item">
 		<table border="1" class="click">
