@@ -7,7 +7,7 @@ class Decoder
 {
 public:
     Decoder();
-    Data getNextValue();
+    Data getNextData();
 	unsigned int getTimestamp();
 
 private:

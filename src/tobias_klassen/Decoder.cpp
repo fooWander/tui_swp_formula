@@ -34,7 +34,7 @@ Decoder::Decoder()
 	daten[11] = 60;
 }
 
-Data Decoder::getNextValue()
+Data Decoder::getNextData()
 {
 	if(position<10){
 		Data data(daten[position], 1, position);
@@ -66,6 +66,6 @@ Data Decoder::getNextValue()
 
 unsigned int Decoder::getTimestamp()
 {
-	unsigned int ts = 1111;
+	unsigned int ts = 1113;
 	return ts;
 }

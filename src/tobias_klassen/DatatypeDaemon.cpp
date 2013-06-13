@@ -13,7 +13,7 @@ string DatatypeDaemon::parseNextValue()
 {
 	//Daten umwandeln direkt in Strings:
 	string rueckgabe = "";
-	Data dat = decode.getNextValue();
+	Data dat = decode.getNextData();
 	int type = dat.getDatatype();
 	//Datentyp ist Boolean oder (Unsigned) Integer:
 	if(type>=0 && type<=7){
