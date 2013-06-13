@@ -1,5 +1,7 @@
 #include <iostream>
 #include <math.h> 
+#include "PracticalSocket.h"
+#include <string>
 
 char myPackages[65535];
 int myPackagePointer = 0;
@@ -107,8 +109,20 @@ void splitData(const char *buffer, const int bufferlen, const char *vecLayout, c
 
 int main(int argc, char const *argv[])
 {
-    char buffer[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    char buffer[65535];
     int bufferlen = sizeof(buffer);
+
+
+
+    UDPSocket sock;                    // Size of received message
+    string sourceAddress;             // Address of datagram source
+    unsigned short sourcePort;
+    int recvMsgSize;        // Port of datagram source
+    recvMsgSize = sock.recvFrom(buffer, bufferlen, sourceAddress, 
+                                      sourcePort);
+  
+    //char buffer[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+    //int bufferlen = sizeof(buffer);
     char vecLayout[] = {0,5,0,3,0,2,0,10};
     std::cout << vecLayout[0] << std::endl;
     int vecLayoutlen = sizeof(vecLayout);
@@ -170,5 +184,5 @@ int main(int argc, char const *argv[])
     myPackages[myPackagePointer] = (PACKAGE_COUNTER >> 24) & 0xff;
     myPackagePointer += 4;*/
 
-    std::cout << exp10(2);
+    //std::cout << exp10(2);
 }
