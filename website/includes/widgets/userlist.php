@@ -32,12 +32,14 @@
 			mysqli_close($connection);
 		?>
 	</table>
-	<br><p><b>Erklärungen:</b><br>
-	<b>Status</b>:<br>
-	0 - Deaktiviert<br>
-	1 - Aktiviert<br>
-	<b>Rechte</b>:<br>
-	1 - Vorstand<br>
-	2 - Beobachter<br>
-	3 - Techniker<br></p>
+	<br>
+	<div style="width: 200px;"><b><u>Erklärungen:</u></b><br>
+		<p style="float: right;"><b>Status</b>:<br>
+		0 - Deaktiviert<br>
+		1 - Aktiviert<br></p>
+		<p><b>Rechte</b>:<br>
+		1 - Vorstand<br>
+		2 - Beobachter<br>
+		3 - Techniker<br></p>
+	</div>
 </div>
