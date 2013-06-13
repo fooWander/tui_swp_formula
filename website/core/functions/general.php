@@ -288,7 +288,6 @@ function install_system($register_data) {
 	$query_driving_data = "CREATE  TABLE IF NOT EXISTS $dbname_fd.$driving_data(
 	`Antriebschlupfregelung` DECIMAL(4,3) NULL ,
 	`TorqueVectoring` DECIMAL(4,3) NULL ,
-	`Lenkwinkel` SMALLINT(3) NULL ,
 	`Zeitpunkt` INT(8) NULL ,
 	`FahrdynFehlerFeld` VARCHAR(45) NULL,
 	PRIMARY KEY (`Zeitpunkt`) )";
