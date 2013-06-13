@@ -36,9 +36,11 @@
 ?>
 	<div class="content">
 		<?php
+		// Einbinden der unterschiedlichen Widgets wie Online-Nutzerliste oder CSV-Export
 		if(isVorstand()) {include 'includes/widgets/userlist.php';}
-		include 'includes/widgets/csvexp.php'; 
+		include 'includes/widgets/csvexp.php';
 		if(!isVorstand()) {include 'includes/widgets/onlineusers.php';}
+		if(isVorstand()) {include 'includes/widgets/manageusers.php';}
 		?>
 	</div>
 <?php

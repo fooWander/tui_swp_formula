@@ -5,6 +5,7 @@
 	 * Falls eingeloggt, Einblenden des Auswahlmenüs, andernfalls Ausblenden. 
 	 */
 	if(logged_in()) {
+	refresh();
 	?>
 	<nav>
 		<ul>

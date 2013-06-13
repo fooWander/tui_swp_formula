@@ -57,6 +57,7 @@ function user_data($user_id) {
 		$fields = '`' . implode('`, `', $func_get_args) . '`';
 		mysqli_select_db($connect,$dbname_ud);
 		$data = mysqli_fetch_assoc(mysqli_query($connect,"SELECT $fields FROM `" . $user . "` WHERE id = '" . $user_id . "'"));
+		
 		return $data;
 	}
 }
@@ -149,7 +150,7 @@ function user_active($mail) {
 	$mail = sanitize($mail);
 	mysqli_select_db($connect,$dbname_ud);
 	$query = mysqli_query($connect,"SELECT `id` FROM `" . $user . "` WHERE email = '" . $mail . "' AND status = 1");
-
+	
 	return (mysqli_num_rows($query) == 1) ? true : false;
 }
 

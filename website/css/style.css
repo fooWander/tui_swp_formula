@@ -155,6 +155,17 @@ ul {
 	border-style: solid;
 }
 
+.alert_small {
+	color: #C00000;
+	background-color: #ffbbbb;
+	margin-left: auto;
+	margin-right: auto;
+	width: 425px;
+	padding: 5px;
+	border: 1px;
+	border-style: solid;
+}
+
 .alert_short {
 	color: #447998;
 	background-color: #bed4e2;
@@ -260,17 +271,11 @@ nav ul li a:not(.active):hover {
 	line-height: 65px;
 }
 
-#login {
-    display: table;
-    margin: 0 auto;
-	padding: 20px 20px 35px 20px;
-}
-
 
 /**
  *	    
  *
- *		<KUDA!!!>
+ *		Formatierung der "Informationsseiten"
  *
  *
  */
@@ -729,6 +734,20 @@ input[type=text], input[type=submit], input[type=password] {
 	-moz-box-sizing: border-box;
 }
 
+select {
+	width: 260px;
+	color: #343434;
+	padding: 7px;
+	border: #808080;	
+	border-style: solid;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
 .submit {
 	margin-top: 5px;
 	background-color: #F8F8F8;
@@ -746,6 +765,16 @@ form li p {
 .choice1, .choice3, .choice3, .choice4, .choice5 {
 	width: auto;
 } 
+
+#login {
+    display: table;
+    margin: 0 auto;
+	padding: 20px 20px 35px 20px;
+}
+
+#user {
+	
+}
 
 /* * * * * * * * * * * * * * * * * * * *
  *									   *

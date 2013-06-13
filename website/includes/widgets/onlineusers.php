@@ -17,8 +17,8 @@
 				$use = mysqli_select_db($con,"$dbname_ud"); 
 					 
 				$sql = "SELECT vorname,nachname, zeitpunkt 
-						FROM `$user` LEFT OUTER JOIN `$online`
-						ON `$user`.id=`$online`.id";
+						FROM `$user`, `$online`
+						WHERE `$user`.id=`$online`.id";
 						
 				$query= mysqli_query($con,$sql);			// Führe die DB Operation aus
 
