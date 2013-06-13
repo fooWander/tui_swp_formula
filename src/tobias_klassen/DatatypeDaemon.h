@@ -13,9 +13,11 @@ class DatatypeDaemon{
 	public:
 		DatatypeDaemon();
 		string parseNextValue();
+		int getPosActualPacket();
 		int getTime();
 	private:
 		unsigned int dataType;
+		int pos;
 };
 
 #endif

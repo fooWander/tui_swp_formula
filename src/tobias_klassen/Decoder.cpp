@@ -1,10 +1,14 @@
 //ACHTUNG: Dummy-Element
 #include "Data.h"
 #include "Decoder.h"
+#include <iostream>
 
 Decoder::Decoder()
 {
-	position=0;
+    stand=0;
+	for(int i=0; i<401; i++){
+	    position[i]=i;
+	}
 	//Dummydaten initialisieren
 	daten[0] = 0;
 	daten[1] = 1;
@@ -36,36 +40,34 @@ Decoder::Decoder()
 
 Data Decoder::getNextData()
 {
-	if(position<10){
-		Data data(daten[position], 1, position);
-		position++;
+    if(stand>=400)
+		stand = 0;
+    
+	if(stand<10){
+		Data data(daten[stand], 1, position[stand]);
+		stand++;
 		return data;
 	}else{
-		if(position<214){
-			Data data(daten[position], 4, position);
-			position++;
+		if(stand<214){
+			Data data(daten[stand], 4, position[stand]);
+			stand++;
 			return data;
 		}else{
-			if(position<358){
-				Data data(daten[position], 1, position);
-				position++;
+			if(stand<358){
+				Data data(daten[stand], 1, position[stand]);
+				stand++;
 				return data;
 			}else{
-				Data data(daten[position], 4, position);
-				position++;
+				Data data(daten[stand], 4, position[stand]);
+				stand++;
 				return data;
 			}
 		}
 	}
-
-	position++;
-	if(position>=401)
-		position = 0;
-
 }
 
 unsigned int Decoder::getTimestamp()
 {
-	unsigned int ts = 1113;
+	unsigned int ts = 2000;
 	return ts;
 }

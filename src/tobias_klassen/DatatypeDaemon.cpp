@@ -15,6 +15,7 @@ string DatatypeDaemon::parseNextValue()
 	string rueckgabe = "";
 	Data dat = decode.getNextData();
 	int type = dat.getDatatype();
+	pos = dat.getPosition();
 	//Datentyp ist Boolean oder (Unsigned) Integer:
 	if(type>=0 && type<=7){
 		int temp = (int)dat.getValue();
@@ -26,6 +27,12 @@ string DatatypeDaemon::parseNextValue()
 	}
 
 	return rueckgabe;
+}
+
+int DatatypeDaemon::getPosActualPacket()
+{
+    //Position weiterreichen:
+    return pos;
 }
 
 int DatatypeDaemon::getTime()

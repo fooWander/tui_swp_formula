@@ -11,7 +11,8 @@ public:
 	unsigned int getTimestamp();
 
 private:
-	unsigned int position;
+    int stand;
+	unsigned int position[401];
 	double daten[401];
 };
 

@@ -1,6 +1,5 @@
 #include "DBPacketInsert.h"
 #include "Insert.h"
-#include "DatatypeDaemon.h"
 #include <boost/lexical_cast.hpp>
 
 using namespace boost;
@@ -14,37 +13,65 @@ DBPacketInsert::DBPacketInsert()
 
 void DBPacketInsert::db_insert()
 {
-	/*sql_anw ist immer gleich aufgebaut:
-		"INSERT INTO [tabellenname] ([Auswahl der Spalten]) 
-			VALUES ([Werte])"
-	*/
-
+    int nowPos;
 	/*Sämtliche Daten auslesen, da in der Datenbank teilweise
 	/ der gleiche Wert mehrmals in verschiedene Tabellen
 	/ eingetragen wird!*/
-	DatatypeDaemon slave;
-	for(int i=0; i<401; i++){
-		wertStuecke[i] = slave.parseNextValue();
-	}
+	
 	//Zeitstempel holen:
 	time = slave.getTime();
-	
-	//SQL-Anweisungen für die einzelnen Tabellen erstellen:
-	insert_allgemeineFahrzeugdaten();
-
-	insert_akkudaten();
-	
-	insert_dynamischeDaten();
-	
-	insert_fahrdynamikregelung();
-	
-	insert_motorUmrichterdaten();
+	//Erstes Element eines neuen Pakets holen:
+	wertStuecke[0] = slave.parseNextValue();
+	//Position im Übertragungsvektor bestimmen:
+	nowPos = slave.getPosActualPacket();
+	//durch Position bestimmen, welches Paket jetzt kommt,
+	//dementsprechend die Insert-Routine aufrufen:
+	switch(nowPos){
+	case allgemeineFahrzeugdaten: 
+	    //Über Anzahl aller Werte dieses Pakets:
+	    for(int i=1; i<(akkudaten - allgemeineFahrzeugdaten); i++){
+	        //Werte einlesen
+	        wertStuecke[i] = slave.parseNextValue();
+	    }
+	    //Insert-Routine aufrufen
+	    insert_allgemeineFahrzeugdaten();
+	    //switch-Anweisung verlassen
+	    break;
+	case akkudaten:
+	    for(int i=1; i<(dynamischeDaten - akkudaten); i++){
+	        wertStuecke[i] = slave.parseNextValue();
+	    }
+	    insert_akkudaten();
+	    break;
+	case dynamischeDaten:
+	    for(int i=1; i<(fahrdynamikregelung - dynamischeDaten); i++){
+	        wertStuecke[i] = slave.parseNextValue();
+	    }
+	    insert_dynamischeDaten();
+	    break;
+	case fahrdynamikregelung:
+	    for(int i=1; i<(motorUmrichterdaten - fahrdynamikregelung); i++){
+	        wertStuecke[i] = slave.parseNextValue();
+	    }
+	    insert_fahrdynamikregelung();
+	    break;
+	case motorUmrichterdaten:
+	    for(int i=1; i<(ende - motorUmrichterdaten); i++){
+	        wertStuecke[i] = slave.parseNextValue();
+	    }
+	    insert_motorUmrichterdaten();
+	    break;
+	}
 	
 	cout << "db_insert abgelaufen." << endl;
 }
 
 void DBPacketInsert::insert_allgemeineFahrzeugdaten()
 {
+    /*sql_anw ist immer gleich aufgebaut:
+		"INSERT INTO [tabellenname] ([Auswahl der Spalten]) 
+			VALUES ([Werte])"
+	*/
 	sql_anw = "";
 	//Start der Anfrage:
 	sql_anw += "INSERT INTO allgemeine_fahrzeugdaten (";
@@ -102,10 +129,6 @@ void DBPacketInsert::insert_allgemeineFahrzeugdaten()
 
 void DBPacketInsert::insert_akkudaten()
 {
-	//Sollte im Vector sich vor diesen Daten etwas
-	//ändern, dann den offset aktualisieren!
-	int offset = 17;
-
 	sql_anw = "";
 	//Start der Anfrage:	
 	sql_anw += "INSERT INTO akkudaten (";
@@ -148,29 +171,29 @@ void DBPacketInsert::insert_akkudaten()
 	//Daten einfügen:
 	sql_anw += " VALUES (";
 	//Zelldaten 1-144 einfügen;
-	for(int i=0+offset; i<144+offset; i++){
-		sql_anw += wertStuecke[i+offset] + ", ";
+	for(int i=0; i<144; i++){
+		sql_anw += wertStuecke[i] + ", ";
 	}
 	//MaxZellspannung & MinZellspannung einfügen:
-	sql_anw += wertStuecke[192+offset] + ", ";
-	sql_anw += wertStuecke[193+offset] + ", ";
+	sql_anw += wertStuecke[192] + ", ";
+	sql_anw += wertStuecke[193] + ", ";
 	//Gesamtspannung einfügen:
-	sql_anw += wertStuecke[194+offset] + ", ";
+	sql_anw += wertStuecke[194] + ", ";
 	//Stromladegerät und SpannungLadegerät einfügen:
-	sql_anw += wertStuecke[195+offset] + ", ";
-	sql_anw += wertStuecke[196+offset] + ", ";
+	sql_anw += wertStuecke[195] + ", ";
+	sql_anw += wertStuecke[196] + ", ";
 	//Balancing einfügen:
-	for(int i=197+offset; i<269+offset; i++){
+	for(int i=197; i<269; i++){
 		sql_anw += wertStuecke[i];
 	}
 	//Balancing2 einfügen:
 	sql_anw += ", ";
-	for(int i=269+offset; i<341+offset; i++){
+	for(int i=269; i<341; i++){
 		sql_anw += wertStuecke[i];
 	}
 	sql_anw += ", ";
 	//Temperaturen einfügen:
-	for(int i=144+offset; i<192+offset; i++){
+	for(int i=144; i<192; i++){
 		sql_anw += wertStuecke[i] + ", ";
 	}
 	//Zeitpunkt einfügen:
@@ -187,10 +210,6 @@ void DBPacketInsert::insert_akkudaten()
 
 void DBPacketInsert::insert_dynamischeDaten()
 {
-	//Sollte im Vector sich vor diesen Daten etwas
-	//ändern, dann den offset aktualisieren!
-	int offset = 358;
-
 	sql_anw = "";
 	//Start der Anfrage:
 	sql_anw += "INSERT INTO dynamische_daten (";
@@ -223,39 +242,39 @@ void DBPacketInsert::insert_dynamischeDaten()
 	//Daten einfügen:
 	sql_anw += " VALUES (";
 	//Geschwindigkeiten einfügen:
-	for(int i=0+offset; i<3+offset; i++){
+	for(int i=0; i<3; i++){
 		sql_anw += wertStuecke[i] + ", ";
 	}
 	//Beschleunigungen einfügen:
-	for(int i=3+offset; i<6+offset; i++){
+	for(int i=3; i<6; i++){
 		sql_anw += wertStuecke[i] + ", ";
 	}
 	//Gierraten einfügen:
-	for(int i=6+offset; i<9+offset; i++){
+	for(int i=6; i<9; i++){
 		sql_anw += wertStuecke[i] + ", ";
 	}
 	//Drehzahlen einfügen:
-	for(int i=9+offset; i<13+offset; i++){
+	for(int i=9; i<13; i++){
 		sql_anw += wertStuecke[i] + ", ";
 	}
 	//Wassertemperaturen 1&2 einfügen:
-	sql_anw += wertStuecke[13+offset] + ", ";
-	sql_anw += wertStuecke[14+offset] + ", ";
+	sql_anw += wertStuecke[13] + ", ";
+	sql_anw += wertStuecke[14] + ", ";
 	//Bremsdruck einfügen:
-	sql_anw += wertStuecke[15+offset] + ", ";
+	sql_anw += wertStuecke[15] + ", ";
 	//Bremskraft einfügen:
-	sql_anw += wertStuecke[16+offset] + ", ";
+	sql_anw += wertStuecke[16] + ", ";
 	//Bremsposition einfügen:
-	sql_anw += wertStuecke[17+offset] + ", ";
+	sql_anw += wertStuecke[17] + ", ";
 	//Federwege 1-4 einfügen:
-	for(int i=18+offset; i<22+offset; i++){
+	for(int i=18; i<22; i++){
 		sql_anw += wertStuecke[i] + ", ";
 	}
 	//Gaspedalstellung 1&2 einfügen:
-	sql_anw += wertStuecke[22+offset] + ", ";
-	sql_anw += wertStuecke[23+offset] + ", ";
+	sql_anw += wertStuecke[22] + ", ";
+	sql_anw += wertStuecke[23] + ", ";
 	//Lenkwinkel einfügen:
-	sql_anw += wertStuecke[24+offset] + ", ";
+	sql_anw += wertStuecke[24] + ", ";
 	//Zeitpunkt einfügen:
 	sql_anw += lexical_cast<string>(time) + ", ";
 	//Fehlerfeld füllen:
@@ -270,11 +289,7 @@ void DBPacketInsert::insert_dynamischeDaten()
 
 void DBPacketInsert::insert_fahrdynamikregelung()
 {
-	//Sollte im Vector sich vor diesen Daten etwas
-	//ändern, dann den offset aktualisieren!
-	int offset = 383;
-
-	sql_anw = "";
+    sql_anw = "";
 	//Start der Anfrage:
 	sql_anw += "INSERT INTO fahrdynamikregelung (";
 
@@ -292,8 +307,6 @@ void DBPacketInsert::insert_fahrdynamikregelung()
 	*/
 	//TorqeVectoring einfügen:
 	sql_anw += "TorqueVectoring, ";
-	//Lenkwinkel einfügen:
-	sql_anw += "Lenkwinkel, ";
 	//Zeitpunkt einfügen:
 	sql_anw += "Zeitpunkt, ";
 	//Fehlerfeld einfügen:
@@ -302,13 +315,9 @@ void DBPacketInsert::insert_fahrdynamikregelung()
 	//Daten einfügen:
 	sql_anw += " VALUES (";
 	//Antriebschlupfregelung einfügen:
-	sql_anw += wertStuecke[0+offset] + ", ";
+	sql_anw += wertStuecke[0] + ", ";
 	//TorqueVectoring einfügen:
-	sql_anw += wertStuecke[1+offset] + ", ";
-	//Lenkwinkel einfügen:
-	//ACHTUNG: Wert aus einem anderen Teil des Vektors!
-	//OFFSET beachten!
-	sql_anw += wertStuecke[offset-1] + ", ";
+	sql_anw += wertStuecke[1] + ", ";
 	//Zeitpunkt einfügen:
 	sql_anw += lexical_cast<string>(time) + ", ";
 	//Fehlerfeld füllen:
@@ -323,10 +332,6 @@ void DBPacketInsert::insert_fahrdynamikregelung()
 
 void DBPacketInsert::insert_motorUmrichterdaten()
 {
-	//Sollte im Vector sich vor diesen Daten etwas
-	//ändern, dann den offset aktualisieren!
-	int offset = 385;
-
 	sql_anw = "";
 	//Start der Anfrage:
 	sql_anw += "INSERT INTO motor_umrichterdaten (";
@@ -361,25 +366,25 @@ void DBPacketInsert::insert_motorUmrichterdaten()
 	//Daten einfügen:
 	sql_anw += " VALUES (";
 	//DCStrom einfügen:
-	sql_anw += wertStuecke[0+offset] + ", ";
+	sql_anw += wertStuecke[0] + ", ";
 	//DCSpannung einfügen:
-	sql_anw += wertStuecke[1+offset] + ", ";
+	sql_anw += wertStuecke[1] + ", ";
 	//Motortemperaturen 1-8 einfügen:
-	for(int i=2+offset; i<10+offset; i++){
+	for(int i=2; i<10; i++){
 		sql_anw += wertStuecke[i] + ", ";
 	}
 	//Stromgrenze einfügen:
-	sql_anw += wertStuecke[10+offset] + ", ";
+	sql_anw += wertStuecke[10] + ", ";
 	//Maximalleistung einfügen:
-	sql_anw += wertStuecke[11+offset] + ", ";
+	sql_anw += wertStuecke[11] + ", ";
 	//Lüfterdrehzahl einfügen:
-	sql_anw += wertStuecke[12+offset] + ", ";
+	sql_anw += wertStuecke[12] + ", ";
 	//Lüfter einfügen:
-	sql_anw += wertStuecke[13+offset] + ", ";
+	sql_anw += wertStuecke[13] + ", ";
 	//Pumpe einfügen:
-	sql_anw += wertStuecke[14+offset] + ", ";
+	sql_anw += wertStuecke[14] + ", ";
 	//Wassertemperatur einfügen:
-	sql_anw += wertStuecke[15+offset] + ", ";
+	sql_anw += wertStuecke[15] + ", ";
 	//Zeitpunkt einfügen:
 	sql_anw += lexical_cast<string>(time) + ", ";
 	//Fehlerfeld füllen:

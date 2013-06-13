@@ -7,5 +7,7 @@ int main(int argc, const char **argv)
 {
 	cout << "Start." << endl;
 	DBPacketInsert inserts;
-	inserts.db_insert();
+	for(int i=0; i<10; i++){
+	    inserts.db_insert();
+	}
 }
