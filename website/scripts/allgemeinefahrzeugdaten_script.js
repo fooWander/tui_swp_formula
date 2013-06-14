@@ -33,10 +33,7 @@ document.getElementById("allgdata_header")	.setAttribute("class", "nav_active");
  */
 
 var g;					
-function refresh_gesw(param)
-{ 
-	g.refresh(param); 
-};
+
 
 $(document).ready(function()
 {
@@ -61,11 +58,7 @@ $(document).ready(function()
  */
 
 $(document).ready(function() 
-{
-	$('#single').masonry({
-		  itemSelector: '.top',
-		  columnWidth: 160
-		});  
+{ 
 	setTimeout(executeQuery, 1000);	
 });
 
@@ -118,7 +111,7 @@ function executeQuery()
 		$('#temp01')	.html(data[1]+" °C");		// Temperatur 1
 		$('#temp02')	.html(data[2]+" °C");		// Temperatur 2
 		$('#temp03')    .html(data[3]+" °C");		// Temperatur 3
-		refresh_gesw(data[4]);						// Geschwindigkeit				
+		g.refresh(data[4]);						// Geschwindigkeit				
 		$('#gas01') 	.html(data[5]+" %");		// Gas 1
 		$('#gas02') 	.html(data[6]+" %");		// Gas 2
 		$('#akku')  	.html(data[7]+" V");		// Akkuspannung

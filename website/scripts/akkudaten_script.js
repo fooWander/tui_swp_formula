@@ -37,11 +37,7 @@ document.getElementById("allgdata_header")	.setAttribute("class", "nav_inactive"
 $(document).ready(function()
 {
 	$(function()
-	{   
-		$('#single').masonry({
-		  itemSelector: '.top',
-		  columnWidth: 100
-		});  
+	{    
 	});
 	
 	for(h=0;h<12;h++){toggle_tab(h);}	//initialisiere alle Untertabellen als geschlossen

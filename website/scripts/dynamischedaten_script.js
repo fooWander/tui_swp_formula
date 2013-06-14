@@ -41,7 +41,7 @@ var g1;
 var g2;
 var g3;			
 		
-function refresh_rpm(param,auswahl){ auswahl.refresh(param); };  // Akutalisierungsfunktion
+
  
  
 $(document).ready(function()	// Initialisierung der Anzeigen			
@@ -211,10 +211,10 @@ function executeQuery()
 		$('#xGier')			.html(data[6]);			// Gier(X)
 		$('#yGier')			.html(data[7]);			// Gier(Y)
 		$('#zGier')			.html(data[8]);			// Gier(Z)
-		refresh_rpm(data[9],g0);					// Vorderrad links  (graphic)
-		refresh_rpm(data[10],g1);					// Vorderrad rechts (graphic)
-		refresh_rpm(data[11],g2);					// Hinterrad links  (graphic)
-		refresh_rpm(data[12],g3);					// Hinterrad rechts (graphic)			
+		g0.refresh(data[9]);					// Vorderrad links  (graphic)
+		g1.refresh(data[10]);					// Vorderrad rechts (graphic)
+		g2.refresh(data[11]);					// Hinterrad links  (graphic)
+		g3.refresh(data[12]);					// Hinterrad rechts (graphic)			
 		$('#wassertemp1')	.html(data[13]+" °C");	// Wassertemperatur 1
 		pedal(data[13],'wtemp1',1);					// Wassertemperatur 1	(graphic)
 		$('#wassertemp2')	.html(data[14]+" °C");	// Wassertemperatur 2
