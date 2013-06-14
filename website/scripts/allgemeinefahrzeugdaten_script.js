@@ -15,11 +15,11 @@
 
 $(document).ready(function()
 {
-document.getElementById("motor_header")		.setAttribute("class", "nav_inactive");
-document.getElementById("fahrdyn_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("dyndata_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("akkudaten_header")	.setAttribute("class", "nav_inactive"); 
-document.getElementById("allgdata_header")	.setAttribute("class", "nav_active");
+	document.getElementById("motor_header")		.setAttribute("class", "nav_inactive");
+	document.getElementById("fahrdyn_header")	.setAttribute("class", "nav_inactive");
+	document.getElementById("dyndata_header")	.setAttribute("class", "nav_inactive");
+	document.getElementById("akkudaten_header")	.setAttribute("class", "nav_inactive"); 
+	document.getElementById("allgdata_header")	.setAttribute("class", "nav_active");
 });
 
 /**

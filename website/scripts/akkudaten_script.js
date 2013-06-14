@@ -35,11 +35,7 @@ document.getElementById("allgdata_header")	.setAttribute("class", "nav_inactive"
  */
  
 $(document).ready(function()
-{
-	$(function()
-	{    
-	});
-	
+{	
 	for(h=0;h<12;h++){toggle_tab(h);}	//initialisiere alle Untertabellen als geschlossen
 	
 	$("#akku0")	.click(function() {toggle_tab(0);});
