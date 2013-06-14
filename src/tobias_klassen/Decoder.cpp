@@ -44,21 +44,21 @@ Data Decoder::getNextData()
 		stand = 0;
     
 	if(stand<10){
-		Data data(daten[stand], 1, position[stand]);
+		Data data(daten[stand], 1, position[stand], 0);
 		stand++;
 		return data;
 	}else{
 		if(stand<214){
-			Data data(daten[stand], 4, position[stand]);
+			Data data(daten[stand], 4, position[stand], 0);
 			stand++;
 			return data;
 		}else{
 			if(stand<358){
-				Data data(daten[stand], 1, position[stand]);
+				Data data(daten[stand], 1, position[stand], 0);
 				stand++;
 				return data;
 			}else{
-				Data data(daten[stand], 4, position[stand]);
+				Data data(daten[stand], 9, position[stand], 1);
 				stand++;
 				return data;
 			}
@@ -68,6 +68,6 @@ Data Decoder::getNextData()
 
 unsigned int Decoder::getTimestamp()
 {
-	unsigned int ts = 2000;
+	unsigned int ts = 2001;
 	return ts;
 }

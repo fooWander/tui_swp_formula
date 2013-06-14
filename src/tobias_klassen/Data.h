@@ -4,18 +4,20 @@
 class Data
 {
 public:
-	Data(double value, unsigned int datatype, unsigned int position);
+	Data(double value, unsigned int datatype, unsigned int position, int decPointValue);
 	//~Data();
 
 	/* data */
-	double getValue();
+	int getValue();
 	unsigned int getDatatype();
 	unsigned int getPosition();
+	int getDecPointValue();
 
 private:
 	double myValue;
 	unsigned int myDatatype;
 	unsigned int myPosition;
+	int myDecPointValue;
 };
 
 #endif

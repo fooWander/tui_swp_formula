@@ -18,12 +18,15 @@ string DatatypeDaemon::parseNextValue()
 	pos = dat.getPosition();
 	//Datentyp ist Boolean oder (Unsigned) Integer:
 	if(type>=0 && type<=7){
-		int temp = (int)dat.getValue();
+		int temp = dat.getValue();
 		rueckgabe = lexical_cast<string>(temp);
 	}
 	//Datentyp ist float oder double:
 	if(type==8 || type==9){
-		rueckgabe = lexical_cast<string>(dat.getValue());
+	    double temp = (double)dat.getValue();
+	    int temp2 = dat.getDecPointValue();
+	    temp = temp/pow(10.0, temp2);
+		rueckgabe = lexical_cast<string>(temp);
 	}
 
 	return rueckgabe;

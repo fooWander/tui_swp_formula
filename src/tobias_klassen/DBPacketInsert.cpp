@@ -391,7 +391,7 @@ void DBPacketInsert::insert_motorUmrichterdaten()
 	//ACHTUNG: DUMMY!!!
 	sql_anw += "'NARF')";
 
-	//cout << "SQL-Anweisung: " << sql_anw << endl;
+	cout << "SQL-Anweisung: " << sql_anw << endl;
 	//Daten in DB schreiben lassen:
 	insertmethoden.insertIntoDB(&sql_anw);
 	cout << "insert_motorUmrichterdaten abgelaufen." << endl;

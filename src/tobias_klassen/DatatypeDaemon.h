@@ -1,6 +1,7 @@
 #ifndef DatatypeDaemon_H
 #define DatatypeDaemon_H
 
+#include <math.h>
 #include <string>
 #include <boost/lexical_cast.hpp>
 #include "Data.h"
