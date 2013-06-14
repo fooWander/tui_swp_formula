@@ -43,6 +43,11 @@ header div {width: 1000px; margin: 0 auto;}
 	margin-left: 5px;
 }
 
+.logo {
+	margin: 0px;
+	padding: 0px;
+}
+
 .item {
 	width: 445px;
 	margin: 11px;

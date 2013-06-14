@@ -59,6 +59,10 @@
 	</div>	
 	
 	<div class="allitem">
+		<div id="zeitp" >N/A</div>
+	</div>
+	
+	<div class="allitem">
 		<table border='1' class='click'>
 			<colgroup>
 				<col>

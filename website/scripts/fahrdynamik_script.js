@@ -32,15 +32,11 @@ function executeQuery()
 	{
 		$('#antrieb')	.html(data[0]);			// Antriebsschlupfregelung				
 		$('#tvec')		.html(data[1]);			// Torque Vectoring 1		
-		$('#Zeitp')		.html(data[2]+" s");	// Zeitpunkt
-	/*	$('#fehlerfeld').html(data[3]);			// Fehlerfeld (ungenutzt) */
+		$('#lenkwinkel').html(data[2]+" °");	// Lenkwinkel
+		$('#Zeitp')		.html(data[3]+" s");	// Zeitpunkt
+	/*	$('#fehlerfeld').html(data[4]);			// Fehlerfeld (ungenutzt) */
 	});
-	$.getJSON('core/functions/dynamischedaten_sql.php',function(data)
-	{	
-		$('#lenkwinkel').html(data[24]+" °");	// Lenkwinkel
-					
-	});
-	
+			
 setTimeout(executeQuery,1000);
 
 };

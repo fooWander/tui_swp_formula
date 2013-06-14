@@ -100,6 +100,8 @@
 	</div>
 	
 	<div class="akkuitem2">
+		<div id="zeitp">N/A</div>
+		<div class="fhz_divline"></div>
 		<div class="akku_akku" >				
 				<script>
 					for(i=0;i<10;i++ )
