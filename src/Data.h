@@ -16,9 +16,9 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-#include <string>
-//#include "common.h"
-using namespace std;  //###
+
+#ifndef __DATA_H_INCLUDED__
+#define __DATA_H_INCLUDED__
 
 class Data
 {
@@ -49,16 +49,5 @@ private:
     char myData[bufferSizeData];
 };
 */
-class Location
-{
-public:
-    Location(string address, short port);
-   // ~Location();
 
-    string getAddress(); //###
-    int getPort();
-
-private:
-    string myAddress; 
-    int myPort;
-};
+#endif

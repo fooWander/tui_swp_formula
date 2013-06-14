@@ -17,8 +17,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "PracticalSocket.h"
-#include "common.h"
+//#include "PracticalSocket.h"
+//#include "common.h"
 //#include "vserver.h"
 
 void sendPackage(const Location remote, const void * msg)

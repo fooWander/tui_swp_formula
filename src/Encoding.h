@@ -18,23 +18,24 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-/*class Encoding
-{
-public:
-    Encoding(arguments);
-    ~Encoding();
+#ifndef __ENCODING_H_INCLUDED__
+#define __ENCODING_H_INCLUDED__
 
-    // Don't know whether this makes sense
-    
-};
-*/
-
-//#include "Data.h"
 //#include "common.h"
-#include <math.h> //###
-#include "common.h"
-using namespace std; //###
+#include "Data.h"
 
+//extern const int PACKAGESIZE_MAX;
+
+extern char VEC_COMMA[100];
+extern int VEC_COMMA_SIZE;
+extern char VEC_DATATYPES[100];
+extern int VEC_DATATYPES_SIZE;
+extern char VEC_LAYOUT[8];
+extern int VEC_LAYOUT_SIZE;
+ 
+extern int PACKAGE_COUNTER;
+extern unsigned int TIME_THRESHOLD; //###
+extern int LOCAL_TIMESTAMP;
 
 class Encoder
 {
@@ -47,7 +48,7 @@ public:
     */
     Encoder(const char *buffer, const int bufferlen, const char *vecLayout, const int vecLayoutlen,
             const char *vecDatatypes, const int vecDatatypeslen);
-    ~Encoder();
+    //~Encoder();
     /*
         After getPackage() returns package contains the specified package (packageNumber).
         The return value is the size of written data.
@@ -87,11 +88,11 @@ private:
     /*
         Packages which are ready to be send.
     */
-    char myPackages[PACKAGESIZE_MAX];
+    char myPackages[100];
     /*
         Position of each package in myPackages.  
     */
-    unsigned short myPackagePos[PACKAGESIZE_MAX];
+    unsigned short myPackagePos[100];
     /*
         Total sum of packages.
     */
@@ -127,7 +128,7 @@ public:
     */
     Decoder(char *buffer, const int bufferlen, char *vecLayout, const int vecLayoutlen, 
             char *vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen);
-    ~Decoder();
+    //~Decoder();
     /*
         With getNextData you get a Data object containing the postion ("name"), value and datatype.
     */
@@ -148,7 +149,7 @@ private:
     unsigned int myDataLength;
     unsigned int myTimestamp;
 	//unsigned int TIME_THRESHOLD=5;
-    char myPackages[PACKAGESIZE_MAX];
+    char myPackages[100];
 
     /*
         Number of currently processed package.
@@ -162,3 +163,5 @@ private:
     void checkTimestamp();
     void decodeHeader(char * buffer, const int bufferlen);
 };
+
+#endif

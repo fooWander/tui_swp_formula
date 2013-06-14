@@ -17,44 +17,21 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "Data.h"
-//#include "common.h"
+#include "Location.h"
 
-
-Data::Data(double value, unsigned int datatype, unsigned int position)
-    : myValue(value), myDatatype(datatype), myPosition(position)
-{
-    // check for validity
-}
-
-double Data::getValue()
-{
-    return myValue;
-}
-
-unsigned int Data::getDatatype()
-{
-    return myDatatype;
-}
-
-unsigned int Data::getPosition()
-{
-    return myPosition;
-}
-
-Location::Location(string address, short port)
+Location::Location(std::string address, short port)
 	: myAddress(address), myPort(port)
 {
 //###
 	
 }
 
-string Location::getAddress() //###
+std::string Location::getAddress() //###
 {
-return myAddress;//###
+	return myAddress;//###
 }
 
-int Location :: getPort() //###
+int Location::getPort() //###
 {
-return myPort;
+	return myPort;
 }

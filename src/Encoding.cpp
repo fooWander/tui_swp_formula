@@ -17,9 +17,34 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-//#include "common.h"
 #include "Encoding.h"
-#include "Data.h"
+#include <iostream>
+
+//const int PACKAGESIZE_MAX;
+
+
+char VEC_COMMA[];
+int VEC_COMMA_SIZE;
+char VEC_DATATYPES[];
+int VEC_DATATYPES_SIZE;
+char VEC_LAYOUT[] = {0,5,0,3,0,2,0,10};
+int VEC_LAYOUT_SIZE;
+
+int PACKAGE_COUNTER;
+unsigned int TIME_THRESHOLD=5;
+int LOCAL_TIMESTAMP;
+
+int exp10(int exp)
+{
+    int res = 1;
+    for (int i = 1; i <= exp; ++i)
+    {
+        res = res / 10;
+    }
+
+    return res;
+}
+
 
 Encoder::Encoder(const char * buffer, const int bufferlen, const char * vecLayout, const int vecLayoutlen,
                 const char * vecDatatypes, const int vecDatatypeslen) 
@@ -27,7 +52,9 @@ Encoder::Encoder(const char * buffer, const int bufferlen, const char * vecLayou
 {
     myPackageSum = vecLayoutlen/2;
     //myPackagePos[myPackageSum];
+    std::cout << "Spliting data..." << std::endl;
     splitData(buffer, bufferlen,vecLayout, vecLayoutlen);
+    std::cout << "Data splitted..." << std::endl;
     //compressData();
 }
 
@@ -108,6 +135,8 @@ void Encoder::splitData(const char *buffer, const int bufferlen,
     int pointer = 0;
     unsigned short splitPos = 0;
     for (int i = 0; i < vecLayoutlen; i=i+2) {
+        std::cout << "Spliting package " << i << std::endl;
+        std::cout << "Creating header..." << std::endl;
         createHeader();
         splitPos = joinUnsigShort(vecLayout[i],vecLayout[i+1]);
         for (int j = 0; j < splitPos; ++j) {
@@ -208,8 +237,8 @@ void Decoder::checkTimestamp()
 
 unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 {
-   myPackagePos = joinUnsigShort(vecLayout[myPackageNum-1],vecLayout[myPackageNum]);
-return(myPackagePos);
+    myPackagePos = joinUnsigShort(vecLayout[myPackageNum-1],vecLayout[myPackageNum]);
+    return(myPackagePos);
 }
 
 Data Decoder::getNextData(char * buffer, /*const*/ unsigned int bufferlen)
@@ -230,13 +259,3 @@ Data Decoder::getNextData(char * buffer, /*const*/ unsigned int bufferlen)
     return dat;
 }
 
-int exp10(int exp)
-{
-    int res = 1;
-    for (int i = 1; i <= exp; ++i)
-    {
-        res = res / 10;
-    }
-
-    return res;
-}

@@ -55,8 +55,8 @@ MulticastReceiver: MulticastReceiver.cpp PracticalSocket.cpp PracticalSocket.h
 	$(CXX) $(CXXFLAGS) -o MulticastReceiver MulticastReceiver.cpp PracticalSocket.cpp $(LIBS)
 test: test2.cpp PracticalSocket.cpp PracticalSocket.h
 	$(CXX) $(CXXFLAGS) -o test2 test2.cpp PracticalSocket.cpp $(LIBS)
-embpc: embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h common.h
-	$(CXX) $(CXXFLAGS) -o embpc PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h common.h
+embpc: embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
+	$(CXX) $(CXXFLAGS) -o embpc embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
 
 clean:
 	$(RM) TCPEchoClient TCPEchoServer UDPEchoClient UDPEchoServer TCPEchoServer-Thread \

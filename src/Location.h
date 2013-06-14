@@ -16,49 +16,24 @@
  *  along with this program; if not, write to the Free Software
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
+#ifndef __LOCATION_H_INCLUDED__
+#define __LOCATION_H_INCLUDED__
+
 #include <string>
-#include "common.h"
-using namespace std;  //###
 
-class Data
-{
-public:
-    Data(double value, unsigned int datatype, unsigned int position);
-    //~Data();
-    
-    double getValue();
-    unsigned int getDatatype();
-    unsigned int getPosition();
-
-private:
-    double myValue;
-    unsigned int myDatatype;
-    unsigned int myPosition;
-};
-/*
-class Message
-{
-public:
-    Message(arguments);
-    ~Message();
-
-    void setMessage(char *data, unsigned int bufferSizeData);
-    char *getMessageData();
-private:
-    unsigned int myBufferSizeData;
-    char myData[bufferSizeData];
-};
-*/
 class Location
 {
 public:
-    Location(string address, short port);
+    Location(std::string address, short port);
    // ~Location();
 
-    string getAddress(); //###
+    std::string getAddress(); //###
     int getPort();
 
 private:
-    string myAddress; 
+    std::string myAddress; 
     int myPort;
 };
+
+#endif
