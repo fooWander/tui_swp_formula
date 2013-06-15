@@ -61,7 +61,7 @@ $(document).ready(function()
  *	geschlossen.
  *
  *	@param: int 0 bis 11, wählt die richtige Zeile aus, deren Untermenü
- *	getoggelt werden soll.
+ *	angezeigt/ausgeblendet werden soll.
  *
  */
 

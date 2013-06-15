@@ -126,7 +126,7 @@ function winkel(param)
  *
  */
 
-function pedal(param,id,kind)
+function bar_horizontal(param,id,kind)
 {	
 	var temp= parseInt(param)/10+10; 
 	for(i=0;i<temp;i++)
@@ -158,23 +158,23 @@ function pedal(param,id,kind)
  *
  */
 
-function feder(param,type)		
+function bar_vertical(param,id)		
 {
 	var temp= 10-parseInt(param)/10; 	// bilde das Inverse
 	for(i=0;i<temp;i++)				// markiere alle Zellen blau, die die Feder "eingedrückt" ist
 	{
-		if($('#feder'+type+i).attr('class')=='fhz_federindi2')
+		if($('#feder'+id+i).attr('class')=='fhz_federindi2')
 		{
-			$('#feder'+type+i).removeClass("fhz_federindi2");
-			$('#feder'+type+i).addClass("fhz_federindi");
+			$('#feder'+id+i).removeClass("fhz_federindi2");
+			$('#feder'+id+i).addClass("fhz_federindi");
 		}
 	};
 	for(j=temp+1;j<50;j++)			// markiere alle restlichen zellen weiß
 	{
-		if($('#feder'+type+i).attr('class')!='fhz_federindi2')
+		if($('#feder'+id+i).attr('class')!='fhz_federindi2')
 		{
-			$('#feder'+type+i).removeClass("fhz_federindi");
-			$('#feder'+type+i).addClass("fhz_federindi2");
+			$('#feder'+id+i).removeClass("fhz_federindi");
+			$('#feder'+id+i).addClass("fhz_federindi2");
 		}
 	};
 };
@@ -215,30 +215,30 @@ function executeQuery()
 		g1.refresh(data[10]);					// Vorderrad rechts (graphic)
 		g2.refresh(data[11]);					// Hinterrad links  (graphic)
 		g3.refresh(data[12]);					// Hinterrad rechts (graphic)			
-		$('#wassertemp1')	.html(data[13]+" °C");	// Wassertemperatur 1
-		pedal(data[13],'wtemp1',1);					// Wassertemperatur 1	(graphic)
-		$('#wassertemp2')	.html(data[14]+" °C");	// Wassertemperatur 2
-		pedal(data[14],'wtemp2',1);					// Wassertemperatur 2	(graphic)
-		$('#bremsdruck')	.html(data[15]+" bar");	// Bremsdruck
-		pedal((data[15]+100),'bdruck',3)			// Wertkorrektur um +100, um Funktion pedal zu nutzen		
-		$('#bremskraft')	.html(data[16]+" %");	// Bremskraft
-		pedal(data[16],'bkraft',3);					// Bremskraft	(graphic)
-		$('#bremsposition')	.html(data[17]+" %");	// Bremsposition
-		pedal(data[17],'bremse',3);					// Bremsposition	(graphic)
-		$('#federweg01')	.html(data[18]+" mm");	// Federweg vorne links
-		feder(data[18],'vl');						// Federweg vorne links (graphic)
-		$('#federweg02')	.html(data[19]+" mm");	// Federweg vorne rechts
-		feder(data[19],'vr');						// Federweg vorne rechts (graphic)
-		$('#federweg03')	.html(data[20]+" mm");	// Federweg hinten links
-		feder(data[20],'hl');						// Federweg hinten links (graphic)
-		$('#federweg04')	.html(data[21]+" mm");	// Federweg hinten rechts
-		feder(data[21],'hr');						// Federweg hinten rechts(graphic)
-		$('#gaspedal1')	.html(data[22]+" %");		// Gaspedal1
-		pedal(data[22],'gaseins',2);				// Gaspedal1	graphic
-		$('#gaspedal2')	.html(data[23]+" %");		// Gaspedal2
-		pedal(data[23],'gaszwei',2);				// Gaspedal2 	graphic				
-		$('#lenkwinkel')	.html(data[24]+" °");	// Lenkwinkel 
-		winkel(data[24]);							// Lenkwinkel	graphic
+		$('#wassertemp1')	.html(data[13]+" °C");			// Wassertemperatur 1
+		bar_horizontal(data[13],'wtemp1',1);				// Wassertemperatur 1	(graphic)
+		$('#wassertemp2')	.html(data[14]+" °C");			// Wassertemperatur 2
+		bar_horizontal(data[14],'wtemp2',1);				// Wassertemperatur 2	(graphic)
+		$('#bremsdruck')	.html(data[15]+" bar");			// Bremsdruck
+		bar_horizontal((data[15]+100),'bdruck',3)			// Wertkorrektur um +100, um Funktion bar_horizontal zu nutzen		
+		$('#bremskraft')	.html(data[16]+" %");			// Bremskraft
+		bar_horizontal(data[16],'bkraft',3);				// Bremskraft	(graphic)
+		$('#bremsposition')	.html(data[17]+" %");			// Bremsposition
+		bar_horizontal(data[17],'bremse',3);				// Bremsposition	(graphic)
+		$('#federweg01')	.html(data[18]+" mm");			// Federweg vorne links
+		bar_vertical(data[18],'vl');						// Federweg vorne links (graphic)
+		$('#federweg02')	.html(data[19]+" mm");			// Federweg vorne rechts
+		bar_vertical(data[19],'vr');						// Federweg vorne rechts (graphic)
+		$('#federweg03')	.html(data[20]+" mm");			// Federweg hinten links
+		bar_vertical(data[20],'hl');						// Federweg hinten links (graphic)
+		$('#federweg04')	.html(data[21]+" mm");			// Federweg hinten rechts
+		bar_vertical(data[21],'hr');						// Federweg hinten rechts(graphic)
+		$('#gaspedal1')	.html(data[22]+" %");				// Gaspedal1
+		bar_horizontal(data[22],'gaseins',2);				// Gaspedal1	graphic
+		$('#gaspedal2')	.html(data[23]+" %");				// Gaspedal2
+		bar_horizontal(data[23],'gaszwei',2);				// Gaspedal2 	graphic				
+		$('#lenkwinkel')	.html(data[24]+" °");			// Lenkwinkel 
+		winkel(data[24]);									// Lenkwinkel	graphic
 		$d=new Date();
 		$zeit=Math.round(($d.getTime()/1000)-data[25]);
 		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
