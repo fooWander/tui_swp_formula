@@ -15,11 +15,11 @@
 
 $(document).ready(function()
 {
-	document.getElementById("motor_header")		.setAttribute("class", "nav_inactive");
-	document.getElementById("fahrdyn_header")	.setAttribute("class", "nav_inactive");
-	document.getElementById("dyndata_header")	.setAttribute("class", "nav_inactive");
-	document.getElementById("akkudaten_header")	.setAttribute("class", "nav_inactive"); 
-	document.getElementById("allgdata_header")	.setAttribute("class", "nav_active");
+	document.getElementById("motor_header")		.setAttribute("class", "inactive");
+	document.getElementById("fahrdyn_header")	.setAttribute("class", "inactive");
+	document.getElementById("dyndata_header")	.setAttribute("class", "inactive");
+	document.getElementById("akkudaten_header")	.setAttribute("class", "inactive"); 
+	document.getElementById("allgdata_header")	.setAttribute("class", "active");
 });
 
 /**
@@ -116,7 +116,9 @@ function executeQuery()
 		$('#gas02') 	.html(data[6]+" %");		// Gas 2
 		$('#akku')  	.html(data[7]+" V");		// Akkuspannung
 		$('#lzeit') 	.html(data[8]+" s");		// Laufzeit
-		$('#zeitp') 	.html(data[9]+" s");		// Zeitpunkt
+		$d=new Date();
+		$zeit=Math.round(($d.getTime()/1000)-data[9]);
+		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
 	/*	$('#fehlerfeld').html(data[10]);			// Fehlerfeld (ungenutzt) 	*/
 	
 		

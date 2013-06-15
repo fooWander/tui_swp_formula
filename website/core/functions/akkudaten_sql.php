@@ -11,9 +11,7 @@ include '../../includes/config.php';
  *  Danach führe Datenbankoperation aus und speichere Ergebnis in JSON-Format
  */
 
-if (!isset($_SESSION['user_id'])) {
-	exit("Sie besitzen nicht die Rechte auf diese Seite zuzugreifen.");
-}
+
 
 $con = mysqli_connect("$dbhost", "$dbuname" , "$dbpass") or die("<tr><td colspan=\"3\">Verbindung zur Datenbank konnte nicht hergestellt werden.</td></tr>");
 $use=mysqli_select_db($con,"$dbname_fd"); 

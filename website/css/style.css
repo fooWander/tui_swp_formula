@@ -421,6 +421,12 @@ nav ul li a:not(.active):hover {
 	width:80px;			/* minimal Größe durch "Balancing"-Überschrift eingegrenzt */
 }
 
+.car_img{
+	float:left;
+	margin-left:15px;
+	opacity:0.8;
+}
+
 .ddata{							/* Tabelle dynamische Daten*/
 	width:80px;
 }
@@ -432,6 +438,11 @@ nav ul li a:not(.active):hover {
 	float:left;
 }
 
+.fhz_box{						/* Box links und rechts vom Bild */
+	width:317px;
+	height:400px;
+	float:left;
+}
 
 
 .fhzdata{						/* Spaltengröße der Werte auf der Seite Allgemeine Fahrzeugdaten */
@@ -468,7 +479,7 @@ nav ul li a:not(.active):hover {
 	float:left;
 }
 
-.fhz_gaugediv{float:left;}
+
 
 .fhz_feder{						/* Container für Feder-Anzeige */
 	height:100px;
@@ -476,15 +487,17 @@ nav ul li a:not(.active):hover {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d3d3d3;
-	margin-left:20px;
-	margin-right:20px;
 	float:left;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:80px;
+	margin-bottom:30px;
 }
 
 .fhz_federmenu{					/* Container für Federweg-Gestaltung */
-	height:104px;
+	height:100px;
 	width:77px;
-	margin-top:10px;
+	margin-top:115px;
 	margin-bottom:10px;
 	text-align:center;
 	font-size:16px;
@@ -505,14 +518,14 @@ nav ul li a:not(.active):hover {
 
 
 .fhz_lenkindica{				/* Lenkungs Indikatorbalken blau */
-	width:2px;
+	width:4px;
 	height:100%;
 	background-color: #447998;
 	float:left;
 }
 
 .fhz_lenkindica2{				/* Lenkungs Indikatorbalken weiß */
-	width:2px;
+	width:4px;
 	height:100%;
 	background-color: #FFFFFF;
 	float:left;
@@ -520,11 +533,11 @@ nav ul li a:not(.active):hover {
 
 .fhz_lenkwinkel{				/* Lenkwinkel */	
 	height:20px;
-	width:361px;
+	width:724px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d3d3d3;
-	margin-left:39px;	
+	margin-left:110px;	
 }
 
 .fhz_pedal{						/* Pedalbalken */	
@@ -591,12 +604,15 @@ nav ul li a:not(.active):hover {
 }
 
 .gaugerpm{						/* Drehzahl für Motoren */
-	height:160px;
-	width:220px;
+	height:140px;
+	width:192px;
 	float:left;
+	margin-bottom:100px;
+	margin-top:50px;
+
 }
 
-.moto_div{						/* Trennlinie senkrecht */
+.moto_div{						/* Angepasste Container für Motor und Umrichter */
 	width:165px;
 	height:80px;
 	margin-top:15px;
@@ -607,100 +623,8 @@ nav ul li a:not(.active):hover {
 }
 
 .moto_temp{
-	width:50px
+	width:50px;
 }
-
-.nav-a{							/* Container für Navigationsleiste */
-	display: block;
-	width: auto;
-	height: 65px;
-	line-height: 65px;
-	margin-top: 0px;
-	margin-left: 0px;
-	text-align: center;
-	text-decoration: none;
-	font-weight: bold;
-	color: #D6D6D6;
-	float:right;
-}
-
-.nav_inactive:hover {	/* Hover für inaktiven NavButton*/
-	display: block;
-	width:auto;
-	padding-top: 0;
-	/*background-color: #FAFAFA;*/
-	border-top-color: #F2F2F2;
-	border-style: solid;
-	border-top-width: 5px;
-	border-left: none;
-	text-decoration: none;
-	border-bottom: none;
-	border-right: none;
-	line-height: 55px;
-}
-
-.nav_active {					/* Klass für aktiven NavButton */
-	display: block;
-	margin-top: 0px;
-	margin-left: 0px;
-	/* width: 100px; */
-	height: 65px;
-	line-height: 55px;
-	padding-left: 12px;
-	padding-right: 12px;
-	background-color: rgba(68,121,152,0);
-	border-style: solid;
-	border-top-width: 5px;
-	border-top-color: #447998;
-	border-left: none;
-	border-bottom: none;
-	border-right: none;
-	text-decoration: none;
-	text-align: center;
-	color: #447998;
-}
-
-.nav_inactive {					/* Klass für inaktiven NavButton */
-	display: block;
-	margin-top: 0px;
-	margin-left: 0px;
-	/* width: 100px; */
-	height: 65px;
-	line-height: 55px;
-	padding-left: 12px;
-	padding-right: 12px;
-	border-style: solid;
-	border-top-color: #FFFFFF;
-	border-top-width: 5px;
-	border-left: none;
-	text-decoration: none;
-	border-bottom: none;
-	border-right: none;
-	text-align: center;
-	color: #D6D6D6;
-}
-
-.nav_logout {					/* Klass für inaktiven LogoutButton */
-	
-	display: block;
-	margin-top: 0px;
-	margin-left: 0px;
-	/* width: 100px; */
-	height: 65px;
-	line-height: 55px;
-	padding-left: 15px;
-	padding-right: 15px;
-	border-style: solid;
-	border-top-color: #FFFFFF;
-	border-top-width: 5px;
-	border-left: none;
-	text-decoration: none;
-	border-bottom: none;
-	border-right: none;
-	text-align: center;
-	color: #E86D12;
-}
-
 
 .notaus{						/* Container für Notaus */
 	width:40px;
@@ -724,6 +648,9 @@ nav ul li a:not(.active):hover {
 	text-align:center;
 	color: #000000;
 	font-size:20px;
+	margin-top:5px;
+	margin-bottom:5px;
+
 } 
  
 .top{							/* Akku Topleiste */
@@ -733,6 +660,9 @@ nav ul li a:not(.active):hover {
 	
 } 
 
+#zeitpunkt{
+	margin-right:100px;
+}
 
 /* * * * * * * * * * * * * * * * * * * *
  *									   *

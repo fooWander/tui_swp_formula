@@ -18,11 +18,11 @@
 
 $(document).ready(function()
 {
-document.getElementById("motor_header")		.setAttribute("class", "nav_inactive");
-document.getElementById("fahrdyn_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("dyndata_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("akkudaten_header")	.setAttribute("class", "nav_active"); 
-document.getElementById("allgdata_header")	.setAttribute("class", "nav_inactive");
+document.getElementById("motor_header")		.setAttribute("class", "inactive");
+document.getElementById("fahrdyn_header")	.setAttribute("class", "inactive");
+document.getElementById("dyndata_header")	.setAttribute("class", "inactive");
+document.getElementById("akkudaten_header")	.setAttribute("class", "active"); 
+document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
 });
 
 /**
@@ -197,8 +197,10 @@ function executeQuery()
 		kapa(data[146]);
 		
 		$('#lade_strom')	.html(data[147]+" Ampere");
-		$('#lade_spg')		.html(data[148]+" Volt")
-		$('#zeitp')			.html(data[199]+" s");
+		$('#lade_spg')		.html(data[148]+" Volt");
+		$d=new Date();
+		$zeit=Math.round(($d.getTime()/1000)-data[199]);
+		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
 	/*  $('#fehlerfeld')	.html(data[200]);	// Fehlerfeld (ungenutzt)   */	
 		
 		/**

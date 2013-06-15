@@ -4,11 +4,11 @@
 
 $(document).ready(function()
 {
-document.getElementById("motor_header")		.setAttribute("class", "nav_inactive");
-document.getElementById("fahrdyn_header")	.setAttribute("class", "nav_active");
-document.getElementById("dyndata_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("akkudaten_header")	.setAttribute("class", "nav_inactive"); 
-document.getElementById("allgdata_header")	.setAttribute("class", "nav_inactive");
+document.getElementById("motor_header")		.setAttribute("class", "inactive");
+document.getElementById("fahrdyn_header")	.setAttribute("class", "active");
+document.getElementById("dyndata_header")	.setAttribute("class", "inactive");
+document.getElementById("akkudaten_header")	.setAttribute("class", "inactive"); 
+document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
 });
 
 /**
@@ -32,11 +32,18 @@ function executeQuery()
 	{
 		$('#antrieb')	.html(data[0]);			// Antriebsschlupfregelung				
 		$('#tvec')		.html(data[1]);			// Torque Vectoring 1		
-		$('#lenkwinkel').html(data[2]+" °");	// Lenkwinkel
-		$('#Zeitp')		.html(data[3]+" s");	// Zeitpunkt
-	/*	$('#fehlerfeld').html(data[4]);			// Fehlerfeld (ungenutzt) */
+		$d=new Date();
+		$zeit=Math.round(($d.getTime()/1000)-data[2]);
+		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
+	/*	$('#fehlerfeld').html(data[3]);			// Fehlerfeld (ungenutzt) */
 	});
-			
+	$.getJSON('core/functions/dynamischedaten_sql.php',function(data)
+	{	
+		$('#lenkwinkel').html(data[24]+" %");	// Lenkwinkel			
+	});
+	
+
+	
 setTimeout(executeQuery,1000);
 
 };

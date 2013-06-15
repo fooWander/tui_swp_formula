@@ -9,4 +9,5 @@
 	<div><a href="index.php">Verwaltung</a></div>
 	<div>|</div>
 	<div><a href="changepassword.php">Passwort ändern</a></div>
+	<div id="zeitpunkt"></div>
 </div>

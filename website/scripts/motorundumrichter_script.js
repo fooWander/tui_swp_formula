@@ -13,11 +13,11 @@
 
 $(document).ready(function()
 {
-document.getElementById("motor_header")		.setAttribute("class", "nav_active");
-document.getElementById("fahrdyn_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("dyndata_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("akkudaten_header")	.setAttribute("class", "nav_inactive"); 
-document.getElementById("allgdata_header")	.setAttribute("class", "nav_inactive");
+document.getElementById("motor_header")		.setAttribute("class", "active");
+document.getElementById("fahrdyn_header")	.setAttribute("class", "inactive");
+document.getElementById("dyndata_header")	.setAttribute("class", "inactive");
+document.getElementById("akkudaten_header")	.setAttribute("class", "inactive"); 
+document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
 });
 
 /**
@@ -56,7 +56,9 @@ function executeQuery()
 		$('#lüfter')			.html(data[13]);		// Lüfter
 		$('#pumpe')				.html(data[14]);		// Pumpe
 		$('#wassertemp')		.html(data[15]+" °C");	// Wassertemperatur
-		$('#zeitp')				.html(data[16]+" s");	// Zeitpunkt
+		$d=new Date();
+		$zeit=Math.round(($d.getTime()/1000)-data[16]);
+		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
 	/*	$('#fehlerfeld')		.html(data[17]);		// Fehlerfeld (ungenutzt) */	
 	});
 			

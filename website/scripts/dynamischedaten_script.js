@@ -18,11 +18,11 @@
  
 $(document).ready(function()
 {
-document.getElementById("motor_header")		.setAttribute("class", "nav_inactive");
-document.getElementById("fahrdyn_header")	.setAttribute("class", "nav_inactive");
-document.getElementById("dyndata_header")	.setAttribute("class", "nav_active");
-document.getElementById("akkudaten_header")	.setAttribute("class", "nav_inactive"); 
-document.getElementById("allgdata_header")	.setAttribute("class", "nav_inactive");
+document.getElementById("motor_header")		.setAttribute("class", "inactive");
+document.getElementById("fahrdyn_header")	.setAttribute("class", "inactive");
+document.getElementById("dyndata_header")	.setAttribute("class", "active");
+document.getElementById("akkudaten_header")	.setAttribute("class", "inactive"); 
+document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
 });
 
 /**
@@ -173,8 +173,8 @@ function feder(param,type)
 	{
 		if($('#feder'+type+i).attr('class')!='fhz_federindi2')
 		{
-		$('#feder'+type+i).removeClass("fhz_federindi");
-		$('#feder'+type+i).addClass("fhz_federindi2");
+			$('#feder'+type+i).removeClass("fhz_federindi");
+			$('#feder'+type+i).addClass("fhz_federindi2");
 		}
 	};
 };
@@ -239,7 +239,9 @@ function executeQuery()
 		pedal(data[23],'gaszwei',2);				// Gaspedal2 	graphic				
 		$('#lenkwinkel')	.html(data[24]+" °");	// Lenkwinkel 
 		winkel(data[24]);							// Lenkwinkel	graphic
-		$('#zeitp')			.html(data[25]+" s");	// Zeitpunkt
+		$d=new Date();
+		$zeit=Math.round(($d.getTime()/1000)-data[25]);
+		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
 	/*	$('#fehlerfeld')   	.html(data[26]);		// Fehlerfeld (ungenutzt) */
 	});
 			
