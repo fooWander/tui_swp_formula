@@ -7,6 +7,7 @@
  *		Zeitquelle (Bias)
  *			--> Echtzeituhr des Systems
  *			--> ständige Abfragen vermeiden, da Abfrage etwas zeitintensiv
+ 		Nanosecunden Variable --> kann gößer als 1 Milliarde werden! Vorsicht! Normierung beachten!!!
  *
  */
 #include <sys/types.h>
