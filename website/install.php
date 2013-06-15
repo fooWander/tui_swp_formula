@@ -8,7 +8,7 @@
 
 include 'core/init.php';
 include 'includes/overall/header.php';
-include 'includes/config.php';
+//include 'includes/config.php';
 ?>
 	
 	<div class="content">

@@ -20,13 +20,13 @@
 	<?php
 		} else {
 	?>
-	<!-- Menü -->
+	<!-- Pika, pikachu! Pika, pikachu! -->
 	<?php 
 	}
 	?>	
 </header>
-<?php
-if (logged_in()) {
-	include 'includes/widgets/loggedin.php';
+<?php 
+if(logged_in()) {
+include 'includes/widgets/loggedin.php';
 }
 ?>

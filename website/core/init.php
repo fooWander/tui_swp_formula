@@ -1,7 +1,7 @@
 <?php 
 
 	/**
-	 * Starten der Sitzung und Deaktivieren der Fehlermeldungen
+	 * Starten der Sitzung und Deaktivieren der Fehlermeldungen (Aktivieren mittels error_reporting(E_ALL))
 	 */
 	session_start();
 	error_reporting(E_ALL);

@@ -31,11 +31,12 @@ if (empty($_POST) == false) {
 	{
 		$val=array();
 		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$general_data]);};
-		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$accu_data]);};
-		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$dynamic_data]);};
-		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$driving_data]);};
-		if(array_key_exists('choice1',$_POST)){$val=array_merge($val,[$engine_data]);};
-		$sql = "SELECT  *  FROM	`".implode("` NATURAL JOIN `",$val);
+		if(array_key_exists('choice2',$_POST)){$val=array_merge($val,[$accu_data]);};
+		if(array_key_exists('choice3',$_POST)){$val=array_merge($val,[$dynamic_data]);};
+		if(array_key_exists('choice4',$_POST)){$val=array_merge($val,[$driving_data]);};
+		if(array_key_exists('choice5',$_POST)){$val=array_merge($val,[$engine_data]);};
+		$sql = "SELECT  *  FROM	`" . implode("` NATURAL JOIN `",$val) . "`";
+		echo $sql;
 	}
 		
 	$query= mysqli_query($connect,$sql);			// Führe die DB Operation aus
@@ -71,15 +72,16 @@ if (empty($_POST) == false) {
 		$count++;
 	}
 	$csvdata= str_replace(["\n","."],["\n",","],$csvcolumns."\n".$csvString);	// ersetze "." durch "," Floatwerte sonst als Datum angezeigt
-
-	header("Content-type: text/csv");
-	header("Cache-Control: no-store, no-cache");
-	header('Content-Disposition: attachment; filename="tsc02e.csv"');
-	 
+	
 	$outstream = fopen("php://output",'w');
 
+	header('Content-type: text/csv');
+	header('Cache-Control: no-store, no-cache');
+	header('Content-Disposition: attachment; filename=tsc02e.csv');	
+	
 	echo $csvdata;
 	 
 	fclose($outstream);
+	
 }
 ?>
