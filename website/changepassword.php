@@ -4,6 +4,7 @@
 	 */
 	include 'core/init.php';
 	protect_page();
+	include 'includes/config.php';
 	include 'includes/overall/header.php';
 	
 	/**

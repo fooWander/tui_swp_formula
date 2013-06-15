@@ -8,12 +8,15 @@ include 'includes/config.php';
  * @param string $password
  */
 function change_password($user_id, $password) {
-	global $connect, $user, $dbname_ud, $cryptsalt;
+	global $connect, $user, $dbhost, $dbuname, $dbpass, $dbname_ud, $cryptsalt;
 	$user_id = (int)$user_id;
 	$password = crypt($password,$cryptsalt);
 	
+	$connect = mysqli_connect("$dbhost", "$dbuname", "$dbpass") or die("Verbindung zur Datenbank konnte nicht hergestellt werden.");
 	mysqli_select_db($connect,$dbname_ud);
-	mysqli_query($connect, "UPDATE `" . $user . "` SET passwort = '" . $password ."' WHERE id = " . $user_id);
+	$string = "UPDATE `" . $user . "` SET `passwort` = '" . $password ."' WHERE id = " . $user_id;
+	mysqli_query($connect, $string);
+	
 }
 
 /**
