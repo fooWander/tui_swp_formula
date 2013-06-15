@@ -1,3 +1,13 @@
+/***********************************************
+ *  										   *
+ *  		Style-Sheet von					   *
+ *  		David Kudlek und				   *
+ * 			Thomas Golda					   *
+ * 			Softwareprojekt 2013			   * 
+ *  										   *
+ ***********************************************/
+
+
 html {
 	 overflow-y: scroll; /* erzwinge scrollbar (besonders chrome) */
 }
@@ -408,12 +418,6 @@ nav ul li a:not(.active):hover {
 	width:80px;			/* minimal Größe durch "Balancing"-Überschrift eingegrenzt */
 }
 
-.car_img{
-	float:left;
-	margin-left:15px;
-	opacity:0.8;
-}
-
 .ddata{							/* Tabelle dynamische Daten*/
 	width:80px;
 }
@@ -429,12 +433,6 @@ nav ul li a:not(.active):hover {
 
 .fhzdata{						/* Spaltengröße der Werte auf der Seite Allgemeine Fahrzeugdaten */
 	width:100px;
-}
-
-.fhz_box{						/* Box links und rechts vom Bild */
-	width:317px;
-	height:400px;
-	float:left;
 }
 
 .fhz_div{						/* Container für Top-Leiste */
@@ -467,6 +465,7 @@ nav ul li a:not(.active):hover {
 	float:left;
 }
 
+.fhz_gaugediv{float:left;}
 
 .fhz_feder{						/* Container für Feder-Anzeige */
 	height:100px;
@@ -474,17 +473,15 @@ nav ul li a:not(.active):hover {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d3d3d3;
+	margin-left:20px;
+	margin-right:20px;
 	float:left;
-	margin-left:10px;
-	margin-right:10px;
-	margin-top:80px;
-	margin-bottom:30px;
 }
 
 .fhz_federmenu{					/* Container für Federweg-Gestaltung */
-	height:100px;
+	height:104px;
 	width:77px;
-	margin-top:115px;
+	margin-top:10px;
 	margin-bottom:10px;
 	text-align:center;
 	font-size:16px;
@@ -505,14 +502,14 @@ nav ul li a:not(.active):hover {
 
 
 .fhz_lenkindica{				/* Lenkungs Indikatorbalken blau */
-	width:4px;
+	width:2px;
 	height:100%;
 	background-color: #447998;
 	float:left;
 }
 
 .fhz_lenkindica2{				/* Lenkungs Indikatorbalken weiß */
-	width:4px;
+	width:2px;
 	height:100%;
 	background-color: #FFFFFF;
 	float:left;
@@ -520,11 +517,11 @@ nav ul li a:not(.active):hover {
 
 .fhz_lenkwinkel{				/* Lenkwinkel */	
 	height:20px;
-	width:724px;
+	width:361px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d3d3d3;
-	margin-left:110px;
+	margin-left:39px;	
 }
 
 .fhz_pedal{						/* Pedalbalken */	
@@ -591,11 +588,9 @@ nav ul li a:not(.active):hover {
 }
 
 .gaugerpm{						/* Drehzahl für Motoren */
-	height:140px;
-	width:192px;
+	height:160px;
+	width:220px;
 	float:left;
-	margin-bottom:100px;
-	margin-top:50px;
 }
 
 .moto_div{						/* Trennlinie senkrecht */
@@ -712,20 +707,20 @@ nav ul li a:not(.active):hover {
 	margin-top: 0px;
 	margin-left: 0px;	
 	background-color: #C00000;
+	color: #F2F2F2;
 }
 
 .status_balance_an{	  			/* Status Balance */
 	margin-top: 0px;
 	margin-left: 0px;	
 	background-color: #447998;
+	color: #F2F2F2;
 }
 
 .text_center{					/* Zentrierter Text */
 	text-align:center;
 	color: #000000;
 	font-size:20px;
-	margin-top:5px;
-	margin-bottom:5px;
 } 
  
 .top{							/* Akku Topleiste */
@@ -734,7 +729,6 @@ nav ul li a:not(.active):hover {
 	padding: 0px;
 	
 } 
-
 
 
 /* * * * * * * * * * * * * * * * * * * *
