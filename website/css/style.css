@@ -425,6 +425,12 @@ nav ul li a:not(.active):hover {
 	width:100px;
 }
 
+.fhz_box{						/* Box links und rechts vom Bild */
+	width:317px;
+	height:400px;
+	float:left;
+}
+
 .fhz_div{						/* Container für Top-Leiste */
 	width:165px;
 	height:80px;
@@ -455,7 +461,6 @@ nav ul li a:not(.active):hover {
 	float:left;
 }
 
-.fhz_gaugediv{float:left;}
 
 .fhz_feder{						/* Container für Feder-Anzeige */
 	height:100px;
@@ -463,15 +468,17 @@ nav ul li a:not(.active):hover {
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d3d3d3;
-	margin-left:20px;
-	margin-right:20px;
 	float:left;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:80px;
+	margin-bottom:30px;
 }
 
 .fhz_federmenu{					/* Container für Federweg-Gestaltung */
-	height:104px;
+	height:100px;
 	width:77px;
-	margin-top:10px;
+	margin-top:115px;
 	margin-bottom:10px;
 	text-align:center;
 	font-size:16px;
@@ -492,14 +499,14 @@ nav ul li a:not(.active):hover {
 
 
 .fhz_lenkindica{				/* Lenkungs Indikatorbalken blau */
-	width:2px;
+	width:4px;
 	height:100%;
 	background-color: #447998;
 	float:left;
 }
 
 .fhz_lenkindica2{				/* Lenkungs Indikatorbalken weiß */
-	width:2px;
+	width:4px;
 	height:100%;
 	background-color: #FFFFFF;
 	float:left;
@@ -507,11 +514,11 @@ nav ul li a:not(.active):hover {
 
 .fhz_lenkwinkel{				/* Lenkwinkel */	
 	height:20px;
-	width:361px;
+	width:724px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #d3d3d3;
-	margin-left:39px;	
+	margin-left:110px;
 }
 
 .fhz_pedal{						/* Pedalbalken */	
@@ -578,9 +585,11 @@ nav ul li a:not(.active):hover {
 }
 
 .gaugerpm{						/* Drehzahl für Motoren */
-	height:160px;
-	width:220px;
+	height:140px;
+	width:192px;
 	float:left;
+	margin-bottom:100px;
+	margin-top:50px;
 }
 
 .moto_div{						/* Trennlinie senkrecht */
@@ -709,6 +718,8 @@ nav ul li a:not(.active):hover {
 	text-align:center;
 	color: #000000;
 	font-size:20px;
+	margin-top:5px;
+	margin-bottom:5px;
 } 
  
 .top{							/* Akku Topleiste */
@@ -717,6 +728,7 @@ nav ul li a:not(.active):hover {
 	padding: 0px;
 	
 } 
+
 
 
 /* * * * * * * * * * * * * * * * * * * *

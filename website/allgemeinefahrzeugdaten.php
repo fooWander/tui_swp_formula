@@ -50,17 +50,9 @@
 		</div>
 	</div>
 
-
-
-	<div class="allitem" >
-		
+	<div class="allitem" >		
 		<div id="geschwindigkeit" class="gauge1"></div>
-
 	</div>	
-	
-	<div class="allitem">
-		<div id="zeitp" >N/A</div>
-	</div>
 	
 	<div class="allitem">
 		<table border='1' class='click'>
