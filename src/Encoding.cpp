@@ -243,9 +243,23 @@ unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 
 Data Decoder::getNextData(char * buffer, /*const*/ unsigned int bufferlen)
 {
-    double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1] 
-            * exp10(VEC_COMMA[myPackagePos+myDataPos]));
+    
+    /* 
+        double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1] 
+                                * exp10(VEC_COMMA[myPackagePos+myDataPos]));
+    */
+    
+    // value and UPPER_LIMIT_DATATYPE must be int because the UPPER-LIMIT of int16
+    // int UPPER_LIMIT_DATATYPE = 32767;    --> globale variable
+    // -32768 bis +32767                    --> Zahl 0 zählt positiv
+    
+    int value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1];  
+  
+    if(value >= obereGrenzepositivDatantyp){
+    value = value - UPPER_LIMIT_DATATYPE;
+}
 
+    
     int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
     int pos = myDataPos;
     
