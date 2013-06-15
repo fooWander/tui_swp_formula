@@ -41,10 +41,10 @@ header {
 	font-size: 11pt;
 }
 
+/* Headerbereich */
 header nav {width: 1000px;  margin: 0 auto;}
 header nav ul {width: 1000px;}
 header nav ul li {float: right;}
-
 header div {width: 1000px; margin: 0 auto;}
 
 .tsc-02e {
@@ -58,6 +58,7 @@ header div {width: 1000px; margin: 0 auto;}
 	padding: 0px;
 }
 
+/* Contentbereiche */
 .item {
 	width: 445px;
 	margin: 11px;
@@ -91,33 +92,6 @@ header div {width: 1000px; margin: 0 auto;}
 	border-width: 1px;
 	border-color: #E6E6E6;
 	clear: both;
-}
-
-.verwaltung {
-	margin-top: 0px;
-	margin-right: auto;
-	margin-left: auto;
-	width: 960px;
-	padding: 10px;
-	background-color: #FEFEFE;
-	border-style: solid;
-	border-width: 1px;
-	border-top-width: 0px;
-	border-color: #E6E6E6;	
-}
-
-div.verwaltung div {
-	display: inline;
-	float: right;
-	margin-left: 7px;
-	margin-right: 7px;
-	padding: 0;	
-	position: relative;
-}
-
-div.verwaltung div a {
-	text-decoration: none;
-	position: relative;
 }
 
 .content {
@@ -192,6 +166,8 @@ ul {
 	border-style: solid;
 }
 
+/* Allgemeine Textformatierungen */
+
 p {
 	margin: 0;
 	padding: 0;
@@ -201,7 +177,34 @@ p strong {
 	color: #C00000;
 }
 
-/* Sonstiges */
+
+.verwaltung {
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 960px;
+	padding: 10px;
+	background-color: #FEFEFE;
+	border-style: solid;
+	border-width: 1px;
+	border-top-width: 0px;
+	border-color: #E6E6E6;	
+}
+
+div.verwaltung div {
+	display: inline;
+	float: right;
+	margin-left: 7px;
+	margin-right: 7px;
+	padding: 0;	
+	position: relative;
+}
+
+div.verwaltung div a {
+	text-decoration: none;
+	position: relative;
+}
+
 .hinweis {
 	color: #C00000;
 }
@@ -210,7 +213,7 @@ a {
 	color: #447998;
 }
 
-/* Navigationsleiste */
+/* Navigationsleiste #2 */
 nav ul {
 	position: absolute;
 }
