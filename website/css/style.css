@@ -408,6 +408,12 @@ nav ul li a:not(.active):hover {
 	width:80px;			/* minimal Größe durch "Balancing"-Überschrift eingegrenzt */
 }
 
+.car_img{
+	float:left;
+	margin-left:15px;
+	opacity:0.8;
+}
+
 .ddata{							/* Tabelle dynamische Daten*/
 	width:80px;
 }

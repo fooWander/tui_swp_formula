@@ -32,7 +32,7 @@
 		</div>
 		<div id="hintenlinks" class="gaugerpm"></div>
 	</div>
-	<div style="float:left;margin-left:15px;"><img src="fahrzeug_top.png"  height="533" width="300"></div>
+	<div style="car_img"><img src="fahrzeug_top.png"  height="533" width="300"></div>
 	<div style="float:right;" class="fhz_box">
 		<div id="vornerechts" class="gaugerpm"></div>
 		<div class="fhz_feder">
