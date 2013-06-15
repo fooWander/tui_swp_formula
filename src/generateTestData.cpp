@@ -42,4 +42,8 @@ int main(int argc, char const *argv[])
 		DATA_PACKAGE[i] = rand() % 100;
 		std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
 	}
+	for (int i = 0; i < 140; ++i)
+	{
+		std::cout << (char)i << std::endl;
+	}
 }

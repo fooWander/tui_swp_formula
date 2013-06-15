@@ -43,8 +43,9 @@ Location HOST_VSERVER("87.106.17.165",(short)5000);
 //const int PACKAGESIZE_MAX = 100;
 
 char DATA_ACK_VSERVER[] = {1}; 
-char DATA_PACKAGE[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+char DATA_PACKAGE[1000];
 char DATA_PACKAGE_INFO[100];
+char DATA_SEND[1000];
 
 void sendPackage(Location remote, char * msg)
 {
@@ -118,29 +119,62 @@ int receiveData()
 void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
     for (int i = 0; i < packageSum; ++i) {
-        enc.getPackage(DATA_PACKAGE,i);
-        sendPackage(HOST_VSERVER,DATA_PACKAGE);
+        int size = enc.getPackage(DATA_SEND,i);
+        std::cout << std::endl;
+        std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
+        for (int j = 0; j < size; ++j)
+        {
+            if (j % 25 == 0)
+            {
+                //std::cout << std::endl;
+            }
+            std::cout << DATA_SEND[j];
+        }
+        std::cout << std::endl;
+        std::cout << "========END_PACKAGE=========" << std::endl;
+        std::cout << std::endl << std::endl << std::endl << std::endl; 
+        sendPackage(HOST_VSERVER,DATA_SEND);
     }
 }
 
 Encoder  processData()
 {
-    Encoder enc(DATA_PACKAGE, 20, VEC_LAYOUT, 8,VEC_DATATYPES, 100);
+    Encoder enc(DATA_PACKAGE, 802, VEC_LAYOUT, 8,VEC_DATATYPES, 100);
     return enc;
 }
 
 int main(/*int argc, char const *argv[]*/)
 {
+    std::cout << "Generating test data..." << std::endl;
+
+    for (int i = 0; i < 20; ++i)
+    {
+        if (i % 2 == 0)
+        {
+            DATA_PACKAGE[i] = 80;
+        } else {
+            DATA_PACKAGE[i] = 80;
+        }
+        //VEC_DATATYPES[i] = 1;
+        std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
+    }
+    for (int i = 20; i < 802; ++i)
+    {
+        //VEC_DATATYPES[i] = 4;
+        DATA_PACKAGE[i] = rand() % 100;
+        std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
+    }
+
     std::cout << "Initializing..." << std::endl;
     //initialize();
     int i = 0;
     while (true) {
-        std::cout << "Receiving data..." << std::endl;
+        //std::cout << "Receiving data..." << std::endl;
         int recv;
         //recv = receiveData();
-        std::cout << "Encoding..." << std::endl;
+        //std::cout << "Encoding..." << std::endl;
         Encoder enc = processData();
-        std::cout << "Sending data... " << i << std::endl;
+        //std::cout << "Sending data... " << i << std::endl;
         i++;
         sendData(enc);
         usleep(250000);

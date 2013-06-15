@@ -30,7 +30,7 @@ extern char VEC_COMMA[100];
 extern int VEC_COMMA_SIZE;
 extern char VEC_DATATYPES[100];
 extern int VEC_DATATYPES_SIZE;
-extern char VEC_LAYOUT[8];
+extern char VEC_LAYOUT[10];
 extern int VEC_LAYOUT_SIZE;
  
 extern int PACKAGE_COUNTER;
@@ -88,11 +88,11 @@ private:
     /*
         Packages which are ready to be send.
     */
-    char myPackages[100];
+    char myPackages[1000];
     /*
         Position of each package in myPackages.  
     */
-    unsigned short myPackagePos[100];
+    unsigned short myPackagePos[1000];
     /*
         Total sum of packages.
     */
