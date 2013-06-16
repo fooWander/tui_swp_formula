@@ -18,8 +18,9 @@
  */
 
 #include "Encoding.h"
-#include <iostream>
 
+
+#define NSEC_PER_SEC 1000000000ULL
 //const int PACKAGESIZE_MAX;
 
 
@@ -31,8 +32,11 @@ char VEC_LAYOUT[] = {0,0, 0,20, 0,25, 0,30, 0,100};
 int VEC_LAYOUT_SIZE = 10;
 
 int PACKAGE_COUNTER = 80;
-unsigned int TIME_THRESHOLD=5;
-int LOCAL_TIMESTAMP;
+unsigned int TIME_THRESHOLD=5000000;
+int64_t LOCAL_TIMESTAMP;
+
+
+
 
 int exp10(int exp)
 {
@@ -56,6 +60,24 @@ int exp2(int exp)
     return res;
 }
 
+int64_t TO_NANO_SEC(struct timespec *t) 
+{
+    int64_t result;
+    result  =  (int64_t)t->tv_sec;
+    result  *= (int64_t)NSEC_PER_SEC; //Normierung
+    result  += (int64_t)t->tv_nsec;
+    return result;
+}
+
+int64_t getTimestamp()
+{
+    int64_t result;
+    struct timespec timestamp;
+    clock_gettime(CLOCK_REALTIME, &timestamp);
+    result = TO_NANO_SEC(&timestamp);
+    return result;
+}
+
 
 Encoder::Encoder(const char * buffer, const int bufferlen, const char * vecLayout, const int vecLayoutlen,
                 const char * vecDatatypes, const int vecDatatypeslen) 
@@ -77,6 +99,8 @@ unsigned int Encoder::getPackageSum()
 {
     return myPackageSum;
 }
+
+
 
 unsigned int Encoder::getPackageSize(unsigned short packageNumber)
 {
@@ -129,30 +153,24 @@ int Encoder::getNextPackage(char * package)
 
 void Encoder::createHeader()
 {
-    /*
-    // add timestamp
-    myPackages[myPackagePointer+3] = PACKAGE_COUNTER & 0xff;
-    myPackages[myPackagePointer+2] = (PACKAGE_COUNTER >> 8) & 0xff;
-    myPackages[myPackagePointer+1] = (PACKAGE_COUNTER >> 16) & 0xff;
-    myPackages[myPackagePointer] = (PACKAGE_COUNTER >> 24) & 0xff;
-    myPackagePointer += 4;
-    PACKAGE_COUNTER++;
-
-    // create ID
-    myPackages[myPackagePointer+3] = myPackageNum & 0xff;
-    myPackages[myPackagePointer+2] = (myPackageNum >> 8) & 0xff;
-    myPackages[myPackagePointer+1] = (myPackageNum >> 16) & 0xff;
-    myPackages[myPackagePointer] = (myPackageNum >> 24) & 0xff;
-    myPackagePointer += 4;
-    myPackageNum++;
-    */
     std::cout << "================Creating header ================" << std::endl;
-    myPackages[myPackagePointer+3] = 1212696648 & 0xff;
-    myPackages[myPackagePointer+2] = (1212696648 >> 8) & 0xff;
-    myPackages[myPackagePointer+1] = (1212696648 >> 16) & 0xff;
-    myPackages[myPackagePointer] = (1212696648 >> 24) & 0xff;
-    myPackagePointer += 4;
-    PACKAGE_COUNTER++;
+    int64_t timestamp = getTimestamp();
+    std::cout << "Zeistempel: " << timestamp << std::endl;
+    myPackages[myPackagePointer+7] = timestamp & 0xff;
+    myPackages[myPackagePointer+6] = (timestamp >> 8) & 0xff;
+    myPackages[myPackagePointer+5] = (timestamp >> 16) & 0xff;
+    myPackages[myPackagePointer+4] = (timestamp >> 24) & 0xff;
+    myPackages[myPackagePointer+3] = (timestamp >> 32)& 0xff;
+    myPackages[myPackagePointer+2] = (timestamp >> 40) & 0xff;
+    myPackages[myPackagePointer+1] = (timestamp >> 48) & 0xff;
+    myPackages[myPackagePointer] = (timestamp >> 56) & 0xff;
+    
+    for (int i = 0; i < 8; ++i)
+    {
+        std::cout << myPackages[myPackagePointer+7-i] << std::endl;
+    }
+
+    myPackagePointer += 8;
     std::cout << myPackagePointer << std::endl;
 
     // create ID
@@ -281,12 +299,14 @@ Decoder::Decoder(char * buffer, const int bufferlen, char * vecLayout, const int
                 char * vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen)
     : /*myDataPos(8),myPackagePos(0),myTimestamp(0),*/myDataLength(0)
 {
-    myDataPos = 8;
-    std::cout << "Decoding header..." << std::endl;
-    decodeHeader(buffer, bufferlen);
-    std::cout << "Checking timestamp..." << std::endl;
+    myDataPos = 12;
+    myPackage = buffer;
+    myPackagelen = bufferlen;
+    //std::cout << "Decoding header..." << std::endl;
+    decodeHeader();
+    //std::cout << "Checking timestamp..." << std::endl;
     checkTimestamp();
-    std::cout << "Decode package positions..." << std::endl;
+    //std::cout << "Decode package positions..." << std::endl;
     myPackagePos = getPackagePos(vecLayout, vecLayoutlen);
     //std::cout << "myPackagePos: " << myPackagePos << std::endl;
     //decompress();
@@ -295,20 +315,31 @@ Decoder::Decoder(char * buffer, const int bufferlen, char * vecLayout, const int
 /*
     Decode header of currently processed package (timestamp and ID (myPackageNum)).
 */
-void Decoder::decodeHeader(char * buffer, const int bufferLen)
+void Decoder::decodeHeader()
 {
-    myTimestamp = (buffer[3] & 0xff)  
-                + ((buffer[2] << 8) & 0xff00)
-                + ((buffer[1] << 16) & 0xff0000)
-                + ((buffer[0] << 24) & 0xff000000);
+    //std::cout << "decoding header..." << std::endl;
+
+    for (int i = 0; i < 8; ++i)
+    {
+        //std::cout << myPackage[7-i] << std::endl;
+    }
+
+    myTimestamp = ((myPackage[7] & 0xff)  
+                + ((myPackage[6] << 8) & 0xff00)
+                + ((myPackage[5] << 16) & 0xff0000)
+                + ((myPackage[4] << 24) & 0xff000000)
+                + (((int64_t)myPackage[3] << 32) & 0xff00000000)
+                + (((int64_t)myPackage[2] << 40) & 0xff0000000000)
+                + (((int64_t)myPackage[1] << 48) & 0xff000000000000)
+                + (((int64_t)myPackage[0] << 56) & 0xff00000000000000));
     std::cout << myTimestamp << std::endl;
 
-    myPackageNum = (buffer[7] & 0xff)  
-                + ((buffer[6] << 8) & 0xff00)
-                + ((buffer[5] << 16) & 0xff0000)
-                + ((buffer[4] << 24) & 0xff000000);
+    myPackageNum = (myPackage[11] & 0xff)  
+                + ((myPackage[10] << 8) & 0xff00)
+                + ((myPackage[9] << 16) & 0xff0000)
+                + ((myPackage[8] << 24) & 0xff000000);
     // TESTING
-    std::cout << "myPackageNum decoded: " << myPackageNum << std::endl;            
+    //std::cout << "myPackageNum decoded: " << myPackageNum << std::endl;            
     //myPackageNum = 2;
     //TESTING
     //std::cout << "myPackageNum: " << myPackageNum << std::endl;
@@ -316,7 +347,10 @@ void Decoder::decodeHeader(char * buffer, const int bufferLen)
 
 void Decoder::checkTimestamp()
 {
-    if ((LOCAL_TIMESTAMP - myTimestamp) > TIME_THRESHOLD) {  //###
+    LOCAL_TIMESTAMP = getTimestamp();
+    int64_t diff = LOCAL_TIMESTAMP - myTimestamp;
+    std::cout << "Zeitdifferenz: " << (double)diff/1000000 << "ms" << std::endl;
+    if (diff > TIME_THRESHOLD) {  //###
         //getNextPackage();   Fuktion muss noch definiert werden
     } else {
         return;
@@ -326,7 +360,7 @@ void Decoder::checkTimestamp()
 unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 {
     //std::cout << exp2(3) << exp2(0) << std::endl;
-    std::cout << "myPackageNum: " << myPackageNum << std::endl;
+    //std::cout << "myPackageNum: " << myPackageNum << std::endl;
     //std::cout << vecLayout[(2 * myPackageNum)-1] << std::endl;
     //std::cout << vecLayout[(2 * myPackageNum)] << std::endl;
     /*
@@ -341,17 +375,17 @@ unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
     return(myPackagePos);
 }
 
-Data Decoder::getNextData(char * buffer, /*const*/ unsigned int bufferlen)
+Data Decoder::getNextData()
 {
-    std::cout << buffer[myDataPos] << std::endl;
-    std::cout << bufferlen << std::endl;
-    double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1]);
+    //std::cout << myPackage[myDataPos] << std::endl;
+    //std::cout << myPackagelen << std::endl;
+    double value = joinUnsigShort(myPackage[myDataPos],myPackage[myDataPos+1]);
 
     //int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
     int datatype = 0;
     int pos = myDataPos;
     
-    if ((myDataPos + 1) == bufferlen) //###   --> Vergleich bufferlen muss unsigned int sein
+    if ((myDataPos + 1) == myPackagelen) //###   --> Vergleich bufferlen muss unsigned int sein
     {
        Data datEnd(-1.0,-1,-1); //###
         return datEnd;

@@ -135,7 +135,7 @@ void sendData(Encoder enc) {
         std::cout << "========END_PACKAGE=========" << std::endl;
         std::cout << std::endl << std::endl << std::endl << std::endl; 
         sendPackage(HOST_VSERVER,DATA_SEND,size);
-        usleep(500000);
+        usleep(125000);
     }
 }
 

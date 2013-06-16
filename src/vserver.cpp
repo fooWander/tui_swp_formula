@@ -165,35 +165,36 @@ int main(int argc, char const *argv[])
         /*
             TODO: add timeout
         */
-        std::cout << "receiving data..." << std::endl;
+        //std::cout << "receiving data..." << std::endl;
         
         DATA_PACKAGE_SIZE = receiveData();
-        std::cout << "==========RECEIVED DATA==========" << std::endl;
-        std::cout << "SIZE: " << DATA_PACKAGE_SIZE << std::endl;
+        //td::cout << "==========RECEIVED DATA==========" << std::endl;
+        //std::cout << "SIZE: " << DATA_PACKAGE_SIZE << std::endl;
         /*
             TODO: add timeout
         */
         //processData();
         for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
         {
-            std::cout << DATA_PACKAGE[i];
+            //std::cout << DATA_PACKAGE[i];
         }
-        std::cout << std::endl;
-        std::cout << "=================================" << std::endl;
-        std::cout << std::endl;
-        std::cout << "Decoding data... " << std::endl << std::endl;
+        //std::cout << std::endl;
+        //std::cout << "=================================" << std::endl;
+        //std::cout << std::endl;
+        //std::cout << "Decoding data... " << std::endl << std::endl;
         Decoder dec = processData();
-        
-        for (int i = 0; i < DATA_PACKAGE_SIZE - 8 - 1; ++i)
+        /*
+        for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
         {
-            Data dat = dec.getNextData(DATA_PACKAGE,DATA_PACKAGE_SIZE);
+            Data dat = dec.getNextData();
             std::cout << &dat << std::endl;
             std::cout << "Wert: " << dat.getValue() << std::endl;
             std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
             std::cout << "Position: " << dat.getPosition() << std::endl;
         }
         std::cout << "=============DONE================" << std::endl;
-        usleep(500000);
+        */
+        usleep(250000);
         //return 1;
         //sendData(enc);
     }

@@ -23,6 +23,10 @@
 
 //#include "common.h"
 #include "Data.h"
+#include <sys/types.h>
+#include <iostream>
+#include <time.h>
+#include <unistd.h>
 
 //extern const int PACKAGESIZE_MAX;
 
@@ -35,7 +39,7 @@ extern int VEC_LAYOUT_SIZE;
  
 extern int PACKAGE_COUNTER;
 extern unsigned int TIME_THRESHOLD; //###
-extern int LOCAL_TIMESTAMP;
+extern int64_t LOCAL_TIMESTAMP;
 
 class Encoder
 {
@@ -132,7 +136,7 @@ public:
     /*
         With getNextData you get a Data object containing the postion ("name"), value and datatype.
     */
-    Data getNextData(char * buffer, /*const*/unsigned int bufferlen); //###
+    Data getNextData(); //###
     /*
         Returns the number of the currently decoded package.
     */
@@ -140,16 +144,17 @@ public:
     /*
         Returns the timestamp of the currently processed package.
     */
-    unsigned int getTimestamp();
+    //unsigned int getTimestamp();
 
 // ###
     unsigned int getPackagePos(char * vecLayout, const int vecLayoutlen);
 
 private:
     unsigned int myDataLength;
-    unsigned int myTimestamp;
+    int64_t myTimestamp;
 	//unsigned int TIME_THRESHOLD=5;
-    char myPackages[100];
+    char * myPackage;
+    unsigned int myPackagelen;
 
     /*
         Number of currently processed package.
@@ -161,7 +166,7 @@ private:
     unsigned int myPackagePos; 	//### =0
     unsigned int myDataPos; 	//### =8
     void checkTimestamp();
-    void decodeHeader(char * buffer, const int bufferlen);
+    void decodeHeader();
 };
 
 #endif
