@@ -90,6 +90,7 @@ void initalize()
     /*
         TODO: do-while-loops are probably better
     */
+    std::cout << "Initializing..." << std::endl;
 
     while(true) {
         //sendPackage(HOST_VSERVER, MSG_READY);
@@ -143,11 +144,13 @@ int receiveData()
 
 Decoder processData()
 {
-    std::cout << "VEC_LAYOUT_SIZE: " << VEC_LAYOUT_SIZE << std::endl;
+    //std::cout << "VEC_LAYOUT_SIZE: " << VEC_LAYOUT_SIZE << std::endl;
+    /*
     for (int i = 0; i < VEC_LAYOUT_SIZE; ++i)
     {
         std::cout << VEC_LAYOUT[i];
     }
+    */
     std::cout << std::endl;
     Decoder dec(DATA_PACKAGE, DATA_PACKAGE_SIZE, VEC_LAYOUT, VEC_LAYOUT_SIZE, 
                 VEC_DATATYPES, VEC_DATATYPES_SIZE, VEC_COMMAS, VEC_COMMAS_SIZE);
@@ -163,9 +166,10 @@ int main(int argc, char const *argv[])
             TODO: add timeout
         */
         std::cout << "receiving data..." << std::endl;
-        std::cout << DATA_PACKAGE_SIZE << std::endl;
+        
         DATA_PACKAGE_SIZE = receiveData();
-        std::cout << "received data." << std::endl;
+        std::cout << "==========RECEIVED DATA==========" << std::endl;
+        std::cout << "SIZE: " << DATA_PACKAGE_SIZE << std::endl;
         /*
             TODO: add timeout
         */
@@ -175,9 +179,11 @@ int main(int argc, char const *argv[])
             std::cout << DATA_PACKAGE[i];
         }
         std::cout << std::endl;
-        std::cout << "Decoding data... " << std::endl;
+        std::cout << "=================================" << std::endl;
+        std::cout << std::endl;
+        std::cout << "Decoding data... " << std::endl << std::endl;
         Decoder dec = processData();
-        std::cout << "=============DONE==============" << std::endl;
+        std::cout << "=============DONE================" << std::endl;
         usleep(500000);
         //sendData(enc);
     }

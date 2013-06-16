@@ -324,10 +324,10 @@ void Decoder::checkTimestamp()
 
 unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 {
-    std::cout << exp2(3) << exp2(0) << std::endl;
+    //std::cout << exp2(3) << exp2(0) << std::endl;
     std::cout << "myPackageNum: " << myPackageNum << std::endl;
-    std::cout << vecLayout[(2 * myPackageNum)-1] << std::endl;
-    std::cout << vecLayout[(2 * myPackageNum)] << std::endl;
+    //std::cout << vecLayout[(2 * myPackageNum)-1] << std::endl;
+    //std::cout << vecLayout[(2 * myPackageNum)] << std::endl;
     /*
     for (int i = 0; i < VEC_LAYOUT_SIZE; ++i)
     {
