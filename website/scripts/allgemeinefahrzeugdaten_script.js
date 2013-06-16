@@ -137,16 +137,20 @@ $(document).ready(function()
 });
 
 /**
- *
+ *	
  * 	Funktion die durch die erste Funktion aufgerufen wird.
  *	realisiert sekündliche Anfrage an die Datenbank und
- *	überschreibt die Werte auf der PHP Seite.
+ *	überschreibt die Werte auf der PHP Seite
+ *  
+ *	permission wird als Wert im associativen Array $_POST
+ *	übergeben, um die unerlaubten direkten Zugriff auf die
+ *	Daten zu verhindern
  *
  */
  
 function executeQuery()
 {
-	$.getJSON('core/functions/allgemeinefahrzeugdaten_sql.php',function(data)
+	$.post('core/functions/allgemeinefahrzeugdaten_sql.php',{permission:"true"},function(data)
 	{
 		toggle_notaus(data[0]);						// Notausschalte AN/AUS			
 		$('#temp01')	.html(data[1]+" °C");		// Temperatur 1
@@ -159,7 +163,7 @@ function executeQuery()
 		$('#lzeit') 	.html(data[8]+" s");		// Laufzeit
 		age(data[9]);								// Verzögerung der Aktualisierung
 	/*	$('#fehlerfeld').html(data[10]);			// Fehlerfeld (ungenutzt) 	*/		
-	});
+	},"JSON");
 			
 	setTimeout(executeQuery,1000);
 };

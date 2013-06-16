@@ -290,14 +290,20 @@ $(document).ready(function()
 });
 
 /**
+ *	
  * 	Funktion die durch die erste Funktion aufgerufen wird.
  *	realisiert sekündliche Anfrage an die Datenbank und
  *	überschreibt die Werte auf der PHP Seite
+ *  
+ *	permission wird als Wert im associativen Array $_POST
+ *	übergeben, um die unerlaubten direkten Zugriff auf die
+ *	Daten zu verhindern
+ *
  */
 
 function executeQuery()
 {
-	$.getJSON('core/functions/akkudaten_sql.php',function(data)
+	$.post('core/functions/akkudaten_sql.php',{permission:"true"},function(data)
 	{	 
 		accu_refresh(data);		 
 		$('#max_spg')		.html(data[144]+" Volt");		// Maximale Zellspannung
@@ -323,7 +329,7 @@ function executeQuery()
 			var tem=i-151;								// IDs beginnen bei 0
 			$('#temperatur'+tem) .html(data[i]+" °C");		
 		}		
-	});			
+	},"JSON");			
 	setTimeout(executeQuery,1000);
 };
 

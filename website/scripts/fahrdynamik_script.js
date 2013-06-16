@@ -65,24 +65,30 @@ function age(param){
 
 
 /**
+ *	
  * 	Funktion die durch die erste Funktion aufgerufen wird.
  *	realisiert sekündliche Anfrage an die Datenbank und
  *	überschreibt die Werte auf der PHP Seite
+ *  
+ *	permission wird als Wert im associativen Array $_POST
+ *	übergeben, um die unerlaubten direkten Zugriff auf die
+ *	Daten zu verhindern
+ *
  */
 
 function executeQuery()
 {
-	$.getJSON('core/functions/fahrdynamik_sql.php',function(data)
+	$.post('core/functions/fahrdynamik_sql.php',{permission:"true"},function(data)
 	{
 		$('#antrieb')	.html(data[0]);			// Antriebsschlupfregelung				
 		$('#tvec')		.html(data[1]);			// Torque Vectoring 1		
 		age(data[2]);
 	/*	$('#fehlerfeld').html(data[3]);			// Fehlerfeld (ungenutzt) */
-	});
-	$.getJSON('core/functions/dynamischedaten_sql.php',function(data)
-	{	
+	},"JSON");
+	$.post('core/functions/dynamischedaten_sql.php',{permission:"true"},function(data)
+	{
 		$('#lenkwinkel').html(data[24]+" %");	// Lenkwinkel			
-	});
+	},"JSON");
 	
 
 	

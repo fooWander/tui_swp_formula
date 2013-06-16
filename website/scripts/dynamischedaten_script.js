@@ -18,11 +18,11 @@
  
 $(document).ready(function()
 {
-document.getElementById("motor_header")		.setAttribute("class", "inactive");
-document.getElementById("fahrdyn_header")	.setAttribute("class", "inactive");
-document.getElementById("dyndata_header")	.setAttribute("class", "active");
-document.getElementById("akkudaten_header")	.setAttribute("class", "inactive"); 
-document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
+	document.getElementById("motor_header")		.setAttribute("class", "inactive");
+	document.getElementById("fahrdyn_header")	.setAttribute("class", "inactive");
+	document.getElementById("dyndata_header")	.setAttribute("class", "active");
+	document.getElementById("akkudaten_header")	.setAttribute("class", "inactive"); 
+	document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
 });
 
 /**
@@ -242,16 +242,20 @@ $(document).ready(function()
 });
 
 /**
- *
- * 	Funktion, die nach fertigstellen der HTML-Seite aufgerufen wird.
+ *	
+ * 	Funktion die durch die erste Funktion aufgerufen wird.
  *	realisiert sekündliche Anfrage an die Datenbank und
- *	überschreibt die Werte auf der HTML Seite
+ *	überschreibt die Werte auf der PHP Seite
+ *  
+ *	permission wird als Wert im associativen Array $_POST
+ *	übergeben, um die unerlaubten direkten Zugriff auf die
+ *	Daten zu verhindern
  *
  */
 
 function executeQuery()
 {
-	$.getJSON('core/functions/dynamischedaten_sql.php',function(data)
+	$.post('core/functions/dynamischedaten_sql.php',{permission:"true"},function(data)
 	{
 		$('#xGeschw')		.html(data[0]);			// Geschindigkeit(X)				
 		$('#yGeschw')		.html(data[1]);			// Geschindigkeit(Y)
@@ -292,7 +296,7 @@ function executeQuery()
 		winkel(data[24]);									// Lenkwinkel	graphic		
 		age(data[25]);										// Zeitausgabe
 	/*	$('#fehlerfeld')   	.html(data[26]);				// Fehlerfeld (ungenutzt) */
-	});
+	},"JSON");
 			
 	setTimeout(executeQuery,1000);
 };

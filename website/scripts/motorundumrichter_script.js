@@ -76,14 +76,20 @@ function age(param){
 
 
 /**
+ *	
  * 	Funktion die durch die erste Funktion aufgerufen wird.
  *	realisiert sekündliche Anfrage an die Datenbank und
  *	überschreibt die Werte auf der PHP Seite
+ *  
+ *	permission wird als Wert im associativen Array $_POST
+ *	übergeben, um die unerlaubten direkten Zugriff auf die
+ *	Daten zu verhindern
+ *
  */
  
 function executeQuery()
 {
-	$.getJSON('core/functions/motorundumrichter_sql.php',function(data)
+	$.post('core/functions/motorundumrichter_sql.php',{permission:"true"},function(data)
 	{
 		$('#dcstrom')			.html(data[0]+" Ampere"); 	// DC Strom				
 		$('#dcspannung')		.html(data[1]+" Volt");	// DC Spannung
@@ -103,7 +109,7 @@ function executeQuery()
 		$('#wassertemp')		.html(data[15]+" °C");	// Wassertemperatur
 		age(data[16]);
 	/*	$('#fehlerfeld')		.html(data[17]);		// Fehlerfeld (ungenutzt) */	
-	});
+	},"JSON");
 			
 	setTimeout(executeQuery,1000);
 };
