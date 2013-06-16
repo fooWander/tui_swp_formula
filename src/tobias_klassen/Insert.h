@@ -21,12 +21,29 @@
 using namespace std;
 using namespace sql::mysql;
 
+/** \brief Klasse zum Aufbauen einer Verbindung zur Datenbank und Einfügen
+*		von Daten.
+*
+*	In dieser Klasse wird die eigentliche Kommunikation mit der MySQL-Datenbank
+*	realisiert. Hierzu wird der MySQL Connector/C++ benutzt. Die Zugangsdaten
+*	werden dafür mit Hilfe einer anderen Klasse aus einer Textdatei ausgelesen.
+*/
 class Insert
 {
 
 public:
+	/**
+	*	Konstruktor der Klasse. Hier werden die Verbindungsdaten ermittelt.
+	*/
 	Insert();
 
+	/**
+	*	Verbindung aufbauen und MySQL-String an die Datenbank schicken.
+	*	Diese führt ihn dann aus.
+	*	\param anw ist ein Zeiger auf einen in DBPacketInsert aufgebauten SQL-String,
+	*		der an diese Funktion übergeben wird.
+	*	\return Integerwert, der aber nicht verwendet wird.
+	*/
 	int insertIntoDB(string* anw);
 
 private:
