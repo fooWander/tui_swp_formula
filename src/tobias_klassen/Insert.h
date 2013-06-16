@@ -1,5 +1,6 @@
 #ifndef Insert_H
 #define Insert_H
+#include "dbData.h"
 #include <stdlib.h>
 #include <iostream>
 #include <sstream>
@@ -16,6 +17,7 @@
 #include <cppconn/statement.h>
 #include <cppconn/prepared_statement.h>
 #include <string>
+
 using namespace std;
 using namespace sql::mysql;
 
@@ -23,7 +25,7 @@ class Insert
 {
 
 public:
-	Insert(string ur, string us, string password, string db);
+	Insert();
 
 	int insertIntoDB(string* anw);
 

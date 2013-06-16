@@ -3,13 +3,14 @@
 using namespace std;
 using namespace sql::mysql;
 
-	Insert::Insert(string ur, string us, string password, string db)
+	Insert::Insert()
 	{
 		//Verbindungsdaten festlegen:
-		url = ur;
-		user = us;
-		pass = password;
-		database = db;
+		dbData getDBDataDaemon;
+		url = getDBDataDaemon.getHost();
+		user = getDBDataDaemon.getUser();
+		pass = getDBDataDaemon.getPW();
+		database = getDBDataDaemon.getDB();
 	}
 
 	int Insert::insertIntoDB(string* anw)
