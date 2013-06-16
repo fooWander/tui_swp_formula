@@ -43,7 +43,7 @@ int LOCALPORT = 5001;
 
 Location HOST_EMBPC("127.0.0.1",(short)5000);
 Location HOST_MABXII("10.42.0.42",(short)5002);
-Location HOST_VSERVER("87.106.17.165",(short)5001);
+Location HOST_VSERVER("127.0.0.1",(short)5001);
 
 const int PACKAGESIZE_MAX = 1000;
 const int ACK_SIZE_MAX = 20;
@@ -183,8 +183,18 @@ int main(int argc, char const *argv[])
         std::cout << std::endl;
         std::cout << "Decoding data... " << std::endl << std::endl;
         Decoder dec = processData();
+        
+        for (int i = 0; i < DATA_PACKAGE_SIZE - 8 - 1; ++i)
+        {
+            Data dat = dec.getNextData(DATA_PACKAGE,DATA_PACKAGE_SIZE);
+            std::cout << &dat << std::endl;
+            std::cout << "Wert: " << dat.getValue() << std::endl;
+            std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
+            std::cout << "Position: " << dat.getPosition() << std::endl;
+        }
         std::cout << "=============DONE================" << std::endl;
         usleep(500000);
+        //return 1;
         //sendData(enc);
     }
 }

@@ -281,6 +281,7 @@ Decoder::Decoder(char * buffer, const int bufferlen, char * vecLayout, const int
                 char * vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen)
     : /*myDataPos(8),myPackagePos(0),myTimestamp(0),*/myDataLength(0)
 {
+    myDataPos = 8;
     std::cout << "Decoding header..." << std::endl;
     decodeHeader(buffer, bufferlen);
     std::cout << "Checking timestamp..." << std::endl;
@@ -342,10 +343,12 @@ unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 
 Data Decoder::getNextData(char * buffer, /*const*/ unsigned int bufferlen)
 {
-    double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1] 
-            * exp10(VEC_COMMA[myPackagePos+myDataPos]));
+    std::cout << buffer[myDataPos] << std::endl;
+    std::cout << bufferlen << std::endl;
+    double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1]);
 
-    int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
+    //int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
+    int datatype = 0;
     int pos = myDataPos;
     
     if ((myDataPos + 1) == bufferlen) //###   --> Vergleich bufferlen muss unsigned int sein
