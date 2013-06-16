@@ -27,8 +27,6 @@ document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
 
 /**
  *
- *	Masrony sorgt dafür, dass im oberen Container die Werte richtig angeordnet werden.
- *
  *	$(value).click() sorgt dafür, dass die Tabellenspalten für Zellen ausgeblendet werden 
  *	können. 
  *	
@@ -98,7 +96,8 @@ function toggle_tab(k)
  *	Grafische Aufbereitung der Restkapazität. Wertebreich von 0 bis1000.
  *	Daher wird durch 5 geteilt, um auf eine Skala von 200 Einheiten zu passen. 
  *
- *	@param: int $akku_ges
+ *	@param: param (int)
+ *	data[146] (Gesamtspannung) im Bereich 0 bis 1000 V
  *
  */
  
@@ -120,9 +119,164 @@ function kapa(param)
 	};
 };
 
+/**
+ *
+ *	Im folgenden werden 144 Zellspannungen aus dem JSON-Array (data) geholt und 
+ *  dann sofort an die entsprechende ID geschrieben.
+ *	Weiterhin wird die maximal, sowie die minimals Spannung pro Block ermittelt
+ *	und ebenfalls auf die Webseite geschrieben.
+ *
+ *	@param: data (array())
+ *	Enthält das JSON Array was in executeQuery vorliegt.
+ *
+ */
+ 
+function accu_refresh(data){
+	var spgmax=0;								// Initialwert Spgmax
+	var spgmin=5;								// Initialwert Spgmin
+	var counter_zell=0;							// Zähler für die 12 Zellen pro Block							
+	var counter_block=0;						// Zähler für die Blöcke 
+	for(i=0;i<144;i++)
+	{
+		$('#zelle'+i) .html(data[i]+" V");		// Zellspannung
+		
+		if(data[i]<spgmin){						// bestimme max Zellspannung pro Block
+			spgmin=data[i];
+		}
+		if(data[i]>spgmax){						// bestimme min Zellspannung pro Block
+			spgmax=data[i];
+		}		
+		counter_zell++;
+		
+		/**
+		 *	Wenn 12 Zellen durchlaufen, schreibe max und min Werte in den aktuellen
+		 *	Zellblock.
+		 */
+		
+		if(counter_zell==11){
+			$('#minSpg'+counter_block).html(spgmin+" V");
+			$('#maxSpg'+counter_block).html(spgmax+" V");
+			counter_block++;
+			counter_zell=0;							// Zurücksetzen für nächste Runde
+			spgmax=0;								// Zurücksetzen für nächste Runde		
+			spgmin=5;								// Zurücksetzen für nächste Runde
+		}
+	}
+}
 
+/**
+ *	Folgende Block bekommt einen String (aus Folge von 0 und 1) aus dem 
+ *	JSON-Array(data).
+ *	
+ *	Dieser String mit split aufgeteilt,so dass wieder ein Array (balancing) 
+ *	entsteht.
+ *	
+ *	Danach wird das Array durchlaufen der Wert aus dem Array in "Integer" gewandelt.
+ *  Nun folgt die Fallunterscheidung, ob Balancing aktiviert wurde oder nicht.
+ *
+ *	Zusätzlich wird immer noch ermittelt, wie viele Zellen pro Block im Balancing
+ *  Modus sind. Dafür werden 3 Variablen initialisiert und eine weitere if-else-
+ *	Klausel genutzt.
+ *
+ *	Aufgrund der Limiterung der "Insert" Operation auf vServer Seite muss das 
+ *	Balancing Feld in 2 Teile geteilt werden.
+ *	
+ *	@param: param (char)
+ *	String aus 0 und 1 Werten, die das Balancing einzelner Zellen darstellt
+ *	@param: offest (int)
+ *	0 oder 72: Da das balancing in 2 Strings aufgeteilt wurde, wird die Funktion
+ *	2 mal aufgerufen und braucht dementsprechend ein Offset, um IDs der Zellen
+ *	richtig zuzuordnern
+ *	@param: offset2 (int)  
+ *	0 oder 6: Da das balancing in 2 Strings aufgeteilt wurde, wird die Funktion
+ *	2 mal aufgerufen und braucht dementsprechend ein Offset, um IDs der Blöcke
+ *	richtig zuzuordnern
+ *
+ */
 
+function balance_toggle(param,offset,offset2){
+	var round_count=0;				// zählt wie viel balancing Werte abgefragt wurden
+	var bal_count=0;				// zählt die Anzahl, wie viel Zellen balancing aktiviert haben
+	var block_count=offset2;				// zählt die Zellblocknummer 
+	balancing=param.split("");
+	for(i=0+offset;i<72+offset;i++)					
+	{	
+		temp=parseInt(balancing[i-offset]);
+		if(temp==1)
+		{
+			$('#balance'+i).addClass("status_balance_an");
+			$('#balance'+i).html("AN");
+			bal_count++;				
+		}
+		else
+		{					
+			$('#balance'+i).removeClass("status_balance_an");
+			$('#balance'+i).html("AUS");							
+		}
+		
+		// Beginn der Abfrage für die Anzahl von Zellen mit balancing pro Block 
+		
+		round_count++;
+		if(round_count==12){
+			if(bal_count>0)
+			{
+				$('#bal'+block_count).addClass("status_balance_an");
+				$('#bal'+block_count).html(bal_count);					
+			}
+			else
+			{
+				$('#bal'+block_count).removeClass("status_balance_an");					
+				$('#bal'+block_count).html("AUS");					
+			}
+			block_count++;
+			bal_count=0;
+			round_count=0;
+		}		
+	}
+} 
 
+/**
+ *
+ *	Berechne die letzte Aktualisierung. date() übergibt UNIX Zeit in millisekunden und wird daher durch 1000 geteilt
+ *	und auf Sekunden normiert. Die Differenz von time() und param wird in Tage, Minuten, Stunden und Sekunden
+ *	umgerechnet. Die Ausgabe erfolgt selektiv. Ab dem größten verfügbaren Wert wird angezeigt. Ist "$days" größer als
+ *	0 werden alle Werte angezeit. Sind nur Sekunden verfügbar, dann werden nur Sekunden angezeigt. Wenn der der Sekunden-
+ *	wert als einziges verfügbar ist, und dieser kleiner als 15 ist, wird nichts angezeigt 
+ *
+ *	@param: param (int)
+ *	data[25] (Zeitpunkt), als wert in Sekunden 
+ *
+ */
+
+function age(param){
+	$d=new Date();
+	$days=0;
+	$hours=0;
+	$minutes=0;
+	$seconds=parseInt(($d.getTime()/1000)-param);
+	if($seconds>=86400){							// Tage: werden nicht angezeigt
+		$days=parseInt($seconds/86400);
+		$seconds=$seconds-$days*86400;
+	}
+	if($seconds>=3600){								// Stunden 
+		$hours=parseInt($seconds/3600);
+		$seconds=$seconds-$hours*3600;
+	}
+	if($seconds>=60){								// Minuten
+		$minutes=parseInt($seconds/60);
+		$seconds=$seconds-$minutes*60;
+	}
+
+	if($hours>0){$('#zeitpunkt')	.html("Letzte Aktualisierung vor: "+$hours+" Stunden "+$minutes+" Minuten "+$seconds+" Sekunden " );}
+	else{
+		if($minutes>0){$('#zeitpunkt')	.html("Letzte Aktualisierung vor: "+$minutes+" Minuten "+$seconds+" Sekunden " );}
+		else{	
+			if($seconds>15){$('#zeitpunkt')	.html("Letzte Aktualisierung vor: "+$seconds+" Sekunden " );}
+			else { {$('#zeitpunkt')	.html(" " );}
+			}
+		}
+	}
+}
 
 /**
  *
@@ -144,166 +298,26 @@ $(document).ready(function()
 function executeQuery()
 {
 	$.getJSON('core/functions/akkudaten_sql.php',function(data)
-	{
-		
-		/**
-		 *	Im folgenden werden 144 Zellspannungen aus dem JSON-Array (data) geholt und 
-		 *  dann sofort an die entsprechende ID geschrieben.
-		 *	Weiterhin wird die maximal, sowie die minimals Spannung pro Block ermittelt
-		 *	und ebenfalls auf die Webseite geschrieben.
-		 */
-		 
-		var spgmax=0;								// Initialwert Spgmax
-		var spgmin=5;								// Initialwert Spgmin
-		var counter_zell=0;							// Zähler für die 12 Zellen pro Block							
-		var counter_block=0;						// Zähler für die Blöcke 
-		for(i=0;i<144;i++)
-		{
-			$('#zelle'+i) .html(data[i]+" V");		// Zellspannung
-			
-			if(data[i]<spgmin){						// bestimme max Zellspannung pro Block
-				spgmin=data[i];
-			}
-			if(data[i]>spgmax){						// bestimme min Zellspannung pro Block
-				spgmax=data[i];
-			}
-			
-			counter_zell++;
-			
-			/**
-			 *	Wenn 12 Zellen durchlaufen, schreibe max und min Werte in den aktuellen
-			 *	Zellblock.
-			 */
-			
-			if(counter_zell==11){
-				$('#minSpg'+counter_block).html(spgmin+" V");
-				$('#maxSpg'+counter_block).html(spgmax+" V");
-				counter_block++;
-				counter_zell=0;							// Zurücksetzen für nächste Runde
-				spgmax=0;								// Zurücksetzen für nächste Runde		
-				spgmin=5;								// Zurücksetzen für nächste Runde
-			}
-		}
-		
-		/**
-		 *	Maximale, sowie Minimale Spannung und Ladestrom ausgeben
-		 */
-		
-		
-		$('#max_spg')		.html(data[144]+" Volt");
-		$('#min_spg')		.html(data[145]+" Volt");
-		$('#ges_spg')		.html(data[146]+" Volt");
-		$('#akku_ges')		.html((data[146]/10)+" %");		
-		kapa(data[146]);
-		
-		$('#lade_strom')	.html(data[147]+" Ampere");
-		$('#lade_spg')		.html(data[148]+" Volt");
-		$d=new Date();
-		$zeit=Math.round(($d.getTime()/1000)-data[199]);
-		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
+	{	 
+		accu_refresh(data);		 
+		$('#max_spg')		.html(data[144]+" Volt");		// Maximale Zellspannung
+		$('#min_spg')		.html(data[145]+" Volt");		// minimale Zellspannung
+		$('#ges_spg')		.html(data[146]+" Volt");		// Gesamtspannung
+		$('#akku_ges')		.html((data[146]/10)+" %");		// Gesamtspannung
+		kapa(data[146]);									// Gesamtspannung Anzeige	
+		$('#lade_strom')	.html(data[147]+" Ampere");		// Strom Ladegerät
+		$('#lade_spg')		.html(data[148]+" Volt");		// Spannung Ladegerät
+		age(data[199]);
 	/*  $('#fehlerfeld')	.html(data[200]);	// Fehlerfeld (ungenutzt)   */	
-		
-		/**
-		 *	Folgende Block bekommt einen String (aus Folge von 0 und 1) aus dem 
-		 *	JSON-Array(data).
-		 *	
-		 *	Dieser String mit split aufgeteilt,so dass wieder ein Array (balancing) 
-		 *	entsteht.
-		 *	
-		 *	Danach wird das Array durchlaufen der Wert aus dem Array in "Integer" gewandelt.
-		 *  Nun folgt die Fallunterscheidung, ob Balancing aktiviert wurde oder nicht.
-		 *
-		 *	Zusätzlich wird immer noch ermittelt, wie viele Zellen pro Block im Balancing
-		 *  Modus sind. Dafür werden 3 Variablen initialisiert und eine weitere if-else-
-		 *	Klausel genutzt.
-		 *
-		 *	Aufgrund der Limiterung der "Insert" Operation auf vServer Seite muss das 
-		 *	Balancing Feld in 2 Teile geteilt werden.
-		 *	
-		 */
 		 
-		var round_count=0;				// zählt wie viel balancing Werte abgefragt wurden
-		var bal_count=0;				// zählt die Anzahl, wie viel Zellen balancing aktiviert haben
-		var block_count=0;				// zählt die Zellblocknummer 
-		balancing=data[149].split("");
-		for(i=0;i<72;i++)					
-		{	
-			temp=parseInt(balancing[i]);
-			if(temp==1)
-			{
-				$('#balance'+i).addClass("status_balance_an");
-				$('#balance'+i).html("AN");
-				bal_count++;				
-			}
-			else
-			{					
-				$('#balance'+i).removeClass("status_balance_an");
-				$('#balance'+i).html("AUS");							
-			}
-			
-			// Beginn der Abfrage für die Anzahl von Zellen mit balancing pro Block 
-			
-			round_count++;
-			if(round_count==12){
-				if(bal_count>0)
-				{
-					$('#bal'+block_count).addClass("status_balance_an");
-					$('#bal'+block_count).html(bal_count);					
-				}
-				else
-				{
-					$('#bal'+block_count).removeClass("status_balance_an");					
-					$('#bal'+block_count).html("AUS");					
-				}
-				block_count++;
-				bal_count=0;
-				round_count=0;
-			}
-			
-		}
-		
-		balancing=data[150].split("");
-		for(i=72;i<144;i++)					
-		{	
-			temp=parseInt(balancing[i-72]);
-			if(temp==1)
-			{
-				$('#balance'+i).addClass("status_balance_an");
-				$('#balance'+i).html("AN");
-				bal_count++;				
-			}
-			else
-			{					
-				$('#balance'+i).removeClass("status_balance_an");
-				$('#balance'+i).html("AUS");							
-			}
-			
-			// Beginn der Abfrage für die Anzahl von Zellen mit balancing pro Block 
-			
-			round_count++;
-			if(round_count==12){
-				if(bal_count>0)
-				{
-					$('#bal'+block_count).addClass("status_balance_an");
-					$('#bal'+block_count).html(bal_count);					
-				}
-				else
-				{
-					$('#bal'+block_count).removeClass("status_balance_an");					
-					$('#bal'+block_count).html("AUS");					
-				}
-				block_count++;
-				bal_count=0;
-				round_count=0;
-			}
-			
-		}
+		balance_toggle(data[149],0,0);						// Balancing bis 72
+		balance_toggle(data[150],72,6);						// Balancing bis 144
 		
 		/**
 		 *	Zelltemperaturen. mit der Variable tem wird der Wert wieder zurückgesetzt,
 		 *	da die IDs immer bei 0 beginnen, müssen diese hier angepasst werden.
 		 */
-		
+		 
 		for(i=150;i<201;i++)								// Zelltemperatur
 		{
 			var tem=i-151;								// IDs beginnen bei 0
