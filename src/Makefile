@@ -57,6 +57,8 @@ test: test2.cpp PracticalSocket.cpp PracticalSocket.h
 	$(CXX) $(CXXFLAGS) -o test2 test2.cpp PracticalSocket.cpp $(LIBS)
 embpc: embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
 	$(CXX) $(CXXFLAGS) -o embpc embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
+vserver: vserver.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
+	$(CXX) $(CXXFLAGS) -o vserver vserver.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
 
 clean:
 	$(RM) TCPEchoClient TCPEchoServer UDPEchoClient UDPEchoServer TCPEchoServer-Thread \

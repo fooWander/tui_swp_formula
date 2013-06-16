@@ -263,8 +263,11 @@ Decoder::Decoder(char * buffer, const int bufferlen, char * vecLayout, const int
                 char * vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen)
     : /*myDataPos(8),myPackagePos(0),myTimestamp(0),*/myDataLength(0)
 {
+    std::cout << "Decoding header..." << std::endl;
     decodeHeader(buffer, bufferlen);
+    std::cout << "Checking timestamp..." << std::endl;
     checkTimestamp();
+    std::cout << "Decode package positions..." << std::endl;
     myPackagePos = getPackagePos(vecLayout, vecLayoutlen);
     //decompress();
 }
@@ -278,11 +281,16 @@ void Decoder::decodeHeader(char * buffer, const int bufferLen)
                 + ((buffer[2] << 8) & 0xff00)
                 + ((buffer[1] << 16) & 0xff0000)
                 + ((buffer[0] << 24) & 0xff000000);
+    std::cout << myTimestamp << std::endl;
 
     myPackageNum = (buffer[7] & 0xff)  
                 + ((buffer[6] << 8) & 0xff00)
                 + ((buffer[5] << 16) & 0xff0000)
                 + ((buffer[4] << 24) & 0xff000000);
+    // TESTING
+    myPackageNum = 2;
+    //TESTING
+    std::cout << myPackageNum << std::endl;
 }
 
 void Decoder::checkTimestamp()
@@ -296,6 +304,7 @@ void Decoder::checkTimestamp()
 
 unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 {
+    std::cout << "myPackageNum: " << myPackageNum << std::endl;
     myPackagePos = joinUnsigShort(vecLayout[myPackageNum-1],vecLayout[myPackageNum]);
     std::cout << "getPackagePos: " << myPackagePos << std::endl;
     return(myPackagePos);
@@ -303,23 +312,9 @@ unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 
 Data Decoder::getNextData(char * buffer, /*const*/ unsigned int bufferlen)
 {
-    
-    /* 
-        double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1] 
-                                * exp10(VEC_COMMA[myPackagePos+myDataPos]));
-    */
-    
-    // value and UPPER_LIMIT_DATATYPE must be int because the UPPER-LIMIT of int16
-    // int UPPER_LIMIT_DATATYPE = 32767;    --> globale variable
-    // -32768 bis +32767                    --> Zahl 0 zählt positiv
-    
-    int value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1];  
-  
-    if(value >= obereGrenzepositivDatantyp){
-    value = value - UPPER_LIMIT_DATATYPE;
-}
+    double value = joinUnsigShort(buffer[myDataPos],buffer[myDataPos+1] 
+            * exp10(VEC_COMMA[myPackagePos+myDataPos]));
 
-    
     int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
     int pos = myDataPos;
     

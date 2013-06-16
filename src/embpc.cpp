@@ -38,19 +38,19 @@ int LOCALPORT = 5000;
 
 Location HOST_EMBPC("10.42.0.55",(short)5000);
 Location HOST_MABXII("10.42.0.42",(short)5002);
-Location HOST_VSERVER("87.106.17.165",(short)5000);
+Location HOST_VSERVER("127.0.0.1",(short)5001);
 
 //const int PACKAGESIZE_MAX = 100;
 
-char DATA_ACK_VSERVER[] = {1}; 
+char DATA_ACK_VSERVER_RECV[1]; 
+char DATA_ACK_VSERVER[] = {1};
 char DATA_PACKAGE[1000];
-char DATA_PACKAGE_INFO[100];
+char DATA_PACKAGE_INFO[] = {1};
 char DATA_SEND[1000];
 
-void sendPackage(Location remote, char * msg)
+void sendPackage(Location remote, char * msg, int msgSize)
 {
     UDPSocket sock;
-    int msgSize = strlen(msg);
     std::string remoteAddress = remote.getAddress();
     unsigned short remotePort = remote.getPort();
     sock.sendTo(msg, msgSize, remoteAddress, remotePort);
@@ -79,14 +79,15 @@ void initialize()
     
     while(true) {
         std::cout << "Sending READY..." << std::endl;
-        sendPackage(HOST_VSERVER, MSG_READY);
+        sendPackage(HOST_VSERVER, MSG_READY, 3);
         std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER)) {
+        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER_RECV)) {
+            std::cout << "received ACK" << std::endl;
             // TODO: process/check acknowledgement??
             break;
         }       
     }
-
+    /*
     while(true) {
         std::cout << "Sending READY..." << std::endl;
         sendPackage(HOST_MABXII, MSG_INFO_REQUEST);
@@ -96,18 +97,18 @@ void initialize()
             break;
         }
     }
-
+    */
     while(true) {
-        std::cout << "Sending READY..." << std::endl;
-        sendPackage(HOST_VSERVER, DATA_PACKAGE_INFO);
+        std::cout << "Sending DATA_PACKAGE_INFO..." << std::endl;
+        sendPackage(HOST_VSERVER, DATA_PACKAGE_INFO, sizeof(DATA_PACKAGE_INFO));
         std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER)) {
+        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER_RECV)) {
             // TODO: process/check acknowledgement??
             break;
         }      
     }
-
-    Decoder dec(DATA_PACKAGE_INFO,100);
+    std::cout << "Decoding..." << std::endl;
+    Decoder dec(DATA_PACKAGE_INFO,sizeof(DATA_PACKAGE_INFO));
 }
 
 int receiveData()
@@ -118,7 +119,7 @@ int receiveData()
 
 void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
-    for (int i = 0; i < packageSum; ++i) {
+    for (int i = 1; i < packageSum; ++i) {
         int size = enc.getPackage(DATA_SEND,i);
         std::cout << std::endl;
         std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
@@ -133,7 +134,7 @@ void sendData(Encoder enc) {
         std::cout << std::endl;
         std::cout << "========END_PACKAGE=========" << std::endl;
         std::cout << std::endl << std::endl << std::endl << std::endl; 
-        sendPackage(HOST_VSERVER,DATA_SEND);
+        sendPackage(HOST_VSERVER,DATA_SEND,28);
     }
 }
 
@@ -166,18 +167,19 @@ int main(/*int argc, char const *argv[]*/)
     }
 
     std::cout << "Initializing..." << std::endl;
-    //initialize();
+    initialize();
     int i = 0;
     while (true) {
         //std::cout << "Receiving data..." << std::endl;
-        int recv;
+        //int recv;
         //recv = receiveData();
         //std::cout << "Encoding..." << std::endl;
         Encoder enc = processData();
-        //std::cout << "Sending data... " << i << std::endl;
+        std::cout << "Sending data... " << i << std::endl;
         i++;
         sendData(enc);
         usleep(250000);
     }
+    
     return(-1);
 }
