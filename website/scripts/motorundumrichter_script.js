@@ -31,6 +31,51 @@ $(document).ready(function()
 });
 
 /**
+ *
+ *	Berechne die letzte Aktualisierung. date() übergibt UNIX Zeit in millisekunden und wird daher durch 1000 geteilt
+ *	und auf Sekunden normiert. Die Differenz von time() und param wird in Tage, Minuten, Stunden und Sekunden
+ *	umgerechnet. Die Ausgabe erfolgt selektiv. Ab dem größten verfügbaren Wert wird angezeigt. Ist "$days" größer als
+ *	0 werden alle Werte angezeit. Sind nur Sekunden verfügbar, dann werden nur Sekunden angezeigt. Wenn der der Sekunden-
+ *	wert als einziges verfügbar ist, und dieser kleiner als 15 ist, wird nichts angezeigt 
+ *
+ *	@param: param (int)
+ *	data[25] (Zeitpunkt), als wert in Sekunden 
+ *
+ */
+
+function age(param){
+	$d=new Date();
+	$days=0;
+	$hours=0;
+	$minutes=0;
+	$seconds=parseInt(($d.getTime()/1000)-param);
+	if($seconds>=86400){							// Tage: werden nicht angezeigt
+		$days=parseInt($seconds/86400);
+		$seconds=$seconds-$days*86400;
+	}
+	if($seconds>=3600){								// Stunden 
+		$hours=parseInt($seconds/3600);
+		$seconds=$seconds-$hours*3600;
+	}
+	if($seconds>=60){								// Minuten
+		$minutes=parseInt($seconds/60);
+		$seconds=$seconds-$minutes*60;
+	}
+
+	if($hours>0){$('#zeitpunkt')	.html("Letzte Aktualisierung vor: "+$hours+" Stunden "+$minutes+" Minuten "+$seconds+" Sekunden " );}
+	else{
+		if($minutes>0){$('#zeitpunkt')	.html("Letzte Aktualisierung vor: "+$minutes+" Minuten "+$seconds+" Sekunden " );}
+		else{	
+			if($seconds>15){$('#zeitpunkt')	.html("Letzte Aktualisierung vor: "+$seconds+" Sekunden " );}
+			else { {$('#zeitpunkt')	.html(" " );}
+			}
+		}
+	}
+}
+
+
+
+/**
  * 	Funktion die durch die erste Funktion aufgerufen wird.
  *	realisiert sekündliche Anfrage an die Datenbank und
  *	überschreibt die Werte auf der PHP Seite
@@ -56,9 +101,7 @@ function executeQuery()
 		$('#lüfter')			.html(data[13]);		// Lüfter
 		$('#pumpe')				.html(data[14]);		// Pumpe
 		$('#wassertemp')		.html(data[15]+" °C");	// Wassertemperatur
-		$d=new Date();
-		$zeit=Math.round(($d.getTime()/1000)-data[16]);
-		$('#zeitpunkt')		.html("Daten zuletzt aktualisiert vor: "+$zeit+" s");
+		age(data[16]);
 	/*	$('#fehlerfeld')		.html(data[17]);		// Fehlerfeld (ungenutzt) */	
 	});
 			
