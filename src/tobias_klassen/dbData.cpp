@@ -34,17 +34,17 @@ using namespace std;
 
   string dbData::getUser()
   {
-        return host;
+        return user;
   }
 
   string dbData::getPW()
   {
-        return host;
+        return pw;
   }
 
   string dbData::getDB()
   {
-        return host;
+        return db;
   }
 
 

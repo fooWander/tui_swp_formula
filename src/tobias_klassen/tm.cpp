@@ -6,6 +6,7 @@ using namespace std;
   {
     cout << "main called" << endl;
     dbData db;
-    cout << db.getHost() << endl;
+    cout << "Host= " << db.getHost() << " User = " << db.getUser() << " PW= " << db.getPW() << " DB= " << db.getDB() << endl;
+
     return 0;
   }
