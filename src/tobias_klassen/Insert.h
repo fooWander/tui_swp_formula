@@ -47,10 +47,10 @@ public:
 	int insertIntoDB(string* anw);
 
 private:
-	string url;
-	string user;
-	string pass;
-	string database;
+	string url;			//!< speichert die Adresse der Datenbank.
+	string user;		//!< speichert den Benutzernamen.
+	string pass;		//!< speichert das Passwort für die Datenbank und den Nutzer.
+	string database;	//!< speichert den Namen der Datenbank
 };
 
 #endif

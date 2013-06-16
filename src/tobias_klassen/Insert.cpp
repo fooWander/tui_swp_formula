@@ -6,11 +6,11 @@ using namespace sql::mysql;
 	Insert::Insert()
 	{
 		//Verbindungsdaten festlegen:
-		dbData getDBDataDaemon;				//! dbData liest die Daten für die Klasse Insert aus.
-		url = getDBDataDaemon.getHost();	//! \param url speichert die Adresse der Datenbank
-		user = getDBDataDaemon.getUser();	//! \param user speichert das Zugangskonto zur Datenbank
-		pass = getDBDataDaemon.getPW();		//! \param pass speichert das Passwort für die Datenbank
-		database = getDBDataDaemon.getDB();	//! \param database speichert den Namen der Datenbank
+		dbData getDBDataDaemon;
+		url = getDBDataDaemon.getHost();
+		user = getDBDataDaemon.getUser();
+		pass = getDBDataDaemon.getPW();
+		database = getDBDataDaemon.getDB();
 	}
 
 	int Insert::insertIntoDB(string* anw)

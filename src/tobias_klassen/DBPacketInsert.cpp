@@ -61,6 +61,9 @@ void DBPacketInsert::db_insert()
 	    break;
 	}
 	
+	//Daten in DB schreiben lassen:
+	insertMethodes.insertIntoDB(&sql_anw);
+	
 	cout << "db_insert abgelaufen." << endl;
 }
 
@@ -118,10 +121,7 @@ void DBPacketInsert::insert_allgemeineFahrzeugdaten()
 	//Fehlerfeld füllen:
 	sql_anw += "'NARF')";
 	
-
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
-	//Daten in DB schreiben lassen:
-	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_allgemeineFahrzeugdaten abgelaufen." << endl;
 }
 
@@ -201,8 +201,6 @@ void DBPacketInsert::insert_akkudaten()
 	sql_anw += "'NARF')";
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
-	//Daten in DB schreiben lassen:
-	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_akkudaten abgelaufen." << endl;
 }
 
@@ -280,8 +278,6 @@ void DBPacketInsert::insert_dynamischeDaten()
 	sql_anw += "'NARF')";
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
-	//Daten in DB schreiben lassen:
-	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_dynamischeDaten abgelaufen." << endl;
 }
 
@@ -323,8 +319,6 @@ void DBPacketInsert::insert_fahrdynamikregelung()
 	sql_anw += "'NARF')";
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
-	//Daten in DB schreiben lassen:
-	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_fahrdynamikregelung abgelaufen." << endl;
 }
 
@@ -389,8 +383,6 @@ void DBPacketInsert::insert_motorUmrichterdaten()
 	//ACHTUNG: DUMMY!!!
 	sql_anw += "'NARF')";
 
-	cout << "SQL-Anweisung: " << sql_anw << endl;
-	//Daten in DB schreiben lassen:
-	insertMethodes.insertIntoDB(&sql_anw);
+	//cout << "SQL-Anweisung: " << sql_anw << endl;
 	cout << "insert_motorUmrichterdaten abgelaufen." << endl;
 }
