@@ -119,7 +119,7 @@ int receiveData()
 
 void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
-    for (int i = 1; i < packageSum; ++i) {
+    for (int i = 0; i < packageSum; ++i) {
         int size = enc.getPackage(DATA_SEND,i);
         std::cout << std::endl;
         std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
@@ -134,13 +134,14 @@ void sendData(Encoder enc) {
         std::cout << std::endl;
         std::cout << "========END_PACKAGE=========" << std::endl;
         std::cout << std::endl << std::endl << std::endl << std::endl; 
-        sendPackage(HOST_VSERVER,DATA_SEND,28);
+        sendPackage(HOST_VSERVER,DATA_SEND,size);
+        usleep(500000);
     }
 }
 
 Encoder  processData()
 {
-    Encoder enc(DATA_PACKAGE, 802, VEC_LAYOUT, 8,VEC_DATATYPES, 100);
+    Encoder enc(DATA_PACKAGE, 802, VEC_LAYOUT, 10,VEC_DATATYPES, 100);
     return enc;
 }
 
@@ -178,7 +179,7 @@ int main(/*int argc, char const *argv[]*/)
         std::cout << "Sending data... " << i << std::endl;
         i++;
         sendData(enc);
-        usleep(250000);
+        
     }
     
     return(-1);

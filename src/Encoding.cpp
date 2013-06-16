@@ -45,6 +45,17 @@ int exp10(int exp)
     return res;
 }
 
+int exp2(int exp)
+{
+    int res = 1;
+    for (int i = 0; i < exp; ++i)
+    {
+        res = res * 2;
+    }
+
+    return res;
+}
+
 
 Encoder::Encoder(const char * buffer, const int bufferlen, const char * vecLayout, const int vecLayoutlen,
                 const char * vecDatatypes, const int vecDatatypeslen) 
@@ -145,13 +156,20 @@ void Encoder::createHeader()
     std::cout << myPackagePointer << std::endl;
 
     // create ID
+    /*
     myPackages[myPackagePointer+3] = 1212696648 & 0xff;
     myPackages[myPackagePointer+2] = (1212696648 >> 8) & 0xff;
     myPackages[myPackagePointer+1] = (1212696648 >> 16) & 0xff;
     myPackages[myPackagePointer] = (1212696648 >> 24) & 0xff;
+    */
+    myPackages[myPackagePointer+3] = myPackageNum & 0xff;
+    myPackages[myPackagePointer+2] = (myPackageNum >> 8) & 0xff;
+    myPackages[myPackagePointer+1] = (myPackageNum >> 16) & 0xff;
+    myPackages[myPackagePointer] = (myPackageNum >> 24) & 0xff;
     myPackagePointer += 4;
     myPackageNum++;
-    std::cout << myPackagePointer << std::endl;;
+    std::cout << myPackagePointer << std::endl;
+    std::cout << "myPackageNum encoded: " << myPackageNum << std::endl;
 
 }
 
@@ -269,6 +287,7 @@ Decoder::Decoder(char * buffer, const int bufferlen, char * vecLayout, const int
     checkTimestamp();
     std::cout << "Decode package positions..." << std::endl;
     myPackagePos = getPackagePos(vecLayout, vecLayoutlen);
+    //std::cout << "myPackagePos: " << myPackagePos << std::endl;
     //decompress();
 }
 
@@ -288,9 +307,10 @@ void Decoder::decodeHeader(char * buffer, const int bufferLen)
                 + ((buffer[5] << 16) & 0xff0000)
                 + ((buffer[4] << 24) & 0xff000000);
     // TESTING
-    myPackageNum = 2;
+    std::cout << "myPackageNum decoded: " << myPackageNum << std::endl;            
+    //myPackageNum = 2;
     //TESTING
-    std::cout << myPackageNum << std::endl;
+    //std::cout << "myPackageNum: " << myPackageNum << std::endl;
 }
 
 void Decoder::checkTimestamp()
@@ -304,9 +324,19 @@ void Decoder::checkTimestamp()
 
 unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
 {
+    std::cout << exp2(3) << exp2(0) << std::endl;
     std::cout << "myPackageNum: " << myPackageNum << std::endl;
-    myPackagePos = joinUnsigShort(vecLayout[myPackageNum-1],vecLayout[myPackageNum]);
-    std::cout << "getPackagePos: " << myPackagePos << std::endl;
+    std::cout << vecLayout[(2 * myPackageNum)-1] << std::endl;
+    std::cout << vecLayout[(2 * myPackageNum)] << std::endl;
+    /*
+    for (int i = 0; i < VEC_LAYOUT_SIZE; ++i)
+    {
+        std::cout << VEC_LAYOUT[i] << std::endl;
+    }
+    */
+    myPackagePos = joinUnsigShort(vecLayout[(2 * myPackageNum)],
+                                    vecLayout[(2 * myPackageNum)-1]);
+    //std::cout << "getPackagePos: " << myPackagePos << std::endl;
     return(myPackagePos);
 }
 

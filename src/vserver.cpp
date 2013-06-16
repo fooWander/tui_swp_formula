@@ -134,7 +134,11 @@ void initalize()
 
 int receiveData()
 {
-    return receivePackage(HOST_EMBPC, DATA_PACKAGE, DATA_PACKAGE_SIZE);
+    int recvMsgSize;
+    DATA_PACKAGE_SIZE = PACKAGESIZE_MAX;
+    recvMsgSize = receivePackage(HOST_EMBPC, DATA_PACKAGE, DATA_PACKAGE_SIZE);
+    std::cout << recvMsgSize << std::endl;
+    return recvMsgSize;
 }
 
 Decoder processData()
@@ -159,6 +163,7 @@ int main(int argc, char const *argv[])
             TODO: add timeout
         */
         std::cout << "receiving data..." << std::endl;
+        std::cout << DATA_PACKAGE_SIZE << std::endl;
         DATA_PACKAGE_SIZE = receiveData();
         std::cout << "received data." << std::endl;
         /*
@@ -172,7 +177,8 @@ int main(int argc, char const *argv[])
         std::cout << std::endl;
         std::cout << "Decoding data... " << std::endl;
         Decoder dec = processData();
-        usleep(250000);
+        std::cout << "=============DONE==============" << std::endl;
+        usleep(500000);
         //sendData(enc);
     }
 }
