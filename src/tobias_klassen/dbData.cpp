@@ -1,7 +1,5 @@
 #include "dbData.h"
 
-
-#include "dbData.h"
 using namespace std;
 
   dbData::dbData()

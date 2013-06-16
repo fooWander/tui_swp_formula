@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "Insert.h"
 #include "DBPacketInsert.h"
 #include "DatatypeDaemon.h"
 
@@ -16,6 +17,7 @@ class DBPacketInsert{
 	    //Sollte im Vector sich vor diesen Daten etwas
 	    //ändern, dann den offset aktualisieren!
 	    enum VektorTeile {allgemeineFahrzeugdaten = 0, akkudaten = 17, dynamischeDaten = 358, fahrdynamikregelung = 383, motorUmrichterdaten = 385, ende = 400};
+	    Insert insertMethodes;
 		string sql_anw;
 		string wertStuecke[341];
 		int time;

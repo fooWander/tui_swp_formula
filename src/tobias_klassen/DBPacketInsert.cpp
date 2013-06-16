@@ -4,8 +4,6 @@
 
 using namespace boost;
 
-Insert insertmethoden("localhost", "root", "", "fahrzeugdaten");
-
 DBPacketInsert::DBPacketInsert()
 {
 	sql_anw = "";
@@ -123,7 +121,7 @@ void DBPacketInsert::insert_allgemeineFahrzeugdaten()
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
 	//Daten in DB schreiben lassen:
-	insertmethoden.insertIntoDB(&sql_anw);
+	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_allgemeineFahrzeugdaten abgelaufen." << endl;
 }
 
@@ -204,7 +202,7 @@ void DBPacketInsert::insert_akkudaten()
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
 	//Daten in DB schreiben lassen:
-	insertmethoden.insertIntoDB(&sql_anw);
+	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_akkudaten abgelaufen." << endl;
 }
 
@@ -283,7 +281,7 @@ void DBPacketInsert::insert_dynamischeDaten()
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
 	//Daten in DB schreiben lassen:
-	insertmethoden.insertIntoDB(&sql_anw);
+	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_dynamischeDaten abgelaufen." << endl;
 }
 
@@ -326,7 +324,7 @@ void DBPacketInsert::insert_fahrdynamikregelung()
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
 	//Daten in DB schreiben lassen:
-	insertmethoden.insertIntoDB(&sql_anw);
+	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_fahrdynamikregelung abgelaufen." << endl;
 }
 
@@ -393,6 +391,6 @@ void DBPacketInsert::insert_motorUmrichterdaten()
 
 	cout << "SQL-Anweisung: " << sql_anw << endl;
 	//Daten in DB schreiben lassen:
-	insertmethoden.insertIntoDB(&sql_anw);
+	insertMethodes.insertIntoDB(&sql_anw);
 	cout << "insert_motorUmrichterdaten abgelaufen." << endl;
 }
