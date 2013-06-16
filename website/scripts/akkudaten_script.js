@@ -194,7 +194,7 @@ function accu_refresh(data){
  *
  */
 
-function balance_toggle(param,offset,offset2){
+function toggle_balance(param,offset,offset2){
 	var round_count=0;				// zählt wie viel balancing Werte abgefragt wurden
 	var bal_count=0;				// zählt die Anzahl, wie viel Zellen balancing aktiviert haben
 	var block_count=offset2;				// zählt die Zellblocknummer 
@@ -310,8 +310,8 @@ function executeQuery()
 		age(data[199]);
 	/*  $('#fehlerfeld')	.html(data[200]);	// Fehlerfeld (ungenutzt)   */	
 		 
-		balance_toggle(data[149],0,0);						// Balancing bis 72
-		balance_toggle(data[150],72,6);						// Balancing bis 144
+		toggle_balance(data[149],0,0);						// Balancing bis 72
+		toggle_balance(data[150],72,6);						// Balancing bis 144
 		
 		/**
 		 *	Zelltemperaturen. mit der Variable tem wird der Wert wieder zurückgesetzt,
