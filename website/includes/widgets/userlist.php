@@ -2,6 +2,7 @@
 /**
  * Widget für die Verwaltungsseite. Ausgabe aller im System registrierten Benutzer. Nur für den Vorstand vorgesehen.
  */
+if (!defined('ACCESS')) { die("Sie haben nicht die nötigen Befugnisse diese Seite darstellen zu lassen."); }
 ?>
 <div class="single">
 	<h2>Benutzerliste</h2>

@@ -1,4 +1,5 @@
 <?php
+	if (!defined('ACCESS')) { die("Sie haben nicht die nötigen Befugnisse diese Seite darstellen zu lassen."); }
 ?>
 <div class="item">
 	<h2>Nutzerverwaltung</h2>

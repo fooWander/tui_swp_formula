@@ -36,10 +36,11 @@
 ?>
 	<div class="content">
 		<?php
-		// Einbinden der unterschiedlichen Widgets wie Online-Nutzerliste oder CSV-Export
+		// Einbinden der unterschiedlichen Widgets wie Online-Nutzerliste oder CSV-Export und setzen einer globalen Konstante
+		define('ACCESS',"Pickachu");
 		if(isVorstand()) {include 'includes/widgets/userlist.php';}
 		include 'includes/widgets/csvexp.php';
-		if(!isVorstand()) {include 'includes/widgets/onlineusers.php';}
+		include 'includes/widgets/onlineusers.php';
 		if(isVorstand()) {include 'includes/widgets/manageusers.php';}
 		?>
 	</div>

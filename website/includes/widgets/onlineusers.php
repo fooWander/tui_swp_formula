@@ -2,8 +2,9 @@
 /**
  * Stellt als Widget für die Seite, die aktuell eingeloggten Nutzer dar.
  */
-?>
 
+	if (!defined('ACCESS')) { die("Sie haben nicht die nötigen Befugnisse diese Seite darstellen zu lassen."); }
+?>	
 	<div class ="item">
 		<h2>Benutzerstatus</h2>
 		<table border="1" class="click">
@@ -19,17 +20,18 @@
 				$sql = "SELECT DISTINCT vorname,nachname, zeitpunkt 
 						FROM `$user`, `$online`
 						WHERE `$user`.id=`$online`.id";
-						
-				$query= mysqli_query($con,$sql);			// Führe die DB Operation aus
 
-				if (!$query) 								// Fehlerbehandlung
+				// Führe die DB Operation aus
+				$query= mysqli_query($con,$sql);			
+
+				// Fehlerbehandlung
+				if (!$query) 								
 				{	
 					echo 'Konnte Abfrage nicht ausführen: ' . mysqli_error($con);
 					exit;
 				}	
-	         	// Speichere Zeile aus Ergebnis
 				
-				// Formatiere in JSON
+				// Ausgabe der Nutzer als Tabelle
 				while($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
 					$zeit = (empty($data['zeitpunkt'])) ? "-" : round((time() - $data['zeitpunkt']) / 60) . " Minute(n)";
 					printf ("	<tr>\n<td>%s</td>\n<td>%s</td>\n<td>%s</td>\n</tr>\n",$data['vorname'],$data['nachname'],$zeit);

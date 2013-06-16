@@ -1,5 +1,5 @@
 <?php
-protect_page();
+	if (!defined('ACCESS')) { die("Sie haben nicht die nötigen Befugnisse diese Seite darstellen zu lassen."); }
 ?>	
 
 <div class="content">
