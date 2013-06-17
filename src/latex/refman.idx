@@ -1,0 +1,105 @@
+\indexentry{Communicating\discretionary {-}{}{}Socket@{Communicating\discretionary {-}{}{}Socket}|hyperpage}{5}
+\indexentry{Communicating\discretionary {-}{}{}Socket@{Communicating\discretionary {-}{}{}Socket}!connect@{connect}|hyperpage}{5}
+\indexentry{connect@{connect}!CommunicatingSocket@{Communicating\discretionary {-}{}{}Socket}|hyperpage}{5}
+\indexentry{Communicating\discretionary {-}{}{}Socket@{Communicating\discretionary {-}{}{}Socket}!get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Address@{get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Address}|hyperpage}{7}
+\indexentry{get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Address@{get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Address}!CommunicatingSocket@{Communicating\discretionary {-}{}{}Socket}|hyperpage}{7}
+\indexentry{Communicating\discretionary {-}{}{}Socket@{Communicating\discretionary {-}{}{}Socket}!get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Port@{get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Port}|hyperpage}{7}
+\indexentry{get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Port@{get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Port}!CommunicatingSocket@{Communicating\discretionary {-}{}{}Socket}|hyperpage}{7}
+\indexentry{Communicating\discretionary {-}{}{}Socket@{Communicating\discretionary {-}{}{}Socket}!recv@{recv}|hyperpage}{7}
+\indexentry{recv@{recv}!CommunicatingSocket@{Communicating\discretionary {-}{}{}Socket}|hyperpage}{7}
+\indexentry{Communicating\discretionary {-}{}{}Socket@{Communicating\discretionary {-}{}{}Socket}!send@{send}|hyperpage}{7}
+\indexentry{send@{send}!CommunicatingSocket@{Communicating\discretionary {-}{}{}Socket}|hyperpage}{7}
+\indexentry{Data@{Data}|hyperpage}{8}
+\indexentry{Data@{Data}!Data@{Data}|hyperpage}{8}
+\indexentry{Data@{Data}!Data@{Data}|hyperpage}{8}
+\indexentry{Data@{Data}!get\discretionary {-}{}{}Datatype@{get\discretionary {-}{}{}Datatype}|hyperpage}{8}
+\indexentry{get\discretionary {-}{}{}Datatype@{get\discretionary {-}{}{}Datatype}!Data@{Data}|hyperpage}{8}
+\indexentry{Data@{Data}!get\discretionary {-}{}{}Position@{get\discretionary {-}{}{}Position}|hyperpage}{8}
+\indexentry{get\discretionary {-}{}{}Position@{get\discretionary {-}{}{}Position}!Data@{Data}|hyperpage}{8}
+\indexentry{Data@{Data}!get\discretionary {-}{}{}Value@{get\discretionary {-}{}{}Value}|hyperpage}{8}
+\indexentry{get\discretionary {-}{}{}Value@{get\discretionary {-}{}{}Value}!Data@{Data}|hyperpage}{8}
+\indexentry{Decoder@{Decoder}|hyperpage}{9}
+\indexentry{Decoder@{Decoder}!Decoder@{Decoder}|hyperpage}{9}
+\indexentry{Decoder@{Decoder}!Decoder@{Decoder}|hyperpage}{9}
+\indexentry{Decoder@{Decoder}!Decoder@{Decoder}|hyperpage}{9}
+\indexentry{Decoder@{Decoder}!Decoder@{Decoder}|hyperpage}{9}
+\indexentry{Decoder@{Decoder}!get\discretionary {-}{}{}Next\discretionary {-}{}{}Data@{get\discretionary {-}{}{}Next\discretionary {-}{}{}Data}|hyperpage}{9}
+\indexentry{get\discretionary {-}{}{}Next\discretionary {-}{}{}Data@{get\discretionary {-}{}{}Next\discretionary {-}{}{}Data}!Decoder@{Decoder}|hyperpage}{9}
+\indexentry{Decoder@{Decoder}!get\discretionary {-}{}{}Package\discretionary {-}{}{}Num@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Num}|hyperpage}{10}
+\indexentry{get\discretionary {-}{}{}Package\discretionary {-}{}{}Num@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Num}!Decoder@{Decoder}|hyperpage}{10}
+\indexentry{Decoder@{Decoder}!get\discretionary {-}{}{}Package\discretionary {-}{}{}Pos@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Pos}|hyperpage}{10}
+\indexentry{get\discretionary {-}{}{}Package\discretionary {-}{}{}Pos@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Pos}!Decoder@{Decoder}|hyperpage}{10}
+\indexentry{Encoder@{Encoder}|hyperpage}{10}
+\indexentry{Encoder@{Encoder}!Encoder@{Encoder}|hyperpage}{10}
+\indexentry{Encoder@{Encoder}!Encoder@{Encoder}|hyperpage}{10}
+\indexentry{Encoder@{Encoder}!get\discretionary {-}{}{}Next\discretionary {-}{}{}Package@{get\discretionary {-}{}{}Next\discretionary {-}{}{}Package}|hyperpage}{11}
+\indexentry{get\discretionary {-}{}{}Next\discretionary {-}{}{}Package@{get\discretionary {-}{}{}Next\discretionary {-}{}{}Package}!Encoder@{Encoder}|hyperpage}{11}
+\indexentry{Encoder@{Encoder}!get\discretionary {-}{}{}Package@{get\discretionary {-}{}{}Package}|hyperpage}{11}
+\indexentry{get\discretionary {-}{}{}Package@{get\discretionary {-}{}{}Package}!Encoder@{Encoder}|hyperpage}{11}
+\indexentry{Encoder@{Encoder}!get\discretionary {-}{}{}Package\discretionary {-}{}{}Size@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Size}|hyperpage}{11}
+\indexentry{get\discretionary {-}{}{}Package\discretionary {-}{}{}Size@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Size}!Encoder@{Encoder}|hyperpage}{11}
+\indexentry{Encoder@{Encoder}!get\discretionary {-}{}{}Package\discretionary {-}{}{}Sum@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Sum}|hyperpage}{11}
+\indexentry{get\discretionary {-}{}{}Package\discretionary {-}{}{}Sum@{get\discretionary {-}{}{}Package\discretionary {-}{}{}Sum}!Encoder@{Encoder}|hyperpage}{11}
+\indexentry{Location@{Location}|hyperpage}{12}
+\indexentry{Location@{Location}!Location@{Location}|hyperpage}{12}
+\indexentry{Location@{Location}!Location@{Location}|hyperpage}{12}
+\indexentry{Location@{Location}!get\discretionary {-}{}{}Address@{get\discretionary {-}{}{}Address}|hyperpage}{12}
+\indexentry{get\discretionary {-}{}{}Address@{get\discretionary {-}{}{}Address}!Location@{Location}|hyperpage}{12}
+\indexentry{Location@{Location}!get\discretionary {-}{}{}Port@{get\discretionary {-}{}{}Port}|hyperpage}{12}
+\indexentry{get\discretionary {-}{}{}Port@{get\discretionary {-}{}{}Port}!Location@{Location}|hyperpage}{12}
+\indexentry{Receiver@{Receiver}|hyperpage}{13}
+\indexentry{Sender@{Sender}|hyperpage}{13}
+\indexentry{Socket@{Socket}|hyperpage}{13}
+\indexentry{Socket@{Socket}!$\sim $\discretionary {-}{}{}Socket@{$\sim $\discretionary {-}{}{}Socket}|hyperpage}{14}
+\indexentry{$\sim $\discretionary {-}{}{}Socket@{$\sim $\discretionary {-}{}{}Socket}!Socket@{Socket}|hyperpage}{14}
+\indexentry{Socket@{Socket}!clean\discretionary {-}{}{}Up@{clean\discretionary {-}{}{}Up}|hyperpage}{14}
+\indexentry{clean\discretionary {-}{}{}Up@{clean\discretionary {-}{}{}Up}!Socket@{Socket}|hyperpage}{14}
+\indexentry{Socket@{Socket}!get\discretionary {-}{}{}Local\discretionary {-}{}{}Address@{get\discretionary {-}{}{}Local\discretionary {-}{}{}Address}|hyperpage}{15}
+\indexentry{get\discretionary {-}{}{}Local\discretionary {-}{}{}Address@{get\discretionary {-}{}{}Local\discretionary {-}{}{}Address}!Socket@{Socket}|hyperpage}{15}
+\indexentry{Socket@{Socket}!get\discretionary {-}{}{}Local\discretionary {-}{}{}Port@{get\discretionary {-}{}{}Local\discretionary {-}{}{}Port}|hyperpage}{15}
+\indexentry{get\discretionary {-}{}{}Local\discretionary {-}{}{}Port@{get\discretionary {-}{}{}Local\discretionary {-}{}{}Port}!Socket@{Socket}|hyperpage}{15}
+\indexentry{Socket@{Socket}!resolve\discretionary {-}{}{}Service@{resolve\discretionary {-}{}{}Service}|hyperpage}{15}
+\indexentry{resolve\discretionary {-}{}{}Service@{resolve\discretionary {-}{}{}Service}!Socket@{Socket}|hyperpage}{15}
+\indexentry{Socket@{Socket}!set\discretionary {-}{}{}Local\discretionary {-}{}{}Address\discretionary {-}{}{}And\discretionary {-}{}{}Port@{set\discretionary {-}{}{}Local\discretionary {-}{}{}Address\discretionary {-}{}{}And\discretionary {-}{}{}Port}|hyperpage}{15}
+\indexentry{set\discretionary {-}{}{}Local\discretionary {-}{}{}Address\discretionary {-}{}{}And\discretionary {-}{}{}Port@{set\discretionary {-}{}{}Local\discretionary {-}{}{}Address\discretionary {-}{}{}And\discretionary {-}{}{}Port}!Socket@{Socket}|hyperpage}{15}
+\indexentry{Socket@{Socket}!set\discretionary {-}{}{}Local\discretionary {-}{}{}Port@{set\discretionary {-}{}{}Local\discretionary {-}{}{}Port}|hyperpage}{15}
+\indexentry{set\discretionary {-}{}{}Local\discretionary {-}{}{}Port@{set\discretionary {-}{}{}Local\discretionary {-}{}{}Port}!Socket@{Socket}|hyperpage}{15}
+\indexentry{Socket\discretionary {-}{}{}Exception@{Socket\discretionary {-}{}{}Exception}|hyperpage}{16}
+\indexentry{Socket\discretionary {-}{}{}Exception@{Socket\discretionary {-}{}{}Exception}!Socket\discretionary {-}{}{}Exception@{Socket\discretionary {-}{}{}Exception}|hyperpage}{16}
+\indexentry{Socket\discretionary {-}{}{}Exception@{Socket\discretionary {-}{}{}Exception}!SocketException@{Socket\discretionary {-}{}{}Exception}|hyperpage}{16}
+\indexentry{Socket\discretionary {-}{}{}Exception@{Socket\discretionary {-}{}{}Exception}!$\sim $\discretionary {-}{}{}Socket\discretionary {-}{}{}Exception@{$\sim $\discretionary {-}{}{}Socket\discretionary {-}{}{}Exception}|hyperpage}{16}
+\indexentry{$\sim $\discretionary {-}{}{}Socket\discretionary {-}{}{}Exception@{$\sim $\discretionary {-}{}{}Socket\discretionary {-}{}{}Exception}!SocketException@{Socket\discretionary {-}{}{}Exception}|hyperpage}{16}
+\indexentry{Socket\discretionary {-}{}{}Exception@{Socket\discretionary {-}{}{}Exception}!what@{what}|hyperpage}{17}
+\indexentry{what@{what}!SocketException@{Socket\discretionary {-}{}{}Exception}|hyperpage}{17}
+\indexentry{T\discretionary {-}{}{}\_\discretionary {-}{}{}nuex@{T\discretionary {-}{}{}\_\discretionary {-}{}{}nuex}|hyperpage}{17}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}|hyperpage}{17}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}!T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}|hyperpage}{18}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}!TCPServerSocket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}|hyperpage}{18}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}!T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}|hyperpage}{19}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}!TCPServerSocket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}|hyperpage}{19}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}!accept@{accept}|hyperpage}{19}
+\indexentry{accept@{accept}!TCPServerSocket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}|hyperpage}{19}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{19}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{20}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!TCPSocket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{20}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{20}
+\indexentry{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!TCPSocket@{T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{20}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{20}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{21}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{21}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{21}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{21}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{21}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{21}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!disconnect@{disconnect}|hyperpage}{22}
+\indexentry{disconnect@{disconnect}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{22}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!join\discretionary {-}{}{}Group@{join\discretionary {-}{}{}Group}|hyperpage}{22}
+\indexentry{join\discretionary {-}{}{}Group@{join\discretionary {-}{}{}Group}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{22}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!leave\discretionary {-}{}{}Group@{leave\discretionary {-}{}{}Group}|hyperpage}{22}
+\indexentry{leave\discretionary {-}{}{}Group@{leave\discretionary {-}{}{}Group}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{22}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!recv\discretionary {-}{}{}From@{recv\discretionary {-}{}{}From}|hyperpage}{22}
+\indexentry{recv\discretionary {-}{}{}From@{recv\discretionary {-}{}{}From}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{22}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!send\discretionary {-}{}{}To@{send\discretionary {-}{}{}To}|hyperpage}{23}
+\indexentry{send\discretionary {-}{}{}To@{send\discretionary {-}{}{}To}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{23}
+\indexentry{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}!set\discretionary {-}{}{}Multicast\discretionary {-}{}{}T\discretionary {-}{}{}T\discretionary {-}{}{}L@{set\discretionary {-}{}{}Multicast\discretionary {-}{}{}T\discretionary {-}{}{}T\discretionary {-}{}{}L}|hyperpage}{23}
+\indexentry{set\discretionary {-}{}{}Multicast\discretionary {-}{}{}T\discretionary {-}{}{}T\discretionary {-}{}{}L@{set\discretionary {-}{}{}Multicast\discretionary {-}{}{}T\discretionary {-}{}{}T\discretionary {-}{}{}L}!UDPSocket@{U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}|hyperpage}{23}

@@ -20,14 +20,41 @@
 #ifndef __DATA_H_INCLUDED__
 #define __DATA_H_INCLUDED__
 
+/**
+ *  Datenstruktur die einen Fahrzeugwert und die dazugehörigen Daten
+ *  speichert.
+ */
+
 class Data
 {
 public:
+
+    /**
+     *  Erzeugt eine Datenstruktur zur Speicherung von Fahrzeugdaten.
+     *  \param value Wert des Datensatzes.
+     *  \param datatype Datentyp des Datensatzes.
+     *  \param position Position des Datensatzes in den ursprünglichen Daten.
+     */
+
     Data(double value, unsigned int datatype, unsigned int position);
     //~Data();
     
+    /**
+     *  \return Gibt den Wert des Datensatzes zurück.
+     */
+
     double getValue();
+
+    /**
+     *  \return Gibt den Datentyp des Datensatzes zurück.
+     */
+
     unsigned int getDatatype();
+
+    /**
+     *  \return Gibt die Position des Datensatzes in den ursprünlichen Daten zurück.
+     */
+
     unsigned int getPosition();
 
 private:

@@ -38,7 +38,7 @@ int LOCALPORT = 5000;
 
 Location HOST_EMBPC("10.42.0.55",(short)5000);
 Location HOST_MABXII("10.42.0.42",(short)5002);
-Location HOST_VSERVER("127.0.0.1",(short)5001);
+Location HOST_VSERVER("87.106.17.165",(short)5001);
 
 //const int PACKAGESIZE_MAX = 100;
 
@@ -135,7 +135,7 @@ void sendData(Encoder enc) {
         std::cout << "========END_PACKAGE=========" << std::endl;
         std::cout << std::endl << std::endl << std::endl << std::endl; 
         sendPackage(HOST_VSERVER,DATA_SEND,size);
-        usleep(125000);
+        usleep(250000);
     }
 }
 

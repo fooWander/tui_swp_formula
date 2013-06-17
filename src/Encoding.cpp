@@ -23,7 +23,6 @@
 #define NSEC_PER_SEC 1000000000ULL
 //const int PACKAGESIZE_MAX;
 
-
 char VEC_COMMA[];
 int VEC_COMMA_SIZE;
 char VEC_DATATYPES[];

@@ -1,0 +1,195 @@
+\begin{theindex}
+
+  \item {$\sim $\discretionary {-}{}{}Socket}
+    \subitem {Socket}, \hyperpage{14}
+  \item {$\sim $\discretionary {-}{}{}Socket\discretionary {-}{}{}Exception}
+    \subitem {Socket\discretionary {-}{}{}Exception}, \hyperpage{16}
+
+  \indexspace
+
+  \item {accept}
+    \subitem {T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}, 
+		\hyperpage{19}
+
+  \indexspace
+
+  \item {clean\discretionary {-}{}{}Up}
+    \subitem {Socket}, \hyperpage{14}
+  \item {Communicating\discretionary {-}{}{}Socket}, \hyperpage{5}
+    \subitem {connect}, \hyperpage{5}
+    \subitem {get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Address}, 
+		\hyperpage{7}
+    \subitem {get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Port}, 
+		\hyperpage{7}
+    \subitem {recv}, \hyperpage{7}
+    \subitem {send}, \hyperpage{7}
+  \item {connect}
+    \subitem {Communicating\discretionary {-}{}{}Socket}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Data}, \hyperpage{8}
+    \subitem {Data}, \hyperpage{8}
+    \subitem {get\discretionary {-}{}{}Datatype}, \hyperpage{8}
+    \subitem {get\discretionary {-}{}{}Position}, \hyperpage{8}
+    \subitem {get\discretionary {-}{}{}Value}, \hyperpage{8}
+  \item {Decoder}, \hyperpage{9}
+    \subitem {Decoder}, \hyperpage{9}
+    \subitem {get\discretionary {-}{}{}Next\discretionary {-}{}{}Data}, 
+		\hyperpage{9}
+    \subitem {get\discretionary {-}{}{}Package\discretionary {-}{}{}Num}, 
+		\hyperpage{10}
+    \subitem {get\discretionary {-}{}{}Package\discretionary {-}{}{}Pos}, 
+		\hyperpage{10}
+  \item {disconnect}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{22}
+
+  \indexspace
+
+  \item {Encoder}, \hyperpage{10}
+    \subitem {Encoder}, \hyperpage{10}
+    \subitem {get\discretionary {-}{}{}Next\discretionary {-}{}{}Package}, 
+		\hyperpage{11}
+    \subitem {get\discretionary {-}{}{}Package}, \hyperpage{11}
+    \subitem {get\discretionary {-}{}{}Package\discretionary {-}{}{}Size}, 
+		\hyperpage{11}
+    \subitem {get\discretionary {-}{}{}Package\discretionary {-}{}{}Sum}, 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item {get\discretionary {-}{}{}Address}
+    \subitem {Location}, \hyperpage{12}
+  \item {get\discretionary {-}{}{}Datatype}
+    \subitem {Data}, \hyperpage{8}
+  \item {get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Address}
+    \subitem {Communicating\discretionary {-}{}{}Socket}, \hyperpage{7}
+  \item {get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Port}
+    \subitem {Communicating\discretionary {-}{}{}Socket}, \hyperpage{7}
+  \item {get\discretionary {-}{}{}Local\discretionary {-}{}{}Address}
+    \subitem {Socket}, \hyperpage{15}
+  \item {get\discretionary {-}{}{}Local\discretionary {-}{}{}Port}
+    \subitem {Socket}, \hyperpage{15}
+  \item {get\discretionary {-}{}{}Next\discretionary {-}{}{}Data}
+    \subitem {Decoder}, \hyperpage{9}
+  \item {get\discretionary {-}{}{}Next\discretionary {-}{}{}Package}
+    \subitem {Encoder}, \hyperpage{11}
+  \item {get\discretionary {-}{}{}Package}
+    \subitem {Encoder}, \hyperpage{11}
+  \item {get\discretionary {-}{}{}Package\discretionary {-}{}{}Num}
+    \subitem {Decoder}, \hyperpage{10}
+  \item {get\discretionary {-}{}{}Package\discretionary {-}{}{}Pos}
+    \subitem {Decoder}, \hyperpage{10}
+  \item {get\discretionary {-}{}{}Package\discretionary {-}{}{}Size}
+    \subitem {Encoder}, \hyperpage{11}
+  \item {get\discretionary {-}{}{}Package\discretionary {-}{}{}Sum}
+    \subitem {Encoder}, \hyperpage{11}
+  \item {get\discretionary {-}{}{}Port}
+    \subitem {Location}, \hyperpage{12}
+  \item {get\discretionary {-}{}{}Position}
+    \subitem {Data}, \hyperpage{8}
+  \item {get\discretionary {-}{}{}Value}
+    \subitem {Data}, \hyperpage{8}
+
+  \indexspace
+
+  \item {join\discretionary {-}{}{}Group}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{22}
+
+  \indexspace
+
+  \item {leave\discretionary {-}{}{}Group}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{22}
+  \item {Location}, \hyperpage{12}
+    \subitem {get\discretionary {-}{}{}Address}, \hyperpage{12}
+    \subitem {get\discretionary {-}{}{}Port}, \hyperpage{12}
+    \subitem {Location}, \hyperpage{12}
+
+  \indexspace
+
+  \item {Receiver}, \hyperpage{13}
+  \item {recv}
+    \subitem {Communicating\discretionary {-}{}{}Socket}, \hyperpage{7}
+  \item {recv\discretionary {-}{}{}From}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{22}
+  \item {resolve\discretionary {-}{}{}Service}
+    \subitem {Socket}, \hyperpage{15}
+
+  \indexspace
+
+  \item {send}
+    \subitem {Communicating\discretionary {-}{}{}Socket}, \hyperpage{7}
+  \item {send\discretionary {-}{}{}To}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{23}
+  \item {Sender}, \hyperpage{13}
+  \item {set\discretionary {-}{}{}Local\discretionary {-}{}{}Address\discretionary {-}{}{}And\discretionary {-}{}{}Port}
+    \subitem {Socket}, \hyperpage{15}
+  \item {set\discretionary {-}{}{}Local\discretionary {-}{}{}Port}
+    \subitem {Socket}, \hyperpage{15}
+  \item {set\discretionary {-}{}{}Multicast\discretionary {-}{}{}T\discretionary {-}{}{}T\discretionary {-}{}{}L}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{23}
+  \item {Socket}, \hyperpage{13}
+    \subitem {$\sim $\discretionary {-}{}{}Socket}, \hyperpage{14}
+    \subitem {clean\discretionary {-}{}{}Up}, \hyperpage{14}
+    \subitem {get\discretionary {-}{}{}Local\discretionary {-}{}{}Address}, 
+		\hyperpage{15}
+    \subitem {get\discretionary {-}{}{}Local\discretionary {-}{}{}Port}, 
+		\hyperpage{15}
+    \subitem {resolve\discretionary {-}{}{}Service}, \hyperpage{15}
+    \subitem {set\discretionary {-}{}{}Local\discretionary {-}{}{}Address\discretionary {-}{}{}And\discretionary {-}{}{}Port}, 
+		\hyperpage{15}
+    \subitem {set\discretionary {-}{}{}Local\discretionary {-}{}{}Port}, 
+		\hyperpage{15}
+  \item {Socket\discretionary {-}{}{}Exception}, \hyperpage{16}
+    \subitem {$\sim $\discretionary {-}{}{}Socket\discretionary {-}{}{}Exception}, 
+		\hyperpage{16}
+    \subitem {Socket\discretionary {-}{}{}Exception}, \hyperpage{16}
+    \subitem {Socket\discretionary {-}{}{}Exception}, \hyperpage{16}
+    \subitem {what}, \hyperpage{17}
+
+  \indexspace
+
+  \item {T\discretionary {-}{}{}\_\discretionary {-}{}{}nuex}, 
+		\hyperpage{17}
+  \item {T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}, 
+		\hyperpage{17}
+    \subitem {accept}, \hyperpage{19}
+    \subitem {T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}, 
+		\hyperpage{18, 19}
+    \subitem {T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}, 
+		\hyperpage{18, 19}
+  \item {T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{19}
+    \subitem {T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{20}
+    \subitem {T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{20}
+
+  \indexspace
+
+  \item {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{20}
+    \subitem {disconnect}, \hyperpage{22}
+    \subitem {join\discretionary {-}{}{}Group}, \hyperpage{22}
+    \subitem {leave\discretionary {-}{}{}Group}, \hyperpage{22}
+    \subitem {recv\discretionary {-}{}{}From}, \hyperpage{22}
+    \subitem {send\discretionary {-}{}{}To}, \hyperpage{23}
+    \subitem {set\discretionary {-}{}{}Multicast\discretionary {-}{}{}T\discretionary {-}{}{}T\discretionary {-}{}{}L}, 
+		\hyperpage{23}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{21}
+    \subitem {U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}, 
+		\hyperpage{21}
+
+  \indexspace
+
+  \item {what}
+    \subitem {Socket\discretionary {-}{}{}Exception}, \hyperpage{17}
+
+\end{theindex}

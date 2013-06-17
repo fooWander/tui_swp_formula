@@ -22,13 +22,33 @@
 
 #include <string>
 
+/**
+ *	Datenstruktur die Netzwerkdaten bestimmter Teilnehmer speichert.
+ */
+
 class Location
 {
 public:
+
+	/**
+     *  Erzeugt einen Teilnehmer.
+     *	\param address IP-Adresse des Teilnehmers.
+     *	\param port Port-Nummer des Teilnehmers.
+     */
+
     Location(std::string address, short port);
    // ~Location();
 
-    std::string getAddress(); //###
+    /**
+     *  \return Gibt die Adresse zurück.
+     */
+
+    std::string getAddress();
+
+    /**
+     *  \return Gibt die Portnummer zurück.
+     */
+
     int getPort();
 
 private:
