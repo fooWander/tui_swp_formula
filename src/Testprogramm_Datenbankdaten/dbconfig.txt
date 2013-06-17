@@ -1,4 +1,8 @@
-localhost
+#DB-Hostadresse:
+localhost2
+#DB_User:
 telemetrie
+#DB-Passwort:
 Ume1Fon3
+#DB-Name:
 telemetrie

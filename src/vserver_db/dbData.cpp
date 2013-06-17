@@ -5,17 +5,17 @@ using namespace std;
   dbData::dbData()
   {
         fstream file("dbconfig.txt");
-        int i = 1;
+        int i = 0;
         while(!file.eof())
         {
 	  switch(i){
-	    case 2:
+	    case 0:
 	      file >> host;
-            case 4:
+            case 1:
               file >> user;
-            case 6:
+            case 2:
               file >> pw;
-            case 9:
+            case 3:
               file >> db;
 	  }
 	
