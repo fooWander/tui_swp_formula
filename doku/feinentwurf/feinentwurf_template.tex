@@ -1096,7 +1096,7 @@ PACKAGE &
 
 \newpage
 
-% Einfügen von Tobias seinen Sachen:
+% Einfügen von Tobias' Sachen:
 
 
 \subsection{Einfügen in die Datenbank}
@@ -1110,10 +1110,9 @@ PACKAGE &
 
 
 %%%%%%%%%%%% HIER TEXT %%%%%%%%%%%%%%%%
-
-
-
-
+Dieses Sequenzdiagramm zeigt den typischen Ablauf vom Start des Programms bis zum Ende einer Einfügeoperation in die Datenbank.
+Es wird dabei davon ausgegangen, dass die Klasse Decoder bereits existiert.
+Zuerst wird ein Objekt von \textit{DBPacketInsert} erzeugt, das wiederum zuerst jeweils ein Objekt der Klasse \textit{DatatypeDaemon} und \textit{Insert} erzeugt. \textit{Insert} erzeugt daraufhin ein Objekt der Klasse \textit{dbData}, welches ihm die Zugangsdaten zur Datenbank zurückgibt. Das Objekt \textit{dbData} wird daraufhin gelöscht. Danach wird bei \textit{DBPacketInsert} die Memberfunktion \textit{db\_insert()} aufgerufen. Leider war zu diesem Zeitpunkt wie in der Einleitung noch nicht klar, von wem diese Funktion aufgerufen wird, daher findet sie sich hier nicht wieder. Sie löst aber Schritt drei im Diagramm aus, wodurch ein einzelner Wert durch \textit{DatatypeDaemon} geholt wird, den dieser wiederum eingebettet in ein Data-Objekt vom \textit{Decoder} bekommt. Dieser Wert ist immer der Anfang eines Übertragungspakets von Embedded PC zum vServer. Zunächst wird das Paket durch die Position des einzelnen Wertes bestimmt, danach wird \textit{DatatypeDaemon} so oft nach neuen Werten angefragt, bis ein Paket komplett abgehandelt ist. Danach wird der SQL-String aus diesen abgefragten Einzelwerten in einer Unterfunktion zusammengesetzt und anschließend an \textit{insertIntoDB(SQL-String)} des Objekts der Klasse \textit{Insert} übergeben. Dieses baut zuerst eine Verbindung zur Datenbank auf und übergibt dann den SQL-String der Datenbank bzw. dem MySQL-Connector/C++.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
