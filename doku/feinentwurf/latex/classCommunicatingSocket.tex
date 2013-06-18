@@ -1,0 +1,141 @@
+\hypertarget{classCommunicatingSocket}{\section{Communicating\-Socket Klassenreferenz}
+\label{classCommunicatingSocket}\index{Communicating\-Socket@{Communicating\-Socket}}
+}
+
+
+{\ttfamily \#include $<$Practical\-Socket.\-h$>$}
+
+Klassendiagramm für Communicating\-Socket\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classCommunicatingSocket}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect} (const string \&foreign\-Address, unsigned short foreign\-Port)  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}{send} (const void $\ast$buffer, int buffer\-Len)  throw (\-Socket\-Exception)
+\item 
+int \hyperlink{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{recv} (void $\ast$buffer, int buffer\-Len)  throw (\-Socket\-Exception)
+\item 
+string \hyperlink{classCommunicatingSocket_a13f9eca30ef56836cf23c163c848c09e}{get\-Foreign\-Address} ()  throw (\-Socket\-Exception)
+\item 
+unsigned short \hyperlink{classCommunicatingSocket_a184fbb4775184b87ebd886a5587eb1a3}{get\-Foreign\-Port} ()  throw (\-Socket\-Exception)
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCommunicatingSocket_a0017517b8d6e761fde0c40475af3b2ab}{{\bfseries Communicating\-Socket} (int type, int protocol)  throw (\-Socket\-Exception)}\label{classCommunicatingSocket_a0017517b8d6e761fde0c40475af3b2ab}
+
+\item 
+\hypertarget{classCommunicatingSocket_a27d758db782b3be7d28741e92cb613d1}{{\bfseries Communicating\-Socket} (int new\-Conn\-S\-D)}\label{classCommunicatingSocket_a27d758db782b3be7d28741e92cb613d1}
+
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+\hyperlink{classSocket}{Socket} der in der Lage ist sich zu verbinden, zu senden und zu empfangen. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{\index{Communicating\-Socket@{Communicating\-Socket}!connect@{connect}}
+\index{connect@{connect}!CommunicatingSocket@{Communicating\-Socket}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}void Communicating\-Socket\-::connect (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{foreign\-Address, }
+\item[{unsigned short}]{foreign\-Port}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}
+Baut eine Verbindung "uber Sockets zu einem bestimmten Teilnehmer. 
+\begin{DoxyParams}{Parameter}
+{\em foreign\-Address} & Adresse des Teilnehmers (I\-P Adresse oder Name). \\
+\hline
+{\em foreign\-Port} & Portnummer des Teilnehmers. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen wenn die Verbindung fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classCommunicatingSocket_a13f9eca30ef56836cf23c163c848c09e}{\index{Communicating\-Socket@{Communicating\-Socket}!get\-Foreign\-Address@{get\-Foreign\-Address}}
+\index{get\-Foreign\-Address@{get\-Foreign\-Address}!CommunicatingSocket@{Communicating\-Socket}}
+\subsubsection[{get\-Foreign\-Address}]{\setlength{\rightskip}{0pt plus 5cm}string Communicating\-Socket\-::get\-Foreign\-Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a13f9eca30ef56836cf23c163c848c09e}
+Holt die Zieladresse. \begin{DoxyReturn}{Rückgabe}
+Zieladresse. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls das Holen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classCommunicatingSocket_a184fbb4775184b87ebd886a5587eb1a3}{\index{Communicating\-Socket@{Communicating\-Socket}!get\-Foreign\-Port@{get\-Foreign\-Port}}
+\index{get\-Foreign\-Port@{get\-Foreign\-Port}!CommunicatingSocket@{Communicating\-Socket}}
+\subsubsection[{get\-Foreign\-Port}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Communicating\-Socket\-::get\-Foreign\-Port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a184fbb4775184b87ebd886a5587eb1a3}
+Holt den Zielport. Call \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} before calling \hyperlink{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{recv()} \begin{DoxyReturn}{Rückgabe}
+Zielportnummer. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls das Holen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{\index{Communicating\-Socket@{Communicating\-Socket}!recv@{recv}}
+\index{recv@{recv}!CommunicatingSocket@{Communicating\-Socket}}
+\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}int Communicating\-Socket\-::recv (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer, }
+\item[{int}]{buffer\-Len}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}
+Ließt eine Nachricht in den "ubergebenen Buffer ein. \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} muss vorher aufgerufen werden. 
+\begin{DoxyParams}{Parameter}
+{\em buffer} & Speicher in den die Nachricht geschrieben werden soll. \\
+\hline
+{\em buffer\-Len} & Maximale Anzahl an Bytes die empfangen werden sollen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Gibt die Anzahl der gelesenen Bytes zur"uck. 0 wenn E\-O\-F und -\/1 im Fehlerfall. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls keine Daten emfpangen werden k"onnen. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}{\index{Communicating\-Socket@{Communicating\-Socket}!send@{send}}
+\index{send@{send}!CommunicatingSocket@{Communicating\-Socket}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void Communicating\-Socket\-::send (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{buffer, }
+\item[{int}]{buffer\-Len}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}
+Schreibt den "ubergebenen Buffer in den \hyperlink{classSocket}{Socket}. Vor \hyperlink{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}{send()} muss collect() aufgerufen werden. 
+\begin{DoxyParams}{Parameter}
+{\em buffer} & Speicher in den geschrieben werden soll. \\
+\hline
+{\em buffer\-Len} & Anzahl der Bytes die geschrieben werden sollen. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen wenn keine Daten gesendet werden k"onnen. \\
+\hline
+\end{DoxyExceptions}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Practical\-Socket.\-h\item 
+Practical\-Socket.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,69 @@
+\hypertarget{classSocketException}{\section{Socket\-Exception Klassenreferenz}
+\label{classSocketException}\index{Socket\-Exception@{Socket\-Exception}}
+}
+
+
+{\ttfamily \#include $<$Practical\-Socket.\-h$>$}
+
+Klassendiagramm für Socket\-Exception\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSocketException}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSocketException_abb5bcecd9d9e20868c237ec5a82cf5c3}{Socket\-Exception} (const string \&message, bool incl\-Sys\-Msg=false)  throw ()
+\item 
+\hyperlink{classSocketException_a659557c899329aea01977c980c4db9b9}{$\sim$\-Socket\-Exception} ()  throw ()
+\item 
+const char $\ast$ \hyperlink{classSocketException_a06b7b3f186976bb5ec7e7bf007c4f0ac}{what} () const   throw ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Zeigt ein Problem mit der Ausf"uhrung eines Socketaufrufs an. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classSocketException_abb5bcecd9d9e20868c237ec5a82cf5c3}{\index{Socket\-Exception@{Socket\-Exception}!Socket\-Exception@{Socket\-Exception}}
+\index{Socket\-Exception@{Socket\-Exception}!SocketException@{Socket\-Exception}}
+\subsubsection[{Socket\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}Socket\-Exception\-::\-Socket\-Exception (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{message, }
+\item[{bool}]{incl\-Sys\-Msg = {\ttfamily false}}
+\end{DoxyParamCaption}
+) throw  ) }}\label{classSocketException_abb5bcecd9d9e20868c237ec5a82cf5c3}
+Erzeugt eine \char`\"{}\-Socket\-Exception\char`\"{} mit einem erkl"arenden Hinweistext. 
+\begin{DoxyParams}{Parameter}
+{\em message} & Nachricht die den Fehlern beschreibt \\
+\hline
+{\em inc\-Sys\-Msg} & true falls eine Systemnachricht (von strerror(errno)) sollte zu der f"ur den User bereitgestellten Nachricht hinzugef"ugt werden. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSocketException_a659557c899329aea01977c980c4db9b9}{\index{Socket\-Exception@{Socket\-Exception}!$\sim$\-Socket\-Exception@{$\sim$\-Socket\-Exception}}
+\index{$\sim$\-Socket\-Exception@{$\sim$\-Socket\-Exception}!SocketException@{Socket\-Exception}}
+\subsubsection[{$\sim$\-Socket\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}Socket\-Exception\-::$\sim$\-Socket\-Exception (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  ) }}\label{classSocketException_a659557c899329aea01977c980c4db9b9}
+Nur bereitgestellt um zu gew"ahrleisten, dass keine Exceptions zur"uckgeworfen / zur"uckgegeben werden. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classSocketException_a06b7b3f186976bb5ec7e7bf007c4f0ac}{\index{Socket\-Exception@{Socket\-Exception}!what@{what}}
+\index{what@{what}!SocketException@{Socket\-Exception}}
+\subsubsection[{what}]{\setlength{\rightskip}{0pt plus 5cm}const char $\ast$ Socket\-Exception\-::what (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const throw  ) }}\label{classSocketException_a06b7b3f186976bb5ec7e7bf007c4f0ac}
+Holt die Exception-\/\-Nachricht. \begin{DoxyReturn}{Rückgabe}
+Exception-\/\-Nachricht. 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Practical\-Socket.\-h\item 
+Practical\-Socket.\-cpp\end{DoxyCompactItemize}
