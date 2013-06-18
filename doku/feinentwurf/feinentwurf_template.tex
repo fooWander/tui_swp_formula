@@ -128,7 +128,7 @@
 		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
 		Tobias Zehner \\ Sebastian Zehnter}
 		
-\date{Hier Datum einfügen.}	 
+\date{19.06.2013}	 
 	  
 \publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
 
@@ -1559,7 +1559,7 @@ Da sich eine eigenständige Entwicklerdokumentation mittels doxygen oder anderen
 
 \section{Webseite}
 
-Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
+Das Benutzersystem ermöglicht es nur bestimmten Personen den Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit, sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
 
 Im Folgenden sollen nun Funktionen und Variablen erläutert werden, sowie die Funktionalität der einzelnen Skripte des Systems.
 
@@ -1569,7 +1569,7 @@ In dieser Datei befinden sich Funktionen, die nicht direkt mit dem aktiven Nutze
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion dient dem Erstellen aller wichtigen Datenbanken, Tabellen und dem Anlegen eines Vorstand-Accounts, sowie dem Einrichten der Benutzergruppen 'Vorstand', 'Beobachter' und 'Techniker'. Das übergebene Array beinhaltet hierbei die für die Einrichtung des Vorstand-Accounts nötigen Benutzerinformationen.
+Diese Funktion dient dem Erstellen aller wichtigen Datenbanken, Tabellen und dem Anlegen eines Vorstand-Accounts, sowie dem Einrichten der Benutzergruppen ,Vorstand', ,Beobachter' und ,Techniker'. Das übergebene Array beinhaltet hierbei die für die Einrichtung des Vorstand-Accounts nötigen Benutzerinformationen.
 
 
 \subsection*{logged\_in\_redirect()}
@@ -1605,19 +1605,19 @@ String.
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion gibt alle auf einer Seite gesammelten benutzerdefinierten Fehlermeldungen in strukturierter Art und Weise wieder aus und weist den Benutzer somit darauf hin, dass ein Fehler (höchstwahrscheinlich) durch sein Verschulden entstanden ist. Er erhält auch zeitgleich eine Fehlermeldung die ihn darauf hinweist, wo sein Fehler liegt kann.
+Diese Funktion gibt alle auf einer Seite gesammelten benutzerdefinierten Fehlermeldungen in strukturierter Art und Weise wieder aus und weist den Benutzer somit darauf hin, dass ein Fehler (höchstwahrscheinlich) durch sein Verschulden entstanden ist. Er erhält auch zeitgleich eine Fehlermeldung, die ihn darauf hinweist, wo sein Fehler liegt kann.
 
 \newpage
 
 % NUTZER FUNKTIONEN %
 
 \subsection{Nutzerfunktionen (users.php)}
-Die Funktionen in dieser Datei beziehen sich vorrangig auf den aktiven Benutzer und stellen Möglichkeiten dar auf seine Daten zuzugreifen oder mit diesen zu arbeiten.
+Die Funktionen in dieser Datei beziehen sich vorrangig auf den aktiven Benutzer und stellen Möglichkeiten dar, auf seine Daten zuzugreifen oder mit diesen zu arbeiten.
 \subsection*{change\_password(int \$user\_id, string \$password)}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wird verschlüsselt und anschließend in der MySQL-Datenbank der Eintrag mit der ID \textit{\$user\_id} in der Benutzertabelle ermittelt. Für diesen Eintrag wird das alte Passwort durch das neue Passwort ersetzt.
+Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wird verschlüsselt und anschließend in der MySQL-Datenbank der Eintrag mit der ID \textit{\$user\_id} in der Benutzertabelle ermittelt. Für diesen Eintrag wird das alte Passwort durch das neue ersetzt.
 
 
 \subsection*{register\_user(array \$register\_data)}
@@ -1625,7 +1625,7 @@ Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wi
 Thomas Golda
 \subsubsection*{Beschreibung}
 Diese Funktion bekommt ein Array von Strings übergeben und legt einen neuen Datenbankeintrag in der Tabelle für die Benutzer an.
-Der neu angelegte Nutzer ist standardmäßig deaktiviert, hat somit nicht das Recht sich einzuloggen.
+Der neu angelegte Nutzer ist standardmäßig deaktiviert und hat somit nicht das Recht sich einzuloggen.
 
 
 \subsection*{user\_count()}
@@ -1640,7 +1640,7 @@ Bestimmt die Anzahl der im System registrierten Benutzer. Nicht mit einberechnet
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion erfordert mindestens ein Argument und zwar die ID eines Nutzers. Wird sie mit mehr als diesem Parameter aufgerufen, so 
+Diese Funktion erfordert mindestens ein Argument, welches die ID eines Nutzers ist. Wird sie mit mehr als diesem Parameter aufgerufen, so 
 behandelt sich alle folgenden Parameter (vorzugsweise Strings) als gewünschte auszugebende Parameter.
 
 % HIER SOLL DSA BILD REIN %
@@ -1651,35 +1651,35 @@ behandelt sich alle folgenden Parameter (vorzugsweise Strings) als gewünschte a
 \label{Quellcodeauszug aus core/init.php}
 \end{figure}
 
-Die Funktion selbst bestimmt zur übergebenen ID die weiterhin angegebenen Parameter und gibt diese als Array aus. So gibt die aus dem Bild ersichtliche aufgerufene Funktion, die zur ID gehörigen Daten wie Vor- und Nachname, E-Mail-Adresse, Rechtegruppe und das (verschlüsselte) Passwort.
+Die Funktion selbst bestimmt zur übergebenen ID die weiterhin angegebenen Parameter und gibt diese als Array aus. So gibt die aus dem Bild ersichtliche aufgerufene Funktion die zur ID gehörigen Daten wie Vor- und Nachname, E-Mail-Adresse, Rechtegruppe und das (verschlüsselte) Passwort.
 
 
 \subsection*{isVorstand()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Vorstand' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Vorstand' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{isTechniker()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Techniker' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Techniker' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{isBeobachter()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Beobachter' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Beobachter' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{timeout()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Überprüft ob der in der Session-Variable \textit{\$\_SESSION['time']} befindliche UNIX-Zeitstempel älter als \textit{\$time} Minuten ist. Standardwert: \textit{\$time} = 60.
+Überprüft, ob der in der Session-Variable \textit{\$\_SESSION['time']} befindliche UNIX-Zeitstempel älter als \textit{\$time} Minuten ist. Standardwert: \textit{\$time} = 60.
 Gibt \textit{true} zurück, falls der Zeitstempel nicht älter als \textit{\$time} Minuten ist, \textit{false} andernfalls.
 
 
@@ -1687,21 +1687,21 @@ Gibt \textit{true} zurück, falls der Zeitstempel nicht älter als \textit{\$tim
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Gibt zurück, ob der aktive Nutzer eingeloggt ist oder nicht. Dies impliziert auch eine Überprüfung ob seine letzte Aktivität weiter als eine in der Funktion \textit{timeout()} festgelegte Zeitspanne zurück liegt.
+Gibt zurück, ob der aktive Nutzer eingeloggt ist oder nicht. Dies impliziert auch eine Überprüfung, ob seine letzte Aktivität weiter als eine in der Funktion \textit{timeout()} festgelegte Zeitspanne zurück liegt.
 Setzt zudem nach dieser Prüfung den Zeitstempel in der Sessionvariable \textit{\$\_SESSION['time']} auf einen aktuellen Zeitwert.
 
 \subsection*{refresh()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktioniert aktualisiert den Zeitwert in der Tabelle der Nutzer die sich zum aktuellen Zeitpunkt online befinden. Zudem werden alle veraltete Einträge unabhängig des Benutzers gelöscht.
+Diese Funktion aktualisiert den Zeitwert in der Tabelle der Nutzer die sich zum aktuellen Zeitpunkt online befinden. Zudem werden alle veraltete Einträge unabhängig des Benutzers gelöscht.
 
 
 \subsection*{user\_exists(string \$mail)}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Ermittelt mittels einer SQL-Anfrage ob der Benutzer der zur übermittelten E-Mail-Adresse \textit{\$mail} existiert oder nicht. Gibt im Erfolgsfall \textit{true}, sonst \textit{false} zurück.
+Ermittelt mittels einer SQL-Anfrage, ob der Benutzer der zur übermittelten E-Mail-Adresse \textit{\$mail} existiert oder nicht. Gibt im Erfolgsfall \textit{true}, sonst \textit{false} zurück.
 
 
 \subsection*{user\_active(string \$mail)}
@@ -1715,7 +1715,7 @@ Gibt \textit{true} zurück, wenn der Nutzer mit der E-Mail-Adresse \textit{\$mai
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Bekommt als Argument einen String \textit{\$mail} (= E-Mail-Adresse). Ermittelt mittels einer SQL-Anfrage anschließend die ID des dazugehörigen Nutzers.
+Bekommt als Argument einen String \textit{\$mail} (= E-Mail-Adresse) und ermittelt mittels einer SQL-Anfrage anschließend die ID des dazugehörigen Nutzers.
 
 
 \subsection*{login(string \$mail, string \$password)}
@@ -1726,7 +1726,7 @@ Gibt bei Erfolg die Nutzer-ID des zugehörigen Nutzers zurück. Existiert kein N
 
 \newpage
 \subsection{Konfigurationsdatei (config.php)}
-Die Konfigurationsdatei wird stets in der core/init.php eingebunden und ist somit auf jeder Seite verfügbar, auf der auch init.php eingebunden wird. Inbesondere liefert sie die Zugangsdaten für den Zugriff auf die MySQL-Datenbanken und speichert auch die Namen der einzelnen Tabellen, sowohl für die Fahrzeugdaten, als auch für die Nutzerdaten.
+Die Konfigurationsdatei wird stets in der core/init.php eingebunden und ist somit auf jeder Seite verfügbar, auf der auch init.php eingebunden wird. Inbesondere liefert sie die Zugangsdaten für den Zugriff auf die MySQL-Datenbanken und speichert auch die Namen der einzelnen Tabellen, sowohl für die Fahrzeugdaten als auch für die Nutzerdaten.
 \subsubsection*{\$dbhost}
 Hier kann der Hostname des MySQL-Servers festgelegt werden. Er wird meist vom Hoster mitgeteilt und lautet in den meisten Fällen 'localhost'.
 \subsubsection*{\$dbuname}
