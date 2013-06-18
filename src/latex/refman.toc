@@ -1,88 +1,89 @@
-\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}{section.1.1}
-\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Class List}{3}{section.2.1}
-\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Communicating\discretionary {-}{}{}Socket Class Reference}{5}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Member Function Documentation}{5}{subsection.3.1.2}
+\select@language {ngerman}
+\contentsline {chapter}{\numberline {1}Hierarchie-\/\discretionary {-}{}{}Verzeichnis}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Klassenhierarchie}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Klassen-\/\discretionary {-}{}{}Verzeichnis}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Auflistung der Klassen}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Klassen-\/\discretionary {-}{}{}Dokumentation}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Communicating\discretionary {-}{}{}Socket Klassenreferenz}{5}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Ausf\IeC {\"u}hrliche Beschreibung}{5}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Dokumentation der Elementfunktionen}{5}{subsection.3.1.2}
 \contentsline {subsubsection}{\numberline {3.1.2.1}connect}{6}{subsubsection.3.1.2.1}
 \contentsline {subsubsection}{\numberline {3.1.2.2}get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Address}{7}{subsubsection.3.1.2.2}
 \contentsline {subsubsection}{\numberline {3.1.2.3}get\discretionary {-}{}{}Foreign\discretionary {-}{}{}Port}{7}{subsubsection.3.1.2.3}
 \contentsline {subsubsection}{\numberline {3.1.2.4}recv}{7}{subsubsection.3.1.2.4}
 \contentsline {subsubsection}{\numberline {3.1.2.5}send}{7}{subsubsection.3.1.2.5}
-\contentsline {section}{\numberline {3.2}Data Class Reference}{8}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Detailed Description}{8}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Constructor \& Destructor Documentation}{8}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.2}Data Klassenreferenz}{8}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Ausf\IeC {\"u}hrliche Beschreibung}{8}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Beschreibung der Konstruktoren und Destruktoren}{8}{subsection.3.2.2}
 \contentsline {subsubsection}{\numberline {3.2.2.1}Data}{8}{subsubsection.3.2.2.1}
-\contentsline {subsection}{\numberline {3.2.3}Member Function Documentation}{8}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}Dokumentation der Elementfunktionen}{8}{subsection.3.2.3}
 \contentsline {subsubsection}{\numberline {3.2.3.1}get\discretionary {-}{}{}Datatype}{8}{subsubsection.3.2.3.1}
 \contentsline {subsubsection}{\numberline {3.2.3.2}get\discretionary {-}{}{}Position}{8}{subsubsection.3.2.3.2}
 \contentsline {subsubsection}{\numberline {3.2.3.3}get\discretionary {-}{}{}Value}{9}{subsubsection.3.2.3.3}
-\contentsline {section}{\numberline {3.3}Decoder Class Reference}{9}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Constructor \& Destructor Documentation}{9}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.3}Decoder Klassenreferenz}{9}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Beschreibung der Konstruktoren und Destruktoren}{9}{subsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.1.1}Decoder}{9}{subsubsection.3.3.1.1}
 \contentsline {subsubsection}{\numberline {3.3.1.2}Decoder}{9}{subsubsection.3.3.1.2}
-\contentsline {subsection}{\numberline {3.3.2}Member Function Documentation}{9}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.2}Dokumentation der Elementfunktionen}{9}{subsection.3.3.2}
 \contentsline {subsubsection}{\numberline {3.3.2.1}get\discretionary {-}{}{}Next\discretionary {-}{}{}Data}{9}{subsubsection.3.3.2.1}
 \contentsline {subsubsection}{\numberline {3.3.2.2}get\discretionary {-}{}{}Package\discretionary {-}{}{}Num}{10}{subsubsection.3.3.2.2}
 \contentsline {subsubsection}{\numberline {3.3.2.3}get\discretionary {-}{}{}Package\discretionary {-}{}{}Pos}{10}{subsubsection.3.3.2.3}
-\contentsline {section}{\numberline {3.4}Encoder Class Reference}{10}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Detailed Description}{10}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Constructor \& Destructor Documentation}{10}{subsection.3.4.2}
+\contentsline {section}{\numberline {3.4}Encoder Klassenreferenz}{10}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Ausf\IeC {\"u}hrliche Beschreibung}{10}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Beschreibung der Konstruktoren und Destruktoren}{10}{subsection.3.4.2}
 \contentsline {subsubsection}{\numberline {3.4.2.1}Encoder}{10}{subsubsection.3.4.2.1}
-\contentsline {subsection}{\numberline {3.4.3}Member Function Documentation}{11}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.3}Dokumentation der Elementfunktionen}{11}{subsection.3.4.3}
 \contentsline {subsubsection}{\numberline {3.4.3.1}get\discretionary {-}{}{}Next\discretionary {-}{}{}Package}{11}{subsubsection.3.4.3.1}
 \contentsline {subsubsection}{\numberline {3.4.3.2}get\discretionary {-}{}{}Package}{11}{subsubsection.3.4.3.2}
 \contentsline {subsubsection}{\numberline {3.4.3.3}get\discretionary {-}{}{}Package\discretionary {-}{}{}Size}{11}{subsubsection.3.4.3.3}
 \contentsline {subsubsection}{\numberline {3.4.3.4}get\discretionary {-}{}{}Package\discretionary {-}{}{}Sum}{11}{subsubsection.3.4.3.4}
-\contentsline {section}{\numberline {3.5}Location Class Reference}{12}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{12}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Constructor \& Destructor Documentation}{12}{subsection.3.5.2}
+\contentsline {section}{\numberline {3.5}Location Klassenreferenz}{12}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Ausf\IeC {\"u}hrliche Beschreibung}{12}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Beschreibung der Konstruktoren und Destruktoren}{12}{subsection.3.5.2}
 \contentsline {subsubsection}{\numberline {3.5.2.1}Location}{12}{subsubsection.3.5.2.1}
-\contentsline {subsection}{\numberline {3.5.3}Member Function Documentation}{12}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.3}Dokumentation der Elementfunktionen}{12}{subsection.3.5.3}
 \contentsline {subsubsection}{\numberline {3.5.3.1}get\discretionary {-}{}{}Address}{12}{subsubsection.3.5.3.1}
 \contentsline {subsubsection}{\numberline {3.5.3.2}get\discretionary {-}{}{}Port}{12}{subsubsection.3.5.3.2}
-\contentsline {section}{\numberline {3.6}Receiver Class Reference}{13}{section.3.6}
-\contentsline {section}{\numberline {3.7}Sender Class Reference}{13}{section.3.7}
-\contentsline {section}{\numberline {3.8}Socket Class Reference}{13}{section.3.8}
-\contentsline {subsection}{\numberline {3.8.1}Detailed Description}{14}{subsection.3.8.1}
-\contentsline {subsection}{\numberline {3.8.2}Constructor \& Destructor Documentation}{14}{subsection.3.8.2}
+\contentsline {section}{\numberline {3.6}Receiver Klassenreferenz}{13}{section.3.6}
+\contentsline {section}{\numberline {3.7}Sender Klassenreferenz}{13}{section.3.7}
+\contentsline {section}{\numberline {3.8}Socket Klassenreferenz}{13}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Ausf\IeC {\"u}hrliche Beschreibung}{14}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}Beschreibung der Konstruktoren und Destruktoren}{14}{subsection.3.8.2}
 \contentsline {subsubsection}{\numberline {3.8.2.1}$\sim $\discretionary {-}{}{}Socket}{14}{subsubsection.3.8.2.1}
-\contentsline {subsection}{\numberline {3.8.3}Member Function Documentation}{14}{subsection.3.8.3}
+\contentsline {subsection}{\numberline {3.8.3}Dokumentation der Elementfunktionen}{14}{subsection.3.8.3}
 \contentsline {subsubsection}{\numberline {3.8.3.1}clean\discretionary {-}{}{}Up}{14}{subsubsection.3.8.3.1}
 \contentsline {subsubsection}{\numberline {3.8.3.2}get\discretionary {-}{}{}Local\discretionary {-}{}{}Address}{15}{subsubsection.3.8.3.2}
 \contentsline {subsubsection}{\numberline {3.8.3.3}get\discretionary {-}{}{}Local\discretionary {-}{}{}Port}{15}{subsubsection.3.8.3.3}
 \contentsline {subsubsection}{\numberline {3.8.3.4}resolve\discretionary {-}{}{}Service}{15}{subsubsection.3.8.3.4}
 \contentsline {subsubsection}{\numberline {3.8.3.5}set\discretionary {-}{}{}Local\discretionary {-}{}{}Address\discretionary {-}{}{}And\discretionary {-}{}{}Port}{15}{subsubsection.3.8.3.5}
 \contentsline {subsubsection}{\numberline {3.8.3.6}set\discretionary {-}{}{}Local\discretionary {-}{}{}Port}{15}{subsubsection.3.8.3.6}
-\contentsline {section}{\numberline {3.9}Socket\discretionary {-}{}{}Exception Class Reference}{16}{section.3.9}
-\contentsline {subsection}{\numberline {3.9.1}Detailed Description}{16}{subsection.3.9.1}
-\contentsline {subsection}{\numberline {3.9.2}Constructor \& Destructor Documentation}{16}{subsection.3.9.2}
+\contentsline {section}{\numberline {3.9}Socket\discretionary {-}{}{}Exception Klassenreferenz}{16}{section.3.9}
+\contentsline {subsection}{\numberline {3.9.1}Ausf\IeC {\"u}hrliche Beschreibung}{16}{subsection.3.9.1}
+\contentsline {subsection}{\numberline {3.9.2}Beschreibung der Konstruktoren und Destruktoren}{16}{subsection.3.9.2}
 \contentsline {subsubsection}{\numberline {3.9.2.1}Socket\discretionary {-}{}{}Exception}{16}{subsubsection.3.9.2.1}
 \contentsline {subsubsection}{\numberline {3.9.2.2}$\sim $\discretionary {-}{}{}Socket\discretionary {-}{}{}Exception}{16}{subsubsection.3.9.2.2}
-\contentsline {subsection}{\numberline {3.9.3}Member Function Documentation}{17}{subsection.3.9.3}
+\contentsline {subsection}{\numberline {3.9.3}Dokumentation der Elementfunktionen}{17}{subsection.3.9.3}
 \contentsline {subsubsection}{\numberline {3.9.3.1}what}{17}{subsubsection.3.9.3.1}
-\contentsline {section}{\numberline {3.10}T\discretionary {-}{}{}\_\discretionary {-}{}{}nuex Struct Reference}{17}{section.3.10}
-\contentsline {section}{\numberline {3.11}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket Class Reference}{17}{section.3.11}
-\contentsline {subsection}{\numberline {3.11.1}Detailed Description}{17}{subsection.3.11.1}
-\contentsline {subsection}{\numberline {3.11.2}Constructor \& Destructor Documentation}{18}{subsection.3.11.2}
+\contentsline {section}{\numberline {3.10}T\discretionary {-}{}{}\_\discretionary {-}{}{}nuex Strukturreferenz}{17}{section.3.10}
+\contentsline {section}{\numberline {3.11}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket Klassenreferenz}{17}{section.3.11}
+\contentsline {subsection}{\numberline {3.11.1}Ausf\IeC {\"u}hrliche Beschreibung}{17}{subsection.3.11.1}
+\contentsline {subsection}{\numberline {3.11.2}Beschreibung der Konstruktoren und Destruktoren}{18}{subsection.3.11.2}
 \contentsline {subsubsection}{\numberline {3.11.2.1}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}{18}{subsubsection.3.11.2.1}
 \contentsline {subsubsection}{\numberline {3.11.2.2}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Server\discretionary {-}{}{}Socket}{19}{subsubsection.3.11.2.2}
-\contentsline {subsection}{\numberline {3.11.3}Member Function Documentation}{19}{subsection.3.11.3}
+\contentsline {subsection}{\numberline {3.11.3}Dokumentation der Elementfunktionen}{19}{subsection.3.11.3}
 \contentsline {subsubsection}{\numberline {3.11.3.1}accept}{19}{subsubsection.3.11.3.1}
-\contentsline {section}{\numberline {3.12}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket Class Reference}{19}{section.3.12}
-\contentsline {subsection}{\numberline {3.12.1}Detailed Description}{20}{subsection.3.12.1}
-\contentsline {subsection}{\numberline {3.12.2}Constructor \& Destructor Documentation}{20}{subsection.3.12.2}
+\contentsline {section}{\numberline {3.12}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket Klassenreferenz}{19}{section.3.12}
+\contentsline {subsection}{\numberline {3.12.1}Ausf\IeC {\"u}hrliche Beschreibung}{20}{subsection.3.12.1}
+\contentsline {subsection}{\numberline {3.12.2}Beschreibung der Konstruktoren und Destruktoren}{20}{subsection.3.12.2}
 \contentsline {subsubsection}{\numberline {3.12.2.1}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}{20}{subsubsection.3.12.2.1}
 \contentsline {subsubsection}{\numberline {3.12.2.2}T\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}Socket}{20}{subsubsection.3.12.2.2}
-\contentsline {section}{\numberline {3.13}U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket Class Reference}{20}{section.3.13}
-\contentsline {subsection}{\numberline {3.13.1}Detailed Description}{21}{subsection.3.13.1}
-\contentsline {subsection}{\numberline {3.13.2}Constructor \& Destructor Documentation}{21}{subsection.3.13.2}
+\contentsline {section}{\numberline {3.13}U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket Klassenreferenz}{20}{section.3.13}
+\contentsline {subsection}{\numberline {3.13.1}Ausf\IeC {\"u}hrliche Beschreibung}{21}{subsection.3.13.1}
+\contentsline {subsection}{\numberline {3.13.2}Beschreibung der Konstruktoren und Destruktoren}{21}{subsection.3.13.2}
 \contentsline {subsubsection}{\numberline {3.13.2.1}U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}{21}{subsubsection.3.13.2.1}
 \contentsline {subsubsection}{\numberline {3.13.2.2}U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}{21}{subsubsection.3.13.2.2}
 \contentsline {subsubsection}{\numberline {3.13.2.3}U\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}Socket}{21}{subsubsection.3.13.2.3}
-\contentsline {subsection}{\numberline {3.13.3}Member Function Documentation}{22}{subsection.3.13.3}
+\contentsline {subsection}{\numberline {3.13.3}Dokumentation der Elementfunktionen}{22}{subsection.3.13.3}
 \contentsline {subsubsection}{\numberline {3.13.3.1}disconnect}{22}{subsubsection.3.13.3.1}
 \contentsline {subsubsection}{\numberline {3.13.3.2}join\discretionary {-}{}{}Group}{22}{subsubsection.3.13.3.2}
 \contentsline {subsubsection}{\numberline {3.13.3.3}leave\discretionary {-}{}{}Group}{22}{subsubsection.3.13.3.3}

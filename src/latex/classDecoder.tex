@@ -1,7 +1,7 @@
-\hypertarget{classDecoder}{\section{Decoder Class Reference}
+\hypertarget{classDecoder}{\section{Decoder Klassenreferenz}
 \label{classDecoder}\index{Decoder@{Decoder}}
 }
-\subsection*{Public Member Functions}
+\subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classDecoder_a26cf61527451080d86ac5f876d3d1c21}{Decoder} (char $\ast$buffer, const int bufferlen)
@@ -16,7 +16,7 @@ unsigned int \hyperlink{classDecoder_aca3dc7a7a1982ac07e1a08a0e4c91955}{get\-Pac
 \end{DoxyCompactItemize}
 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
 \hypertarget{classDecoder_a26cf61527451080d86ac5f876d3d1c21}{\index{Decoder@{Decoder}!Decoder@{Decoder}}
 \index{Decoder@{Decoder}!Decoder@{Decoder}}
 \subsubsection[{Decoder}]{\setlength{\rightskip}{0pt plus 5cm}Decoder\-::\-Decoder (
@@ -26,7 +26,7 @@ unsigned int \hyperlink{classDecoder_aca3dc7a7a1982ac07e1a08a0e4c91955}{get\-Pac
 \end{DoxyParamCaption}
 )}}\label{classDecoder_a26cf61527451080d86ac5f876d3d1c21}
 Erzeugt einen Dekoder der zum dekodieren der Paketinformation dient. 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parameter}
 {\em buffer} & Speicher der die Paketinformationen enthält. \mbox{[}Layout,Datentypen,Kommasetzung\mbox{]} \\
 \hline
 {\em bufferlen} & Länge von {\itshape buffer}. \\
@@ -47,7 +47,7 @@ Erzeugt einen Dekoder der zum dekodieren der Paketinformation dient.
 \end{DoxyParamCaption}
 )}}\label{classDecoder_aec7e24d0fc7ac86886fc7f5de4999ed5}
 Erzeugt einen Dekoder der ein Datenpaket anhand der übergebenen Informationen dekodiert. 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parameter}
 {\em buffer} & Speicher des Datenpakets. \\
 \hline
 {\em buffernlen} & Länge von {\itshape buffer}. \\
@@ -67,7 +67,7 @@ Erzeugt einen Dekoder der ein Datenpaket anhand der übergebenen Informationen d
 \end{DoxyParams}
 
 
-\subsection{Member Function Documentation}
+\subsection{Dokumentation der Elementfunktionen}
 \hypertarget{classDecoder_a822e353ce4fda29290f280d4e3e44305}{\index{Decoder@{Decoder}!get\-Next\-Data@{get\-Next\-Data}}
 \index{get\-Next\-Data@{get\-Next\-Data}!Decoder@{Decoder}}
 \subsubsection[{get\-Next\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Decoder\-::get\-Next\-Data (
@@ -75,7 +75,7 @@ Erzeugt einen Dekoder der ein Datenpaket anhand der übergebenen Informationen d
 {}
 \end{DoxyParamCaption}
 )}}\label{classDecoder_a822e353ce4fda29290f280d4e3e44305}
-Holt den nächsten Datensatz aus den empfangenen Daten. \begin{DoxyReturn}{Returns}
+Holt den nächsten Datensatz aus den empfangenen Daten. \begin{DoxyReturn}{Rückgabe}
 Gibt ein Datenobjekt \hyperlink{classData}{Data} zurück das sämtlich Informationen über den Datensatz enthält. 
 \end{DoxyReturn}
 \hypertarget{classDecoder_a28231d06fe2fd5144a939907d6ee509a}{\index{Decoder@{Decoder}!get\-Package\-Num@{get\-Package\-Num}}
@@ -85,7 +85,7 @@ Gibt ein Datenobjekt \hyperlink{classData}{Data} zurück das sämtlich Informati
 {}
 \end{DoxyParamCaption}
 )}}\label{classDecoder_a28231d06fe2fd5144a939907d6ee509a}
-Holt die Paketnummer des akutell bearbeiteten Pakets. \begin{DoxyReturn}{Returns}
+Holt die Paketnummer des akutell bearbeiteten Pakets. \begin{DoxyReturn}{Rückgabe}
 Paketnummer das aktuellen Pakets 
 \end{DoxyReturn}
 \hypertarget{classDecoder_aca3dc7a7a1982ac07e1a08a0e4c91955}{\index{Decoder@{Decoder}!get\-Package\-Pos@{get\-Package\-Pos}}
@@ -97,7 +97,7 @@ Paketnummer das aktuellen Pakets
 \end{DoxyParamCaption}
 )}}\label{classDecoder_aca3dc7a7a1982ac07e1a08a0e4c91955}
 Holt die Position des aktuellen Pakets im ursprünglichen Datensatz. 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parameter}
 {\em vec\-Layout} & Aufteilung des ursprünglichen Datenstroms die aus den Paketinformationen dekodiert wurden. \\
 \hline
 {\em vec\-Layoutlen} & Länge von {\itshape vec\-Layout}. \\
@@ -105,7 +105,7 @@ Holt die Position des aktuellen Pakets im ursprünglichen Datensatz.
 \end{DoxyParams}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
 \item 
 Encoding.\-h\item 
 Encoding.\-cpp\end{DoxyCompactItemize}

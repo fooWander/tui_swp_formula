@@ -1,17 +1,17 @@
-\hypertarget{classSocket}{\section{Socket Class Reference}
+\hypertarget{classSocket}{\section{Socket Klassenreferenz}
 \label{classSocket}\index{Socket@{Socket}}
 }
 
 
 {\ttfamily \#include $<$Practical\-Socket.\-h$>$}
 
-Inheritance diagram for Socket\-:\begin{figure}[H]
+Klassendiagramm für Socket\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=3.000000cm]{classSocket}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Öffentliche Methoden}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{classSocket_ad585c3f2a21f2511a5dea235923c59ee}{{\bfseries Socket} (unsigned short local\-Port)}\label{classSocket_ad585c3f2a21f2511a5dea235923c59ee}
@@ -45,14 +45,14 @@ void \hyperlink{classSocket_a773fe4a35146002de76952e16fdebcfa}{set\-Local\-Port}
 \item 
 void \hyperlink{classSocket_aa6b986410bc2e606ba27d01fa7cb8836}{set\-Local\-Address\-And\-Port} (const string \&local\-Address, unsigned short local\-Port=0)  throw (\-Socket\-Exception)
 \end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
+\subsection*{Öffentliche, statische Methoden}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{classSocket_ac5060aeb501044044351d5a85b3fc95f}{clean\-Up} ()  throw (\-Socket\-Exception)
 \item 
 static unsigned short \hyperlink{classSocket_a982c63b25c5b756321a74074a275adbc}{resolve\-Service} (const string \&service, const string \&protocol=\char`\"{}tcp\char`\"{})
 \end{DoxyCompactItemize}
-\subsection*{Protected Member Functions}
+\subsection*{Geschützte Methoden}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{classSocket_a53e00027bab2125a2b407914c6148589}{{\bfseries Socket} (int type, int protocol)  throw (\-Socket\-Exception)}\label{classSocket_a53e00027bab2125a2b407914c6148589}
@@ -61,7 +61,7 @@ static unsigned short \hyperlink{classSocket_a982c63b25c5b756321a74074a275adbc}{
 \hypertarget{classSocket_a6a2609eef6559336a595a336f138d395}{{\bfseries Socket} (int sock\-Desc)}\label{classSocket_a6a2609eef6559336a595a336f138d395}
 
 \end{DoxyCompactItemize}
-\subsection*{Protected Attributes}
+\subsection*{Geschützte Attribute}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{classSocket_ad5704d2fdfb062139e1f88831617bbfb}{int {\bfseries sock\-Desc}}\label{classSocket_ad5704d2fdfb062139e1f88831617bbfb}
@@ -69,10 +69,10 @@ static unsigned short \hyperlink{classSocket_a982c63b25c5b756321a74074a275adbc}{
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Ausführliche Beschreibung}
 Base class representing basic communication endpoint 
 
-\subsection{Constructor \& Destructor Documentation}
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
 \hypertarget{classSocket_aeac4eb6379a543d38ed88977d3b6630a}{\index{Socket@{Socket}!$\sim$\-Socket@{$\sim$\-Socket}}
 \index{$\sim$\-Socket@{$\sim$\-Socket}!Socket@{Socket}}
 \subsubsection[{$\sim$\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}Socket\-::$\sim$\-Socket (
@@ -82,7 +82,7 @@ Base class representing basic communication endpoint
 )}}\label{classSocket_aeac4eb6379a543d38ed88977d3b6630a}
 Close and deallocate this socket 
 
-\subsection{Member Function Documentation}
+\subsection{Dokumentation der Elementfunktionen}
 \hypertarget{classSocket_ac5060aeb501044044351d5a85b3fc95f}{\index{Socket@{Socket}!clean\-Up@{clean\-Up}}
 \index{clean\-Up@{clean\-Up}!Socket@{Socket}}
 \subsubsection[{clean\-Up}]{\setlength{\rightskip}{0pt plus 5cm}void Socket\-::clean\-Up (
@@ -91,17 +91,17 @@ Close and deallocate this socket
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) \hspace{0.3cm}{\ttfamily [static]}}}\label{classSocket_ac5060aeb501044044351d5a85b3fc95f}
 If Win\-Sock, unload the Win\-Sock D\-L\-Ls; otherwise do nothing. We ignore this in our sample client code but include it in the library for completeness. If you are running on Windows and you are concerned about D\-L\-L resource consumption, call this after you are done with all \hyperlink{classSocket}{Socket} instances. If you execute this on Windows while some instance of \hyperlink{classSocket}{Socket} exists, you are toast. For portability of client code, this is an empty function on non-\/\-Windows platforms so you can always include it. 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parameter}
 {\em buffer} & buffer to receive the data \\
 \hline
 {\em buffer\-Len} & maximum number of bytes to read into buffer \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Rückgabe}
 number of bytes read, 0 for E\-O\-F, and -\/1 for error 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Ausnahmebehandlung}
 {\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown Win\-Sock clean up fails \\
 \hline
 \end{DoxyExceptions}
@@ -112,11 +112,11 @@ number of bytes read, 0 for E\-O\-F, and -\/1 for error
 {}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classSocket_a0fca07bdfa97874fba1a17995ed7cda3}
-Get the local address \begin{DoxyReturn}{Returns}
+Get the local address \begin{DoxyReturn}{Rückgabe}
 local address of socket 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Ausnahmebehandlung}
 {\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if fetch fails \\
 \hline
 \end{DoxyExceptions}
@@ -127,11 +127,11 @@ local address of socket
 {}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classSocket_ae01143b667d69483a2f53d0f4ce7eeed}
-Get the local port \begin{DoxyReturn}{Returns}
+Get the local port \begin{DoxyReturn}{Rückgabe}
 local port of socket 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Ausnahmebehandlung}
 {\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if fetch fails \\
 \hline
 \end{DoxyExceptions}
@@ -144,7 +144,7 @@ local port of socket
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{classSocket_a982c63b25c5b756321a74074a275adbc}
 Resolve the specified service for the specified protocol to the corresponding port number in host byte order 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parameter}
 {\em service} & service to resolve (e.\-g., \char`\"{}http\char`\"{}) \\
 \hline
 {\em protocol} & protocol of service to resolve. Default is \char`\"{}tcp\char`\"{}. \\
@@ -159,14 +159,14 @@ Resolve the specified service for the specified protocol to the corresponding po
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classSocket_aa6b986410bc2e606ba27d01fa7cb8836}
 Set the local port to the specified port and the local address to the specified address. If you omit the port, a random port will be selected. 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parameter}
 {\em local\-Address} & local address \\
 \hline
 {\em local\-Port} & local port \\
 \hline
 \end{DoxyParams}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Ausnahmebehandlung}
 {\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if setting local port or address fails \\
 \hline
 \end{DoxyExceptions}
@@ -178,18 +178,18 @@ Set the local port to the specified port and the local address to the specified 
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classSocket_a773fe4a35146002de76952e16fdebcfa}
 Set the local port to the specified port and the local address to any interface 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Parameter}
 {\em local\-Port} & local port \\
 \hline
 \end{DoxyParams}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Ausnahmebehandlung}
 {\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if setting local port fails \\
 \hline
 \end{DoxyExceptions}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
 \item 
 Communication.\-h\item 
 Practical\-Socket.\-h\item 
