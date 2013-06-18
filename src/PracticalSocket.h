@@ -26,26 +26,27 @@
 using namespace std;
 
 /**
- *   Signals a problem with the execution of a socket call.
+ *   Zeigt ein Problem mit der Ausführung eines Socketaufrufs an.
  */
 class SocketException : public exception {
 public:
     /**
-     *   Construct a SocketException with a explanatory message.
-     *   @param message explanatory message
-     *   @param incSysMsg true if system message (from strerror(errno))
-     *   should be postfixed to the user provided message
+     *   Erzeugt eine "SocketException" mit einem erklärenden Hinweistext.
+     *   @param message Nachricht die den Fehlern beschreibt
+     *   @param incSysMsg true falls eine Systemnachricht (von strerror(errno))
+     *   sollte zu der für den User bereitgestellten Nachricht hinzugefügt werden.
      */
     SocketException(const string &message, bool inclSysMsg = false) throw();
 
     /**
-     *   Provided just to guarantee that no exceptions are thrown.
+     *   Nur bereitgestellt um zu gewährleisten, dass keine Exceptions zurückgeworfen / zurückgegeben 
+     *   werden.
      */
     ~SocketException() throw();
 
     /**
-     *   Get the exception message
-     *   @return exception message
+     *   Holt die Exception-Nachricht.
+     *   @return Exception-Nachricht.
      */
     const char *what() const throw();
 
@@ -54,68 +55,51 @@ private:
 };
 
 /**
- *   Base class representing basic communication endpoint
+ *   Basisklasse, welche den Endpunkt der grundlegenden Kommunikation darstellt.
  */
 class Socket {
 public:
     /**
-     *   Close and deallocate this socket
+     *   Schließt und dealloziert diesen Socket.
      */
     ~Socket();
 
     /**
-     *   Get the local address
-     *   @return local address of socket
-     *   @exception SocketException thrown if fetch fails
+     *   Holt die lokale Adresse.
+     *   @return local Adresse des Sockets.
+     *   @exception Wirft SocketException falls das Holen fehlschlägt.
      */
     string getLocalAddress() throw(SocketException);
 
     /**
-     *   Get the local port
-     *   @return local port of socket
-     *   @exception SocketException thrown if fetch fails
+     *   Holt den lokalen Port.
+     *   @return Lokalen Port des Sockets.
+     *   @exception SocketException wird geworfen falls das Holen fehlschlägt.
      */
     unsigned short getLocalPort() throw(SocketException);
 
     /**
-     *   Set the local port to the specified port and the local address
-     *   to any interface
-     *   @param localPort local port
-     *   @exception SocketException thrown if setting local port fails
+     *   Setzt den lokalen Port zu einem gewählten Port und die lokale Adresse zu einer beliebigen 
+     *   Schnittstelle.
+     *   @param localPort Lokaler Port
+     *   @exception SocketException wird geworfen wenn das Setzen des lokalen Ports fehlschlägt.
      */
     void setLocalPort(unsigned short localPort) throw(SocketException);
 
     /**
-     *   Set the local port to the specified port and the local address
-     *   to the specified address.  If you omit the port, a random port 
-     *   will be selected.
-     *   @param localAddress local address
-     *   @param localPort local port
-     *   @exception SocketException thrown if setting local port or address fails
+     *   Setzt den lokalen Port und die lokale Adresse.
+     *   Wenn kein Port angegeben wird, wird ein zufälliger gewählt.
+     *   @param localAddress Lokale Adresse.
+     *   @param localPort Lokaler Port.
+     *   @exception SocketException wird geworfen falls das Setzen des lokalen Ports oder der Adresse fehlschlägt.
      */
     void setLocalAddressAndPort(const string &localAddress, 
         unsigned short localPort = 0) throw(SocketException);
 
     /**
-     *   If WinSock, unload the WinSock DLLs; otherwise do nothing.  We ignore
-     *   this in our sample client code but include it in the library for
-     *   completeness.  If you are running on Windows and you are concerned
-     *   about DLL resource consumption, call this after you are done with all
-     *   Socket instances.  If you execute this on Windows while some instance of
-     *   Socket exists, you are toast.  For portability of client code, this is 
-     *   an empty function on non-Windows platforms so you can always include it.
-     *   @param buffer buffer to receive the data
-     *   @param bufferLen maximum number of bytes to read into buffer
-     *   @return number of bytes read, 0 for EOF, and -1 for error
-     *   @exception SocketException thrown WinSock clean up fails
-     */
-    static void cleanUp() throw(SocketException);
-
-    /**
-     *   Resolve the specified service for the specified protocol to the
-     *   corresponding port number in host byte order
-     *   @param service service to resolve (e.g., "http")
-     *   @param protocol protocol of service to resolve.  Default is "tcp".
+     *   Ermittelt den spezifizierten Service für das angegebene Protokoll.
+     *   @param service Zu ermittelnde Service (e.g., "http").
+     *   @param protocol Protokoll des zu ermittelnden Service. Standard ist "tcp".
      */
     static unsigned short resolveService(const string &service,
                                                                              const string &protocol = "tcp");
@@ -132,50 +116,49 @@ protected:
 };
 
 /**
- *   Socket which is able to connect, send, and receive
+ *   Socket der in der Lage ist sich zu verbinden, zu senden und zu empfangen.
  */
 class CommunicatingSocket : public Socket {
 public:
     /**
-     *   Establish a socket connection with the given foreign
-     *   address and port
-     *   @param foreignAddress foreign address (IP address or name)
-     *   @param foreignPort foreign port
-     *   @exception SocketException thrown if unable to establish connection
+     *   Baut eine Verbindung über Sockets zu einem bestimmten Teilnehmer.
+     *   @param foreignAddress Adresse des Teilnehmers (IP Adresse oder Name).
+     *   @param foreignPort Portnummer des Teilnehmers.
+     *   @exception SocketException wird geworfen wenn die Verbindung fehlschlägt.
      */
+
     void connect(const string &foreignAddress, unsigned short foreignPort)
         throw(SocketException);
 
     /**
-     *   Write the given buffer to this socket.  Call connect() before
-     *   calling send()
-     *   @param buffer buffer to be written
-     *   @param bufferLen number of bytes from buffer to be written
-     *   @exception SocketException thrown if unable to send data
+     *   Schreibt den übergebenen Buffer in den Socket.  Vor send() muss collect() aufgerufen werden.
+     *   @param buffer Speicher in den geschrieben werden soll.
+     *   @param bufferLen Anzahl der Bytes die geschrieben werden sollen.
+     *   @exception SocketException wird geworfen wenn keine Daten gesendet werden können.
      */
     void send(const void *buffer, int bufferLen) throw(SocketException);
 
     /**
-     *   Read into the given buffer up to bufferLen bytes data from this
-     *   socket.  Call connect() before calling recv()
-     *   @param buffer buffer to receive the data
-     *   @param bufferLen maximum number of bytes to read into buffer
-     *   @return number of bytes read, 0 for EOF, and -1 for error
-     *   @exception SocketException thrown if unable to receive data
+     *   Ließt eine Nachricht in den übergebenen Buffer ein.
+     *   connect() muss vorher aufgerufen werden.
+     *   @param buffer Speicher in den die Nachricht geschrieben werden soll.
+     *   @param bufferLen Maximale Anzahl an Bytes die empfangen werden sollen.
+     *   @return Gibt die Anzahl der gelesenen Bytes zurück. 0 wenn EOF und -1 im Fehlerfall.
+     *   @exception SocketException wird geworfen falls keine Daten emfpangen werden können.
      */
     int recv(void *buffer, int bufferLen) throw(SocketException);
 
     /**
-     *   Get the foreign address.  Call connect() before calling recv()
-     *   @return foreign address
-     *   @exception SocketException thrown if unable to fetch foreign address
+     *   Holt die Zieladresse.
+     *   @return Zieladresse.
+     *   @exception SocketException wird geworfen falls das Holen fehlschlägt.
      */
     string getForeignAddress() throw(SocketException);
 
     /**
-     *   Get the foreign port.  Call connect() before calling recv()
-     *   @return foreign port
-     *   @exception SocketException thrown if unable to fetch foreign port
+     *   Holt den Zielport.  Call connect() before calling recv()
+     *   @return Zielportnummer.
+     *   @exception SocketException wird geworfen falls das Holen fehlschlägt.
      */
     unsigned short getForeignPort() throw(SocketException);
 
@@ -185,22 +168,21 @@ protected:
 };
 
 /**
- *   TCP socket for communication with other TCP sockets
+ *   TCP-Socket für die Kommunikation mit anderen TCP-Sockets.
  */
 class TCPSocket : public CommunicatingSocket {
 public:
     /**
-     *   Construct a TCP socket with no connection
-     *   @exception SocketException thrown if unable to create TCP socket
+     *   Erzeugt einen TCP-Socket mit keiner Verbindung.
+     *   @exception SocketException wird geworfen falls die Erzeugung fehlschlägt.
      */
     TCPSocket() throw(SocketException);
 
     /**
-     *   Construct a TCP socket with a connection to the given foreign address
-     *   and port
+     *   Erzeugt einen TCP-Socket mit einer Verbindung zu einer bestimmten Adresse und einem bestimmten Port.
      *   @param foreignAddress foreign address (IP address or name)
      *   @param foreignPort foreign port
-     *   @exception SocketException thrown if unable to create TCP socket
+     *   @exception SocketException wird geworfen falls die Erzeugung fehlschlägt.
      */
     TCPSocket(const string &foreignAddress, unsigned short foreignPort) 
             throw(SocketException);
@@ -212,39 +194,37 @@ private:
 };
 
 /**
- *   TCP socket class for servers
+ *   TCP-Socket Klasse für Server.
  */
 class TCPServerSocket : public Socket {
 public:
     /**
-     *   Construct a TCP socket for use with a server, accepting connections
-     *   on the specified port on any interface
-     *   @param localPort local port of server socket, a value of zero will
-     *                   give a system-assigned unused port
-     *   @param queueLen maximum queue length for outstanding 
-     *                   connection requests (default 5)
-     *   @exception SocketException thrown if unable to create TCP server socket
+     *   Erzeugt einen TCP-Socket für die Nutzung mit dem Server, welcher zu 
+     *   einer beliebigen Schnittstelle auf dem vereinbarten Port Verbindungen zulässt.
+     *   @param localPort Lokaler Port des Server.
+     *   @param queueLen Maximale Warteschlangenlänge für ausstehende Verbindungsanfragen. (default 5)
+     *   @exception SocketException wird geworfen falls es nicht möglich ist einen Socket zu erzeugen.
      */
     TCPServerSocket(unsigned short localPort, int queueLen = 5) 
             throw(SocketException);
 
     /**
-     *   Construct a TCP socket for use with a server, accepting connections
-     *   on the specified port on the interface specified by the given address
-     *   @param localAddress local interface (address) of server socket
-     *   @param localPort local port of server socket
-     *   @param queueLen maximum queue length for outstanding 
-     *                   connection requests (default 5)
-     *   @exception SocketException thrown if unable to create TCP server socket
+     *   Erzeugt einen TCP-Socket für die Nutzung mit dem Server, welcher zu 
+     *   einer beliebigen Schnittstelle zu einer vereinbarten Adresse Verbindungen zulässt.
+     *   @param localAddress Lokales Interface (Adresse) des Server-Sockets.
+     *   @param localPort Lokaler Port des Servers.
+     *   @param queueLen Maximale Warteschlangenlänge für ausstehende Verbindungsanfragen. (default 5)
+     *   @exception SocketException wird geworfen falls es nicht möglich ist einen Socket zu erzeugen.
      */
     TCPServerSocket(const string &localAddress, unsigned short localPort,
             int queueLen = 5) throw(SocketException);
 
     /**
-     *   Blocks until a new connection is established on this socket or error
-     *   @return new connection socket
-     *   @exception SocketException thrown if attempt to accept a new connection fails
+     *   Blockiert solange bis eine neue Verbindung auf diesem Socket etabliert wurde oder ein Fehler auftritt.
+     *   @return Neue Socketverbindung
+     *   @exception SocketException wird geworfen falls der Versuch eine neue Verbindung zu erzeugen fehlschlägt.
      */
+
     TCPSocket *accept() throw(SocketException);
 
 private:
@@ -252,83 +232,81 @@ private:
 };
 
 /**
-    *   UDP socket class
+    *   UDP-Socket Klasse
     */
 class UDPSocket : public CommunicatingSocket {
 public:
     /**
-     *   Construct a UDP socket
-     *   @exception SocketException thrown if unable to create UDP socket
+     *   Erzeugt einen UDP-Socket.
+     *   @exception SocketException wird geworfen falls die Erzeugung fehlschlägt.
      */
     UDPSocket() throw(SocketException);
 
     /**
-     *   Construct a UDP socket with the given local port
-     *   @param localPort local port
-     *   @exception SocketException thrown if unable to create UDP socket
+     *   Erzeugt einen UDP-Socket mit einem spezifischen Port.
+     *   @param localPort Lokaler Port
+     *   @exception SocketException wird geworfen falls die Erzeugung fehlschlägt.
      */
     UDPSocket(unsigned short localPort) throw(SocketException);
 
     /**
-     *   Construct a UDP socket with the given local port and address
-     *   @param localAddress local address
-     *   @param localPort local port
-     *   @exception SocketException thrown if unable to create UDP socket
+     *   Erzeugt einen UDP-Socket mit einer spezifischen Adresse und einem gegebenen Port.
+     *   @param localAddress Lokale Adresse.
+     *   @param localPort Lokaler Port.
+     *   @exception SocketException wird geworfen falls die Erzeugung fehlschlägt.
      */
     UDPSocket(const string &localAddress, unsigned short localPort) 
             throw(SocketException);
 
     /**
-     *   Unset foreign address and port
-     *   @return true if disassociation is successful
-     *   @exception SocketException thrown if unable to disconnect UDP socket
+     *   Setze Adresse und Port zurück.
+     *   @return true falls kein Fehler auftrat.
+     *   @exception SocketException wird geworfen falls eine Trennung fehlschlägt.
      */
     void disconnect() throw(SocketException);
 
     /**
-     *   Send the given buffer as a UDP datagram to the
-     *   specified address/port
-     *   @param buffer buffer to be written
-     *   @param bufferLen number of bytes to write
-     *   @param foreignAddress address (IP address or name) to send to
-     *   @param foreignPort port number to send to
-     *   @return true if send is successful
-     *   @exception SocketException thrown if unable to send datagram
+     *   Sendet einen Buffer als UDP-Datagramm an eine bestimmte Adresse und Portnummer.
+     *   @param buffer Buffer der gesendet werden soll.
+     *   @param bufferLen Anzahl der Bytes die geschrieben werden sollen.
+     *   @param foreignAddress Adresse an die versendet werden soll.
+     *   @param foreignPort Portnummer an die versendet werden soll.
+     *   @return true falls Versandt geklappt hat.
+     *   @exception SocketException wird geworfen falls das Senden fehlschlägt.
      */
     void sendTo(const void *buffer, int bufferLen, const string &foreignAddress,
                         unsigned short foreignPort) throw(SocketException);
 
     /**
-     *   Read read up to bufferLen bytes data from this socket.  The given buffer
-     *   is where the data will be placed
-     *   @param buffer buffer to receive data
-     *   @param bufferLen maximum number of bytes to receive
-     *   @param sourceAddress address of datagram source
-     *   @param sourcePort port of data source
-     *   @return number of bytes received and -1 for error
-     *   @exception SocketException thrown if unable to receive datagram
+     *   Empfängt eine Nachricht an einem UDP-Socket.
+     *   @param buffer Buffer in den gelesen werden soll.
+     *   @param bufferLen Maximale Anzahl an Bytes die empfangen werden sollen.
+     *   @param sourceAddress Adresse von der die Nachricht stammt.
+     *   @param sourcePort Portnummer des Senders.
+     *   @return Anzahl der Bytes die empfangen wurden, -1 falls ein Fehler auftrat.
+     *   @exception SocketException wird geworfen falls das Empfangen fehlschlägt.
      */
     int recvFrom(void *buffer, int bufferLen, string &sourceAddress, 
                              unsigned short &sourcePort) throw(SocketException);
 
     /**
-     *   Set the multicast TTL
-     *   @param multicastTTL multicast TTL
-     *   @exception SocketException thrown if unable to set TTL
+     *   Setzt Multicast TTL.
+     *   @param multicastTTL Multicast TTL.
+     *   @exception SocketException wird geworfen falls das Setzen fehlschlägt.
      */
     void setMulticastTTL(unsigned char multicastTTL) throw(SocketException);
 
     /**
-     *   Join the specified multicast group
-     *   @param multicastGroup multicast group address to join
-     *   @exception SocketException thrown if unable to join group
+     *   Tritt der angegebenen Multicast-Gruppe bei.
+     *   @param multicastGroup Adresse der Mutlicast-Gruppe.
+     *   @exception SocketException wird geworfen falls das Beitreten fehlschlägt.
      */
     void joinGroup(const string &multicastGroup) throw(SocketException);
 
     /**
-     *   Leave the specified multicast group
-     *   @param multicastGroup multicast group address to leave
-     *   @exception SocketException thrown if unable to leave group
+     *   Verlasse die angegebene Multicast-Gruppe.
+     *   @param multicastGroup Zu verlassende Multicast-Gruppe.
+     *   @exception SocketException wird geworfen falls das Verlassen fehlschlägt.
      */
     void leaveGroup(const string &multicastGroup) throw(SocketException);
 
