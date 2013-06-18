@@ -20,9 +20,15 @@
 \contentsline {section}{\numberline {2.2}Embedded PC und virtueller Server}{31}
 \contentsline {subsection}{\numberline {2.2.1}Initialisierung}{31}
 \contentsline {subsection}{\numberline {2.2.2}Daten\IeC {\"u}bertragung und Datenverarbeitung}{33}
+<<<<<<< HEAD
 \contentsline {section}{\numberline {2.3}vServer}{35}
 \contentsline {section}{\numberline {2.4}Webseite}{35}
 \contentsline {subsection}{\numberline {2.4.1}Aufbau der Webseite}{35}
+=======
+\contentsline {section}{\numberline {2.3}vServer}{34}
+\contentsline {section}{\numberline {2.4}Webseite}{34}
+\contentsline {subsection}{\numberline {2.4.1}Aufbau der Webseite}{34}
+>>>>>>> 0e249db0148f41d9cd51226be5b823b9dacf4f9f
 \contentsline {subsection}{\numberline {2.4.2}Installation}{35}
 \contentsline {subsection}{\numberline {2.4.3}Initialisierung der Seiten}{37}
 \contentsline {subsection}{\numberline {2.4.4}Header}{38}
