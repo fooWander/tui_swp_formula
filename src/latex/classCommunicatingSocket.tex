@@ -37,7 +37,7 @@ unsigned short \hyperlink{classCommunicatingSocket_a184fbb4775184b87ebd886a5587e
 
 
 \subsection{Ausführliche Beschreibung}
-\hyperlink{classSocket}{Socket} which is able to connect, send, and receive 
+\hyperlink{classSocket}{Socket} der in der Lage ist sich zu verbinden, zu senden und zu empfangen. 
 
 \subsection{Dokumentation der Elementfunktionen}
 \hypertarget{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{\index{Communicating\-Socket@{Communicating\-Socket}!connect@{connect}}
@@ -48,16 +48,16 @@ unsigned short \hyperlink{classCommunicatingSocket_a184fbb4775184b87ebd886a5587e
 \item[{unsigned short}]{foreign\-Port}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}
-Establish a socket connection with the given foreign address and port 
+Baut eine Verbindung über Sockets zu einem bestimmten Teilnehmer. 
 \begin{DoxyParams}{Parameter}
-{\em foreign\-Address} & foreign address (I\-P address or name) \\
+{\em foreign\-Address} & Adresse des Teilnehmers (I\-P Adresse oder Name). \\
 \hline
-{\em foreign\-Port} & foreign port \\
+{\em foreign\-Port} & Portnummer des Teilnehmers. \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if unable to establish connection \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen wenn die Verbindung fehlschlägt. \\
 \hline
 \end{DoxyExceptions}
 \hypertarget{classCommunicatingSocket_a13f9eca30ef56836cf23c163c848c09e}{\index{Communicating\-Socket@{Communicating\-Socket}!get\-Foreign\-Address@{get\-Foreign\-Address}}
@@ -67,12 +67,12 @@ Establish a socket connection with the given foreign address and port
 {}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a13f9eca30ef56836cf23c163c848c09e}
-Get the foreign address. Call \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} before calling \hyperlink{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{recv()} \begin{DoxyReturn}{Rückgabe}
-foreign address 
+Holt die Zieladresse. \begin{DoxyReturn}{Rückgabe}
+Zieladresse. 
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if unable to fetch foreign address \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls das Holen fehlschlägt. \\
 \hline
 \end{DoxyExceptions}
 \hypertarget{classCommunicatingSocket_a184fbb4775184b87ebd886a5587eb1a3}{\index{Communicating\-Socket@{Communicating\-Socket}!get\-Foreign\-Port@{get\-Foreign\-Port}}
@@ -82,12 +82,12 @@ foreign address
 {}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a184fbb4775184b87ebd886a5587eb1a3}
-Get the foreign port. Call \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} before calling \hyperlink{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{recv()} \begin{DoxyReturn}{Rückgabe}
-foreign port 
+Holt den Zielport. Call \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} before calling \hyperlink{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{recv()} \begin{DoxyReturn}{Rückgabe}
+Zielportnummer. 
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if unable to fetch foreign port \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls das Holen fehlschlägt. \\
 \hline
 \end{DoxyExceptions}
 \hypertarget{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{\index{Communicating\-Socket@{Communicating\-Socket}!recv@{recv}}
@@ -98,19 +98,19 @@ foreign port
 \item[{int}]{buffer\-Len}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}
-Read into the given buffer up to buffer\-Len bytes data from this socket. Call \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} before calling \hyperlink{classCommunicatingSocket_a7cf1fd470c0060171b68df9f68c7bd01}{recv()} 
+Ließt eine Nachricht in den übergebenen Buffer ein. \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} muss vorher aufgerufen werden. 
 \begin{DoxyParams}{Parameter}
-{\em buffer} & buffer to receive the data \\
+{\em buffer} & Speicher in den die Nachricht geschrieben werden soll. \\
 \hline
-{\em buffer\-Len} & maximum number of bytes to read into buffer \\
+{\em buffer\-Len} & Maximale Anzahl an Bytes die empfangen werden sollen. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Rückgabe}
-number of bytes read, 0 for E\-O\-F, and -\/1 for error 
+Gibt die Anzahl der gelesenen Bytes zurück. 0 wenn E\-O\-F und -\/1 im Fehlerfall. 
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if unable to receive data \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls keine Daten emfpangen werden können. \\
 \hline
 \end{DoxyExceptions}
 \hypertarget{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}{\index{Communicating\-Socket@{Communicating\-Socket}!send@{send}}
@@ -121,16 +121,16 @@ number of bytes read, 0 for E\-O\-F, and -\/1 for error
 \item[{int}]{buffer\-Len}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}
-Write the given buffer to this socket. Call \hyperlink{classCommunicatingSocket_a9192374d9baab8e189860aa8d913683c}{connect()} before calling \hyperlink{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}{send()} 
+Schreibt den übergebenen Buffer in den \hyperlink{classSocket}{Socket}. Vor \hyperlink{classCommunicatingSocket_aca4e86085c064641e86ae24ea29bbb94}{send()} muss collect() aufgerufen werden. 
 \begin{DoxyParams}{Parameter}
-{\em buffer} & buffer to be written \\
+{\em buffer} & Speicher in den geschrieben werden soll. \\
 \hline
-{\em buffer\-Len} & number of bytes from buffer to be written \\
+{\em buffer\-Len} & Anzahl der Bytes die geschrieben werden sollen. \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if unable to send data \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen wenn keine Daten gesendet werden können. \\
 \hline
 \end{DoxyExceptions}
 

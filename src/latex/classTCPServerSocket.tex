@@ -24,7 +24,7 @@ Klassendiagramm für T\-C\-P\-Server\-Socket\-:\begin{figure}[H]
 
 
 \subsection{Ausführliche Beschreibung}
-T\-C\-P socket class for servers 
+T\-C\-P-\/\-Socket Klasse für Server. 
 
 \subsection{Beschreibung der Konstruktoren und Destruktoren}
 \hypertarget{classTCPServerSocket_ae559a3154527d09fe14a8e5ee1f53d7a}{\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}!T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}}
@@ -35,16 +35,16 @@ T\-C\-P socket class for servers
 \item[{int}]{queue\-Len = {\ttfamily 5}}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classTCPServerSocket_ae559a3154527d09fe14a8e5ee1f53d7a}
-Construct a T\-C\-P socket for use with a server, accepting connections on the specified port on any interface 
+Erzeugt einen T\-C\-P-\/\-Socket für die Nutzung mit dem Server, welcher zu einer beliebigen Schnittstelle auf dem vereinbarten Port Verbindungen zulässt. 
 \begin{DoxyParams}{Parameter}
-{\em local\-Port} & local port of server socket, a value of zero will give a system-\/assigned unused port \\
+{\em local\-Port} & Lokaler Port des Server. \\
 \hline
-{\em queue\-Len} & maximum queue length for outstanding connection requests (default 5) \\
+{\em queue\-Len} & Maximale Warteschlangenlänge für ausstehende Verbindungsanfragen. (default 5) \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if unable to create T\-C\-P server socket \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls es nicht möglich ist einen \hyperlink{classSocket}{Socket} zu erzeugen. \\
 \hline
 \end{DoxyExceptions}
 \hypertarget{classTCPServerSocket_a3908fecb1b038f7c14fcc7726f54d01d}{\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}!T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}}
@@ -56,18 +56,18 @@ Construct a T\-C\-P socket for use with a server, accepting connections on the s
 \item[{int}]{queue\-Len = {\ttfamily 5}}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classTCPServerSocket_a3908fecb1b038f7c14fcc7726f54d01d}
-Construct a T\-C\-P socket for use with a server, accepting connections on the specified port on the interface specified by the given address 
+Erzeugt einen T\-C\-P-\/\-Socket für die Nutzung mit dem Server, welcher zu einer beliebigen Schnittstelle zu einer vereinbarten Adresse Verbindungen zulässt. 
 \begin{DoxyParams}{Parameter}
-{\em local\-Address} & local interface (address) of server socket \\
+{\em local\-Address} & Lokales Interface (Adresse) des Server-\/\-Sockets. \\
 \hline
-{\em local\-Port} & local port of server socket \\
+{\em local\-Port} & Lokaler Port des Servers. \\
 \hline
-{\em queue\-Len} & maximum queue length for outstanding connection requests (default 5) \\
+{\em queue\-Len} & Maximale Warteschlangenlänge für ausstehende Verbindungsanfragen. (default 5) \\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if unable to create T\-C\-P server socket \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls es nicht möglich ist einen \hyperlink{classSocket}{Socket} zu erzeugen. \\
 \hline
 \end{DoxyExceptions}
 
@@ -80,12 +80,12 @@ Construct a T\-C\-P socket for use with a server, accepting connections on the s
 {}
 \end{DoxyParamCaption}
 ) throw  {\bf Socket\-Exception}) }}\label{classTCPServerSocket_a1d161137e1b069de7a7bfc14d3f8212c}
-Blocks until a new connection is established on this socket or error \begin{DoxyReturn}{Rückgabe}
-new connection socket 
+Blockiert solange bis eine neue Verbindung auf diesem \hyperlink{classSocket}{Socket} etabliert wurde oder ein Fehler auftritt. \begin{DoxyReturn}{Rückgabe}
+Neue Socketverbindung 
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Ausnahmebehandlung}
-{\em \hyperlink{classSocketException}{Socket\-Exception}} & thrown if attempt to accept a new connection fails \\
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls der Versuch eine neue Verbindung zu erzeugen fehlschlägt. \\
 \hline
 \end{DoxyExceptions}
 
