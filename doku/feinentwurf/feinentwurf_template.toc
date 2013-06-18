@@ -17,7 +17,7 @@
 \contentsline {subsubsection}{Signalgenerator}{12}
 \contentsline {subsection}{\numberline {2.1.4}Signalkollektor}{19}
 \contentsline {subsection}{\numberline {2.1.5}Signaltransmitter}{27}
-\contentsline {section}{\numberline {2.2}Embedded PC}{31}
+\contentsline {section}{\numberline {2.2}Embedded PC und virtueller Server}{31}
 \contentsline {subsection}{\numberline {2.2.1}Initialisierung}{31}
 \contentsline {subsection}{\numberline {2.2.2}Daten\IeC {\"u}bertragung und Datenverarbeitung}{33}
 \contentsline {section}{\numberline {2.3}vServer}{35}

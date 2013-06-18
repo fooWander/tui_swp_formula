@@ -891,7 +891,7 @@ Die Umsetzung der bidirektionalen Kommunikation zwischen der MicroAutoBox II und
 
 %--------------------------  Embedded PC  --------------------------%
 
-\section{Embedded PC}
+\section{Embedded PC und virtueller Server}
 
 An der Datenübertragung und Verarbeitung sind drei von uns entworfene Anwendungen beteiligt. Aus dem in Abschnitt 2.1 (VERWEIS) bereits beschriebenen Simulink-Modell wird mithilfe der Entwicklungswerkzeuge von dSPACE automatisch C-Code erzeugt und für die Ausführung auf der MicroAutoBox II kompiliert. Diese Anwendung wird im Folgenden als \textit{mabxii} bezeichnet. Desweiteren wird jeweils eine von uns in C++ implementierte Anwendung auf dem Embedded-PC und vServer laufen welche von nun an \textit{embpc} und \textit{vserver} genannt werden. Bei deren Entwurf wurde insbesondere darauf geachtet, dass beiden Anwendungen eine möglichst große gemeinsame Code-Basis zugrundeliegt. Dadurch soll zum einen die Fehlerwahrscheinlichkeit minimiert werden -- Code-Abschnitte werden häufiger ausgeführt wodurch Fehler eher zutage treten und behoben werden können -- und zum anderen soll dadurch Zeit bei der Implementierung und dem Testen eingespart werden die letztendlich der Qualität der Software zugute kommt. 
 
@@ -953,8 +953,9 @@ Der Embedded-PC nimmt die Fahrzeugdaten entgegen und verarbeitet diese (\texttt{
 Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen 8 Byte Zeitstempel und einer 4 Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, ist also eine Zahl zwischen 1 und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf 5 Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
 Sobald ein Paket den vServer erreicht wird es zunächst dekodiert (\texttt{6: decode PACKAGE 1}) (wobei \texttt{PACKAGE 1} hier nicht zwangsläufig das erste Paket aus \texttt{DATA} sein muss - Pakete können sich überholen oder verloren gehen). Dabei wird zunächst der \texttt{HEADER} ausgelesen. Der darin enthaltene Zeitstempel wird mit dem lokalen verglichen, ist die Differenz größer als 5 Sekunden wird das Paket verworfen, ansonsten wird das Paket entsprechend der Daten in \texttt{VEC\_LAYOUT}, \texttt{VEC\_COMMA} und 7\texttt{VEC\_DATATYPES} so bearbeitet, dass der Dekoder einen Fahrzeugwert nach dem anderen an die Datenbank zur Verfügung stellen kann. Wurden alle Fahrzeugdaten aus dem Paket ausgelesen und verarbeitet, wird ein neues Paket empfangen. 
 
-\item
-Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server zu dessen Reaktion den aktuellen Kommunikationsvorgang abzubrechen und sich auf einen neuen vorzubereiten. Auch das senden des Pakets (ready\_3) dient dazu einen neuen Kommunikationsvorgang mitzuteilen, denn durch dessen Empfang von der MicroAutoBox II, bricht auch diese den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten des Servers, wird das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. Weitere Auslöser für einen neuen Kommunikationsvorgang sind die folgenden Zeitüberschreitungen, welche Y-mal bei Y-maligen Senden des zugehörigen Pakets überschritten wurden:
+\end{itemize}
+
+Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server zu dessen Reaktion den aktuellen Kommunikationsvorgang abzubrechen und sich auf einen neuen vorzubereiten -- der Initialsierungsprozess beginnt von neuem. Auch das Senden des Pakets \texttt{MSG\_READY} an die MicroAutoBox II dient dazu einen neuen Kommunikationsvorgang mitzuteilen, denn durch dessen Empfang bricht auch diese den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten des Servers, wird das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. Weitere Auslöser für einen neuen Kommunikationsvorgang sind die folgenden Zeitüberschreitungen, welche Y-mal bei Y-maligen Senden des zugehörigen Pakets überschritten wurden:
 
 timeout B1 öfter als Y-mal überschritten (Paket Y-mal gesendet),
 timeout B2 öfter als Y-mal überschritten (Paket Y-mal gesendet),
@@ -963,7 +964,7 @@ timeout C2 öfter als Y-mal überschritten (Paket Y-mal gesendet),
 timeout D\_1 öfter als Y-mal überschritten (Paket Y-mal gesendet),
 timeout D\_2 öfter als Y-mal überschritten (Paket Y-mal gesendet).
 
-\end{itemize}
+
 
 
 %--------------------------   vServer   ----------------------------%
