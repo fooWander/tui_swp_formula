@@ -1151,13 +1151,35 @@ Wird von \textit{Insert} die Memberfunktion \textit{instertIntoDB(string* anw)} 
 \label{resizeDBSequenz}
 \end{figure} 
 
+Dieses Sequenzdiagramm beschreibt den Ablauf des Programmes \textit{sizeDB} auf dem virtuellem Server.\\
+Direkt nach dem Aufruf des Programmes wird die Klasse \textit{dbData} erzeugt, welche wiederum die Datei \textit{dbconfig} einliest. \\
+Anschließend fragt \textit{resizeDB} von \textit{dbData} die Zugangsdaten zur Datenbank ab und mit Hilfe dieser Daten wird nun eine Verbindung zum MySQL-Server aufgebaut.\\
+Nachfolgend wird für jede Tabelle die aktuelle Anzahl an Datensätzen abgefragt, sollten mehr Einträge als vorgesehen in der Tabelle liegen, werden sie anschließend über ein weiteres MySQL-Statement aus der Datenbank gelöscht.\\
+Da es auch möglich sein soll, dieses Programm von der Kommandozeile auszuführen, erfolgt zum Schluss eine Ausgabe über die durchgeführten Arbeitsschritte.
+
+\newpage
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.75]{resizeDB}
 \caption[Klassendiagramm des virtuellen Servers]{Klassendiagramm des virtuellen Servers}
 \label{resizeDB}
-\end{figure} 
+\end{figure}
+
+Klasse \textit{resizeDB}:\\
+\textit{resizeDB} stellt ein eigenständiges Programm dar, welches die Fahrzeugdaten-Tabellen der MySQL-Datenbank auf die Anzahl ihrer Einträge überprüft, bei Überschreiten einer vordefinierten Anzahl an Einträgen (regulär 36000) werden die überflüssigen ältesten Einträge automatisch gelöscht.\\
+Dieses Programm wird im Produktiveinsatz periodisch mittels eines vorher definierten \textit{Cronjobs} (also eine periodisch ausgeführte Aufgabe zur Pflege der Daten) aufgerufen und ist unabhängig von den anderen auf dem virtuellen Server laufenden Programmen.\\
+Beim Start werden über die Klasse \textit{dbData} die Zugangsdaten für den MySQL-Server abgerufen und anschließend eine Verbindung zur Datenbank mittels des \textit{MySQL Connector/C++} aufgebaut.
+War der Verbindungsaufbau erfolgreich, werden die entsprechenden Tabellen mit den Fahrzeugdaten nacheinander überprüft, dazu wird die aktuelle Anzahl an Datensätzen in der Tabelle über ein MySQL-Statement ermittelt und mit der Norm verglichen.
+Sollten mehr Einträge als vorgesehen in einer Tabelle vorhanden sein, wird diese mit einem weiterem MySQL-Statement nach ihrem Zeitstempel sortiert und die ältesten Einträge werden entfernt.
+Die Anzahl der gelöschten Einträge richtet sich hierbei nach der Differenz der Anzahl der aktuellen Einträge und dem Referenzwert.\\
+Da dieses Programm auch manuell von der Kommandozeile ausführbar sein soll, etwa um zu Überprüfen ob die Verbindung mit der MySQL-Datenbank erfolgreich ist, erfolgen Ausgaben über den aktuellen Bearbeitungsstand des Programmes.\\
+\\
+Klasse \textit{dbData}:\\
+Die Klasse \textit{dbData} wird verwendet um die Zugangsdaten für die MySQL-Datenbank aus einer einfachen Textdatei (siehe \textit{dbconfig.txt}) auszulesen.\\
+Um die Werte zu speichern werden die \textit{String}-Variablen \textit{host}, \textit{user}, \textit{pw} und \textit{db} angelegt. Der Konstruktor öffnet bei der Erzeugung eines Objektes dieser Klasse die Datei \textit{dbconfig.txt} aus dem  gleichem Verzeichnis und schreibt die Werte der einzelnen Zeilen in die zugehörigen Variablen.
+Der Zugriff erfolgt mithilfe der vier Memberfunktionen \textit{getHost()}, \textit{getUser()}, \textit{getPW()} und \textit{getDB()}, welche als Rückgabewert den entsprechenden \textit{String} liefern.
+
 
 \newpage
 
