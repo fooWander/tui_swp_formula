@@ -1,0 +1,58 @@
+\select@language {ngerman}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Produkt-Block}}{5}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces UND-Gatter}}{5}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Rate-Transition-Block}}{6}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Width - Block}}{6}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Multiplexer / Demultiplexer}}{7}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces S-R-Flip-Flop}}{8}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces UDP-Receive}}{8}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces DSDecode32-Block}}{9}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Byte-to-8-bit-Dekoder}}{9}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Gesamtaufbau Simulink-Modell}}{11}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Subsysteme des Signalgenerators}}{13}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Subsysteme Allgemeine Fahrzeugdaten}}{13}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Testsignale der Notaus-Schalter}}{14}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Enstellungen zum Datentyp im Constant-Block }}{15}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Enstellungen zum Datentyp im Constant-Block }}{16}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Generierung der Zelldaten}}{16}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Generierung der Testsignale f\IeC {\"u}r die Geschwindigkeit des Fahrzeuges}}{18}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Generierung der Testsignale f\IeC {\"u}r die Fahrdynamik des Fahrzeuges}}{19}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber Subsystem "`daten\_allgemein"\ im Signalkollektor}}{21}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_akku"\ im Signalkollektor}}{23}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_geschwindigkeit"\ im Subsystem "`daten\_dynamisch"\ im Signalkollektor}}{24}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_fahrdynamik"\ im Signalkollektor}}{25}
+\contentsline {figure}{\numberline {2.23}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_motor"\ im Signalkollektor}}{26}
+\contentsline {figure}{\numberline {2.24}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`UDP\_DATEN"\ im Signaltransmitter}}{27}
+\contentsline {figure}{\numberline {2.25}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`MSGSIZE\_DATEN"\ im Signaltransmitter}}{28}
+\contentsline {figure}{\numberline {2.26}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`DATEN\_PAKETINFO"\ im Signaltransmitter}}{28}
+\contentsline {figure}{\numberline {2.27}{\ignorespaces Initialisierung der Kommunikation}}{31}
+\contentsline {figure}{\numberline {2.28}{\ignorespaces \IeC {\"U}bertragung der Fahrzeugdaten}}{33}
+\contentsline {figure}{\numberline {2.29}{\ignorespaces Komponentendiagramm der Webseite}}{35}
+\contentsline {figure}{\numberline {2.30}{\ignorespaces Sequenzdiagramm f\"{u}r den Installationsprozess}}{36}
+\contentsline {figure}{\numberline {2.31}{\ignorespaces Sequenzdiagramm f\"{u}r die Initialisierung}}{37}
+\contentsline {figure}{\numberline {2.32}{\ignorespaces Sequenzdiagramm der Headerdatei}}{38}
+\contentsline {figure}{\numberline {2.33}{\ignorespaces Sequenzdiagramm der Startseite}}{39}
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Sequenzdiagramm des Registriervorgangs}}{40}
+\contentsline {figure}{\numberline {2.35}{\ignorespaces Sequenzdiagramm des Loginvorgangs}}{40}
+\contentsline {figure}{\numberline {2.36}{\ignorespaces Sequenzdiagramm des Logoutvorgangs}}{41}
+\contentsline {figure}{\numberline {2.37}{\ignorespaces Sequenzdiagramm der Passwort\"{a}nderungsfunktion}}{42}
+\contentsline {figure}{\numberline {2.38}{\ignorespaces Sequenzdiagramm des CSV-Export}}{43}
+\contentsline {figure}{\numberline {2.39}{\ignorespaces Sequenzdiagramm der Benutzerverwaltung}}{44}
+\contentsline {figure}{\numberline {2.40}{\ignorespaces Sequenzdiagramm der Onlineanzeige}}{45}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces user\_data() Funktion}}{58}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Subsystem Akkudaten}}{70}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Subsystem Zelldaten}}{71}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Subsystem Dynamische Daten}}{72}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Subsystem Motor- und Umrichterdaten}}{73}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem Signalkollektor}}{74}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_notaus"\ im Subsystem Allgemeine Fahrzeugdaten im Signalkollektor}}{75}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_temperatur\_allgemein"\ im Subsystem Allgemeine Fahrzeugdaten im Signalkollektor}}{76}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_zellenpack\_01"\ im Subsystem "`daten\_zelldaten" im Signalkollektor}}{77}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_zelldaten"\ im Subsystem "`daten\_akku"\ im Signalkollektor}}{78}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_dynamisch"\ im Signalkollektor}}{79}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem Signaltransmitter}}{80}
+\contentsline {figure}{\numberline {A.12}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`EMB\_RECEIVE"\ im Signaltransmitter}}{81}

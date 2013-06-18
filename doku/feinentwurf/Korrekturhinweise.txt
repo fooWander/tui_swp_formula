@@ -1,0 +1,33 @@
+
+S. 13 unterer Teil Z3. "welches" zuerst o.Ä, auf jeden fall scheint da ein relativpronomen zu fehlen
+S14 B) ABB? da sollte eigentlich ein screen vom aufbau des subs hin 
+S16 oben ABB? da sollte ein screen des subs zelldaten hin
+Z2 eventuell verweis zum pflichtenheft
+Z7 "zelldatän zu "zelldaten"
+Z10 wie bei... nebensatz einklammern?
+C) Z4 " fehlt
+Z5 für den wert Zeitvektors --> wohl eher: für den wert des zv
+zweiter absatz Z2 geschwän
+S 17 D) Z1/2 selbsterklärend
+Z5 ebenso
+S18 E) Z8 doppeltes und
+S19 2) Z4 dass entfernen
+aufbau Z5/6 Kategorien kursiv
+sub daten_allgemein Z1 ABB2, gibt es nicht, muss noch im anhang eingefügt und umbennant werden
+S.20 Z5 würde ich sagen: vor DER Konvertierung
+S 21 Z.3 erläutern --> erläutert
+2. abschnitt Z.10 welche DEM bekannten
+Z13 "Vorgehen" wortwiederholung zum vorsatz, eventuell mit "Vorgehensweise" austauschen
+Z13 komma vor "welche" Z14 erneutes komma dazu
+2 abschnitt Z3 selbsterklärend
+wieder 2. abschnitt 3. letzte zeile letztes wort = der und nich des
+S:23 sub daten_dynamisch Z4 selbsterklärend
+anaog dazu Z5
+Z8 das und eventuell durch komma ersätzen, da sonst 2 mal und nacheinander
+3. letzte Zeile S.23 verweis ABB8 muss geändert werden, wohl in Abb 2.21
+S24 2Z selbsterklärend
+4. letzt zeile selbsterklärend
+S25 Z4 selbsterklärend
+2. letzte zeile, da fehlt wohl ein leerzeichen vor dem ist
+S31 Abb-beschriftung
+S34/35/36 dazu analog
