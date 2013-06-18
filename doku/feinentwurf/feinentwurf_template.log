@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.6.3)  19 JUN 2013 00:11
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.6.3)  19 JUN 2013 00:55
 entering extended mode
 **feinentwurf_template.tex
 
@@ -1668,13 +1668,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1420--1423
 
  []
 
-
+[56 <C:/Users/Thomas/git/fooWander/tui_swp_formula/doku/feinentwurf/akkudatenvp
+p.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1424--1428
 
  []
 
-[56 <C:/Users/Thomas/git/fooWander/tui_swp_formula/doku/feinentwurf/akkudatenvp
-p.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1429--1433
 
  []
@@ -1788,7 +1788,7 @@ Package pdftex.def Info: userdata.png used on input line 1613.
  [65 <C:/Users/Thomas/git/fooWander/tui_swp_formula/doku/feinentwurf/userdata.p
 ng>] [66] [67] [68] [69] [70] [71] [72] [73]
 Package tocbasic Info: character protrusion at lof deactivated on input line 18
-37.
+38.
 
 (C:\Users\Thomas\git\fooWander\tui_swp_formula\doku\feinentwurf\feinentwurf_tem
 plate.lof [74
@@ -1804,7 +1804,7 @@ daten" im Sub-sys-tem []da-ten[]akku"
  [75] <akkudaten.png, id=4911, 479.54156pt x 529.98pt>
 File: akkudaten.png Graphic file (type png)
  <use akkudaten.png>
-Package pdftex.def Info: akkudaten.png used on input line 1853.
+Package pdftex.def Info: akkudaten.png used on input line 1854.
 (pdftex.def)             Requested size: 383.63377pt x 423.98456pt.
 
 [76
@@ -1812,7 +1812,7 @@ Package pdftex.def Info: akkudaten.png used on input line 1853.
 ] <zelldaten.png, id=4915, 845.40843pt x 617.30624pt>
 File: zelldaten.png Graphic file (type png)
  <use zelldaten.png>
-Package pdftex.def Info: zelldaten.png used on input line 1862.
+Package pdftex.def Info: zelldaten.png used on input line 1863.
 (pdftex.def)             Requested size: 549.50896pt x 401.24431pt.
 
 
@@ -1821,7 +1821,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <dyndaten.png, id=4916, 398.23781pt x 611.28375pt>
 File: dyndaten.png Graphic file (type png)
  <use dyndaten.png>
-Package pdftex.def Info: dyndaten.png used on input line 1870.
+Package pdftex.def Info: dyndaten.png used on input line 1871.
 (pdftex.def)             Requested size: 338.50372pt x 519.59364pt.
 
 
@@ -1831,7 +1831,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: submotordaten.png Graphic file (type png)
 
 <use submotordaten.png>
-Package pdftex.def Info: submotordaten.png used on input line 1879.
+Package pdftex.def Info: submotordaten.png used on input line 1880.
 (pdftex.def)             Requested size: 447.92233pt x 618.81036pt.
 
 
@@ -1841,7 +1841,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: subsignalkollektor.png Graphic file (type png)
 
 <use subsignalkollektor.png>
-Package pdftex.def Info: subsignalkollektor.png used on input line 1888.
+Package pdftex.def Info: subsignalkollektor.png used on input line 1889.
 (pdftex.def)             Requested size: 620.69684pt x 292.4314pt.
 
 
@@ -1851,7 +1851,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_notaus.png Graphic file (type png)
 
 <use sc_daten_notaus.png>
-Package pdftex.def Info: sc_daten_notaus.png used on input line 1897.
+Package pdftex.def Info: sc_daten_notaus.png used on input line 1898.
 (pdftex.def)             Requested size: 636.60834pt x 273.04185pt.
 
 
@@ -1862,7 +1862,7 @@ File: sc_daten_temperatur_allgemein.png Graphic file (type png)
 
 <use sc_daten_temperatur_allgemein.png>
 Package pdftex.def Info: sc_daten_temperatur_allgemein.png used on input line 1
-906.
+907.
 (pdftex.def)             Requested size: 645.41615pt x 243.19318pt.
 
 
@@ -1872,7 +1872,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_zellenpack.png Graphic file (type png)
 
 <use sc_daten_zellenpack.png>
-Package pdftex.def Info: sc_daten_zellenpack.png used on input line 1915.
+Package pdftex.def Info: sc_daten_zellenpack.png used on input line 1916.
 (pdftex.def)             Requested size: 436.63184pt x 481.80064pt.
 
 
@@ -1882,7 +1882,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_zelldaten.png Graphic file (type png)
 
 <use sc_daten_zelldaten.png>
-Package pdftex.def Info: sc_daten_zelldaten.png used on input line 1925.
+Package pdftex.def Info: sc_daten_zelldaten.png used on input line 1926.
 (pdftex.def)             Requested size: 423.60959pt x 534.31119pt.
 
 
@@ -1892,10 +1892,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_dynamisch.png Graphic file (type png)
 
 <use sc_daten_dynamisch.png>
-Package pdftex.def Info: sc_daten_dynamisch.png used on input line 1934.
+Package pdftex.def Info: sc_daten_dynamisch.png used on input line 1935.
 (pdftex.def)             Requested size: 456.77792pt x 455.03891pt.
 
-Overfull \hbox (1.53375pt too wide) in paragraph at lines 1934--1935
+Overfull \hbox (1.53375pt too wide) in paragraph at lines 1935--1936
  [][] 
  []
 
@@ -1906,10 +1906,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: subsignaltransmitter.png Graphic file (type png)
 
 <use subsignaltransmitter.png>
-Package pdftex.def Info: subsignaltransmitter.png used on input line 1943.
+Package pdftex.def Info: subsignaltransmitter.png used on input line 1944.
 (pdftex.def)             Requested size: 674.51836pt x 251.81516pt.
 
-Overfull \hbox (5.45467pt too wide) in paragraph at lines 1943--1944
+Overfull \hbox (5.45467pt too wide) in paragraph at lines 1944--1945
  [][] 
  []
 
@@ -1920,10 +1920,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: subembreceive.png Graphic file (type png)
 
 <use subembreceive.png>
-Package pdftex.def Info: subembreceive.png used on input line 1952.
+Package pdftex.def Info: subembreceive.png used on input line 1953.
 (pdftex.def)             Requested size: 684.76353pt x 211.84306pt.
 
-Overfull \hbox (15.69984pt too wide) in paragraph at lines 1952--1953
+Overfull \hbox (15.69984pt too wide) in paragraph at lines 1953--1954
  [][] 
  []
 
@@ -1976,7 +1976,7 @@ cmssbx10.pfb><E:/Programme/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 e/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><E:/Programme/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmti12.pfb><E:/Programme/MiKTeX 2.9/fonts/type1
 /public/amsfonts/cm/cmtt12.pfb>
-Output written on feinentwurf_template.pdf (88 pages, 3640746 bytes).
+Output written on feinentwurf_template.pdf (88 pages, 3641283 bytes).
 PDF statistics:
  5030 PDF objects out of 5155 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

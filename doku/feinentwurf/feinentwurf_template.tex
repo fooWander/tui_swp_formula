@@ -1171,7 +1171,7 @@ Die Webseite setzt sich aus einer Vielzahl von einzelnen PHP- und Java-Skripten 
 
 
 \subsection{Installation}
-Die Installation des Systems wird einmalig und nur beim ersten Besuch der Seite vom Nutzer durchgeführt. Sie wird durch Aufruf der \textit{install.php} gestartet. Hierbei bindet das Skript wie auch alle folgenden selbstständigen Seiten die Dateien \textit{core/init.php}, \textit{includes/overall/header.php, includes/config.php} und \textit{includes/overall/footer.php} ein. In diesen Dateien befinden sich neben \glqq globalen\grqq (es handelt sich hierbei um keine wirklichen PHP-globalen Variablen, sondern lediglich solche, die in allen Skripten verfügbar sind, die \textit{core/init.php} bzw. \textit{includes/config.php} einbinden) Variablendefinitionen auch selbstdefinierte Funktionen. An dieser Stelle ist insbesondere die Funktion \textit{install\_system()} aus der Datei \textit{core/functions/general.php} zu erwähnen (siehe Eintrag zu \textit{general.php}).\\
+Die Installation des Systems wird einmalig und nur beim ersten Besuch der Seite vom Nutzer durchgeführt. Sie wird durch Aufruf der \textit{install.php} gestartet. Hierbei bindet das Skript wie auch alle folgenden selbstständigen Seiten die Dateien \textit{core/init.php}, \textit{includes/overall/header.php, includes/config.php} und \textit{includes/overall/footer.php} ein. In diesen Dateien befinden sich neben \glqq globalen\grqq (es handelt sich hierbei um keine wirklichen PHP-globalen Variablen, sondern lediglich solche, die in allen Skripten verfügbar sind, die \textit{core/init.php} bzw. \textit{includes/config.php} einbinden) Variablendefinitionen und auch selbstdefinierte Funktionen. An dieser Stelle ist insbesondere die Funktion \textit{install\_system()} aus der Datei \textit{core/functions/general.php} zu erwähnen (siehe Eintrag zu \textit{general.php}).\\
 Der Nutzer wird nach dem Durchlauf des Skripts aufgefordert ein Formular auszufüllen. Mit diesen Daten wird dann der Vorstands-Account (= Admin-Account) erzeugt. Anschließend werden alle benötigten Datenbanken, Tabellen und Einträge erzeugt und das Skript anschließend mittels \textit{exit()} terminiert.
 
 \begin{figure}[h]
@@ -1207,9 +1207,9 @@ Desweiteren wird bei Aufruf dieser \textit{header.php} Datei immer der Eintrag i
 \end{figure}
 
 \subsection{Startseite}
-Die Startseite ist wie der Name bereits verrät der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe x.y.z Allgemeiner Seitenaufbau [Davids erster Punkt]) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
-Im Anschluss wird überprüft ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe x.y.z).\\
-Alternativ kann sich der Benutzer auch einen neuen Account erstellen. Dies erreicht er durch Auswählen des \glqq Jetzt registrieren\grqq-Links, wodurch er auf die Skript-Seite \textit{register.php} weitergeleitet wird. Der Nutzer erhält erneut ein Formular, welches er für die Registrierung vollständig ausfüllen muss. Diese Daten werden anschließend nach dem Klick auf den Abschicken-Button validiert (siehe x.y.z.).\\
+Die Startseite ist wie der Name bereits verrät der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe 2.4.13 Allgemeiner Seitenaufbau) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
+Im Anschluss wird überprüft ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe 2.4.7).\\
+Alternativ kann sich der Benutzer auch einen neuen Account erstellen. Dies erreicht er durch Auswählen des \glqq Jetzt registrieren\grqq-Links, wodurch er auf die Skript-Seite \textit{register.php} weitergeleitet wird. Der Nutzer erhält erneut ein Formular, welches er für die Registrierung vollständig ausfüllen muss. Diese Daten werden anschließend nach dem Klick auf den Abschicken-Button validiert (siehe 2.4.6).\\
 Hat sich der Nutzer eingeloggt oder war bereits eingeloggt als er die Seite aufrief, werden ihm anstelle des Login-Formulars einige Widgets in Abhängigkeit seiner Rechtegruppe (\textit{isVorstand()}-Aufruf) angezeigt, die da wären
 
 \begin{itemize}
@@ -1314,7 +1314,7 @@ Hierbei handelt es sich um ein kleines Widget, welches nicht mehr tut, als dass 
 
 
 \subsection{Allgemeine Seitenaufbau}
-Im allgemeinen Seitenaufbau geht es um eine Folge von Seitenaufrufen, Funktionen und Einbindevorgänge. Diese sind für die 5 darstellenden Seiten identisch und werden deshalb an dieser Stelle zusammenfassend veranschaulicht.
+Im allgemeinen Seitenaufbau geht es um eine Folge von Seitenaufrufen, Funktionen und Einbindevorgänge. Diese sind für die fünf darstellenden Seiten identisch und werden deshalb an dieser Stelle zusammenfassend veranschaulicht.
 \\ \\
 \includegraphics[scale=0.327]{allgemeineSeitenaufbau.png}
 \\ \\
@@ -1326,7 +1326,7 @@ Beschreibt den Aufbau des Dokuments. Dabei wird der Dokumenttyp bestimmt, danach
 
 \textbf{includes/head.php}\\
 \hangindent+95pt \hangafter=1
-Diese Datei stellt den regulären Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die 4 Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
+Diese Datei stellt den HTML-Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die vier Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
 
 
 \textbf{includes/header.php}\\
@@ -1338,7 +1338,7 @@ Beinhaltet die Navigationsleiste am Kopf der Seite, die auf allen Seiten präsen
 
 
 \subsection{Allgemeine Fahrzeugdaten}
-Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält 3 wesentliche Datein: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
+Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält drei wesentliche Datein: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
 \\ \\
 \includegraphics[scale=0.452]{allgemeinefahrzeugdaten.png}
 \\ \\
@@ -1356,7 +1356,7 @@ Wenn die Seite komplett aufgebaut ist, wird dies Aktion ausgeführt und startet 
 
 \textbf{document.getElementByID().setAttribute}\\
 \hangindent+95pt \hangafter=1  
-Ein Aufruf, der bewirkt, dass alle Klassen der Navigationsbuttons verändert werden. Wird 5 mal ausgeführt, wobei alle nicht ausgewählten Schaltflächen grau werden und der ausgewählte Button färbt sich blau. \\
+Ein Aufruf, der bewirkt, dass alle Klassen der Navigationsbuttons verändert werden. Wird fünf mal ausgeführt, wobei alle nicht ausgewählten Schaltflächen grau werden und der ausgewählte Button färbt sich blau. \\
 
 
 \textbf{justGage()}
@@ -1398,14 +1398,14 @@ Mit dieser Funktion wird der Wert "'val"' an die Stelle im Dokument geschrieben,
 \textbf{age()}
 \hspace{20mm}
 \hangindent+95pt \hangafter=1 
-Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem die letzte Aktualisierung in der Datenbank verzeichnet wurde. Dabei wird die UNIX Zeit als Referenzzeit genutzt und auf Sekunden normiert. Der Zeitpunkt in der Tabelle nutzt ebenfalls Zeiteinheit Sekunden. Die Differenz beider Werte gibt die Zeit an, die seit dem letzten Datenbankeintrag vergangen ist. Danach wird diese Zahl in Tage, Stunden, Minuten und Sekunden umgerechnet. Es werden aber aus Platzgründen in der Anzeigefläche nur Stunden, Minuten und Sekunden angezeigt. Die Zeitangabe erscheint genau dann, wenn mehr als 15 Sekunden verstrichen sind und nur die Zeiteinheiten, die tatsächlich mit Werten belegt werden. Ist mehr als 1 Stunden vergangen, werden Stunden, Minuten und Sekunden angezeigt. ist weniger als 1 Minute vergangen, werden nur die vergangen Sekunden angezeigt.\\ 
+Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem die letzte Aktualisierung in der Datenbank verzeichnet wurde. Dabei wird die UNIX Zeit als Referenzzeit genutzt und auf Sekunden normiert. Der Zeitpunkt in der Tabelle nutzt ebenfalls Zeiteinheit Sekunden. Die Differenz beider Werte gibt die Zeit an, die seit dem letzten Datenbankeintrag vergangen ist. Danach wird diese Zahl in Tage, Stunden, Minuten und Sekunden umgerechnet. Es werden aber aus Platzgründen in der Anzeigefläche nur Stunden, Minuten und Sekunden angezeigt. Die Zeitangabe erscheint genau dann, wenn mehr als 15 Sekunden verstrichen sind und nur die Zeiteinheiten, die tatsächlich mit Werten belegt werden. Ist mehr als eine Stunden vergangen, werden Stunden, Minuten und Sekunden angezeigt. ist weniger als eine Minute vergangen, werden nur die vergangen Sekunden angezeigt.\\ 
 
 
 
 
 
 \subsection{Akkudaten}
-Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den 12 Akkumulatorblöcken (jeweils 12 Zellen) sollen permanent angezeigt werden und Informationen zu den 12 Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus 2 PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
+Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-, bzw. ausgeblendet werden können. Informationen zu den zwölf Akkumulatorblöcken (jeweils zwölf Zellen) sollen permanent angezeigt werden und Informationen zu den zwölf Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus zwei PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
 \\ \\
 \includegraphics[scale=0.4255]{akkudatenvpp.png}
 \\ \\ 
@@ -1414,12 +1414,12 @@ Die allgemeine Funktionsweise dieser Seite entspricht \textit{1.1.2. Allgemeine 
 \textbf{accu\_refresh(data)}\\
 
 \hangindent+95pt \hangafter=1 
-Diese Funktion aktualisiert die 144 Zellspannungen und berechnet für die 12 Akkublöcke jeweils minimale, sowie maximale Zellspannung. Der Funktion wird das JSON Array übergeben, dass in executeQuery() geholt wird. In diesem sind alle 144 Zellspannungen gespeichert.\\
+Diese Funktion aktualisiert die 144 Zellspannungen und berechnet für die zwölf Akkublöcke jeweils minimale, sowie maximale Zellspannung. Der Funktion wird das JSON Array übergeben, dass in executeQuery() geholt wird. In diesem sind alle 144 Zellspannungen gespeichert.\\
 
 
 \textbf{kapa(data[146],removeClass/addClass)}\\
 \hangindent+95pt \hangafter=1 
-Der Funktion wird der Wert der Gesamtspannung übergeben. Mit Hilfe dieses Wertes werden dann unter Nutzung von "'addclass/removeclass"' 10 Anzeigeflächen so eingefärbt, dass sie einen Wert zwischen 0 und 100 \% simulieren.\\
+Der Funktion wird der Wert der Gesamtspannung übergeben. Mit Hilfe dieses Wertes werden dann unter Nutzung von "'addclass/removeclass"' zehn Anzeigeflächen so eingefärbt, dass sie einen Wert zwischen 0 und 100 \% simulieren.\\
 
 \textbf{toggle\_tab()}
 \hspace{5.8mm}
@@ -1440,16 +1440,16 @@ Analog wie in "'toggle\_notaus"' \textit{1.1.2. Allgemeine Fahrzeugdaten}. Hier 
 
 
 \subsection{Dynamische Daten}
-Der Aufbau ist wieder analog den vorherigen 2 Seiten. Auf dieser Seite wird folgendes visualisiert: 
+Der Aufbau ist wieder analog den vorherigen zwei Seiten. Auf dieser Seite wird folgendes visualisiert: 
 
 \begin{itemize}
 \item Drehzahlen der Räder als Halbkreis-Diagramm mit "'justGage"'
-\item Die 4 Federwege an den Achsen als vertikal stehender Ladebalken 
+\item Die vier Federwege an den Achsen als vertikal stehender Ladebalken 
 \item Gaspedal 1 und 2, Bremsposition, Bremskraft, Bremsdruck, Wassertemperatur 1 und 2 werden als horizontal liegender Ladebalken 
 \item Der Lenkwinkel wird als Balken mit Indikator visualisiert.  
 \end{itemize}
 
-Auf der Seite wird die Draufsicht des Formula Student Fahrzeuges angezeigt, dass mit der Spitze nach oben zeigt. Darüber befindet sich die Visualisierung des Lenkwinkels und rechts, bzw. links befinden sich die Drehzahlanzeigen und die Federwege entsprechend der Achsen und Räder, die in der Fahrzeuggrafik zu sehen sind.
+Auf der Seite wird die Draufsicht des Formula Student Fahrzeuges angezeigt, das mit der Spitze nach oben zeigt. Darüber befindet sich die Visualisierung des Lenkwinkels und rechts bzw. links befinden sich die Drehzahlanzeigen und die Federwege entsprechend der Achsen und Räder, die in der Fahrzeuggrafik zu sehen sind.
 \\ \\
 \includegraphics[scale=0.485]{dynamischedaten.png}
 \\ \\
@@ -1473,7 +1473,7 @@ Rechnet den übergebenen Wert vom Wertebereich -180 bis +180 in den Wertebereich
 
 
 \subsection{Fahrdynamik}
-Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf 2 Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus 4 Komponenten.\\ \\
+Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf zwei Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus vier Komponenten.\\ \\
 
 
 \includegraphics[scale=0.42]{fahrdynamik.png}
@@ -1483,7 +1483,7 @@ Funktionserklärung siehe vorhergegangene Seiten.\\
 
 
 \subsection{Motor und Umrichter}
-Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus 3 Komponenten. Die 8 Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
+Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus drei Komponenten. Die acht Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
 
 
 
@@ -1523,7 +1523,7 @@ Da sich eine eigenständige Entwicklerdokumentation mittels doxygen oder anderen
 
 \section{Webseite}
 
-Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
+Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Administrator) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
 
 Im Folgenden sollen nun Funktionen und Variablen erläutert werden, sowie die Funktionalität der einzelnen Skripte des Systems.
 
@@ -1731,67 +1731,77 @@ Endgültiger Salt. Setzt sich aus \$salt, \$alg und \$rounds zusammen.
 \newpage
 % RESTLICHE SEITEN %
 \subsection{akkudaten.php}
+$\rightarrow$ siehe 2.4.15 Akkudaten
 
 \subsection{allgemeinefahrzeugdaten.php}
+$\rightarrow$ siehe 2.4.14 Allgemeine Fahrzeugdaten
 
 \subsection{changepassword.php}
 Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwort ändern\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Änderung des Passworts\grqq (2.4.9)
 
 \subsection{dynamischedaten.php}
+$\rightarrow$ siehe 2.4.16 Dynamische Daten
 
 \subsection{fahrdynamik.php}
+$\rightarrow$ siehe 2.4.17 Fahrdynamik
 
 \subsection{index.php}
 Sie ist die Startseite des System und liefert im ausgeloggten Zustand die Möglichkeit sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Startseite\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Startseite\grqq (2.4.5)
 
 \subsection{install.php}
 Diese Datei wird nur beim ersten Mal des Aufrufs der Seite gestartet. Sie bietet ein Formular, welches ausgefüllt werden muss und den ersten Benutzer im System erstellt: den Vorstand. Ihre Hauptaufgabe ist vor allem das Aufrufen der Funktion \textit{install\_system()} (siehe x.1.2).
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Installation\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Installation\grqq (2.4.2)
 
 \subsection{login.php}
-Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verfikation ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(x.y.z)
+Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verfikation ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(2.4.7)
 
 \subsection{logout.php}
 Beendet die aktuelle Sitzung, löscht den zum aktiven Nutzer gehörigen Eintrag in der Online-Tabelle und leitet den Nutzer zurück auf die Startseite.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout\grqq (2.4.8)
 
 \subsection{motorundumrichter.php}
+$\rightarrow$ siehe 2.4.18 Motor und Umrichter
 
 \subsection{register.php}
 Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (2.4.6)
 
 \subsection{core/init.php}
 Hierbei handelt es sich um eine Datei die zu Beginn jeder Inhaltsseite eingebunden wird. Sie wird insbesondere im Header eingebunden, welcher wiederum in jeder Inhaltsseite eingebunden wird und sorgt dafür, dass die Sitzung nach ihrer Erzeugung über jeden Seitenwechsel erhalten bleibt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Initialisierung\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Initialisierung der Seiten\grqq (2.4.3)
 
 \subsection{core/functions/accept.php}
 Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Daten. Diese werden ausgewertet, d.h. es wird überprüft ob eine ID angegeben wurde und falls ja, diese von der eigenen verschieden ist. Desweiteren wird überprüft ob eine gewünschte Verwaltungsoption ('Löschen' bzw. 'Aktivieren') ausgewählt wurde, an sonsten wir der Nutzer zurück auf die Indexseite weitergeleitet. Abschließend wird noch die übergebene Rechtegruppe in einen Integer umgewandelt und mit den Daten anschließend eine Anfrage auf die Datenbank ausgeführt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Nutzerverwaltung\grqq (2.4.11)
 
 \subsection{core/functions/akkudaten\_sql.php}
+$\rightarrow$ siehe 2.4.15 Akkudaten
 
 \subsection{core/functions/allgemeinefahrzeugdaten\_sql.php}
+$\rightarrow$ siehe 2.4.14 Allgemeine Fahrzeugdaten
 
 \subsection{core/functions/csvexp\_sql.php}
 Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen welche Checkboxen vor Absenden des Formulars ausgewählt wurden als POST-Variablen. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt sondern als CSV-Datei zum Download angeboten.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV-Exportfunktionalität\grqq (2.4.10)
 
 \subsection{core/functions/dynamischedaten\_sql.php}
+$\rightarrow$ siehe 2.4.16 Dynamische Daten
 
 \subsection{core/functions/fahrdynamik\_sql.php}
+$\rightarrow$ siehe 2.4.17 Fahrdynamik
 
 \subsection{core/functions/general.php}
 Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.
-$\rightarrow$ Ausführliche Beschreibung siehe x.1.1
+$\rightarrow$ Ausführliche Beschreibung siehe 3.4.1
 
 \subsection{core/functions/motorundumrichter\_sql.php}
+$\rightarrow$ siehe 2.4.18 Motor und Umrichter
 
 \subsection{core/functions/users.php}
 Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.
-$\rightarrow$ Ausführliche Beschreibung siehe x.1.2
+$\rightarrow$ Ausführliche Beschreibung siehe 3.4.2
 
 \subsection{includes/css/style.css}
 Beinhaltet alle CSS-Formatierungen die auf der kompletten Seiten durchgeführt wurden. Für weitere Informationen siehe Kommentare in der Datei.
@@ -1804,30 +1814,21 @@ Beinhaltet den globalen Header, der auf jeder Inhaltsseite eingebunden wird. Bin
 
 \subsection{includes/widgets/csvexp.php}
 Hierbei handelt es sich um ein Widget, welches zur Auswahl der verschiedenen Fahrzeugdatentabellen jeweils eine Checkbox liefert und diese Daten nach einem Klick an die \textit{core/functions/csvexp\_sql.php} weiterleitet.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV-Exportfunktionalität\grqq (2.4.10)
 
 \subsection{includes/widgets/loggedin.php}
 Dies ist kein Widget wie es die anderen Dateien dieses Ordners sind. Es wird stets im Header eingebunden und liefert im eingeloggten Zustand eine namentliche Begrüßung des aktiven Nutzers. Desweiteren liefert es auf den einzeln Inhaltsseiten eine Information über das Alter der Daten. Außerdem gibt es einen Link zur \glqq Passwort ändern\grqq-Funktion sowie zur Startseite.
 
 \subsection{includes/widgets/manageusers.php}
 Dieses Widget erlaubt es im System registrierte Benutzer zu verwalten, d.h. sie zu aktivieren, zu löschen und ihnen eine Rechtegruppe zuzuweisen. Dies geschieht über ein Formular, dessen Daten über POST-Variablen an die \textit{core/functions/accept.php} weitergereicht werden.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Nutzerverwaltung\grqq (2.4.11)
 
 \subsection{includes/widgets/onlineusers.php}
 Ein weiteres Widget, welches die Benutzer als HTML-Tabelle ausgibt, die sich gerade eingeloggt im Benutzersystem befinden. Hierbei befindet sich bei jedem Nutzereintrag auch eine relative Zeitangabe seiner letzten Aktivität.
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online-Anzeige der Nutzer\grqq (2.4.12)
 
 \subsection{includes/widgets/userlist.php}
 Dieses Widget liefert über die \textit{includes/widgets/onlineusers.php} hinaus eine Liste aller im System registrierten Benutzer. Neben Vor- und Nachname werden auch E-Mail-Adresse, Rechtegruppe, Kontostatus und Online-Status ausgegeben.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online Benutzer\grqq (x.y.z)
-
-
-
-  
-
-
-
-
-
 
 
 

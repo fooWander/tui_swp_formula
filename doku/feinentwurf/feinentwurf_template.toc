@@ -37,7 +37,7 @@
 \contentsline {subsection}{\numberline {2.4.12}Online-Anzeige der Nutzer}{52}
 \contentsline {subsection}{\numberline {2.4.13}Allgemeine Seitenaufbau}{53}
 \contentsline {subsection}{\numberline {2.4.14}Allgemeine Fahrzeugdaten}{53}
-\contentsline {subsection}{\numberline {2.4.15}Akkudaten}{55}
+\contentsline {subsection}{\numberline {2.4.15}Akkudaten}{56}
 \contentsline {subsection}{\numberline {2.4.16}Dynamische Daten}{57}
 \contentsline {subsection}{\numberline {2.4.17}Fahrdynamik}{58}
 \contentsline {subsection}{\numberline {2.4.18}Motor und Umrichter}{59}
@@ -57,14 +57,14 @@
 \contentsline {subsection}{\numberline {3.4.9}index.php}{70}
 \contentsline {subsection}{\numberline {3.4.10}install.php}{70}
 \contentsline {subsection}{\numberline {3.4.11}login.php}{70}
-\contentsline {subsection}{\numberline {3.4.12}logout.php}{70}
+\contentsline {subsection}{\numberline {3.4.12}logout.php}{71}
 \contentsline {subsection}{\numberline {3.4.13}motorundumrichter.php}{71}
 \contentsline {subsection}{\numberline {3.4.14}register.php}{71}
 \contentsline {subsection}{\numberline {3.4.15}core/init.php}{71}
 \contentsline {subsection}{\numberline {3.4.16}core/functions/accept.php}{71}
 \contentsline {subsection}{\numberline {3.4.17}core/functions/akkudaten\_sql.php}{71}
 \contentsline {subsection}{\numberline {3.4.18}core/functions/allgemeinefahrzeugdaten\_sql.php}{71}
-\contentsline {subsection}{\numberline {3.4.19}core/functions/csvexp\_sql.php}{71}
+\contentsline {subsection}{\numberline {3.4.19}core/functions/csvexp\_sql.php}{72}
 \contentsline {subsection}{\numberline {3.4.20}core/functions/dynamischedaten\_sql.php}{72}
 \contentsline {subsection}{\numberline {3.4.21}core/functions/fahrdynamik\_sql.php}{72}
 \contentsline {subsection}{\numberline {3.4.22}core/functions/general.php}{72}
@@ -73,8 +73,8 @@
 \contentsline {subsection}{\numberline {3.4.25}includes/css/style.css}{72}
 \contentsline {subsection}{\numberline {3.4.26}includes/overall/footer.php}{72}
 \contentsline {subsection}{\numberline {3.4.27}includes/overall/header.php}{72}
-\contentsline {subsection}{\numberline {3.4.28}includes/widgets/csvexp.php}{72}
-\contentsline {subsection}{\numberline {3.4.29}includes/widgets/loggedin.php}{72}
+\contentsline {subsection}{\numberline {3.4.28}includes/widgets/csvexp.php}{73}
+\contentsline {subsection}{\numberline {3.4.29}includes/widgets/loggedin.php}{73}
 \contentsline {subsection}{\numberline {3.4.30}includes/widgets/manageusers.php}{73}
 \contentsline {subsection}{\numberline {3.4.31}includes/widgets/onlineusers.php}{73}
 \contentsline {subsection}{\numberline {3.4.32}includes/widgets/userlist.php}{73}
