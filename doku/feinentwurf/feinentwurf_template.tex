@@ -101,7 +101,7 @@
             format=plain,,justification=justified,indention=0cm]                     {caption} 
 
 \usepackage{setspace}
-
+\usepackage{enumitem}
 %% Unterstriche erlauben:
 %
 %\usepackage{underscore}
@@ -965,7 +965,134 @@ timeout D\_1 öfter als Y-mal überschritten (Paket Y-mal gesendet),
 timeout D\_2 öfter als Y-mal überschritten (Paket Y-mal gesendet).
 
 
+\begin{table}[H]
+\centering
 
+\caption{Übersicht über die Inhalte der übertragenen Pakete}
+
+ \begin{tabular}{ c | p{4cm} | p{1.5cm} | p{2cm} | p{4cm} }
+ 
+ \toprule[1.5pt]
+ 
+ Paket\-bezeichnung & Inhalt & Sender & Empfänger & Bemerkung \\
+ 
+ \midrule
+ 
+MSG\_READY\_1 & Bitvektor: \texttt{[01011001]} & \emph{embpc} & \emph{vserver} &
+
+\vspace*{-8mm}
+
+\begin{itemize}[leftmargin=*] 
+
+\item Kommunikations\-beginn melden
+\item ggf. Mitteilung über neuen Kommunikationsbeginn
+
+\end{itemize} \\
+
+\midrule
+
+MSG\_READY\_ACK\_1 & Bitvektor: \texttt{[01010001]} & \emph{vserver} & \emph{embpc} & Empfangsbestätigung für MSG\_READY\_1 \\
+
+\midrule
+
+MSG\_READY\_2 & Bitvektor: \texttt{[10010101]} & \emph{embpc} & \emph{mabxii} &
+
+\vspace*{-8mm}
+
+\begin{itemize}[leftmargin=*]
+\item Bereitschaft von vServer und Emb-PC melden
+\item ggf. Mitteilung über neuen Kommunikationsbeginn
+\end{itemize} \\
+
+\midrule
+
+PACKET\_INFO & Bytestrom: ([VEC\_DATATYPES], [VEC\_LAYOUT], [VEC\_COMMA]) &
+\emph{mabxii} \emph{embpc}& \emph{embpc} \emph{vserver} & 
+
+\vspace*{-8mm}
+
+\begin{flushleft}
+Beinhaltet die für den Emb-PC und vServer notwendigen Informationen für die nachfolgende Verarbeitung der Fahrzeugdaten
+\end{flushleft} \\
+
+\midrule
+
+PACKET\_INFO\_ACK\_1 & Bitvektor: \texttt{[00010101]} & \emph{embpc} & \emph{mabxii} & 
+Empfangsbe\-stätigung für PACKET\_INFO \\
+
+\bottomrule[1.5pt] 
+ 
+\end{tabular}
+
+\end{table}
+
+\newpage
+
+\begin{table}[H]
+\centering
+
+\caption{Übersicht über die Inhalte der übertragenen Pakete - Fortsetzung}
+
+\begin{tabular}{c | p{4cm} | p{1.5cm} | p{2cm} | p{4cm} }
+ 
+\toprule[1.5pt]
+
+Paket\-bezeichnung & Inhalt & Sender & Empfänger & Bemerkung \\
+ 
+\midrule
+
+PACKET\_INFO\_ACK\_2 & Bitvektor: \texttt{[01000101]}
+
+& \emph{embpc} & \emph{vserver} & Empfangsbestäti\-gung für PACKET\_INFO
+ \\
+
+\midrule
+
+DATA & 
+
+\vspace*{-8mm}
+
+\begin{itemize}[leftmargin=*]
+
+\item Beinhaltet sämtliche und aktualisierte Fahrzeuginformationen
+
+\item Der Inhalt wird immer aktuell gehalten
+
+\end{itemize} 
+
+& \emph{mabxii} & \emph{embpc} & Wird ohne Abfrage des Empfangs kontinuierlich gesendet \\
+
+\midrule
+
+PACKAGE & 
+
+\vspace*{-8mm}
+
+\begin{itemize}[leftmargin=*]
+
+\item von \emph{embpc} in Pakete aufgeteilte aktuelle Fahrzeuginformationen, versehen mit jeweiligen Zeitstempel und ID
+
+\item ([TIMESTAMP], [ID], [DATA\_N])
+
+\end{itemize} 
+
+& \emph{embpc} & \emph{vserver} & 
+
+\vspace*{-8mm}
+
+\begin{itemize}[leftmargin=*]
+
+\item Standardmäßig werden die Fahrzeugdaten in 5 unterschiedliche Pakete aufgeteilt
+
+\item Der sich ändernde Informationsinhalt der einzelnen Pakete wird durch den Datenempfang von der MABX II auf dem Emb-PC ständig aktualisiert.
+
+\end{itemize} \\
+
+\bottomrule[1.5pt]
+
+\end{tabular}
+
+\end{table}
 
 %--------------------------   vServer   ----------------------------%
 
