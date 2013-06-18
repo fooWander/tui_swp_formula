@@ -182,7 +182,7 @@ Um den späteren Nutzern des Service-Interfaces den Einstieg in das erzeugte Mod
 
 \item[1)] \textit{Produkt-Block}
 
-Durch den Produkt-Block wird es ermöglicht, zwei Eingangssignale miteinander zu multiplizieren und das entstehende Ausgangssignal im Signalfluss weiterzuführen. In diesem Modell wird dieser Block dazu verwendet, mithilfe des Width-Blockes (Verweis) die exakte Größe eines UDP-Paketes für einen bestimmten Datentyp (Verweis)zu berechnen. Darüber hinaus bietet dieser gegenüber dem Gain-Block bessere Laufzeiteigenschaften, wobei diesem vorteilhaften Aspekt oft eine größere Anzahl an zu verwendenden Blöcken und Leitungen gegenübersteht.
+Durch den Produkt-Block wird es ermöglicht, zwei Eingangssignale miteinander zu multiplizieren und das entstehende Ausgangssignal im Signalfluss weiterzuführen. In diesem Modell wird dieser Block dazu verwendet, mithilfe des Width-Blockes (siehe Signal Attributes, Width-Block, S. 6) die exakte Größe eines UDP-Paketes für einen bestimmten Datentyp (siehe dSPACE-Blöcke, UDP-Receive-Block, S. 8)zu berechnen. Darüber hinaus bietet dieser gegenüber dem Gain-Block bessere Laufzeiteigenschaften, wobei diesem vorteilhaften Aspekt oft eine größere Anzahl an zu verwendenden Blöcken und Leitungen gegenübersteht.
 
 \end{itemize}
 
@@ -263,7 +263,7 @@ Folgende Datentypen werden hierbei unterstützt:
 
 \item[1)] \textit{Multiplexer}
 
-Analog zum Bus Creator (s. Entwurfsdokument S.10) besitzt auch der Multiplexer die Fähigkeit, mehrere Eingangssignale zum einem einzelnen Signal zu bündeln. Jedoch besteht zwischen den beiden Komponenten ein gravierender Unterschied: während beim Busarray die einzelnen Eingangssignale weiterhin individuell vorliegen und demzufolge nur virtuell gebündelt werden um die Übersichtlichkeit innerhalb des Modells zu erhöhen, werden die Signale beim Multiplexer zu einem reellen Signalvektor zusammengefasst (s. Abb. \ref{Multiplexer / Demultiplexer}). In diesem Beispiel werden die durch die 3 Constant-Blöcke Const1-Const3 erzeugten Werte \textit{a}, \textit{b} und \textit{c} zu dem Signalvektor \textit{vector\_d} zusammengefasst, welcher nun die folgende Gestalt besitzt: 
+Analog zum Bus Creator (s. Entwurfsdokument S.10) besitzt auch der Multiplexer die Fähigkeit, mehrere Eingangssignale zum einem einzelnen Signal zu bündeln. Jedoch besteht zwischen den beiden Komponenten ein gravierender Unterschied: während beim Busarray die einzelnen Eingangssignale weiterhin individuell vorliegen und demzufolge nur virtuell gebündelt werden um die Übersichtlichkeit innerhalb des Modells zu erhöhen, werden die Signale beim Multiplexer zu einem reellen Signalvektor zusammengefasst (s. Abb. \ref{Multiplexer / Demultiplexer}). In diesem Beispiel werden die durch die drei Constant-Blöcke Const1-Const3 erzeugten Werte \textit{a}, \textit{b} und \textit{c} zu dem Signalvektor \textit{vector\_d} zusammengefasst, welcher nun die folgende Gestalt besitzt: 
 
 \vspace*{2mm}
 
@@ -278,7 +278,7 @@ $ vector\_d = \left( \begin{array}{c} signal\_a \ signal\_b \ signal\_c \end{arr
 
 \item[2)] \textit{Demultiplexer}
 
-Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiels werden die 3 Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
+Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiel werden die drei Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
 
 \end{itemize}
 
@@ -331,7 +331,7 @@ Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit
 
 \item[1)] \textit {S-R-Flip-Flop}
 
-Dieser Block bildet die Funktionsweise eine S-R-Flip-Flops nach, welches die folgende bekannte Wertetabelle besitzt:
+Dieser Block bildet die Funktionsweise eines S-R-Flip-Flops nach, welches die folgende bekannte Wertetabelle besitzt:
 
 \begin{table}[h]
 \centering
@@ -375,8 +375,7 @@ Hierbei ist zu beachten, dass an den beiden Eingängen S (Set) und R (Reset) vom
 \label{UDP-Receive}
 \end{figure}
 
-Mittels des UDP-Receive Blockes wird es der MicroAutoBox II ermöglicht, vom Embedded-PC einen Datenstrom vom Datentyp \textit{uint32} zu empfangen. Dies ist notwendig, um einerseits durch 
-den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen und andererseits den Grundstein einer bidirektionalen Kommunikation zwischen den beiden bereits genannten Komponenten für spätere Erweiterungen des Service-Interfaces durch externe Personen zu legen.
+Mittels des UDP-Receive Blockes wird es der MicroAutoBox II ermöglicht, vom Embedded-PC einen Datenstrom vom Datentyp \textit{uint32} zu empfangen. Dies ist notwendig, um einerseits durch den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen und andererseits den Grundstein einer bidirektionalen Kommunikation zwischen den beiden bereits genannten Komponenten für spätere Erweiterungen des Service-Interfaces durch externe Personen zu legen.
 
 \newpage
 
@@ -389,7 +388,7 @@ den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen u
 \label{UDP-Receive}
 \end{figure}
 
-Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zu dem Enkoder-Block DSEncode32 dar und basiert ebenfalls wie die dieser auf einer sFunction der Firma dSPACE. Er hat die Aufgabe, den empfangenen Datenstrom zu dekodieren und in einem Signalvektor in dem gewünschten Datentyp (Verweis) auszugeben. 
+Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zum Enkoder-Block DSEncode32 dar und basiert ebenfalls wie die dieser auf einer sFunction der Firma dSPACE. Er hat die Aufgabe, den empfangenen Datenstrom zu dekodieren und in einem Signalvektor in dem gewünschten Datentyp (Verweis) auszugeben. 
 
 \item[3)] \textit{Byte-to-8bit-Dekoder}
 
@@ -400,7 +399,7 @@ Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zu dem Enkoder-Bloc
 \label{Byte-to-8-bit-Dekoder}
 \end{figure}
 
-Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf einer sFunction basiert. Durch ihn wird es ermöglicht, aus einem Byte Daten die einzelnen Bits zu isolieren und diese getrennt an den Outputs weiterzuleiten.
+Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf einer sFunction basiert. Durch ihn wird es möglich, aus einem Byte Daten die einzelnen Bits zu isolieren und diese getrennt an den Outputs weiterzuleiten.
 
 \end{itemize}
 
@@ -412,7 +411,7 @@ Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf e
 
 \subsubsection{signalgenerator\_microautbox.m}
 
-Wie schon im Entwurfsdokument beschrieben, dient diese *.m-File dazu, eine übersichtliche Darstellung über die Werteverläufe aller im Signalgenerator (Verweis) erzeugten Testsignale zu gewährleisten und eine eventuelle Modifikation ebendieser durch eine ausführliche Kommentierung so komfortabel wie möglich zu gestalten. Des Weiteren wurde um die Benennung der Parameter in dieser Config-Datei zu vereinfachen jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen. Die korrekte Referenzierung dieser Vektoren in Constant- (Verweis) oder RSI-Blöcken (Verweis) ist dem Entwurfsdokument aus Abbildung 3.21 zu entnehmen.  
+Wie schon im Entwurfsdokument beschrieben, dient diese *.m-File dazu, eine übersichtliche Darstellung über die Werteverläufe aller im Signalgenerator (2.1.3) erzeugten Testsignale zu gewährleisten und eine eventuelle Modifikation ebendieser durch eine ausführliche Kommentierung so komfortabel wie möglich zu gestalten. Des Weiteren wurde um die Benennung der Parameter in dieser Config-Datei zu vereinfachen jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen. Die korrekte Referenzierung dieser Vektoren in Constant- (Verweis) oder RSI-Blöcken (Verweis) ist dem Entwurfsdokument aus Abbildung 3.21 zu entnehmen.  
 
 \subsubsection{config\_datenpaket.m}
 
@@ -420,7 +419,7 @@ Dieses *.m-File beinhaltet drei Vektoren, welche für den Embedded-PC erforderli
 
 1) VEKTOR\_AUFTEILUNG\_DATENPAKET  \\  
 
-Dieser Vektor beschreibt, an welchen Stellen des Datenpaketes welche Datentypen anliegen, um anschließend auf dem Embedded-PC entsprechende Optimierungen bei der Umrechnung/Kovertierung der Daten und die Aufteilung des Datenpaketes anhand der einzelnen Gruppen A) - E) (s. Pflichtenheft) vornehmen zu können. Dieser $1 \times N$ - Zeilenvektor mit aktuell $N = 401$ Fahrzeugwerten wird aus Aspekten der Benutzerfreundlichkeit aus einer $N \times 3$ - Matrix namens MATRIX\_AUFTEILUNG\_DATENPAKET erzeugt, wobei die einzelnen Spalten für die folgenden Einträge stehen: 
+Dieser Vektor beschreibt, an welchen Stellen des Datenpaketes welche Datentypen anliegen, um anschließend auf dem Embedded-PC entsprechende Optimierungen bei der Umrechnung/Konvertierung der Daten und die Aufteilung des Datenpaketes anhand der einzelnen Gruppen A) - E) (s. Pflichtenheft) vornehmen zu können. Dieser $1 \times N$ - Zeilenvektor mit aktuell $N = 401$ Fahrzeugwerten wird aus Aspekten der Benutzerfreundlichkeit aus einer $N \times 3$ - Matrix namens MATRIX\_AUFTEILUNG\_DATENPAKET erzeugt, wobei die einzelnen Spalten für die folgenden Einträge stehen: 
 
 \begin{center}
 [ Start | Stop | Datentyp ]
@@ -464,12 +463,11 @@ $ V = \left( \begin{array}{c} 3 \ 3 \ 5 \ 5  \end{array} \right)$
 
 2) VEKTOR\_PAKETTEILUNG \\
 
-Dieser Vektor enthält als Elemente diejenigen Stellen, bei denen eine Aufteilung der einzelnen Datengruppen der Fahrzeugdaten in die Kategorien A) -- E) erfolgt(s. Pflichtenheft). X $\mid$ Y  in der Kommentaren der *.m-File gibt an, zwischen welchen Stellen das Datenpaket im C++ -- Programm getrennt werden muss. Dies verfolgt den Zweck, das auf dem Embedded-PC empfangene Datenpaket in 5 Datenpakete mit den jeweiligen Datengruppen aufzuteilen, um einerseits eine klarere Zuordnung der Daten auf dem vServer zu ermöglichen und andererseits eventuell auftretenden Verbindungsproblemen und einbrechenden Signalstärken bei der Übertragung via UMTS an den vServer zu begegnen. \\
+Dieser Vektor enthält als Elemente diejenigen Stellen, bei denen eine Aufteilung der einzelnen Datengruppen der Fahrzeugdaten in die Kategorien A) -- E) erfolgt(s. Pflichtenheft). X $\mid$ Y  in der Kommentaren der *.m-File gibt an, zwischen welchen Stellen das Datenpaket im C++ -- Programm getrennt werden muss. Dies verfolgt den Zweck, das auf dem Embedded-PC empfangene Datenpaket in fünf Datenpakete mit den jeweiligen Datengruppen aufzuteilen, um einerseits eine klarere Zuordnung der Daten auf dem vServer zu ermöglichen und andererseits eventuell auftretenden Verbindungsproblemen und einbrechenden Signalstärken bei der Übertragung via UMTS an den vServer zu begegnen. \\
 
 3) VEKTOR\_KOMMASETZUNG \\
 
-Dieser Vektor $1 \times N$ - Zeilenvektor mit $N = 401$ Fahrzeugdaten  liefert Informationen darüber, bei welchen Daten bzw. bei 
-welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links verschoben werden muss (0:= Keine Stelle, 1:= Um eine Stelle nach links verschieben etc.).
+Dieser Vektor $1 \times N$ - Zeilenvektor mit $N = 401$ Fahrzeugdaten  liefert Informationen darüber, bei welchen Daten bzw. bei welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links verschoben werden muss (0:= Keine Stelle, 1:= Um eine Stelle nach links verschieben etc.).
 
 %--------  Aufbau des Simulink-Modells -- Signalgenerator  ---------%
 
@@ -484,7 +482,7 @@ welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links vers
 \label{topmodell}
 \end{figure}
 
-Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Simulink-Modells in 3 übergeordnete Subsysteme: 
+Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Simulink-Modells in drei übergeordnete Subsysteme: 
 
 \begin{itemize}
 
@@ -505,7 +503,7 @@ Der Signalgenerator hat die Aufgabe, auf der MicroAutoBox II die für einen Syst
 
 \textit{Aufbau} \\
 
-Wie im Pflichtenheft aufgeführt, sind die Signale der Fahrzeugdaten in die 5 verschiedene Gruppen A) -- E) namens \textit{Allgemeine Fahrzeugdaten}, \textit{Akkudaten}, \textit{dynamische Daten}, \textit{Fahrdynamikregelung} sowie \textit{Motor- und Umrichterdaten} unterteilt. Diese Gliederung wurde im Signalgenerator ebenfalls beibehalten um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten. Der Signalgenerator ist demnach nochmals in einzelne Subsysteme unterteilt, welche die verschiedenen Kategorien der jeweiligen Fahrzeugdaten repräsentieren. Die generierten Signale werden über einen \textit{Bus Creator} (s.Entwurfsdokument S.10) in ein Bussignal (Verweis Vektorsignal / Bussignal zu meinem Text) umgewandelt und gebündelt über diesen Bus an den Signalkollektor übermittelt, wobei die Reihenfolge der eingehenden Daten erhalten bleibt. \\
+Wie im Pflichtenheft aufgeführt, sind die Signale der Fahrzeugdaten in die fünf verschiedene Gruppen A) -- E) namens \textit{Allgemeine Fahrzeugdaten}, \textit{Akkudaten}, \textit{dynamische Daten}, \textit{Fahrdynamikregelung} sowie \textit{Motor- und Umrichterdaten} unterteilt. Diese Gliederung wurde im Signalgenerator ebenfalls beibehalten um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten. Der Signalgenerator ist demnach nochmals in einzelne Subsysteme unterteilt, welche die verschiedenen Kategorien der jeweiligen Fahrzeugdaten repräsentieren. Die generierten Signale werden über einen \textit{Bus Creator} (s.Entwurfsdokument S.10) in ein Bussignal (Verweis Vektorsignal / Bussignal zu meinem Text) umgewandelt und gebündelt über diesen Bus an den Signalkollektor übermittelt, wobei die Reihenfolge der eingehenden Daten erhalten bleibt. \\
 
 Innerhalb der einzelnen Subsysteme werden nun die simulierten Fahrzeugdaten generiert. Ein Subsystem ist hierbei eine Bündelung mehrerer Blöcke und Komponenten, welche auch wiederum Subsysteme sein können. Dies hat den Zweck, die Übersichtlichkeit innerhalb des Gesamtmodells zu wahren. Weiterhin kann ein solches Subsystem problemlos mehrfach verwendet werden, was den Aufwand beim Erstellen des Modells erheblich reduzieren kann. Am Beispiel \textit{Allgemeine Fahrzeugdaten} soll nun ohne Beschränkung der Allgemeinheit der Aufbau eines Subsystem im Signalgenerator näher erläutert werden.
 
@@ -530,7 +528,7 @@ Innerhalb der einzelnen Subsysteme werden nun die simulierten Fahrzeugdaten gene
 
 
 
-Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Subsystem \textit{Allgemeine Fahrzeugdaten} selbst einige Subsysteme sowie andere Simulinkblöcke. Weiterhin befinden sich im Subsystem \textit{Allgemeine Fahrzeugdaten} weitere Subsysteme mit den Namen Notausfunktionen, Temperaturen und Gaswerte. Jedes Subsystem hat eine unterste Ebene in welcher keine Subsysteme mehr vorhanden sind. Weiterhin werden die einzelnen Signale innerhalb eines Subsystems mittels des bekannten Bus Creators zur einem Bussignal gebündelt. Das hat den Sinn, dass das gesamte Subsystem nur einen Output besitzt, was das ganze Modell wesentlich übersichtlicher  gestaltet und hierdurch einfacher du handhaben ist. \\
+Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Subsystem \textit{Allgemeine Fahrzeugdaten} selbst einige Subsysteme sowie andere Simulinkblöcke. Weiterhin befinden sich im Subsystem \textit{Allgemeine Fahrzeugdaten} weitere Subsysteme mit den Namen Notausfunktionen, Temperaturen und Gaswerte. Jedes Subsystem hat eine unterste Ebene in welcher keine Subsysteme mehr vorhanden sind. Weiterhin werden die einzelnen Signale innerhalb eines Subsystems mittels des bekannten Bus Creators zur einem Bussignal gebündelt. Das hat den Sinn, dass das gesamte Subsystem nur einen Output besitzt, was das ganze Modell wesentlich übersichtlicher gestaltet und hierdurch einfacher zu handhaben ist. \\
 
 \textit{Erzeugung der einzelnen Signale } \\
 
@@ -543,11 +541,9 @@ Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Sub
 \label{notaus}
 \end{figure}
 
-Die Notaussignale, welche die Zustände der einzelnen Notausschalter des Fahrzeuges symbolisieren, werden über die Constant-Blöcke(s. ED S.8) erzeugt. Sie besitzen den Datentyp \textit{boolean} und die Parameterwerte werden über das *.m-File \textit{signalgenerator.m},  zuerst diese in den Workspace von Matlab schreibt, von dort referenziert, um die Handhabung des Modells zu erleichtern(s. 2.1.2). Dabei ist SIGNAL\_NOTAUS\_01 der Variablenname, welcher dem System aufgrund des *.m-Files bekannt ist und  direkt aus dem Workspace  ausgelesen wird. Dieses Signal wird über einen Bus Creator mit den anderen Signalen des Subsystems zu einem Signal gebündelt und an das Subsystem \textit{Allgemeine Fahrzeugdaten} mit dem Variablennamen "`notaus"\ übergeben. Im Subsystem \textit{Allgemeine Fahrzeugdaten} wird dieser Output wiederum mit den restlichen Signalen über einen Bus Creator zur einem Ausgabewert mit dem Namen "`daten\_allgemein"\ zusammengefasst.  Im Subsystem Signalgenerator  werden diese Daten letztendlich mit den restlichen generierten Fahrzeugdaten über einen weiteren Bus Creator gebündelt und an den Signalkollektor übergeben. 
+Die Notaussignale, welche die Zustände der einzelnen Notausschalter des Fahrzeuges symbolisieren, werden über die Constant-Blöcke(s. Entwicklerdokumentation S.8) erzeugt. Sie besitzen den Datentyp \textit{boolean}. Die Parameterwerte werden über das *.m-File \textit{signalgenerator.m},  welches zuerst diese in den Workspace von Matlab schreibt, von dort referenziert, um die Handhabung des Modells zu erleichtern (s. 2.1.2). Dabei ist SIGNAL\_NOTAUS\_01 der Variablenname, welcher dem System aufgrund des *.m-Files bekannt ist und  direkt aus dem Workspace  ausgelesen wird. Dieses Signal wird über einen Bus Creator mit den anderen Signalen des Subsystems zu einem Signal gebündelt und an das Subsystem \textit{Allgemeine Fahrzeugdaten} mit dem Variablennamen "`notaus"\ übergeben. Im Subsystem \textit{Allgemeine Fahrzeugdaten} wird dieser Output wiederum mit den restlichen Signalen über einen Bus Creator zur einem Ausgabewert mit dem Namen "`daten\_allgemein"\ zusammengefasst.  Im Subsystem Signalgenerator  werden diese Daten letztendlich mit den restlichen generierten Fahrzeugdaten über einen weiteren Bus Creator gebündelt und an den Signalkollektor übergeben. 
 
-\newpage
-
-Dies geschieht analog mit den weiteren Notaussignalen. Die Temperaturen handhaben sich auf die gleiche Weise wie die Notaussignale, wobei der einzige Unterschied dabei in dem jeweilig verwendeten Datentyp besteht. Da die Datentypen im weiteren Verlauf noch mehrfach konvertiert werden(s. SC, ST), spielt er bei der Erzeugung keine Rolle. Somit wird er vom Constant-Block durch die Einstellung "`Inherit: Inherit from Constant value"(s. \ref{constdatentyp}) selbst festgelegt. Der Parameter "`Gesamtgeschwindigkeit"\ wird auch in einem Constant-Block generiert. Dieses befindet sich jedoch nicht nochmals in einem Subsystem, da es nur ein Wert dieser Art ist. Somit liegt er direkt an dem Bus Creator des \textit{Allgemeine Fahrzeugdaten} Subsystems an. Schließlich verhalten sich die Parameter Gaswerte äquivalent zu den Temperatursignalen und der Parameter  "`Gesamtspannung Akku"\ handhabt sich wie die Gesamtgeschwindigkeit.
+Dies geschieht analog für die weiteren Notaussignalen. Die Temperaturen handhaben sich auf die gleiche Weise wie die Notaussignale, wobei der einzige Unterschied dabei in dem jeweilig verwendeten Datentyp besteht. Da die Datentypen im weiteren Verlauf noch mehrfach konvertiert werden(s. Signalkollektor, Signaltransmitter), spielt er bei der Erzeugung keine Rolle. Somit wird er vom Constant-Block durch die Einstellung "`Inherit: Inherit from Constant value"(s. \ref{constdatentyp}) selbst festgelegt. Der Parameter "`Gesamtgeschwindigkeit"\ wird auch in einem Constant-Block generiert. Dieses befindet sich jedoch nicht nochmals in einem Subsystem, da es nur ein Wert dieser Art ist. Somit liegt er direkt an dem Bus Creator des \textit{Allgemeine Fahrzeugdaten} Subsystems an. Schließlich verhalten sich die Parameter Gaswerte äquivalent zu den Temperatursignalen und der Parameter "`Gesamtspannung Akku"\ handhabt sich wie die Gesamtgeschwindigkeit.
 
 
 \begin{figure}[h]
@@ -584,9 +580,9 @@ Diese Sample time von 0.01 wird im ganzen Modell bei den "`Repeating Sequence In
 
 \newpage
 
-Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere 12 Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils 12 Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der 12 Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen 12 Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden wie bei dem Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
+Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere 12 Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils 12 Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der 12 Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen 12 Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden, wie beim Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert, alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
 
-Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur 4 Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend  gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing Wert gehört. Nur allein die Signalerzeugung ist anders, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
+Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur vier Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing-Wert gehört. Lediglich die Signalerzeugung unterscheidet sich hier, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
 
 \textit{C) Dynamische Daten} \\
 
