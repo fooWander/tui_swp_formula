@@ -263,7 +263,7 @@ Folgende Datentypen werden hierbei unterstützt:
 
 \item[1)] \textit{Multiplexer}
 
-Analog zum Bus Creator (s. Entwurfsdokument S.10) besitzt auch der Multiplexer die Fähigkeit, mehrere Eingangssignale zum einem einzelnen Signal zu bündeln. Jedoch besteht zwischen den beiden Komponenten ein gravierender Unterschied: während beim Busarray die einzelnen Eingangssignale weiterhin individuell vorliegen und demzufolge nur virtuell gebündelt werden um die Übersichtlichkeit innerhalb des Modells zu erhöhen, werden die Signale beim Multiplexer zu einem reellen Signalvektor zusammengefasst (s. Abb. \ref{Multiplexer / Demultiplexer}). In diesem Beispiel werden die durch die 3 Constant-Blöcke Const1-Const3 erzeugten Werte \textit{a}, \textit{b} und \textit{c} zu dem Signalvektor \textit{vector\_d} zusammengefasst, welcher nun die folgende Gestalt besitzt: 
+Analog zum Bus Creator (s. Entwurfsdokument S.10) besitzt auch der Multiplexer die Fähigkeit, mehrere Eingangssignale zum einem einzelnen Signal zu bündeln. Jedoch besteht zwischen den beiden Komponenten ein gravierender Unterschied: während beim Busarray die einzelnen Eingangssignale weiterhin individuell vorliegen und demzufolge nur virtuell gebündelt werden um die Übersichtlichkeit innerhalb des Modells zu erhöhen, werden die Signale beim Multiplexer zu einem reellen Signalvektor zusammengefasst (s. Abb. \ref{Multiplexer / Demultiplexer}). In diesem Beispiel werden die durch die drei Constant-Blöcke Const1-Const3 erzeugten Werte \textit{a}, \textit{b} und \textit{c} zu dem Signalvektor \textit{vector\_d} zusammengefasst, welcher nun die folgende Gestalt besitzt: 
 
 \vspace*{2mm}
 
@@ -278,7 +278,7 @@ $ vector\_d = \left( \begin{array}{c} signal\_a \ signal\_b \ signal\_c \end{arr
 
 \item[2)] \textit{Demultiplexer}
 
-Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiels werden die 3 Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
+Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiels werden die drei Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
 
 \end{itemize}
 
@@ -416,7 +416,7 @@ Wie schon im Entwurfsdokument beschrieben, dient diese *.m-File dazu, eine über
 
 \subsubsection{config\_datenpaket.m}
 
-Dieses *.m-File beinhaltet drei Vektoren, welche für den Embedded-PC erforderlichen Informationen über das zu  versendende Datenpaket mit den Fahrzeugdaten beinhalteten. Diese 3 Vektoren werden jeweils in einem Constant-Block (Verweis) referenziert und bilden mit anderen Paketinformationen das zu versendende "`Informationspaket"\, welches vor dem eigentlichen Start der Datenübertragung an den Embedded-PC übertragen wird. Der maßgebliche Grund für das Anlegen dieses Config-Files war es, dem Nutzer eine eventuelle Modifikation des Simulink-Modells zu vereinfachen und zusätzlich auf dem Embedded-PC ein hohes Maß an Softcoding zu realisieren, was den Anpassungsaufwand des dort ausgeführten C++ - Programms bei derartigen Veränderungen drastisch reduziert. Im Folgenden soll nun der Zweck der einzelnen Vektoren erläutert werden. \\
+Dieses *.m-File beinhaltet drei Vektoren, welche für den Embedded-PC erforderlichen Informationen über das zu  versendende Datenpaket mit den Fahrzeugdaten beinhalteten. Diese drei Vektoren werden jeweils in einem Constant-Block (Verweis) referenziert und bilden mit anderen Paketinformationen das zu versendende "`Informationspaket"\, welches vor dem eigentlichen Start der Datenübertragung an den Embedded-PC übertragen wird. Der maßgebliche Grund für das Anlegen dieses Config-Files war es, dem Nutzer eine eventuelle Modifikation des Simulink-Modells zu vereinfachen und zusätzlich auf dem Embedded-PC ein hohes Maß an Softcoding zu realisieren, was den Anpassungsaufwand des dort ausgeführten C++ - Programms bei derartigen Veränderungen drastisch reduziert. Im Folgenden soll nun der Zweck der einzelnen Vektoren erläutert werden. \\
 
 1) VEKTOR\_AUFTEILUNG\_DATENPAKET  \\  
 
@@ -464,7 +464,7 @@ $ V = \left( \begin{array}{c} 3 \ 3 \ 5 \ 5  \end{array} \right)$
 
 2) VEKTOR\_PAKETTEILUNG \\
 
-Dieser Vektor enthält als Elemente diejenigen Stellen, bei denen eine Aufteilung der einzelnen Datengruppen der Fahrzeugdaten in die Kategorien A) -- E) erfolgt(s. Pflichtenheft). X $\mid$ Y  in der Kommentaren der *.m-File gibt an, zwischen welchen Stellen das Datenpaket im C++ -- Programm getrennt werden muss. Dies verfolgt den Zweck, das auf dem Embedded-PC empfangene Datenpaket in 5 Datenpakete mit den jeweiligen Datengruppen aufzuteilen, um einerseits eine klarere Zuordnung der Daten auf dem vServer zu ermöglichen und andererseits eventuell auftretenden Verbindungsproblemen und einbrechenden Signalstärken bei der Übertragung via UMTS an den vServer zu begegnen. \\
+Dieser Vektor enthält als Elemente diejenigen Stellen, bei denen eine Aufteilung der einzelnen Datengruppen der Fahrzeugdaten in die Kategorien A) -- E) erfolgt(s. Pflichtenheft). X $\mid$ Y  in der Kommentaren der *.m-File gibt an, zwischen welchen Stellen das Datenpaket im C++ -- Programm getrennt werden muss. Dies verfolgt den Zweck, das auf dem Embedded-PC empfangene Datenpaket in fünf Datenpakete mit den jeweiligen Datengruppen aufzuteilen, um einerseits eine klarere Zuordnung der Daten auf dem vServer zu ermöglichen und andererseits eventuell auftretenden Verbindungsproblemen und einbrechenden Signalstärken bei der Übertragung via UMTS an den vServer zu begegnen. \\
 
 3) VEKTOR\_KOMMASETZUNG \\
 
@@ -480,11 +480,13 @@ welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links vers
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.65]{topmodell}
-\caption[Gesamtaufbau Simulink-Modell]{Gesamtaufbau des Symulinkmodells auf höchster Modellebene}
+\caption[Gesamtaufbau Simulink-Modell]{Gesamtaufbau des Simulink-Modells auf höchster Modellebene}
 \label{topmodell}
 \end{figure}
 
-Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Simulink-Modells in 3 übergeordnete Subsysteme: 
+\newpage
+
+Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Simulink-Modells in drei übergeordnete Subsysteme: 
 
 \begin{itemize}
 
@@ -494,18 +496,18 @@ Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Sim
 
 \end{itemize}
 
-, wobei der Signalgenerator den Beginn und der Signaltransmitter das Ende des Signalflusses verkörpert. Des Weiteren ist es auch notwendig, sowohl die Maske RTI\_DATA\_HOST (Verweis Glossar) als auch den UDP-Setup-Block (s. Entwurfsdokument S. 12) auf der obersten Ebene des Simulink-Modells zu platzieren. Im Folgenden soll nun detailliert auf die einzelnen Komponenten und der jeweiligen Funktionalität dieser drei Subsysteme eingegangen werden. 
+wobei der Signalgenerator den Beginn und der Signaltransmitter das Ende des Signalflusses verkörpert. Des Weiteren ist es auch notwendig, sowohl die Maske RTI\_DATA\_HOST (Verweis Glossar) als auch den UDP-Setup-Block (s. Entwurfsdokument S. 12) auf der obersten Ebene des Simulink-Modells zu platzieren. Im Folgenden soll nun detailliert auf die einzelnen Komponenten und der jeweiligen Funktionalität dieser drei Subsysteme eingegangen werden. 
 
 
 
 \subsubsection{Signalgenerator}
 
 
-Der Signalgenerator hat die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche zuerst zum Signalcollector (s. 2.1.4) und anschließend über den  Signaltransmitter (s. 2.1.5)  auf den Embedded-PC via Ethernet-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Diese Signale liegen im Bereich der echten Sensorwerte des Fahrzeuges und können somit gut zu Testzwecken verwendet werden. Da sich eine Modifizierung des in der MicroAutoBox II implementierten Simulink-Modells als sehr aufwändig gestaltet, ist die Generierung der Testsignale enorm wichtig, um die Funktionalität des Simulink-Modells und letztendlich auch des Service-Interfaces zu überprüfen. Vor der Implementierung des finalen Simulink-Modells wird dieser Teil des Modells von einem Mitglied von Team StarCraft e.V. durch eine Verknüpfung zu den realen Sensorwerten, welche vom CAN-Bus des Fahrzeuges geliefert werden, ersetzt. \\
+Der Signalgenerator hat die Aufgabe auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche zuerst zum Signalcollector (s. 2.1.4) und anschließend über den  Signaltransmitter (s. 2.1.5)  auf den Embedded-PC via Ethernet-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Diese Signale liegen im Bereich der echten Sensorwerte des Fahrzeuges und können somit gut zu Testzwecken verwendet werden. Da sich eine Modifizierung des in der MicroAutoBox II implementierten Simulink-Modells als sehr aufwändig gestaltet, ist die Generierung der Testsignale enorm wichtig, um die Funktionalität des Simulink-Modells und letztendlich auch des Service-Interfaces zu überprüfen. Vor der Implementierung des finalen Simulink-Modells wird dieser Teil des Modells von einem Mitglied von Team StarCraft e.V. durch eine Verknüpfung zu den realen Sensorwerten, welche vom CAN-Bus des Fahrzeuges geliefert werden, ersetzt. \\
 
 \textit{Aufbau} \\
 
-Wie im Pflichtenheft aufgeführt, sind die Signale der Fahrzeugdaten in die 5 verschiedene Gruppen A) -- E) namens \textit{Allgemeine Fahrzeugdaten}, \textit{Akkudaten}, \textit{dynamische Daten}, \textit{Fahrdynamikregelung} sowie \textit{Motor- und Umrichterdaten} unterteilt. Diese Gliederung wurde im Signalgenerator ebenfalls beibehalten um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten. Der Signalgenerator ist demnach nochmals in einzelne Subsysteme unterteilt, welche die verschiedenen Kategorien der jeweiligen Fahrzeugdaten repräsentieren. Die generierten Signale werden über einen \textit{Bus Creator} (s.Entwurfsdokument S.10) in ein Bussignal (Verweis Vektorsignal / Bussignal zu meinem Text) umgewandelt und gebündelt über diesen Bus an den Signalkollektor übermittelt, wobei die Reihenfolge der eingehenden Daten erhalten bleibt. \\
+Wie im Pflichtenheft aufgeführt, sind die Signale der Fahrzeugdaten in die fünf verschiedene Gruppen A) -- E) namens \textit{Allgemeine Fahrzeugdaten}, \textit{Akkudaten}, \textit{dynamische Daten}, \textit{Fahrdynamikregelung} sowie \textit{Motor- und Umrichterdaten} unterteilt. Diese Gliederung wurde im Signalgenerator ebenfalls beibehalten um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten. Der Signalgenerator ist demnach nochmals in einzelne Subsysteme unterteilt, welche die verschiedenen Kategorien der jeweiligen Fahrzeugdaten repräsentieren. Die generierten Signale werden über einen \textit{Bus Creator} (s.Entwurfsdokument S.10) in ein Bussignal (Verweis Vektorsignal / Bussignal zu meinem Text) umgewandelt und gebündelt über diesen Bus an den Signalkollektor übermittelt, wobei die Reihenfolge der eingehenden Daten erhalten bleibt. \\
 
 Innerhalb der einzelnen Subsysteme werden nun die simulierten Fahrzeugdaten generiert. Ein Subsystem ist hierbei eine Bündelung mehrerer Blöcke und Komponenten, welche auch wiederum Subsysteme sein können. Dies hat den Zweck, die Übersichtlichkeit innerhalb des Gesamtmodells zu wahren. Weiterhin kann ein solches Subsystem problemlos mehrfach verwendet werden, was den Aufwand beim Erstellen des Modells erheblich reduzieren kann. Am Beispiel \textit{Allgemeine Fahrzeugdaten} soll nun ohne Beschränkung der Allgemeinheit der Aufbau eines Subsystem im Signalgenerator näher erläutert werden.
 
@@ -584,9 +586,9 @@ Diese Sample time von 0.01 wird im ganzen Modell bei den "`Repeating Sequence In
 
 \newpage
 
-Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere 12 Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils 12 Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der 12 Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen 12 Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden wie bei dem Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
+Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere zwölf Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils zwölf Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der zwölf Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen zwölf Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden wie bei dem Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
 
-Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur 4 Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend  gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing Wert gehört. Nur allein die Signalerzeugung ist anders, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
+Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur vier Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend  gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing Wert gehört. Nur allein die Signalerzeugung ist anders, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
 
 \textit{C) Dynamische Daten} \\
 
@@ -604,11 +606,11 @@ Das Signal "`geschw1" wird im Subsystem \textit{Geschwindigkeit} erzeugt und mit
 \end{figure}
 
 Die Subsysteme \textit{Beschleunigung}, \textit{Gierrate}, \textit{Drehzahlen der Räder}, \textit{Wassertemperatur}, \textit{Federweg} sowie \textit{Gaspedalstellung} verhalten sich absolut äquivalent zu den Geschwindigkeitssignalen.
-Der Verlauf der Signale "`Bremsdruck", "`Bremskraft" und "`Bremsposition" verhält sich -- bis auf deren Erzeugung bereits im Subsystem \textit{Dynamische Daten} -- absolut gleich. \\
+Der Verlauf der Signale "`Bremsdruck", "`Bremskraft"\ und "`Bremsposition" verhält sich -- bis auf deren Erzeugung bereits im Subsystem \textit{Dynamische Daten} -- absolut gleich. \\
 
 \textit{D) Fahrdynamikregelung} \\
 
-Das Subsystem \textit{Fahrdynamikregelung} ist für die Erzeugung der Testsignale "`Antriebsschlupfregelung" und "`Torque Vectoring" verantwortlich (s. Abb. \ref{makefahrdynamik}). Diese werden mit RSI-Blöcken gebildet, welche die gleiche Konfiguration wie bei dem Subsystem \textit{Dynamischen Daten} besitzen. Beide Werte werden jeweils im Subsystem selbst erzeugt und über den Bus Creator gebündelt als Signal "`daten\_dynamisch" an das Subsystem \textit{Signalgenerator} übergeben, wobei der weitere Signalverlauf äquivalent zu den anderen Signalen in ebendiesem Subsystem ist.
+Das Subsystem \textit{Fahrdynamikregelung} ist für die Erzeugung der Testsignale "`Antriebsschlupfregelung"\ und "`Torque Vectoring" verantwortlich (s. Abb. \ref{makefahrdynamik}). Diese werden mit RSI-Blöcken gebildet, welche die gleiche Konfiguration wie bei dem Subsystem \textit{Dynamischen Daten} besitzen. Beide Werte werden jeweils im Subsystem selbst erzeugt und über den Bus Creator gebündelt als Signal "`daten\_dynamisch" an das Subsystem \textit{Signalgenerator} übergeben, wobei der weitere Signalverlauf äquivalent zu den anderen Signalen in ebendiesem Subsystem ist.
 
 \newpage
 
@@ -639,7 +641,7 @@ was zur Vereinheitlichung der zu übertragenden Daten beitragen soll.
 
 \item[2)] \textit{Konvertierung der Datentypen}
 
-Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks in den Datentyp \textit{int16} konvertiert, wodurch alle Signale den gleichen Datentyp aufweisen. Schließlich ist noch eine Konvertierung in den Datentyp \textit{double} vonnöten, da dass die sFunction \textit{DSEncode32} (s. ED S.12) diesen Datentyp benötigt. Allerdings liefert diese sFunction als Ausgabe erneut den Datentyp \textit{int16}, weshalb die vorherige Konvertierung am Eingang der sFunction nicht ins Gewicht fällt.  
+Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks in den Datentyp \textit{int16} konvertiert, wodurch alle Signale den gleichen Datentyp aufweisen. Schließlich ist noch eine Konvertierung in den Datentyp \textit{double} vonnöten, da die sFunction \textit{DSEncode32} (s. ED S.12) diesen Datentyp voraussetzt. Allerdings liefert diese sFunction als Ausgabe erneut den Datentyp \textit{int16}, weshalb die vorherige Konvertierung am Eingang der sFunction nicht ins Gewicht fällt.  
 
 \item[3)] \textit{Umbenennung der Variablennamen}
 
@@ -649,13 +651,13 @@ wurde oder nicht, wodurch eine Vereinheitlichung des Modells realisiert wird wel
 
 \end{itemize}
 
-Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und  an einen Encoder (s. ED S.12) übergeben, woraufhin sie nach deren Enkodierung via Ethernet-Schnittstelle an den Embedded-PC versendet werden. \\
+Nachdem die Daten entsprechend der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und  an einen Encoder (s. ED S.12) übergeben, woraufhin sie nach deren Enkodierung via Ethernet-Schnittstelle an den Embedded-PC versendet werden. \\
 
 %-------------------------------------------------------------------%
 
 \textit{Aufbau} \\
 
-Die Daten liegen wie bereits in Abschnitt 2.1.3 erläutert am Eingang des Subsystems "`Signalkollektor\_Embedded\_PC"\ an. Um ebendiese effizient und übersichtlich bearbeiten zu können, muss dieser Busarray wieder in seine einzelnen Signale zerlegt werden. Hierfür wird der Busarray zuerst mittels eines Bus Selectors (s. ED S.10) wieder in die 5 bekannten Hauptkategorien Allgemeine Fahrzeugdaten, Akkudaten, Dynamische Daten, Fahrdynamikregelung sowie Motor- und Umrichterdaten aufgespalten. Diese werden dann anschließend in ihren Subsystemen weiterverarbeitet und aufgespalten. Schlussendlich werden alle Signale erneut gebündelt und mit Hilfe von Bus Creators durch einen Convert-Block in den Datentyp \textit{double} konvertiert, um diese für die sFunction DSEncode32 passend vorzubereiten (s. Abb. \ref{subsignalkollektor}). Im Folgenden sollen daher nun der Aufbau und die Funktionsweise der einzelnen Subsysteme innerhalb des Subsystems "`Signalkollektor\_Embedded\_PC"\ dargelegt werden. \\
+Die Daten liegen wie bereits in Abschnitt 2.1.3 erläutert am Eingang des Subsystems "`Signalkollektor\_Embedded\_PC"\ an. Um ebendiese effizient und übersichtlich bearbeiten zu können, muss dieser Busarray wieder in seine einzelnen Signale zerlegt werden. Hierfür wird der Busarray zuerst mittels eines Bus Selectors (s. ED S.10) wieder in die fünf bekannten Hauptkategorien Allgemeine Fahrzeugdaten, Akkudaten, Dynamische Daten, Fahrdynamikregelung sowie Motor- und Umrichterdaten aufgespalten. Diese werden dann anschließend in ihren Subsystemen weiterverarbeitet und aufgespalten. Schlussendlich werden alle Signale erneut gebündelt und mit Hilfe von Bus Creators durch einen Convert-Block in den Datentyp \textit{double} konvertiert, um diese für die sFunction DSEncode32 passend vorzubereiten (s. Abb. \ref{subsignalkollektor}). Im Folgenden sollen daher nun der Aufbau und die Funktionsweise der einzelnen Subsysteme innerhalb des Subsystems "`Signalkollektor\_Embedded\_PC"\ dargelegt werden. \\
 
 %-------------------------------------------------------------------%
 
@@ -665,7 +667,7 @@ Wie in ABB2 ersichtlich besteht auch dieses Subsystem aus mehreren Subsystemen s
 
 \newpage
 
-Die Signale "`gesamtspannung\_akku"\ und "`geschwindigkeit"\ werden mittels des Gain-Blockes um den Faktor 10 vergrößert, um die eine Kommastelle zu beseitigen, damit diese bei der int16-Konvertierung im Convert-Block nicht verloren geht. Zuzüglich generiert der Convert-Block einen festen Variablennamen, welche für den Rest des Simulink-Modells gilt. Üblicherweise wird dem normalen Variablennamen vor Konvertierung noch der Präfix "`emb"\ hinzugefügt bzw. "`daten" durch "`emb"\ ersetzt. So geht aus "`gesamtspannung\_akku"\ der neue Signalname "`emb\_gesamtspannung\_akku"\ hervor. Diese Umwandlung der Variablennamen wird auch innerhalb der Subsysteme nach der Bündelung mit dem Bus Creator vorgenommen. Aus "`daten\_notaus"\ entsteht der neue Variablenname "`emb\_notaus". Das Signal "`emb\_gesamtspannung\_akku"\ wird durch einen Bus Creator mit den anderen Signalen seines Subsystems erneut gebündelt und mit dem Variablennamen "`emb\_daten\_allgemein"\ an das Subsystem "`Signalcollector\_Embedded\_PC"\ übergeben. Dort wird diese Kategorie an Signalen erneut mit den anderen Signalen zu einem Busarray zusammengefügt, per Convert-Block in den Datentyp \textit{double} umgewandelt, um es für die Enkodierung aufzubereiten. Schlussendlich werden diese Daten an den Signaltransmitter versandt. 
+Die Signale "`gesamtspannung\_akku"\ und "`geschwindigkeit"\ werden mittels des Gain-Blocks um den Faktor 10 vergrößert, um die eine Kommastelle zu beseitigen, damit diese bei der int16-Konvertierung im Convert-Block nicht verloren geht. Zuzüglich generiert der Convert-Block einen festen Variablennamen, welche für den Rest des Simulink-Modells gilt. Üblicherweise wird dem normalen Variablennamen vor Konvertierung noch der Präfix "`emb"\ hinzugefügt bzw. "`daten" durch "`emb"\ ersetzt. So geht aus "`gesamtspannung\_akku"\ der neue Signalname "`emb\_gesamtspannung\_akku"\ hervor. Diese Umwandlung der Variablennamen wird auch innerhalb der Subsysteme nach der Bündelung mit dem Bus Creator vorgenommen. Aus "`daten\_notaus"\ entsteht der neue Variablenname "`emb\_notaus". Das Signal "`emb\_gesamtspannung\_akku"\ wird durch einen Bus Creator mit den anderen Signalen seines Subsystems erneut gebündelt und mit dem Variablennamen "`emb\_daten\_allgemein"\ an das Subsystem "`Signalcollector\_Embedded\_PC"\ übergeben. Dort wird diese Kategorie an Signalen erneut mit den anderen Signalen zu einem Busarray zusammengefügt, per Convert-Block in den Datentyp \textit{double} umgewandelt, um es für die Enkodierung aufzubereiten. Schlussendlich werden diese Daten an den Signaltransmitter versandt. 
 
 \begin{figure}[h]
 \centering
@@ -680,14 +682,14 @@ Des Weiteren wird das Subsystem \textit{daten\_notaus} ohne Beschränkung der Al
 
 Danach bündelt ein Bus Creator dieses Signal mit den anderen seines Subsystems und übergibt die Daten an das Subsystem \textit{daten\_allgemein} mit dem Variablenname "`emb\_notaus" (s. ABB3). Anschließend werden die Daten wie oben erläutern weiter verarbeitet(Umbennung des Busarray, Bündelung, Konvertierung und Transfer an Signaltransmitter). Die anderen Signale des Subsystems werden äquivalent aufbereitet. Dieses Vorgehen wird in diesem Modell bei allen boolean Werten im Signalkollektor angewendet. \\
 
-Zur Verdeutlichung des Unterschieds von boolean und nicht-boolean Werten wird zusätzlich als Beispiel das Subsystem \textit{daten\_temperatur\_allgemein} betrachtet. Die Auftrennung der Signale mittels Bus Selector sowie die Umbenennung durch den Convert-Block gleichen dem Vorgehen des Subsystems \textit{daten\_notaus}. Differierend dazu sind die Multiplikation der Werte mittels Gain-Blöcke und die Rundungsmethode. Diese Unterschiede erschließen sich aus dem vorherrschenden Datentyp, welcher nicht \textit{boolean} ist. Wie schon oben betrachtet werden die Signale mittels Gain-Block um den Faktor 10 vergrößert, um die Kommastelle verschwinden zu lassen, damit die Genauigkeit des Wertes durch den Convert-Block bei der Konvertierung in den Datentyp \textit{int16} nicht beeinträchtigt wird. Weiterhin wird die Rundungsmethode "`Round" verwendet, welche den bekannten geodätischen Runden entspricht und eine zufriedenstellende Genauigkeit liefert. (s. Abb. \ref{scdatentemperaturallgemein}). Die restliche Aufbereitung bis hin zum Transferieren der Werte gleicht dem oben beschriebenen Vorgehen. Dieses Vorgehen wird in diesem Modell bei allen Werten welche nicht den Datentyp \textit{boolean} aufweisen im Signalkollektor angewendet, abgesehen natürlich vom Gain-Block, dessen Multiplikator je nach Anzahl der erforderlichen Kommastellen unterschiedlich sein kann. Die Verarbeitung der Signale im Subsystem \textit{daten\_gaswert} verlaufen hierzu äquivalent. Der einzige Unterschied dabei ist, dass die Verstärkung des Gain-Blockes 1000 beträgt, da bei diesen Werten eine Genauigkeit von 3 Kommastellen vorgegeben ist (s. Pflichtenheft S.4) und diese Kommastellen mit der Vergrößerung beseitigt werden. \\
+Zur Verdeutlichung des Unterschieds von boolean und nicht-boolean Werten wird zusätzlich als Beispiel das Subsystem \textit{daten\_temperatur\_allgemein} betrachtet. Die Auftrennung der Signale mittels Bus Selector sowie die Umbenennung durch den Convert-Block gleichen dem Vorgehen des Subsystems \textit{daten\_notaus}. Differierend dazu sind die Multiplikation der Werte mittels Gain-Blöcke und die Rundungsmethode. Diese Unterschiede erschließen sich aus dem vorherrschenden Datentyp, welcher nicht \textit{boolean} ist. Wie schon oben betrachtet werden die Signale mittels Gain-Block um den Faktor 10 vergrößert, um die Kommastelle verschwinden zu lassen, damit die Genauigkeit des Wertes durch den Convert-Block bei der Konvertierung in den Datentyp \textit{int16} nicht beeinträchtigt wird. Weiterhin wird die Rundungsmethode "`Round" verwendet, welche den bekannten geodätischen Runden entspricht und eine zufriedenstellende Genauigkeit liefert. (s. Abb. \ref{scdatentemperaturallgemein}). Die restliche Aufbereitung bis hin zum Transferieren der Werte gleicht dem oben beschriebenen Vorgehen. Dieses Vorgehen wird in diesem Modell bei allen Werten welche nicht den Datentyp \textit{boolean} aufweisen im Signalkollektor angewendet, abgesehen natürlich vom Gain-Block, dessen Multiplikator je nach Anzahl der erforderlichen Kommastellen unterschiedlich sein kann. Die Verarbeitung der Signale im Subsystem \textit{daten\_gaswert} verlaufen hierzu äquivalent. Der einzige Unterschied dabei ist, dass die Verstärkung des Gain-Blockes 1000 beträgt, da bei diesen Werten eine Genauigkeit von drei Kommastellen vorgegeben ist (s. Pflichtenheft S.4) und diese Kommastellen mit der Vergrößerung beseitigt werden. \\
 
 %-------------------------------------------------------------------%
 
 
 \textit{Subsystem "`daten\_akku" / Akkudaten} \\
 
-Wie im letzten Kapitel erwähnt(s. Subsystem "`daten\_allgemein"), verhalten sich alle Subsysteme im Signalkollektor sehr ähnlich. Es existieren in diesem Subsystem 2 Subsysteme, "`daten\_zelldaten" sowie "`daten\_temperatur", welche sich um die Verarbeitung von Werten kümmern, welche nicht den Datentypen \textit{boolean} aufweisen. Darüber hinaus existiert noch ein Subsystem mit boolean-Werten -- "`daten\_balancing"\ -- und einzelne Signale, welche ebenfalls Werte verkörpern, die nicht den Datentyp \textit{boolean} besitzen. Wie erwähnt findet auch eine Signalkonvertierung, eine Umbenennung der Variablennamen, sowie teilweise eine Verstärkung der Signale mittels Gain-Blöcken statt. Die weitere Signalaufbereitung im Subsystem \textit{Signalcollector\_Embedded\_PC} entspricht der des Subsystemes \textit{daten\_allgemein} (s. letzten Abschnitt). Die Verarbeitung der Signale, welche sich nicht nochmals in einem Subsystem befinden, gleicht der aus dem vorherigen Abschnitt. Einzig die Faktoren des Verstärkung der Signale "`zellspannung\_max"\ und "`zellspannung\_min"\ sind aufgrund der vorgegebenen Genauigkeit (s. Pflichtenheft S.4) in diesem Fall zu 1000 gewählt.
+Wie im letzten Kapitel erwähnt (s. Subsystem "`daten\_allgemein"), verhalten sich alle Subsysteme im Signalkollektor sehr ähnlich. Es existieren in diesem Subsystem zwei Subsysteme, "`daten\_zelldaten"\ sowie "`daten\_temperatur", welche sich um die Verarbeitung von Werten kümmern, welche nicht den Datentypen \textit{boolean} aufweisen. Darüber hinaus existiert noch ein Subsystem mit boolean-Werten -- "`daten\_balancing"\ -- und einzelne Signale, welche ebenfalls Werte verkörpern, die nicht den Datentyp \textit{boolean} besitzen. Wie erwähnt findet auch eine Signalkonvertierung, eine Umbenennung der Variablennamen, sowie teilweise eine Verstärkung der Signale mittels Gain-Blöcken statt. Die weitere Signalaufbereitung im Subsystem \textit{Signalcollector\_Embedded\_PC} entspricht der des Subsystemes \textit{daten\_allgemein} (s. letzten Abschnitt). Die Verarbeitung der Signale, welche sich nicht nochmals in einem Subsystem befinden, gleicht der aus dem vorherigen Abschnitt. Einzig die Faktoren des Verstärkung der Signale "`zellspannung\_max"\ und "`zellspannung\_min"\ sind aufgrund der vorgegebenen Genauigkeit (s. Pflichtenheft S.4) in diesem Fall zu 1000 gewählt.
 
 \newpage
 
@@ -698,18 +700,18 @@ Wie im letzten Kapitel erwähnt(s. Subsystem "`daten\_allgemein"), verhalten sic
 \label{scdatenakku}
 \end{figure}
 
-Die Subsystemstruktur soll anhand des Subsystems \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzellenpack}) ohne Beschränkung der Allgemein kurz näher erläutert werden. Ähnlich wie im dazugehörigen Subsystem aus dem Signalgenerator (s. 2.1.3) ist auch dieses System aufgebaut. Das Signal "`zelle\_001"\ im Subsystem \textit{"`daten\_zellenpack\_01"} des Subsystems \textit{"`daten\_zelldaten"} wird mit einem Multiplikator von 1000 durch den Gain-Block versehen und mittels Convert-Block in den Datentyp \textit{int16} umgewandelt und in "`emb\_zp\_01\_zelle01"\ umbenannt. Dabei kann die Zelle jeweils genau einem Zellenpack zugeordnet werden. Anschließend wird das Signal mit dem Bus Creator mit den restlichen Signalen seines Subsystems gebündelt und mit dem Variablennamen "`emb\_zp\_01"\ an das Subsystem \textit{"`daten\_zelldaten"} übergeben. Im Subsystem \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzelldaten}) wird das gebündelte Signal nochmals mit den anderen gebündelten Signalen des Subsystems über einen Bus Creator abermals zusammengefasst und mit dem Namen "`emb\_zp"\ für das Busarry an das Subsystem \textit{"`daten\_akku"} übermittelt. Dort wird es mit den restlichen Daten wieder gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} geliefert. Die weitere Signalverarbeitung ist durch die oberen Abschnitte bereits ausführlich erläutert wurden und geschieht für alle Signale des Subsystems \textit{"`daten\_zelldaten"} gleichwertig.
+Die Subsystemstruktur soll anhand des Subsystems \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzellenpack}) ohne Beschränkung der Allgemeinheit kurz näher erläutert werden. Ähnlich wie im dazugehörigen Subsystem aus dem Signalgenerator (s. 2.1.3) ist auch dieses System aufgebaut. Das Signal "`zelle\_001"\ im Subsystem \textit{"`daten\_zellenpack\_01"} des Subsystems \textit{"`daten\_zelldaten"} wird mit einem Multiplikator von 1000 durch den Gain-Block versehen und mittels Convert-Block in den Datentyp \textit{int16} umgewandelt und in "`emb\_zp\_01\_zelle01"\ umbenannt. Dabei kann die Zelle jeweils genau einem Zellenpack zugeordnet werden. Anschließend wird das Signal mit dem Bus Creator mit den restlichen Signalen seines Subsystems gebündelt und mit dem Variablennamen "`emb\_zp\_01"\ an das Subsystem \textit{"`daten\_zelldaten"} übergeben. Im Subsystem \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzelldaten}) wird das gebündelte Signal nochmals mit den anderen gebündelten Signalen des Subsystems über einen Bus Creator abermals zusammengefasst und mit dem Namen "`emb\_zp"\ für das Busarry an das Subsystem \textit{"`daten\_akku"} übermittelt. Dort wird es mit den restlichen Daten wieder gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} geliefert. Die weitere Signalverarbeitung ist durch die oberen Abschnitte bereits ausführlich erläutert worden und geschieht für alle Signale des Subsystems \textit{"`daten\_zelldaten"} auf die gleiche Weise.
 
 \newpage
 
-Das Subsystem \textit{"`daten\_akkutemperatur"} verhält sich dazu analog, nur kommen darin keine Gain-Blöcke vor, da die Genauigkeit auf ganze Zahlen festgelegt wurde(s. Pflichtenheft S.4).
+Das Subsystem \textit{"`daten\_akkutemperatur"} verhält sich dazu analog, nur kommen darin keine Gain-Blöcke vor, da die Genauigkeit auf ganze Zahlen festgelegt wurde (s. Pflichtenheft S.4).
 Das Subsystem \textit{"`daten\_balancing"} verhält sich ebenfalls vom Aufbau her dazu gleich und die Signalverarbeitung gleicht natürlich dem der Werte mit dem Datentyp \textit{boolean}. \\
 
 %-------------------------------------------------------------------%
 
 \textit{Subsystem "`daten\_dynamisch" / Dynamische Daten} \\
 
-Das Subsystem \textit{"`daten\_dynamisch"} beinhaltet mehrere Subsysteme sowie weitere einzelne Signale. Die Datenaufbereitung ist aus den vorherigen Kapiteln bekannt. Das Subsystem weist darüber hinaus keine weiteren Besonderheiten auf, da keine Werte mit dem Datentyp \textit{boolean} darin vorhanden sind. Die Signale "`bremsdruck", "`bremskraft", "`lenkwinkel\_dd" und "`bremsposition" werden direkt im Subsystem aufbereitet. Die Signale "`bremskraft" und „bremsposition“ werden zusätzlich mittels Gain-Blöcken mit einer Verstärkung von 1000 versehen. Danach werden alle 4 Signale in den Datentyp \textit{int16} konvertiert sowie deren Variablennamen  umbenannt und mit den restlichen Signalen des Subsystems gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} weitergeleitet, wobei der weitere Verlauf aus den obigen Ausführungen zu entnehmen ist. Die Verarbeitung innerhalb der Subsysteme soll ohne Beschränkung der Allgemeinheit beispielhaft am Subsystem \textit{"`daten\_geschwindigkeit"} gezeigt werden. Das Signal "`geschw1"\ wird mittels eines Bus Selectors aus dem Busarray herausgelöst und mit einem Multiplikator von 10  durch den Gain-Block versehen. Der Convert-Block ändert den Datentyp des Signals in \textit{int16} und benennt es in "`emb\_geschwindigkeit\_x"\ um. Infolgedessen wird es durch den Bus Creator mit den anderen Signalen des Subsystems zusammengefasst und als "`emb\_geschwindigkeit"\ ans Subsystem \textit{"`daten\_dynamisch"} weitergeleitet(s.ABB8). Danach wird dieses Busarray mit den weiteren Werten des Subsystems gebündelt und zu dem Subsystem \textit{"`Signalcollector\_Embedded\_PC"} transferiert. Die weitere Verarbeitung erfolgt analog zu den vorherigen Kapiteln.
+Das Subsystem \textit{"`daten\_dynamisch"} beinhaltet mehrere Subsysteme sowie weitere einzelne Signale. Die Datenaufbereitung ist aus den vorherigen Kapiteln bekannt. Das Subsystem weist darüber hinaus keine weiteren Besonderheiten auf, da keine Werte mit dem Datentyp \textit{boolean} darin vorhanden sind. Die Signale "`bremsdruck", "`bremskraft", "`lenkwinkel\_dd"          und "`bremsposition" werden direkt im Subsystem aufbereitet. Die Signale "`bremskraft"\ und „bremsposition“ werden zusätzlich mittels Gain-Blöcken mit einer Verstärkung von 1000 versehen. Danach werden alle vier Signale in den Datentyp \textit{int16} konvertiert sowie deren Variablennamen  umbenannt und mit den restlichen Signalen des Subsystems gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} weitergeleitet, wobei der weitere Verlauf aus den obigen Ausführungen zu entnehmen ist. Die Verarbeitung innerhalb der Subsysteme soll ohne Beschränkung der Allgemeinheit beispielhaft am Subsystem \textit{"`daten\_geschwindigkeit"} gezeigt werden. Das Signal "`geschw1"\ wird mittels eines Bus Selectors aus dem Busarray herausgelöst und mit einem Multiplikator von 10  durch den Gain-Block versehen. Der Convert-Block ändert den Datentyp des Signals in \textit{int16} und benennt es in "`emb\_geschwindigkeit\_x"\ um. Infolgedessen wird es durch den Bus Creator mit den anderen Signalen des Subsystems zusammengefasst und als "`emb\_geschwindigkeit"\ ans Subsystem \textit{"`daten\_dynamisch"} weitergeleitet(s.ABB8). Danach wird dieses Busarray mit den weiteren Werten des Subsystems gebündelt und zu dem Subsystem \textit{"`Signalcollector\_Embedded\_PC"} transferiert. Die weitere Verarbeitung erfolgt analog zu den vorherigen Kapiteln.
 
 \begin{figure}[h]
 \centering
@@ -721,13 +723,13 @@ Das Subsystem \textit{"`daten\_dynamisch"} beinhaltet mehrere Subsysteme sowie w
 \newpage
 
 
-Die weiteren Subsysteme im Subsystem \textit{"`daten\_dynamisch"} -- \textit{"`daten\_beschleunigung"}, \textit{"`daten\_gierrate"}, \textit{"`daten\_drehzahl\_rad"}, \textit{"`daten\_wassertemperatur"}, "`daten\_federweg" und \textit{"daten\_gaspedalstellung"} -- verhalten sich dazu äquivalent. Zu bemerken ist nur, dass der Multiplikator bei den Signalen des Subsystems \textit{"`daten\_gaspedalstellung"} nicht 10 sondern 1000 beträgt. \\
+Die weiteren Subsysteme im Subsystem \textit{"`daten\_dynamisch"} -- \textit{"`daten\_beschleunigung"}, \textit{"`daten\_gierrate"}, \textit{"`daten\_drehzahl\_rad"}, \textit{"`daten\_wassertemperatur"}, "`daten\_federweg"\ und \textit{"daten\_gaspedalstellung"} -- verhalten sich dazu äquivalent. Zu bemerken ist nur, dass der Multiplikator bei den Signalen des Subsystems \textit{"`daten\_gaspedalstellung"} nicht 10 sondern 1000 beträgt. \\
 
 %-------------------------------------------------------------------%
 
 \textit{Subsystem "`daten\_fahrdynamik" / Fahrdynamikregelung} \\
 
-Wie in Abb. \ref{scdatenfahrdynamik} zu erkennen besteht das Subsystem genau wie das dazugehörige Subsystem im Signalgenerator nur aus 2 Signalen. Beide Werte werden wie üblich aus dem Busarray mittels eines Bus Selectors heraus getrennt. Beiden Signalen wird ein Multiplikator von 1000 durch die Gain-Blöcke zugeführt und die Konvertierung in \textit{int16} und Umbenennung findet durch die Convert-Blöcke statt. Darauf folgend werden beide Signale wieder mit einem Bus Creator gebündelt und das zusammengefasste Busarray wird mit dem Namen "`emb\_daten\_fahrdynamik"\ an das übergeordnete Subsystem \textit{"`Signalcollector\_Embedded\_PC"} übergeben. Die Weiterverarbeitung in diesem Subsystem gleicht der aus den vorherigen Kapiteln.
+Wie in Abb. \ref{scdatenfahrdynamik} zu erkennen besteht das Subsystem genau wie das dazugehörige Subsystem im Signalgenerator nur aus zwei Signalen. Beide Werte werden wie üblich aus dem Busarray mittels eines Bus Selectors heraus getrennt. Beiden Signalen wird ein Multiplikator von 1000 durch die Gain-Blöcke zugeführt und die Konvertierung in \textit{int16} und Umbenennung findet durch die Convert-Blöcke statt. Darauf folgend werden beide Signale wieder mit einem Bus Creator gebündelt und das zusammengefasste Busarray wird mit dem Namen "`emb\_daten\_fahrdynamik"\ an das übergeordnete Subsystem \textit{"`Signalcollector\_Embedded\_PC"} übergeben. Die Weiterverarbeitung in diesem Subsystem gleicht der aus den vorherigen Kapiteln.
 
 \begin{figure}[h]
 \centering
@@ -740,11 +742,11 @@ Wie in Abb. \ref{scdatenfahrdynamik} zu erkennen besteht das Subsystem genau wie
 
 \textit {Subsystem "`daten\_motor" / Motor- und Umrichterdaten}
 
-Dieses Subsystem besitzt keinerlei besondere Eigenschaften, welche nicht bereits in den oberen Subsystemen beschrieben worden wären. Es besteht aus einem Subsystem und verschiedenen einzelnen Signalen(s. Abb. \ref{scdatenmotor}). Es sind keine boolean-Werte im Subsystem vorhanden. Die Aufbereitung der einzelnen Signale im Subsystem ist wie bei den Signalen in den vorherigen Kapiteln. Die Signale "`dc\_strom", "`dc\_spannung", "`lüfterdrehzahl" sowie "`mwassertemperatur" werden mittels Bus Selector aus dem Busarray separiert, erhalten einen Multiplikator von 10 durch die Gain-Blöcke und werden mittels der Convert-Blöcke in den Datentyp \textit{int16} konvertiert und umbenannt.
+Dieses Subsystem besitzt keinerlei besondere Eigenschaften, welche nicht bereits in den oberen Subsystemen beschrieben worden wären. Es besteht aus einem Subsystem und verschiedenen einzelnen Signalen (s. Abb. \ref{scdatenmotor}). Es sind keine boolean-Werte im Subsystem vorhanden. Die Aufbereitung der einzelnen Signale im Subsystem ist wie bei den Signalen in den vorherigen Kapiteln. Die Signale "`dc\_strom", "`dc\_spannung", "`lüfterdrehzahl"\ sowie "`mwassertemperatur" werden mittels Bus Selector aus dem Busarray separiert, erhalten einen Multiplikator von 10 durch die Gain-Blöcke und werden mittels der Convert-Blöcke in den Datentyp \textit{int16} konvertiert und umbenannt.
 
 \newpage
 
-Anschließend fasst sie der Bus Creator mit den anderen Signalen des Subsystems zusammen und übergibt die Daten an das Subsystem \textit{"`emb\_daten\_fahrdynamik"}. Die weitere Signalverarbeitung gleicht denen aus den vorherigen Kapiteln in diesem Subsystem. Die Signale "`stromgrenze", "`maximalleistung", "`lüfter" und "`pumpe" werden analog behandelt, jedoch werden sie mit den Gain-Blöcken mit einem Multiplikator von 1000 versehen. Die Aufbereitung der Signale im Subsystem \textit{"`daten\_temperatur\_motor" }ist analog der des Subsystems \textit{"`daten\_geschwindigkeit"} zu betrachten.
+Anschließend fasst sie der Bus Creator mit den anderen Signalen des Subsystems zusammen und übergibt die Daten an das Subsystem \textit{"`emb\_daten\_fahrdynamik"}. Die weitere Signalverarbeitung gleicht der aus den vorherigen Kapiteln in diesem Subsystem. Die Signale "`stromgrenze", "`maximalleistung", "`lüfter"\ und "`pumpe" werden analog behandelt, jedoch werden sie mit den Gain-Blöcken mit einem Multiplikator von 1000 versehen. Die Aufbereitung der Signale im Subsystem \textit{"`daten\_temperatur\_motor" }ist analog der des Subsystems \textit{"`daten\_geschwindigkeit"} zu betrachten.
  
 \begin{figure}[h]
 \centering
@@ -821,7 +823,7 @@ Weiterhin muss im UDP-Send-Block nochmals die automatisch durch das Modell ermit
 
 \newpage
 
-Diese Aufgabe wird ausschließlich durch das Subsystem \textit{DATEN\_PAKETINFO} bewerkstelligt. Hierbei werden in 3 Constant-Blöcke die zuvor in der Config-Datei config\_datenpaket.m referenzierten Vektoren (s. 2.1.2) eingebunden und von ebendiesen durch 3 Subsysteme deren jeweilige Breiten ausgelesen. Diese Signalvektoren und die jeweilige Größen der Vektoren werden getrennt auf einen Multiplexer geleitet und abschließend nochmals mittels eines Multiplexers zu einem Gesamtsignalvektor "`data\_paketinfo"\ zusammengefasst, welcher nach dem Verlassen des Subsystem die folgende Struktur aufweist: \\
+Diese Aufgabe wird ausschließlich durch das Subsystem \textit{DATEN\_PAKETINFO} bewerkstelligt. Hierbei werden in drei Constant-Blöcke die zuvor in der Config-Datei config\_datenpaket.m referenzierten Vektoren (s. 2.1.2) eingebunden und von ebendiesen durch drei Subsysteme deren jeweilige Breiten ausgelesen. Diese Signalvektoren und die jeweilige Größen der Vektoren werden getrennt auf einen Multiplexer geleitet und abschließend nochmals mittels eines Multiplexers zu einem Gesamtsignalvektor "`data\_paketinfo"\ zusammengefasst, welcher nach dem Verlassen des Subsystem die folgende Struktur aufweist: \\
 
 $ data\_paketinfo = \left( \begin{array}{c} SIZE\_VEKTOR\_AUFTEILUNG\_DATENPAKET \\ SIZE\_VEKTOR\_PAKETTEILUNG \\ SIZE\_VEKTOR\_KOMMASETZUNG \\ VEKTOR\_AUFTEILUNG\_DATENPAKET \\ VEKTOR\_PAKETTEILUNG \\ VEKTOR\_KOMMASETZUNG  \end{array} \right)$ 
 
@@ -831,7 +833,7 @@ $ data\_paketinfo = \left( \begin{array}{c} SIZE\_VEKTOR\_AUFTEILUNG\_DATENPAKET
 
 \textit{3) Versand der Paketinformationen an den Embedded-PC} \\
 
-Der Versand der Paketinformationen an den Embedded-PC erfolgt im Subsystem \\ "`UDP\_PAKETINFORMATIONEN"\ auf analoge Weise zu dem Versand der Fahrzeugdaten (statt des Subsystems "`MSGSIZE\_DATEN" wird hier nur das dazu inhaltlich äquivalente Subsystem "`MSGSIZE\_PAKETINFO"\ verwendet). Lediglich bei der Konvertierung wird aufgrund der begrenzten maximalen Paketgröße eines Paketes beim UDP-Protokoll von  1472 byte der Datentyp \textit{unit8} ausgewählt, um den Versand aller Paketinformationen in einem einzigen Paket zu ermöglichen. Demzufolge muss auch im Subsystem \\ "`MSGSIZE\_PAKETINFO"\, welches die Paketgröße ermittelt, beim Constant-Block der Wert  "`2" beim Produktblock durch den Wert  "`1" ersetzt oder zusammen mit dem Produktblock entfernt werden. \\
+Der Versand der Paketinformationen an den Embedded-PC erfolgt im Subsystem \\ "`UDP\_PAKETINFORMATIONEN"\ auf analoge Weise zu dem Versand der Fahrzeugdaten (statt des Subsystems "`MSGSIZE\_DATEN" wird hier nur das dazu inhaltlich äquivalente Subsystem "`MSGSIZE\_PAKETINFO"\ verwendet). Lediglich bei der Konvertierung wird aufgrund der begrenzten maximalen Paketgröße eines Paketes beim UDP-Protokoll von  1472 byte der Datentyp \textit{unit8} ausgewählt, um den Versand aller Paketinformationen in einem einzigen Paket zu ermöglichen. Demzufolge muss auch im Subsystem \\ "`MSGSIZE\_PAKETINFO"\, welches die Paketgröße ermittelt, beim Constant-Block der Wert  "`2" beim Produktblock durch den Wert  "`1"\ ersetzt oder zusammen mit dem Produktblock entfernt werden. \\
 
 
 
@@ -950,7 +952,7 @@ Nachdem die MicroAutoBox die Empfangsbestätigung des \texttt{PACKET\_INFO} vom 
 
 \item[4) - 12)]
 Der Embedded-PC nimmt die Fahrzeugdaten entgegen und verarbeitet diese (\texttt{4: encode DATA}). Dabei wird der Datensatz \texttt{DATA} entsprechend der Informationen in \texttt{VEC\_LAYOUT} in mehrere Pakete geteilt und mit einem \texttt{HEADER} versehen. Anschließend werden diese Pakete der Reihe nach an den vServer übertragen (\texttt{5,9,...: send PACKAGE 1,...,n}). Dabei wird keine Empfangsbestätigung am Server erzeugt und somit auch keine am Embedded-PC erwartet. 
-Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen 8 Byte Zeitstempel und einer 4 Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, ist also eine Zahl zwischen 1 und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf 5 Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
+Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen 8 Byte Zeitstempel und einer 4 Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, ist also eine Zahl zwischen 1 und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf fünf Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
 Sobald ein Paket den vServer erreicht wird es zunächst dekodiert (\texttt{6: decode PACKAGE 1}) (wobei \texttt{PACKAGE 1} hier nicht zwangsläufig das erste Paket aus \texttt{DATA} sein muss - Pakete können sich überholen oder verloren gehen). Dabei wird zunächst der \texttt{HEADER} ausgelesen. Der darin enthaltene Zeitstempel wird mit dem lokalen verglichen, ist die Differenz größer als 5 Sekunden wird das Paket verworfen, ansonsten wird das Paket entsprechend der Daten in \texttt{VEC\_LAYOUT}, \texttt{VEC\_COMMA} und 7\texttt{VEC\_DATATYPES} so bearbeitet, dass der Dekoder einen Fahrzeugwert nach dem anderen an die Datenbank zur Verfügung stellen kann. Wurden alle Fahrzeugdaten aus dem Paket ausgelesen und verarbeitet, wird ein neues Paket empfangen. 
 
 \end{itemize}
@@ -1362,7 +1364,7 @@ Beschreibt den Aufbau des Dokuments. Dabei wird der Dokumenttyp bestimmt, danach
 
 \textbf{includes/head.php}\\
 \hangindent+95pt \hangafter=1
-Diese Datei stellt den regulären Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die 4 Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
+Diese Datei stellt den regulären Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die vier Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
 
 
 \textbf{includes/header.php}\\
@@ -1374,7 +1376,7 @@ Beinhaltet die Navigationsleiste am Kopf der Seite, die auf allen Seiten präsen
 
 
 \subsection{Allgemeine Fahrzeugdaten}
-Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält 3 wesentliche Datein: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
+Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält drei wesentliche Dateien: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
 \\ \\
 \includegraphics[scale=0.452]{allgemeinefahrzeugdaten.png}
 \\ \\
@@ -1441,7 +1443,7 @@ Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem d
 
 
 \subsection{Akkudaten}
-Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den 12 Akkumulatorblöcken (jeweils 12 Zellen) sollen permanent angezeigt werden und Informationen zu den 12 Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus 2 PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
+Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den zwölf Akkumulatorblöcken (jeweils zwölf Zellen) sollen permanent angezeigt werden und Informationen zu den zwölf Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus zwei PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
 \\ \\
 \includegraphics[scale=0.4255]{akkudatenvpp.png}
 \\ \\ 
@@ -1450,7 +1452,7 @@ Die allgemeine Funktionsweise dieser Seite entspricht \textit{1.1.2. Allgemeine 
 \textbf{accu\_refresh(data)}\\
 
 \hangindent+95pt \hangafter=1 
-Diese Funktion aktualisiert die 144 Zellspannungen und berechnet für die 12 Akkublöcke jeweils minimale, sowie maximale Zellspannung. Der Funktion wird das JSON Array übergeben, dass in executeQuery() geholt wird. In diesem sind alle 144 Zellspannungen gespeichert.\\
+Diese Funktion aktualisiert die 144 Zellspannungen und berechnet für die zwölf Akkublöcke jeweils minimale, sowie maximale Zellspannung. Der Funktion wird das JSON Array übergeben, dass in executeQuery() geholt wird. In diesem sind alle 144 Zellspannungen gespeichert.\\
 
 
 \textbf{kapa(data[146],removeClass/addClass)}\\
@@ -1476,11 +1478,11 @@ Analog wie in "'toggle\_notaus"' \textit{1.1.2. Allgemeine Fahrzeugdaten}. Hier 
 
 
 \subsection{Dynamische Daten}
-Der Aufbau ist wieder analog den vorherigen 2 Seiten. Auf dieser Seite wird folgendes visualisiert: 
+Der Aufbau ist wieder analog den vorherigen zwei Seiten. Auf dieser Seite wird folgendes visualisiert: 
 
 \begin{itemize}
 \item Drehzahlen der Räder als Halbkreis-Diagramm mit "'justGage"'
-\item Die 4 Federwege an den Achsen als vertikal stehender Ladebalken 
+\item Die vier Federwege an den Achsen als vertikal stehender Ladebalken 
 \item Gaspedal 1 und 2, Bremsposition, Bremskraft, Bremsdruck, Wassertemperatur 1 und 2 werden als horizontal liegender Ladebalken 
 \item Der Lenkwinkel wird als Balken mit Indikator visualisiert.  
 \end{itemize}
@@ -1509,7 +1511,7 @@ Rechnet den übergebenen Wert vom Wertebereich -180 bis +180 in den Wertebereich
 
 
 \subsection{Fahrdynamik}
-Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf 2 Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus 4 Komponenten.\\ \\
+Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf zwei Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus vier Komponenten.\\ \\
 
 
 \includegraphics[scale=0.42]{fahrdynamik.png}
@@ -1519,7 +1521,7 @@ Funktionserklärung siehe vorhergegangene Seiten.\\
 
 
 \subsection{Motor und Umrichter}
-Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus 3 Komponenten. Die 8 Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
+Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus drei Komponenten. Die 8 Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
 
 
 
