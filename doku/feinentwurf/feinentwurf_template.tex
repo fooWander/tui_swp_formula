@@ -896,7 +896,7 @@ Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand ein
 
 \subsection{Initialisierung}
 
-\begin{enumerate}
+\begin{itemize}
 
 \begin{figure}[H]
 \centering
@@ -905,48 +905,35 @@ Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand ein
 \label{inite}
 \end{figure}
 
-\item 
-Der virtuelle Server ist vor Kommunikationsbeginn in einer Art Wartezustand in dem er auf eintreffende Pakete wartet, was durch das Horchen an einem Netzwerk-Port durch die Anwendung \textit{vserver} realisiert wird.
-[listen on port D]
+\item[1) - 2)] 
+Der virtuelle Server sowie die MicroAutoBox sind nach deren Start in einer Art Wartezustand(\texttt{1/2: receive MSG\_READY}) in dem sie auf die Nachricht \texttt{MSG\_READY} des Embedded PCs warten. Dabei handelt es sich um einen mit einer bestimmten Bitfolge bestückten Bitvektor der Länge 1 Byte. (Siehe Abbildung VERWEIS) Dieser signalisiert beiden Teilnehmern die Bereitschaft des Embedded-PCs. 
 
-\item
-Die Kommunikation beginnt beim Starten des Embedded-PCs und des darauf folgenden Starts der Anwendung embpc. Der PC ist nach fehlerfreiem Start dazu in der Lage sein erstes Paket zu senden und damit dessen erste Programmanweisung auszuführen. Das Paket (ready\_1) wird über eine UMTS-Verbindung an den virtuellen Server gesendet und beinhaltet einen mit einer bestimmten Bit-Folge bestückten Bitvektor (Länge 8 bit, 1 Byte), welcher die Bereitschaft des Embedded-PCs signalisiert. Nach dem Sendevorgang wartet er auf ein Acknowledgement des vServers. 
-[send ready\_1 to port D]
+\item [3) - 4)]
+Sobald der Embedded-PC hochgefahren ist wird die Anwendung \emph{embpc} automatisch ausgeführt. Der PC ist nach fehlerfreiem Start dazu in der Lage sein erstes Paket zu senden und damit seine Bereitschaft mitzuteilen. Das Paket \texttt{MSG\_READY} wird über eine UMTS-Verbindung zunächst an den virtuellen Server gesendet (\texttt{3: send MSG\_READY})und beinhaltet den oben beschriebenen Bitvektor. Nach dem Sendevorgang wartet er auf ein Acknowledgement \texttt{MSG\_READY\_ACK} des vServers (\texttt{4: receive MSG\_READY\_ACK}).
 
-\item
-Hat der virtuelle Server diesen Bitvektor erfolgreich empfangen [get ready\_1 from EmbPC] und dekodiert, sendet dieser dem Embedded-PC eine Empfangsbestätigung, wieder in Form eines 8 bit großen Bitvektors bestimmter Kodierung. Wurde nicht der erwartete Bitvektor empfangen wird wie in Schritt 1.1.1 weiter gelauscht. 
-[send ready\_2 to port C1]
 
-\item
-Falls jedoch keine Empfangsbestätigung eintrifft [listen on port C1] wird, nach einer von uns zuvor festgelegten Zeitdauer (timeout C1) Schritt 1.1.2 wiederholt, solange bis dieser eine korrekte Empfangsbestätigung, ausgehend vom virtuellen Server, erhält. 
-[get ready\_2 from vServer]
+\item[5) - 7)]
+Hat der virtuelle Server diesen Bitvektor erfolgreich empfangen wird dieser zunächst dekodiert und auf seine Richtig- bzw. Vollständigkeit geprüft (\texttt{5: check MSG\_READY}). Danach sendet dieser dem Embedded-PC eine Empfangsbestätigung (\texttt{6: send MSG\_READY\_ACK}), wieder in Form eines 8 bit großen Bitvektors bestimmter Kodierung (siehe Abbildung VERWEIS). Anschließend wartet der vServer auf ein Paket \texttt{PACKET\_INFO} (\texttt{7: receive PACKET\_INFO}. Wurde nicht der erwartete Bitvektor empfangen wird wieder mit Schritt \texttt{2: receive MSG\_READY} fortgefahren.
 
-\item
-Nach dem Kommunikationsbeginn und des Sendens der Empfangsbestätigung ist das Programm des Servers bereit ein neues Paket (Info-Packet\_2) zu empfangen welches wichtige Informationen zur Weiterverarbeitung enthält (siehe Abbildung (VERWEIS)). 
-[listen on port D]
+\item[8) - 10)]
+Sobald das Paket \texttt{MSG\_READY\_ACK} den Embedded-PC erreicht wird dies wie auf dem vServer zunächst dekodiert und überprüft (\texttt{8: check MSG\_READY\_ACK}). Falls es korrekt empfangen wurde meldet die Anwendung \emph{embpc} nun ihre Bereitschaft an die MicroAutoBox II durch das Senden der Nachricht \texttt{MSG\_READY} (\texttt{9: send MSG\_READY}) und wartet anschließend auf ein Paket (\texttt{10: receive PACKET\_INFO}. Falls jedoch nach 5 Sekunden noch kein Acknowledgement des vServers eingetroffen ist, wird wieder mit Schritt \texttt{3: send MSG\_READY} begonnen.
 
-\item
-Zuvor jedoch meldet der Embedded-PC seine Bereitschaft und die des vServers durch das wiederholte Senden eines speziell kodierten Bitvektors an die MicroAutoBox II.
-[send ready\_3 to port A]
+\item[11)- 13)]
+Hier wird auf der MicroAutoBox II analog zu schritt 5 und 8 verfahren und das ankommende Paket zunächst überprüft (\texttt{11: check MSG\_READY}). Wurde nicht das erwartete Paket empfangen wird mit Schritt 1 fortgefahren. Ansonsten sendet die MicroAutoBox II ein Paket das die Informationen zur Paketaufteilung, der Kommaverschiebung  und Datentypen der einzelnen Werte beinhaltet an den Embedded PC (\texttt{12: send PACKET\_INFO}). Danach wird auf eine Empfangsbestätigung des Embedded-PC gewartet (\texttt{13: receive PACKET\_INFO\_ACK}). Trifft diese nicht innerhalb von 5 Sekunden ein, wird die Nachricht erneut verschickt. 
 
-\item
-Ist die Autobox im Betrieb, befindet sie sich wie der virtuelle Server ebenfalls bis zum Empfang eines Paketes im Wartezustand.
-[listen on port A]
+\item[14) - 17)]
+Nachdem der Embedded-PC das Paket \texttt{PACKET\_INFO} empfangen hat schickt er zunächst eine Empfangsbestätigung an die MicroAutoBox II (\texttt{14: send PACKET\_INFO\_ACK}) und leitet anschließend das Paket an den vServer weiter (\texttt{15: send PACKET\_INFO}). Nun wartet er auf die Empfangsbestätigung des vServers (\texttt{17: receive PACKET\_INFO\_ACK}). Falls innerhalb von 5 Sekunden keine Nachricht eintrifft wird das Paket erneut verschickt.
 
-\item
-Wird das Paket ausgehend vom Embedded-PC von der MicroAutoBox II empfangen
-[get ready\_3 from EmbPC], wird diese nun versuchen dem PC ein erstes Paket mit zu verarbeitenden Nutzdaten zu übermitteln [send Info-Packet\_1] bis diese eine Empfangsbestätigung (ACK\_1) erhält. 
-[listen on port A]
+\item[18) - 20)]
+Sobald der vServer das Paket \texttt{PACKET\_INFO} entgegen nimmt bestätigt er dessen Empfang (\texttt{18: send PACKET\_INFO\_ACK}) und fängt anschließend mit der Dekodierung der Paketinformationen an (\texttt{20: decode PACKET\_INFORMATION}). Dabei werden die einzelnen Daten (Paketaufteilung, Kommaverschiebung und Datentypen) in einer jeweils eigenen Datenstruktur abgelegt (\texttt{VEC\_LAYOUT, VEC\_COMMA, VEC\_DATATYPES}). Auf diese wird im späteren Verlauf zugegriffen um die Fahrzeugdaten korrekt verarbeiten zu können. Der Embedded-PC verfährt nach dem Empfang der Empfangsbestätigung genauso (\texttt{19: decode PACKET\_INFO}).
 
-\item
-Nach dem Empfang des Paketes [get Info-Packet\_1] und dessen Verarbeitung [receive Info-Paket\_1] auf dem Embedded-PC leitet dieser das empfangene Paket unverändert an den vServer weiter [send Info-Paket\_1], solange bis der PC eine Empfangsbestätigung vom Server entgegen nimmt. Nach dieser Empfangsbestätigung übergibt der Embedded-PC der MicroAutoBox die erwartete Empfangsbestätigung [send ACK\_1 to port A]  bis diese empfangen wird.
-[get ACK\_1 from EmbPC]
+\end{itemize}
 
-\end{enumerate}
+Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für die Verarbeitung der Fahrzeugdaten wichtig ist, dass sowohl der Embedded-PC als auch der vServer über die Paketinformationen verfügen. Durch deren Größe wäre es aufgrund der geringen Bandbreite von UMTS/GPRS keine Option diese mit jedem Datenpaket zu übertragen. Falls sich die bisherige Initialisierung in der Testphase als zu fehleranfällig herausstellen sollte, indem z.B. keine Datenübertragung zustande kommt weil zu viel Paketverlust auftritt, wird dieser Prozess selbstverständlich überarbeitet. Das bisherige Konzept ist also noch nicht endgültig.
 
 \subsection{Datenübertragung und Datenverarbeitung}
 
-\begin{enumerate}
+\begin{itemize}
 
 \begin{figure}[H]
 \centering
@@ -974,7 +961,7 @@ timeout C2 öfter als Y-mal überschritten (Paket Y-mal gesendet),
 timeout D\_1 öfter als Y-mal überschritten (Paket Y-mal gesendet),
 timeout D\_2 öfter als Y-mal überschritten (Paket Y-mal gesendet).
 
-\end{enumerate}
+\end{itemize}
 
 
 %--------------------------   vServer   ----------------------------%

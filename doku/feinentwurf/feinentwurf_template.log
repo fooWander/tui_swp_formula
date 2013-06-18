@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.6.17)  18 JUN 2013 03:19
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.6.17)  18 JUN 2013 11:08
 entering extended mode
 **feinentwurf_template.tex
 (C:\Users\Christian\src\latex\feinentwurf\feinentwurf_template.tex
@@ -1212,416 +1212,408 @@ Overfull \hbox (59.11372pt too wide) in paragraph at lines 903--904
  [][] 
  []
 
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 [31 <C:/Users/Christian/src/latex/feinentwurf/Initialization.png (PNG copy)>]
-<Data_Transmission.png, id=164, 599.23875pt x 365.86688pt>
+Overfull \hbox (26.37659pt too wide) in paragraph at lines 925--926
+\OT1/cmr/m/n/12 (-20) zun[]achst ei-ne Emp-fangs-best[]atigung an die Mi-cro-Au
+-to-Box II (\OT1/cmtt/m/n/12 14: send PACKET[]INFO[]ACK\OT1/cmr/m/n/12 (-20) )
+ []
+
+
+Overfull \hbox (28.28912pt too wide) in paragraph at lines 925--926
+\OT1/cmr/m/n/12 (-20) Nun war-tet er auf die Emp-fangs-best[]atigung des vSer-v
+ers (\OT1/cmtt/m/n/12 17: receive PACKET[]INFO[]ACK\OT1/cmr/m/n/12 (-20) ).
+ []
+
+[32] <Data_Transmission.png, id=168, 599.23875pt x 365.86688pt>
 File: Data_Transmission.png Graphic file (type png)
 
 <use Data_Transmission.png>
-Package pdftex.def Info: Data_Transmission.png used on input line 953.
+Package pdftex.def Info: Data_Transmission.png used on input line 940.
 (pdftex.def)             Requested size: 449.42796pt x 274.39948pt.
- [32]
-Overfull \hbox (12.91705pt too wide) in paragraph at lines 959--961
+
+Overfull \hbox (12.91705pt too wide) in paragraph at lines 946--948
 []\OT1/cmr/m/n/12 (-20) Nachdem die Mi-cro-Au-to-Box die Emp-fangs-best[]atigun
 g des Info-Packet[]1 vom Embedded-
  []
 
 [33 <C:/Users/Christian/src/latex/feinentwurf/Data_Transmission.png (PNG copy)>
-] <webseite.pdf, id=171, 1056.74805pt x 976.44798pt>
+] [34] <webseite.pdf, id=175, 1056.74805pt x 976.44798pt>
 File: webseite.pdf Graphic file (type pdf)
  <use webseite.pdf>
-Package pdftex.def Info: webseite.pdf used on input line 1002.
+Package pdftex.def Info: webseite.pdf used on input line 989.
 (pdftex.def)             Requested size: 422.69173pt x 390.57228pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[34] <installation.pdf, id=175, 719.48799pt x 309.958pt>
+[35 <C:/Users/Christian/src/latex/feinentwurf/webseite.pdf>]
+<installation.pdf, id=2158, 719.48799pt x 309.958pt>
 File: installation.pdf Graphic file (type pdf)
-
-<use installation.pdf>
-Package pdftex.def Info: installation.pdf used on input line 1014.
+ <use installation.pdf>
+Package pdftex.def Info: installation.pdf used on input line 1001.
 (pdftex.def)             Requested size: 431.69612pt x 185.97623pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[35 <C:/Users/Christian/src/latex/feinentwurf/webseite.pdf>]
-<initialisierung.pdf, id=2158, 737.95702pt x 599.038pt>
+[36 <C:/Users/Christian/src/latex/feinentwurf/installation.pdf>]
+<initialisierung.pdf, id=2401, 737.95702pt x 599.038pt>
 File: initialisierung.pdf Graphic file (type pdf)
 
 <use initialisierung.pdf>
-Package pdftex.def Info: initialisierung.pdf used on input line 1026.
+Package pdftex.def Info: initialisierung.pdf used on input line 1013.
 (pdftex.def)             Requested size: 405.87761pt x 329.47191pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[36 <C:/Users/Christian/src/latex/feinentwurf/installation.pdf>]
-<header.pdf, id=2401, 355.72899pt x 213.598pt>
+ [37 <C:/Users/Christian/src/latex/feinentwurf/initialisierung.pdf>] <header.pd
+f, id=2714, 355.72899pt x 213.598pt>
 File: header.pdf Graphic file (type pdf)
  <use header.pdf>
-Package pdftex.def Info: header.pdf used on input line 1039.
+Package pdftex.def Info: header.pdf used on input line 1026.
 (pdftex.def)             Requested size: 355.72812pt x 213.59747pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[37 <C:/Users/Christian/src/latex/feinentwurf/initialisierung.pdf>]
-Overfull \hbox (9.62141pt too wide) in paragraph at lines 1054--1056
+[38 <C:/Users/Christian/src/latex/feinentwurf/header.pdf>]
+Overfull \hbox (9.62141pt too wide) in paragraph at lines 1041--1043
 []\OT1/cmr/m/n/12 (-20) Liste der im Sys-tem re-gis-trier-ten Be-nut-zer (nur V
 or-stand; \OT1/cmr/m/it/12 (-20) in-clu-des/widgets/userlist.php\OT1/cmr/m/n/12
  (-20) )
  []
 
-<startseite.pdf, id=2714, 1404.44695pt x 703.428pt>
+<startseite.pdf, id=2825, 1404.44695pt x 703.428pt>
 File: startseite.pdf Graphic file (type pdf)
  <use startseite.pdf>
-Package pdftex.def Info: startseite.pdf used on input line 1060.
+Package pdftex.def Info: startseite.pdf used on input line 1047.
 (pdftex.def)             Requested size: 442.40314pt x 221.581pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[38 <C:/Users/Christian/src/latex/feinentwurf/header.pdf>]
-<registrierung.pdf, id=2825, 556.47902pt x 309.958pt>
+[39 <C:/Users/Christian/src/latex/feinentwurf/startseite.pdf>]
+<registrierung.pdf, id=3257, 556.47902pt x 309.958pt>
 File: registrierung.pdf Graphic file (type pdf)
  <use registrierung.pdf>
-Package pdftex.def Info: registrierung.pdf used on input line 1071.
+Package pdftex.def Info: registrierung.pdf used on input line 1058.
 (pdftex.def)             Requested size: 417.35825pt x 232.46791pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[39 <C:/Users/Christian/src/latex/feinentwurf/startseite.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1079--1081
+[40 <C:/Users/Christian/src/latex/feinentwurf/registrierung.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1068
 
  []
 
-<login.pdf, id=3257, 806.212pt x 277.83798pt>
+<login.pdf, id=3476, 806.212pt x 277.83798pt>
 File: login.pdf Graphic file (type pdf)
  <use login.pdf>
-Package pdftex.def Info: login.pdf used on input line 1084.
+Package pdftex.def Info: login.pdf used on input line 1071.
 (pdftex.def)             Requested size: 403.10501pt x 138.91864pt.
- [40 <C:/Users/Christian/src/latex/feinentwurf/registrierung.pdf> <C:/Users/Chr
-istian/src/latex/feinentwurf/login.pdf
-
-pdfTeX warning: pdflatex (file C:/Users/Christian/src/latex/feinentwurf/login.p
-df): PDF inclusion: multiple pdfs with page group included in a single page
->] <logout.pdf, id=3693, 525.16202pt x 269.80798pt>
+ [41 <C:/Users/Christian/src/latex/feinentwurf/login.pdf>]
+<logout.pdf, id=3698, 525.16202pt x 269.80798pt>
 File: logout.pdf Graphic file (type pdf)
  <use logout.pdf>
-Package pdftex.def Info: logout.pdf used on input line 1096.
+Package pdftex.def Info: logout.pdf used on input line 1083.
 (pdftex.def)             Requested size: 367.6109pt x 188.8643pt.
- [41 <C:/Users/Christian/src/latex/feinentwurf/logout.pdf>]
-<passwort.pdf, id=3855, 703.428pt x 301.928pt>
+ [42 <C:/Users/Christian/src/latex/feinentwurf/logout.pdf>]
+<passwort.pdf, id=3860, 703.428pt x 301.928pt>
 File: passwort.pdf Graphic file (type pdf)
  <use passwort.pdf>
-Package pdftex.def Info: passwort.pdf used on input line 1108.
+Package pdftex.def Info: passwort.pdf used on input line 1095.
 (pdftex.def)             Requested size: 422.06006pt x 181.15819pt.
- [42 <C:/Users/Christian/src/latex/feinentwurf/passwort.pdf>]
-<csvexport.pdf, id=4080, 611.083pt x 382.22798pt>
+ [43 <C:/Users/Christian/src/latex/feinentwurf/passwort.pdf>]
+<csvexport.pdf, id=4086, 611.083pt x 382.22798pt>
 File: csvexport.pdf Graphic file (type pdf)
  <use csvexport.pdf>
-Package pdftex.def Info: csvexport.pdf used on input line 1119.
+Package pdftex.def Info: csvexport.pdf used on input line 1106.
 (pdftex.def)             Requested size: 366.65262pt x 229.33856pt.
- [43 <C:/Users/Christian/src/latex/feinentwurf/csvexport.pdf>]
-Overfull \hbox (8.99712pt too wide) in paragraph at lines 1126--1127
+ [44 <C:/Users/Christian/src/latex/feinentwurf/csvexport.pdf>]
+Overfull \hbox (8.99712pt too wide) in paragraph at lines 1113--1114
 \OT1/cmr/m/n/12 (-20) Hierbei han-delt es sich um ge-nau zu sein um zwei Wid-ge
 ts (\OT1/cmr/m/it/12 (-20) in-clu-des/widgets/manageusers.php
  []
 
-<usermgmt.pdf, id=4312, 819.86299pt x 462.52798pt>
+<usermgmt.pdf, id=4317, 819.86299pt x 462.52798pt>
 File: usermgmt.pdf Graphic file (type pdf)
  <use usermgmt.pdf>
-Package pdftex.def Info: usermgmt.pdf used on input line 1130.
+Package pdftex.def Info: usermgmt.pdf used on input line 1117.
 (pdftex.def)             Requested size: 409.9305pt x 231.26341pt.
- [44 <C:/Users/Christian/src/latex/feinentwurf/usermgmt.pdf>]
-<online.pdf, id=4627, 514.72299pt x 261.77798pt>
+ [45 <C:/Users/Christian/src/latex/feinentwurf/usermgmt.pdf>]
+<online.pdf, id=4632, 514.72299pt x 261.77798pt>
 File: online.pdf Graphic file (type pdf)
  <use online.pdf>
-Package pdftex.def Info: online.pdf used on input line 1141.
+Package pdftex.def Info: online.pdf used on input line 1128.
 (pdftex.def)             Requested size: 411.77895pt x 209.42267pt.
- [45 <C:/Users/Christian/src/latex/feinentwurf/online.pdf>]
-<allgemeineSeitenaufbau.png, id=4798, 1382.16376pt x 471.26062pt>
+ [46 <C:/Users/Christian/src/latex/feinentwurf/online.pdf>]
+<allgemeineSeitenaufbau.png, id=4803, 1382.16376pt x 471.26062pt>
 File: allgemeineSeitenaufbau.png Graphic file (type png)
 
 <use allgemeineSeitenaufbau.png>
-Package pdftex.def Info: allgemeineSeitenaufbau.png used on input line 1154.
+Package pdftex.def Info: allgemeineSeitenaufbau.png used on input line 1141.
 (pdftex.def)             Requested size: 451.96071pt x 154.09988pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1156
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1156
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1152--1156
+Underfull \hbox (badness 10000) in paragraph at lines 1139--1143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1157--1160
+Underfull \hbox (badness 10000) in paragraph at lines 1144--1147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1162--1165
+Underfull \hbox (badness 10000) in paragraph at lines 1149--1152
 
  []
 
-<allgemeinefahrzeugdaten.png, id=4799, 1005.00468pt x 584.1825pt>
+<allgemeinefahrzeugdaten.png, id=4804, 1005.00468pt x 584.1825pt>
 File: allgemeinefahrzeugdaten.png Graphic file (type png)
 
 <use allgemeinefahrzeugdaten.png>
-Package pdftex.def Info: allgemeinefahrzeugdaten.png used on input line 1178.
+Package pdftex.def Info: allgemeinefahrzeugdaten.png used on input line 1165.
 (pdftex.def)             Requested size: 454.25682pt x 264.04741pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1176--1180
+Underfull \hbox (badness 10000) in paragraph at lines 1163--1167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1176--1180
+Underfull \hbox (badness 10000) in paragraph at lines 1163--1167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1176--1180
+Underfull \hbox (badness 10000) in paragraph at lines 1163--1167
 
  []
 
-[46 <C:/Users/Christian/src/latex/feinentwurf/allgemeineSeitenaufbau.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1182--1185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1187--1190
+[47 <C:/Users/Christian/src/latex/feinentwurf/allgemeineSeitenaufbau.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1192--1195
+Underfull \hbox (badness 10000) in paragraph at lines 1174--1177
 
  []
 
 
-Overfull \hbox (15.63283pt too wide) in paragraph at lines 1197--1201
+Underfull \hbox (badness 10000) in paragraph at lines 1179--1182
+
+ []
+
+
+Overfull \hbox (15.63283pt too wide) in paragraph at lines 1184--1188
 []\OT1/cmr/bx/n/12 justGage()   \OT1/cmr/m/n/12 (-20) In-itia-li-siert die halb
 -run-de Ge-schwin-dig-keits-an-zei-ge, die durch \OT1/cmr/bx/n/12 \g.refresh()\
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1197--1201
+Underfull \hbox (badness 10000) in paragraph at lines 1184--1188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1203--1206
+Underfull \hbox (badness 10000) in paragraph at lines 1190--1193
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1208--1211
+Underfull \hbox (badness 10000) in paragraph at lines 1195--1198
 
  []
 
-[47 <C:/Users/Christian/src/latex/feinentwurf/allgemeinefahrzeugdaten.png>]
+[48 <C:/Users/Christian/src/latex/feinentwurf/allgemeinefahrzeugdaten.png>]
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 1213.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 1200.
 
 
-Overfull \hbox (10.55739pt too wide) in paragraph at lines 1213--1216
+Overfull \hbox (10.55739pt too wide) in paragraph at lines 1200--1203
 []\OT1/cmr/bx/n/12 $.post('allgemeinefahrzeugdaten[]sql.php',\OMS/cmsy/b/n/12 f
 \OT1/cmr/bx/n/12 permission:"true"\OMS/cmsy/b/n/12 g\OT1/cmr/bx/n/12 ,function(
 data)\OMS/cmsy/b/n/12 fg
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1213--1216
+Underfull \hbox (badness 10000) in paragraph at lines 1200--1203
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1221
+Underfull \hbox (badness 10000) in paragraph at lines 1205--1208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1223--1226
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1228--1231
+Underfull \hbox (badness 10000) in paragraph at lines 1215--1218
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1233--1237
+Underfull \hbox (badness 10000) in paragraph at lines 1220--1224
 
  []
 
-<akkudatenvpp.png, id=4808, 1060.71281pt x 712.16063pt>
+<akkudatenvpp.png, id=4813, 1060.71281pt x 712.16063pt>
 File: akkudatenvpp.png Graphic file (type png)
  <use akkudatenvpp.png>
-Package pdftex.def Info: akkudatenvpp.png used on input line 1245.
+Package pdftex.def Info: akkudatenvpp.png used on input line 1232.
 (pdftex.def)             Requested size: 451.33919pt x 303.02829pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1248
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1248
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1248
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1235
 
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 1249--1250
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1252--1253
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1236--1237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1255--1258
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1259--1263
-
- []
-
-[49 <C:/Users/Christian/src/latex/feinentwurf/akkudatenvpp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1264--1268
+Underfull \hbox (badness 10000) in paragraph at lines 1242--1245
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1270--1273
+Underfull \hbox (badness 10000) in paragraph at lines 1246--1250
 
  []
 
-<dynamischedaten.png, id=4818, 938.00438pt x 644.4075pt>
+[50 <C:/Users/Christian/src/latex/feinentwurf/akkudatenvpp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1251--1255
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1257--1260
+
+ []
+
+<dynamischedaten.png, id=4823, 938.00438pt x 644.4075pt>
 File: dynamischedaten.png Graphic file (type png)
 
 <use dynamischedaten.png>
-Package pdftex.def Info: dynamischedaten.png used on input line 1289.
+Package pdftex.def Info: dynamischedaten.png used on input line 1276.
 (pdftex.def)             Requested size: 454.93158pt x 312.53726pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1292
+Underfull \hbox (badness 10000) in paragraph at lines 1274--1279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1292
+Underfull \hbox (badness 10000) in paragraph at lines 1274--1279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1287--1292
+Underfull \hbox (badness 10000) in paragraph at lines 1274--1279
 
  []
 
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 1294--1297
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1299--1302
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1281--1284
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1311--1312
+Underfull \hbox (badness 10000) in paragraph at lines 1286--1289
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1311--1312
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1299
 
  []
 
-[51 <C:/Users/Christian/src/latex/feinentwurf/dynamischedaten.png>]
-<fahrdynamik.png, id=4826, 1083.29718pt x 682.04813pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1299
+
+ []
+
+[52 <C:/Users/Christian/src/latex/feinentwurf/dynamischedaten.png>]
+<fahrdynamik.png, id=4831, 1083.29718pt x 682.04813pt>
 File: fahrdynamik.png Graphic file (type png)
  <use fahrdynamik.png>
-Package pdftex.def Info: fahrdynamik.png used on input line 1314.
+Package pdftex.def Info: fahrdynamik.png used on input line 1301.
 (pdftex.def)             Requested size: 454.98172pt x 286.45825pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1314--1317
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1314--1317
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1322
+Underfull \hbox (badness 10000) in paragraph at lines 1308--1309
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1321--1322
+Underfull \hbox (badness 10000) in paragraph at lines 1308--1309
 
  []
 
-<motorundumrichter.png, id=4827, 916.1728pt x 537.50812pt>
+<motorundumrichter.png, id=4832, 916.1728pt x 537.50812pt>
 File: motorundumrichter.png Graphic file (type png)
 
 <use motorundumrichter.png>
-Package pdftex.def Info: motorundumrichter.png used on input line 1325.
+Package pdftex.def Info: motorundumrichter.png used on input line 1312.
 (pdftex.def)             Requested size: 458.08528pt x 268.7534pt.
 
-Overfull \hbox (2.84111pt too wide) in paragraph at lines 1325--1328
+Overfull \hbox (2.84111pt too wide) in paragraph at lines 1312--1315
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1325--1328
+Underfull \hbox (badness 10000) in paragraph at lines 1312--1315
 
  []
 
-[52 <C:/Users/Christian/src/latex/feinentwurf/fahrdynamik.png>] [53 <C:/Users/C
+[53 <C:/Users/Christian/src/latex/feinentwurf/fahrdynamik.png>] [54 <C:/Users/C
 hristian/src/latex/feinentwurf/motorundumrichter.png>]
 Kapitel 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1360--1361
+Underfull \hbox (badness 10000) in paragraph at lines 1347--1348
 
  []
 
-[54
+[55
 
-] [55] [56] [57] <userdata.png, id=4849, 563.10374pt x 131.74219pt>
+] [56] [57] [58] <userdata.png, id=4854, 563.10374pt x 131.74219pt>
 File: userdata.png Graphic file (type png)
 
 <use userdata.png>
-Package pdftex.def Info: userdata.png used on input line 1447.
+Package pdftex.def Info: userdata.png used on input line 1434.
 (pdftex.def)             Requested size: 439.21916pt x 102.75847pt.
- [58 <C:/Users/Christian/src/latex/feinentwurf/userdata.png>] [59] [60] [61] [6
-2] [63] [64] [65] [66]
+ [59 <C:/Users/Christian/src/latex/feinentwurf/userdata.png>] [60] [61] [62] [6
+3] [64] [65] [66] [67]
 Package tocbasic Info: character protrusion at lof deactivated on input line 16
-71.
+58.
 
-(C:\Users\Christian\src\latex\feinentwurf\feinentwurf_template.lof [67
+(C:\Users\Christian\src\latex\feinentwurf\feinentwurf_template.lof [68
 
 ]
 Overfull \hbox (1.14206pt too wide) in paragraph at lines 55--55
@@ -1631,145 +1623,145 @@ daten" im Sub-sys-tem []da-ten[]akku"
 
 )
 \tf@lof=\write4
- [68] <akkudaten.png, id=4885, 479.54156pt x 529.98pt>
+ [69] <akkudaten.png, id=4890, 479.54156pt x 529.98pt>
 File: akkudaten.png Graphic file (type png)
  <use akkudaten.png>
-Package pdftex.def Info: akkudaten.png used on input line 1687.
+Package pdftex.def Info: akkudaten.png used on input line 1674.
 (pdftex.def)             Requested size: 383.63377pt x 423.98456pt.
 
-[69
+[70
 
-] <zelldaten.png, id=4889, 845.40843pt x 617.30624pt>
+] <zelldaten.png, id=4894, 845.40843pt x 617.30624pt>
 File: zelldaten.png Graphic file (type png)
  <use zelldaten.png>
-Package pdftex.def Info: zelldaten.png used on input line 1696.
+Package pdftex.def Info: zelldaten.png used on input line 1683.
 (pdftex.def)             Requested size: 549.50896pt x 401.24431pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<dyndaten.png, id=4890, 398.23781pt x 611.28375pt>
+<dyndaten.png, id=4895, 398.23781pt x 611.28375pt>
 File: dyndaten.png Graphic file (type png)
  <use dyndaten.png>
-Package pdftex.def Info: dyndaten.png used on input line 1704.
+Package pdftex.def Info: dyndaten.png used on input line 1691.
 (pdftex.def)             Requested size: 338.50372pt x 519.59364pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<submotordaten.png, id=4891, 447.92343pt x 618.81187pt>
+<submotordaten.png, id=4896, 447.92343pt x 618.81187pt>
 File: submotordaten.png Graphic file (type png)
 
 <use submotordaten.png>
-Package pdftex.def Info: submotordaten.png used on input line 1713.
+Package pdftex.def Info: submotordaten.png used on input line 1700.
 (pdftex.def)             Requested size: 447.92233pt x 618.81036pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<subsignalkollektor.png, id=4892, 730.22812pt x 344.03531pt>
+<subsignalkollektor.png, id=4897, 730.22812pt x 344.03531pt>
 File: subsignalkollektor.png Graphic file (type png)
 
 <use subsignalkollektor.png>
-Package pdftex.def Info: subsignalkollektor.png used on input line 1722.
+Package pdftex.def Info: subsignalkollektor.png used on input line 1709.
 (pdftex.def)             Requested size: 620.69684pt x 292.4314pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<sc_daten_notaus.png, id=4893, 979.40906pt x 420.06938pt>
+<sc_daten_notaus.png, id=4898, 979.40906pt x 420.06938pt>
 File: sc_daten_notaus.png Graphic file (type png)
 
 <use sc_daten_notaus.png>
-Package pdftex.def Info: sc_daten_notaus.png used on input line 1731.
+Package pdftex.def Info: sc_daten_notaus.png used on input line 1718.
 (pdftex.def)             Requested size: 636.60834pt x 273.04185pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<sc_daten_temperatur_allgemein.png, id=4894, 992.95969pt x 374.14781pt>
+<sc_daten_temperatur_allgemein.png, id=4899, 992.95969pt x 374.14781pt>
 File: sc_daten_temperatur_allgemein.png Graphic file (type png)
 
 <use sc_daten_temperatur_allgemein.png>
 Package pdftex.def Info: sc_daten_temperatur_allgemein.png used on input line 1
-740.
+727.
 (pdftex.def)             Requested size: 645.41615pt x 243.19318pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<sc_daten_zellenpack.png, id=4895, 545.78906pt x 602.25pt>
+<sc_daten_zellenpack.png, id=4900, 545.78906pt x 602.25pt>
 File: sc_daten_zellenpack.png Graphic file (type png)
 
 <use sc_daten_zellenpack.png>
-Package pdftex.def Info: sc_daten_zellenpack.png used on input line 1749.
+Package pdftex.def Info: sc_daten_zellenpack.png used on input line 1736.
 (pdftex.def)             Requested size: 436.63184pt x 481.80064pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<sc_daten_zelldaten.png, id=4896, 498.36188pt x 628.59843pt>
+<sc_daten_zelldaten.png, id=4901, 498.36188pt x 628.59843pt>
 File: sc_daten_zelldaten.png Graphic file (type png)
 
 <use sc_daten_zelldaten.png>
-Package pdftex.def Info: sc_daten_zelldaten.png used on input line 1759.
+Package pdftex.def Info: sc_daten_zelldaten.png used on input line 1746.
 (pdftex.def)             Requested size: 423.60959pt x 534.31119pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<sc_daten_dynamisch.png, id=4897, 593.21625pt x 590.95781pt>
+<sc_daten_dynamisch.png, id=4902, 593.21625pt x 590.95781pt>
 File: sc_daten_dynamisch.png Graphic file (type png)
 
 <use sc_daten_dynamisch.png>
-Package pdftex.def Info: sc_daten_dynamisch.png used on input line 1768.
+Package pdftex.def Info: sc_daten_dynamisch.png used on input line 1755.
 (pdftex.def)             Requested size: 456.77792pt x 455.03891pt.
 
-Overfull \hbox (1.53375pt too wide) in paragraph at lines 1768--1769
+Overfull \hbox (1.53375pt too wide) in paragraph at lines 1755--1756
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<subsignaltransmitter.png, id=4898, 1349.04pt x 503.63156pt>
+<subsignaltransmitter.png, id=4903, 1349.04pt x 503.63156pt>
 File: subsignaltransmitter.png Graphic file (type png)
 
 <use subsignaltransmitter.png>
-Package pdftex.def Info: subsignaltransmitter.png used on input line 1777.
+Package pdftex.def Info: subsignaltransmitter.png used on input line 1764.
 (pdftex.def)             Requested size: 674.51836pt x 251.81516pt.
 
-Overfull \hbox (5.45467pt too wide) in paragraph at lines 1777--1778
+Overfull \hbox (5.45467pt too wide) in paragraph at lines 1764--1765
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<subembreceive.png, id=4899, 1141.26375pt x 353.06906pt>
+<subembreceive.png, id=4904, 1141.26375pt x 353.06906pt>
 File: subembreceive.png Graphic file (type png)
 
 <use subembreceive.png>
-Package pdftex.def Info: subembreceive.png used on input line 1786.
+Package pdftex.def Info: subembreceive.png used on input line 1773.
 (pdftex.def)             Requested size: 684.76353pt x 211.84306pt.
 
-Overfull \hbox (15.69984pt too wide) in paragraph at lines 1786--1787
+Overfull \hbox (15.69984pt too wide) in paragraph at lines 1773--1774
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[70 <C:/Users/Christian/src/latex/feinentwurf/akkudaten.png>] [71 <C:/Users/Chr
-istian/src/latex/feinentwurf/zelldaten.png>] [72 <C:/Users/Christian/src/latex/
-feinentwurf/dyndaten.png>] [73 <C:/Users/Christian/src/latex/feinentwurf/submot
-ordaten.png>] [74 <C:/Users/Christian/src/latex/feinentwurf/subsignalkollektor.
-png>] [75 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_notaus.png>]
-[76 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_temperatur_allgemein.png
->] [77 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_zellenpack.png>]
-[78 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_zelldaten.png>] [79 <C:/
-Users/Christian/src/latex/feinentwurf/sc_daten_dynamisch.png>] [80 <C:/Users/Ch
-ristian/src/latex/feinentwurf/subsignaltransmitter.png>] [81 <C:/Users/Christia
+[71 <C:/Users/Christian/src/latex/feinentwurf/akkudaten.png>] [72 <C:/Users/Chr
+istian/src/latex/feinentwurf/zelldaten.png>] [73 <C:/Users/Christian/src/latex/
+feinentwurf/dyndaten.png>] [74 <C:/Users/Christian/src/latex/feinentwurf/submot
+ordaten.png>] [75 <C:/Users/Christian/src/latex/feinentwurf/subsignalkollektor.
+png>] [76 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_notaus.png>]
+[77 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_temperatur_allgemein.png
+>] [78 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_zellenpack.png>]
+[79 <C:/Users/Christian/src/latex/feinentwurf/sc_daten_zelldaten.png>] [80 <C:/
+Users/Christian/src/latex/feinentwurf/sc_daten_dynamisch.png>] [81 <C:/Users/Ch
+ristian/src/latex/feinentwurf/subsignaltransmitter.png>] [82 <C:/Users/Christia
 n/src/latex/feinentwurf/subembreceive.png>]
 (C:\Users\Christian\src\latex\feinentwurf\feinentwurf_template.aux)
 
@@ -1780,11 +1772,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8443 strings out of 493921
- 129221 string characters out of 3147270
+ 8449 strings out of 493921
+ 129308 string characters out of 3147270
  255435 words of memory out of 3000000
- 11359 multiletter control sequences out of 15000+200000
- 20728 words of font info for 139 fonts, out of 3000000 for 9000
+ 11363 multiletter control sequences out of 15000+200000
+ 20897 words of font info for 140 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  40i,11n,46p,1792b,442s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
@@ -1801,10 +1793,11 @@ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmti12.pfb>
-Output written on feinentwurf_template.pdf (81 pages, 3274398 bytes).
+blic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmtt12.pfb>
+Output written on feinentwurf_template.pdf (82 pages, 3287448 bytes).
 PDF statistics:
- 5001 PDF objects out of 5155 (max. 8388607)
+ 5009 PDF objects out of 5155 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 17699 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 18211 words of extra memory for PDF output out of 20736 (max. 10000000)
 
