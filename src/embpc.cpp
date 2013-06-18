@@ -48,6 +48,13 @@ char DATA_PACKAGE[1000];
 char DATA_PACKAGE_INFO[] = {1};
 char DATA_SEND[1000];
 
+/**
+ *  Sendet ein Paket an einen bestimmten Teilnehmer.
+ *  \param remote Teilnehmer an den die Nachricht geschickt werden soll.
+ *  \param msg Nachricht die übertragen werden soll.
+ *  \param msgSize Länge der Nachricht @a msg.
+ */
+
 void sendPackage(Location remote, char * msg, int msgSize)
 {
     UDPSocket sock;
