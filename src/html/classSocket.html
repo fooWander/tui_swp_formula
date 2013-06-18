@@ -142,8 +142,6 @@ unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><b>getRemoteAd
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Öffentliche, statische Methoden</h2></td></tr>
-<tr class="memitem:ac5060aeb501044044351d5a85b3fc95f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#ac5060aeb501044044351d5a85b3fc95f">cleanUp</a> ()  throw (SocketException)</td></tr>
-<tr class="separator:ac5060aeb501044044351d5a85b3fc95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a982c63b25c5b756321a74074a275adbc"><td class="memItemLeft" align="right" valign="top">static unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#a982c63b25c5b756321a74074a275adbc">resolveService</a> (const string &amp;service, const string &amp;protocol=&quot;tcp&quot;)</td></tr>
 <tr class="separator:a982c63b25c5b756321a74074a275adbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -163,7 +161,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 <tr class="separator:ad5704d2fdfb062139e1f88831617bbfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
-<div class="textblock"><p>Base class representing basic communication endpoint </p>
+<div class="textblock"><p>Basisklasse, welche den Endpunkt der grundlegenden Kommunikation darstellt. </p>
 </div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
 <a class="anchor" id="aeac4eb6379a543d38ed88977d3b6630a"></a>
 <div class="memitem">
@@ -177,55 +175,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Close and deallocate this socket </p>
+<p>Schließt und dealloziert diesen <a class="el" href="classSocket.html">Socket</a>. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
-<a class="anchor" id="ac5060aeb501044044351d5a85b3fc95f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Socket::cleanUp </td>
-          <td>(</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td align="right">throw </td><td>(</td><td colspan="2"><a class="el" href="classSocketException.html">SocketException</a></td>
-        </tr>
-        <tr>
-          <td align="right"></td><td>)</td><td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>If WinSock, unload the WinSock DLLs; otherwise do nothing. We ignore this in our sample client code but include it in the library for completeness. If you are running on Windows and you are concerned about DLL resource consumption, call this after you are done with all <a class="el" href="classSocket.html">Socket</a> instances. If you execute this on Windows while some instance of <a class="el" href="classSocket.html">Socket</a> exists, you are toast. For portability of client code, this is an empty function on non-Windows platforms so you can always include it. </p>
-<dl class="params"><dt>Parameter</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>buffer to receive the data </td></tr>
-    <tr><td class="paramname">bufferLen</td><td>maximum number of bytes to read into buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>number of bytes read, 0 for EOF, and -1 for error </dd></dl>
-<dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown WinSock clean up fails </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="a0fca07bdfa97874fba1a17995ed7cda3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -244,11 +198,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the local address </p>
-<dl class="section return"><dt>Rückgabe</dt><dd>local address of socket </dd></dl>
+<p>Holt die lokale Adresse. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>local Adresse des Sockets. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if fetch fails </td></tr>
+    <tr><td class="paramname">Wirft</td><td><a class="el" href="classSocketException.html">SocketException</a> falls das Holen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -273,11 +227,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the local port </p>
-<dl class="section return"><dt>Rückgabe</dt><dd>local port of socket </dd></dl>
+<p>Holt den lokalen Port. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Lokalen Port des Sockets. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if fetch fails </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Holen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -315,11 +269,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Resolve the specified service for the specified protocol to the corresponding port number in host byte order </p>
+<p>Ermittelt den spezifizierten Service für das angegebene Protokoll. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">service</td><td>service to resolve (e.g., "http") </td></tr>
-    <tr><td class="paramname">protocol</td><td>protocol of service to resolve. Default is "tcp". </td></tr>
+    <tr><td class="paramname">service</td><td>Zu ermittelnde Service (e.g., "http"). </td></tr>
+    <tr><td class="paramname">protocol</td><td>Protokoll des zu ermittelnden Service. Standard ist "tcp". </td></tr>
   </table>
   </dd>
 </dl>
@@ -355,17 +309,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the local port to the specified port and the local address to the specified address. If you omit the port, a random port will be selected. </p>
+<p>Setzt den lokalen Port und die lokale Adresse. Wenn kein Port angegeben wird, wird ein zufälliger gewählt. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">localAddress</td><td>local address </td></tr>
-    <tr><td class="paramname">localPort</td><td>local port </td></tr>
+    <tr><td class="paramname">localAddress</td><td>Lokale Adresse. </td></tr>
+    <tr><td class="paramname">localPort</td><td>Lokaler Port. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if setting local port or address fails </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Setzen des lokalen Ports oder der Adresse fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -391,16 +345,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the local port to the specified port and the local address to any interface </p>
+<p>Setzt den lokalen Port zu einem gewählten Port und die lokale Adresse zu einer beliebigen Schnittstelle. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">localPort</td><td>local port </td></tr>
+    <tr><td class="paramname">localPort</td><td>Lokaler Port </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if setting local port fails </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen wenn das Setzen des lokalen Ports fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -416,7 +370,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Erzeugt am Die Jun 18 2013 12:22:40 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
+Erzeugt am Die Jun 18 2013 14:31:55 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

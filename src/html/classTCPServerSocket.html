@@ -144,8 +144,6 @@ unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><b>getRemoteAd
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Weitere Geerbte Elemente</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classSocket"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classSocket')"><img src="closed.png" alt="-"/>&#160;Öffentliche, statische Methoden geerbt von <a class="el" href="classSocket.html">Socket</a></td></tr>
-<tr class="memitem:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#ac5060aeb501044044351d5a85b3fc95f">cleanUp</a> ()  throw (SocketException)</td></tr>
-<tr class="separator:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#a982c63b25c5b756321a74074a275adbc">resolveService</a> (const string &amp;service, const string &amp;protocol=&quot;tcp&quot;)</td></tr>
 <tr class="separator:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classSocket"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classSocket')"><img src="closed.png" alt="-"/>&#160;Geschützte Methoden geerbt von <a class="el" href="classSocket.html">Socket</a></td></tr>
@@ -161,7 +159,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 <tr class="separator:ad5704d2fdfb062139e1f88831617bbfb inherit pro_attribs_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
-<div class="textblock"><p>TCP socket class for servers </p>
+<div class="textblock"><p>TCP-Socket Klasse für Server. </p>
 </div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
 <a class="anchor" id="ae559a3154527d09fe14a8e5ee1f53d7a"></a>
 <div class="memitem">
@@ -192,17 +190,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construct a TCP socket for use with a server, accepting connections on the specified port on any interface </p>
+<p>Erzeugt einen TCP-Socket für die Nutzung mit dem Server, welcher zu einer beliebigen Schnittstelle auf dem vereinbarten Port Verbindungen zulässt. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">localPort</td><td>local port of server socket, a value of zero will give a system-assigned unused port </td></tr>
-    <tr><td class="paramname">queueLen</td><td>maximum queue length for outstanding connection requests (default 5) </td></tr>
+    <tr><td class="paramname">localPort</td><td>Lokaler Port des Server. </td></tr>
+    <tr><td class="paramname">queueLen</td><td>Maximale Warteschlangenlänge für ausstehende Verbindungsanfragen. (default 5) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to create TCP server socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls es nicht möglich ist einen <a class="el" href="classSocket.html">Socket</a> zu erzeugen. </td></tr>
   </table>
   </dd>
 </dl>
@@ -244,18 +242,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construct a TCP socket for use with a server, accepting connections on the specified port on the interface specified by the given address </p>
+<p>Erzeugt einen TCP-Socket für die Nutzung mit dem Server, welcher zu einer beliebigen Schnittstelle zu einer vereinbarten Adresse Verbindungen zulässt. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">localAddress</td><td>local interface (address) of server socket </td></tr>
-    <tr><td class="paramname">localPort</td><td>local port of server socket </td></tr>
-    <tr><td class="paramname">queueLen</td><td>maximum queue length for outstanding connection requests (default 5) </td></tr>
+    <tr><td class="paramname">localAddress</td><td>Lokales Interface (Adresse) des Server-Sockets. </td></tr>
+    <tr><td class="paramname">localPort</td><td>Lokaler Port des Servers. </td></tr>
+    <tr><td class="paramname">queueLen</td><td>Maximale Warteschlangenlänge für ausstehende Verbindungsanfragen. (default 5) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to create TCP server socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls es nicht möglich ist einen <a class="el" href="classSocket.html">Socket</a> zu erzeugen. </td></tr>
   </table>
   </dd>
 </dl>
@@ -281,11 +279,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Blocks until a new connection is established on this socket or error </p>
-<dl class="section return"><dt>Rückgabe</dt><dd>new connection socket </dd></dl>
+<p>Blockiert solange bis eine neue Verbindung auf diesem <a class="el" href="classSocket.html">Socket</a> etabliert wurde oder ein Fehler auftritt. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Neue Socketverbindung </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if attempt to accept a new connection fails </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls der Versuch eine neue Verbindung zu erzeugen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -299,7 +297,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Erzeugt am Die Jun 18 2013 12:22:40 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
+Erzeugt am Die Jun 18 2013 14:31:55 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

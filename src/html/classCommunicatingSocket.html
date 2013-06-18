@@ -167,8 +167,6 @@ Geschützte Methoden</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Weitere Geerbte Elemente</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classSocket"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classSocket')"><img src="closed.png" alt="-"/>&#160;Öffentliche, statische Methoden geerbt von <a class="el" href="classSocket.html">Socket</a></td></tr>
-<tr class="memitem:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#ac5060aeb501044044351d5a85b3fc95f">cleanUp</a> ()  throw (SocketException)</td></tr>
-<tr class="separator:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#a982c63b25c5b756321a74074a275adbc">resolveService</a> (const string &amp;service, const string &amp;protocol=&quot;tcp&quot;)</td></tr>
 <tr class="separator:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classSocket"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classSocket')"><img src="closed.png" alt="-"/>&#160;Geschützte Attribute geerbt von <a class="el" href="classSocket.html">Socket</a></td></tr>
@@ -177,7 +175,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 <tr class="separator:ad5704d2fdfb062139e1f88831617bbfb inherit pro_attribs_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
-<div class="textblock"><p><a class="el" href="classSocket.html">Socket</a> which is able to connect, send, and receive </p>
+<div class="textblock"><p><a class="el" href="classSocket.html">Socket</a> der in der Lage ist sich zu verbinden, zu senden und zu empfangen. </p>
 </div><h2 class="groupheader">Dokumentation der Elementfunktionen</h2>
 <a class="anchor" id="a9192374d9baab8e189860aa8d913683c"></a>
 <div class="memitem">
@@ -208,17 +206,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Establish a socket connection with the given foreign address and port </p>
+<p>Baut eine Verbindung über Sockets zu einem bestimmten Teilnehmer. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">foreignAddress</td><td>foreign address (IP address or name) </td></tr>
-    <tr><td class="paramname">foreignPort</td><td>foreign port </td></tr>
+    <tr><td class="paramname">foreignAddress</td><td>Adresse des Teilnehmers (IP Adresse oder Name). </td></tr>
+    <tr><td class="paramname">foreignPort</td><td>Portnummer des Teilnehmers. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to establish connection </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen wenn die Verbindung fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -243,11 +241,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the foreign address. Call <a class="el" href="classCommunicatingSocket.html#a9192374d9baab8e189860aa8d913683c">connect()</a> before calling <a class="el" href="classCommunicatingSocket.html#a7cf1fd470c0060171b68df9f68c7bd01">recv()</a> </p>
-<dl class="section return"><dt>Rückgabe</dt><dd>foreign address </dd></dl>
+<p>Holt die Zieladresse. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Zieladresse. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to fetch foreign address </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Holen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -272,11 +270,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the foreign port. Call <a class="el" href="classCommunicatingSocket.html#a9192374d9baab8e189860aa8d913683c">connect()</a> before calling <a class="el" href="classCommunicatingSocket.html#a7cf1fd470c0060171b68df9f68c7bd01">recv()</a> </p>
-<dl class="section return"><dt>Rückgabe</dt><dd>foreign port </dd></dl>
+<p>Holt den Zielport. Call <a class="el" href="classCommunicatingSocket.html#a9192374d9baab8e189860aa8d913683c">connect()</a> before calling <a class="el" href="classCommunicatingSocket.html#a7cf1fd470c0060171b68df9f68c7bd01">recv()</a> </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>Zielportnummer. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to fetch foreign port </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Holen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -312,18 +310,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Read into the given buffer up to bufferLen bytes data from this socket. Call <a class="el" href="classCommunicatingSocket.html#a9192374d9baab8e189860aa8d913683c">connect()</a> before calling <a class="el" href="classCommunicatingSocket.html#a7cf1fd470c0060171b68df9f68c7bd01">recv()</a> </p>
+<p>Ließt eine Nachricht in den übergebenen Buffer ein. <a class="el" href="classCommunicatingSocket.html#a9192374d9baab8e189860aa8d913683c">connect()</a> muss vorher aufgerufen werden. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>buffer to receive the data </td></tr>
-    <tr><td class="paramname">bufferLen</td><td>maximum number of bytes to read into buffer </td></tr>
+    <tr><td class="paramname">buffer</td><td>Speicher in den die Nachricht geschrieben werden soll. </td></tr>
+    <tr><td class="paramname">bufferLen</td><td>Maximale Anzahl an Bytes die empfangen werden sollen. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>number of bytes read, 0 for EOF, and -1 for error </dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Gibt die Anzahl der gelesenen Bytes zurück. 0 wenn EOF und -1 im Fehlerfall. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to receive data </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls keine Daten emfpangen werden können. </td></tr>
   </table>
   </dd>
 </dl>
@@ -359,17 +357,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Write the given buffer to this socket. Call <a class="el" href="classCommunicatingSocket.html#a9192374d9baab8e189860aa8d913683c">connect()</a> before calling <a class="el" href="classCommunicatingSocket.html#aca4e86085c064641e86ae24ea29bbb94">send()</a> </p>
+<p>Schreibt den übergebenen Buffer in den <a class="el" href="classSocket.html">Socket</a>. Vor <a class="el" href="classCommunicatingSocket.html#aca4e86085c064641e86ae24ea29bbb94">send()</a> muss collect() aufgerufen werden. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>buffer to be written </td></tr>
-    <tr><td class="paramname">bufferLen</td><td>number of bytes from buffer to be written </td></tr>
+    <tr><td class="paramname">buffer</td><td>Speicher in den geschrieben werden soll. </td></tr>
+    <tr><td class="paramname">bufferLen</td><td>Anzahl der Bytes die geschrieben werden sollen. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to send data </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen wenn keine Daten gesendet werden können. </td></tr>
   </table>
   </dd>
 </dl>
@@ -383,7 +381,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Erzeugt am Die Jun 18 2013 12:22:40 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
+Erzeugt am Die Jun 18 2013 14:31:55 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

@@ -168,8 +168,6 @@ unsigned int *&#160;</td><td class="memItemRight" valign="bottom"><b>getRemoteAd
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Weitere Geerbte Elemente</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classSocket"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classSocket')"><img src="closed.png" alt="-"/>&#160;Öffentliche, statische Methoden geerbt von <a class="el" href="classSocket.html">Socket</a></td></tr>
-<tr class="memitem:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#ac5060aeb501044044351d5a85b3fc95f">cleanUp</a> ()  throw (SocketException)</td></tr>
-<tr class="separator:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#a982c63b25c5b756321a74074a275adbc">resolveService</a> (const string &amp;service, const string &amp;protocol=&quot;tcp&quot;)</td></tr>
 <tr class="separator:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCommunicatingSocket"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCommunicatingSocket')"><img src="closed.png" alt="-"/>&#160;Geschützte Methoden geerbt von <a class="el" href="classCommunicatingSocket.html">CommunicatingSocket</a></td></tr>
@@ -185,7 +183,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 <tr class="separator:ad5704d2fdfb062139e1f88831617bbfb inherit pro_attribs_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
-<div class="textblock"><p>UDP socket class </p>
+<div class="textblock"><p>UDP-Socket Klasse </p>
 </div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
 <a class="anchor" id="a4f86f3023f5a08f6355802599a10e100"></a>
 <div class="memitem">
@@ -205,10 +203,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construct a UDP socket </p>
+<p>Erzeugt einen UDP-Socket. </p>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to create UDP socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls die Erzeugung fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -234,16 +232,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construct a UDP socket with the given local port </p>
+<p>Erzeugt einen UDP-Socket mit einem spezifischen Port. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">localPort</td><td>local port </td></tr>
+    <tr><td class="paramname">localPort</td><td>Lokaler Port </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to create UDP socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls die Erzeugung fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -279,17 +277,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construct a UDP socket with the given local port and address </p>
+<p>Erzeugt einen UDP-Socket mit einer spezifischen Adresse und einem gegebenen Port. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">localAddress</td><td>local address </td></tr>
-    <tr><td class="paramname">localPort</td><td>local port </td></tr>
+    <tr><td class="paramname">localAddress</td><td>Lokale Adresse. </td></tr>
+    <tr><td class="paramname">localPort</td><td>Lokaler Port. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to create UDP socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls die Erzeugung fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -315,11 +313,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Unset foreign address and port </p>
-<dl class="section return"><dt>Rückgabe</dt><dd>true if disassociation is successful </dd></dl>
+<p>Setze Adresse und Port zurück. </p>
+<dl class="section return"><dt>Rückgabe</dt><dd>true falls kein Fehler auftrat. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to disconnect UDP socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls eine Trennung fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -345,16 +343,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Join the specified multicast group </p>
+<p>Tritt der angegebenen Multicast-Gruppe bei. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">multicastGroup</td><td>multicast group address to join </td></tr>
+    <tr><td class="paramname">multicastGroup</td><td>Adresse der Mutlicast-Gruppe. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to join group </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Beitreten fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -380,16 +378,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Leave the specified multicast group </p>
+<p>Verlasse die angegebene Multicast-Gruppe. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">multicastGroup</td><td>multicast group address to leave </td></tr>
+    <tr><td class="paramname">multicastGroup</td><td>Zu verlassende Multicast-Gruppe. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to leave group </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Verlassen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -437,20 +435,20 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Read read up to bufferLen bytes data from this socket. The given buffer is where the data will be placed </p>
+<p>Empfängt eine Nachricht an einem UDP-Socket. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>buffer to receive data </td></tr>
-    <tr><td class="paramname">bufferLen</td><td>maximum number of bytes to receive </td></tr>
-    <tr><td class="paramname">sourceAddress</td><td>address of datagram source </td></tr>
-    <tr><td class="paramname">sourcePort</td><td>port of data source </td></tr>
+    <tr><td class="paramname">buffer</td><td>Buffer in den gelesen werden soll. </td></tr>
+    <tr><td class="paramname">bufferLen</td><td>Maximale Anzahl an Bytes die empfangen werden sollen. </td></tr>
+    <tr><td class="paramname">sourceAddress</td><td>Adresse von der die Nachricht stammt. </td></tr>
+    <tr><td class="paramname">sourcePort</td><td>Portnummer des Senders. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>number of bytes received and -1 for error </dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>Anzahl der Bytes die empfangen wurden, -1 falls ein Fehler auftrat. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to receive datagram </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Empfangen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -498,20 +496,20 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Send the given buffer as a UDP datagram to the specified address/port </p>
+<p>Sendet einen Buffer als UDP-Datagramm an eine bestimmte Adresse und Portnummer. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>buffer to be written </td></tr>
-    <tr><td class="paramname">bufferLen</td><td>number of bytes to write </td></tr>
-    <tr><td class="paramname">foreignAddress</td><td>address (IP address or name) to send to </td></tr>
-    <tr><td class="paramname">foreignPort</td><td>port number to send to </td></tr>
+    <tr><td class="paramname">buffer</td><td>Buffer der gesendet werden soll. </td></tr>
+    <tr><td class="paramname">bufferLen</td><td>Anzahl der Bytes die geschrieben werden sollen. </td></tr>
+    <tr><td class="paramname">foreignAddress</td><td>Adresse an die versendet werden soll. </td></tr>
+    <tr><td class="paramname">foreignPort</td><td>Portnummer an die versendet werden soll. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Rückgabe</dt><dd>true if send is successful </dd></dl>
+<dl class="section return"><dt>Rückgabe</dt><dd>true falls Versandt geklappt hat. </dd></dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to send datagram </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Senden fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -537,16 +535,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the multicast TTL </p>
+<p>Setzt Multicast TTL. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
-    <tr><td class="paramname">multicastTTL</td><td>multicast TTL </td></tr>
+    <tr><td class="paramname">multicastTTL</td><td>Multicast TTL. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to set TTL </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls das Setzen fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -560,7 +558,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Erzeugt am Die Jun 18 2013 12:22:40 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
+Erzeugt am Die Jun 18 2013 14:31:56 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>

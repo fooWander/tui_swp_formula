@@ -161,8 +161,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TCPServerSocket</b><
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Weitere Geerbte Elemente</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classSocket"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classSocket')"><img src="closed.png" alt="-"/>&#160;Öffentliche, statische Methoden geerbt von <a class="el" href="classSocket.html">Socket</a></td></tr>
-<tr class="memitem:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#ac5060aeb501044044351d5a85b3fc95f">cleanUp</a> ()  throw (SocketException)</td></tr>
-<tr class="separator:ac5060aeb501044044351d5a85b3fc95f inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memItemLeft" align="right" valign="top">static unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocket.html#a982c63b25c5b756321a74074a275adbc">resolveService</a> (const string &amp;service, const string &amp;protocol=&quot;tcp&quot;)</td></tr>
 <tr class="separator:a982c63b25c5b756321a74074a275adbc inherit pub_static_methods_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classCommunicatingSocket"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classCommunicatingSocket')"><img src="closed.png" alt="-"/>&#160;Geschützte Methoden geerbt von <a class="el" href="classCommunicatingSocket.html">CommunicatingSocket</a></td></tr>
@@ -178,7 +176,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 <tr class="separator:ad5704d2fdfb062139e1f88831617bbfb inherit pro_attribs_classSocket"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
-<div class="textblock"><p>TCP socket for communication with other TCP sockets </p>
+<div class="textblock"><p>TCP-Socket für die Kommunikation mit anderen TCP-Sockets. </p>
 </div><h2 class="groupheader">Beschreibung der Konstruktoren und Destruktoren</h2>
 <a class="anchor" id="a7a50427a401d1a6f3209d51818bad901"></a>
 <div class="memitem">
@@ -198,10 +196,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construct a TCP socket with no connection </p>
+<p>Erzeugt einen TCP-Socket mit keiner Verbindung. </p>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to create TCP socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls die Erzeugung fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -237,7 +235,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construct a TCP socket with a connection to the given foreign address and port </p>
+<p>Erzeugt einen TCP-Socket mit einer Verbindung zu einer bestimmten Adresse und einem bestimmten Port. </p>
 <dl class="params"><dt>Parameter</dt><dd>
   <table class="params">
     <tr><td class="paramname">foreignAddress</td><td>foreign address (IP address or name) </td></tr>
@@ -247,7 +245,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 </dl>
 <dl class="exception"><dt>Ausnahmebehandlung</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>thrown if unable to create TCP socket </td></tr>
+    <tr><td class="paramname"><a class="el" href="classSocketException.html">SocketException</a></td><td>wird geworfen falls die Erzeugung fehlschlägt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -261,7 +259,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>sockDesc</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Erzeugt am Die Jun 18 2013 12:22:40 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
+Erzeugt am Die Jun 18 2013 14:31:56 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.4
 </small></address>
