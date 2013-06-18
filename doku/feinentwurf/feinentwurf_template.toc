@@ -21,64 +21,62 @@
 \contentsline {subsection}{\numberline {2.2.1}Initialisierung}{31}
 \contentsline {subsection}{\numberline {2.2.2}Daten\IeC {\"u}bertragung und Datenverarbeitung}{33}
 \contentsline {section}{\numberline {2.3}vServer}{35}
-\contentsline {section}{\numberline {2.4}Datenbanken}{35}
-\contentsline {section}{\numberline {2.5}Webseite}{35}
-\contentsline {subsection}{\numberline {2.5.1}Aufbau der Webseite}{35}
-\contentsline {subsection}{\numberline {2.5.2}Installation}{36}
-\contentsline {subsection}{\numberline {2.5.3}Initialisierung der Seiten}{37}
-\contentsline {subsection}{\numberline {2.5.4}Header}{38}
-\contentsline {subsection}{\numberline {2.5.5}Startseite}{38}
-\contentsline {subsection}{\numberline {2.5.6}Registrierung}{40}
-\contentsline {subsection}{\numberline {2.5.7}Loginvorgang}{41}
-\contentsline {subsection}{\numberline {2.5.8}Logoutvorgang}{42}
-\contentsline {subsection}{\numberline {2.5.9}\IeC {\"A}nderung des pers\IeC {\"o}nlichen Passworts}{43}
-\contentsline {subsection}{\numberline {2.5.10}CSV-Exportfunktionalit\IeC {\"a}t}{44}
-\contentsline {subsection}{\numberline {2.5.11}Nutzerverwaltung}{45}
-\contentsline {subsection}{\numberline {2.5.12}Online-Anzeige der Nutzer}{46}
-\contentsline {subsection}{\numberline {2.5.13}Allgemeine Seitenaufbau}{47}
-\contentsline {subsection}{\numberline {2.5.14}Allgemeine Fahrzeugdaten}{47}
-\contentsline {subsection}{\numberline {2.5.15}Akkudaten}{49}
-\contentsline {subsection}{\numberline {2.5.16}Dynamische Daten}{51}
-\contentsline {subsection}{\numberline {2.5.17}Fahrdynamik}{52}
-\contentsline {subsection}{\numberline {2.5.18}Motor und Umrichter}{53}
+\contentsline {section}{\numberline {2.4}Webseite}{35}
+\contentsline {subsection}{\numberline {2.4.1}Aufbau der Webseite}{35}
+\contentsline {subsection}{\numberline {2.4.2}Installation}{35}
+\contentsline {subsection}{\numberline {2.4.3}Initialisierung der Seiten}{37}
+\contentsline {subsection}{\numberline {2.4.4}Header}{38}
+\contentsline {subsection}{\numberline {2.4.5}Startseite}{38}
+\contentsline {subsection}{\numberline {2.4.6}Registrierung}{40}
+\contentsline {subsection}{\numberline {2.4.7}Loginvorgang}{41}
+\contentsline {subsection}{\numberline {2.4.8}Logoutvorgang}{42}
+\contentsline {subsection}{\numberline {2.4.9}\IeC {\"A}nderung des pers\IeC {\"o}nlichen Passworts}{43}
+\contentsline {subsection}{\numberline {2.4.10}CSV-Exportfunktionalit\IeC {\"a}t}{44}
+\contentsline {subsection}{\numberline {2.4.11}Nutzerverwaltung}{45}
+\contentsline {subsection}{\numberline {2.4.12}Online-Anzeige der Nutzer}{46}
+\contentsline {subsection}{\numberline {2.4.13}Allgemeine Seitenaufbau}{47}
+\contentsline {subsection}{\numberline {2.4.14}Allgemeine Fahrzeugdaten}{47}
+\contentsline {subsection}{\numberline {2.4.15}Akkudaten}{49}
+\contentsline {subsection}{\numberline {2.4.16}Dynamische Daten}{51}
+\contentsline {subsection}{\numberline {2.4.17}Fahrdynamik}{52}
+\contentsline {subsection}{\numberline {2.4.18}Motor und Umrichter}{53}
 \contentsline {chapter}{\numberline {3}Entwicklerdokumentation}{55}
 \contentsline {section}{\numberline {3.1}MicroAutoBox II}{55}
 \contentsline {section}{\numberline {3.2}Embedded PC}{55}
 \contentsline {section}{\numberline {3.3}vServer}{55}
-\contentsline {section}{\numberline {3.4}Datenbanken}{55}
-\contentsline {section}{\numberline {3.5}Webseite}{55}
-\contentsline {subsection}{\numberline {3.5.1}Allgemeine Funktionen (general.php)}{55}
-\contentsline {subsection}{\numberline {3.5.2}Nutzerfunktionen (users.php)}{58}
-\contentsline {subsection}{\numberline {3.5.3}Konfigurationsdatei (config.php)}{62}
-\contentsline {subsection}{\numberline {3.5.4}akkudaten.php}{64}
-\contentsline {subsection}{\numberline {3.5.5}allgemeinefahrzeugdaten.php}{64}
-\contentsline {subsection}{\numberline {3.5.6}changepassword.php}{64}
-\contentsline {subsection}{\numberline {3.5.7}dynamischedaten.php}{64}
-\contentsline {subsection}{\numberline {3.5.8}fahrdynamik.php}{64}
-\contentsline {subsection}{\numberline {3.5.9}index.php}{64}
-\contentsline {subsection}{\numberline {3.5.10}install.php}{64}
-\contentsline {subsection}{\numberline {3.5.11}login.php}{64}
-\contentsline {subsection}{\numberline {3.5.12}logout.php}{64}
-\contentsline {subsection}{\numberline {3.5.13}motorundumrichter.php}{65}
-\contentsline {subsection}{\numberline {3.5.14}register.php}{65}
-\contentsline {subsection}{\numberline {3.5.15}core/init.php}{65}
-\contentsline {subsection}{\numberline {3.5.16}core/functions/accept.php}{65}
-\contentsline {subsection}{\numberline {3.5.17}core/functions/akkudaten\_sql.php}{65}
-\contentsline {subsection}{\numberline {3.5.18}core/functions/allgemeinefahrzeugdaten\_sql.php}{65}
-\contentsline {subsection}{\numberline {3.5.19}core/functions/csvexp\_sql.php}{65}
-\contentsline {subsection}{\numberline {3.5.20}core/functions/dynamischedaten\_sql.php}{66}
-\contentsline {subsection}{\numberline {3.5.21}core/functions/fahrdynamik\_sql.php}{66}
-\contentsline {subsection}{\numberline {3.5.22}core/functions/general.php}{66}
-\contentsline {subsection}{\numberline {3.5.23}core/functions/motorundumrichter\_sql.php}{66}
-\contentsline {subsection}{\numberline {3.5.24}core/functions/users.php}{66}
-\contentsline {subsection}{\numberline {3.5.25}includes/css/style.css}{66}
-\contentsline {subsection}{\numberline {3.5.26}includes/overall/footer.php}{66}
-\contentsline {subsection}{\numberline {3.5.27}includes/overall/header.php}{66}
-\contentsline {subsection}{\numberline {3.5.28}includes/widgets/csvexp.php}{66}
-\contentsline {subsection}{\numberline {3.5.29}includes/widgets/loggedin.php}{66}
-\contentsline {subsection}{\numberline {3.5.30}includes/widgets/manageusers.php}{67}
-\contentsline {subsection}{\numberline {3.5.31}includes/widgets/onlineusers.php}{67}
-\contentsline {subsection}{\numberline {3.5.32}includes/widgets/userlist.php}{67}
+\contentsline {section}{\numberline {3.4}Webseite}{55}
+\contentsline {subsection}{\numberline {3.4.1}Allgemeine Funktionen (general.php)}{55}
+\contentsline {subsection}{\numberline {3.4.2}Nutzerfunktionen (users.php)}{58}
+\contentsline {subsection}{\numberline {3.4.3}Konfigurationsdatei (config.php)}{62}
+\contentsline {subsection}{\numberline {3.4.4}akkudaten.php}{64}
+\contentsline {subsection}{\numberline {3.4.5}allgemeinefahrzeugdaten.php}{64}
+\contentsline {subsection}{\numberline {3.4.6}changepassword.php}{64}
+\contentsline {subsection}{\numberline {3.4.7}dynamischedaten.php}{64}
+\contentsline {subsection}{\numberline {3.4.8}fahrdynamik.php}{64}
+\contentsline {subsection}{\numberline {3.4.9}index.php}{64}
+\contentsline {subsection}{\numberline {3.4.10}install.php}{64}
+\contentsline {subsection}{\numberline {3.4.11}login.php}{64}
+\contentsline {subsection}{\numberline {3.4.12}logout.php}{64}
+\contentsline {subsection}{\numberline {3.4.13}motorundumrichter.php}{65}
+\contentsline {subsection}{\numberline {3.4.14}register.php}{65}
+\contentsline {subsection}{\numberline {3.4.15}core/init.php}{65}
+\contentsline {subsection}{\numberline {3.4.16}core/functions/accept.php}{65}
+\contentsline {subsection}{\numberline {3.4.17}core/functions/akkudaten\_sql.php}{65}
+\contentsline {subsection}{\numberline {3.4.18}core/functions/allgemeinefahrzeugdaten\_sql.php}{65}
+\contentsline {subsection}{\numberline {3.4.19}core/functions/csvexp\_sql.php}{65}
+\contentsline {subsection}{\numberline {3.4.20}core/functions/dynamischedaten\_sql.php}{66}
+\contentsline {subsection}{\numberline {3.4.21}core/functions/fahrdynamik\_sql.php}{66}
+\contentsline {subsection}{\numberline {3.4.22}core/functions/general.php}{66}
+\contentsline {subsection}{\numberline {3.4.23}core/functions/motorundumrichter\_sql.php}{66}
+\contentsline {subsection}{\numberline {3.4.24}core/functions/users.php}{66}
+\contentsline {subsection}{\numberline {3.4.25}includes/css/style.css}{66}
+\contentsline {subsection}{\numberline {3.4.26}includes/overall/footer.php}{66}
+\contentsline {subsection}{\numberline {3.4.27}includes/overall/header.php}{66}
+\contentsline {subsection}{\numberline {3.4.28}includes/widgets/csvexp.php}{66}
+\contentsline {subsection}{\numberline {3.4.29}includes/widgets/loggedin.php}{66}
+\contentsline {subsection}{\numberline {3.4.30}includes/widgets/manageusers.php}{67}
+\contentsline {subsection}{\numberline {3.4.31}includes/widgets/onlineusers.php}{67}
+\contentsline {subsection}{\numberline {3.4.32}includes/widgets/userlist.php}{67}
 \contentsline {chapter}{Abbildungsverzeichnis}{69}
 \contentsline {chapter}{Anhang}{70}
 \contentsline {section}{\numberline {A.1}Simulink-Diagramme}{70}
