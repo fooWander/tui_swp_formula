@@ -1,0 +1,111 @@
+\hypertarget{classDecoder}{\section{Decoder Klassenreferenz}
+\label{classDecoder}\index{Decoder@{Decoder}}
+}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDecoder_a26cf61527451080d86ac5f876d3d1c21}{Decoder} (char $\ast$buffer, const int bufferlen)
+\item 
+\hyperlink{classDecoder_aec7e24d0fc7ac86886fc7f5de4999ed5}{Decoder} (char $\ast$buffer, const int bufferlen, char $\ast$vec\-Layout, const int vec\-Layoutlen, char $\ast$vec\-Datatypes, const int vec\-Datatypeslen, char $\ast$vec\-Comma, const int vec\-Commalen)
+\item 
+\hyperlink{classData}{Data} \hyperlink{classDecoder_a822e353ce4fda29290f280d4e3e44305}{get\-Next\-Data} ()
+\item 
+unsigned int \hyperlink{classDecoder_a28231d06fe2fd5144a939907d6ee509a}{get\-Package\-Num} ()
+\item 
+unsigned int \hyperlink{classDecoder_aca3dc7a7a1982ac07e1a08a0e4c91955}{get\-Package\-Pos} (char $\ast$vec\-Layout, const int vec\-Layoutlen)
+\end{DoxyCompactItemize}
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classDecoder_a26cf61527451080d86ac5f876d3d1c21}{\index{Decoder@{Decoder}!Decoder@{Decoder}}
+\index{Decoder@{Decoder}!Decoder@{Decoder}}
+\subsubsection[{Decoder}]{\setlength{\rightskip}{0pt plus 5cm}Decoder\-::\-Decoder (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{const int}]{bufferlen}
+\end{DoxyParamCaption}
+)}}\label{classDecoder_a26cf61527451080d86ac5f876d3d1c21}
+Erzeugt einen Dekoder der zum dekodieren der Paketinformation dient. 
+\begin{DoxyParams}{Parameter}
+{\em buffer} & Speicher der die Paketinformationen enthält. \mbox{[}Layout,Datentypen,Kommasetzung\mbox{]} \\
+\hline
+{\em bufferlen} & Länge von {\itshape buffer}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classDecoder_aec7e24d0fc7ac86886fc7f5de4999ed5}{\index{Decoder@{Decoder}!Decoder@{Decoder}}
+\index{Decoder@{Decoder}!Decoder@{Decoder}}
+\subsubsection[{Decoder}]{\setlength{\rightskip}{0pt plus 5cm}Decoder\-::\-Decoder (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{const int}]{bufferlen, }
+\item[{char $\ast$}]{vec\-Layout, }
+\item[{const int}]{vec\-Layoutlen, }
+\item[{char $\ast$}]{vec\-Datatypes, }
+\item[{const int}]{vec\-Datatypeslen, }
+\item[{char $\ast$}]{vec\-Comma, }
+\item[{const int}]{vec\-Commalen}
+\end{DoxyParamCaption}
+)}}\label{classDecoder_aec7e24d0fc7ac86886fc7f5de4999ed5}
+Erzeugt einen Dekoder der ein Datenpaket anhand der übergebenen Informationen dekodiert. 
+\begin{DoxyParams}{Parameter}
+{\em buffer} & Speicher des Datenpakets. \\
+\hline
+{\em buffernlen} & Länge von {\itshape buffer}. \\
+\hline
+{\em vec\-Layout} & Aufteilung des ursprünglichen Datenstroms die aus den Paketinformationen dekodiert wurden. Dient zur Ermittlung der konkreten Datensätze. \\
+\hline
+{\em vec\-Layoutlen} & Länge von {\itshape vec\-Layout}. \\
+\hline
+{\em vec\-Datatypes} & Beinhaltet die Informationen zu den Datentypen der jeweiligen Datensätze. \\
+\hline
+{\em vec\-Datatypeslen} & Länge von {\itshape vec\-Datatypes}. \\
+\hline
+{\em vec\-Comma} & Beinhaltet die Kommasetzung sämtlicher Datensätze. \\
+\hline
+{\em vec\-Commalen} & Länge von {\itshape vec\-Comma}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classDecoder_a822e353ce4fda29290f280d4e3e44305}{\index{Decoder@{Decoder}!get\-Next\-Data@{get\-Next\-Data}}
+\index{get\-Next\-Data@{get\-Next\-Data}!Decoder@{Decoder}}
+\subsubsection[{get\-Next\-Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data} Decoder\-::get\-Next\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDecoder_a822e353ce4fda29290f280d4e3e44305}
+Holt den nächsten Datensatz aus den empfangenen Daten. \begin{DoxyReturn}{Rückgabe}
+Gibt ein Datenobjekt \hyperlink{classData}{Data} zurück das sämtlich Informationen über den Datensatz enthält. 
+\end{DoxyReturn}
+\hypertarget{classDecoder_a28231d06fe2fd5144a939907d6ee509a}{\index{Decoder@{Decoder}!get\-Package\-Num@{get\-Package\-Num}}
+\index{get\-Package\-Num@{get\-Package\-Num}!Decoder@{Decoder}}
+\subsubsection[{get\-Package\-Num}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Decoder\-::get\-Package\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDecoder_a28231d06fe2fd5144a939907d6ee509a}
+Holt die Paketnummer des akutell bearbeiteten Pakets. \begin{DoxyReturn}{Rückgabe}
+Paketnummer das aktuellen Pakets 
+\end{DoxyReturn}
+\hypertarget{classDecoder_aca3dc7a7a1982ac07e1a08a0e4c91955}{\index{Decoder@{Decoder}!get\-Package\-Pos@{get\-Package\-Pos}}
+\index{get\-Package\-Pos@{get\-Package\-Pos}!Decoder@{Decoder}}
+\subsubsection[{get\-Package\-Pos}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Decoder\-::get\-Package\-Pos (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{vec\-Layout, }
+\item[{const int}]{vec\-Layoutlen}
+\end{DoxyParamCaption}
+)}}\label{classDecoder_aca3dc7a7a1982ac07e1a08a0e4c91955}
+Holt die Position des aktuellen Pakets im ursprünglichen Datensatz. 
+\begin{DoxyParams}{Parameter}
+{\em vec\-Layout} & Aufteilung des ursprünglichen Datenstroms die aus den Paketinformationen dekodiert wurden. \\
+\hline
+{\em vec\-Layoutlen} & Länge von {\itshape vec\-Layout}. \\
+\hline
+\end{DoxyParams}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Encoding.\-h\item 
+Encoding.\-cpp\end{DoxyCompactItemize}

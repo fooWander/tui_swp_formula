@@ -955,15 +955,7 @@ Sobald ein Paket den vServer erreicht wird es zunächst dekodiert (\texttt{6: de
 
 \end{itemize}
 
-Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server zu dessen Reaktion den aktuellen Kommunikationsvorgang abzubrechen und sich auf einen neuen vorzubereiten -- der Initialsierungsprozess beginnt von neuem. Auch das Senden des Pakets \texttt{MSG\_READY} an die MicroAutoBox II dient dazu einen neuen Kommunikationsvorgang mitzuteilen, denn durch dessen Empfang bricht auch diese den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten des Servers, wird das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. Weitere Auslöser für einen neuen Kommunikationsvorgang sind die folgenden Zeitüberschreitungen, welche Y-mal bei Y-maligen Senden des zugehörigen Pakets überschritten wurden:
-
-timeout B1 öfter als Y-mal überschritten (Paket Y-mal gesendet),
-timeout B2 öfter als Y-mal überschritten (Paket Y-mal gesendet),
-timeout C1 öfter als Y-mal überschritten (Paket Y-mal gesendet),
-timeout C2 öfter als Y-mal überschritten (Paket Y-mal gesendet),
-timeout D\_1 öfter als Y-mal überschritten (Paket Y-mal gesendet),
-timeout D\_2 öfter als Y-mal überschritten (Paket Y-mal gesendet).
-
+Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server zu dessen Reaktion den aktuellen Kommunikationsvorgang abzubrechen und sich auf einen neuen vorzubereiten -- der Initialsierungsprozess beginnt von neuem. Auch das Senden des Pakets \texttt{MSG\_READY} an die MicroAutoBox II dient dazu einen neuen Kommunikationsvorgang mitzuteilen, denn durch dessen Empfang bricht auch diese den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten des Servers, wird das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. 
 
 \begin{table}[H]
 \centering
@@ -1096,7 +1088,7 @@ PACKAGE &
 
 %--------------------------   vServer   ----------------------------%
 
-\section{vServer}
+%\section{vServer}
 
 
 
