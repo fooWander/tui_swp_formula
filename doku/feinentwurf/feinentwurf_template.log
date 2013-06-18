@@ -1,0 +1,1824 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  18 JUN 2013 15:22
+entering extended mode
+**feinentwurf_template.tex
+
+(C:\Users\Zehner\Documents\GitHub\tui_swp_formula\doku\feinentwurf\feinentwurf_
+template.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
+Document Class: scrreprt 2012/07/29 v3.11b KOMA-Script document class (report)
+("C:\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
+Package: scrkbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-dependent 
+basics and keyval usage)
+
+("C:\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
+Package: scrbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-independent
+ basics and keyval usage)
+
+("C:\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
+Package: scrlfile 2012/06/15 v3.12 KOMA-Script package (loading files)
+
+Package scrlfile, 2012/06/15 v3.12 KOMA-Script package (loading files)
+                  Copyright (C) Markus Kohm
+
+))) ("C:\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
+Package: tocbasic 2012/04/04 v3.10b KOMA-Script package (handling toc-files)
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 117.
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 118.
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 119.
+Class scrreprt Info: File `scrsize12pt.clo' used to setup font sizes on input l
+ine 1367.
+
+("C:\MiKTeX 2.9\tex\latex\koma-script\scrsize12pt.clo"
+File: scrsize12pt.clo 2012/07/29 v3.11b KOMA-Script font size class option (12p
+t)
+)
+("C:\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
+Package: typearea 2012/07/29 v3.11b KOMA-Script package (type area)
+
+Package typearea, 2012/07/29 v3.11b KOMA-Script package (type area)
+                  Copyright (C) Frank Neukam, 1992-1994
+                  Copyright (C) Markus Kohm, 1994-
+
+\ta@bcor=\skip41
+\ta@div=\count79
+\ta@hblk=\skip42
+\ta@vblk=\skip43
+\ta@temp=\skip44
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 12
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 448.13095pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 2.4185pt
+(typearea)              \oddsidemargin  = 2.4185pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 635.5pt
+(typearea)              \topmargin      = -41.72441pt
+(typearea)              \headheight     = 18.125pt
+(typearea)              \headsep        = 21.75pt
+(typearea)              \topskip        = 12.0pt
+(typearea)              \footskip       = 50.75pt
+(typearea)              \baselineskip   = 14.5pt
+(typearea)              on input line 1213.
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\abovecaptionskip=\skip45
+\belowcaptionskip=\skip46
+\c@pti@nb@sid@b@x=\box26
+\c@figure=\count87
+\c@table=\count88
+\bibindent=\dimen102
+) ("C:\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\MiKTeX 2.9\tex\generic\babel\english.ldf"
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+("C:\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count89
+\U@D=\dimen103
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+("C:\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
+Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
+\l@naustrian = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 92.
+))
+("C:\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+("C:\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+("C:\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+("C:\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+("C:\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+("C:\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks17
+)
+("C:\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks18
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+("C:\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen104
+))
+("C:\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+("C:\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count90
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count91
+\leftroot@=\count92
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count93
+\DOTSCASE@=\count94
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count95
+\c@MaxMatrixCols=\count96
+\dotsspace@=\muskip10
+\c@parentequation=\count97
+\dspbrk@lvl=\count98
+\tag@help=\toks20
+\row@=\count99
+\column@=\count100
+\maxfields@=\count101
+\andhelp@=\toks21
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks22
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+("C:\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen113
+\Gm@wd@mp=\dimen114
+\Gm@odd@mp=\dimen115
+\Gm@even@mp=\dimen116
+\Gm@layoutwidth=\dimen117
+\Gm@layoutheight=\dimen118
+\Gm@layouthoffset=\dimen119
+\Gm@layoutvoffset=\dimen120
+\Gm@dimlist=\toks24
+
+("C:\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\MiKTeX 2.9\tex\latex\koma-script\scrpage2.sty"
+Package: scrpage2 2010/04/22 v2.5 LaTeX2e KOMA-Script package
+LaTeX Info: Redefining \pagemark on input line 176.
+)
+("C:\MiKTeX 2.9\tex\latex\ulem\ulem.sty"
+\UL@box=\box29
+\UL@hyphenbox=\box30
+\UL@skip=\skip50
+\UL@hook=\toks25
+\UL@height=\dimen121
+\UL@pe=\count105
+\UL@pixel=\dimen122
+\ULC@box=\box31
+Package: ulem 2012/05/18
+\ULdepth=\dimen123
+)
+("C:\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
+Package: microtype 2013/03/13 v2.5 Micro-typographical refinements (RS)
+\MT@toks=\toks26
+\MT@count=\count106
+LaTeX Info: Redefining \textls on input line 771.
+\MT@outer@kern=\dimen124
+LaTeX Info: Redefining \textmicrotypecontext on input line 1290.
+\MT@listname@count=\count107
+
+("C:\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def"
+File: microtype-pdftex.def 2013/03/13 v2.5 Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 889.
+LaTeX Info: Redefining \lslig on input line 889.
+\MT@outer@space=\skip51
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+("C:\MiKTeX 2.9\tex\latex\microtype\microtype.cfg"
+File: microtype.cfg 2013/03/13 v2.5 microtype main configuration file (RS)
+))
+("C:\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2013/04/14 v3.3-73 Customizing captions (AR)
+
+("C:\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2013/04/14 v1.5-71 caption3 kernel (AR)
+\captionmargin=\dimen125
+\captionmargin@=\dimen126
+\captionwidth=\dimen127
+\caption@tempdima=\dimen128
+\caption@indent=\dimen129
+\caption@parindent=\dimen130
+\caption@hangindent=\dimen131
+)
+Package caption Info: KOMA-Script document class.
+\c@ContinuedFloat=\count108
+)
+("C:\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count109
+))
+\Gin@req@height=\dimen132
+\Gin@req@width=\dimen133
+)
+("C:\MiKTeX 2.9\tex\latex\rotating\rotating.sty"
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+
+("C:\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count110
+\rotFPtop=\skip52
+\rotFPbot=\skip53
+\rot@float@box=\box32
+\rot@mess@toks=\toks27
+)
+("C:\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen134
+\WF@size=\dimen135
+\c@WF@wrappedlines=\count111
+\WF@box=\box33
+\WF@everypar=\toks28
+Package: wrapfig 2003/01/31  v 3.6
+)
+("C:\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip54
+\subfigcapskip=\skip55
+\subfigcaptopadj=\dimen136
+\subfigbottomskip=\skip56
+\subfigcapmargin=\dimen137
+\subfiglabelskip=\skip57
+\c@subfigure=\count112
+\c@lofdepth=\count113
+\c@subtable=\count114
+\c@lotdepth=\count115
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+("C:\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
+\subfig@top=\skip58
+\subfig@bottom=\skip59
+)
+("C:\MiKTeX 2.9\tex\latex\floatflt\floatflt.sty"
+Package: floatflt 1997/07/16 v. 1.31
+\c@OptionTest=\count116
+\figbox=\box34
+\tabbox=\box35
+\pagebox=\box36
+\ffigcount=\count117
+\ftabcount=\count118
+\fftest=\count119
+\hangcount=\count120
+\nosuccesstryfig=\count121
+\nosuccesstrytab=\count122
+\figgutter=\dimen138
+\tabgutter=\dimen139
+\htdone=\dimen140
+\pageht=\dimen141
+\startpageht=\dimen142
+\tabbredd=\dimen143
+\floatfltwidth=\dimen144
+\fltitemwidth=\dimen145
+\outputpretest=\toks29
+)
+("C:\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count123
+\float@exts=\toks30
+\float@box=\box37
+\@float@everytoks=\toks31
+\@floatcapt=\box38
+)
+("C:\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen146
+\lightrulewidth=\dimen147
+\cmidrulewidth=\dimen148
+\belowrulesep=\dimen149
+\belowbottomsep=\dimen150
+\aboverulesep=\dimen151
+\abovetopsep=\dimen152
+\cmidrulesep=\dimen153
+\cmidrulekern=\dimen154
+\defaultaddspace=\dimen155
+\@cmidla=\count124
+\@cmidlb=\count125
+\@aboverulesep=\dimen156
+\@belowrulesep=\dimen157
+\@thisruleclass=\count126
+\@lastruleclass=\count127
+\@thisrulewidth=\dimen158
+)
+("C:\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen159
+\extrarowheight=\dimen160
+\NC@list=\toks32
+\extratabsurround=\skip60
+\backup@length=\skip61
+)
+("C:\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+\TX@col@width=\dimen161
+\TX@old@table=\dimen162
+\TX@old@col=\dimen163
+\TX@target=\dimen164
+\TX@delta=\dimen165
+\TX@cols=\count128
+\TX@ftn=\toks33
+)
+("C:\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(C:\Users\Zehner\Documents\GitHub\tui_swp_formula\doku\feinentwurf\feinentwurf_
+template.aux
+
+LaTeX Warning: Label `UDP-Receive' multiply defined.
+
+
+LaTeX Warning: Label `constdatentyp' multiply defined.
+
+
+LaTeX Warning: Label `scdatenmotor' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(71.13188pt, 455.24417pt, 71.13188pt)
+* v-part:(T,H,B)=(42.67912pt, 759.68869pt, 42.67912pt)
+* \paperwidth=597.50793pt
+* \paperheight=845.04694pt
+* \textwidth=455.24417pt
+* \textheight=669.06369pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-29.59087pt
+* \headheight=18.125pt
+* \headsep=21.75pt
+* \topskip=12.0pt
+* \footskip=14.22636pt
+* \marginparwidth=49.79233pt
+* \marginparsep=12.8401pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \microtypecontext on input line 112.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+("C:\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
+File: mt-cmr.cfg 2011/04/09 v2.1 microtype config. file: Computer Modern Roman 
+(RS)
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: floatflt package is loaded.
+Package caption Info: rotating package is loaded.
+Package caption Info: subfigure package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+("C:\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count129
+\scratchdimen=\dimen166
+\scratchbox=\box39
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks34
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen167
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks35
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Try loading font information for U+msa on input line 136.
+ ("C:\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+("C:\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 136.
+
+("C:\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+("C:\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [1
+
+
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Package tocbasic Info: character protrusion at toc deactivated on input line 14
+2.
+
+(C:\Users\Zehner\Documents\GitHub\tui_swp_formula\doku\feinentwurf\feinentwurf_
+template.toc [2
+
+])
+\tf@toc=\write3
+ [3]
+Kapitel 1.
+
+Class scrreprt Warning: \float@addtolists detected!
+(scrreprt)              You should use the features of package `tocbasic'
+(scrreprt)              instead of \float@addtolists.
+(scrreprt)              Support for \float@addtolists may be removed from
+(scrreprt)              `scrreprt' soon .
+
+[4
+
+]
+Kapitel 2.
+<product.png, id=19, 45.16875pt x 37.64063pt>
+File: product.png Graphic file (type png)
+ <use product.png>
+Package pdftex.def Info: product.png used on input line 178.
+(pdftex.def)             Requested size: 45.16862pt x 37.64052pt.
+
+<and.png, id=21, 39.14626pt x 50.43843pt>
+File: and.png Graphic file (type png)
+ <use and.png>
+Package pdftex.def Info: and.png used on input line 196.
+(pdftex.def)             Requested size: 39.14615pt x 50.4383pt.
+ [5
+
+ <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/product.png
+> <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/and.png>]
+<rate_transition.png, id=30, 56.46094pt x 47.42719pt>
+File: rate_transition.png Graphic file (type png)
+
+<use rate_transition.png>
+Package pdftex.def Info: rate_transition.png used on input line 217.
+(pdftex.def)             Requested size: 47.992pt x 40.31328pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+[]\OT1/cmr/bx/n/10 Abbildung 2.3:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+|\OT1/cmr/m/n/10 (+20) Rate-Transition-
+ []
+
+<width.png, id=31, 37.64063pt x 39.14626pt>
+File: width.png Graphic file (type png)
+ <use width.png>
+Package pdftex.def Info: width.png used on input line 222.
+(pdftex.def)             Requested size: 33.87624pt x 35.2313pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--223
+[]\OT1/cmr/bx/n/10 Abbildung 2.4:
+ []
+
+[6 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/rate_tran
+sition.png> <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/
+width.png>] <mux_demux.png, id=37, 412.54124pt x 140.02313pt>
+File: mux_demux.png Graphic file (type png)
+
+<use mux_demux.png>
+Package pdftex.def Info: mux_demux.png used on input line 259.
+(pdftex.def)             Requested size: 412.54024pt x 140.02278pt.
+ [7 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/mux_demu
+x.png>] <flipflop.png, id=47, 50.43843pt x 79.04532pt>
+File: flipflop.png Graphic file (type png)
+
+<use flipflop.png>
+Package pdftex.def Info: flipflop.png used on input line 327.
+(pdftex.def)             Requested size: 40.35078pt x 63.23631pt.
+ <eth_udp_rx.png, id=48, 205.5178pt x 93.34875pt>
+File: eth_udp_rx.png Graphic file (type png)
+
+<use eth_udp_rx.png>
+Package pdftex.def Info: eth_udp_rx.png used on input line 373.
+(pdftex.def)             Requested size: 164.41446pt x 74.6791pt.
+ [8 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/flipflop
+.png> <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/eth_ud
+p_rx.png>] <decode32.png, id=56, 105.39375pt x 53.44969pt>
+File: decode32.png Graphic file (type png)
+
+<use decode32.png>
+Package pdftex.def Info: decode32.png used on input line 387.
+(pdftex.def)             Requested size: 84.3151pt x 42.75978pt.
+ <byteto8bit.png, id=57, 103.13531pt x 239.39438pt>
+File: byteto8bit.png Graphic file (type png)
+
+<use byteto8bit.png>
+Package pdftex.def Info: byteto8bit.png used on input line 398.
+(pdftex.def)             Requested size: 82.50835pt x 191.51575pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 419--420
+
+ []
+
+[9 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/decode32.
+png> <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/byteto8
+bit.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 465--466
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--470
+
+ []
+
+<topmodell.png, id=67, 682.80093pt x 306.39468pt>
+File: topmodell.png Graphic file (type png)
+ <use topmodell.png>
+Package pdftex.def Info: topmodell.png used on input line 482.
+(pdftex.def)             Requested size: 443.81534pt x 199.15417pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 491.
+
+
+("C:\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 491.
+ [11 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/topmode
+ll.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
+
+ []
+
+<sub_signalgenerator.png, id=72, 825.83531pt x 782.925pt>
+File: sub_signalgenerator.png Graphic file (type png)
+
+<use sub_signalgenerator.png>
+Package pdftex.def Info: sub_signalgenerator.png used on input line 515.
+(pdftex.def)             Requested size: 330.32828pt x 313.16446pt.
+
+<daten_allgemein.png, id=73, 1015.54407pt x 763.35187pt>
+File: daten_allgemein.png Graphic file (type png)
+
+<use daten_allgemein.png>
+Package pdftex.def Info: daten_allgemein.png used on input line 523.
+(pdftex.def)             Requested size: 375.74542pt x 282.43576pt.
+ [12] [13 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/su
+b_signalgenerator.png> <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/f
+einentwurf/daten_allgemein.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 535--536
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
+
+ []
+
+<notaus.png, id=83, 510.40688pt x 253.69781pt>
+File: notaus.png Graphic file (type png)
+ <use notaus.png>
+Package pdftex.def Info: notaus.png used on input line 541.
+(pdftex.def)             Requested size: 484.88377pt x 241.01155pt.
+
+Overfull \hbox (29.6396pt too wide) in paragraph at lines 541--542
+ [][] 
+ []
+
+[14 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/notaus.p
+ng>] <const_datentyp.png, id=87, 356.83313pt x 267.24844pt>
+File: const_datentyp.png Graphic file (type png)
+
+<use const_datentyp.png>
+Package pdftex.def Info: const_datentyp.png used on input line 555.
+(pdftex.def)             Requested size: 285.46687pt x 213.79904pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--561
+
+ []
+
+
+LaTeX Warning: Reference `akkudaten' on page 15 undefined on input line 562.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 562--563
+
+ []
+
+[15 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/const_da
+tentyp.png>]
+File: const_datentyp.png Graphic file (type png)
+ <use const_datentyp.png>
+Package pdftex.def Info: const_datentyp.png used on input line 572.
+(pdftex.def)             Requested size: 285.46687pt x 213.79904pt.
+
+<makezelldaten.png, id=91, 538.26094pt x 362.10281pt>
+File: makezelldaten.png Graphic file (type png)
+ <use makezelldaten.png>
+Package pdftex.def Info: makezelldaten.png used on input line 580.
+(pdftex.def)             Requested size: 349.86546pt x 235.36403pt.
+
+[16 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/makezell
+daten.png>]
+
+LaTeX Warning: Reference `zelldaten' on page 17 undefined on input line 587.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 587--588
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 589--590
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+
+ []
+
+[17] <makegeschwindigkeit.png, id=99, 441.90094pt x 318.43968pt>
+File: makegeschwindigkeit.png Graphic file (type png)
+
+<use makegeschwindigkeit.png>
+Package pdftex.def Info: makegeschwindigkeit.png used on input line 601.
+(pdftex.def)             Requested size: 375.61757pt x 270.675pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 606--608
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
+
+ []
+
+[18 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/makegesc
+hwindigkeit.png>] <makefahrdynamik.png, id=104, 511.15968pt x 225.09094pt>
+File: makefahrdynamik.png Graphic file (type png)
+
+<use makefahrdynamik.png>
+Package pdftex.def Info: makefahrdynamik.png used on input line 617.
+(pdftex.def)             Requested size: 383.3688pt x 168.81778pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
+
+ []
+
+
+Overfull \hbox (0.35611pt too wide) in paragraph at lines 624--625
+\OT1/cmr/m/n/12 (-20) nung", []Mo-tor-tem-pe-ra-tur", []Strom-gren-ze", []Ma-xi
+-mal-leis-tung", []L[]ufterdrehzahl", []L[]ufter",
+ []
+
+[19 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/makefahr
+dynamik.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 656--657
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 658--659
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 662--663
+
+ []
+
+[20] <sc_daten_allgemein.png, id=113, 1213.53375pt x 770.12718pt>
+File: sc_daten_allgemein.png Graphic file (type png)
+
+<use sc_daten_allgemein.png>
+Package pdftex.def Info: sc_daten_allgemein.png used on input line 672.
+(pdftex.def)             Requested size: 449.00047pt x 284.9426pt.
+ [21 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/sc_date
+n_allgemein.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 683--684
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
+
+ []
+
+[22] <sc_daten_akku.png, id=121, 1026.08344pt x 831.85782pt>
+File: sc_daten_akku.png Graphic file (type png)
+
+<use sc_daten_akku.png>
+Package pdftex.def Info: sc_daten_akku.png used on input line 696.
+(pdftex.def)             Requested size: 461.73328pt x 374.33257pt.
+
+Overfull \hbox (6.4891pt too wide) in paragraph at lines 696--697
+ [][] 
+ []
+
+[23 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/sc_daten
+_akku.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 705--707
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 710--711
+
+ []
+
+<sc_daten_geschwindigkeit.png, id=126, 544.28343pt x 316.18124pt>
+File: sc_daten_geschwindigkeit.png Graphic file (type png)
+
+<use sc_daten_geschwindigkeit.png>
+Package pdftex.def Info: sc_daten_geschwindigkeit.png used on input line 716.
+(pdftex.def)             Requested size: 419.09953pt x 243.4603pt.
+
+Underfull \hbox (badness 1715) in paragraph at lines 717--717
+[]\OT1/cmr/bx/n/10 Abbildung 2.21: |[]\OT1/cmr/m/n/10 (+20) Ubersicht []uber da
+s Sub-sys-tem []da-ten[]geschwindigkeit" im Sub-sys-tem []da-
+ []
+
+[24 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/sc_daten
+_geschwindigkeit.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--729
+
+ []
+
+<sc_daten_fahrdynamik.png, id=131, 606.01407pt x 314.67563pt>
+File: sc_daten_fahrdynamik.png Graphic file (type png)
+
+<use sc_daten_fahrdynamik.png>
+Package pdftex.def Info: sc_daten_fahrdynamik.png used on input line 734.
+(pdftex.def)             Requested size: 454.50943pt x 236.00613pt.
+ [25 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/sc_date
+n_fahrdynamik.png>]
+<sc_daten_motor.png, id=137, 563.85657pt x 568.37344pt>
+File: sc_daten_motor.png Graphic file (type png)
+
+<use sc_daten_motor.png>
+Package pdftex.def Info: sc_daten_motor.png used on input line 751.
+(pdftex.def)             Requested size: 422.89139pt x 426.27904pt.
+ [26 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/sc_date
+n_motor.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 778--779
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 784--785
+
+ []
+
+<subudpdaten.png, id=142, 567.62062pt x 127.22531pt>
+File: subudpdaten.png Graphic file (type png)
+ <use subudpdaten.png>
+Package pdftex.def Info: subudpdaten.png used on input line 790.
+(pdftex.def)             Requested size: 425.7144pt x 95.41873pt.
+
+[27 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/subudpda
+ten.png>] <submsgsizedaten.png, id=146, 394.47375pt x 117.43875pt>
+File: submsgsizedaten.png Graphic file (type png)
+
+<use submsgsizedaten.png>
+Package pdftex.def Info: submsgsizedaten.png used on input line 801.
+(pdftex.def)             Requested size: 295.85458pt x 88.07883pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 806--807
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 808--809
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--814
+
+ []
+
+<subdatenpaketinfo.png, id=147, 721.19438pt x 479.54156pt>
+File: subdatenpaketinfo.png Graphic file (type png)
+
+<use subdatenpaketinfo.png>
+Package pdftex.def Info: subdatenpaketinfo.png used on input line 817.
+(pdftex.def)             Requested size: 432.71997pt x 287.72716pt.
+ [28 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/submsgs
+izedaten.png> <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwur
+f/subdatenpaketinfo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 832--833
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 834--835
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--841
+
+ []
+
+[29] [30] <Initialization.png, id=159, 685.8122pt x 373.395pt>
+File: Initialization.png Graphic file (type png)
+
+<use Initialization.png>
+Package pdftex.def Info: Initialization.png used on input line 906.
+(pdftex.def)             Requested size: 514.3579pt x 280.04556pt.
+
+Overfull \hbox (59.11372pt too wide) in paragraph at lines 906--907
+ [][] 
+ []
+
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+[31 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/Initiali
+zation.png (PNG copy)>]
+Overfull \hbox (26.37659pt too wide) in paragraph at lines 928--929
+\OT1/cmr/m/n/12 (-20) zun[]achst ei-ne Emp-fangs-best[]atigung an die Mi-cro-Au
+-to-Box II (\OT1/cmtt/m/n/12 14: send PACKET[]INFO[]ACK\OT1/cmr/m/n/12 (-20) )
+ []
+
+
+Overfull \hbox (28.28912pt too wide) in paragraph at lines 928--929
+\OT1/cmr/m/n/12 (-20) Nun war-tet er auf die Emp-fangs-best[]atigung des vSer-v
+ers (\OT1/cmtt/m/n/12 17: receive PACKET[]INFO[]ACK\OT1/cmr/m/n/12 (-20) ).
+ []
+
+[32] <Data_Transmission.png, id=168, 599.23875pt x 365.86688pt>
+File: Data_Transmission.png Graphic file (type png)
+
+<use Data_Transmission.png>
+Package pdftex.def Info: Data_Transmission.png used on input line 943.
+(pdftex.def)             Requested size: 449.42796pt x 274.39948pt.
+
+Overfull \hbox (12.91705pt too wide) in paragraph at lines 949--951
+[]\OT1/cmr/m/n/12 (-20) Nachdem die Mi-cro-Au-to-Box die Emp-fangs-best[]atigun
+g des Info-Packet[]1 vom Embedded-
+ []
+
+[33 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/Data_Tra
+nsmission.png (PNG copy)>] [34]
+<webseite.pdf, id=175, 1056.74805pt x 976.44798pt>
+File: webseite.pdf Graphic file (type pdf)
+ <use webseite.pdf>
+Package pdftex.def Info: webseite.pdf used on input line 990.
+(pdftex.def)             Requested size: 422.69173pt x 390.57228pt.
+ [35 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/webseit
+e.pdf>]
+<installation.pdf, id=2158, 719.48799pt x 309.958pt>
+File: installation.pdf Graphic file (type pdf)
+ <use installation.pdf>
+Package pdftex.def Info: installation.pdf used on input line 1002.
+(pdftex.def)             Requested size: 431.69612pt x 185.97623pt.
+
+[36 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/installa
+tion.pdf>] <initialisierung.pdf, id=2401, 737.95702pt x 599.038pt>
+File: initialisierung.pdf Graphic file (type pdf)
+
+<use initialisierung.pdf>
+Package pdftex.def Info: initialisierung.pdf used on input line 1014.
+(pdftex.def)             Requested size: 405.87761pt x 329.47191pt.
+ [37 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/initial
+isierung.pdf>]
+<header.pdf, id=2714, 355.72899pt x 213.598pt>
+File: header.pdf Graphic file (type pdf)
+ <use header.pdf>
+Package pdftex.def Info: header.pdf used on input line 1027.
+(pdftex.def)             Requested size: 355.72812pt x 213.59747pt.
+ [38 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/header.
+pdf>]
+Overfull \hbox (9.62141pt too wide) in paragraph at lines 1042--1044
+[]\OT1/cmr/m/n/12 (-20) Liste der im Sys-tem re-gis-trier-ten Be-nut-zer (nur V
+or-stand; \OT1/cmr/m/it/12 (-20) in-clu-des/widgets/userlist.php\OT1/cmr/m/n/12
+ (-20) )
+ []
+
+<startseite.pdf, id=2825, 1404.44695pt x 703.428pt>
+File: startseite.pdf Graphic file (type pdf)
+ <use startseite.pdf>
+Package pdftex.def Info: startseite.pdf used on input line 1048.
+(pdftex.def)             Requested size: 442.40314pt x 221.581pt.
+
+[39 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/startsei
+te.pdf>] <registrierung.pdf, id=3257, 556.47902pt x 309.958pt>
+File: registrierung.pdf Graphic file (type pdf)
+
+<use registrierung.pdf>
+Package pdftex.def Info: registrierung.pdf used on input line 1059.
+(pdftex.def)             Requested size: 417.35825pt x 232.46791pt.
+ [40 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/registr
+ierung.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1069
+
+ []
+
+<login.pdf, id=3476, 806.212pt x 277.83798pt>
+File: login.pdf Graphic file (type pdf)
+ <use login.pdf>
+Package pdftex.def Info: login.pdf used on input line 1072.
+(pdftex.def)             Requested size: 403.10501pt x 138.91864pt.
+ [41 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/login.p
+df>]
+<logout.pdf, id=3698, 525.16202pt x 269.80798pt>
+File: logout.pdf Graphic file (type pdf)
+ <use logout.pdf>
+Package pdftex.def Info: logout.pdf used on input line 1084.
+(pdftex.def)             Requested size: 367.6109pt x 188.8643pt.
+ [42 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/logout.
+pdf>]
+<passwort.pdf, id=3860, 703.428pt x 301.928pt>
+File: passwort.pdf Graphic file (type pdf)
+ <use passwort.pdf>
+Package pdftex.def Info: passwort.pdf used on input line 1096.
+(pdftex.def)             Requested size: 422.06006pt x 181.15819pt.
+ [43 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/passwor
+t.pdf>]
+<csvexport.pdf, id=4086, 611.083pt x 382.22798pt>
+File: csvexport.pdf Graphic file (type pdf)
+ <use csvexport.pdf>
+Package pdftex.def Info: csvexport.pdf used on input line 1107.
+(pdftex.def)             Requested size: 366.65262pt x 229.33856pt.
+ [44 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/csvexpo
+rt.pdf>]
+Overfull \hbox (8.99712pt too wide) in paragraph at lines 1114--1115
+\OT1/cmr/m/n/12 (-20) Hierbei han-delt es sich um ge-nau zu sein um zwei Wid-ge
+ts (\OT1/cmr/m/it/12 (-20) in-clu-des/widgets/manageusers.php
+ []
+
+<usermgmt.pdf, id=4317, 819.86299pt x 462.52798pt>
+File: usermgmt.pdf Graphic file (type pdf)
+ <use usermgmt.pdf>
+Package pdftex.def Info: usermgmt.pdf used on input line 1118.
+(pdftex.def)             Requested size: 409.9305pt x 231.26341pt.
+ [45 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/usermgm
+t.pdf>]
+<online.pdf, id=4632, 514.72299pt x 261.77798pt>
+File: online.pdf Graphic file (type pdf)
+ <use online.pdf>
+Package pdftex.def Info: online.pdf used on input line 1129.
+(pdftex.def)             Requested size: 411.77895pt x 209.42267pt.
+ [46 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/online.
+pdf>]
+<allgemeineSeitenaufbau.png, id=4803, 1382.16376pt x 471.26062pt>
+File: allgemeineSeitenaufbau.png Graphic file (type png)
+
+<use allgemeineSeitenaufbau.png>
+Package pdftex.def Info: allgemeineSeitenaufbau.png used on input line 1142.
+(pdftex.def)             Requested size: 451.96071pt x 154.09988pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1140--1144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1140--1144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1140--1144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1145--1148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1150--1153
+
+ []
+
+<allgemeinefahrzeugdaten.png, id=4804, 1005.00468pt x 584.1825pt>
+File: allgemeinefahrzeugdaten.png Graphic file (type png)
+
+<use allgemeinefahrzeugdaten.png>
+Package pdftex.def Info: allgemeinefahrzeugdaten.png used on input line 1166.
+(pdftex.def)             Requested size: 454.25682pt x 264.04741pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1168
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1164--1168
+
+ []
+
+[47 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/allgemei
+neSeitenaufbau.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1170--1173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1175--1178
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1180--1183
+
+ []
+
+
+Overfull \hbox (15.63283pt too wide) in paragraph at lines 1185--1189
+[]\OT1/cmr/bx/n/12 justGage()   \OT1/cmr/m/n/12 (-20) In-itia-li-siert die halb
+-run-de Ge-schwin-dig-keits-an-zei-ge, die durch \OT1/cmr/bx/n/12 \g.refresh()\
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1191--1194
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1196--1199
+
+ []
+
+[48 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/allgemei
+nefahrzeugdaten.png>]
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 1201.
+
+
+Overfull \hbox (10.55739pt too wide) in paragraph at lines 1201--1204
+[]\OT1/cmr/bx/n/12 $.post('allgemeinefahrzeugdaten[]sql.php',\OMS/cmsy/b/n/12 f
+\OT1/cmr/bx/n/12 permission:"true"\OMS/cmsy/b/n/12 g\OT1/cmr/bx/n/12 ,function(
+data)\OMS/cmsy/b/n/12 fg
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1206--1209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1211--1214
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1219
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1221--1225
+
+ []
+
+<akkudatenvpp.png, id=4813, 1060.71281pt x 712.16063pt>
+File: akkudatenvpp.png Graphic file (type png)
+ <use akkudatenvpp.png>
+Package pdftex.def Info: akkudatenvpp.png used on input line 1233.
+(pdftex.def)             Requested size: 451.33919pt x 303.02829pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1236
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1236
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1231--1236
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1237--1238
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1240--1241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1246
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1247--1251
+
+ []
+
+[50 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/akkudate
+nvpp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1252--1256
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1258--1261
+
+ []
+
+<dynamischedaten.png, id=4823, 938.00438pt x 644.4075pt>
+File: dynamischedaten.png Graphic file (type png)
+
+<use dynamischedaten.png>
+Package pdftex.def Info: dynamischedaten.png used on input line 1277.
+(pdftex.def)             Requested size: 454.93158pt x 312.53726pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1280
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1280
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1275--1280
+
+ []
+
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1282--1285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1287--1290
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+
+ []
+
+[52 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/dynamisc
+hedaten.png>] <fahrdynamik.png, id=4831, 1083.29718pt x 682.04813pt>
+File: fahrdynamik.png Graphic file (type png)
+
+<use fahrdynamik.png>
+Package pdftex.def Info: fahrdynamik.png used on input line 1302.
+(pdftex.def)             Requested size: 454.98172pt x 286.45825pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1310
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1310
+
+ []
+
+<motorundumrichter.png, id=4832, 916.1728pt x 537.50812pt>
+File: motorundumrichter.png Graphic file (type png)
+
+<use motorundumrichter.png>
+Package pdftex.def Info: motorundumrichter.png used on input line 1313.
+(pdftex.def)             Requested size: 458.08528pt x 268.7534pt.
+
+Overfull \hbox (2.84111pt too wide) in paragraph at lines 1313--1316
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1316
+
+ []
+
+[53 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/fahrdyna
+mik.png>] [54 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwur
+f/motorundumrichter.png>]
+Kapitel 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1345--1346
+
+ []
+
+[55
+
+] [56] [57] [58] <userdata.png, id=4854, 563.10374pt x 131.74219pt>
+File: userdata.png Graphic file (type png)
+
+<use userdata.png>
+Package pdftex.def Info: userdata.png used on input line 1432.
+(pdftex.def)             Requested size: 439.21916pt x 102.75847pt.
+ [59 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/userdat
+a.png>] [60] [61] [62] [63] [64] [65] [66] [67]
+Package tocbasic Info: character protrusion at lof deactivated on input line 16
+56.
+
+(C:\Users\Zehner\Documents\GitHub\tui_swp_formula\doku\feinentwurf\feinentwurf_
+template.lof [68
+
+]
+Overfull \hbox (1.14206pt too wide) in paragraph at lines 55--55
+ [][] [][]\OT1/cmr/m/n/12 (-20) Ubersicht []uber das Sub-sys-tem []da-ten[]zell
+daten" im Sub-sys-tem []da-ten[]akku" 
+ []
+
+)
+\tf@lof=\write4
+ [69] <akkudaten.png, id=4890, 479.54156pt x 529.98pt>
+File: akkudaten.png Graphic file (type png)
+ <use akkudaten.png>
+Package pdftex.def Info: akkudaten.png used on input line 1672.
+(pdftex.def)             Requested size: 383.63377pt x 423.98456pt.
+
+[70
+
+] <zelldaten.png, id=4894, 845.40843pt x 617.30624pt>
+File: zelldaten.png Graphic file (type png)
+ <use zelldaten.png>
+Package pdftex.def Info: zelldaten.png used on input line 1681.
+(pdftex.def)             Requested size: 549.50896pt x 401.24431pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<dyndaten.png, id=4895, 398.23781pt x 611.28375pt>
+File: dyndaten.png Graphic file (type png)
+ <use dyndaten.png>
+Package pdftex.def Info: dyndaten.png used on input line 1689.
+(pdftex.def)             Requested size: 338.50372pt x 519.59364pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<submotordaten.png, id=4896, 447.92343pt x 618.81187pt>
+File: submotordaten.png Graphic file (type png)
+
+<use submotordaten.png>
+Package pdftex.def Info: submotordaten.png used on input line 1698.
+(pdftex.def)             Requested size: 447.92233pt x 618.81036pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<subsignalkollektor.png, id=4897, 730.22812pt x 344.03531pt>
+File: subsignalkollektor.png Graphic file (type png)
+
+<use subsignalkollektor.png>
+Package pdftex.def Info: subsignalkollektor.png used on input line 1707.
+(pdftex.def)             Requested size: 620.69684pt x 292.4314pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<sc_daten_notaus.png, id=4898, 979.40906pt x 420.06938pt>
+File: sc_daten_notaus.png Graphic file (type png)
+
+<use sc_daten_notaus.png>
+Package pdftex.def Info: sc_daten_notaus.png used on input line 1716.
+(pdftex.def)             Requested size: 636.60834pt x 273.04185pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<sc_daten_temperatur_allgemein.png, id=4899, 992.95969pt x 374.14781pt>
+File: sc_daten_temperatur_allgemein.png Graphic file (type png)
+
+<use sc_daten_temperatur_allgemein.png>
+Package pdftex.def Info: sc_daten_temperatur_allgemein.png used on input line 1
+725.
+(pdftex.def)             Requested size: 645.41615pt x 243.19318pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<sc_daten_zellenpack.png, id=4900, 545.78906pt x 602.25pt>
+File: sc_daten_zellenpack.png Graphic file (type png)
+
+<use sc_daten_zellenpack.png>
+Package pdftex.def Info: sc_daten_zellenpack.png used on input line 1734.
+(pdftex.def)             Requested size: 436.63184pt x 481.80064pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<sc_daten_zelldaten.png, id=4901, 498.36188pt x 628.59843pt>
+File: sc_daten_zelldaten.png Graphic file (type png)
+
+<use sc_daten_zelldaten.png>
+Package pdftex.def Info: sc_daten_zelldaten.png used on input line 1744.
+(pdftex.def)             Requested size: 423.60959pt x 534.31119pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<sc_daten_dynamisch.png, id=4902, 593.21625pt x 590.95781pt>
+File: sc_daten_dynamisch.png Graphic file (type png)
+
+<use sc_daten_dynamisch.png>
+Package pdftex.def Info: sc_daten_dynamisch.png used on input line 1753.
+(pdftex.def)             Requested size: 456.77792pt x 455.03891pt.
+
+Overfull \hbox (1.53375pt too wide) in paragraph at lines 1753--1754
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<subsignaltransmitter.png, id=4903, 1349.04pt x 503.63156pt>
+File: subsignaltransmitter.png Graphic file (type png)
+
+<use subsignaltransmitter.png>
+Package pdftex.def Info: subsignaltransmitter.png used on input line 1762.
+(pdftex.def)             Requested size: 674.51836pt x 251.81516pt.
+
+Overfull \hbox (5.45467pt too wide) in paragraph at lines 1762--1763
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<subembreceive.png, id=4904, 1141.26375pt x 353.06906pt>
+File: subembreceive.png Graphic file (type png)
+
+<use subembreceive.png>
+Package pdftex.def Info: subembreceive.png used on input line 1771.
+(pdftex.def)             Requested size: 684.76353pt x 211.84306pt.
+
+Overfull \hbox (15.69984pt too wide) in paragraph at lines 1771--1772
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[71 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/akkudate
+n.png>] [72 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/
+zelldaten.png>] [73 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/fein
+entwurf/dyndaten.png>] [74 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/do
+ku/feinentwurf/submotordaten.png>] [75 <C:/Users/Zehner/Documents/GitHub/tui_sw
+p_formula/doku/feinentwurf/subsignalkollektor.png>] [76 <C:/Users/Zehner/Docume
+nts/GitHub/tui_swp_formula/doku/feinentwurf/sc_daten_notaus.png>] [77 <C:/Users
+/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/sc_daten_temperatur_a
+llgemein.png>] [78 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feine
+ntwurf/sc_daten_zellenpack.png>] [79 <C:/Users/Zehner/Documents/GitHub/tui_swp_
+formula/doku/feinentwurf/sc_daten_zelldaten.png>] [80 <C:/Users/Zehner/Document
+s/GitHub/tui_swp_formula/doku/feinentwurf/sc_daten_dynamisch.png>] [81 <C:/User
+s/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/subsignaltransmitter
+.png>] [82 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/s
+ubembreceive.png>]
+(C:\Users\Zehner\Documents\GitHub\tui_swp_formula\doku\feinentwurf\feinentwurf_
+template.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 8438 strings out of 493921
+ 126296 string characters out of 3152893
+ 255465 words of memory out of 3000000
+ 11352 multiletter control sequences out of 15000+200000
+ 20897 words of font info for 140 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 40i,11n,46p,1792b,442s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmbx10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10
+.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmti12.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmtt12.pfb>
+Output written on feinentwurf_template.pdf (82 pages, 3287040 bytes).
+PDF statistics:
+ 5009 PDF objects out of 5155 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 18211 words of extra memory for PDF output out of 20736 (max. 10000000)
+
