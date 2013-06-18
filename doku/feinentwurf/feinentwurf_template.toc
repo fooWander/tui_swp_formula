@@ -81,3 +81,4 @@
 \contentsline {chapter}{Abbildungsverzeichnis}{77}
 \contentsline {chapter}{Anhang}{78}
 \contentsline {section}{\numberline {A.1}Simulink-Diagramme}{78}
+\contentsline {section}{\numberline {A.2}Sequenzdiagramme zur Interaktion der einzelnen Komponenten}{79}
