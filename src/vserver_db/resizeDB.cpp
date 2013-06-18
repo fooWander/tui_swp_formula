@@ -41,10 +41,10 @@ using namespace std;
 using namespace sql::mysql;
 using namespace boost;
 
-/** Programm zum loeschen veralteter Daten aus der Datenbank.
+/** Programm zum Loeschen veralteter Daten aus der Datenbank.
  *
- * Programm das sich in die Datenbank einloggt und die Tabellen auf die Anzahl ihrer
- * Eintraege ueberprueft. Sind mehr Datensaetze vorhanden als benoetigt, werden die
+ * Dieses Programm loggt sich in die Datenbank ein und ueberprueft die Tabellen auf die Anzahl ihrer
+ * Eintraege. Sind mehr Datensaetze vorhanden als benoetigt, werden die
  * aeltesten automatisch geloescht.
  *
  * Das Programm ist so konzipiert, das es mittels eines Cronjobs periodisch aufgerufen
@@ -59,7 +59,7 @@ using namespace boost;
  * in der jeweiligen Tabelle ermittelt und mit dem Referenzwert verglichen.
  * Sind mehr Datensaetze in der Tabelle als vorgesehen, werden die aeltesten Eintraege mithilfe eines 
  * MySQL-Statements (DELETE FROM tabelle ORDER BY Zeitstempel LIMIT diff) geloescht.
- * Die Anzhl der geloeschten Eintraege richtet sich dabei nach der Differenz zwischen der aktuellen Datensatzanzahl
+ * Die Anzahl der geloeschten Eintraege richtet sich dabei nach der Differenz zwischen der aktuellen Datensatzanzahl
  * und dem Referenzwert.
  * Gemaess der Dokumentation des MySQL Connector/C++ werden auftretende Fehler abgefangen.
  * Damit das Programm auch sinnvoll von der Kommandozeile ausgefuehrt werden kann, etwa um die Datenbankverbindung zu testen, erfolgen
