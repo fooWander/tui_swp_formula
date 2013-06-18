@@ -1123,8 +1123,8 @@ Zuerst wird ein Objekt von \textit{DBPacketInsert} erzeugt, das wiederum zuerst 
 Klasse \textit{DBPacketInsert}:
 
 Von dieser Klasse soll, wenn das Programm vollständig zusammengebaut ist, einmal ein Objekt erzeugt werden, auf dem dann jeweils nach Erhalt eines Paketes vom Embedded PC die Memberfunktion \textit{db\_insert()} aufgerufen wird. Diese löst dann das Auslesen und Aufbereiten der einzelnen Daten in der Klasse \textit{DatatypeDaemon} aus, setzt die Werte zusammen zu einem SQL-String und übergibt diesen an die Klasse \textit{Insert}. Im Weiteren wird auf diese einzelnen Schritte näher eingegangen.\\
-Wie oben bereits geschildert, fragt \textit{DBPacketInsert} zuerst nur einen Wert von \textit{DatatypeDaemon} an und fügt diesen in ein Stringarray ein. Zu diesem Wert lässt es sich außerdem die Stelle im Übertragungspaket der MikroAutoboxII zum Embedded PC übergeben. Dies geschieht zum einen durch den Aufruf von \textit{parseNextValue()} auf \textit{DatatypeDaemon}, zum anderen durch den Aufruf von \textit{getPosActualPacket()} auf derselben Klasse. Danach fragt \textit{DBPacketInsert} über \textit{DatatypeDaemon} die Stelle des Wertes im Übertragungspaket von MikroAutoboxII zum Embedded PC ab, woraus er dann das Übertragungspaket von Embedded PC zum vServer ermittelt. Ein solches Paket beinhaltet alle Daten einer Tabelle auf der Datenbank, er nutzt dazu auch die in einer Enumeration definierten Startpunkte der einzelnen Pakete, die den Stellen im Übertragunspaket der MikroAutoboxII zum Embedded PC entsprechen. Diese Information benötigt die Klasse, um jetzt nur so viele Werte über \textit{DatatypeDaemon} in dem Array, welches schon den einen oben genannten Wert enthält, zu sammeln, wie in einem Übertragungspaket sind. Damit füllt der gesamte Inhalt des Arrays eine Tabelle der Datenbank aus.\\
-Für jede Tabelle gibt es schließlich eine Unterfunktion, die entsprechend dem Aufbau der Datenbank die einzelnen Werte des Arrays zusammensetzt und daraus einen gültigen SQL-String baut. Sobald die Unterfunktion abgeschlossen ist, wird der fertige SQL-String an die Memberfunktion \textit{insertIntoDB(string* anw)} der Klasse \textit{Insert} übergeben.\\
+Wie oben bereits geschildert, fragt \textit{DBPacketInsert} zuerst nur einen Wert von \textit{DatatypeDaemon} an und fügt diesen in ein Stringarray ein. Zu diesem Wert lässt es sich außerdem die Stelle im Übertragungspaket der MikroAutoboxII zum Embedded PC übergeben. Dies geschieht zum einen durch den Aufruf von \textit{parseNextValue()} auf \textit{DatatypeDaemon}, zum anderen durch den Aufruf von \textit{getPosActualPacket()} auf derselben Klasse. Danach fragt \textit{DBPacketInsert} über \textit{DatatypeDaemon} die Stelle des Wertes im Übertragungspaket von MikroAutoboxII zum Embedded PC ab, woraus er dann das Übertragungspaket von Embedded PC zum vServer ermittelt. Ein solches Paket beinhaltet alle Daten einer Tabelle auf der Datenbank, er nutzt dazu auch die in einer Enumeration definierten Startpunkte der einzelnen Pakete, die den Stellen im Übertragunspaket der MikroAutoboxII zum Embedded PC entsprechen. Diese Information benötigt die Klasse, um jetzt nur so viele Werte über \textit{DatatypeDaemon} in dem Array, welches schon den einen oben genannten Wert enthält, zu sammeln, wie in einem Übertragungspaket sind. Damit füllt der gesamte Inhalt des Arrays eine Tabelle der Datenbank aus. Anschließend fragt das Objekt noch den Zeitstempel des Pakets mit \textit{getTime()} ab.\\
+Für jede Tabelle gibt es schließlich eine Unterfunktion, die entsprechend dem Aufbau der Datenbank die einzelnen Werte des Arrays zusammensetzt und daraus zusammen mit dem Zeitstempel des Pakets einen gültigen SQL-String baut. Sobald die Unterfunktion abgeschlossen ist, wird der fertige SQL-String an die Memberfunktion \textit{insertIntoDB(string* anw)} der Klasse \textit{Insert} übergeben.\\
 \\
 \\
 Klasse \textit{DatatypeDaemon}:\\
@@ -1144,7 +1144,47 @@ Wird von \textit{Insert} die Memberfunktion \textit{instertIntoDB(string* anw)} 
 
 %--------------------------   vServer   ----------------------------%
 
-%\section{vServer}
+\section{vServer}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.75]{resizeDBSequenz}
+\caption[Sequenzdiagramm des virtuellen Servers]{Sequenzdiagramm des virtuellen Servers}
+\label{resizeDBSequenz}
+\end{figure} 
+
+Dieses Sequenzdiagramm beschreibt den Ablauf des Programmes \textit{sizeDB} auf dem virtuellem Server.\\
+Direkt nach dem Aufruf des Programmes wird die Klasse \textit{dbData} erzeugt, welche wiederum die Datei \textit{dbconfig} einliest. \\
+Anschließend fragt \textit{resizeDB} von \textit{dbData} die Zugangsdaten zur Datenbank ab und mit Hilfe dieser Daten wird nun eine Verbindung zum MySQL-Server aufgebaut.\\
+Nachfolgend wird für jede Tabelle die aktuelle Anzahl an Datensätzen abgefragt, sollten mehr Einträge als vorgesehen in der Tabelle liegen, werden sie anschließend über ein weiteres MySQL-Statement aus der Datenbank gelöscht.\\
+Da es auch möglich sein soll, dieses Programm von der Kommandozeile auszuführen, erfolgt zum Schluss eine Ausgabe über die durchgeführten Arbeitsschritte.
+
+\newpage
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.75]{resizeDB}
+\caption[Klassendiagramm des virtuellen Servers]{Klassendiagramm des virtuellen Servers}
+\label{resizeDB}
+\end{figure}
+
+Klasse \textit{resizeDB}:\\
+\textit{resizeDB} stellt ein eigenständiges Programm dar, welches die Fahrzeugdaten-Tabellen der MySQL-Datenbank auf die Anzahl ihrer Einträge überprüft, bei Überschreiten einer vordefinierten Anzahl an Einträgen (regulär 36000) werden die überflüssigen ältesten Einträge automatisch gelöscht.\\
+Dieses Programm wird im Produktiveinsatz periodisch mittels eines vorher definierten \textit{Cronjobs} (also eine periodisch ausgeführte Aufgabe zur Pflege der Daten) aufgerufen und ist unabhängig von den anderen auf dem virtuellen Server laufenden Programmen.\\
+Beim Start werden über die Klasse \textit{dbData} die Zugangsdaten für den MySQL-Server abgerufen und anschließend eine Verbindung zur Datenbank mittels des \textit{MySQL Connector/C++} aufgebaut.
+War der Verbindungsaufbau erfolgreich, werden die entsprechenden Tabellen mit den Fahrzeugdaten nacheinander überprüft, dazu wird die aktuelle Anzahl an Datensätzen in der Tabelle über ein MySQL-Statement ermittelt und mit der Norm verglichen.
+Sollten mehr Einträge als vorgesehen in einer Tabelle vorhanden sein, wird diese mit einem weiterem MySQL-Statement nach ihrem Zeitstempel sortiert und die ältesten Einträge werden entfernt.
+Die Anzahl der gelöschten Einträge richtet sich hierbei nach der Differenz der Anzahl der aktuellen Einträge und dem Referenzwert.\\
+Da dieses Programm auch manuell von der Kommandozeile ausführbar sein soll, etwa um zu Überprüfen ob die Verbindung mit der MySQL-Datenbank erfolgreich ist, erfolgen Ausgaben über den aktuellen Bearbeitungsstand des Programmes.\\
+\\
+Klasse \textit{dbData}:\\
+Die Klasse \textit{dbData} wird verwendet um die Zugangsdaten für die MySQL-Datenbank aus einer einfachen Textdatei (siehe \textit{dbconfig.txt}) auszulesen.\\
+Um die Werte zu speichern werden die \textit{String}-Variablen \textit{host}, \textit{user}, \textit{pw} und \textit{db} angelegt. Der Konstruktor öffnet bei der Erzeugung eines Objektes dieser Klasse die Datei \textit{dbconfig.txt} aus dem  gleichem Verzeichnis und schreibt die Werte der einzelnen Zeilen in die zugehörigen Variablen.
+Der Zugriff erfolgt mithilfe der vier Memberfunktionen \textit{getHost()}, \textit{getUser()}, \textit{getPW()} und \textit{getDB()}, welche als Rückgabewert den entsprechenden \textit{String} liefern.
+
+
+\newpage
+
 
 
 
@@ -1950,6 +1990,26 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online
 \includegraphics[scale = 0.60]{subembreceive}
 \caption[Übersicht über das Subsystem "`EMB\_RECEIVE"\ im Signaltransmitter]{Übersicht über das Subsystem "`EMB\_RECEIVE"\ im Signaltransmitter}
 \label{subembreceive}
+\end{sidewaysfigure}
+
+\newpage
+
+\section{Sequenzdiagramme zur Interaktion der einzelnen Komponenten}
+
+\begin{sidewaysfigure}[h]
+\centering
+\includegraphics[scale = 0.95]{Kommunikationsaufbau_1}
+\caption[Übersicht über die Kommunikation zwischen MicroAutoBox II und Embedded-PC]{Übersicht über die Kommunikation zwischen MicroAutoBox II und Embedded-PC}
+\label{Kommunikationsaufbau1}
+\end{sidewaysfigure}
+
+\newpage
+
+\begin{sidewaysfigure}[h]
+\centering
+\includegraphics[scale = 0.95]{Kommunikationsaufbau_2}
+\caption[Übersicht über die Kommunikation zwischen Embedded-PC und virtuellem Server]{Übersicht über die Kommunikation zwischen Embedded-PC und virtuellem Server}
+\label{Kommunikationsaufbau2}
 \end{sidewaysfigure}
 
 

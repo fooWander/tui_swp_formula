@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.6.17)  19 JUN 2013 00:53
 entering extended mode
 **feinentwurf_template.tex
 
 (C:\Users\Christian\Documents\src\swp\tui_swp_formula\doku\feinentwurf\feinentw
 urf_template.tex
+=======
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.7.29)  19 JUN 2013 00:31
+entering extended mode
+**feinentwurf_template.tex
+
+("C:\Users\Sebastian Zehnter\git\tui_swp_formula\doku\feinentwurf\feinentwurf_t
+emplate.tex"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -15,6 +24,7 @@ german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
+<<<<<<< HEAD
 
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrreprt.c
 ls
@@ -35,14 +45,35 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 )
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlfile.s
 ty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
+Document Class: scrreprt 2012/07/05 v3.11a KOMA-Script document class (report)
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
+Package: scrkbase 2012/07/05 v3.11a KOMA-Script package (KOMA-Script-dependent 
+basics and keyval usage)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
+Package: scrbase 2012/07/05 v3.11a KOMA-Script package (KOMA-Script-independent
+ basics and keyval usage)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: scrlfile 2012/06/15 v3.12 KOMA-Script package (loading files)
 
 Package scrlfile, 2012/06/15 v3.12 KOMA-Script package (loading files)
                   Copyright (C) Markus Kohm
 
+<<<<<<< HEAD
 )))
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\tocbasic.s
 ty
+=======
+))) ("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: tocbasic 2012/04/04 v3.10b KOMA-Script package (handling toc-files)
 )
 Package tocbasic Info: omitting babel extension for `toc'
@@ -55,8 +86,9 @@ Package tocbasic Info: omitting babel extension for `lot'
 (tocbasic)             because of feature `nobabel' available
 (tocbasic)             for `lot' on input line 119.
 Class scrreprt Info: File `scrsize12pt.clo' used to setup font sizes on input l
-ine 1367.
+ine 1366.
 
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrsize12p
 t.clo
 File: scrsize12pt.clo 2012/07/29 v3.11b KOMA-Script font size class option (12p
@@ -65,8 +97,16 @@ t)
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\typearea.s
 ty
 Package: typearea 2012/07/29 v3.11b KOMA-Script package (type area)
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize12pt.clo"
+File: scrsize12pt.clo 2012/07/05 v3.11a KOMA-Script font size class option (12p
+t)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
+Package: typearea 2012/07/05 v3.11a KOMA-Script package (type area)
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
-Package typearea, 2012/07/29 v3.11b KOMA-Script package (type area)
+Package typearea, 2012/07/05 v3.11a KOMA-Script package (type area)
                   Copyright (C) Frank Neukam, 1992-1994
                   Copyright (C) Markus Kohm, 1994-
 
@@ -91,7 +131,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 50.75pt
 (typearea)              \baselineskip   = 14.5pt
-(typearea)              on input line 1213.
+(typearea)              on input line 1212.
 )
 \c@part=\count80
 \c@chapter=\count81
@@ -354,16 +394,24 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks17
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+<<<<<<< HEAD
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+=======
+Package: amssymb 2009/06/22 v3.00
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 \@emptytoks=\toks18
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
+<<<<<<< HEAD
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip47
@@ -373,32 +421,51 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks19
 \ex@=\dimen104
 ))
+<<<<<<< HEAD
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen105
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count90
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 211.
 \uproot@=\count91
 \leftroot@=\count92
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 307.
 \classnum@=\count93
 \DOTSCASE@=\count94
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box27
 \strutbox@=\box28
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count95
 \c@MaxMatrixCols=\count96
 \dotsspace@=\muskip10
@@ -419,8 +486,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip48
 \multlinetaggap=\skip49
 \mathdisplay@stack=\toks23
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -450,11 +517,19 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks24
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrpage2.s
 ty
 Package: scrpage2 2010/04/22 v2.5 LaTeX2e KOMA-Script package
 LaTeX Info: Redefining \pagemark on input line 176.
 ) (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\ulem\ulem.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrpage2.sty"
+Package: scrpage2 2010/04/22 v2.5 LaTeX2e KOMA-Script package
+LaTeX Info: Redefining \pagemark on input line 176.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ulem\ulem.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 \UL@box=\box29
 \UL@hyphenbox=\box30
 \UL@skip=\skip50
@@ -466,6 +541,7 @@ LaTeX Info: Redefining \pagemark on input line 176.
 Package: ulem 2012/05/18
 \ULdepth=\dimen123
 )
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\microtype.st
 y
 Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
@@ -482,10 +558,21 @@ File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
 
 LaTeX Info: Redefining \lsstyle on input line 915.
 LaTeX Info: Redefining \lslig on input line 915.
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.sty"
+Package: microtype 2010/01/10 v2.4 Micro-typography with pdfTeX (RS)
+\MT@toks=\toks26
+\MT@count=\count106
+LaTeX Info: Redefining \lsstyle on input line 1597.
+LaTeX Info: Redefining \lslig on input line 1597.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 \MT@outer@space=\skip51
-)
+LaTeX Info: Redefining \textls on input line 1605.
+\MT@outer@kern=\dimen124
+LaTeX Info: Redefining \textmicrotypecontext on input line 2156.
 Package microtype Info: Loading configuration file microtype.cfg.
 
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\microtype.cf
 g
 File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
@@ -496,17 +583,32 @@ Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\microtype.cfg"
+File: microtype.cfg 2010/01/10 v2.4 microtype main configuration file (RS)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 \captionmargin=\dimen125
 \captionmargin@=\dimen126
 \captionwidth=\dimen127
-\caption@tempdima=\dimen128
-\caption@indent=\dimen129
-\caption@parindent=\dimen130
-\caption@hangindent=\dimen131
+\caption@indent=\dimen128
+\caption@parindent=\dimen129
+\caption@hangindent=\dimen130
 )
 Package caption Info: KOMA-Script document class.
+<<<<<<< HEAD
 \c@ContinuedFloat=\count108
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+=======
+\c@ContinuedFloat=\count107
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
@@ -529,48 +631,64 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count109
+\Gread@gobject=\count108
 ))
-\Gin@req@height=\dimen132
-\Gin@req@width=\dimen133
+\Gin@req@height=\dimen131
+\Gin@req@width=\dimen132
 )
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\rotating\rotating.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\rotating\rotating.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count110
+\c@r@tfl@t=\count109
 \rotFPtop=\skip52
 \rotFPbot=\skip53
 \rot@float@box=\box32
 \rot@mess@toks=\toks27
 )
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\wrapfig\wrapfig.sty
 \wrapoverhang=\dimen134
 \WF@size=\dimen135
 \c@WF@wrappedlines=\count111
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty"
+\wrapoverhang=\dimen133
+\WF@size=\dimen134
+\c@WF@wrappedlines=\count110
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 \WF@box=\box33
 \WF@everypar=\toks28
 Package: wrapfig 2003/01/31  v 3.6
 )
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.st
 y
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfigtopskip=\skip54
 \subfigcapskip=\skip55
-\subfigcaptopadj=\dimen136
+\subfigcaptopadj=\dimen135
 \subfigbottomskip=\skip56
-\subfigcapmargin=\dimen137
+\subfigcapmargin=\dimen136
 \subfiglabelskip=\skip57
-\c@subfigure=\count112
-\c@lofdepth=\count113
-\c@subtable=\count114
-\c@lotdepth=\count115
+\c@subfigure=\count111
+\c@lofdepth=\count112
+\c@subtable=\count113
+\c@lotdepth=\count114
 
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
+<<<<<<< HEAD
 
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.cf
 g)
@@ -578,34 +696,47 @@ g)
 \subfig@bottom=\skip59
 )
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\floatflt\floatflt.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
+\subfig@top=\skip58
+\subfig@bottom=\skip59
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\floatflt\floatflt.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: floatflt 1997/07/16 v. 1.31
-\c@OptionTest=\count116
+\c@OptionTest=\count115
 \figbox=\box34
 \tabbox=\box35
 \pagebox=\box36
-\ffigcount=\count117
-\ftabcount=\count118
-\fftest=\count119
-\hangcount=\count120
-\nosuccesstryfig=\count121
-\nosuccesstrytab=\count122
-\figgutter=\dimen138
-\tabgutter=\dimen139
-\htdone=\dimen140
-\pageht=\dimen141
-\startpageht=\dimen142
-\tabbredd=\dimen143
-\floatfltwidth=\dimen144
-\fltitemwidth=\dimen145
+\ffigcount=\count116
+\ftabcount=\count117
+\fftest=\count118
+\hangcount=\count119
+\nosuccesstryfig=\count120
+\nosuccesstrytab=\count121
+\figgutter=\dimen137
+\tabgutter=\dimen138
+\htdone=\dimen139
+\pageht=\dimen140
+\startpageht=\dimen141
+\tabbredd=\dimen142
+\floatfltwidth=\dimen143
+\fltitemwidth=\dimen144
 \outputpretest=\toks29
+<<<<<<< HEAD
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+=======
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count123
+\c@float@type=\count122
 \float@exts=\toks30
 \float@box=\box37
 \@float@everytoks=\toks31
 \@floatcapt=\box38
 )
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\booktabs\booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen146
@@ -626,36 +757,71 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count127
 \@thisrulewidth=\dimen158
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty"
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen145
+\lightrulewidth=\dimen146
+\cmidrulewidth=\dimen147
+\belowrulesep=\dimen148
+\belowbottomsep=\dimen149
+\aboverulesep=\dimen150
+\abovetopsep=\dimen151
+\cmidrulesep=\dimen152
+\cmidrulekern=\dimen153
+\defaultaddspace=\dimen154
+\@cmidla=\count123
+\@cmidlb=\count124
+\@aboverulesep=\dimen155
+\@belowrulesep=\dimen156
+\@thisruleclass=\count125
+\@lastruleclass=\count126
+\@thisrulewidth=\dimen157
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen159
-\extrarowheight=\dimen160
+\col@sep=\dimen158
+\extrarowheight=\dimen159
 \NC@list=\toks32
 \extratabsurround=\skip60
 \backup@length=\skip61
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
-\TX@col@width=\dimen161
-\TX@old@table=\dimen162
-\TX@old@col=\dimen163
-\TX@target=\dimen164
-\TX@delta=\dimen165
-\TX@cols=\count128
+\TX@col@width=\dimen160
+\TX@old@table=\dimen161
+\TX@old@col=\dimen162
+\TX@target=\dimen163
+\TX@delta=\dimen164
+\TX@cols=\count127
 \TX@ftn=\toks33
 )
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.st
 y
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip62
-\enit@outerparindent=\dimen166
+\enit@outerparindent=\dimen165
 \enit@toks=\toks34
 \enit@inbox=\box39
-\enitdp@description=\count129
+\enitdp@description=\count128
 )
+<<<<<<< HEAD
 (C:\Users\Christian\Documents\src\swp\tui_swp_formula\doku\feinentwurf\feinentw
 urf_template.aux
+=======
+("C:\Users\Sebastian Zehnter\git\tui_swp_formula\doku\feinentwurf\feinentwurf_t
+emplate.aux"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
 LaTeX Warning: Label `UDP-Receive' multiply defined.
 
@@ -723,11 +889,16 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-Package microtype Info: No adjustment of tracking.
+Package microtype Info: No tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg"
+File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman 
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (RS)
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -738,37 +909,49 @@ Package caption Info: subfigure package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
+<<<<<<< HEAD
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+=======
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
-\scratchdimen=\dimen167
+\scratchcounter=\count129
+\scratchdimen=\dimen166
 \scratchbox=\box40
-\nofMPsegments=\count131
-\nofMParguments=\count132
+\nofMPsegments=\count130
+\nofMParguments=\count131
 \everyMPshowfont=\toks35
-\MPscratchCnt=\count133
-\MPscratchDim=\dimen168
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen167
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
 \everyMPtoPDFconversion=\toks36
 )
-Package microtype Info: Loading generic settings for font family
-(microtype)             `cmss' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Try loading font information for U+msa on input line 136.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+<<<<<<< HEAD
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-msa.cfg
+=======
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 136.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+<<<<<<< HEAD
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (C:\Users\Christian\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-msb.cfg
+=======
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg"
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 [1
@@ -779,8 +962,13 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 Package tocbasic Info: character protrusion at toc deactivated on input line 14
 2.
 
+<<<<<<< HEAD
 (C:\Users\Christian\Documents\src\swp\tui_swp_formula\doku\feinentwurf\feinentw
 urf_template.toc [2
+=======
+("C:\Users\Sebastian Zehnter\git\tui_swp_formula\doku\feinentwurf\feinentwurf_t
+emplate.toc" [2
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
 ])
 \tf@toc=\write3
@@ -810,9 +998,14 @@ Package pdftex.def Info: and.png used on input line 196.
 (pdftex.def)             Requested size: 39.14615pt x 50.4383pt.
  [5
 
+<<<<<<< HEAD
  <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/product
 .png> <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/an
 d.png>]
+=======
+ <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/product.png> 
+<C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/and.png>]
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 <rate_transition.png, id=30, 56.46094pt x 47.42719pt>
 File: rate_transition.png Graphic file (type png)
 
@@ -839,30 +1032,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 223--223
 []\OT1/cmr/bx/n/10 Abbildung 2.4:
  []
 
+<<<<<<< HEAD
 [6 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/rate_
 transition.png> <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/fein
 entwurf/width.png>] <mux_demux.png, id=37, 412.54124pt x 140.02313pt>
+=======
+[6 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/rate_transi
+tion.png> <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/widt
+h.png>] <mux_demux.png, id=37, 412.54124pt x 140.02313pt>
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: mux_demux.png Graphic file (type png)
-
-<use mux_demux.png>
+ <use mux_demux.png>
 Package pdftex.def Info: mux_demux.png used on input line 259.
 (pdftex.def)             Requested size: 412.54024pt x 140.02278pt.
+<<<<<<< HEAD
  [7 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/mux_
 demux.png>] <flipflop.png, id=47, 50.43843pt x 79.04532pt>
 File: flipflop.png Graphic file (type png)
+=======
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
-<use flipflop.png>
+[7 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/mux_demux.p
+ng>] <flipflop.png, id=47, 50.43843pt x 79.04532pt>
+File: flipflop.png Graphic file (type png)
+ <use flipflop.png>
 Package pdftex.def Info: flipflop.png used on input line 327.
 (pdftex.def)             Requested size: 40.35078pt x 63.23631pt.
- <eth_udp_rx.png, id=48, 205.5178pt x 93.34875pt>
-File: eth_udp_rx.png Graphic file (type png)
 
-<use eth_udp_rx.png>
+<eth_udp_rx.png, id=48, 205.5178pt x 93.34875pt>
+File: eth_udp_rx.png Graphic file (type png)
+ <use eth_udp_rx.png>
 Package pdftex.def Info: eth_udp_rx.png used on input line 373.
 (pdftex.def)             Requested size: 164.41446pt x 74.6791pt.
+<<<<<<< HEAD
  [8 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/flip
 flop.png> <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwur
 f/eth_udp_rx.png>]
+=======
+ [8 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/flipflop.p
+ng> <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/eth_udp_rx
+.png>]
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 <decode32.png, id=56, 105.39375pt x 53.44969pt>
 File: decode32.png Graphic file (type png)
  <use decode32.png>
@@ -879,9 +1089,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 419--420
 
  []
 
+<<<<<<< HEAD
 [9 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/decod
 e32.png> <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf
 /byteto8bit.png>]
+=======
+[9 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/decode32.pn
+g> <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/byteto8bit.
+png>]
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
@@ -910,6 +1126,7 @@ Package pdftex.def Info: topmodell.png used on input line 482.
 modell.png>]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 493.
 
+<<<<<<< HEAD
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -917,6 +1134,16 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 493.
 
 Underfull \hbox (badness 10000) in paragraph at lines 506--507
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 491.
+ [11 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/topmodell
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 504--505
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -943,9 +1170,16 @@ File: daten_allgemein.png Graphic file (type png)
 <use daten_allgemein.png>
 Package pdftex.def Info: daten_allgemein.png used on input line 525.
 (pdftex.def)             Requested size: 375.74542pt x 282.43576pt.
+<<<<<<< HEAD
  [13 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/sub
 _signalgenerator.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 535--536
+=======
+ [12] [13 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/sub_
+signalgenerator.png> <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feine
+ntwurf/daten_allgemein.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -969,6 +1203,7 @@ Overfull \hbox (29.6396pt too wide) in paragraph at lines 543--544
  [][] 
  []
 
+<<<<<<< HEAD
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -976,6 +1211,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 n_allgemein.png>] [15 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/dok
 u/feinentwurf/notaus.png>]
 <const_datentyp.png, id=90, 356.83313pt x 267.24844pt>
+=======
+[14 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/notaus.png
+>] <const_datentyp.png, id=87, 356.83313pt x 267.24844pt>
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: const_datentyp.png Graphic file (type png)
 
 <use const_datentyp.png>
@@ -994,8 +1233,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 564--565
 
  []
 
+<<<<<<< HEAD
 [16 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/cons
 t_datentyp.png>]
+=======
+[15 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/const_date
+ntyp.png>]
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: const_datentyp.png Graphic file (type png)
  <use const_datentyp.png>
 Package pdftex.def Info: const_datentyp.png used on input line 574.
@@ -1007,8 +1251,13 @@ File: makezelldaten.png Graphic file (type png)
 Package pdftex.def Info: makezelldaten.png used on input line 582.
 (pdftex.def)             Requested size: 349.86546pt x 235.36403pt.
 
+<<<<<<< HEAD
 [17 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/make
 zelldaten.png>]
+=======
+[16 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/makezellda
+ten.png>]
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
 LaTeX Warning: Reference `zelldaten' on page 18 undefined on input line 589.
 
@@ -1048,8 +1297,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 611--612
 
  []
 
+<<<<<<< HEAD
 [19 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/make
 geschwindigkeit.png>] <makefahrdynamik.png, id=108, 511.15968pt x 225.09094pt>
+=======
+[18 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/makegeschw
+indigkeit.png>] <makefahrdynamik.png, id=104, 511.15968pt x 225.09094pt>
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: makefahrdynamik.png Graphic file (type png)
 
 <use makefahrdynamik.png>
@@ -1066,9 +1320,15 @@ Overfull \hbox (0.35611pt too wide) in paragraph at lines 626--627
 -mal-leis-tung", []L[]ufterdrehzahl", []L[]ufter",
  []
 
+<<<<<<< HEAD
 [20 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/make
 fahrdynamik.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 654--655
+=======
+[19 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/makefahrdy
+namik.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -1093,9 +1353,15 @@ File: sc_daten_allgemein.png Graphic file (type png)
 <use sc_daten_allgemein.png>
 Package pdftex.def Info: sc_daten_allgemein.png used on input line 674.
 (pdftex.def)             Requested size: 449.00047pt x 284.9426pt.
+<<<<<<< HEAD
  [22 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/sc_
 daten_allgemein.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 683--684
+=======
+ [21 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/sc_daten_
+allgemein.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 681--682
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -1120,9 +1386,15 @@ Overfull \hbox (6.4891pt too wide) in paragraph at lines 698--699
  [][] 
  []
 
+<<<<<<< HEAD
 [24 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/sc_d
 aten_akku.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 707--709
+=======
+[23 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/sc_daten_a
+kku.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 705--707
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -1143,9 +1415,15 @@ Underfull \hbox (badness 1715) in paragraph at lines 719--719
 s Sub-sys-tem []da-ten[]geschwindigkeit" im Sub-sys-tem []da-
  []
 
+<<<<<<< HEAD
 [25 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/sc_d
 aten_geschwindigkeit.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 726--727
+=======
+[24 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/sc_daten_g
+eschwindigkeit.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -1160,17 +1438,29 @@ File: sc_daten_fahrdynamik.png Graphic file (type png)
 <use sc_daten_fahrdynamik.png>
 Package pdftex.def Info: sc_daten_fahrdynamik.png used on input line 736.
 (pdftex.def)             Requested size: 454.50943pt x 236.00613pt.
+<<<<<<< HEAD
  [26 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/sc_
 daten_fahrdynamik.png>]
 <sc_daten_motor.png, id=140, 563.85657pt x 568.37344pt>
+=======
+ [25 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/sc_daten_
+fahrdynamik.png>]
+<sc_daten_motor.png, id=137, 563.85657pt x 568.37344pt>
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: sc_daten_motor.png Graphic file (type png)
 
 <use sc_daten_motor.png>
 Package pdftex.def Info: sc_daten_motor.png used on input line 753.
 (pdftex.def)             Requested size: 422.89139pt x 426.27904pt.
+<<<<<<< HEAD
  [27 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/sc_
 daten_motor.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 780--781
+=======
+ [26 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/sc_daten_
+motor.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 778--779
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -1185,8 +1475,13 @@ File: subudpdaten.png Graphic file (type png)
 Package pdftex.def Info: subudpdaten.png used on input line 792.
 (pdftex.def)             Requested size: 425.7144pt x 95.41873pt.
 
+<<<<<<< HEAD
 [28 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/subu
 dpdaten.png>] <submsgsizedaten.png, id=149, 394.47375pt x 117.43875pt>
+=======
+[27 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/subudpdate
+n.png>] <submsgsizedaten.png, id=146, 394.47375pt x 117.43875pt>
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: submsgsizedaten.png Graphic file (type png)
 
 <use submsgsizedaten.png>
@@ -1213,10 +1508,17 @@ File: subdatenpaketinfo.png Graphic file (type png)
 <use subdatenpaketinfo.png>
 Package pdftex.def Info: subdatenpaketinfo.png used on input line 819.
 (pdftex.def)             Requested size: 432.71997pt x 287.72716pt.
+<<<<<<< HEAD
  [29 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/sub
 msgsizedaten.png> <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/fe
 inentwurf/subdatenpaketinfo.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 826--827
+=======
+ [28 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/submsgsiz
+edaten.png> <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/su
+bdatenpaketinfo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
@@ -1246,6 +1548,7 @@ Overfull \hbox (24.98878pt too wide) in paragraph at lines 908--909
  [][] 
  []
 
+<<<<<<< HEAD
 Package microtype Info: Loading generic settings for font family
 (microtype)             `cmtt' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1253,6 +1556,11 @@ Package microtype Info: Loading generic settings for font family
 [32 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/Init
 ialization.png (PNG copy)>]
 Overfull \hbox (26.37659pt too wide) in paragraph at lines 930--931
+=======
+[31 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/Initializa
+tion.png (PNG copy)>]
+Overfull \hbox (26.37659pt too wide) in paragraph at lines 928--929
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 \OT1/cmr/m/n/12 (-20) zun[]achst ei-ne Emp-fangs-best[]atigung an die Mi-cro-Au
 -to-Box II (\OT1/cmtt/m/n/12 14: send PACKET[]INFO[]ACK\OT1/cmr/m/n/12 (-20) )
  []
@@ -1275,9 +1583,15 @@ Overfull \hbox (12.05547pt too wide) in paragraph at lines 951--952
 g des \OT1/cmtt/m/n/12 PACKET[]INFO \OT1/cmr/m/n/12 (-20) vom Embedded-
  []
 
+<<<<<<< HEAD
 [34 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/Data
 _Transmission.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 975--975
+=======
+[33 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/Data_Trans
+mission.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 973--973
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 []|\OT1/cmr/m/n/12 (+20) Bitvektor:
  []
 
@@ -1386,6 +1700,7 @@ Overfull \hbox (57.35536pt too wide) in paragraph at lines 1030--1088
  [][] 
  []
 
+<<<<<<< HEAD
 [37] <Datenbank_einfuegen.png, id=185, 993.11024pt x 972.63374pt>
 File: Datenbank_einfuegen.png Graphic file (type png)
 
@@ -1406,20 +1721,70 @@ Package pdftex.def Info: vServer.png used on input line 1117.
 (pdftex.def)             Requested size: 374.53581pt x 472.0994pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1125--1139
+=======
+[36] <Datenbank_einfuegen.png, id=181, 993.11024pt x 972.63374pt>
+File: Datenbank_einfuegen.png Graphic file (type png)
+
+<use Datenbank_einfuegen.png>
+Package pdftex.def Info: Datenbank_einfuegen.png used on input line 1098.
+(pdftex.def)             Requested size: 496.55391pt x 486.31567pt.
+
+Overfull \hbox (41.30974pt too wide) in paragraph at lines 1098--1099
+ [][] 
+ []
+
+[37 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/Datenbank_
+einfuegen.png (PNG copy)>] [38]
+<vServer.png, id=189, 416.15475pt x 524.55975pt>
+File: vServer.png Graphic file (type png)
+ <use vServer.png>
+Package pdftex.def Info: vServer.png used on input line 1115.
+(pdftex.def)             Requested size: 374.53581pt x 472.0994pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1137
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1125--1139
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1137
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1125--1139
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1137
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1137
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
+
+ []
+
+[39 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/vServer.pn
+g (PNG copy)>] <resizeDBSequenz.png, id=193, 569.12625pt x 493.845pt>
+File: resizeDBSequenz.png Graphic file (type png)
+
+<use resizeDBSequenz.png>
+Package pdftex.def Info: resizeDBSequenz.png used on input line 1149.
+(pdftex.def)             Requested size: 426.84364pt x 370.38283pt.
+ [40] [41 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/resi
+zeDBSequenz.png (PNG copy)>]
+<resizeDB.png, id=200, 200.24812pt x 132.495pt>
+File: resizeDB.png Graphic file (type png)
+ <use resizeDB.png>
+Package pdftex.def Info: resizeDB.png used on input line 1164.
+(pdftex.def)             Requested size: 150.18571pt x 99.37099pt.
+
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1125--1139
 
  []
@@ -1456,11 +1821,50 @@ Package pdftex.def Info: header.pdf used on input line 1202.
  [45 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/hea
 der.pdf>]
 Overfull \hbox (9.62141pt too wide) in paragraph at lines 1217--1219
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1182
+
+ []
+
+[42 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/resizeDB.p
+ng (PNG copy)>] <webseite.pdf, id=204, 1056.74805pt x 976.44798pt>
+File: webseite.pdf Graphic file (type pdf)
+
+<use webseite.pdf>
+Package pdftex.def Info: webseite.pdf used on input line 1203.
+(pdftex.def)             Requested size: 422.69173pt x 390.57228pt.
+ [43 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/webseite.
+pdf>] <installation.pdf, id=2188, 719.48799pt x 309.958pt>
+File: installation.pdf Graphic file (type pdf)
+
+<use installation.pdf>
+Package pdftex.def Info: installation.pdf used on input line 1215.
+(pdftex.def)             Requested size: 431.69612pt x 185.97623pt.
+ [44 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/installat
+ion.pdf>]
+<initialisierung.pdf, id=2431, 737.95702pt x 599.038pt>
+File: initialisierung.pdf Graphic file (type pdf)
+
+<use initialisierung.pdf>
+Package pdftex.def Info: initialisierung.pdf used on input line 1227.
+(pdftex.def)             Requested size: 405.87761pt x 329.47191pt.
+ [45 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/initialis
+ierung.pdf>]
+<header.pdf, id=2743, 355.72899pt x 213.598pt>
+File: header.pdf Graphic file (type pdf)
+ <use header.pdf>
+Package pdftex.def Info: header.pdf used on input line 1240.
+(pdftex.def)             Requested size: 355.72812pt x 213.59747pt.
+ [46 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/header.pd
+f>]
+Overfull \hbox (9.62141pt too wide) in paragraph at lines 1255--1257
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 []\OT1/cmr/m/n/12 (-20) Liste der im Sys-tem re-gis-trier-ten Be-nut-zer (nur V
 or-stand; \OT1/cmr/m/it/12 (-20) in-clu-des/widgets/userlist.php\OT1/cmr/m/n/12
  (-20) )
  []
 
+<<<<<<< HEAD
 <startseite.pdf, id=2849, 1404.44695pt x 703.428pt>
 File: startseite.pdf Graphic file (type pdf)
  <use startseite.pdf>
@@ -1509,10 +1913,61 @@ Package pdftex.def Info: csvexport.pdf used on input line 1282.
  [51 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/csv
 export.pdf>]
 Overfull \hbox (8.99712pt too wide) in paragraph at lines 1289--1290
+=======
+<startseite.pdf, id=2854, 1404.44695pt x 703.428pt>
+File: startseite.pdf Graphic file (type pdf)
+ <use startseite.pdf>
+Package pdftex.def Info: startseite.pdf used on input line 1261.
+(pdftex.def)             Requested size: 442.40314pt x 221.581pt.
+
+[47 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/startseite
+.pdf>] <registrierung.pdf, id=3286, 556.47902pt x 309.958pt>
+File: registrierung.pdf Graphic file (type pdf)
+
+<use registrierung.pdf>
+Package pdftex.def Info: registrierung.pdf used on input line 1272.
+(pdftex.def)             Requested size: 417.35825pt x 232.46791pt.
+ [48 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/registrie
+rung.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1280--1282
+
+ []
+
+<login.pdf, id=3505, 806.212pt x 277.83798pt>
+File: login.pdf Graphic file (type pdf)
+ <use login.pdf>
+Package pdftex.def Info: login.pdf used on input line 1285.
+(pdftex.def)             Requested size: 403.10501pt x 138.91864pt.
+ [49 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/login.pdf
+>]
+<logout.pdf, id=3728, 525.16202pt x 269.80798pt>
+File: logout.pdf Graphic file (type pdf)
+ <use logout.pdf>
+Package pdftex.def Info: logout.pdf used on input line 1297.
+(pdftex.def)             Requested size: 367.6109pt x 188.8643pt.
+ [50 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/logout.pd
+f>]
+<passwort.pdf, id=3890, 703.428pt x 301.928pt>
+File: passwort.pdf Graphic file (type pdf)
+ <use passwort.pdf>
+Package pdftex.def Info: passwort.pdf used on input line 1309.
+(pdftex.def)             Requested size: 422.06006pt x 181.15819pt.
+ [51 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/passwort.
+pdf>]
+<csvexport.pdf, id=4115, 611.083pt x 382.22798pt>
+File: csvexport.pdf Graphic file (type pdf)
+ <use csvexport.pdf>
+Package pdftex.def Info: csvexport.pdf used on input line 1320.
+(pdftex.def)             Requested size: 366.65262pt x 229.33856pt.
+ [52 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/csvexport
+.pdf>]
+Overfull \hbox (8.99712pt too wide) in paragraph at lines 1327--1328
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 \OT1/cmr/m/n/12 (-20) Hierbei han-delt es sich um ge-nau zu sein um zwei Wid-ge
 ts (\OT1/cmr/m/it/12 (-20) in-clu-des/widgets/manageusers.php
  []
 
+<<<<<<< HEAD
 <usermgmt.pdf, id=4341, 819.86299pt x 462.52798pt>
 File: usermgmt.pdf Graphic file (type pdf)
  <use usermgmt.pdf>
@@ -1534,25 +1989,62 @@ Package pdftex.def Info: allgemeineSeitenaufbau.png used on input line 1317.
 (pdftex.def)             Requested size: 451.96071pt x 154.09988pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1315--1319
+=======
+<usermgmt.pdf, id=4346, 819.86299pt x 462.52798pt>
+File: usermgmt.pdf Graphic file (type pdf)
+ <use usermgmt.pdf>
+Package pdftex.def Info: usermgmt.pdf used on input line 1331.
+(pdftex.def)             Requested size: 409.9305pt x 231.26341pt.
+ [53 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/usermgmt.
+pdf>]
+<online.pdf, id=4661, 514.72299pt x 261.77798pt>
+File: online.pdf Graphic file (type pdf)
+ <use online.pdf>
+Package pdftex.def Info: online.pdf used on input line 1342.
+(pdftex.def)             Requested size: 411.77895pt x 209.42267pt.
+ [54 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/online.pd
+f>]
+<allgemeineSeitenaufbau.png, id=4832, 1382.16376pt x 471.26062pt>
+File: allgemeineSeitenaufbau.png Graphic file (type png)
+
+<use allgemeineSeitenaufbau.png>
+Package pdftex.def Info: allgemeineSeitenaufbau.png used on input line 1355.
+(pdftex.def)             Requested size: 451.96071pt x 154.09988pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1357
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1315--1319
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1357
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1315--1319
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1357
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1320--1323
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1358--1361
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1325--1328
 
  []
@@ -1565,15 +2057,34 @@ Package pdftex.def Info: allgemeinefahrzeugdaten.png used on input line 1341.
 (pdftex.def)             Requested size: 454.25682pt x 264.04741pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1339--1343
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1363--1366
+
+ []
+
+<allgemeinefahrzeugdaten.png, id=4833, 1005.00468pt x 584.1825pt>
+File: allgemeinefahrzeugdaten.png Graphic file (type png)
+
+<use allgemeinefahrzeugdaten.png>
+Package pdftex.def Info: allgemeinefahrzeugdaten.png used on input line 1379.
+(pdftex.def)             Requested size: 454.25682pt x 264.04741pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1377--1381
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1339--1343
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1377--1381
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1339--1343
 
  []
@@ -1581,37 +2092,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 1339--1343
 [54 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/allg
 emeineSeitenaufbau.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1345--1348
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1377--1381
+
+ []
+
+[55 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/allgemeine
+Seitenaufbau.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1383--1386
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1350--1353
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1388--1391
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1355--1358
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1393--1396
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Overfull \hbox (15.63283pt too wide) in paragraph at lines 1360--1364
+=======
+Overfull \hbox (15.63283pt too wide) in paragraph at lines 1398--1402
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 []\OT1/cmr/bx/n/12 justGage()   \OT1/cmr/m/n/12 (-20) In-itia-li-siert die halb
 -run-de Ge-schwin-dig-keits-an-zei-ge, die durch \OT1/cmr/bx/n/12 \g.refresh()\
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1360--1364
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1398--1402
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1366--1369
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1404--1407
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1371--1374
 
  []
@@ -1623,32 +2164,62 @@ LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
 
 
 Overfull \hbox (10.55739pt too wide) in paragraph at lines 1376--1379
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1409--1412
+
+ []
+
+[56 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/allgemeine
+fahrzeugdaten.png>]
+LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 1414.
+
+
+Overfull \hbox (10.55739pt too wide) in paragraph at lines 1414--1417
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 []\OT1/cmr/bx/n/12 $.post('allgemeinefahrzeugdaten[]sql.php',\OMS/cmsy/b/n/12 f
 \OT1/cmr/bx/n/12 permission:"true"\OMS/cmsy/b/n/12 g\OT1/cmr/bx/n/12 ,function(
 data)\OMS/cmsy/b/n/12 fg
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1376--1379
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1414--1417
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1381--1384
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1419--1422
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1386--1389
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1424--1427
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1391--1394
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1432
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1396--1400
 
  []
@@ -1660,15 +2231,33 @@ Package pdftex.def Info: akkudatenvpp.png used on input line 1408.
 (pdftex.def)             Requested size: 451.33919pt x 303.02829pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1406--1411
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1434--1438
+
+ []
+
+<akkudatenvpp.png, id=4843, 1060.71281pt x 712.16063pt>
+File: akkudatenvpp.png Graphic file (type png)
+ <use akkudatenvpp.png>
+Package pdftex.def Info: akkudatenvpp.png used on input line 1446.
+(pdftex.def)             Requested size: 451.33919pt x 303.02829pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1449
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1406--1411
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1449
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1406--1411
 
  []
@@ -1680,15 +2269,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 1412--1413
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1415--1416
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1449
+
+ []
+
+[57]
+Underfull \hbox (badness 10000) in paragraph at lines 1450--1451
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1453--1454
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
+
+ []
+
+
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1418--1421
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1456--1459
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1422--1426
 
  []
@@ -1712,15 +2319,45 @@ Package pdftex.def Info: dynamischedaten.png used on input line 1452.
 (pdftex.def)             Requested size: 454.93158pt x 312.53726pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1450--1455
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1460--1464
+
+ []
+
+[58 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/akkudatenv
+pp.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1465--1469
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1471--1474
+
+ []
+
+<dynamischedaten.png, id=4852, 938.00438pt x 644.4075pt>
+File: dynamischedaten.png Graphic file (type png)
+
+<use dynamischedaten.png>
+Package pdftex.def Info: dynamischedaten.png used on input line 1490.
+(pdftex.def)             Requested size: 454.93158pt x 312.53726pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1488--1493
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
+
+ []
+
+
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1450--1455
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1488--1493
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1450--1455
 
  []
@@ -1732,15 +2369,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 1457--1460
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1462--1465
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1488--1493
+
+ []
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 1495--1498
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1503
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
+
+ []
+
+
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1474--1475
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1512--1513
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1474--1475
 
  []
@@ -1754,20 +2409,44 @@ Package pdftex.def Info: fahrdynamik.png used on input line 1477.
 (pdftex.def)             Requested size: 454.98172pt x 286.45825pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1477--1480
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1512--1513
+
+ []
+
+[60 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/dynamische
+daten.png>] <fahrdynamik.png, id=4860, 1083.29718pt x 682.04813pt>
+File: fahrdynamik.png Graphic file (type png)
+
+<use fahrdynamik.png>
+Package pdftex.def Info: fahrdynamik.png used on input line 1515.
+(pdftex.def)             Requested size: 454.98172pt x 286.45825pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1518
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1477--1480
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1515--1518
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1484--1485
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1522--1523
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1484--1485
 
  []
@@ -1780,10 +2459,25 @@ Package pdftex.def Info: motorundumrichter.png used on input line 1488.
 (pdftex.def)             Requested size: 458.08528pt x 268.7534pt.
 
 Overfull \hbox (2.84111pt too wide) in paragraph at lines 1488--1491
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1522--1523
+
+ []
+
+<motorundumrichter.png, id=4861, 916.1728pt x 537.50812pt>
+File: motorundumrichter.png Graphic file (type png)
+
+<use motorundumrichter.png>
+Package pdftex.def Info: motorundumrichter.png used on input line 1526.
+(pdftex.def)             Requested size: 458.08528pt x 268.7534pt.
+
+Overfull \hbox (2.84111pt too wide) in paragraph at lines 1526--1529
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 [][] 
  []
 
 
+<<<<<<< HEAD
 Underfull \hbox (badness 10000) in paragraph at lines 1488--1491
 
  []
@@ -1812,15 +2506,52 @@ Package tocbasic Info: character protrusion at lof deactivated on input line 18
 
 (C:\Users\Christian\Documents\src\swp\tui_swp_formula\doku\feinentwurf\feinentw
 urf_template.lof [75
+=======
+Underfull \hbox (badness 10000) in paragraph at lines 1526--1529
+
+ []
+
+[61 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/fahrdynami
+k.png>] [62 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/mo
+torundumrichter.png>]
+Kapitel 3.
+[63
 
 ]
-Overfull \hbox (1.14206pt too wide) in paragraph at lines 57--57
+Underfull \hbox (badness 10000) in paragraph at lines 1562--1563
+
+ []
+
+[64] [65] [66] <userdata.png, id=4883, 563.10374pt x 131.74219pt>
+File: userdata.png Graphic file (type png)
+
+<use userdata.png>
+Package pdftex.def Info: userdata.png used on input line 1649.
+(pdftex.def)             Requested size: 439.21916pt x 102.75847pt.
+ [67 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/userdata.
+png>] [68] [69] [70] [71] [72] [73] [74] [75]
+Package tocbasic Info: character protrusion at lof deactivated on input line 18
+73.
+
+("C:\Users\Sebastian Zehnter\git\tui_swp_formula\doku\feinentwurf\feinentwurf_t
+emplate.lof" [76
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
+
+]
+Overfull \hbox (1.14206pt too wide) in paragraph at lines 59--59
  [][] [][]\OT1/cmr/m/n/12 (-20) Ubersicht []uber das Sub-sys-tem []da-ten[]zell
 daten" im Sub-sys-tem []da-ten[]akku" 
  []
 
+
+Overfull \hbox (9.12431pt too wide) in paragraph at lines 63--63
+ [][] [][]\OT1/cmr/m/n/12 (-20) Ubersicht []uber die Kom-mu-ni-ka-ti-on zwi-sch
+en Mi-cro-Au-to-Box II und Embedded- 
+ []
+
 )
 \tf@lof=\write4
+<<<<<<< HEAD
  [76] <akkudaten.png, id=4914, 479.54156pt x 529.98pt>
 File: akkudaten.png Graphic file (type png)
  <use akkudaten.png>
@@ -1833,81 +2564,151 @@ Package pdftex.def Info: akkudaten.png used on input line 1851.
 File: zelldaten.png Graphic file (type png)
  <use zelldaten.png>
 Package pdftex.def Info: zelldaten.png used on input line 1860.
+=======
+ [77] <akkudaten.png, id=4919, 479.54156pt x 529.98pt>
+File: akkudaten.png Graphic file (type png)
+ <use akkudaten.png>
+Package pdftex.def Info: akkudaten.png used on input line 1889.
+(pdftex.def)             Requested size: 383.63377pt x 423.98456pt.
+
+[78
+
+] <zelldaten.png, id=4923, 845.40843pt x 617.30624pt>
+File: zelldaten.png Graphic file (type png)
+ <use zelldaten.png>
+Package pdftex.def Info: zelldaten.png used on input line 1898.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 549.50896pt x 401.24431pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <dyndaten.png, id=4919, 398.23781pt x 611.28375pt>
 File: dyndaten.png Graphic file (type png)
  <use dyndaten.png>
 Package pdftex.def Info: dyndaten.png used on input line 1868.
+=======
+<dyndaten.png, id=4924, 398.23781pt x 611.28375pt>
+File: dyndaten.png Graphic file (type png)
+ <use dyndaten.png>
+Package pdftex.def Info: dyndaten.png used on input line 1906.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 338.50372pt x 519.59364pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <submotordaten.png, id=4920, 447.92343pt x 618.81187pt>
 File: submotordaten.png Graphic file (type png)
 
 <use submotordaten.png>
 Package pdftex.def Info: submotordaten.png used on input line 1877.
+=======
+<submotordaten.png, id=4925, 447.92343pt x 618.81187pt>
+File: submotordaten.png Graphic file (type png)
+
+<use submotordaten.png>
+Package pdftex.def Info: submotordaten.png used on input line 1915.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 447.92233pt x 618.81036pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <subsignalkollektor.png, id=4921, 730.22812pt x 344.03531pt>
 File: subsignalkollektor.png Graphic file (type png)
 
 <use subsignalkollektor.png>
 Package pdftex.def Info: subsignalkollektor.png used on input line 1886.
+=======
+<subsignalkollektor.png, id=4926, 730.22812pt x 344.03531pt>
+File: subsignalkollektor.png Graphic file (type png)
+
+<use subsignalkollektor.png>
+Package pdftex.def Info: subsignalkollektor.png used on input line 1924.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 620.69684pt x 292.4314pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <sc_daten_notaus.png, id=4922, 979.40906pt x 420.06938pt>
 File: sc_daten_notaus.png Graphic file (type png)
 
 <use sc_daten_notaus.png>
 Package pdftex.def Info: sc_daten_notaus.png used on input line 1895.
+=======
+<sc_daten_notaus.png, id=4927, 979.40906pt x 420.06938pt>
+File: sc_daten_notaus.png Graphic file (type png)
+
+<use sc_daten_notaus.png>
+Package pdftex.def Info: sc_daten_notaus.png used on input line 1933.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 636.60834pt x 273.04185pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <sc_daten_temperatur_allgemein.png, id=4923, 992.95969pt x 374.14781pt>
+=======
+<sc_daten_temperatur_allgemein.png, id=4928, 992.95969pt x 374.14781pt>
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 File: sc_daten_temperatur_allgemein.png Graphic file (type png)
 
 <use sc_daten_temperatur_allgemein.png>
 Package pdftex.def Info: sc_daten_temperatur_allgemein.png used on input line 1
+<<<<<<< HEAD
 904.
+=======
+942.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 645.41615pt x 243.19318pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <sc_daten_zellenpack.png, id=4924, 545.78906pt x 602.25pt>
 File: sc_daten_zellenpack.png Graphic file (type png)
 
 <use sc_daten_zellenpack.png>
 Package pdftex.def Info: sc_daten_zellenpack.png used on input line 1913.
+=======
+<sc_daten_zellenpack.png, id=4929, 545.78906pt x 602.25pt>
+File: sc_daten_zellenpack.png Graphic file (type png)
+
+<use sc_daten_zellenpack.png>
+Package pdftex.def Info: sc_daten_zellenpack.png used on input line 1951.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 436.63184pt x 481.80064pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <sc_daten_zelldaten.png, id=4925, 498.36188pt x 628.59843pt>
 File: sc_daten_zelldaten.png Graphic file (type png)
 
 <use sc_daten_zelldaten.png>
 Package pdftex.def Info: sc_daten_zelldaten.png used on input line 1923.
+=======
+<sc_daten_zelldaten.png, id=4930, 498.36188pt x 628.59843pt>
+File: sc_daten_zelldaten.png Graphic file (type png)
+
+<use sc_daten_zelldaten.png>
+Package pdftex.def Info: sc_daten_zelldaten.png used on input line 1961.
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 (pdftex.def)             Requested size: 423.60959pt x 534.31119pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <sc_daten_dynamisch.png, id=4926, 593.21625pt x 590.95781pt>
 File: sc_daten_dynamisch.png Graphic file (type png)
 
@@ -1916,12 +2717,23 @@ Package pdftex.def Info: sc_daten_dynamisch.png used on input line 1932.
 (pdftex.def)             Requested size: 456.77792pt x 455.03891pt.
 
 Overfull \hbox (1.53375pt too wide) in paragraph at lines 1932--1933
+=======
+<sc_daten_dynamisch.png, id=4931, 593.21625pt x 590.95781pt>
+File: sc_daten_dynamisch.png Graphic file (type png)
+
+<use sc_daten_dynamisch.png>
+Package pdftex.def Info: sc_daten_dynamisch.png used on input line 1970.
+(pdftex.def)             Requested size: 456.77792pt x 455.03891pt.
+
+Overfull \hbox (1.53375pt too wide) in paragraph at lines 1970--1971
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <subsignaltransmitter.png, id=4927, 1349.04pt x 503.63156pt>
 File: subsignaltransmitter.png Graphic file (type png)
 
@@ -1930,12 +2742,23 @@ Package pdftex.def Info: subsignaltransmitter.png used on input line 1941.
 (pdftex.def)             Requested size: 674.51836pt x 251.81516pt.
 
 Overfull \hbox (5.45467pt too wide) in paragraph at lines 1941--1942
+=======
+<subsignaltransmitter.png, id=4932, 1349.04pt x 503.63156pt>
+File: subsignaltransmitter.png Graphic file (type png)
+
+<use subsignaltransmitter.png>
+Package pdftex.def Info: subsignaltransmitter.png used on input line 1979.
+(pdftex.def)             Requested size: 674.51836pt x 251.81516pt.
+
+Overfull \hbox (5.45467pt too wide) in paragraph at lines 1979--1980
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 <subembreceive.png, id=4928, 1141.26375pt x 353.06906pt>
 File: subembreceive.png Graphic file (type png)
 
@@ -1944,12 +2767,23 @@ Package pdftex.def Info: subembreceive.png used on input line 1950.
 (pdftex.def)             Requested size: 684.76353pt x 211.84306pt.
 
 Overfull \hbox (15.69984pt too wide) in paragraph at lines 1950--1951
+=======
+<subembreceive.png, id=4933, 1141.26375pt x 353.06906pt>
+File: subembreceive.png Graphic file (type png)
+
+<use subembreceive.png>
+Package pdftex.def Info: subembreceive.png used on input line 1988.
+(pdftex.def)             Requested size: 684.76353pt x 211.84306pt.
+
+Overfull \hbox (15.69984pt too wide) in paragraph at lines 1988--1989
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<<<<<<< HEAD
 [78 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/akku
 daten.png>] [79 <C:/Users/Christian/Documents/src/swp/tui_swp_formula/doku/fein
 entwurf/zelldaten.png>] [80 <C:/Users/Christian/Documents/src/swp/tui_swp_formu
@@ -1968,6 +2802,47 @@ Christian/Documents/src/swp/tui_swp_formula/doku/feinentwurf/subembreceive.png>
 ]
 (C:\Users\Christian\Documents\src\swp\tui_swp_formula\doku\feinentwurf\feinentw
 urf_template.aux)
+=======
+<Kommunikationsaufbau_1.png, id=4934, 702.2235pt x 451.2057pt>
+File: Kommunikationsaufbau_1.png Graphic file (type png)
+
+<use Kommunikationsaufbau_1.png>
+Package pdftex.def Info: Kommunikationsaufbau_1.png used on input line 1999.
+(pdftex.def)             Requested size: 667.10855pt x 428.64297pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[79] <Kommunikationsaufbau_2.png, id=4939, 668.61795pt x 451.2057pt>
+File: Kommunikationsaufbau_2.png Graphic file (type png)
+
+<use Kommunikationsaufbau_2.png>
+Package pdftex.def Info: Kommunikationsaufbau_2.png used on input line 2008.
+(pdftex.def)             Requested size: 635.18346pt x 428.64297pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[80 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/akkudaten.
+png>] [81 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/zell
+daten.png>] [82 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwur
+f/dyndaten.png>] [83 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feine
+ntwurf/submotordaten.png>] [84 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/
+doku/feinentwurf/subsignalkollektor.png>] [85 <C:/Users/Sebastian Zehnter/git/t
+ui_swp_formula/doku/feinentwurf/sc_daten_notaus.png>] [86 <C:/Users/Sebastian Z
+ehnter/git/tui_swp_formula/doku/feinentwurf/sc_daten_temperatur_allgemein.png>]
+[87 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/sc_daten_z
+ellenpack.png>] [88 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinen
+twurf/sc_daten_zelldaten.png>] [89 <C:/Users/Sebastian Zehnter/git/tui_swp_form
+ula/doku/feinentwurf/sc_daten_dynamisch.png>] [90 <C:/Users/Sebastian Zehnter/g
+it/tui_swp_formula/doku/feinentwurf/subsignaltransmitter.png>] [91 <C:/Users/Se
+bastian Zehnter/git/tui_swp_formula/doku/feinentwurf/subembreceive.png>]
+[92 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/feinentwurf/Kommunikat
+ionsaufbau_1.png>] [93 <C:/Users/Sebastian Zehnter/git/tui_swp_formula/doku/fei
+nentwurf/Kommunikationsaufbau_2.png>]
+("C:\Users\Sebastian Zehnter\git\tui_swp_formula\doku\feinentwurf\feinentwurf_t
+emplate.aux")
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 
 LaTeX Warning: There were undefined references.
 
@@ -1976,6 +2851,7 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  8753 strings out of 493921
  134811 string characters out of 3147270
  263812 words of memory out of 3000000
@@ -1983,6 +2859,15 @@ Here is how much of TeX's memory you used:
  21224 words of font info for 143 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  40i,11n,46p,1805b,483s stack positions out of 5000i,500n,10000p,200000b,50000s
+=======
+ 8660 strings out of 493921
+ 131933 string characters out of 3147246
+ 259304 words of memory out of 3000000
+ 11559 multiletter control sequences out of 15000+200000
+ 21333 words of font info for 144 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 40i,11n,46p,1792b,464s stack positions out of 5000i,500n,10000p,200000b,50000s
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiK
@@ -1999,9 +2884,15 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
 type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmtt12.pfb>
+<<<<<<< HEAD
 Output written on feinentwurf_template.pdf (89 pages, 3642597 bytes).
 PDF statistics:
  5033 PDF objects out of 5155 (max. 8388607)
+=======
+Output written on feinentwurf_template.pdf (93 pages, 4877819 bytes).
+PDF statistics:
+ 5052 PDF objects out of 5155 (max. 8388607)
+>>>>>>> 96de8ae1fd6da2e65d24975b8f89ebf22b8a93b8
  0 named destinations out of 1000 (max. 500000)
- 18221 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 18241 words of extra memory for PDF output out of 20736 (max. 10000000)
 
