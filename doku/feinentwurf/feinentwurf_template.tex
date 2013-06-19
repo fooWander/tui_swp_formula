@@ -182,7 +182,7 @@ Um den späteren Nutzern des Service-Interfaces den Einstieg in das erzeugte Mod
 
 \item[1)] \textit{Produkt-Block}
 
-Durch den Produkt-Block wird es ermöglicht, zwei Eingangssignale miteinander zu multiplizieren und das entstehende Ausgangssignal im Signalfluss weiterzuführen. In diesem Modell wird dieser Block dazu verwendet, mithilfe des Width-Blockes (Verweis) die exakte Größe eines UDP-Paketes für einen bestimmten Datentyp (Verweis)zu berechnen. Darüber hinaus bietet dieser gegenüber dem Gain-Block bessere Laufzeiteigenschaften, wobei diesem vorteilhaften Aspekt oft eine größere Anzahl an zu verwendenden Blöcken und Leitungen gegenübersteht.
+Durch den Produkt-Block wird es ermöglicht, zwei Eingangssignale miteinander zu multiplizieren und das entstehende Ausgangssignal im Signalfluss weiterzuführen. In diesem Modell wird dieser Block dazu verwendet, mithilfe des Width-Blockes (siehe Signal Attributes, Width-Block, S. 6) die exakte Größe eines UDP-Paketes für einen bestimmten Datentyp (siehe dSPACE-Blöcke, UDP-Receive-Block, S. 8)zu berechnen. Darüber hinaus bietet dieser gegenüber dem Gain-Block bessere Laufzeiteigenschaften, wobei diesem vorteilhaften Aspekt oft eine größere Anzahl an zu verwendenden Blöcken und Leitungen gegenübersteht.
 
 \end{itemize}
 
@@ -278,7 +278,8 @@ $ vector\_d = \left( \begin{array}{c} signal\_a \ signal\_b \ signal\_c \end{arr
 
 \item[2)] \textit{Demultiplexer}
 
-Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiels werden die drei Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
+
+Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiel werden die drei Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
 
 \end{itemize}
 
@@ -331,7 +332,7 @@ Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit
 
 \item[1)] \textit {S-R-Flip-Flop}
 
-Dieser Block bildet die Funktionsweise eine S-R-Flip-Flops nach, welches die folgende bekannte Wertetabelle besitzt:
+Dieser Block bildet die Funktionsweise eines S-R-Flip-Flops nach, welches die folgende bekannte Wertetabelle besitzt:
 
 \begin{table}[h]
 \centering
@@ -375,8 +376,7 @@ Hierbei ist zu beachten, dass an den beiden Eingängen S (Set) und R (Reset) vom
 \label{UDP-Receive}
 \end{figure}
 
-Mittels des UDP-Receive Blockes wird es der MicroAutoBox II ermöglicht, vom Embedded-PC einen Datenstrom vom Datentyp \textit{uint32} zu empfangen. Dies ist notwendig, um einerseits durch 
-den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen und andererseits den Grundstein einer bidirektionalen Kommunikation zwischen den beiden bereits genannten Komponenten für spätere Erweiterungen des Service-Interfaces durch externe Personen zu legen.
+Mittels des UDP-Receive Blockes wird es der MicroAutoBox II ermöglicht, vom Embedded-PC einen Datenstrom vom Datentyp \textit{uint32} zu empfangen. Dies ist notwendig, um einerseits durch den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen und andererseits den Grundstein einer bidirektionalen Kommunikation zwischen den beiden bereits genannten Komponenten für spätere Erweiterungen des Service-Interfaces durch externe Personen zu legen.
 
 \newpage
 
@@ -389,7 +389,7 @@ den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen u
 \label{UDP-Receive}
 \end{figure}
 
-Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zu dem Enkoder-Block DSEncode32 dar und basiert ebenfalls wie die dieser auf einer sFunction der Firma dSPACE. Er hat die Aufgabe, den empfangenen Datenstrom zu dekodieren und in einem Signalvektor in dem gewünschten Datentyp (Verweis) auszugeben. 
+Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zum Enkoder-Block DSEncode32 dar und basiert ebenfalls wie die dieser auf einer sFunction der Firma dSPACE. Er hat die Aufgabe, den empfangenen Datenstrom zu dekodieren und in einem Signalvektor in dem gewünschten Datentyp (Verweis) auszugeben. 
 
 \item[3)] \textit{Byte-to-8bit-Dekoder}
 
@@ -400,7 +400,7 @@ Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zu dem Enkoder-Bloc
 \label{Byte-to-8-bit-Dekoder}
 \end{figure}
 
-Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf einer sFunction basiert. Durch ihn wird es ermöglicht, aus einem Byte Daten die einzelnen Bits zu isolieren und diese getrennt an den Outputs weiterzuleiten.
+Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf einer sFunction basiert. Durch ihn wird es möglich, aus einem Byte Daten die einzelnen Bits zu isolieren und diese getrennt an den Outputs weiterzuleiten.
 
 \end{itemize}
 
@@ -412,7 +412,7 @@ Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf e
 
 \subsubsection{signalgenerator\_microautbox.m}
 
-Wie schon im Entwurfsdokument beschrieben, dient diese *.m-File dazu, eine übersichtliche Darstellung über die Werteverläufe aller im Signalgenerator (Verweis) erzeugten Testsignale zu gewährleisten und eine eventuelle Modifikation ebendieser durch eine ausführliche Kommentierung so komfortabel wie möglich zu gestalten. Des Weiteren wurde um die Benennung der Parameter in dieser Config-Datei zu vereinfachen jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen. Die korrekte Referenzierung dieser Vektoren in Constant- (Verweis) oder RSI-Blöcken (Verweis) ist dem Entwurfsdokument aus Abbildung 3.21 zu entnehmen.  
+Wie schon im Entwurfsdokument beschrieben, dient diese *.m-File dazu, eine übersichtliche Darstellung über die Werteverläufe aller im Signalgenerator (2.1.3) erzeugten Testsignale zu gewährleisten und eine eventuelle Modifikation ebendieser durch eine ausführliche Kommentierung so komfortabel wie möglich zu gestalten. Des Weiteren wurde um die Benennung der Parameter in dieser Config-Datei zu vereinfachen jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen. Die korrekte Referenzierung dieser Vektoren in Constant- (Verweis) oder RSI-Blöcken (Verweis) ist dem Entwurfsdokument aus Abbildung 3.21 zu entnehmen.  
 
 \subsubsection{config\_datenpaket.m}
 
@@ -420,7 +420,7 @@ Dieses *.m-File beinhaltet drei Vektoren, welche für den Embedded-PC erforderli
 
 1) VEKTOR\_AUFTEILUNG\_DATENPAKET  \\  
 
-Dieser Vektor beschreibt, an welchen Stellen des Datenpaketes welche Datentypen anliegen, um anschließend auf dem Embedded-PC entsprechende Optimierungen bei der Umrechnung/Kovertierung der Daten und die Aufteilung des Datenpaketes anhand der einzelnen Gruppen A) - E) (s. Pflichtenheft) vornehmen zu können. Dieser $1 \times N$ - Zeilenvektor mit aktuell $N = 401$ Fahrzeugwerten wird aus Aspekten der Benutzerfreundlichkeit aus einer $N \times 3$ - Matrix namens MATRIX\_AUFTEILUNG\_DATENPAKET erzeugt, wobei die einzelnen Spalten für die folgenden Einträge stehen: 
+Dieser Vektor beschreibt, an welchen Stellen des Datenpaketes welche Datentypen anliegen, um anschließend auf dem Embedded-PC entsprechende Optimierungen bei der Umrechnung/Konvertierung der Daten und die Aufteilung des Datenpaketes anhand der einzelnen Gruppen A) - E) (s. Pflichtenheft) vornehmen zu können. Dieser $1 \times N$ - Zeilenvektor mit aktuell $N = 401$ Fahrzeugwerten wird aus Aspekten der Benutzerfreundlichkeit aus einer $N \times 3$ - Matrix namens MATRIX\_AUFTEILUNG\_DATENPAKET erzeugt, wobei die einzelnen Spalten für die folgenden Einträge stehen: 
 
 \begin{center}
 [ Start | Stop | Datentyp ]
@@ -468,8 +468,7 @@ Dieser Vektor enthält als Elemente diejenigen Stellen, bei denen eine Aufteilun
 
 3) VEKTOR\_KOMMASETZUNG \\
 
-Dieser Vektor $1 \times N$ - Zeilenvektor mit $N = 401$ Fahrzeugdaten  liefert Informationen darüber, bei welchen Daten bzw. bei 
-welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links verschoben werden muss (0:= Keine Stelle, 1:= Um eine Stelle nach links verschieben etc.).
+Dieser Vektor $1 \times N$ - Zeilenvektor mit $N = 401$ Fahrzeugdaten  liefert Informationen darüber, bei welchen Daten bzw. bei welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links verschoben werden muss (0:= Keine Stelle, 1:= Um eine Stelle nach links verschieben etc.).
 
 %--------  Aufbau des Simulink-Modells -- Signalgenerator  ---------%
 
@@ -483,8 +482,6 @@ welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links vers
 \caption[Gesamtaufbau Simulink-Modell]{Gesamtaufbau des Simulink-Modells auf höchster Modellebene}
 \label{topmodell}
 \end{figure}
-
-\newpage
 
 Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Simulink-Modells in drei übergeordnete Subsysteme: 
 
@@ -532,7 +529,7 @@ Innerhalb der einzelnen Subsysteme werden nun die simulierten Fahrzeugdaten gene
 
 
 
-Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Subsystem \textit{Allgemeine Fahrzeugdaten} selbst einige Subsysteme sowie andere Simulinkblöcke. Weiterhin befinden sich im Subsystem \textit{Allgemeine Fahrzeugdaten} weitere Subsysteme mit den Namen Notausfunktionen, Temperaturen und Gaswerte. Jedes Subsystem hat eine unterste Ebene in welcher keine Subsysteme mehr vorhanden sind. Weiterhin werden die einzelnen Signale innerhalb eines Subsystems mittels des bekannten Bus Creators zur einem Bussignal gebündelt. Das hat den Sinn, dass das gesamte Subsystem nur einen Output besitzt, was das ganze Modell wesentlich übersichtlicher  gestaltet und hierdurch einfacher du handhaben ist. \\
+Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Subsystem \textit{Allgemeine Fahrzeugdaten} selbst einige Subsysteme sowie andere Simulinkblöcke. Weiterhin befinden sich im Subsystem \textit{Allgemeine Fahrzeugdaten} weitere Subsysteme mit den Namen Notausfunktionen, Temperaturen und Gaswerte. Jedes Subsystem hat eine unterste Ebene in welcher keine Subsysteme mehr vorhanden sind. Weiterhin werden die einzelnen Signale innerhalb eines Subsystems mittels des bekannten Bus Creators zur einem Bussignal gebündelt. Das hat den Sinn, dass das gesamte Subsystem nur einen Output besitzt, was das ganze Modell wesentlich übersichtlicher gestaltet und hierdurch einfacher zu handhaben ist. \\
 
 \textit{Erzeugung der einzelnen Signale } \\
 
@@ -545,11 +542,9 @@ Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Sub
 \label{notaus}
 \end{figure}
 
-Die Notaussignale, welche die Zustände der einzelnen Notausschalter des Fahrzeuges symbolisieren, werden über die Constant-Blöcke(s. ED S.8) erzeugt. Sie besitzen den Datentyp \textit{boolean} und die Parameterwerte werden über das *.m-File \textit{signalgenerator.m},  zuerst diese in den Workspace von Matlab schreibt, von dort referenziert, um die Handhabung des Modells zu erleichtern(s. 2.1.2). Dabei ist SIGNAL\_NOTAUS\_01 der Variablenname, welcher dem System aufgrund des *.m-Files bekannt ist und  direkt aus dem Workspace  ausgelesen wird. Dieses Signal wird über einen Bus Creator mit den anderen Signalen des Subsystems zu einem Signal gebündelt und an das Subsystem \textit{Allgemeine Fahrzeugdaten} mit dem Variablennamen "`notaus"\ übergeben. Im Subsystem \textit{Allgemeine Fahrzeugdaten} wird dieser Output wiederum mit den restlichen Signalen über einen Bus Creator zur einem Ausgabewert mit dem Namen "`daten\_allgemein"\ zusammengefasst.  Im Subsystem Signalgenerator  werden diese Daten letztendlich mit den restlichen generierten Fahrzeugdaten über einen weiteren Bus Creator gebündelt und an den Signalkollektor übergeben. 
+Die Notaussignale, welche die Zustände der einzelnen Notausschalter des Fahrzeuges symbolisieren, werden über die Constant-Blöcke(s. Entwicklerdokumentation S.8) erzeugt. Sie besitzen den Datentyp \textit{boolean}. Die Parameterwerte werden über das *.m-File \textit{signalgenerator.m},  welches zuerst diese in den Workspace von Matlab schreibt, von dort referenziert, um die Handhabung des Modells zu erleichtern (s. 2.1.2). Dabei ist SIGNAL\_NOTAUS\_01 der Variablenname, welcher dem System aufgrund des *.m-Files bekannt ist und  direkt aus dem Workspace  ausgelesen wird. Dieses Signal wird über einen Bus Creator mit den anderen Signalen des Subsystems zu einem Signal gebündelt und an das Subsystem \textit{Allgemeine Fahrzeugdaten} mit dem Variablennamen "`notaus"\ übergeben. Im Subsystem \textit{Allgemeine Fahrzeugdaten} wird dieser Output wiederum mit den restlichen Signalen über einen Bus Creator zur einem Ausgabewert mit dem Namen "`daten\_allgemein"\ zusammengefasst.  Im Subsystem Signalgenerator  werden diese Daten letztendlich mit den restlichen generierten Fahrzeugdaten über einen weiteren Bus Creator gebündelt und an den Signalkollektor übergeben. 
 
-\newpage
-
-Dies geschieht analog mit den weiteren Notaussignalen. Die Temperaturen handhaben sich auf die gleiche Weise wie die Notaussignale, wobei der einzige Unterschied dabei in dem jeweilig verwendeten Datentyp besteht. Da die Datentypen im weiteren Verlauf noch mehrfach konvertiert werden(s. SC, ST), spielt er bei der Erzeugung keine Rolle. Somit wird er vom Constant-Block durch die Einstellung "`Inherit: Inherit from Constant value"(s. \ref{constdatentyp}) selbst festgelegt. Der Parameter "`Gesamtgeschwindigkeit"\ wird auch in einem Constant-Block generiert. Dieses befindet sich jedoch nicht nochmals in einem Subsystem, da es nur ein Wert dieser Art ist. Somit liegt er direkt an dem Bus Creator des \textit{Allgemeine Fahrzeugdaten} Subsystems an. Schließlich verhalten sich die Parameter Gaswerte äquivalent zu den Temperatursignalen und der Parameter  "`Gesamtspannung Akku"\ handhabt sich wie die Gesamtgeschwindigkeit.
+Dies geschieht analog für die weiteren Notaussignalen. Die Temperaturen handhaben sich auf die gleiche Weise wie die Notaussignale, wobei der einzige Unterschied dabei in dem jeweilig verwendeten Datentyp besteht. Da die Datentypen im weiteren Verlauf noch mehrfach konvertiert werden(s. Signalkollektor, Signaltransmitter), spielt er bei der Erzeugung keine Rolle. Somit wird er vom Constant-Block durch die Einstellung "`Inherit: Inherit from Constant value"(s. \ref{constdatentyp}) selbst festgelegt. Der Parameter "`Gesamtgeschwindigkeit"\ wird auch in einem Constant-Block generiert. Dieses befindet sich jedoch nicht nochmals in einem Subsystem, da es nur ein Wert dieser Art ist. Somit liegt er direkt an dem Bus Creator des \textit{Allgemeine Fahrzeugdaten} Subsystems an. Schließlich verhalten sich die Parameter Gaswerte äquivalent zu den Temperatursignalen und der Parameter "`Gesamtspannung Akku"\ handhabt sich wie die Gesamtgeschwindigkeit.
 
 
 \begin{figure}[h]
@@ -586,9 +581,9 @@ Diese Sample time von 0.01 wird im ganzen Modell bei den "`Repeating Sequence In
 
 \newpage
 
-Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere zwölf Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils zwölf Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der zwölf Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen zwölf Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden wie bei dem Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
+Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere zwölf Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils zwölf Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der zwölf Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen zwölf Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden, wie beim Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert, alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
 
-Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur vier Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend  gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing Wert gehört. Nur allein die Signalerzeugung ist anders, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
+Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur vier Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing-Wert gehört. Lediglich die Signalerzeugung unterscheidet sich hier, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
 
 \textit{C) Dynamische Daten} \\
 
@@ -895,9 +890,9 @@ Die Umsetzung der bidirektionalen Kommunikation zwischen der MicroAutoBox II und
 
 \section{Embedded PC und virtueller Server}
 
-An der Datenübertragung und Verarbeitung sind drei von uns entworfene Anwendungen beteiligt. Aus dem in Abschnitt 2.1 (VERWEIS) bereits beschriebenen Simulink-Modell wird mithilfe der Entwicklungswerkzeuge von dSPACE automatisch C-Code erzeugt und für die Ausführung auf der MicroAutoBox II kompiliert. Diese Anwendung wird im Folgenden als \textit{mabxii} bezeichnet. Desweiteren wird jeweils eine von uns in C++ implementierte Anwendung auf dem Embedded-PC und vServer laufen welche von nun an \textit{embpc} und \textit{vserver} genannt werden. Bei deren Entwurf wurde insbesondere darauf geachtet, dass beiden Anwendungen eine möglichst große gemeinsame Code-Basis zugrundeliegt. Dadurch soll zum einen die Fehlerwahrscheinlichkeit minimiert werden -- Code-Abschnitte werden häufiger ausgeführt wodurch Fehler eher zutage treten und behoben werden können -- und zum anderen soll dadurch Zeit bei der Implementierung und dem Testen eingespart werden die letztendlich der Qualität der Software zugute kommt. 
+An der Datenübertragung und Verarbeitung sind drei von uns entworfene Anwendungen beteiligt. Aus dem in Abschnitt 2.1 (VERWEIS) bereits beschriebenen Simulink-Modell wird mithilfe der Entwicklungswerkzeuge von dSPACE automatisch C-Code erzeugt und für die Ausführung auf der MicroAutoBox II kompiliert. Diese Anwendung wird im Folgenden als \textit{mabxii} bezeichnet. Desweiteren wird jeweils eine von uns in C++ implementierte Anwendung auf dem Embedded-PC und vServer laufen welche von nun an \textit{embpc} und \textit{vserver} genannt werden. Bei deren Entwurf wurde insbesondere darauf geachtet, dass beiden Anwendungen eine möglichst große gemeinsame Code-Basis zugrundeliegt. Dadurch soll zum einen die Fehlerwahrscheinlichkeit minimiert werden -- Code-Abschnitte werden häufiger ausgeführt wodurch Fehler eher zutage treten und behoben werden können -- und zum anderen soll dadu noch puurch Zeit bei der Implementierung und dem Testen eingespart werden die letztendlich der Qualität der Software zugute kommt. 
 
-Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand einer schrittweisen Beschreibung eines Kommunikationsverlaufs erläutert. Siehe dazu auch Abbildung (VERWEIS).
+Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand einer schrittweisen Beschreibung eines Kommunikationsverlaufs erläutert. Siehe dazu auch Abbildung (VERWEIS). Eine detaillierte Entwicklerdokumentation befindet sich in einem separaten Dokument. Bei der Implementierung wurde im Übrigen auf eine Bibliothek \emph{PracticalSocket} zurück gegriffen. Diese wurde von uns leicht modifiziert und taucht somit auch in der Entwicklerdokumentation auf.
 
 \subsection{Initialisierung}
 
@@ -1209,7 +1204,7 @@ Die Webseite setzt sich aus einer Vielzahl von einzelnen PHP- und Java-Skripten 
 
 
 \subsection{Installation}
-Die Installation des Systems wird einmalig und nur beim ersten Besuch der Seite vom Nutzer durchgeführt. Sie wird durch Aufruf der \textit{install.php} gestartet. Hierbei bindet das Skript wie auch alle folgenden selbstständigen Seiten die Dateien \textit{core/init.php}, \textit{includes/overall/header.php, includes/config.php} und \textit{includes/overall/footer.php} ein. In diesen Dateien befinden sich neben \glqq globalen\grqq (es handelt sich hierbei um keine wirklichen PHP-globalen Variablen, sondern lediglich solche, die in allen Skripten verfügbar sind, die \textit{core/init.php} bzw. \textit{includes/config.php} einbinden) Variablendefinitionen auch selbstdefinierte Funktionen. An dieser Stelle ist insbesondere die Funktion \textit{install\_system()} aus der Datei \textit{core/functions/general.php} zu erwähnen (siehe Eintrag zu \textit{general.php}).\\
+Die Installation des Systems wird einmalig und nur beim ersten Besuch der Seite vom Nutzer durchgeführt. Sie wird durch Aufruf der \textit{install.php} gestartet. Hierbei bindet das Skript wie auch alle folgenden selbstständigen Seiten die Dateien \textit{core/init.php}, \textit{includes/overall/header.php, includes/config.php} und \textit{includes/overall/footer.php} ein. In diesen Dateien befinden sich neben \glqq globalen\grqq (es handelt sich hierbei um keine wirklichen PHP-globalen Variablen, sondern lediglich solche, die in allen Skripten verfügbar sind, die \textit{core/init.php} bzw. \textit{includes/config.php} einbinden) Variablendefinitionen und auch selbstdefinierte Funktionen. An dieser Stelle ist insbesondere die Funktion \textit{install\_system()} aus der Datei \textit{core/functions/general.php} zu erwähnen (siehe Eintrag zu \textit{general.php}).\\
 Der Nutzer wird nach dem Durchlauf des Skripts aufgefordert ein Formular auszufüllen. Mit diesen Daten wird dann der Vorstands-Account (= Admin-Account) erzeugt. Anschließend werden alle benötigten Datenbanken, Tabellen und Einträge erzeugt und das Skript anschließend mittels \textit{exit()} terminiert.
 
 \begin{figure}[h]
@@ -1245,9 +1240,9 @@ Desweiteren wird bei Aufruf dieser \textit{header.php} Datei immer der Eintrag i
 \end{figure}
 
 \subsection{Startseite}
-Die Startseite ist wie der Name bereits verrät der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe x.y.z Allgemeiner Seitenaufbau [Davids erster Punkt]) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
-Im Anschluss wird überprüft ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe x.y.z).\\
-Alternativ kann sich der Benutzer auch einen neuen Account erstellen. Dies erreicht er durch Auswählen des \glqq Jetzt registrieren\grqq-Links, wodurch er auf die Skript-Seite \textit{register.php} weitergeleitet wird. Der Nutzer erhält erneut ein Formular, welches er für die Registrierung vollständig ausfüllen muss. Diese Daten werden anschließend nach dem Klick auf den Abschicken-Button validiert (siehe x.y.z.).\\
+Die Startseite ist wie der Name bereits verrät der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe 2.4.13 Allgemeiner Seitenaufbau) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
+Im Anschluss wird überprüft ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe 2.4.7).\\
+Alternativ kann sich der Benutzer auch einen neuen Account erstellen. Dies erreicht er durch Auswählen des \glqq Jetzt registrieren\grqq-Links, wodurch er auf die Skript-Seite \textit{register.php} weitergeleitet wird. Der Nutzer erhält erneut ein Formular, welches er für die Registrierung vollständig ausfüllen muss. Diese Daten werden anschließend nach dem Klick auf den Abschicken-Button validiert (siehe 2.4.6).\\
 Hat sich der Nutzer eingeloggt oder war bereits eingeloggt als er die Seite aufrief, werden ihm anstelle des Login-Formulars einige Widgets in Abhängigkeit seiner Rechtegruppe (\textit{isVorstand()}-Aufruf) angezeigt, die da wären
 
 \begin{itemize}
@@ -1352,7 +1347,7 @@ Hierbei handelt es sich um ein kleines Widget, welches nicht mehr tut, als dass 
 
 
 \subsection{Allgemeine Seitenaufbau}
-Im allgemeinen Seitenaufbau geht es um eine Folge von Seitenaufrufen, Funktionen und Einbindevorgänge. Diese sind für die 5 darstellenden Seiten identisch und werden deshalb an dieser Stelle zusammenfassend veranschaulicht.
+Im allgemeinen Seitenaufbau geht es um eine Folge von Seitenaufrufen, Funktionen und Einbindevorgänge. Diese sind für die fünf darstellenden Seiten identisch und werden deshalb an dieser Stelle zusammenfassend veranschaulicht.
 \\ \\
 \includegraphics[scale=0.327]{allgemeineSeitenaufbau.png}
 \\ \\
@@ -1364,7 +1359,8 @@ Beschreibt den Aufbau des Dokuments. Dabei wird der Dokumenttyp bestimmt, danach
 
 \textbf{includes/head.php}\\
 \hangindent+95pt \hangafter=1
-Diese Datei stellt den regulären Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die vier Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
+
+Diese Datei stellt den HTML-Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die vier Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
 
 
 \textbf{includes/header.php}\\
@@ -1377,9 +1373,8 @@ Beinhaltet die Navigationsleiste am Kopf der Seite, die auf allen Seiten präsen
 
 \subsection{Allgemeine Fahrzeugdaten}
 Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält drei wesentliche Dateien: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
-\\ \\
+
 \includegraphics[scale=0.452]{allgemeinefahrzeugdaten.png}
-\\ \\
 
 
 \textbf{protect\_page()}
@@ -1394,7 +1389,7 @@ Wenn die Seite komplett aufgebaut ist, wird dies Aktion ausgeführt und startet 
 
 \textbf{document.getElementByID().setAttribute}\\
 \hangindent+95pt \hangafter=1  
-Ein Aufruf, der bewirkt, dass alle Klassen der Navigationsbuttons verändert werden. Wird 5 mal ausgeführt, wobei alle nicht ausgewählten Schaltflächen grau werden und der ausgewählte Button färbt sich blau. \\
+Ein Aufruf, der bewirkt, dass alle Klassen der Navigationsbuttons verändert werden. Wird fünf mal ausgeführt, wobei alle nicht ausgewählten Schaltflächen grau werden und der ausgewählte Button färbt sich blau. \\
 
 
 \textbf{justGage()}
@@ -1436,14 +1431,15 @@ Mit dieser Funktion wird der Wert "'val"' an die Stelle im Dokument geschrieben,
 \textbf{age()}
 \hspace{20mm}
 \hangindent+95pt \hangafter=1 
-Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem die letzte Aktualisierung in der Datenbank verzeichnet wurde. Dabei wird die UNIX Zeit als Referenzzeit genutzt und auf Sekunden normiert. Der Zeitpunkt in der Tabelle nutzt ebenfalls Zeiteinheit Sekunden. Die Differenz beider Werte gibt die Zeit an, die seit dem letzten Datenbankeintrag vergangen ist. Danach wird diese Zahl in Tage, Stunden, Minuten und Sekunden umgerechnet. Es werden aber aus Platzgründen in der Anzeigefläche nur Stunden, Minuten und Sekunden angezeigt. Die Zeitangabe erscheint genau dann, wenn mehr als 15 Sekunden verstrichen sind und nur die Zeiteinheiten, die tatsächlich mit Werten belegt werden. Ist mehr als 1 Stunden vergangen, werden Stunden, Minuten und Sekunden angezeigt. ist weniger als 1 Minute vergangen, werden nur die vergangen Sekunden angezeigt.\\ 
+Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem die letzte Aktualisierung in der Datenbank verzeichnet wurde. Dabei wird die UNIX Zeit als Referenzzeit genutzt und auf Sekunden normiert. Der Zeitpunkt in der Tabelle nutzt ebenfalls Zeiteinheit Sekunden. Die Differenz beider Werte gibt die Zeit an, die seit dem letzten Datenbankeintrag vergangen ist. Danach wird diese Zahl in Tage, Stunden, Minuten und Sekunden umgerechnet. Es werden aber aus Platzgründen in der Anzeigefläche nur Stunden, Minuten und Sekunden angezeigt. Die Zeitangabe erscheint genau dann, wenn mehr als 15 Sekunden verstrichen sind und nur die Zeiteinheiten, die tatsächlich mit Werten belegt werden. Ist mehr als eine Stunden vergangen, werden Stunden, Minuten und Sekunden angezeigt. ist weniger als eine Minute vergangen, werden nur die vergangen Sekunden angezeigt.\\ 
 
 
 
 
 
 \subsection{Akkudaten}
-Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den zwölf Akkumulatorblöcken (jeweils zwölf Zellen) sollen permanent angezeigt werden und Informationen zu den zwölf Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus zwei PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
+
+Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-, bzw. ausgeblendet werden können. Informationen zu den zwölf Akkumulatorblöcken (jeweils zwölf Zellen) sollen permanent angezeigt werden und Informationen zu den zwölf Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus zwei PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
 \\ \\
 \includegraphics[scale=0.4255]{akkudatenvpp.png}
 \\ \\ 
@@ -1457,7 +1453,7 @@ Diese Funktion aktualisiert die 144 Zellspannungen und berechnet für die zwölf
 
 \textbf{kapa(data[146],removeClass/addClass)}\\
 \hangindent+95pt \hangafter=1 
-Der Funktion wird der Wert der Gesamtspannung übergeben. Mit Hilfe dieses Wertes werden dann unter Nutzung von "'addclass/removeclass"' 10 Anzeigeflächen so eingefärbt, dass sie einen Wert zwischen 0 und 100 \% simulieren.\\
+Der Funktion wird der Wert der Gesamtspannung übergeben. Mit Hilfe dieses Wertes werden dann unter Nutzung von "'addclass/removeclass"' zehn Anzeigeflächen so eingefärbt, dass sie einen Wert zwischen 0 und 100 \% simulieren.\\
 
 \textbf{toggle\_tab()}
 \hspace{5.8mm}
@@ -1487,7 +1483,7 @@ Der Aufbau ist wieder analog den vorherigen zwei Seiten. Auf dieser Seite wird f
 \item Der Lenkwinkel wird als Balken mit Indikator visualisiert.  
 \end{itemize}
 
-Auf der Seite wird die Draufsicht des Formula Student Fahrzeuges angezeigt, dass mit der Spitze nach oben zeigt. Darüber befindet sich die Visualisierung des Lenkwinkels und rechts, bzw. links befinden sich die Drehzahlanzeigen und die Federwege entsprechend der Achsen und Räder, die in der Fahrzeuggrafik zu sehen sind.
+Auf der Seite wird die Draufsicht des Formula Student Fahrzeuges angezeigt, das mit der Spitze nach oben zeigt. Darüber befindet sich die Visualisierung des Lenkwinkels und rechts bzw. links befinden sich die Drehzahlanzeigen und die Federwege entsprechend der Achsen und Räder, die in der Fahrzeuggrafik zu sehen sind.
 \\ \\
 \includegraphics[scale=0.485]{dynamischedaten.png}
 \\ \\
@@ -1508,7 +1504,7 @@ Analog wie "'bar\_horizontal()"', nur das die Einfärbung der Flächen vertikal 
 \hangindent+95pt \hangafter=1
 Rechnet den übergebenen Wert vom Wertebereich -180 bis +180 in den Wertebereich -90 bis +90. Danach wird genau eine Fläche eingefärbt, um den Grad des Lenkwinkels darzustellen.
 
-
+\newpage
 
 \subsection{Fahrdynamik}
 Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf zwei Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus vier Komponenten.\\ \\
@@ -1518,10 +1514,11 @@ Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf d
 \\ \\
 Funktionserklärung siehe vorhergegangene Seiten.\\
 
-
+\newpage
 
 \subsection{Motor und Umrichter}
-Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus drei Komponenten. Die 8 Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
+
+Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus drei Komponenten. Die acht Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
 
 
 
@@ -1550,18 +1547,20 @@ Da sich eine eigenständige Entwicklerdokumentation mittels doxygen oder anderen
 
 \section{Embedded PC}
 
+Bitte sehen Sie zur Entwicklerdokumentation des Abschnitts Embedded PC in die seperate, mit Doxygen erzeugte Entwicklerdokumentation.
+
 %--------------------------   vServer   ----------------------------%
 
 \section{vServer}
 
+Bitte sehen Sie zur Entwicklerdokumentation des Abschnitts vServer in die seperate, mit Doxygen erzeugte Entwicklerdokumentation.
 
 %--------------------------   Webseite  ----------------------------%
 
 \newpage
 
 \section{Webseite}
-
-Das Benutzersystem ermöglicht es nur bestimmten Personen den Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit, sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
+Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Administrator) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
 
 Im Folgenden sollen nun Funktionen und Variablen erläutert werden, sowie die Funktionalität der einzelnen Skripte des Systems.
 
@@ -1730,7 +1729,7 @@ Gibt bei Erfolg die Nutzer-ID des zugehörigen Nutzers zurück. Existiert kein N
 \subsection{Konfigurationsdatei (config.php)}
 Die Konfigurationsdatei wird stets in der core/init.php eingebunden und ist somit auf jeder Seite verfügbar, auf der auch init.php eingebunden wird. Inbesondere liefert sie die Zugangsdaten für den Zugriff auf die MySQL-Datenbanken und speichert auch die Namen der einzelnen Tabellen, sowohl für die Fahrzeugdaten als auch für die Nutzerdaten.
 \subsubsection*{\$dbhost}
-Hier kann der Hostname des MySQL-Servers festgelegt werden. Er wird meist vom Hoster mitgeteilt und lautet in den meisten Fällen 'localhost'.
+Hier kann der Hostname des MySQL-Servers festgelegt werden. Er wird meist vom Hoster mitgeteilt und lautet in den meisten Fällen ,localhost'.
 \subsubsection*{\$dbuname}
 Hierbei handelt es sich um den Login-Namen der Zugangsdaten zum Datenbankserver. Diesen erhalten Sie ebenfalls von Ihrem Hoster.
 \subsubsection*{\$dbpass}
@@ -1760,7 +1759,7 @@ Beinhaltet die E-Mail-Adresse des Vorstands oder derjenigen Person, die Benutzer
 \subsubsection*{\$salt}
 Ein Teil des Salt für das Passwort. Kann beliebiger String sein.
 \subsubsection*{\$alg}
-Ein Teil des Salt für das Passwort. Gibt den Verschlüsselungsalgorithmus an. (siehe Dokumentation der PHP-Funktion crypt())
+Ein Teil des Salt für das Passwort. Gibt den Verschlüsselungsalgorithmus an. (siehe Dokumentation der PHP-Funktion \textit{crypt()})
 \subsubsection*{\$rounds}
 Ein Teil des Salt für das Passwort. Gibt die Anzahl der Runden an, die der Algorithmus laufen soll. Dabei gilt, je größer umso sicherer, aber auch aufwändiger und langsamer.
 \subsubsection*{\$cryptsalt}
@@ -1769,106 +1768,105 @@ Endgültiger Salt. Setzt sich aus \$salt, \$alg und \$rounds zusammen.
 \newpage
 % RESTLICHE SEITEN %
 \subsection{akkudaten.php}
+$\rightarrow$ siehe 2.4.15 Akkudaten
 
 \subsection{allgemeinefahrzeugdaten.php}
+$\rightarrow$ siehe 2.4.14 Allgemeine Fahrzeugdaten
 
 \subsection{changepassword.php}
-Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwort ändern\grqq (x.y.z)
+Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwort ändern\grqq (2.4.9)
 
 \subsection{dynamischedaten.php}
+$\rightarrow$ siehe 2.4.16 Dynamische Daten
 
 \subsection{fahrdynamik.php}
+$\rightarrow$ siehe 2.4.17 Fahrdynamik
 
 \subsection{index.php}
-Sie ist die Startseite des System und liefert im ausgeloggten Zustand die Möglichkeit sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Startseite\grqq (x.y.z)
+Sie ist die Startseite des Systems und liefert im ausgeloggten Zustand die Möglichkeit, sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Startseite\grqq (2.4.5)
 
 \subsection{install.php}
-Diese Datei wird nur beim ersten Mal des Aufrufs der Seite gestartet. Sie bietet ein Formular, welches ausgefüllt werden muss und den ersten Benutzer im System erstellt: den Vorstand. Ihre Hauptaufgabe ist vor allem das Aufrufen der Funktion \textit{install\_system()} (siehe x.1.2).
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Installation\grqq (x.y.z)
+Diese Datei wird nur beim ersten Mal des Aufrufs der Seite gestartet. Sie bietet ein Formular, welches ausgefüllt werden muss und den ersten Benutzer im System erstellt: den Vorstand. Ihre Hauptaufgabe ist vor allem das Aufrufen der Funktion \textit{install\_system()} (siehe x.1.2).\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Installation\grqq (2.4.2)
 
 \subsection{login.php}
-Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verfikation ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(x.y.z)
+Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verifikation wird ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. \\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(2.4.7)
 
 \subsection{logout.php}
-Beendet die aktuelle Sitzung, löscht den zum aktiven Nutzer gehörigen Eintrag in der Online-Tabelle und leitet den Nutzer zurück auf die Startseite.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout\grqq (x.y.z)
+Beendet die aktuelle Sitzung, löscht den zum aktiven Nutzer gehörigen Eintrag in der Online-Tabelle und leitet den Nutzer zurück auf die Startseite.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout\grqq (2.4.8)
 
 \subsection{motorundumrichter.php}
+$\rightarrow$ siehe 2.4.18 Motor und Umrichter
 
 \subsection{register.php}
-Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (x.y.z)
+Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (2.4.6)
 
 \subsection{core/init.php}
-Hierbei handelt es sich um eine Datei die zu Beginn jeder Inhaltsseite eingebunden wird. Sie wird insbesondere im Header eingebunden, welcher wiederum in jeder Inhaltsseite eingebunden wird und sorgt dafür, dass die Sitzung nach ihrer Erzeugung über jeden Seitenwechsel erhalten bleibt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Initialisierung\grqq (x.y.z)
+Hierbei handelt es sich um eine Datei, die zu Beginn jeder Inhaltsseite eingebunden wird. Sie wird insbesondere im Header eingebunden, welcher wiederum in jeder Inhaltsseite eingebunden wird und dafür sorgt, dass die Sitzung nach ihrer Erzeugung über jeden Seitenwechsel erhalten bleibt.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Initialisierung\grqq (2.4.3)
 
 \subsection{core/functions/accept.php}
-Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Daten. Diese werden ausgewertet, d.h. es wird überprüft ob eine ID angegeben wurde und falls ja, diese von der eigenen verschieden ist. Desweiteren wird überprüft ob eine gewünschte Verwaltungsoption ('Löschen' bzw. 'Aktivieren') ausgewählt wurde, an sonsten wir der Nutzer zurück auf die Indexseite weitergeleitet. Abschließend wird noch die übergebene Rechtegruppe in einen Integer umgewandelt und mit den Daten anschließend eine Anfrage auf die Datenbank ausgeführt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
+Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Daten. Diese werden ausgewertet, d.h. es wird überprüft, ob eine ID angegeben wurde und falls ja, diese von der eigenen verschieden ist. Des weiteren wird überprüft, ob eine gewünschte Verwaltungsoption (,Löschen' bzw. ,Aktivieren') ausgewählt wurde, ansonsten wir der Nutzer zurück auf die Indexseite weitergeleitet. Abschließend wird noch die übergebene Rechtegruppe in einen Integer umgewandelt und mit den Daten anschließend eine Anfrage auf die Datenbank ausgeführt.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (2.4.11)
 
 \subsection{core/functions/akkudaten\_sql.php}
+$\rightarrow$ siehe 2.4.15 Akkudaten
 
 \subsection{core/functions/allgemeinefahrzeugdaten\_sql.php}
+$\rightarrow$ siehe 2.4.14 Allgemeine Fahrzeugdaten
 
 \subsection{core/functions/csvexp\_sql.php}
-Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen welche Checkboxen vor Absenden des Formulars ausgewählt wurden als POST-Variablen. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt sondern als CSV-Datei zum Download angeboten.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
+Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen als POST-Variablen, welche Checkboxen vor Absenden des Formulars ausgewählt wurden. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt, sondern als CSV-Datei zum Download angeboten.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (2.4.10)
 
 \subsection{core/functions/dynamischedaten\_sql.php}
+$\rightarrow$ siehe 2.4.16 Dynamische Daten
 
 \subsection{core/functions/fahrdynamik\_sql.php}
+$\rightarrow$ siehe 2.4.17 Fahrdynamik
 
 \subsection{core/functions/general.php}
-Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.
-$\rightarrow$ Ausführliche Beschreibung siehe x.1.1
+Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.\\
+$\rightarrow$ Ausführliche Beschreibung siehe 3.4.1
 
 \subsection{core/functions/motorundumrichter\_sql.php}
+$\rightarrow$ siehe 2.4.18 Motor und Umrichter
 
 \subsection{core/functions/users.php}
-Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.
-$\rightarrow$ Ausführliche Beschreibung siehe x.1.2
+Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.\\
+$\rightarrow$ Ausführliche Beschreibung siehe 3.4.2
 
 \subsection{includes/css/style.css}
-Beinhaltet alle CSS-Formatierungen die auf der kompletten Seiten durchgeführt wurden. Für weitere Informationen siehe Kommentare in der Datei.
+Beinhaltet alle CSS-Formatierungen, die auf der kompletten Seite durchgeführt wurden. Für weitere Informationen siehe Kommentare in der Datei.
 
 \subsection{includes/overall/footer.php}
 Beinhaltet den globalen Footer, der auf jeder Inhaltsseite eingebunden wird.
 
 \subsection{includes/overall/header.php}
-Beinhaltet den globalen Header, der auf jeder Inhaltsseite eingebunden wird. Bindet zeitgleich auch die \textit{core/init.php} und \textit{includes/header.php} für die Darstellung des Menüs eins.
+Beinhaltet den globalen Header, der auf jeder Inhaltsseite eingebunden wird. Bindet zeitgleich auch die \textit{core/init.php} und \textit{includes/header.php} für die Darstellung des Menüs ein.
 
 \subsection{includes/widgets/csvexp.php}
-Hierbei handelt es sich um ein Widget, welches zur Auswahl der verschiedenen Fahrzeugdatentabellen jeweils eine Checkbox liefert und diese Daten nach einem Klick an die \textit{core/functions/csvexp\_sql.php} weiterleitet.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
+Hierbei handelt es sich um ein Widget, welches zur Auswahl der verschiedenen Fahrzeugdatentabellen jeweils eine Checkbox liefert und diese Daten nach einem Klick an die \textit{core/functions/csvexp\_sql.php} weiterleitet.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (2.4.10)
 
 \subsection{includes/widgets/loggedin.php}
-Dies ist kein Widget wie es die anderen Dateien dieses Ordners sind. Es wird stets im Header eingebunden und liefert im eingeloggten Zustand eine namentliche Begrüßung des aktiven Nutzers. Desweiteren liefert es auf den einzeln Inhaltsseiten eine Information über das Alter der Daten. Außerdem gibt es einen Link zur \glqq Passwort ändern\grqq-Funktion sowie zur Startseite.
+Dies ist kein Widget wie es die anderen Dateien dieses Ordners sind. Es wird stets im Header eingebunden und liefert im eingeloggten Zustand eine namentliche Begrüßung des aktiven Nutzers. Desweiteren liefert es auf den einzelnen Inhaltsseiten eine Information über das Alter der Daten. Außerdem gibt es einen Link zur \glqq Passwort ändern\grqq-Funktion sowie zur Startseite.
 
 \subsection{includes/widgets/manageusers.php}
-Dieses Widget erlaubt es im System registrierte Benutzer zu verwalten, d.h. sie zu aktivieren, zu löschen und ihnen eine Rechtegruppe zuzuweisen. Dies geschieht über ein Formular, dessen Daten über POST-Variablen an die \textit{core/functions/accept.php} weitergereicht werden.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
+Dieses Widget erlaubt es im System registrierte Benutzer zu verwalten, d.h. sie zu aktivieren, zu löschen und ihnen eine Rechtegruppe zuzuweisen. Dies geschieht über ein Formular, dessen Daten über POST-Variablen an die \textit{core/functions/accept.php} weitergereicht werden.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (2.4.11)
 
 \subsection{includes/widgets/onlineusers.php}
-Ein weiteres Widget, welches die Benutzer als HTML-Tabelle ausgibt, die sich gerade eingeloggt im Benutzersystem befinden. Hierbei befindet sich bei jedem Nutzereintrag auch eine relative Zeitangabe seiner letzten Aktivität.
+Ein weiteres Widget, welches die Benutzer als HTML-Tabelle ausgibt, die sich gerade eingeloggt im Benutzersystem befinden. Hierbei befindet sich bei jedem Nutzereintrag auch eine relative Zeitangabe zu seiner letzten Aktivität.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online-Anzeige der Nutzer\grqq (2.4.12)
 
 \subsection{includes/widgets/userlist.php}
 Dieses Widget liefert über die \textit{includes/widgets/onlineusers.php} hinaus eine Liste aller im System registrierten Benutzer. Neben Vor- und Nachname werden auch E-Mail-Adresse, Rechtegruppe, Kontostatus und Online-Status ausgegeben.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online Benutzer\grqq (x.y.z)
-
-
-
-  
-
-
-
-
-
-
-
-
 
 %----------------------  Abbildungsverzeichnis  --------------------%
 
