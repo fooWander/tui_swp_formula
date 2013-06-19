@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Arch Linux) (format=pdflatex 2013.6.14)  18 JUN 2013 18:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Arch Linux) (format=pdflatex 2013.6.14)  19 JUN 2013 02:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -16,36 +16,100 @@ kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
  polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
 lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
 welsh, loaded.
-(/usr/share/texmf-dist/tex/latex/base/book.cls
-Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-dist/tex/latex/base/bk10.clo
-File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(/usr/share/texmf-dist/tex/latex/koma-script/scrreprt.cls
+Document Class: scrreprt 2012/07/29 v3.11b KOMA-Script document class (report)
+(/usr/share/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-dependent 
+basics and keyval usage)
+
+(/usr/share/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-independent
+ basics and keyval usage)
+
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
 )
-\c@part=\count79
-\c@chapter=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
+(/usr/share/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2012/06/15 v3.12 KOMA-Script package (loading files)
+
+Package scrlfile, 2012/06/15 v3.12 KOMA-Script package (loading files)
+                  Copyright (C) Markus Kohm
+
+))) (/usr/share/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2012/04/04 v3.10b KOMA-Script package (handling toc-files)
+)
+Package tocbasic Info: omitting babel extension for `toc'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `toc' on input line 117.
+Package tocbasic Info: omitting babel extension for `lof'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lof' on input line 118.
+Package tocbasic Info: omitting babel extension for `lot'
+(tocbasic)             because of feature `nobabel' available
+(tocbasic)             for `lot' on input line 119.
+Class scrreprt Info: File `scrsize12pt.clo' used to setup font sizes on input l
+ine 1367.
+
+(/usr/share/texmf-dist/tex/latex/koma-script/scrsize12pt.clo
+File: scrsize12pt.clo 2012/07/29 v3.11b KOMA-Script font size class option (12p
+t)
+)
+(/usr/share/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2012/07/29 v3.11b KOMA-Script package (type area)
+
+Package typearea, 2012/07/29 v3.11b KOMA-Script package (type area)
+                  Copyright (C) Frank Neukam, 1992-1994
+                  Copyright (C) Markus Kohm, 1994-
+
+\ta@bcor=\skip41
+\ta@div=\count79
+\ta@hblk=\skip42
+\ta@vblk=\skip43
+\ta@temp=\skip44
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 12
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 448.13095pt
+(typearea)              DIV departure   = -6%
+(typearea)              \evensidemargin = 2.4185pt
+(typearea)              \oddsidemargin  = 2.4185pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 635.5pt
+(typearea)              \topmargin      = -41.72441pt
+(typearea)              \headheight     = 18.125pt
+(typearea)              \headsep        = 21.75pt
+(typearea)              \topskip        = 12.0pt
+(typearea)              \footskip       = 50.75pt
+(typearea)              \baselineskip   = 14.5pt
+(typearea)              on input line 1213.
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\abovecaptionskip=\skip45
+\belowcaptionskip=\skip46
+\c@pti@nb@sid@b@x=\box26
+\c@figure=\count87
+\c@table=\count88
 \bibindent=\dimen102
-)
-(/usr/share/texmf-dist/tex/latex/tools/calc.sty
+) (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count88
-\calc@Bcount=\count89
+\calc@Acount=\count89
+\calc@Bcount=\count90
 \calc@Adimen=\dimen103
 \calc@Bdimen=\dimen104
-\calc@Askip=\skip43
-\calc@Bskip=\skip44
+\calc@Askip=\skip47
+\calc@Bskip=\skip48
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count90
-\calc@Cskip=\skip45
+\calc@Ccount=\count91
+\calc@Cskip=\skip49
 ) (./doxygen.sty
 Package: doxygen 
 
@@ -56,25 +120,25 @@ Package: alltt 1997/06/16 v2.0g defines alltt environment
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen105
 \extrarowheight=\dimen106
-\NC@list=\toks14
-\extratabsurround=\skip46
-\backup@length=\skip47
+\NC@list=\toks15
+\extratabsurround=\skip50
+\backup@length=\skip51
 )
 (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count91
-\float@exts=\toks15
-\float@box=\box26
-\@float@everytoks=\toks16
-\@floatcapt=\box27
+\c@float@type=\count92
+\float@exts=\toks16
+\float@box=\box27
+\@float@everytoks=\toks17
+\@floatcapt=\box28
 )
 (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks17
-\verbatim@line=\toks18
+\every@verbatim=\toks18
+\verbatim@line=\toks19
 \verbatim@in@stream=\read1
 )
 (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -94,14 +158,14 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count92
+\Gread@gobject=\count93
 )
 (/usr/share/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
-\everycr=\toks19
-\minrowclearance=\skip48
+\everycr=\toks20
+\minrowclearance=\skip52
 )
-\rownum=\count93
+\rownum=\count94
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
@@ -114,18 +178,18 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
 (/usr/share/texmf-dist/tex/latex/xtab/xtab.sty
 Package: xtab 2011/07/31 v2.3f Extended supertabular package
-\c@tracingst=\count94
+\c@tracingst=\count95
 \PWSTcapht=\dimen107
 \ST@wd=\dimen108
-\ST@rightskip=\skip49
-\ST@leftskip=\skip50
-\ST@parfillskip=\skip51
-\c@PWSTtable=\count95
-\PWSTlastpage=\count96
-\PWSTpenultimate=\count97
-\PWSTcurpage=\count98
-\PWSTtempc=\count99
-\PWSTlines=\count100
+\ST@rightskip=\skip53
+\ST@leftskip=\skip54
+\ST@parfillskip=\skip55
+\c@PWSTtable=\count96
+\PWSTlastpage=\count97
+\PWSTpenultimate=\count98
+\PWSTcurpage=\count99
+\PWSTtempc=\count100
+\PWSTlines=\count101
 \PWST@lastht=\dimen109
 \PWST@generalht=\dimen110
 \PWST@ht=\dimen111
@@ -139,19 +203,15 @@ Package: xtab 2011/07/31 v2.3f Extended supertabular package
 \ST@prevht=\dimen119
 \ST@toadd=\dimen120
 \ST@dimen=\dimen121
-\ST@pbox=\box28
+\ST@pbox=\box29
 )
-\xrefbox=\box29
-\xreflength=\skip52
-\tmplength=\skip53
+\xrefbox=\box30
+\xreflength=\skip56
+\tmplength=\skip57
 )
 (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks20
-)
 (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
@@ -388,27 +448,26 @@ Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
 (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
-\c@tracingmulticols=\count101
-\mult@box=\box30
+\c@tracingmulticols=\count102
+\mult@box=\box31
 \multicol@leftmargin=\dimen124
-\c@unbalance=\count102
-\c@collectmore=\count103
-\doublecol@number=\count104
-\multicoltolerance=\count105
-\multicolpretolerance=\count106
+\c@unbalance=\count103
+\c@collectmore=\count104
+\doublecol@number=\count105
+\multicoltolerance=\count106
+\multicolpretolerance=\count107
 \full@width=\dimen125
 \page@free=\dimen126
 \premulticols=\dimen127
 \postmulticols=\dimen128
-\multicolsep=\skip54
-\multicolbaselineskip=\skip55
-\partial@page=\box31
-\last@line=\box32
-\mult@rightbox=\box33
-\mult@grightbox=\box34
-\mult@gfirstbox=\box35
-\mult@firstbox=\box36
-\@tempa=\box37
+\multicolsep=\skip58
+\multicolbaselineskip=\skip59
+\partial@page=\box32
+\last@line=\box33
+\mult@rightbox=\box34
+\mult@grightbox=\box35
+\mult@gfirstbox=\box36
+\mult@firstbox=\box37
 \@tempa=\box38
 \@tempa=\box39
 \@tempa=\box40
@@ -425,14 +484,15 @@ Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \@tempa=\box51
 \@tempa=\box52
 \@tempa=\box53
-\c@columnbadness=\count107
-\c@finalcolumnbadness=\count108
+\@tempa=\box54
+\c@columnbadness=\count108
+\c@finalcolumnbadness=\count109
 \last@try=\dimen129
 \multicolovershoot=\dimen130
 \multicolundershoot=\dimen131
-\mult@nat@firstbox=\box54
-\colbreak@box=\box55
-\multicol@sort@counter=\count109
+\mult@nat@firstbox=\box55
+\colbreak@box=\box56
+\multicol@sort@counter=\count110
 )
 (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen132
@@ -600,7 +660,7 @@ Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
 
 (/usr/share/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2008/07/08 v3.8m Babel common definitions
-\babel@savecnt=\count110
+\babel@savecnt=\count111
 \U@D=\dimen133
 )
 \l@naustrian = a dialect from \language\l@ngerman 
@@ -684,9 +744,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count111
-\Gm@cntv=\count112
-\c@Gm@tempcnt=\count113
+\Gm@cnth=\count112
+\Gm@cntv=\count113
+\c@Gm@tempcnt=\count114
 \Gm@bindingoffset=\dimen134
 \Gm@wd@mp=\dimen135
 \Gm@odd@mp=\dimen136
@@ -698,62 +758,86 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks24
 )
 (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip56
-\f@ncyO@elh=\skip57
-\f@ncyO@erh=\skip58
-\f@ncyO@olh=\skip59
-\f@ncyO@orh=\skip60
-\f@ncyO@elf=\skip61
-\f@ncyO@erf=\skip62
-\f@ncyO@olf=\skip63
-\f@ncyO@orf=\skip64
+\fancy@headwidth=\skip60
+\f@ncyO@elh=\skip61
+\f@ncyO@erh=\skip62
+\f@ncyO@olh=\skip63
+\f@ncyO@orh=\skip64
+\f@ncyO@elf=\skip65
+\f@ncyO@erf=\skip66
+\f@ncyO@olf=\skip67
+\f@ncyO@orf=\skip68
 )
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 65.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 66.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 67.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 71.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 72.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 73.
+
 (/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip65
-\bibsep=\skip66
+\bibhang=\skip69
+\bibsep=\skip70
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count114
+\c@NAT@ctr=\count115
 )
 (/usr/share/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2010/10/13 v2.3e parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 43.
-\cftparskip=\skip67
-\cftbeforetoctitleskip=\skip68
-\cftaftertoctitleskip=\skip69
-\cftbeforepartskip=\skip70
-\cftpartnumwidth=\skip71
-\cftpartindent=\skip72
-\cftbeforechapskip=\skip73
-\cftchapindent=\skip74
-\cftchapnumwidth=\skip75
-\cftbeforesecskip=\skip76
-\cftsecindent=\skip77
-\cftsecnumwidth=\skip78
-\cftbeforesubsecskip=\skip79
-\cftsubsecindent=\skip80
-\cftsubsecnumwidth=\skip81
-\cftbeforesubsubsecskip=\skip82
-\cftsubsubsecindent=\skip83
-\cftsubsubsecnumwidth=\skip84
-\cftbeforeparaskip=\skip85
-\cftparaindent=\skip86
-\cftparanumwidth=\skip87
-\cftbeforesubparaskip=\skip88
-\cftsubparaindent=\skip89
-\cftsubparanumwidth=\skip90
-\cftbeforeloftitleskip=\skip91
-\cftafterloftitleskip=\skip92
-\cftbeforefigskip=\skip93
-\cftfigindent=\skip94
-\cftfignumwidth=\skip95
-\c@lofdepth=\count115
-\c@lotdepth=\count116
-\cftbeforelottitleskip=\skip96
-\cftafterlottitleskip=\skip97
-\cftbeforetabskip=\skip98
-\cfttabindent=\skip99
-\cfttabnumwidth=\skip100
+\cftparskip=\skip71
+\cftbeforetoctitleskip=\skip72
+\cftaftertoctitleskip=\skip73
+\cftbeforepartskip=\skip74
+\cftpartnumwidth=\skip75
+\cftpartindent=\skip76
+\cftbeforechapskip=\skip77
+\cftchapindent=\skip78
+\cftchapnumwidth=\skip79
+\cftbeforesecskip=\skip80
+\cftsecindent=\skip81
+\cftsecnumwidth=\skip82
+\cftbeforesubsecskip=\skip83
+\cftsubsecindent=\skip84
+\cftsubsecnumwidth=\skip85
+\cftbeforesubsubsecskip=\skip86
+\cftsubsubsecindent=\skip87
+\cftsubsubsecnumwidth=\skip88
+\cftbeforeparaskip=\skip89
+\cftparaindent=\skip90
+\cftparanumwidth=\skip91
+\cftbeforesubparaskip=\skip92
+\cftsubparaindent=\skip93
+\cftsubparanumwidth=\skip94
+\cftbeforeloftitleskip=\skip95
+\cftafterloftitleskip=\skip96
+\cftbeforefigskip=\skip97
+\cftfigindent=\skip98
+\cftfignumwidth=\skip99
+\c@lofdepth=\count116
+\c@lotdepth=\count117
+\cftbeforelottitleskip=\skip100
+\cftafterlottitleskip=\skip101
+\cftbeforetabskip=\skip102
+\cfttabindent=\skip103
+\cfttabnumwidth=\skip104
 )
 \@indexfile=\write3
 \openout3 = `refman.idx'.
@@ -813,15 +897,15 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen142
-\Hy@linkcounter=\count117
-\Hy@pagecounter=\count118
+\Hy@linkcounter=\count118
+\Hy@pagecounter=\count119
 
 (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count119
+\Hy@SavedSpaceFactor=\count120
 
 (/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -842,7 +926,7 @@ Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 ))
-\c@Hy@tempcnt=\count120
+\c@Hy@tempcnt=\count121
 
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
@@ -850,7 +934,7 @@ Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen143
-\Fld@menulength=\count121
+\Fld@menulength=\count122
 \Field@Width=\dimen144
 \Fld@charsize=\dimen145
 Package hyperref Info: Hyper figures OFF on input line 6295.
@@ -862,18 +946,18 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count122
-\c@Item=\count123
-\c@Hfootnote=\count124
+\Hy@abspage=\count123
+\c@Item=\count124
+\c@Hfootnote=\count125
 )
 
 Package hyperref Message: Driver: hpdftex.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count125
-\c@bookmark@seq@number=\count126
-\Hy@SectionHShift=\skip101
+\Fld@listcount=\count126
+\c@bookmark@seq@number=\count127
+\Hy@SectionHShift=\skip105
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 104.
 Package hyperref Info: Option `unicode' set `true' on input line 104.
@@ -915,20 +999,20 @@ LaTeX Font Info:    Try loading font information for T1+phv on input line 114.
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 114.
+(Font)              scaled to size 10.79993pt on input line 114.
 
 (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count127
+\scratchcounter=\count128
 \scratchdimen=\dimen146
-\scratchbox=\box56
-\nofMPsegments=\count128
-\nofMParguments=\count129
+\scratchbox=\box57
+\nofMPsegments=\count129
+\nofMParguments=\count130
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count130
+\MPscratchCnt=\count131
 \MPscratchDim=\dimen147
-\MPnumerator=\count131
-\makeMPintoPDFobject=\count132
+\MPnumerator=\count132
+\makeMPintoPDFobject=\count133
 \everyMPtoPDFconversion=\toks26
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -954,7 +1038,7 @@ e
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
+* modes: 
 * h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
 * v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
 * \paperwidth=597.50787pt
@@ -963,25 +1047,25 @@ e
 * \textheight=702.78308pt
 * \oddsidemargin=-1.1381pt
 * \evensidemargin=-1.1381pt
-* \topmargin=-31.2056pt
-* \headheight=12.0pt
-* \headsep=18.06749pt
-* \topskip=10.0pt
-* \footskip=25.29494pt
-* \marginparwidth=125.0pt
-* \marginparsep=7.0pt
+* \topmargin=-41.0131pt
+* \headheight=18.125pt
+* \headsep=21.75pt
+* \topskip=12.0pt
+* \footskip=50.75pt
+* \marginparwidth=49.79233pt
+* \marginparsep=12.8401pt
 * \columnsep=10.0pt
-* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box57
+\AtBeginShipoutBox=\box58
 Package backref Info: ** backref set up for natbib ** on input line 114.
 Package hyperref Info: Link coloring ON on input line 114.
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -990,7 +1074,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count133
+\c@section@level=\count134
 )
 LaTeX Info: Redefining \ref on input line 114.
 LaTeX Info: Redefining \pageref on input line 114.
@@ -1000,150 +1084,163 @@ LaTeX Info: Redefining \nameref on input line 114.
 \openout4 = `refman.out'.
 
 Package hyperref Info: Option `pageanchor' set `false' on input line 117.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 12.9599pt on input line 122.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.79993pt on input line 124.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 126.
- [1
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 22.39185pt on input line 130.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 149.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 149.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 130.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 149.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 22.39185pt on input line 130.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 22.39185pt on input line 130.
-
-(./refman.toc
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 2.
+(Font)              scaled to size 22.39185pt on input line 149.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 149.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 2.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 2.
-
+(Font)              scaled to size 12.9599pt on input line 149.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 15.55188pt on input line 149.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 14
+9.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 2.
-
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 14
+9.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 2.
-
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 14
+9.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 2.
-
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 14
+9.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 2.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 149.
+
 
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 149.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 149.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 149.
+ [1
+
+
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 22.39185pt on input line 151.
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 22.39185pt on input line 151.
+ (./refman.toc
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
- [3
+ [2
+
+
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 73.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 88.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 73.
- [4] [5]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              scaled to size 7.19995pt on input line 88.
+ [3]
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 12.9599pt on input line 117.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 117.
 )
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [6]
-Package hyperref Info: Option `pageanchor' set `true' on input line 133.
+ [4]
+Package hyperref Info: Option `pageanchor' set `true' on input line 154.
 
 Kapitel 1.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 18.66588pt on input line 136.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 136.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 18.66588pt on input line 136.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 18.66588pt on input line 136.
+
+Class scrreprt Warning: \float@addtolists detected!
+(scrreprt)              You should use the features of package `tocbasic'
+(scrreprt)              instead of \float@addtolists.
+(scrreprt)              Support for \float@addtolists may be removed from
+(scrreprt)              `scrreprt' soon .
+
 (./hierarchy.tex
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.9599pt on input line 1.
+(Font)              scaled to size 15.55188pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 12.9599pt on input line 1.
+(Font)              scaled to size 15.55188pt on input line 1.
 ) [1
 
 
-] [2
 
 ]
 Kapitel 2.
-(./annotated.tex) [3] [4
+(./annotated.tex) [2
 
 ]
 Kapitel 3.
-(./classCommunicatingSocket.tex
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 6.
-
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 163.
 (/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<classCommunicatingSocket.pdf, id=689, 501.875pt x 210.5767pt>
+Overfull \hbox (25.65445pt too wide) in paragraph at lines 163--164
+\T1/phv/m/n/12 ter C++ zu ver-ein-fa-chen. Der Quell-co-de in \T1/pcr/m/n/12 Pr
+acticalSocket.h \T1/phv/m/n/12 und \T1/pcr/m/n/12 PracticalSocket.cpp
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+\T1/phv/m/n/12 ent-nom-men: [][]$\T1/pcr/m/n/12 http : / / cs . ecs . baylor . 
+edu / ~donahoo / practical / CSockets /
+ []
+
+(./classCommunicatingSocket.tex
+<classCommunicatingSocket.pdf, id=675, 501.875pt x 210.5767pt>
 File: classCommunicatingSocket.pdf Graphic file (type pdf)
 
 <use classCommunicatingSocket.pdf>
 Package pdftex.def Info: classCommunicatingSocket.pdf used on input line 11.
 (pdftex.def)             Requested size: 203.44205pt x 85.35826pt.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 10.79993pt on input line 14.
+(Font)              scaled to size 12.9599pt on input line 14.
 LaTeX Font Info:    Try loading font information for TS1+phv on input line 17.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 17.
+(Font)              scaled to size 10.79993pt on input line 17.
+ [3
+
+ <./classCommunicatingSocket.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 50.
-LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <10> not available
+(Font)              scaled to size 10.79993pt on input line 50.
+LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <12> not available
 (Font)              Font shape `T1/phv/bc/sl' tried instead on input line 50.
 LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
-(Font)              scaled to size 8.99994pt on input line 50.
- [5 <./classCommunicatingSocket.pdf>] [6]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              scaled to size 10.79993pt on input line 50.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 53.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 53.
+(Font)              scaled to size 10.79993pt on input line 53.
 
 Underfull \hbox (badness 10000) detected at line 70
 [][][]
@@ -1154,12 +1251,12 @@ Underfull \hbox (badness 10000) detected at line 85
 [][][]
  []
 
-
+[4]
 Underfull \hbox (badness 10000) detected at line 108
 [][][]
  []
 
-[7]) (./classData.tex
+) (./classData.tex [5]
 Underfull \hbox (badness 10000) detected at line 53
 [][][]
  []
@@ -1169,12 +1266,12 @@ Underfull \hbox (badness 10000) detected at line 63
 [][][]
  []
 
-[8]
+
 Underfull \hbox (badness 10000) detected at line 73
 [][][]
  []
 
-) (./classDatatypeDaemon.tex
+) (./classDatatypeDaemon.tex [6]
 Underfull \hbox (badness 10000) detected at line 31
 [][][]
  []
@@ -1184,22 +1281,24 @@ Underfull \hbox (badness 10000) detected at line 58
 [][][]
  []
 
-[9]
+
 Underfull \hbox (badness 10000) detected at line 68
 [][][]
  []
 
-) (./classdbData.tex
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+[7]) (./classdbData.tex
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 9.85492pt on input line 19.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 19.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 19.
+(Font)              scaled to size 9.85492pt on input line 19.
 
 Underfull \hbox (badness 10000) detected at line 31
 [][][]
  []
 
-[10]
+[8]
 Underfull \hbox (badness 10000) detected at line 58
 [][][]
  []
@@ -1219,12 +1318,17 @@ Underfull \hbox (badness 10000) detected at line 100
 [][][]
  []
 
-) (./classDBPacketInsert.tex [11]
+) (./classDBPacketInsert.tex [9]
 Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
 
-) (./classDecoder.tex [12]
+) (./classDecoder.tex [10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+[]\T1/phv/m/n/12 Speicher der die Pa-ke-t-in-for-ma-tio-nen ent-hält.
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 78
 [][][]
  []
@@ -1234,12 +1338,12 @@ Underfull \hbox (badness 10000) detected at line 88
 [][][]
  []
 
-) (./classEncoder.tex [13]
+[12]) (./classEncoder.tex [13]
 Underfull \hbox (badness 10000) detected at line 75
 [][][]
  []
 
-[14]
+
 Underfull \hbox (badness 10000) detected at line 96
 [][][]
  []
@@ -1249,7 +1353,7 @@ Underfull \hbox (badness 10000) detected at line 111
 [][][]
  []
 
-
+[14]
 Underfull \hbox (badness 10000) detected at line 121
 [][][]
  []
@@ -1259,17 +1363,17 @@ Underfull \hbox (badness 10000) detected at line 50
 [][][]
  []
 
-) (./classLocation.tex [16]
+) (./classLocation.tex
 Underfull \hbox (badness 10000) detected at line 48
 [][][]
  []
 
-
+[16]
 Underfull \hbox (badness 10000) detected at line 58
 [][][]
  []
 
-) (./classSocket.tex <classSocket.pdf, id=863, 501.875pt x 140.38448pt>
+) (./classSocket.tex <classSocket.pdf, id=859, 501.875pt x 140.38448pt>
 File: classSocket.pdf Graphic file (type pdf)
 
 <use classSocket.pdf>
@@ -1307,7 +1411,7 @@ LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
 (Font)              using `T1/pcr/m/n' instead on input line 100.
 
 [18]) (./classSocketException.tex
-<classSocketException.pdf, id=901, 501.875pt x 355.30743pt>
+<classSocketException.pdf, id=897, 501.875pt x 355.30743pt>
 File: classSocketException.pdf Graphic file (type pdf)
 
 <use classSocketException.pdf>
@@ -1331,71 +1435,90 @@ Underfull \hbox (badness 10000) detected at line 61
 [][][]
  []
 
-) (./structT__nuex.tex) (./classTCPServerSocket.tex
-<classTCPServerSocket.pdf, id=920, 501.875pt x 331.81966pt>
+) (./structT__nuex.tex [20]) (./classTCPServerSocket.tex
+<classTCPServerSocket.pdf, id=919, 501.875pt x 331.81966pt>
 File: classTCPServerSocket.pdf Graphic file (type pdf)
 
 <use classTCPServerSocket.pdf>
 Package pdftex.def Info: classTCPServerSocket.pdf used on input line 11.
 (pdftex.def)             Requested size: 86.0681pt x 56.9055pt.
- [20 <./classTCPServerSocket.pdf>]
+ [21 <./classTCPServerSocket.pdf>]
+Underfull \hbox (badness 3780) in paragraph at lines 42--43
+[]\T1/phv/m/n/12 Maximale War-te-schlan-gen-län-ge für aus-ste-hen-de Ver-bin-d
+ungs-an-fra-gen.
+ []
+
+
+Underfull \hbox (badness 3780) in paragraph at lines 65--66
+[]\T1/phv/m/n/12 Maximale War-te-schlan-gen-län-ge für aus-ste-hen-de Ver-bin-d
+ungs-an-fra-gen.
+ []
+
+
 Underfull \hbox (badness 10000) detected at line 83
 [][][]
  []
 
-) (./classTCPSocket.tex [21]
-<classTCPSocket.pdf, id=951, 501.875pt x 421.15341pt>
+) (./classTCPSocket.tex <classTCPSocket.pdf, id=947, 501.875pt x 421.15341pt>
 File: classTCPSocket.pdf Graphic file (type pdf)
- <use classTCPSocket.pdf>
+
+<use classTCPSocket.pdf>
 Package pdftex.def Info: classTCPSocket.pdf used on input line 11.
 (pdftex.def)             Requested size: 101.71336pt x 85.35826pt.
-
-[22 <./classTCPSocket.pdf>]) (./classUDPSocket.tex
-<classUDPSocket.pdf, id=971, 501.875pt x 421.15341pt>
+ [22] [23 <./classTCPSocket.pdf>])
+(./classUDPSocket.tex <classUDPSocket.pdf, id=971, 501.875pt x 421.15341pt>
 File: classUDPSocket.pdf Graphic file (type pdf)
- <use classUDPSocket.pdf>
+
+<use classUDPSocket.pdf>
 Package pdftex.def Info: classUDPSocket.pdf used on input line 11.
 (pdftex.def)             Requested size: 101.71336pt x 85.35826pt.
 
-[23 <./classUDPSocket.pdf>]
+Underfull \hbox (badness 1983) in paragraph at lines 21--23
+[][][]\T1/phv/m/n/12 U-D-P-Socket[][] (const string &local-Address, un-si-gned 
+short local-Port) throw (-Socket-
+ []
+
+[24 <./classUDPSocket.pdf>]
 Underfull \hbox (badness 10000) detected at line 101
 [][][]
  []
 
-[24]
+[25]
 Underfull \hbox (badness 10000) detected at line 164
 [][][]
  []
 
-
+[26]
 Underfull \hbox (badness 10000) detected at line 193
 [][][]
  []
 
-[25]) [26] (./refman.ind [27
+) [27] (./refman.ind [28
 
-] [28])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 164.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 164.
+
+
+] [29])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 188.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 188.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 164.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 164.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 188.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 188.
 Package rerunfilecheck Info: File `refman.out' has not changed.
 (rerunfilecheck)             Checksum: 0ADADA5482BC6C1846F1D75C995DF9AB;20089.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 164.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 13007 strings out of 493488
- 183215 string characters out of 3146892
- 262983 words of memory out of 3000000
- 15821 multiletter control sequences out of 15000+200000
- 77788 words of font info for 106 fonts, out of 3000000 for 9000
+ 14462 strings out of 493488
+ 209122 string characters out of 3146892
+ 308607 words of memory out of 3000000
+ 17257 multiletter control sequences out of 15000+200000
+ 77628 words of font info for 120 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 48i,13n,43p,725b,541s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 54i,13n,47p,728b,544s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.
@@ -1403,10 +1526,10 @@ pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texm
 f-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texmf-dist/fonts/type1/
 urw/helvetic/uhvbo8ac.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8
 a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (34 pages, 176015 bytes).
+Output written on refman.pdf (33 pages, 178863 bytes).
 PDF statistics:
- 1234 PDF objects out of 1440 (max. 8388607)
- 1166 compressed objects within 12 object streams
- 250 named destinations out of 1000 (max. 500000)
+ 1235 PDF objects out of 1440 (max. 8388607)
+ 1168 compressed objects within 12 object streams
+ 252 named destinations out of 1000 (max. 500000)
  959 words of extra memory for PDF output out of 10000 (max. 10000000)
 

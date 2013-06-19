@@ -17,6 +17,14 @@
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+
+ /**
+  *  Dieser Bibliothek bedienen wir uns um die Socket-Kommunikaton unter C++
+  *  zu vereinfachen. Der Quellcode stammt bis auf ein paar kleinere Änderungen
+  *  nicht von uns. Der Quelltext wurde hier entnommen:
+  *  http://cs.ecs.baylor.edu/~donahoo/practical/CSockets/practical/ 
+  */
+
 #ifndef __PRACTICALSOCKET_INCLUDED__
 #define __PRACTICALSOCKET_INCLUDED__
 

@@ -6,10 +6,10 @@
 #include <string>
 using namespace std;
 
-	/**	\brief Klasse zum Auslesen der Zugangsdaten f\"ur die Datenbank.
+	/**	\brief Klasse zum Auslesen der Zugangsdaten für die Datenbank.
 	*
 	*	Diese Klasse liest die Zugangsdaten aus einer Textdatei (dbconfig.txt) aus und stellt
-	*	sie \"uber Memberfunktionen bereit.
+	*	sie über Memberfunktionen bereit.
 	*	\sa Insert
 	*
 	*/
@@ -27,14 +27,14 @@ using namespace std;
 	  * \return Die Hostadresse.
 	  */
       string getHost();
-	  //! Memberfunktion, die den Benutzernamen f\"ur die Datenbank bereitstellt.
+	  //! Memberfunktion, die den Benutzernamen für die Datenbank bereitstellt.
 	  /*!
 	  *	\return Der Nutzername.
 	  */
       string getUser();
 	  //! Memberfunktion, die das Passwort der Datenbank bereitstellt.
 	  /*!
-	  *	\return Das Passwort f\"ur die Datenbank und den Nutzer.
+	  *	\return Das Passwort für die Datenbank und den Nutzer.
 	  */
       string getPW();
 	  //! Memberfunktion, die den Namen der Datenbank bereitstellt.
