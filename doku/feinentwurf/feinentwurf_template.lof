@@ -62,3 +62,5 @@
 \contentsline {figure}{\numberline {A.12}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`EMB\_RECEIVE"\ im Signaltransmitter}}{97}
 \contentsline {figure}{\numberline {A.13}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die Kommunikation zwischen MicroAutoBox II und Embedded-PC}}{98}
 \contentsline {figure}{\numberline {A.14}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die Kommunikation zwischen Embedded-PC und virtuellem Server}}{99}
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Klassendiagramm \IeC {\"u}ber Daten\IeC {\"u}bertragung und Verarbeitung}}{100}
+\contentsline {figure}{\numberline {A.16}{\ignorespaces Klassendiagramm \IeC {\"u}ber Socketerstellung und -benutzung}}{101}
