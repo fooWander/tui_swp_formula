@@ -1,0 +1,129 @@
+\hypertarget{classEncoder}{\section{Encoder Klassenreferenz}
+\label{classEncoder}\index{Encoder@{Encoder}}
+}
+
+
+{\ttfamily \#include $<$Encoding.\-h$>$}
+
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEncoder_ac957151409a5f04f3d3065d730decbed}{Encoder} (const char $\ast$buffer, const int bufferlen, const char $\ast$vec\-Layout, const int vec\-Layoutlen, const char $\ast$vec\-Datatypes, const int vec\-Datatypeslen)
+\item 
+int \hyperlink{classEncoder_a311f7e2d81ee27cf1c73c62bad1c046b}{get\-Package} (char $\ast$package, size\-\_\-t len, unsigned short package\-Number)
+\item 
+int \hyperlink{classEncoder_aebc183e41020b51fbbd054ecc448e83b}{get\-Next\-Package} (char $\ast$package, size\-\_\-t len)
+\item 
+int \hyperlink{classEncoder_ac2567f8f3c63f486f82758b4da51b660}{get\-Package\-Size} (unsigned short package\-Number)
+\item 
+unsigned int \hyperlink{classEncoder_a32406ccfc04e12f876f07be50c5b2c6b}{get\-Package\-Sum} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Service, der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt und komprimiert. Die Komprimierung ist noch nicht implementiert. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classEncoder_ac957151409a5f04f3d3065d730decbed}{\index{Encoder@{Encoder}!Encoder@{Encoder}}
+\index{Encoder@{Encoder}!Encoder@{Encoder}}
+\subsubsection[{Encoder}]{\setlength{\rightskip}{0pt plus 5cm}Encoder\-::\-Encoder (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{buffer, }
+\item[{const int}]{bufferlen, }
+\item[{const char $\ast$}]{vec\-Layout, }
+\item[{const int}]{vec\-Layoutlen, }
+\item[{const char $\ast$}]{vec\-Datatypes, }
+\item[{const int}]{vec\-Datatypeslen}
+\end{DoxyParamCaption}
+)}}\label{classEncoder_ac957151409a5f04f3d3065d730decbed}
+Erzeugt einen \hyperlink{classEncoder}{Encoder}.
+
+
+\begin{DoxyParams}{Parameter}
+{\em buffer} & Die zu bearbeitenden Daten. Dabei muss es sich um einen Datenstrom handeln, in dem jeweils 2 Byte einen Fahrzeugwert entsprechen. \\
+\hline
+{\em bufferlen} & Die Länge der zu bearbeitenden Daten. \\
+\hline
+{\em vec\-Layout} & Gibt an, wie die Daten geteilt werden sollen. \par
+ \mbox{[}Anfangsbyte Paket 1, Anfangsbyte Paket 2, ..., Anfangsbyte Paket n\mbox{]} \\
+\hline
+{\em vec\-Layoutlen} & Die Länge von {\itshape vec\-Layout}. \\
+\hline
+{\em vec\-Datatypes} & Gibt an, um welchen Datentyp es sich jeweils handelt. \\
+\hline
+{\em vec\-Datatypeslen} & Die Länge von {\itshape vec\-Datatypes}. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classEncoder_aebc183e41020b51fbbd054ecc448e83b}{\index{Encoder@{Encoder}!get\-Next\-Package@{get\-Next\-Package}}
+\index{get\-Next\-Package@{get\-Next\-Package}!Encoder@{Encoder}}
+\subsubsection[{get\-Next\-Package}]{\setlength{\rightskip}{0pt plus 5cm}int Encoder\-::get\-Next\-Package (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{package, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{classEncoder_aebc183e41020b51fbbd054ecc448e83b}
+Holt das jeweils nächste Paket. (1,2,...,n,1,2,...) 
+\begin{DoxyParams}{Parameter}
+{\em package} & Speicher in den das Paket geschrieben werden soll. \\
+\hline
+{\em len} & Länge von {\itshape package}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Die Länge des Pakets oder -\/1 falls {\itshape len} zu klein. 
+\end{DoxyReturn}
+\hypertarget{classEncoder_a311f7e2d81ee27cf1c73c62bad1c046b}{\index{Encoder@{Encoder}!get\-Package@{get\-Package}}
+\index{get\-Package@{get\-Package}!Encoder@{Encoder}}
+\subsubsection[{get\-Package}]{\setlength{\rightskip}{0pt plus 5cm}int Encoder\-::get\-Package (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{package, }
+\item[{size\-\_\-t}]{len, }
+\item[{unsigned short}]{package\-Number}
+\end{DoxyParamCaption}
+)}}\label{classEncoder_a311f7e2d81ee27cf1c73c62bad1c046b}
+Holt ein Paket mit einer speziellen Paketnummer. 
+\begin{DoxyParams}{Parameter}
+{\em package} & Speicher in den das Paket geschrieben werden soll. \\
+\hline
+{\em len} & Länge von {\itshape package}. \\
+\hline
+{\em package\-Number} & Paketnummer des gewünschten Pakets. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Die Länge des Pakets oder -\/1 falls Paket mit {\itshape package\-Number} nicht vorhanden oder {\itshape len} zu klein. 
+\end{DoxyReturn}
+\hypertarget{classEncoder_ac2567f8f3c63f486f82758b4da51b660}{\index{Encoder@{Encoder}!get\-Package\-Size@{get\-Package\-Size}}
+\index{get\-Package\-Size@{get\-Package\-Size}!Encoder@{Encoder}}
+\subsubsection[{get\-Package\-Size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Encoder\-::get\-Package\-Size (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{package\-Number}
+\end{DoxyParamCaption}
+)}}\label{classEncoder_ac2567f8f3c63f486f82758b4da51b660}
+Gibt die Paketgröße eines speziellen Pakets zurück. 
+\begin{DoxyParams}{Parameter}
+{\em package\-Number} & Paketnummer dessen Größe gesucht ist. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Größe des Pakets oder -\/1 falls Paket mit {\itshape package\-Number} nicht vorhanden. 
+\end{DoxyReturn}
+\hypertarget{classEncoder_a32406ccfc04e12f876f07be50c5b2c6b}{\index{Encoder@{Encoder}!get\-Package\-Sum@{get\-Package\-Sum}}
+\index{get\-Package\-Sum@{get\-Package\-Sum}!Encoder@{Encoder}}
+\subsubsection[{get\-Package\-Sum}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Encoder\-::get\-Package\-Sum (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classEncoder_a32406ccfc04e12f876f07be50c5b2c6b}
+Gibt die Anzahl der Pakete zurück. \begin{DoxyReturn}{Rückgabe}
+Anzahl der Pakete. 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Encoding.\-h\item 
+Encoding.\-cpp\end{DoxyCompactItemize}

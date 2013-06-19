@@ -128,7 +128,7 @@
 		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
 		Tobias Zehner \\ Sebastian Zehnter}
 		
-\date{Hier Datum einfügen.}	 
+\date{19.06.2013}	 
 	  
 \publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
 
@@ -163,8 +163,8 @@ Jedes dieser drei Kapitel ist dabei weiter unterteilt in die Abschnitte MicroAut
 
 %------------------------- MicroAutoBox II -------------------------%
 
-\section{MicroAutoBox II}
-
+\section{MicroAutoBox II }
+\label{MicroAutoBoxII}
 \subsection{Verwendete Blöcke - Ergänzungen}
 
 Um den späteren Nutzern des Service-Interfaces den Einstieg in das erzeugte Modell in Simulink anhand konkreter Modellausschnitte zu erleichtern, wurden bereits die für den Grobentwurf benötigten Blöcke im Entwurfsdokument unter 3.2.1 vorgestellt. Jedoch ist es aufgrund mehrerer obligatorischer Anpassungen während der Implementierung des Feinentwurfs notwendig geworden, gegenüber dem Grobentwurf auf eine größere Vielfalt an Blöcken zurückzugreifen. Aus diesem Grund wird nun im Folgenden die jeweilige Funktionalität der erstmalig verwendeten Blöcke erläutert.
@@ -182,7 +182,7 @@ Um den späteren Nutzern des Service-Interfaces den Einstieg in das erzeugte Mod
 
 \item[1)] \textit{Produkt-Block}
 
-Durch den Produkt-Block wird es ermöglicht, zwei Eingangssignale miteinander zu multiplizieren und das entstehende Ausgangssignal im Signalfluss weiterzuführen. In diesem Modell wird dieser Block dazu verwendet, mithilfe des Width-Blockes (Verweis) die exakte Größe eines UDP-Paketes für einen bestimmten Datentyp (Verweis)zu berechnen. Darüber hinaus bietet dieser gegenüber dem Gain-Block bessere Laufzeiteigenschaften, wobei diesem vorteilhaften Aspekt oft eine größere Anzahl an zu verwendenden Blöcken und Leitungen gegenübersteht.
+Durch den Produkt-Block wird es ermöglicht, zwei Eingangssignale miteinander zu multiplizieren und das entstehende Ausgangssignal im Signalfluss weiterzuführen. In diesem Modell wird dieser Block dazu verwendet, mithilfe des Width-Blockes (siehe Signal Attributes, Width-Block, S. 6) die exakte Größe eines UDP-Paketes für einen bestimmten Datentyp (siehe dSPACE-Blöcke, UDP-Receive-Block, S. 8)zu berechnen. Darüber hinaus bietet dieser gegenüber dem Gain-Block bessere Laufzeiteigenschaften, wobei diesem vorteilhaften Aspekt oft eine größere Anzahl an zu verwendenden Blöcken und Leitungen gegenübersteht.
 
 \end{itemize}
 
@@ -263,7 +263,7 @@ Folgende Datentypen werden hierbei unterstützt:
 
 \item[1)] \textit{Multiplexer}
 
-Analog zum Bus Creator (s. Entwurfsdokument S.10) besitzt auch der Multiplexer die Fähigkeit, mehrere Eingangssignale zum einem einzelnen Signal zu bündeln. Jedoch besteht zwischen den beiden Komponenten ein gravierender Unterschied: während beim Busarray die einzelnen Eingangssignale weiterhin individuell vorliegen und demzufolge nur virtuell gebündelt werden um die Übersichtlichkeit innerhalb des Modells zu erhöhen, werden die Signale beim Multiplexer zu einem reellen Signalvektor zusammengefasst (s. Abb. \ref{Multiplexer / Demultiplexer}). In diesem Beispiel werden die durch die 3 Constant-Blöcke Const1-Const3 erzeugten Werte \textit{a}, \textit{b} und \textit{c} zu dem Signalvektor \textit{vector\_d} zusammengefasst, welcher nun die folgende Gestalt besitzt: 
+Analog zum Bus Creator (s. Entwurfsdokument S.10) besitzt auch der Multiplexer die Fähigkeit, mehrere Eingangssignale zum einem einzelnen Signal zu bündeln. Jedoch besteht zwischen den beiden Komponenten ein gravierender Unterschied: während beim Busarray die einzelnen Eingangssignale weiterhin individuell vorliegen und demzufolge nur virtuell gebündelt werden um die Übersichtlichkeit innerhalb des Modells zu erhöhen, werden die Signale beim Multiplexer zu einem reellen Signalvektor zusammengefasst (s. Abb. \ref{Multiplexer / Demultiplexer}). In diesem Beispiel werden die durch die drei Constant-Blöcke Const1-Const3 erzeugten Werte \textit{a}, \textit{b} und \textit{c} zu dem Signalvektor \textit{vector\_d} zusammengefasst, welcher nun die folgende Gestalt besitzt: 
 
 \vspace*{2mm}
 
@@ -278,7 +278,8 @@ $ vector\_d = \left( \begin{array}{c} signal\_a \ signal\_b \ signal\_c \end{arr
 
 \item[2)] \textit{Demultiplexer}
 
-Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiels werden die 3 Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
+
+Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit{vector\_d} bestimmte Elemente zu entnehmen und auszugeben. In diesem Beispiel werden die drei Elemente des Vektors jeweils wieder einzeln als Skalare herausgeführt und anschließend auf Terminator-Blöcke geleitet. Je nach Anzahl der Inputs \textit{n} und der Outputs \textit{p} des Demultiplexers ergeben sich u.a. die folgenden Kombinationen:
 
 \end{itemize}
 
@@ -331,7 +332,7 @@ Mit dem Demultiplexer ist es anschließend möglich, aus dem Inputsignal \textit
 
 \item[1)] \textit {S-R-Flip-Flop}
 
-Dieser Block bildet die Funktionsweise eine S-R-Flip-Flops nach, welches die folgende bekannte Wertetabelle besitzt:
+Dieser Block bildet die Funktionsweise eines S-R-Flip-Flops nach, welches die folgende bekannte Wertetabelle besitzt:
 
 \begin{table}[h]
 \centering
@@ -375,8 +376,7 @@ Hierbei ist zu beachten, dass an den beiden Eingängen S (Set) und R (Reset) vom
 \label{UDP-Receive}
 \end{figure}
 
-Mittels des UDP-Receive Blockes wird es der MicroAutoBox II ermöglicht, vom Embedded-PC einen Datenstrom vom Datentyp \textit{uint32} zu empfangen. Dies ist notwendig, um einerseits durch 
-den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen und andererseits den Grundstein einer bidirektionalen Kommunikation zwischen den beiden bereits genannten Komponenten für spätere Erweiterungen des Service-Interfaces durch externe Personen zu legen.
+Mittels des UDP-Receive Blockes wird es der MicroAutoBox II ermöglicht, vom Embedded-PC einen Datenstrom vom Datentyp \textit{uint32} zu empfangen. Dies ist notwendig, um einerseits durch den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen und andererseits den Grundstein einer bidirektionalen Kommunikation zwischen den beiden bereits genannten Komponenten für spätere Erweiterungen des Service-Interfaces durch externe Personen zu legen.
 
 \newpage
 
@@ -389,7 +389,7 @@ den Embedded-PC das zu versendende Datenpaket der MicroAutoBox II auszuwählen u
 \label{UDP-Receive}
 \end{figure}
 
-Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zu dem Enkoder-Block DSEncode32 dar und basiert ebenfalls wie die dieser auf einer sFunction der Firma dSPACE. Er hat die Aufgabe, den empfangenen Datenstrom zu dekodieren und in einem Signalvektor in dem gewünschten Datentyp (Verweis) auszugeben. 
+Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zum Enkoder-Block DSEncode32 dar und basiert ebenfalls wie die dieser auf einer sFunction der Firma dSPACE. Er hat die Aufgabe, den empfangenen Datenstrom zu dekodieren und in einem Signalvektor in dem gewünschten Datentyp (Verweis) auszugeben. 
 
 \item[3)] \textit{Byte-to-8bit-Dekoder}
 
@@ -400,7 +400,7 @@ Der Dekoder-Block DSDecode32 stellt das passende Gegenstück zu dem Enkoder-Bloc
 \label{Byte-to-8-bit-Dekoder}
 \end{figure}
 
-Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf einer sFunction basiert. Durch ihn wird es ermöglicht, aus einem Byte Daten die einzelnen Bits zu isolieren und diese getrennt an den Outputs weiterzuleiten.
+Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf einer sFunction basiert. Durch ihn wird es möglich, aus einem Byte Daten die einzelnen Bits zu isolieren und diese getrennt an den Outputs weiterzuleiten.
 
 \end{itemize}
 
@@ -412,15 +412,15 @@ Bei dem Byte-to-8-bit-Dekoder handelt es sich um einen weiteren Block, der auf e
 
 \subsubsection{signalgenerator\_microautbox.m}
 
-Wie schon im Entwurfsdokument beschrieben, dient diese *.m-File dazu, eine übersichtliche Darstellung über die Werteverläufe aller im Signalgenerator (Verweis) erzeugten Testsignale zu gewährleisten und eine eventuelle Modifikation ebendieser durch eine ausführliche Kommentierung so komfortabel wie möglich zu gestalten. Des Weiteren wurde um die Benennung der Parameter in dieser Config-Datei zu vereinfachen jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen. Die korrekte Referenzierung dieser Vektoren in Constant- (Verweis) oder RSI-Blöcken (Verweis) ist dem Entwurfsdokument aus Abbildung 3.21 zu entnehmen.  
+Wie schon im Entwurfsdokument beschrieben, dient diese *.m-File dazu, eine übersichtliche Darstellung über die Werteverläufe aller im Signalgenerator (2.1.3) erzeugten Testsignale zu gewährleisten und eine eventuelle Modifikation ebendieser durch eine ausführliche Kommentierung so komfortabel wie möglich zu gestalten. Des Weiteren wurde um die Benennung der Parameter in dieser Config-Datei zu vereinfachen jeder Funktionsvektor mit dem Präfix "`SIGNAL\_"\ und jeder Zeitvektor mit dem Präfix "`TIME\_"\ versehen. Die korrekte Referenzierung dieser Vektoren in Constant- (Verweis) oder RSI-Blöcken (Verweis) ist dem Entwurfsdokument aus Abbildung 3.21 zu entnehmen.  
 
 \subsubsection{config\_datenpaket.m}
 
-Dieses *.m-File beinhaltet drei Vektoren, welche für den Embedded-PC erforderlichen Informationen über das zu  versendende Datenpaket mit den Fahrzeugdaten beinhalteten. Diese 3 Vektoren werden jeweils in einem Constant-Block (Verweis) referenziert und bilden mit anderen Paketinformationen das zu versendende "`Informationspaket"\, welches vor dem eigentlichen Start der Datenübertragung an den Embedded-PC übertragen wird. Der maßgebliche Grund für das Anlegen dieses Config-Files war es, dem Nutzer eine eventuelle Modifikation des Simulink-Modells zu vereinfachen und zusätzlich auf dem Embedded-PC ein hohes Maß an Softcoding zu realisieren, was den Anpassungsaufwand des dort ausgeführten C++ - Programms bei derartigen Veränderungen drastisch reduziert. Im Folgenden soll nun der Zweck der einzelnen Vektoren erläutert werden. \\
+Dieses *.m-File beinhaltet drei Vektoren, welche für den Embedded-PC erforderlichen Informationen über das zu  versendende Datenpaket mit den Fahrzeugdaten beinhalteten. Diese drei Vektoren werden jeweils in einem Constant-Block (Verweis) referenziert und bilden mit anderen Paketinformationen das zu versendende "`Informationspaket"\, welches vor dem eigentlichen Start der Datenübertragung an den Embedded-PC übertragen wird. Der maßgebliche Grund für das Anlegen dieses Config-Files war es, dem Nutzer eine eventuelle Modifikation des Simulink-Modells zu vereinfachen und zusätzlich auf dem Embedded-PC ein hohes Maß an Softcoding zu realisieren, was den Anpassungsaufwand des dort ausgeführten C++ - Programms bei derartigen Veränderungen drastisch reduziert. Im Folgenden soll nun der Zweck der einzelnen Vektoren erläutert werden. \\
 
 1) VEKTOR\_AUFTEILUNG\_DATENPAKET  \\  
 
-Dieser Vektor beschreibt, an welchen Stellen des Datenpaketes welche Datentypen anliegen, um anschließend auf dem Embedded-PC entsprechende Optimierungen bei der Umrechnung/Kovertierung der Daten und die Aufteilung des Datenpaketes anhand der einzelnen Gruppen A) - E) (s. Pflichtenheft) vornehmen zu können. Dieser $1 \times N$ - Zeilenvektor mit aktuell $N = 401$ Fahrzeugwerten wird aus Aspekten der Benutzerfreundlichkeit aus einer $N \times 3$ - Matrix namens MATRIX\_AUFTEILUNG\_DATENPAKET erzeugt, wobei die einzelnen Spalten für die folgenden Einträge stehen: 
+Dieser Vektor beschreibt, an welchen Stellen des Datenpaketes welche Datentypen anliegen, um anschließend auf dem Embedded-PC entsprechende Optimierungen bei der Umrechnung/Konvertierung der Daten und die Aufteilung des Datenpaketes anhand der einzelnen Gruppen A) - E) (s. Pflichtenheft) vornehmen zu können. Dieser $1 \times N$ - Zeilenvektor mit aktuell $N = 401$ Fahrzeugwerten wird aus Aspekten der Benutzerfreundlichkeit aus einer $N \times 3$ - Matrix namens MATRIX\_AUFTEILUNG\_DATENPAKET erzeugt, wobei die einzelnen Spalten für die folgenden Einträge stehen: 
 
 \begin{center}
 [ Start | Stop | Datentyp ]
@@ -464,12 +464,11 @@ $ V = \left( \begin{array}{c} 3 \ 3 \ 5 \ 5  \end{array} \right)$
 
 2) VEKTOR\_PAKETTEILUNG \\
 
-Dieser Vektor enthält als Elemente diejenigen Stellen, bei denen eine Aufteilung der einzelnen Datengruppen der Fahrzeugdaten in die Kategorien A) -- E) erfolgt(s. Pflichtenheft). X $\mid$ Y  in der Kommentaren der *.m-File gibt an, zwischen welchen Stellen das Datenpaket im C++ -- Programm getrennt werden muss. Dies verfolgt den Zweck, das auf dem Embedded-PC empfangene Datenpaket in 5 Datenpakete mit den jeweiligen Datengruppen aufzuteilen, um einerseits eine klarere Zuordnung der Daten auf dem vServer zu ermöglichen und andererseits eventuell auftretenden Verbindungsproblemen und einbrechenden Signalstärken bei der Übertragung via UMTS an den vServer zu begegnen. \\
+Dieser Vektor enthält als Elemente diejenigen Stellen, bei denen eine Aufteilung der einzelnen Datengruppen der Fahrzeugdaten in die Kategorien A) -- E) erfolgt(s. Pflichtenheft). X $\mid$ Y  in der Kommentaren der *.m-File gibt an, zwischen welchen Stellen das Datenpaket im C++ -- Programm getrennt werden muss. Dies verfolgt den Zweck, das auf dem Embedded-PC empfangene Datenpaket in fünf Datenpakete mit den jeweiligen Datengruppen aufzuteilen, um einerseits eine klarere Zuordnung der Daten auf dem vServer zu ermöglichen und andererseits eventuell auftretenden Verbindungsproblemen und einbrechenden Signalstärken bei der Übertragung via UMTS an den vServer zu begegnen. \\
 
 3) VEKTOR\_KOMMASETZUNG \\
 
-Dieser Vektor $1 \times N$ - Zeilenvektor mit $N = 401$ Fahrzeugdaten  liefert Informationen darüber, bei welchen Daten bzw. bei 
-welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links verschoben werden muss (0:= Keine Stelle, 1:= Um eine Stelle nach links verschieben etc.).
+Dieser Vektor $1 \times N$ - Zeilenvektor mit $N = 401$ Fahrzeugdaten  liefert Informationen darüber, bei welchen Daten bzw. bei welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links verschoben werden muss (0:= Keine Stelle, 1:= Um eine Stelle nach links verschieben etc.).
 
 %--------  Aufbau des Simulink-Modells -- Signalgenerator  ---------%
 
@@ -480,11 +479,11 @@ welchen Elementen das Komma um eine bestimmte Anzahl von Stellen nach links vers
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.65]{topmodell}
-\caption[Gesamtaufbau Simulink-Modell]{Gesamtaufbau des Symulinkmodells auf höchster Modellebene}
+\caption[Gesamtaufbau Simulink-Modell]{Gesamtaufbau des Simulink-Modells auf höchster Modellebene}
 \label{topmodell}
 \end{figure}
 
-Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Simulink-Modells in 3 übergeordnete Subsysteme: 
+Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Simulink-Modells in drei übergeordnete Subsysteme: 
 
 \begin{itemize}
 
@@ -494,18 +493,18 @@ Wie in Abbildung \ref{topmodell} dargestellt, unterteilt sich der Aufbau des Sim
 
 \end{itemize}
 
-, wobei der Signalgenerator den Beginn und der Signaltransmitter das Ende des Signalflusses verkörpert. Des Weiteren ist es auch notwendig, sowohl die Maske RTI\_DATA\_HOST (Verweis Glossar) als auch den UDP-Setup-Block (s. Entwurfsdokument S. 12) auf der obersten Ebene des Simulink-Modells zu platzieren. Im Folgenden soll nun detailliert auf die einzelnen Komponenten und der jeweiligen Funktionalität dieser drei Subsysteme eingegangen werden. 
+wobei der Signalgenerator den Beginn und der Signaltransmitter das Ende des Signalflusses verkörpert. Des Weiteren ist es auch notwendig, sowohl die Maske RTI\_DATA\_HOST (Verweis Glossar) als auch den UDP-Setup-Block (s. Entwurfsdokument S. 12) auf der obersten Ebene des Simulink-Modells zu platzieren. Im Folgenden soll nun detailliert auf die einzelnen Komponenten und der jeweiligen Funktionalität dieser drei Subsysteme eingegangen werden. 
 
 
 
 \subsubsection{Signalgenerator}
 
 
-Der Signalgenerator hat die Aufgabe, auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche zuerst zum Signalcollector (s. 2.1.4) und anschließend über den  Signaltransmitter (s. 2.1.5)  auf den Embedded-PC via Ethernet-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Diese Signale liegen im Bereich der echten Sensorwerte des Fahrzeuges und können somit gut zu Testzwecken verwendet werden. Da sich eine Modifizierung des in der MicroAutoBox II implementierten Simulink-Modells als sehr aufwändig gestaltet, ist die Generierung der Testsignale enorm wichtig, um die Funktionalität des Simulink-Modells und letztendlich auch des Service-Interfaces zu überprüfen. Vor der Implementierung des finalen Simulink-Modells wird dieser Teil des Modells von einem Mitglied von Team StarCraft e.V. durch eine Verknüpfung zu den realen Sensorwerten, welche vom CAN-Bus des Fahrzeuges geliefert werden, ersetzt. \\
+Der Signalgenerator hat die Aufgabe auf der MicroAutoBox II die für einen Systemtest benötigten Testsignale zu generieren, welche zuerst zum Signalcollector (s. 2.1.4) und anschließend über den  Signaltransmitter (s. 2.1.5)  auf den Embedded-PC via Ethernet-Schnittstelle gelangen und daraufhin über eine GPRS/UMTS-Verbindung an einen virtuellen Server gesendet werden. Diese Signale liegen im Bereich der echten Sensorwerte des Fahrzeuges und können somit gut zu Testzwecken verwendet werden. Da sich eine Modifizierung des in der MicroAutoBox II implementierten Simulink-Modells als sehr aufwändig gestaltet, ist die Generierung der Testsignale enorm wichtig, um die Funktionalität des Simulink-Modells und letztendlich auch des Service-Interfaces zu überprüfen. Vor der Implementierung des finalen Simulink-Modells wird dieser Teil des Modells von einem Mitglied von Team StarCraft e.V. durch eine Verknüpfung zu den realen Sensorwerten, welche vom CAN-Bus des Fahrzeuges geliefert werden, ersetzt. \\
 
 \textit{Aufbau} \\
 
-Wie im Pflichtenheft aufgeführt, sind die Signale der Fahrzeugdaten in die 5 verschiedene Gruppen A) -- E) namens \textit{Allgemeine Fahrzeugdaten}, \textit{Akkudaten}, \textit{dynamische Daten}, \textit{Fahrdynamikregelung} sowie \textit{Motor- und Umrichterdaten} unterteilt. Diese Gliederung wurde im Signalgenerator ebenfalls beibehalten um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten. Der Signalgenerator ist demnach nochmals in einzelne Subsysteme unterteilt, welche die verschiedenen Kategorien der jeweiligen Fahrzeugdaten repräsentieren. Die generierten Signale werden über einen \textit{Bus Creator} (s.Entwurfsdokument S.10) in ein Bussignal (Verweis Vektorsignal / Bussignal zu meinem Text) umgewandelt und gebündelt über diesen Bus an den Signalkollektor übermittelt, wobei die Reihenfolge der eingehenden Daten erhalten bleibt. \\
+Wie im Pflichtenheft aufgeführt, sind die Signale der Fahrzeugdaten in die fünf verschiedene Gruppen A) -- E) namens \textit{Allgemeine Fahrzeugdaten}, \textit{Akkudaten}, \textit{dynamische Daten}, \textit{Fahrdynamikregelung} sowie \textit{Motor- und Umrichterdaten} unterteilt. Diese Gliederung wurde im Signalgenerator ebenfalls beibehalten um ein hohes Maß an Übersichtlichkeit und Modularität zu gewährleisten. Der Signalgenerator ist demnach nochmals in einzelne Subsysteme unterteilt, welche die verschiedenen Kategorien der jeweiligen Fahrzeugdaten repräsentieren. Die generierten Signale werden über einen \textit{Bus Creator} (s.Entwurfsdokument S.10) in ein Bussignal (Verweis Vektorsignal / Bussignal zu meinem Text) umgewandelt und gebündelt über diesen Bus an den Signalkollektor übermittelt, wobei die Reihenfolge der eingehenden Daten erhalten bleibt. \\
 
 Innerhalb der einzelnen Subsysteme werden nun die simulierten Fahrzeugdaten generiert. Ein Subsystem ist hierbei eine Bündelung mehrerer Blöcke und Komponenten, welche auch wiederum Subsysteme sein können. Dies hat den Zweck, die Übersichtlichkeit innerhalb des Gesamtmodells zu wahren. Weiterhin kann ein solches Subsystem problemlos mehrfach verwendet werden, was den Aufwand beim Erstellen des Modells erheblich reduzieren kann. Am Beispiel \textit{Allgemeine Fahrzeugdaten} soll nun ohne Beschränkung der Allgemeinheit der Aufbau eines Subsystem im Signalgenerator näher erläutert werden.
 
@@ -530,7 +529,7 @@ Innerhalb der einzelnen Subsysteme werden nun die simulierten Fahrzeugdaten gene
 
 
 
-Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Subsystem \textit{Allgemeine Fahrzeugdaten} selbst einige Subsysteme sowie andere Simulinkblöcke. Weiterhin befinden sich im Subsystem \textit{Allgemeine Fahrzeugdaten} weitere Subsysteme mit den Namen Notausfunktionen, Temperaturen und Gaswerte. Jedes Subsystem hat eine unterste Ebene in welcher keine Subsysteme mehr vorhanden sind. Weiterhin werden die einzelnen Signale innerhalb eines Subsystems mittels des bekannten Bus Creators zur einem Bussignal gebündelt. Das hat den Sinn, dass das gesamte Subsystem nur einen Output besitzt, was das ganze Modell wesentlich übersichtlicher  gestaltet und hierdurch einfacher du handhaben ist. \\
+Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Subsystem \textit{Allgemeine Fahrzeugdaten} selbst einige Subsysteme sowie andere Simulinkblöcke. Weiterhin befinden sich im Subsystem \textit{Allgemeine Fahrzeugdaten} weitere Subsysteme mit den Namen Notausfunktionen, Temperaturen und Gaswerte. Jedes Subsystem hat eine unterste Ebene in welcher keine Subsysteme mehr vorhanden sind. Weiterhin werden die einzelnen Signale innerhalb eines Subsystems mittels des bekannten Bus Creators zur einem Bussignal gebündelt. Das hat den Sinn, dass das gesamte Subsystem nur einen Output besitzt, was das ganze Modell wesentlich übersichtlicher gestaltet und hierdurch einfacher zu handhaben ist. \\
 
 \textit{Erzeugung der einzelnen Signale } \\
 
@@ -543,11 +542,9 @@ Wie in Abbildung \ref{Allgemeine Fahrzeugdaten} zu sehen ist, beinhaltet das Sub
 \label{notaus}
 \end{figure}
 
-Die Notaussignale, welche die Zustände der einzelnen Notausschalter des Fahrzeuges symbolisieren, werden über die Constant-Blöcke(s. ED S.8) erzeugt. Sie besitzen den Datentyp \textit{boolean} und die Parameterwerte werden über das *.m-File \textit{signalgenerator.m},  zuerst diese in den Workspace von Matlab schreibt, von dort referenziert, um die Handhabung des Modells zu erleichtern(s. 2.1.2). Dabei ist SIGNAL\_NOTAUS\_01 der Variablenname, welcher dem System aufgrund des *.m-Files bekannt ist und  direkt aus dem Workspace  ausgelesen wird. Dieses Signal wird über einen Bus Creator mit den anderen Signalen des Subsystems zu einem Signal gebündelt und an das Subsystem \textit{Allgemeine Fahrzeugdaten} mit dem Variablennamen "`notaus"\ übergeben. Im Subsystem \textit{Allgemeine Fahrzeugdaten} wird dieser Output wiederum mit den restlichen Signalen über einen Bus Creator zur einem Ausgabewert mit dem Namen "`daten\_allgemein"\ zusammengefasst.  Im Subsystem Signalgenerator  werden diese Daten letztendlich mit den restlichen generierten Fahrzeugdaten über einen weiteren Bus Creator gebündelt und an den Signalkollektor übergeben. 
+Die Notaussignale, welche die Zustände der einzelnen Notausschalter des Fahrzeuges symbolisieren, werden über die Constant-Blöcke(s. Entwicklerdokumentation S.8) erzeugt. Sie besitzen den Datentyp \textit{boolean}. Die Parameterwerte werden über das *.m-File \textit{signalgenerator.m},  welches zuerst diese in den Workspace von Matlab schreibt, von dort referenziert, um die Handhabung des Modells zu erleichtern (s. 2.1.2). Dabei ist SIGNAL\_NOTAUS\_01 der Variablenname, welcher dem System aufgrund des *.m-Files bekannt ist und  direkt aus dem Workspace  ausgelesen wird. Dieses Signal wird über einen Bus Creator mit den anderen Signalen des Subsystems zu einem Signal gebündelt und an das Subsystem \textit{Allgemeine Fahrzeugdaten} mit dem Variablennamen "`notaus"\ übergeben. Im Subsystem \textit{Allgemeine Fahrzeugdaten} wird dieser Output wiederum mit den restlichen Signalen über einen Bus Creator zur einem Ausgabewert mit dem Namen "`daten\_allgemein"\ zusammengefasst.  Im Subsystem Signalgenerator  werden diese Daten letztendlich mit den restlichen generierten Fahrzeugdaten über einen weiteren Bus Creator gebündelt und an den Signalkollektor übergeben. 
 
-\newpage
-
-Dies geschieht analog mit den weiteren Notaussignalen. Die Temperaturen handhaben sich auf die gleiche Weise wie die Notaussignale, wobei der einzige Unterschied dabei in dem jeweilig verwendeten Datentyp besteht. Da die Datentypen im weiteren Verlauf noch mehrfach konvertiert werden(s. SC, ST), spielt er bei der Erzeugung keine Rolle. Somit wird er vom Constant-Block durch die Einstellung "`Inherit: Inherit from Constant value"(s. \ref{constdatentyp}) selbst festgelegt. Der Parameter "`Gesamtgeschwindigkeit"\ wird auch in einem Constant-Block generiert. Dieses befindet sich jedoch nicht nochmals in einem Subsystem, da es nur ein Wert dieser Art ist. Somit liegt er direkt an dem Bus Creator des \textit{Allgemeine Fahrzeugdaten} Subsystems an. Schließlich verhalten sich die Parameter Gaswerte äquivalent zu den Temperatursignalen und der Parameter  "`Gesamtspannung Akku"\ handhabt sich wie die Gesamtgeschwindigkeit.
+Dies geschieht analog für die weiteren Notaussignalen. Die Temperaturen handhaben sich auf die gleiche Weise wie die Notaussignale, wobei der einzige Unterschied dabei in dem jeweilig verwendeten Datentyp besteht. Da die Datentypen im weiteren Verlauf noch mehrfach konvertiert werden(s. Signalkollektor, Signaltransmitter), spielt er bei der Erzeugung keine Rolle. Somit wird er vom Constant-Block durch die Einstellung "`Inherit: Inherit from Constant value"(s. \ref{constdatentyp}) selbst festgelegt. Der Parameter "`Gesamtgeschwindigkeit"\ wird auch in einem Constant-Block generiert. Dieses befindet sich jedoch nicht nochmals in einem Subsystem, da es nur ein Wert dieser Art ist. Somit liegt er direkt an dem Bus Creator des \textit{Allgemeine Fahrzeugdaten} Subsystems an. Schließlich verhalten sich die Parameter Gaswerte äquivalent zu den Temperatursignalen und der Parameter "`Gesamtspannung Akku"\ handhabt sich wie die Gesamtgeschwindigkeit.
 
 
 \begin{figure}[h]
@@ -584,9 +581,9 @@ Diese Sample time von 0.01 wird im ganzen Modell bei den "`Repeating Sequence In
 
 \newpage
 
-Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere 12 Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils 12 Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der 12 Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen 12 Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden wie bei dem Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
+Das übergeordnete Subsystem "`Zelldaten"\  beinhaltet abermals weitere zwölf Subsysteme namens "`Zellpack\_01"\ bis "`Zellpack\_12" (s. Abb. \ref{zelldaten}). Es werden dort nach den Vorgaben des Pflichtenheftes 144 Zelldaten erzeugt, von denen sich jeweils zwölf Zellen in einem Zellenblock befinden. Aus diesem Grund bietet es sich zur Erhöhung der Übersichtlichkeit an, die Signalgenerierung innerhalb der zwölf Subsysteme vorzunehmen. Im Subsystem "`Zelldaten" wird das Signal "`zellenpack\_01"\ mit den Signalen der anderen zwölf Subsysteme gebündelt und mit den Variablenname "`zelldaten" an das Subsystem "`Akkudaten"\  ausgegeben. An dieser Stelle werden die Signale des kompletten Subsystems wiederholt mit einem Bus Creator gebündelt und als "`daten\_akku"\ an das Subsystem \textit{Signalgenerator} übergeben. Danach werden, wie beim Subsystem "`Allgemeine Fahrzeugdaten"\ erläutert, alle Signale zusammengefasst und an den Signalkollektor übertragen, wobei diese Prozedur für alle Zelldaten gleichermaßen abläuft. \\
 
-Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur 4 Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend  gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing Wert gehört. Nur allein die Signalerzeugung ist anders, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
+Die Signalerzeugung der Akkutemperaturen verläuft analog zu den Zelldaten. Die einzigen Unterschiede sind, dass nur vier Temperaturen pro Zellenpack existieren und der Zeitvektor Wert sich auf "`TIME\_10" bezieht (s. 2.1.2). Die maximale sowie minimale Zellspannung, der Ladestrom sowie die Ladespannung werden direkt mittels "`Repeating Sequence Interpolated" -- Blöcken im Subsystem \textit{Akkudaten} erzeugt und auch direkt in diesem über den Bus Creator mit den anderen Signalen gebündelt. Der Wert für den Zeitvektor beläuft sich bei ihnen auf "`TIME\_08". Die Gesamtspannung verhält sich hierzu weitestgehend gleich, allerdings wird sie durch einen Constant-Block generiert. Die Balancingdaten werden i.A. äquivalent zu den Zelldaten aufbereitet, da zu jeder Zelle ein Balancing-Wert gehört. Lediglich die Signalerzeugung unterscheidet sich hier, da die Werte des Balancings mit Hilfe eines Constant-Blockes in dem Datentyp \textit{boolean} erstellt werden. \\
 
 \textit{C) Dynamische Daten} \\
 
@@ -604,11 +601,11 @@ Das Signal "`geschw1" wird im Subsystem \textit{Geschwindigkeit} erzeugt und mit
 \end{figure}
 
 Die Subsysteme \textit{Beschleunigung}, \textit{Gierrate}, \textit{Drehzahlen der Räder}, \textit{Wassertemperatur}, \textit{Federweg} sowie \textit{Gaspedalstellung} verhalten sich absolut äquivalent zu den Geschwindigkeitssignalen.
-Der Verlauf der Signale "`Bremsdruck", "`Bremskraft" und "`Bremsposition" verhält sich -- bis auf deren Erzeugung bereits im Subsystem \textit{Dynamische Daten} -- absolut gleich. \\
+Der Verlauf der Signale "`Bremsdruck", "`Bremskraft"\ und "`Bremsposition" verhält sich -- bis auf deren Erzeugung bereits im Subsystem \textit{Dynamische Daten} -- absolut gleich. \\
 
 \textit{D) Fahrdynamikregelung} \\
 
-Das Subsystem \textit{Fahrdynamikregelung} ist für die Erzeugung der Testsignale "`Antriebsschlupfregelung" und "`Torque Vectoring" verantwortlich (s. Abb. \ref{makefahrdynamik}). Diese werden mit RSI-Blöcken gebildet, welche die gleiche Konfiguration wie bei dem Subsystem \textit{Dynamischen Daten} besitzen. Beide Werte werden jeweils im Subsystem selbst erzeugt und über den Bus Creator gebündelt als Signal "`daten\_dynamisch" an das Subsystem \textit{Signalgenerator} übergeben, wobei der weitere Signalverlauf äquivalent zu den anderen Signalen in ebendiesem Subsystem ist.
+Das Subsystem \textit{Fahrdynamikregelung} ist für die Erzeugung der Testsignale "`Antriebsschlupfregelung"\ und "`Torque Vectoring" verantwortlich (s. Abb. \ref{makefahrdynamik}). Diese werden mit RSI-Blöcken gebildet, welche die gleiche Konfiguration wie bei dem Subsystem \textit{Dynamischen Daten} besitzen. Beide Werte werden jeweils im Subsystem selbst erzeugt und über den Bus Creator gebündelt als Signal "`daten\_dynamisch" an das Subsystem \textit{Signalgenerator} übergeben, wobei der weitere Signalverlauf äquivalent zu den anderen Signalen in ebendiesem Subsystem ist.
 
 \newpage
 
@@ -639,7 +636,7 @@ was zur Vereinheitlichung der zu übertragenden Daten beitragen soll.
 
 \item[2)] \textit{Konvertierung der Datentypen}
 
-Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks in den Datentyp \textit{int16} konvertiert, wodurch alle Signale den gleichen Datentyp aufweisen. Schließlich ist noch eine Konvertierung in den Datentyp \textit{double} vonnöten, da dass die sFunction \textit{DSEncode32} (s. ED S.12) diesen Datentyp benötigt. Allerdings liefert diese sFunction als Ausgabe erneut den Datentyp \textit{int16}, weshalb die vorherige Konvertierung am Eingang der sFunction nicht ins Gewicht fällt.  
+Die nunmehr ganzzahligen Werte werden von ihren Datentypen \textit{boolean} oder \textit{single} nun einheitlich mittels eines Convert-Blocks in den Datentyp \textit{int16} konvertiert, wodurch alle Signale den gleichen Datentyp aufweisen. Schließlich ist noch eine Konvertierung in den Datentyp \textit{double} vonnöten, da die sFunction \textit{DSEncode32} (s. ED S.12) diesen Datentyp voraussetzt. Allerdings liefert diese sFunction als Ausgabe erneut den Datentyp \textit{int16}, weshalb die vorherige Konvertierung am Eingang der sFunction nicht ins Gewicht fällt.  
 
 \item[3)] \textit{Umbenennung der Variablennamen}
 
@@ -649,13 +646,13 @@ wurde oder nicht, wodurch eine Vereinheitlichung des Modells realisiert wird wel
 
 \end{itemize}
 
-Nachdem die Daten anhand der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und  an einen Encoder (s. ED S.12) übergeben, woraufhin sie nach deren Enkodierung via Ethernet-Schnittstelle an den Embedded-PC versendet werden. \\
+Nachdem die Daten entsprechend der obigen Schritte aufbereitet wurden, werden diese erneut durch mehrere Bus Creator und Subsysteme auf einem zentralen Bus Creator zu einem Busarray gebündelt und  an einen Encoder (s. ED S.12) übergeben, woraufhin sie nach deren Enkodierung via Ethernet-Schnittstelle an den Embedded-PC versendet werden. \\
 
 %-------------------------------------------------------------------%
 
 \textit{Aufbau} \\
 
-Die Daten liegen wie bereits in Abschnitt 2.1.3 erläutert am Eingang des Subsystems "`Signalkollektor\_Embedded\_PC"\ an. Um ebendiese effizient und übersichtlich bearbeiten zu können, muss dieser Busarray wieder in seine einzelnen Signale zerlegt werden. Hierfür wird der Busarray zuerst mittels eines Bus Selectors (s. ED S.10) wieder in die 5 bekannten Hauptkategorien Allgemeine Fahrzeugdaten, Akkudaten, Dynamische Daten, Fahrdynamikregelung sowie Motor- und Umrichterdaten aufgespalten. Diese werden dann anschließend in ihren Subsystemen weiterverarbeitet und aufgespalten. Schlussendlich werden alle Signale erneut gebündelt und mit Hilfe von Bus Creators durch einen Convert-Block in den Datentyp \textit{double} konvertiert, um diese für die sFunction DSEncode32 passend vorzubereiten (s. Abb. \ref{subsignalkollektor}). Im Folgenden sollen daher nun der Aufbau und die Funktionsweise der einzelnen Subsysteme innerhalb des Subsystems "`Signalkollektor\_Embedded\_PC"\ dargelegt werden. \\
+Die Daten liegen wie bereits in Abschnitt 2.1.3 erläutert am Eingang des Subsystems "`Signalkollektor\_Embedded\_PC"\ an. Um ebendiese effizient und übersichtlich bearbeiten zu können, muss dieser Busarray wieder in seine einzelnen Signale zerlegt werden. Hierfür wird der Busarray zuerst mittels eines Bus Selectors (s. ED S.10) wieder in die fünf bekannten Hauptkategorien Allgemeine Fahrzeugdaten, Akkudaten, Dynamische Daten, Fahrdynamikregelung sowie Motor- und Umrichterdaten aufgespalten. Diese werden dann anschließend in ihren Subsystemen weiterverarbeitet und aufgespalten. Schlussendlich werden alle Signale erneut gebündelt und mit Hilfe von Bus Creators durch einen Convert-Block in den Datentyp \textit{double} konvertiert, um diese für die sFunction DSEncode32 passend vorzubereiten (s. Abb. \ref{subsignalkollektor}). Im Folgenden sollen daher nun der Aufbau und die Funktionsweise der einzelnen Subsysteme innerhalb des Subsystems "`Signalkollektor\_Embedded\_PC"\ dargelegt werden. \\
 
 %-------------------------------------------------------------------%
 
@@ -665,7 +662,7 @@ Wie in ABB2 ersichtlich besteht auch dieses Subsystem aus mehreren Subsystemen s
 
 \newpage
 
-Die Signale "`gesamtspannung\_akku"\ und "`geschwindigkeit"\ werden mittels des Gain-Blockes um den Faktor 10 vergrößert, um die eine Kommastelle zu beseitigen, damit diese bei der int16-Konvertierung im Convert-Block nicht verloren geht. Zuzüglich generiert der Convert-Block einen festen Variablennamen, welche für den Rest des Simulink-Modells gilt. Üblicherweise wird dem normalen Variablennamen vor Konvertierung noch der Präfix "`emb"\ hinzugefügt bzw. "`daten" durch "`emb"\ ersetzt. So geht aus "`gesamtspannung\_akku"\ der neue Signalname "`emb\_gesamtspannung\_akku"\ hervor. Diese Umwandlung der Variablennamen wird auch innerhalb der Subsysteme nach der Bündelung mit dem Bus Creator vorgenommen. Aus "`daten\_notaus"\ entsteht der neue Variablenname "`emb\_notaus". Das Signal "`emb\_gesamtspannung\_akku"\ wird durch einen Bus Creator mit den anderen Signalen seines Subsystems erneut gebündelt und mit dem Variablennamen "`emb\_daten\_allgemein"\ an das Subsystem "`Signalcollector\_Embedded\_PC"\ übergeben. Dort wird diese Kategorie an Signalen erneut mit den anderen Signalen zu einem Busarray zusammengefügt, per Convert-Block in den Datentyp \textit{double} umgewandelt, um es für die Enkodierung aufzubereiten. Schlussendlich werden diese Daten an den Signaltransmitter versandt. 
+Die Signale "`gesamtspannung\_akku"\ und "`geschwindigkeit"\ werden mittels des Gain-Blocks um den Faktor 10 vergrößert, um die eine Kommastelle zu beseitigen, damit diese bei der int16-Konvertierung im Convert-Block nicht verloren geht. Zuzüglich generiert der Convert-Block einen festen Variablennamen, welche für den Rest des Simulink-Modells gilt. Üblicherweise wird dem normalen Variablennamen vor Konvertierung noch der Präfix "`emb"\ hinzugefügt bzw. "`daten" durch "`emb"\ ersetzt. So geht aus "`gesamtspannung\_akku"\ der neue Signalname "`emb\_gesamtspannung\_akku"\ hervor. Diese Umwandlung der Variablennamen wird auch innerhalb der Subsysteme nach der Bündelung mit dem Bus Creator vorgenommen. Aus "`daten\_notaus"\ entsteht der neue Variablenname "`emb\_notaus". Das Signal "`emb\_gesamtspannung\_akku"\ wird durch einen Bus Creator mit den anderen Signalen seines Subsystems erneut gebündelt und mit dem Variablennamen "`emb\_daten\_allgemein"\ an das Subsystem "`Signalcollector\_Embedded\_PC"\ übergeben. Dort wird diese Kategorie an Signalen erneut mit den anderen Signalen zu einem Busarray zusammengefügt, per Convert-Block in den Datentyp \textit{double} umgewandelt, um es für die Enkodierung aufzubereiten. Schlussendlich werden diese Daten an den Signaltransmitter versandt. 
 
 \begin{figure}[h]
 \centering
@@ -680,14 +677,14 @@ Des Weiteren wird das Subsystem \textit{daten\_notaus} ohne Beschränkung der Al
 
 Danach bündelt ein Bus Creator dieses Signal mit den anderen seines Subsystems und übergibt die Daten an das Subsystem \textit{daten\_allgemein} mit dem Variablenname "`emb\_notaus" (s. ABB3). Anschließend werden die Daten wie oben erläutern weiter verarbeitet(Umbennung des Busarray, Bündelung, Konvertierung und Transfer an Signaltransmitter). Die anderen Signale des Subsystems werden äquivalent aufbereitet. Dieses Vorgehen wird in diesem Modell bei allen boolean Werten im Signalkollektor angewendet. \\
 
-Zur Verdeutlichung des Unterschieds von boolean und nicht-boolean Werten wird zusätzlich als Beispiel das Subsystem \textit{daten\_temperatur\_allgemein} betrachtet. Die Auftrennung der Signale mittels Bus Selector sowie die Umbenennung durch den Convert-Block gleichen dem Vorgehen des Subsystems \textit{daten\_notaus}. Differierend dazu sind die Multiplikation der Werte mittels Gain-Blöcke und die Rundungsmethode. Diese Unterschiede erschließen sich aus dem vorherrschenden Datentyp, welcher nicht \textit{boolean} ist. Wie schon oben betrachtet werden die Signale mittels Gain-Block um den Faktor 10 vergrößert, um die Kommastelle verschwinden zu lassen, damit die Genauigkeit des Wertes durch den Convert-Block bei der Konvertierung in den Datentyp \textit{int16} nicht beeinträchtigt wird. Weiterhin wird die Rundungsmethode "`Round" verwendet, welche den bekannten geodätischen Runden entspricht und eine zufriedenstellende Genauigkeit liefert. (s. Abb. \ref{scdatentemperaturallgemein}). Die restliche Aufbereitung bis hin zum Transferieren der Werte gleicht dem oben beschriebenen Vorgehen. Dieses Vorgehen wird in diesem Modell bei allen Werten welche nicht den Datentyp \textit{boolean} aufweisen im Signalkollektor angewendet, abgesehen natürlich vom Gain-Block, dessen Multiplikator je nach Anzahl der erforderlichen Kommastellen unterschiedlich sein kann. Die Verarbeitung der Signale im Subsystem \textit{daten\_gaswert} verlaufen hierzu äquivalent. Der einzige Unterschied dabei ist, dass die Verstärkung des Gain-Blockes 1000 beträgt, da bei diesen Werten eine Genauigkeit von 3 Kommastellen vorgegeben ist (s. Pflichtenheft S.4) und diese Kommastellen mit der Vergrößerung beseitigt werden. \\
+Zur Verdeutlichung des Unterschieds von boolean und nicht-boolean Werten wird zusätzlich als Beispiel das Subsystem \textit{daten\_temperatur\_allgemein} betrachtet. Die Auftrennung der Signale mittels Bus Selector sowie die Umbenennung durch den Convert-Block gleichen dem Vorgehen des Subsystems \textit{daten\_notaus}. Differierend dazu sind die Multiplikation der Werte mittels Gain-Blöcke und die Rundungsmethode. Diese Unterschiede erschließen sich aus dem vorherrschenden Datentyp, welcher nicht \textit{boolean} ist. Wie schon oben betrachtet werden die Signale mittels Gain-Block um den Faktor 10 vergrößert, um die Kommastelle verschwinden zu lassen, damit die Genauigkeit des Wertes durch den Convert-Block bei der Konvertierung in den Datentyp \textit{int16} nicht beeinträchtigt wird. Weiterhin wird die Rundungsmethode "`Round" verwendet, welche den bekannten geodätischen Runden entspricht und eine zufriedenstellende Genauigkeit liefert. (s. Abb. \ref{scdatentemperaturallgemein}). Die restliche Aufbereitung bis hin zum Transferieren der Werte gleicht dem oben beschriebenen Vorgehen. Dieses Vorgehen wird in diesem Modell bei allen Werten welche nicht den Datentyp \textit{boolean} aufweisen im Signalkollektor angewendet, abgesehen natürlich vom Gain-Block, dessen Multiplikator je nach Anzahl der erforderlichen Kommastellen unterschiedlich sein kann. Die Verarbeitung der Signale im Subsystem \textit{daten\_gaswert} verlaufen hierzu äquivalent. Der einzige Unterschied dabei ist, dass die Verstärkung des Gain-Blockes 1000 beträgt, da bei diesen Werten eine Genauigkeit von drei Kommastellen vorgegeben ist (s. Pflichtenheft S.4) und diese Kommastellen mit der Vergrößerung beseitigt werden. \\
 
 %-------------------------------------------------------------------%
 
 
 \textit{Subsystem "`daten\_akku" / Akkudaten} \\
 
-Wie im letzten Kapitel erwähnt(s. Subsystem "`daten\_allgemein"), verhalten sich alle Subsysteme im Signalkollektor sehr ähnlich. Es existieren in diesem Subsystem 2 Subsysteme, "`daten\_zelldaten" sowie "`daten\_temperatur", welche sich um die Verarbeitung von Werten kümmern, welche nicht den Datentypen \textit{boolean} aufweisen. Darüber hinaus existiert noch ein Subsystem mit boolean-Werten -- "`daten\_balancing"\ -- und einzelne Signale, welche ebenfalls Werte verkörpern, die nicht den Datentyp \textit{boolean} besitzen. Wie erwähnt findet auch eine Signalkonvertierung, eine Umbenennung der Variablennamen, sowie teilweise eine Verstärkung der Signale mittels Gain-Blöcken statt. Die weitere Signalaufbereitung im Subsystem \textit{Signalcollector\_Embedded\_PC} entspricht der des Subsystemes \textit{daten\_allgemein} (s. letzten Abschnitt). Die Verarbeitung der Signale, welche sich nicht nochmals in einem Subsystem befinden, gleicht der aus dem vorherigen Abschnitt. Einzig die Faktoren des Verstärkung der Signale "`zellspannung\_max"\ und "`zellspannung\_min"\ sind aufgrund der vorgegebenen Genauigkeit (s. Pflichtenheft S.4) in diesem Fall zu 1000 gewählt.
+Wie im letzten Kapitel erwähnt (s. Subsystem "`daten\_allgemein"), verhalten sich alle Subsysteme im Signalkollektor sehr ähnlich. Es existieren in diesem Subsystem zwei Subsysteme, "`daten\_zelldaten"\ sowie "`daten\_temperatur", welche sich um die Verarbeitung von Werten kümmern, welche nicht den Datentypen \textit{boolean} aufweisen. Darüber hinaus existiert noch ein Subsystem mit boolean-Werten -- "`daten\_balancing"\ -- und einzelne Signale, welche ebenfalls Werte verkörpern, die nicht den Datentyp \textit{boolean} besitzen. Wie erwähnt findet auch eine Signalkonvertierung, eine Umbenennung der Variablennamen, sowie teilweise eine Verstärkung der Signale mittels Gain-Blöcken statt. Die weitere Signalaufbereitung im Subsystem \textit{Signalcollector\_Embedded\_PC} entspricht der des Subsystemes \textit{daten\_allgemein} (s. letzten Abschnitt). Die Verarbeitung der Signale, welche sich nicht nochmals in einem Subsystem befinden, gleicht der aus dem vorherigen Abschnitt. Einzig die Faktoren des Verstärkung der Signale "`zellspannung\_max"\ und "`zellspannung\_min"\ sind aufgrund der vorgegebenen Genauigkeit (s. Pflichtenheft S.4) in diesem Fall zu 1000 gewählt.
 
 \newpage
 
@@ -698,18 +695,18 @@ Wie im letzten Kapitel erwähnt(s. Subsystem "`daten\_allgemein"), verhalten sic
 \label{scdatenakku}
 \end{figure}
 
-Die Subsystemstruktur soll anhand des Subsystems \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzellenpack}) ohne Beschränkung der Allgemein kurz näher erläutert werden. Ähnlich wie im dazugehörigen Subsystem aus dem Signalgenerator (s. 2.1.3) ist auch dieses System aufgebaut. Das Signal "`zelle\_001"\ im Subsystem \textit{"`daten\_zellenpack\_01"} des Subsystems \textit{"`daten\_zelldaten"} wird mit einem Multiplikator von 1000 durch den Gain-Block versehen und mittels Convert-Block in den Datentyp \textit{int16} umgewandelt und in "`emb\_zp\_01\_zelle01"\ umbenannt. Dabei kann die Zelle jeweils genau einem Zellenpack zugeordnet werden. Anschließend wird das Signal mit dem Bus Creator mit den restlichen Signalen seines Subsystems gebündelt und mit dem Variablennamen "`emb\_zp\_01"\ an das Subsystem \textit{"`daten\_zelldaten"} übergeben. Im Subsystem \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzelldaten}) wird das gebündelte Signal nochmals mit den anderen gebündelten Signalen des Subsystems über einen Bus Creator abermals zusammengefasst und mit dem Namen "`emb\_zp"\ für das Busarry an das Subsystem \textit{"`daten\_akku"} übermittelt. Dort wird es mit den restlichen Daten wieder gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} geliefert. Die weitere Signalverarbeitung ist durch die oberen Abschnitte bereits ausführlich erläutert wurden und geschieht für alle Signale des Subsystems \textit{"`daten\_zelldaten"} gleichwertig.
+Die Subsystemstruktur soll anhand des Subsystems \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzellenpack}) ohne Beschränkung der Allgemeinheit kurz näher erläutert werden. Ähnlich wie im dazugehörigen Subsystem aus dem Signalgenerator (s. 2.1.3) ist auch dieses System aufgebaut. Das Signal "`zelle\_001"\ im Subsystem \textit{"`daten\_zellenpack\_01"} des Subsystems \textit{"`daten\_zelldaten"} wird mit einem Multiplikator von 1000 durch den Gain-Block versehen und mittels Convert-Block in den Datentyp \textit{int16} umgewandelt und in "`emb\_zp\_01\_zelle01"\ umbenannt. Dabei kann die Zelle jeweils genau einem Zellenpack zugeordnet werden. Anschließend wird das Signal mit dem Bus Creator mit den restlichen Signalen seines Subsystems gebündelt und mit dem Variablennamen "`emb\_zp\_01"\ an das Subsystem \textit{"`daten\_zelldaten"} übergeben. Im Subsystem \textit{"`daten\_zelldaten"} (s. Abb. \ref{scdatenzelldaten}) wird das gebündelte Signal nochmals mit den anderen gebündelten Signalen des Subsystems über einen Bus Creator abermals zusammengefasst und mit dem Namen "`emb\_zp"\ für das Busarry an das Subsystem \textit{"`daten\_akku"} übermittelt. Dort wird es mit den restlichen Daten wieder gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} geliefert. Die weitere Signalverarbeitung ist durch die oberen Abschnitte bereits ausführlich erläutert worden und geschieht für alle Signale des Subsystems \textit{"`daten\_zelldaten"} auf die gleiche Weise.
 
 \newpage
 
-Das Subsystem \textit{"`daten\_akkutemperatur"} verhält sich dazu analog, nur kommen darin keine Gain-Blöcke vor, da die Genauigkeit auf ganze Zahlen festgelegt wurde(s. Pflichtenheft S.4).
+Das Subsystem \textit{"`daten\_akkutemperatur"} verhält sich dazu analog, nur kommen darin keine Gain-Blöcke vor, da die Genauigkeit auf ganze Zahlen festgelegt wurde (s. Pflichtenheft S.4).
 Das Subsystem \textit{"`daten\_balancing"} verhält sich ebenfalls vom Aufbau her dazu gleich und die Signalverarbeitung gleicht natürlich dem der Werte mit dem Datentyp \textit{boolean}. \\
 
 %-------------------------------------------------------------------%
 
 \textit{Subsystem "`daten\_dynamisch" / Dynamische Daten} \\
 
-Das Subsystem \textit{"`daten\_dynamisch"} beinhaltet mehrere Subsysteme sowie weitere einzelne Signale. Die Datenaufbereitung ist aus den vorherigen Kapiteln bekannt. Das Subsystem weist darüber hinaus keine weiteren Besonderheiten auf, da keine Werte mit dem Datentyp \textit{boolean} darin vorhanden sind. Die Signale "`bremsdruck", "`bremskraft", "`lenkwinkel\_dd" und "`bremsposition" werden direkt im Subsystem aufbereitet. Die Signale "`bremskraft" und „bremsposition“ werden zusätzlich mittels Gain-Blöcken mit einer Verstärkung von 1000 versehen. Danach werden alle 4 Signale in den Datentyp \textit{int16} konvertiert sowie deren Variablennamen  umbenannt und mit den restlichen Signalen des Subsystems gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} weitergeleitet, wobei der weitere Verlauf aus den obigen Ausführungen zu entnehmen ist. Die Verarbeitung innerhalb der Subsysteme soll ohne Beschränkung der Allgemeinheit beispielhaft am Subsystem \textit{"`daten\_geschwindigkeit"} gezeigt werden. Das Signal "`geschw1"\ wird mittels eines Bus Selectors aus dem Busarray herausgelöst und mit einem Multiplikator von 10  durch den Gain-Block versehen. Der Convert-Block ändert den Datentyp des Signals in \textit{int16} und benennt es in "`emb\_geschwindigkeit\_x"\ um. Infolgedessen wird es durch den Bus Creator mit den anderen Signalen des Subsystems zusammengefasst und als "`emb\_geschwindigkeit"\ ans Subsystem \textit{"`daten\_dynamisch"} weitergeleitet(s.ABB8). Danach wird dieses Busarray mit den weiteren Werten des Subsystems gebündelt und zu dem Subsystem \textit{"`Signalcollector\_Embedded\_PC"} transferiert. Die weitere Verarbeitung erfolgt analog zu den vorherigen Kapiteln.
+Das Subsystem \textit{"`daten\_dynamisch"} beinhaltet mehrere Subsysteme sowie weitere einzelne Signale. Die Datenaufbereitung ist aus den vorherigen Kapiteln bekannt. Das Subsystem weist darüber hinaus keine weiteren Besonderheiten auf, da keine Werte mit dem Datentyp \textit{boolean} darin vorhanden sind. Die Signale "`bremsdruck", "`bremskraft", "`lenkwinkel\_dd"          und "`bremsposition" werden direkt im Subsystem aufbereitet. Die Signale "`bremskraft"\ und „bremsposition“ werden zusätzlich mittels Gain-Blöcken mit einer Verstärkung von 1000 versehen. Danach werden alle vier Signale in den Datentyp \textit{int16} konvertiert sowie deren Variablennamen  umbenannt und mit den restlichen Signalen des Subsystems gebündelt und an das Subsystem \textit{"`Signalcollector\_Embedded\_PC"} weitergeleitet, wobei der weitere Verlauf aus den obigen Ausführungen zu entnehmen ist. Die Verarbeitung innerhalb der Subsysteme soll ohne Beschränkung der Allgemeinheit beispielhaft am Subsystem \textit{"`daten\_geschwindigkeit"} gezeigt werden. Das Signal "`geschw1"\ wird mittels eines Bus Selectors aus dem Busarray herausgelöst und mit einem Multiplikator von 10  durch den Gain-Block versehen. Der Convert-Block ändert den Datentyp des Signals in \textit{int16} und benennt es in "`emb\_geschwindigkeit\_x"\ um. Infolgedessen wird es durch den Bus Creator mit den anderen Signalen des Subsystems zusammengefasst und als "`emb\_geschwindigkeit"\ ans Subsystem \textit{"`daten\_dynamisch"} weitergeleitet(s.ABB8). Danach wird dieses Busarray mit den weiteren Werten des Subsystems gebündelt und zu dem Subsystem \textit{"`Signalcollector\_Embedded\_PC"} transferiert. Die weitere Verarbeitung erfolgt analog zu den vorherigen Kapiteln.
 
 \begin{figure}[h]
 \centering
@@ -721,13 +718,13 @@ Das Subsystem \textit{"`daten\_dynamisch"} beinhaltet mehrere Subsysteme sowie w
 \newpage
 
 
-Die weiteren Subsysteme im Subsystem \textit{"`daten\_dynamisch"} -- \textit{"`daten\_beschleunigung"}, \textit{"`daten\_gierrate"}, \textit{"`daten\_drehzahl\_rad"}, \textit{"`daten\_wassertemperatur"}, "`daten\_federweg" und \textit{"daten\_gaspedalstellung"} -- verhalten sich dazu äquivalent. Zu bemerken ist nur, dass der Multiplikator bei den Signalen des Subsystems \textit{"`daten\_gaspedalstellung"} nicht 10 sondern 1000 beträgt. \\
+Die weiteren Subsysteme im Subsystem \textit{"`daten\_dynamisch"} -- \textit{"`daten\_beschleunigung"}, \textit{"`daten\_gierrate"}, \textit{"`daten\_drehzahl\_rad"}, \textit{"`daten\_wassertemperatur"}, "`daten\_federweg"\ und \textit{"daten\_gaspedalstellung"} -- verhalten sich dazu äquivalent. Zu bemerken ist nur, dass der Multiplikator bei den Signalen des Subsystems \textit{"`daten\_gaspedalstellung"} nicht 10 sondern 1000 beträgt. \\
 
 %-------------------------------------------------------------------%
 
 \textit{Subsystem "`daten\_fahrdynamik" / Fahrdynamikregelung} \\
 
-Wie in Abb. \ref{scdatenfahrdynamik} zu erkennen besteht das Subsystem genau wie das dazugehörige Subsystem im Signalgenerator nur aus 2 Signalen. Beide Werte werden wie üblich aus dem Busarray mittels eines Bus Selectors heraus getrennt. Beiden Signalen wird ein Multiplikator von 1000 durch die Gain-Blöcke zugeführt und die Konvertierung in \textit{int16} und Umbenennung findet durch die Convert-Blöcke statt. Darauf folgend werden beide Signale wieder mit einem Bus Creator gebündelt und das zusammengefasste Busarray wird mit dem Namen "`emb\_daten\_fahrdynamik"\ an das übergeordnete Subsystem \textit{"`Signalcollector\_Embedded\_PC"} übergeben. Die Weiterverarbeitung in diesem Subsystem gleicht der aus den vorherigen Kapiteln.
+Wie in Abb. \ref{scdatenfahrdynamik} zu erkennen besteht das Subsystem genau wie das dazugehörige Subsystem im Signalgenerator nur aus zwei Signalen. Beide Werte werden wie üblich aus dem Busarray mittels eines Bus Selectors heraus getrennt. Beiden Signalen wird ein Multiplikator von 1000 durch die Gain-Blöcke zugeführt und die Konvertierung in \textit{int16} und Umbenennung findet durch die Convert-Blöcke statt. Darauf folgend werden beide Signale wieder mit einem Bus Creator gebündelt und das zusammengefasste Busarray wird mit dem Namen "`emb\_daten\_fahrdynamik"\ an das übergeordnete Subsystem \textit{"`Signalcollector\_Embedded\_PC"} übergeben. Die Weiterverarbeitung in diesem Subsystem gleicht der aus den vorherigen Kapiteln.
 
 \begin{figure}[h]
 \centering
@@ -740,11 +737,11 @@ Wie in Abb. \ref{scdatenfahrdynamik} zu erkennen besteht das Subsystem genau wie
 
 \textit {Subsystem "`daten\_motor" / Motor- und Umrichterdaten}
 
-Dieses Subsystem besitzt keinerlei besondere Eigenschaften, welche nicht bereits in den oberen Subsystemen beschrieben worden wären. Es besteht aus einem Subsystem und verschiedenen einzelnen Signalen(s. Abb. \ref{scdatenmotor}). Es sind keine boolean-Werte im Subsystem vorhanden. Die Aufbereitung der einzelnen Signale im Subsystem ist wie bei den Signalen in den vorherigen Kapiteln. Die Signale "`dc\_strom", "`dc\_spannung", "`lüfterdrehzahl" sowie "`mwassertemperatur" werden mittels Bus Selector aus dem Busarray separiert, erhalten einen Multiplikator von 10 durch die Gain-Blöcke und werden mittels der Convert-Blöcke in den Datentyp \textit{int16} konvertiert und umbenannt.
+Dieses Subsystem besitzt keinerlei besondere Eigenschaften, welche nicht bereits in den oberen Subsystemen beschrieben worden wären. Es besteht aus einem Subsystem und verschiedenen einzelnen Signalen (s. Abb. \ref{scdatenmotor}). Es sind keine boolean-Werte im Subsystem vorhanden. Die Aufbereitung der einzelnen Signale im Subsystem ist wie bei den Signalen in den vorherigen Kapiteln. Die Signale "`dc\_strom", "`dc\_spannung", "`lüfterdrehzahl"\ sowie "`mwassertemperatur" werden mittels Bus Selector aus dem Busarray separiert, erhalten einen Multiplikator von 10 durch die Gain-Blöcke und werden mittels der Convert-Blöcke in den Datentyp \textit{int16} konvertiert und umbenannt.
 
 \newpage
 
-Anschließend fasst sie der Bus Creator mit den anderen Signalen des Subsystems zusammen und übergibt die Daten an das Subsystem \textit{"`emb\_daten\_fahrdynamik"}. Die weitere Signalverarbeitung gleicht denen aus den vorherigen Kapiteln in diesem Subsystem. Die Signale "`stromgrenze", "`maximalleistung", "`lüfter" und "`pumpe" werden analog behandelt, jedoch werden sie mit den Gain-Blöcken mit einem Multiplikator von 1000 versehen. Die Aufbereitung der Signale im Subsystem \textit{"`daten\_temperatur\_motor" }ist analog der des Subsystems \textit{"`daten\_geschwindigkeit"} zu betrachten.
+Anschließend fasst sie der Bus Creator mit den anderen Signalen des Subsystems zusammen und übergibt die Daten an das Subsystem \textit{"`emb\_daten\_fahrdynamik"}. Die weitere Signalverarbeitung gleicht der aus den vorherigen Kapiteln in diesem Subsystem. Die Signale "`stromgrenze", "`maximalleistung", "`lüfter"\ und "`pumpe" werden analog behandelt, jedoch werden sie mit den Gain-Blöcken mit einem Multiplikator von 1000 versehen. Die Aufbereitung der Signale im Subsystem \textit{"`daten\_temperatur\_motor" }ist analog der des Subsystems \textit{"`daten\_geschwindigkeit"} zu betrachten.
  
 \begin{figure}[h]
 \centering
@@ -821,7 +818,7 @@ Weiterhin muss im UDP-Send-Block nochmals die automatisch durch das Modell ermit
 
 \newpage
 
-Diese Aufgabe wird ausschließlich durch das Subsystem \textit{DATEN\_PAKETINFO} bewerkstelligt. Hierbei werden in 3 Constant-Blöcke die zuvor in der Config-Datei config\_datenpaket.m referenzierten Vektoren (s. 2.1.2) eingebunden und von ebendiesen durch 3 Subsysteme deren jeweilige Breiten ausgelesen. Diese Signalvektoren und die jeweilige Größen der Vektoren werden getrennt auf einen Multiplexer geleitet und abschließend nochmals mittels eines Multiplexers zu einem Gesamtsignalvektor "`data\_paketinfo"\ zusammengefasst, welcher nach dem Verlassen des Subsystem die folgende Struktur aufweist: \\
+Diese Aufgabe wird ausschließlich durch das Subsystem \textit{DATEN\_PAKETINFO} bewerkstelligt. Hierbei werden in drei Constant-Blöcke die zuvor in der Config-Datei config\_datenpaket.m referenzierten Vektoren (s. 2.1.2) eingebunden und von ebendiesen durch drei Subsysteme deren jeweilige Breiten ausgelesen. Diese Signalvektoren und die jeweilige Größen der Vektoren werden getrennt auf einen Multiplexer geleitet und abschließend nochmals mittels eines Multiplexers zu einem Gesamtsignalvektor "`data\_paketinfo"\ zusammengefasst, welcher nach dem Verlassen des Subsystem die folgende Struktur aufweist: \\
 
 $ data\_paketinfo = \left( \begin{array}{c} SIZE\_VEKTOR\_AUFTEILUNG\_DATENPAKET \\ SIZE\_VEKTOR\_PAKETTEILUNG \\ SIZE\_VEKTOR\_KOMMASETZUNG \\ VEKTOR\_AUFTEILUNG\_DATENPAKET \\ VEKTOR\_PAKETTEILUNG \\ VEKTOR\_KOMMASETZUNG  \end{array} \right)$ 
 
@@ -831,7 +828,7 @@ $ data\_paketinfo = \left( \begin{array}{c} SIZE\_VEKTOR\_AUFTEILUNG\_DATENPAKET
 
 \textit{3) Versand der Paketinformationen an den Embedded-PC} \\
 
-Der Versand der Paketinformationen an den Embedded-PC erfolgt im Subsystem \\ "`UDP\_PAKETINFORMATIONEN"\ auf analoge Weise zu dem Versand der Fahrzeugdaten (statt des Subsystems "`MSGSIZE\_DATEN" wird hier nur das dazu inhaltlich äquivalente Subsystem "`MSGSIZE\_PAKETINFO"\ verwendet). Lediglich bei der Konvertierung wird aufgrund der begrenzten maximalen Paketgröße eines Paketes beim UDP-Protokoll von  1472 byte der Datentyp \textit{unit8} ausgewählt, um den Versand aller Paketinformationen in einem einzigen Paket zu ermöglichen. Demzufolge muss auch im Subsystem \\ "`MSGSIZE\_PAKETINFO"\, welches die Paketgröße ermittelt, beim Constant-Block der Wert  "`2" beim Produktblock durch den Wert  "`1" ersetzt oder zusammen mit dem Produktblock entfernt werden. \\
+Der Versand der Paketinformationen an den Embedded-PC erfolgt im Subsystem \\ "`UDP\_PAKETINFORMATIONEN"\ auf analoge Weise zu dem Versand der Fahrzeugdaten (statt des Subsystems "`MSGSIZE\_DATEN" wird hier nur das dazu inhaltlich äquivalente Subsystem "`MSGSIZE\_PAKETINFO"\ verwendet). Lediglich bei der Konvertierung wird aufgrund der begrenzten maximalen Paketgröße eines Paketes beim UDP-Protokoll von  1472 byte der Datentyp \textit{unit8} ausgewählt, um den Versand aller Paketinformationen in einem einzigen Paket zu ermöglichen. Demzufolge muss auch im Subsystem \\ "`MSGSIZE\_PAKETINFO"\, welches die Paketgröße ermittelt, beim Constant-Block der Wert  "`2" beim Produktblock durch den Wert  "`1"\ ersetzt oder zusammen mit dem Produktblock entfernt werden. \\
 
 
 
@@ -893,9 +890,13 @@ Die Umsetzung der bidirektionalen Kommunikation zwischen der MicroAutoBox II und
 
 \section{Embedded PC und virtueller Server}
 
-An der Datenübertragung und Verarbeitung sind drei von uns entworfene Anwendungen beteiligt. Aus dem in Abschnitt 2.1 (VERWEIS) bereits beschriebenen Simulink-Modell wird mithilfe der Entwicklungswerkzeuge von dSPACE automatisch C-Code erzeugt und für die Ausführung auf der MicroAutoBox II kompiliert. Diese Anwendung wird im Folgenden als \textit{mabxii} bezeichnet. Desweiteren wird jeweils eine von uns in C++ implementierte Anwendung auf dem Embedded-PC und vServer laufen welche von nun an \textit{embpc} und \textit{vserver} genannt werden. Bei deren Entwurf wurde insbesondere darauf geachtet, dass beiden Anwendungen eine möglichst große gemeinsame Code-Basis zugrundeliegt. Dadurch soll zum einen die Fehlerwahrscheinlichkeit minimiert werden -- Code-Abschnitte werden häufiger ausgeführt wodurch Fehler eher zutage treten und behoben werden können -- und zum anderen soll dadurch Zeit bei der Implementierung und dem Testen eingespart werden die letztendlich der Qualität der Software zugute kommt. 
 
-Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand einer schrittweisen Beschreibung eines Kommunikationsverlaufs erläutert. Siehe dazu auch Abbildung (VERWEIS).
+An der Datenübertragung und Verarbeitung sind drei von uns entworfene Anwendungen beteiligt. Aus dem in Abschnitt \ref{MicroAutoBoxII} bereits beschriebenen Simulink-Modell wird mithilfe der Entwicklungswerkzeuge von dSPACE automatisch C-Code erzeugt und für die Ausführung auf der MicroAutoBox II kompiliert. Diese Anwendung wird im Folgenden als \textit{mabxii} bezeichnet. Desweiteren wird jeweils eine von uns in C++ implementierte Anwendung auf dem Embedded-PC und auf dem vServer laufen, welche von nun an \textit{embpc} und \textit{vserver} genannt werden. Bei deren Entwurf wurde insbesondere darauf geachtet, dass beiden Anwendungen eine möglichst große gemeinsame Code-Basis zugrundeliegt. Dadurch soll zum einen die Fehlerwahrscheinlichkeit minimiert werden, in dem Code-Abschnitte häufiger ausgeführt werden und dadurch Fehler früher erkannt und behoben werden können.
+Zum anderen soll dadurch Zeit bei der Implementierung und dem Testen eingespart werden, die letztendlich der Qualität der Software zugute kommt. 
+
+Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand einer schrittweisen Beschreibung eines Kommunikationsverlaufs erläutert. Siehe dazu auch Abbildung \ref{inite}.
+
+
 
 \subsection{Initialisierung}
 
@@ -909,30 +910,30 @@ Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand ein
 \end{figure}
 
 \item[1) - 2)] 
-Der virtuelle Server sowie die MicroAutoBox sind nach deren Start in einer Art Wartezustand(\texttt{1/2: receive MSG\_READY}) in dem sie auf die Nachricht \texttt{MSG\_READY} des Embedded-PCs warten. Dabei handelt es sich um einen mit einer bestimmten Bitfolge bestückten Bitvektor der Länge 1 Byte. (Siehe Abbildung VERWEIS) Dieser signalisiert beiden Teilnehmern die Bereitschaft des Embedded-PCs. 
+Der virtuelle Server sowie die MicroAutoBox II sind nach deren Start in einer Art Wartezustand(\texttt{1/2: receive MSG\_READY}) in dem sie auf die Nachricht \texttt{MSG\_READY} des Embedded-PCs warten. Dabei handelt es sich um einen mit einer bestimmten Bitfolge bestückten Bitvektor der Länge ein Byte. (Siehe Abbildung \ref{paketinhalt}) Dieser signalisiert beiden Teilnehmern die Bereitschaft des Embedded-PCs. 
 
 \item [3) - 4)]
-Sobald der Embedded-PC hochgefahren ist wird die Anwendung \emph{embpc} automatisch ausgeführt. Der PC ist nach fehlerfreiem Start dazu in der Lage sein erstes Paket zu senden und damit seine Bereitschaft mitzuteilen. Das Paket \texttt{MSG\_READY} wird über eine UMTS-Verbindung zunächst an den virtuellen Server gesendet (\texttt{3: send MSG\_READY})und beinhaltet den oben beschriebenen Bitvektor. Nach dem Sendevorgang wartet er auf ein Acknowledgement \texttt{MSG\_READY\_ACK} des vServers (\texttt{4: receive MSG\_READY\_ACK}).
+Sobald der Embedded-PC hochgefahren ist, wird die Anwendung \emph{embpc} automatisch ausgeführt. Der PC ist nach fehlerfreiem Start dazu in der Lage sein erstes Paket zu senden und damit seine Bereitschaft mitzuteilen. Das Paket \texttt{MSG\_READY} wird über eine UMTS-Verbindung zunächst an den virtuellen Server gesendet (\texttt{3: send MSG\_READY})und beinhaltet den oben beschriebenen Bitvektor. Nach dem Sendevorgang wartet er auf ein Acknowledgement \texttt{MSG\_READY\_ACK} des vServers (\texttt{4: receive MSG\_READY\_ACK}).
 
 
 \item[5) - 7)]
-Hat der virtuelle Server diesen Bitvektor erfolgreich empfangen wird dieser zunächst dekodiert und auf seine Richtig- bzw. Vollständigkeit geprüft (\texttt{5: check MSG\_READY}). Danach sendet dieser dem Embedded-PC eine Empfangsbestätigung (\texttt{6: send MSG\_READY\_ACK}), wieder in Form eines 8 bit großen Bitvektors bestimmter Kodierung (siehe Abbildung VERWEIS). Anschließend wartet der vServer auf ein Paket \texttt{PACKET\_INFO} (\texttt{7: receive PACKET\_INFO}. Wurde nicht der erwartete Bitvektor empfangen wird wieder mit Schritt \texttt{2: receive MSG\_READY} fortgefahren.
+Hat der virtuelle Server diesen Bitvektor erfolgreich empfangen, wird dieser zunächst dekodiert und auf seine Richtig- bzw. Vollständigkeit geprüft (\texttt{5: check MSG\_READY}). Danach sendet dieser dem Embedded-PC eine Empfangsbestätigung (\texttt{6: send MSG\_READY\_ACK}), wieder in Form eines 8 bit großen Bitvektors bestimmter Kodierung (siehe Abbildung VERWEIS). Anschließend wartet der vServer auf ein Paket \texttt{PACKET\_INFO} (\texttt{7: receive PACKET\_INFO}). Falls nicht der erwartete Bitvektor empfangen wurde, wird wieder mit Schritt \texttt{2: receive MSG\_READY} fortgefahren.
 
 \item[8) - 10)]
-Sobald das Paket \texttt{MSG\_READY\_ACK} den Embedded-PC erreicht wird dies wie auf dem vServer zunächst dekodiert und überprüft (\texttt{8: check MSG\_READY\_ACK}). Falls es korrekt empfangen wurde meldet die Anwendung \emph{embpc} nun ihre Bereitschaft an die MicroAutoBox II durch das Senden der Nachricht \texttt{MSG\_READY} (\texttt{9: send MSG\_READY}) und wartet anschließend auf ein Paket (\texttt{10: receive PACKET\_INFO}. Falls jedoch nach 5 Sekunden noch kein Acknowledgement des vServers eingetroffen ist, wird wieder mit Schritt \texttt{3: send MSG\_READY} begonnen.
+Sobald das Paket \texttt{MSG\_READY\_ACK} den Embedded-PC erreicht, wird dieses, wie auf dem vServer, zunächst dekodiert und überprüft (\texttt{8: check MSG\_READY\_ACK}). Falls es korrekt empfangen wurde, meldet die Anwendung \emph{embpc} nun ihre Bereitschaft an die MicroAutoBox II, durch das Senden der Nachricht \texttt{MSG\_READY} (\texttt{9: send MSG\_READY}) und wartet anschließend auf ein Paket (\texttt{10: receive PACKET\_INFO}. Falls jedoch nach 5 Sekunden noch kein Acknowledgement des vServers eingetroffen ist, wird wieder mit Schritt \texttt{3: send MSG\_READY} begonnen.
 
 \item[11)- 13)]
-Hier wird auf der MicroAutoBox II analog zu schritt 5 und 8 verfahren und das ankommende Paket zunächst überprüft (\texttt{11: check MSG\_READY}). Wurde nicht das erwartete Paket empfangen wird mit Schritt 1 fortgefahren. Ansonsten sendet die MicroAutoBox II ein Paket das die Informationen zur Paketaufteilung, der Kommaverschiebung  und Datentypen der einzelnen Werte beinhaltet an den Embedded PC (\texttt{12: send PACKET\_INFO}). Danach wird auf eine Empfangsbestätigung des Embedded-PC gewartet (\texttt{13: receive PACKET\_INFO\_ACK}). Trifft diese nicht innerhalb von 5 Sekunden ein, wird die Nachricht erneut verschickt. 
+Hier wird auf der MicroAutoBox II analog zu schritt 5 und 8 verfahren und das ankommende Paket zunächst überprüft (\texttt{11: check MSG\_READY}). Falls nicht das erwartete Paket empfangen wurde, wird mit Schritt 1 fortgefahren. Ansonsten sendet die MicroAutoBox II ein Paket, das die Informationen zur Paketaufteilung, der Kommaverschiebung  und Datentypen der einzelnen Werte beinhaltet, an den Embedded PC (\texttt{12: send PACKET\_INFO}). Danach wird auf eine Empfangsbestätigung des Embedded-PC gewartet (\texttt{13: receive PACKET\_INFO\_ACK}). Trifft diese nicht innerhalb von 5 Sekunden ein, wird die Nachricht erneut verschickt. 
 
 \item[14) - 17)]
-Nachdem der Embedded-PC das Paket \texttt{PACKET\_INFO} empfangen hat schickt er zunächst eine Empfangsbestätigung an die MicroAutoBox II (\texttt{14: send PACKET\_INFO\_ACK}) und leitet anschließend das Paket an den vServer weiter (\texttt{15: send PACKET\_INFO}). Nun wartet er auf die Empfangsbestätigung des vServers (\texttt{17: receive PACKET\_INFO\_ACK}). Falls innerhalb von 5 Sekunden keine Nachricht eintrifft wird das Paket erneut verschickt.
+Nachdem der Embedded-PC das Paket \texttt{PACKET\_INFO} empfangen hat, schickt er zunächst eine Empfangsbestätigung an die MicroAutoBox II (\texttt{14: send PACKET\_INFO\_ACK}) und leitet anschließend das Paket an den vServer weiter (\texttt{15: send PACKET\_INFO}). Nun wartet er auf die Empfangsbestätigung des vServers (\texttt{17: receive PACKET\_INFO\_ACK}). Falls innerhalb von 5 Sekunden keine Nachricht eintrifft, wird das Paket erneut verschickt.
 
 \item[18) - 20)]
-Sobald der vServer das Paket \texttt{PACKET\_INFO} entgegen nimmt bestätigt er dessen Empfang (\texttt{18: send PACKET\_INFO\_ACK}) und fängt anschließend mit der Dekodierung der Paketinformationen an (\texttt{20: decode PACKET\_INFORMATION}). Dabei werden die einzelnen Daten (Paketaufteilung, Kommaverschiebung und Datentypen) in einer jeweils eigenen Datenstruktur abgelegt (\texttt{VEC\_LAYOUT, VEC\_COMMA, VEC\_DATATYPES}). Auf diese wird im späteren Verlauf zugegriffen um die Fahrzeugdaten korrekt verarbeiten zu können. Der Embedded-PC verfährt nach dem Empfang der Empfangsbestätigung genauso (\texttt{19: decode PACKET\_INFO}).
+Sobald der vServer das Paket \texttt{PACKET\_INFO} entgegen nimmt, bestätigt er dessen Empfang (\texttt{18: send PACKET\_INFO\_ACK}) und fängt anschließend mit der Dekodierung der Paketinformationen an (\texttt{20: decode PACKET\_INFORMATION}). Dabei werden die einzelnen Daten (Paketaufteilung, Kommaverschiebung und Datentypen) in einer jeweils eigenen Datenstruktur abgelegt (\texttt{VEC\_LAYOUT, VEC\_COMMA, VEC\_DATATYPES}). Auf diese wird im späteren Verlauf zugegriffen, um die Fahrzeugdaten korrekt verarbeiten zu können. Der Embedded-PC verfährt nach dem Empfang der Empfangsbestätigung genauso (\texttt{19: decode PACKET\_INFO}).
 
 \end{itemize}
 
-Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für die Verarbeitung der Fahrzeugdaten wichtig ist, dass sowohl der Embedded-PC als auch der vServer über die Paketinformationen verfügen. Durch deren Größe wäre es aufgrund der geringen Bandbreite von UMTS/GPRS keine Option diese mit jedem Datenpaket zu übertragen. Falls sich die bisherige Initialisierung in der Testphase als zu fehleranfällig herausstellen sollte, indem z.B. keine Datenübertragung zustande kommt weil zu viel Paketverlust auftritt, wird dieser Prozess selbstverständlich überarbeitet. Das bisherige Konzept ist also noch nicht endgültig.
+Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für die Verarbeitung der Fahrzeugdaten wichtig ist, dass sowohl der Embedded-PC, als auch der vServer über die Paketinformationen verfügen. Durch deren Größe wäre es aufgrund der geringen Bandbreite von UMTS/GPRS keine Option, diese mit jedem Datenpaket zu übertragen. Falls sich die bisherige Initialisierung in der Testphase als zu fehleranfällig herausstellen sollte, indem z.B. keine Datenübertragung zustande kommt, weil zu viel Paketverlust auftritt, wird dieser Prozess selbstverständlich überarbeitet. Das bisherige Konzept ist also noch nicht endgültig.
 
 \subsection{Datenübertragung und Datenverarbeitung}
 
@@ -946,16 +947,18 @@ Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für d
 \end{figure}
 
 \item[1) - 3)]
-Nachdem die MicroAutoBox die Empfangsbestätigung des \texttt{PACKET\_INFO} vom Embedded-PC erhalten hat beginnt sie nun in einem festen Zeitabstand UDP-Pakete mit aktuellen Fahrzeugdaten an den Embedded-PC zu senden (\texttt{3: send DATA}). Dabei wird nicht berücksichtigt ob die Pakete den Embedded-PC auch tatsächlich erreichen. Die Konfiguration des Zeitabstandes erfolgt im Matlab/Simulink-Programm mit Hilfe einer sogenannten sample-time (optional-clock). Sowoh der Embedded-PC als auch der vServer warten nun auf ankommende Daten (\texttt{1: receive DATA, 2: receive PACKAGE}).
+Nachdem die MicroAutoBox die Empfangsbestätigung des \texttt{PACKET\_INFO} vom Embedded-PC erhalten hat, beginnt sie nun in einem festen Zeitabstand UDP-Pakete, mit aktuellen Fahrzeugdaten, an den Embedded-PC zu senden (\texttt{3: send DATA}). Dabei wird nicht berücksichtigt, ob die Pakete den Embedded-PC auch tatsächlich erreichen. Die Konfiguration des Zeitabstandes erfolgt im Matlab/Simulink-Programm mit Hilfe einer sogenannten sample-time (optional-clock). Sowohl der Embedded-PC, als auch der vServer warten nun auf ankommende Daten (\texttt{1: receive DATA, 2: receive PACKAGE}).
 
 \item[4) - 12)]
-Der Embedded-PC nimmt die Fahrzeugdaten entgegen und verarbeitet diese (\texttt{4: encode DATA}). Dabei wird der Datensatz \texttt{DATA} entsprechend der Informationen in \texttt{VEC\_LAYOUT} in mehrere Pakete geteilt und mit einem \texttt{HEADER} versehen. Anschließend werden diese Pakete der Reihe nach an den vServer übertragen (\texttt{5,9,...: send PACKAGE 1,...,n}). Dabei wird keine Empfangsbestätigung am Server erzeugt und somit auch keine am Embedded-PC erwartet. 
-Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen 8 Byte Zeitstempel und einer 4 Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, ist also eine Zahl zwischen 1 und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf 5 Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
-Sobald ein Paket den vServer erreicht wird es zunächst dekodiert (\texttt{6: decode PACKAGE 1}) (wobei \texttt{PACKAGE 1} hier nicht zwangsläufig das erste Paket aus \texttt{DATA} sein muss - Pakete können sich überholen oder verloren gehen). Dabei wird zunächst der \texttt{HEADER} ausgelesen. Der darin enthaltene Zeitstempel wird mit dem lokalen verglichen, ist die Differenz größer als 5 Sekunden wird das Paket verworfen, ansonsten wird das Paket entsprechend der Daten in \texttt{VEC\_LAYOUT}, \texttt{VEC\_COMMA} und 7\texttt{VEC\_DATATYPES} so bearbeitet, dass der Dekoder einen Fahrzeugwert nach dem anderen an die Datenbank zur Verfügung stellen kann. Wurden alle Fahrzeugdaten aus dem Paket ausgelesen und verarbeitet, wird ein neues Paket empfangen. 
+
+Der Embedded-PC nimmt die Fahrzeugdaten entgegen und verarbeitet diese (\texttt{4: encode DATA}). Dabei wird der Datensatz, \texttt{DATA} entsprechend der Informationen in \texttt{VEC\_LAYOUT}, in mehrere Pakete geteilt und mit einem \texttt{HEADER} versehen. Anschließend werden diese Pakete der Reihe nach an den vServer übertragen (\texttt{5,9,...: send PACKAGE 1,...,n}). Dabei wird keine Empfangsbestätigung am Server erzeugt und somit auch keine am Embedded-PC erwartet. 
+Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt, die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen acht Byte Zeitstempel und einer vier Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, daher ist sie also eine Zahl zwischen eins und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf fünf Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
+Sobald ein Paket den vServer erreicht, wird es zunächst dekodiert (\texttt{6: decode PACKAGE 1}) (wobei \texttt{PACKAGE 1} hier nicht zwangsläufig das erste Paket aus \texttt{DATA} sein muss - Pakete können sich überholen oder verloren gehen). Dabei wird zunächst der \texttt{HEADER} ausgelesen. Der darin enthaltene Zeitstempel wird mit dem lokalen verglichen, ist die Differenz größer als fünf Sekunden, wird das Paket verworfen, ansonsten wird das Paket entsprechend der Daten in \texttt{VEC\_LAYOUT}, \texttt{VEC\_COMMA} und 7\texttt{VEC\_DATATYPES} so bearbeitet, dass der Dekoder einen Fahrzeugwert nach dem anderen an die Datenbank zur Verfügung stellen kann. Wurden alle Fahrzeugdaten aus dem Paket ausgelesen und verarbeitet, wird ein neues Paket empfangen. 
+
 
 \end{itemize}
 
-Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server zu dessen Reaktion den aktuellen Kommunikationsvorgang abzubrechen und sich auf einen neuen vorzubereiten -- der Initialsierungsprozess beginnt von neuem. Auch das Senden des Pakets \texttt{MSG\_READY} an die MicroAutoBox II dient dazu einen neuen Kommunikationsvorgang mitzuteilen, denn durch dessen Empfang bricht auch diese den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten des Servers, wird das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. 
+Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server dazu, dass der aktuelle Kommunikationsvorgang abgebrochen und ein neuer vorbereitet wird -- der Initialsierungsprozess beginnt von neuem. Auch das Senden des Pakets \texttt{MSG\_READY} an die MicroAutoBox II dient dazu, einen neuen Kommunikationsvorgang zu starten, denn durch den Empfang des Pakets bricht auch die MicroAutoBox II den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten auf der Seite des Servers. Wenn das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen hat, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. 
 
 \begin{table}[H]
 \centering
@@ -1017,7 +1020,7 @@ Empfangsbe\-stätigung für PACKET\_INFO \\
 \end{tabular}
 
 \end{table}
-
+\label{paketinhalt}
 \newpage
 
 \begin{table}[H]
@@ -1121,13 +1124,15 @@ Zuerst wird ein Objekt von \textit{DBPacketInsert} erzeugt, das wiederum zuerst 
 Klasse \textit{DBPacketInsert}:
 
 Von dieser Klasse soll, wenn das Programm vollständig zusammengebaut ist, einmal ein Objekt erzeugt werden, auf dem dann jeweils nach Erhalt eines Paketes vom Embedded PC die Memberfunktion \textit{db\_insert()} aufgerufen wird. Diese löst dann das Auslesen und Aufbereiten der einzelnen Daten in der Klasse \textit{DatatypeDaemon} aus, setzt die Werte zusammen zu einem SQL-String und übergibt diesen an die Klasse \textit{Insert}. Im Weiteren wird auf diese einzelnen Schritte näher eingegangen.\\
-Wie oben bereits geschildert, fragt \textit{DBPacketInsert} zuerst nur einen Wert von \textit{DatatypeDaemon} an und fügt diesen in ein Stringarray ein. Zu diesem Wert lässt es sich außerdem die Stelle im Übertragungspaket der MikroAutoboxII zum Embedded PC übergeben. Dies geschieht zum einen durch den Aufruf von \textit{parseNextValue()} auf \textit{DatatypeDaemon}, zum anderen durch den Aufruf von \textit{getPosActualPacket()} auf derselben Klasse. Danach fragt \textit{DBPacketInsert} über \textit{DatatypeDaemon} die Stelle des Wertes im Übertragungspaket von MikroAutoboxII zum Embedded PC ab, woraus er dann das Übertragungspaket von Embedded PC zum vServer ermittelt. Ein solches Paket beinhaltet alle Daten einer Tabelle auf der Datenbank, er nutzt dazu auch die in einer Enumeration definierten Startpunkte der einzelnen Pakete, die den Stellen im Übertragunspaket der MikroAutoboxII zum Embedded PC entsprechen. Diese Information benötigt die Klasse, um jetzt nur so viele Werte über \textit{DatatypeDaemon} in dem Array, welches schon den einen oben genannten Wert enthält, zu sammeln, wie in einem Übertragungspaket sind. Damit füllt der gesamte Inhalt des Arrays eine Tabelle der Datenbank aus. Anschließend fragt das Objekt noch den Zeitstempel des Pakets mit \textit{getTime()} ab.\\
-Für jede Tabelle gibt es schließlich eine Unterfunktion, die entsprechend dem Aufbau der Datenbank die einzelnen Werte des Arrays zusammensetzt und daraus zusammen mit dem Zeitstempel des Pakets einen gültigen SQL-String baut. Sobald die Unterfunktion abgeschlossen ist, wird der fertige SQL-String an die Memberfunktion \textit{insertIntoDB(string* anw)} der Klasse \textit{Insert} übergeben.\\
+
+Wie oben bereits geschildert, fragt \textit{DBPacketInsert} zuerst nur einen Wert von \textit{DatatypeDaemon} an und fügt diesen in ein Stringarray ein. Zu diesem Wert lässt es sich außerdem die Stelle im Übertragungspaket der MikroAutoboxII zum Embedded PC übergeben. Dies geschieht zum einen durch den Aufruf von \textit{parseNextValue()} auf \textit{DatatypeDaemon}, zum anderen durch den Aufruf von \textit{getPosActualPacket()} auf derselben Klasse. Danach fragt \textit{DBPacketInsert} über \textit{DatatypeDaemon} die Stelle des Wertes im Übertragungspaket von MikroAutoboxII zum Embedded PC ab, woraus er dann das Übertragungspaket von Embedded PC zum vServer ermittelt. Ein solches Paket beinhaltet alle Daten einer Tabelle auf der Datenbank, er nutzt dazu auch die in einer Enumeration definierten Startpunkte der einzelnen Pakete, die den Stellen im Übertragungspaket der MikroAutoboxII zum Embedded PC entsprechen. Diese Information benötigt die Klasse, um jetzt nur so viele Werte über \textit{DatatypeDaemon} in dem Array, welches schon den einen oben genannten Wert enthält, zu sammeln, wie in einem Übertragungspaket sind. Damit füllt der gesamte Inhalt des Arrays eine Tabelle der Datenbank aus.\\
+Für jede Tabelle gibt es schließlich eine Unterfunktion, die entsprechend dem Aufbau der Datenbank die einzelnen Werte des Arrays zusammensetzt und daraus einen gültigen SQL-String baut. Sobald die Unterfunktion abgeschlossen ist, wird der fertige SQL-String an die Memberfunktion \textit{insertIntoDB(string* anw)} der Klasse \textit{Insert} übergeben.\\
+
 \\
 \\
 Klasse \textit{DatatypeDaemon}:\\
 Diese Klasse stellt die Schnittstelle zum Decoder dar, indem sie dort \textit{Data}-Objekte anfragt. Aus diesen Objekten extrahiert sie dann jeweils den Datenwert als \textit{Unsigned Integer}, die Position dieses Wertes in dem Übertragungspaket der MikroAutoBoxII an den Embedded PC, den Datentyp vor der Übertragung und den Kommasetzwert.\\
-Einerseits stellt \textit{DatatypeDaemon} der Klasse \textit{DBPacketInsert} die Zeit als auch die Position des aktuellen Wertes bereit, andererseits stellt sie auch den Zeitstempel des Pakets, den die Klasse auch vom \textit{Decoder} erhält, zur Verfügung. Die Position ist dabei über die Memberfunktion \textit{getPosActualPacket()}, der Zeitstempel über \textit{getTime()} abzufragen.\\
+Einerseits stellt \textit{DatatypeDaemon} der Klasse \textit{DBPacketInsert} die Zeit, als auch die Position des aktuellen Wertes bereit, andererseits stellt sie auch den Zeitstempel des Pakets, den die Klasse auch vom \textit{Decoder} erhält, zur Verfügung. Die Position ist dabei über die Memberfunktion \textit{getPosActualPacket()} und der Zeitstempel über \textit{getTime()} abzufragen.\\
 Der Wert hingegen wird von der Klasse zuerst auf seinen Datentyp geprüft, dann gegebenenfalls durch die vom Kommasetzwert vorgegebene Zehnerpotenz geteilt und in den jeweiligen Datentyp verwandelt. Danach wird der Wert unter Verwendung der von der \textit{Boost-Library} angebotenen Funktion \textit{lexical\_cast} in einen \textit{String} konvertiert. Dies geschieht bei Aufruf der Memberfunktion \textit{parseNextValue()}, der aufbereitete und in einen \textit{String} verwandelte Wert bildet dabei den Rückgabewert an den Aufrufer.\\
 \\
 \\
@@ -1207,7 +1212,7 @@ Die Webseite setzt sich aus einer Vielzahl von einzelnen PHP- und Java-Skripten 
 
 
 \subsection{Installation}
-Die Installation des Systems wird einmalig und nur beim ersten Besuch der Seite vom Nutzer durchgeführt. Sie wird durch Aufruf der \textit{install.php} gestartet. Hierbei bindet das Skript wie auch alle folgenden selbstständigen Seiten die Dateien \textit{core/init.php}, \textit{includes/overall/header.php, includes/config.php} und \textit{includes/overall/footer.php} ein. In diesen Dateien befinden sich neben \glqq globalen\grqq (es handelt sich hierbei um keine wirklichen PHP-globalen Variablen, sondern lediglich solche, die in allen Skripten verfügbar sind, die \textit{core/init.php} bzw. \textit{includes/config.php} einbinden) Variablendefinitionen auch selbstdefinierte Funktionen. An dieser Stelle ist insbesondere die Funktion \textit{install\_system()} aus der Datei \textit{core/functions/general.php} zu erwähnen (siehe Eintrag zu \textit{general.php}).\\
+Die Installation des Systems wird einmalig und nur beim ersten Besuch der Seite vom Nutzer durchgeführt. Sie wird durch Aufruf der \textit{install.php} gestartet. Hierbei bindet das Skript wie auch alle folgenden selbstständigen Seiten die Dateien \textit{core/init.php}, \textit{includes/overall/header.php, includes/config.php} und \textit{includes/overall/footer.php} ein. In diesen Dateien befinden sich neben \glqq globalen\grqq (es handelt sich hierbei um keine wirklichen PHP-globalen Variablen, sondern lediglich solche, die in allen Skripten verfügbar sind, die \textit{core/init.php} bzw. \textit{includes/config.php} einbinden) Variablendefinitionen und auch selbstdefinierte Funktionen. An dieser Stelle ist insbesondere die Funktion \textit{install\_system()} aus der Datei \textit{core/functions/general.php} zu erwähnen (siehe Eintrag zu \textit{general.php}).\\
 Der Nutzer wird nach dem Durchlauf des Skripts aufgefordert ein Formular auszufüllen. Mit diesen Daten wird dann der Vorstands-Account (= Admin-Account) erzeugt. Anschließend werden alle benötigten Datenbanken, Tabellen und Einträge erzeugt und das Skript anschließend mittels \textit{exit()} terminiert.
 
 \begin{figure}[h]
@@ -1241,10 +1246,17 @@ Die Datei \textit{includes/header.php} wird von der \textit{includes/overall/hea
 \end{figure}
 
 \subsection{Startseite}
+<<<<<<< HEAD
 Die Startseite ist -- wie der Name bereits verrät -- der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft, werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe x.y.z Allgemeiner Seitenaufbau [Davids erster Punkt]) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
 Im Anschluss wird überprüft, ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular, in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe x.y.z).\\
 Alternativ kann sich der Benutzer auch einen neuen Account erstellen. Dies erreicht er durch Auswählen des \glqq Jetzt registrieren\grqq-Links, wodurch er auf die Skript-Seite \textit{register.php} weitergeleitet wird. Der Nutzer erhält erneut ein Formular, welches er für die Registrierung vollständig ausfüllen muss. Diese Daten werden anschließend nach dem Klick auf den Abschicken-Button validiert (siehe x.y.z.).\\
 Hat sich der Nutzer eingeloggt oder war bereits eingeloggt als er die Seite aufrief, werden ihm anstelle des Login-Formulars eine Auswahl aus den nachfolgenden Widgets in Abhängigkeit seiner Rechtegruppe (\textit{isVorstand()}-Aufruf) angezeigt:
+=======
+Die Startseite ist wie der Name bereits verrät der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe 2.4.13 Allgemeiner Seitenaufbau) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
+Im Anschluss wird überprüft ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe 2.4.7).\\
+Alternativ kann sich der Benutzer auch einen neuen Account erstellen. Dies erreicht er durch Auswählen des \glqq Jetzt registrieren\grqq-Links, wodurch er auf die Skript-Seite \textit{register.php} weitergeleitet wird. Der Nutzer erhält erneut ein Formular, welches er für die Registrierung vollständig ausfüllen muss. Diese Daten werden anschließend nach dem Klick auf den Abschicken-Button validiert (siehe 2.4.6).\\
+Hat sich der Nutzer eingeloggt oder war bereits eingeloggt als er die Seite aufrief, werden ihm anstelle des Login-Formulars einige Widgets in Abhängigkeit seiner Rechtegruppe (\textit{isVorstand()}-Aufruf) angezeigt, die da wären
+>>>>>>> 852936732d00e2378542229831b473d4ceb90027
 
 \begin{itemize}
  \item Möglichkeit zum Export der in der Datenbank befindlichen Fahrzeugdaten (jeder Nutzer; \textit{includes/widgets/csvexport.php})
@@ -1348,7 +1360,11 @@ Hierbei handelt es sich um ein kleines Widget, welches nicht mehr tut, als dass 
 %%%%%%%%%%%%%%%%%%% KUDA FEINENTWURF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+<<<<<<< HEAD
 \subsection{Allgemeiner Seitenaufbau}
+=======
+\subsection{Allgemeine Seitenaufbau}
+>>>>>>> 852936732d00e2378542229831b473d4ceb90027
 Im allgemeinen Seitenaufbau geht es um eine Folge von Seitenaufrufen, Funktionen und Einbindevorgänge. Diese sind für die fünf darstellenden Seiten identisch und werden deshalb an dieser Stelle zusammenfassend veranschaulicht.
 \\ \\
 \includegraphics[scale=0.327]{allgemeineSeitenaufbau.png}
@@ -1361,7 +1377,8 @@ Beschreibt den Aufbau des Dokuments. Dabei wird der Dokumenttyp bestimmt, danach
 
 \textbf{includes/head.php}\\
 \hangindent+95pt \hangafter=1
-Diese Datei stellt den regulären Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die 4 Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
+
+Diese Datei stellt den HTML-Headbereich einer Webseite dar. Hier werden alle allgemein nötigen Skripte, CSS-Datein und Seiten importiert. Darunter sind die vier Javascript Bibliotheken: jQuery, justGage, rapheal und masonry, die alle unter der MIT Lizenz frei verfügbar sind. Weiterhin wird die Datei config.php eingebunden, die relevante Informationen zum Zugriff auf die Datenbanken bereithält.\\
 
 
 \textbf{includes/header.php}\\
@@ -1371,12 +1388,14 @@ Beinhaltet die Navigationsleiste am Kopf der Seite, die auf allen Seiten präsen
 
 
 
-
+\label{AllgemeineFahrzeugdatenpage}
 \subsection{Allgemeine Fahrzeugdaten}
-Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält 3 wesentliche Datein: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
+
+Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält 3 wesentliche Datein: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (\ref{allgemeinefahrzeugdatenphp} ), das Javascript was in die Seite eingebunden und ausgeführt wird (\ref{allgemeinefahrzeugdatenjs}), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (\ref{allgemeinefahrzeugdatensql}). 
 \\ \\
+
+
 \includegraphics[scale=0.452]{allgemeinefahrzeugdaten.png}
-\\ \\
 
 
 \textbf{protect\_page()}
@@ -1391,7 +1410,7 @@ Wenn die Seite komplett aufgebaut ist, wird dies Aktion ausgeführt und startet 
 
 \textbf{document.getElementByID().setAttribute}\\
 \hangindent+95pt \hangafter=1  
-Ein Aufruf, der bewirkt, dass alle Klassen der Navigationsbuttons verändert werden. Wird 5 mal ausgeführt, wobei alle nicht ausgewählten Schaltflächen grau werden und der ausgewählte Button färbt sich blau. \\
+Ein Aufruf, der bewirkt, dass alle Klassen der Navigationsbuttons verändert werden. Wird fünf mal ausgeführt, wobei alle nicht ausgewählten Schaltflächen grau werden und der ausgewählte Button färbt sich blau. \\
 
 
 \textbf{justGage()}
@@ -1433,28 +1452,32 @@ Mit dieser Funktion wird der Wert "'val"' an die Stelle im Dokument geschrieben,
 \textbf{age()}
 \hspace{20mm}
 \hangindent+95pt \hangafter=1 
-Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem die letzte Aktualisierung in der Datenbank verzeichnet wurde. Dabei wird die UNIX Zeit als Referenzzeit genutzt und auf Sekunden normiert. Der Zeitpunkt in der Tabelle nutzt ebenfalls Zeiteinheit Sekunden. Die Differenz beider Werte gibt die Zeit an, die seit dem letzten Datenbankeintrag vergangen ist. Danach wird diese Zahl in Tage, Stunden, Minuten und Sekunden umgerechnet. Es werden aber aus Platzgründen in der Anzeigefläche nur Stunden, Minuten und Sekunden angezeigt. Die Zeitangabe erscheint genau dann, wenn mehr als 15 Sekunden verstrichen sind und nur die Zeiteinheiten, die tatsächlich mit Werten belegt werden. Ist mehr als 1 Stunden vergangen, werden Stunden, Minuten und Sekunden angezeigt. ist weniger als 1 Minute vergangen, werden nur die vergangen Sekunden angezeigt.\\ 
+Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem die letzte Aktualisierung in der Datenbank verzeichnet wurde. Dabei wird die UNIX Zeit als Referenzzeit genutzt und auf Sekunden normiert. Der Zeitpunkt in der Tabelle nutzt ebenfalls Zeiteinheit Sekunden. Die Differenz beider Werte gibt die Zeit an, die seit dem letzten Datenbankeintrag vergangen ist. Danach wird diese Zahl in Tage, Stunden, Minuten und Sekunden umgerechnet. Es werden aber aus Platzgründen in der Anzeigefläche nur Stunden, Minuten und Sekunden angezeigt. Die Zeitangabe erscheint genau dann, wenn mehr als 15 Sekunden verstrichen sind und nur die Zeiteinheiten, die tatsächlich mit Werten belegt werden. Ist mehr als eine Stunden vergangen, werden Stunden, Minuten und Sekunden angezeigt. ist weniger als eine Minute vergangen, werden nur die vergangen Sekunden angezeigt.\\ 
 
 
 
 
 
+\label{akkudatenpage}
 \subsection{Akkudaten}
-Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den 12 Akkumulatorblöcken (jeweils 12 Zellen) sollen permanent angezeigt werden und Informationen zu den 12 Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus 2 PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
+
+Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den 12 Akkumulatorblöcken (jeweils 12 Zellen) sollen permanent angezeigt werden und Informationen zu den 12 Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus 2 PHP  und einer JavaScript Komponente, analog wie \ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten   
+
+
 \\ \\
 \includegraphics[scale=0.4255]{akkudatenvpp.png}
 \\ \\ 
-Die allgemeine Funktionsweise dieser Seite entspricht \textit{1.1.2. Allgemeine Fahrzeugdaten}. Im folgenden wird nur auf Besonderheiten dieser Seite eingegangen.\\
+Die allgemeine Funktionsweise dieser Seite entspricht \textit{\ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten}. Im folgenden wird nur auf Besonderheiten dieser Seite eingegangen.\\
 
 \textbf{accu\_refresh(data)}\\
 
 \hangindent+95pt \hangafter=1 
-Diese Funktion aktualisiert die 144 Zellspannungen und berechnet für die 12 Akkublöcke jeweils minimale, sowie maximale Zellspannung. Der Funktion wird das JSON Array übergeben, dass in executeQuery() geholt wird. In diesem sind alle 144 Zellspannungen gespeichert.\\
+Diese Funktion aktualisiert die 144 Zellspannungen und berechnet für die zwölf Akkublöcke jeweils minimale, sowie maximale Zellspannung. Der Funktion wird das JSON Array übergeben, dass in executeQuery() geholt wird. In diesem sind alle 144 Zellspannungen gespeichert.\\
 
 
 \textbf{kapa(data[146],removeClass/addClass)}\\
 \hangindent+95pt \hangafter=1 
-Der Funktion wird der Wert der Gesamtspannung übergeben. Mit Hilfe dieses Wertes werden dann unter Nutzung von "'addclass/removeclass"' 10 Anzeigeflächen so eingefärbt, dass sie einen Wert zwischen 0 und 100 \% simulieren.\\
+Der Funktion wird der Wert der Gesamtspannung übergeben. Mit Hilfe dieses Wertes werden dann unter Nutzung von "'addclass/removeclass"' zehn Anzeigeflächen so eingefärbt, dass sie einen Wert zwischen 0 und 100 \% simulieren.\\
 
 \textbf{toggle\_tab()}
 \hspace{5.8mm}
@@ -1469,22 +1492,22 @@ Dies ist eine Funktion, die "'toggle\_tab()"' zugeordnet ist. Sie sorgt dafür, 
 
 \textbf{toggle\_balance(), removeClass/addClass}\\
 \hangindent+95pt \hangafter=1 
-Analog wie in "'toggle\_notaus"' \textit{1.1.2. Allgemeine Fahrzeugdaten}. Hier wird der Ablauf für zwei Strings durchgeführt, die Balancing-Werte enthalten und bei Aktivität blau eingefärbt werden. Des weiteren wird an dieser Stelle auch gezählt, wie viele Zellen den Status "'AN"' haben. Die Anzahl wird in die Spalte des entsprechenden Akkublocks geschrieben und wenn diese größer als 0 ist ebenfalls blau hinterlegt.\\
+Analog wie in "'toggle\_notaus"' \textit{\ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten}. Hier wird der Ablauf für zwei Strings durchgeführt, die Balancing-Werte enthalten und bei Aktivität blau eingefärbt werden. Des weiteren wird an dieser Stelle auch gezählt, wie viele Zellen den Status "'AN"' haben. Die Anzahl wird in die Spalte des entsprechenden Akkublocks geschrieben und wenn diese größer als 0 ist ebenfalls blau hinterlegt.\\
 
 
 
-
+\label{dynamischedatenpage}
 \subsection{Dynamische Daten}
-Der Aufbau ist wieder analog den vorherigen 2 Seiten. Auf dieser Seite wird folgendes visualisiert: 
+Der Aufbau ist wieder analog den vorherigen zwei Seiten. Auf dieser Seite wird folgendes visualisiert: 
 
 \begin{itemize}
 \item Drehzahlen der Räder als Halbkreis-Diagramm mit "'justGage"'
-\item Die 4 Federwege an den Achsen als vertikal stehender Ladebalken 
+\item Die vier Federwege an den Achsen als vertikal stehender Ladebalken 
 \item Gaspedal 1 und 2, Bremsposition, Bremskraft, Bremsdruck, Wassertemperatur 1 und 2 werden als horizontal liegender Ladebalken 
 \item Der Lenkwinkel wird als Balken mit Indikator visualisiert.  
 \end{itemize}
 
-Auf der Seite wird die Draufsicht des Formula Student Fahrzeuges angezeigt, dass mit der Spitze nach oben zeigt. Darüber befindet sich die Visualisierung des Lenkwinkels und rechts, bzw. links befinden sich die Drehzahlanzeigen und die Federwege entsprechend der Achsen und Räder, die in der Fahrzeuggrafik zu sehen sind.
+Auf der Seite wird die Draufsicht des Formula Student Fahrzeuges angezeigt, das mit der Spitze nach oben zeigt. Darüber befindet sich die Visualisierung des Lenkwinkels und rechts bzw. links befinden sich die Drehzahlanzeigen und die Federwege entsprechend der Achsen und Räder, die in der Fahrzeuggrafik zu sehen sind.
 \\ \\
 \includegraphics[scale=0.485]{dynamischedaten.png}
 \\ \\
@@ -1505,10 +1528,13 @@ Analog wie "'bar\_horizontal()"', nur das die Einfärbung der Flächen vertikal 
 \hangindent+95pt \hangafter=1
 Rechnet den übergebenen Wert vom Wertebereich -180 bis +180 in den Wertebereich -90 bis +90. Danach wird genau eine Fläche eingefärbt, um den Grad des Lenkwinkels darzustellen.
 
+\newpage
+
+\newpage
 
 
 \subsection{Fahrdynamik}
-Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf 2 Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus 4 Komponenten.\\ \\
+Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf zwei Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus vier Komponenten.\\ \\
 
 
 \includegraphics[scale=0.42]{fahrdynamik.png}
@@ -1516,9 +1542,11 @@ Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf d
 Funktionserklärung siehe vorhergegangene Seiten.\\
 
 
+\newpage
 
 \subsection{Motor und Umrichter}
-Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus 3 Komponenten. Die 8 Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
+
+Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus drei Komponenten. Die acht Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
 
 
 
@@ -1547,18 +1575,20 @@ Da sich eine eigenständige Entwicklerdokumentation mittels doxygen oder anderen
 
 \section{Embedded PC}
 
+Bitte sehen Sie zur Entwicklerdokumentation des Abschnitts Embedded PC in die seperate, mit Doxygen erzeugte Entwicklerdokumentation.
+
 %--------------------------   vServer   ----------------------------%
 
 \section{vServer}
 
+Bitte sehen Sie zur Entwicklerdokumentation des Abschnitts vServer in die seperate, mit Doxygen erzeugte Entwicklerdokumentation.
 
 %--------------------------   Webseite  ----------------------------%
 
 \newpage
 
 \section{Webseite}
-
-Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
+Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Administrator) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
 
 Im Folgenden sollen nun Funktionen und Variablen erläutert werden, sowie die Funktionalität der einzelnen Skripte des Systems.
 
@@ -1568,7 +1598,7 @@ In dieser Datei befinden sich Funktionen, die nicht direkt mit dem aktiven Nutze
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion dient dem Erstellen aller wichtigen Datenbanken, Tabellen und dem Anlegen eines Vorstand-Accounts, sowie dem Einrichten der Benutzergruppen 'Vorstand', 'Beobachter' und 'Techniker'. Das übergebene Array beinhaltet hierbei die für die Einrichtung des Vorstand-Accounts nötigen Benutzerinformationen.
+Diese Funktion dient dem Erstellen aller wichtigen Datenbanken, Tabellen und dem Anlegen eines Vorstand-Accounts, sowie dem Einrichten der Benutzergruppen ,Vorstand', ,Beobachter' und ,Techniker'. Das übergebene Array beinhaltet hierbei die für die Einrichtung des Vorstand-Accounts nötigen Benutzerinformationen.
 
 
 \subsection*{logged\_in\_redirect()}
@@ -1604,19 +1634,19 @@ String.
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion gibt alle auf einer Seite gesammelten benutzerdefinierten Fehlermeldungen in strukturierter Art und Weise wieder aus und weist den Benutzer somit darauf hin, dass ein Fehler (höchstwahrscheinlich) durch sein Verschulden entstanden ist. Er erhält auch zeitgleich eine Fehlermeldung die ihn darauf hinweist, wo sein Fehler liegt kann.
+Diese Funktion gibt alle auf einer Seite gesammelten benutzerdefinierten Fehlermeldungen in strukturierter Art und Weise wieder aus und weist den Benutzer somit darauf hin, dass ein Fehler (höchstwahrscheinlich) durch sein Verschulden entstanden ist. Er erhält auch zeitgleich eine Fehlermeldung, die ihn darauf hinweist, wo sein Fehler liegt kann.
 
 \newpage
 
 % NUTZER FUNKTIONEN %
 
 \subsection{Nutzerfunktionen (users.php)}
-Die Funktionen in dieser Datei beziehen sich vorrangig auf den aktiven Benutzer und stellen Möglichkeiten dar auf seine Daten zuzugreifen oder mit diesen zu arbeiten.
+Die Funktionen in dieser Datei beziehen sich vorrangig auf den aktiven Benutzer und stellen Möglichkeiten dar, auf seine Daten zuzugreifen oder mit diesen zu arbeiten.
 \subsection*{change\_password(int \$user\_id, string \$password)}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wird verschlüsselt und anschließend in der MySQL-Datenbank der Eintrag mit der ID \textit{\$user\_id} in der Benutzertabelle ermittelt. Für diesen Eintrag wird das alte Passwort durch das neue Passwort ersetzt.
+Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wird verschlüsselt und anschließend in der MySQL-Datenbank der Eintrag mit der ID \textit{\$user\_id} in der Benutzertabelle ermittelt. Für diesen Eintrag wird das alte Passwort durch das neue ersetzt.
 
 
 \subsection*{register\_user(array \$register\_data)}
@@ -1624,7 +1654,7 @@ Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wi
 Thomas Golda
 \subsubsection*{Beschreibung}
 Diese Funktion bekommt ein Array von Strings übergeben und legt einen neuen Datenbankeintrag in der Tabelle für die Benutzer an.
-Der neu angelegte Nutzer ist standardmäßig deaktiviert, hat somit nicht das Recht sich einzuloggen.
+Der neu angelegte Nutzer ist standardmäßig deaktiviert und hat somit nicht das Recht sich einzuloggen.
 
 
 \subsection*{user\_count()}
@@ -1639,7 +1669,7 @@ Bestimmt die Anzahl der im System registrierten Benutzer. Nicht mit einberechnet
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion erfordert mindestens ein Argument und zwar die ID eines Nutzers. Wird sie mit mehr als diesem Parameter aufgerufen, so 
+Diese Funktion erfordert mindestens ein Argument, welches die ID eines Nutzers ist. Wird sie mit mehr als diesem Parameter aufgerufen, so 
 behandelt sich alle folgenden Parameter (vorzugsweise Strings) als gewünschte auszugebende Parameter.
 
 % HIER SOLL DSA BILD REIN %
@@ -1650,35 +1680,35 @@ behandelt sich alle folgenden Parameter (vorzugsweise Strings) als gewünschte a
 \label{Quellcodeauszug aus core/init.php}
 \end{figure}
 
-Die Funktion selbst bestimmt zur übergebenen ID die weiterhin angegebenen Parameter und gibt diese als Array aus. So gibt die aus dem Bild ersichtliche aufgerufene Funktion, die zur ID gehörigen Daten wie Vor- und Nachname, E-Mail-Adresse, Rechtegruppe und das (verschlüsselte) Passwort.
+Die Funktion selbst bestimmt zur übergebenen ID die weiterhin angegebenen Parameter und gibt diese als Array aus. So gibt die aus dem Bild ersichtliche aufgerufene Funktion die zur ID gehörigen Daten wie Vor- und Nachname, E-Mail-Adresse, Rechtegruppe und das (verschlüsselte) Passwort.
 
 
 \subsection*{isVorstand()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Vorstand' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Vorstand' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{isTechniker()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Techniker' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Techniker' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{isBeobachter()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Beobachter' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Beobachter' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{timeout()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Überprüft ob der in der Session-Variable \textit{\$\_SESSION['time']} befindliche UNIX-Zeitstempel älter als \textit{\$time} Minuten ist. Standardwert: \textit{\$time} = 60.
+Überprüft, ob der in der Session-Variable \textit{\$\_SESSION['time']} befindliche UNIX-Zeitstempel älter als \textit{\$time} Minuten ist. Standardwert: \textit{\$time} = 60.
 Gibt \textit{true} zurück, falls der Zeitstempel nicht älter als \textit{\$time} Minuten ist, \textit{false} andernfalls.
 
 
@@ -1686,21 +1716,21 @@ Gibt \textit{true} zurück, falls der Zeitstempel nicht älter als \textit{\$tim
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Gibt zurück, ob der aktive Nutzer eingeloggt ist oder nicht. Dies impliziert auch eine Überprüfung ob seine letzte Aktivität weiter als eine in der Funktion \textit{timeout()} festgelegte Zeitspanne zurück liegt.
+Gibt zurück, ob der aktive Nutzer eingeloggt ist oder nicht. Dies impliziert auch eine Überprüfung, ob seine letzte Aktivität weiter als eine in der Funktion \textit{timeout()} festgelegte Zeitspanne zurück liegt.
 Setzt zudem nach dieser Prüfung den Zeitstempel in der Sessionvariable \textit{\$\_SESSION['time']} auf einen aktuellen Zeitwert.
 
 \subsection*{refresh()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktioniert aktualisiert den Zeitwert in der Tabelle der Nutzer die sich zum aktuellen Zeitpunkt online befinden. Zudem werden alle veraltete Einträge unabhängig des Benutzers gelöscht.
+Diese Funktion aktualisiert den Zeitwert in der Tabelle der Nutzer die sich zum aktuellen Zeitpunkt online befinden. Zudem werden alle veraltete Einträge unabhängig des Benutzers gelöscht.
 
 
 \subsection*{user\_exists(string \$mail)}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Ermittelt mittels einer SQL-Anfrage ob der Benutzer der zur übermittelten E-Mail-Adresse \textit{\$mail} existiert oder nicht. Gibt im Erfolgsfall \textit{true}, sonst \textit{false} zurück.
+Ermittelt mittels einer SQL-Anfrage, ob der Benutzer der zur übermittelten E-Mail-Adresse \textit{\$mail} existiert oder nicht. Gibt im Erfolgsfall \textit{true}, sonst \textit{false} zurück.
 
 
 \subsection*{user\_active(string \$mail)}
@@ -1714,7 +1744,7 @@ Gibt \textit{true} zurück, wenn der Nutzer mit der E-Mail-Adresse \textit{\$mai
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Bekommt als Argument einen String \textit{\$mail} (= E-Mail-Adresse). Ermittelt mittels einer SQL-Anfrage anschließend die ID des dazugehörigen Nutzers.
+Bekommt als Argument einen String \textit{\$mail} (= E-Mail-Adresse) und ermittelt mittels einer SQL-Anfrage anschließend die ID des dazugehörigen Nutzers.
 
 
 \subsection*{login(string \$mail, string \$password)}
@@ -1725,9 +1755,9 @@ Gibt bei Erfolg die Nutzer-ID des zugehörigen Nutzers zurück. Existiert kein N
 
 \newpage
 \subsection{Konfigurationsdatei (config.php)}
-Die Konfigurationsdatei wird stets in der core/init.php eingebunden und ist somit auf jeder Seite verfügbar, auf der auch init.php eingebunden wird. Inbesondere liefert sie die Zugangsdaten für den Zugriff auf die MySQL-Datenbanken und speichert auch die Namen der einzelnen Tabellen, sowohl für die Fahrzeugdaten, als auch für die Nutzerdaten.
+Die Konfigurationsdatei wird stets in der core/init.php eingebunden und ist somit auf jeder Seite verfügbar, auf der auch init.php eingebunden wird. Inbesondere liefert sie die Zugangsdaten für den Zugriff auf die MySQL-Datenbanken und speichert auch die Namen der einzelnen Tabellen, sowohl für die Fahrzeugdaten als auch für die Nutzerdaten.
 \subsubsection*{\$dbhost}
-Hier kann der Hostname des MySQL-Servers festgelegt werden. Er wird meist vom Hoster mitgeteilt und lautet in den meisten Fällen 'localhost'.
+Hier kann der Hostname des MySQL-Servers festgelegt werden. Er wird meist vom Hoster mitgeteilt und lautet in den meisten Fällen ,localhost'.
 \subsubsection*{\$dbuname}
 Hierbei handelt es sich um den Login-Namen der Zugangsdaten zum Datenbankserver. Diesen erhalten Sie ebenfalls von Ihrem Hoster.
 \subsubsection*{\$dbpass}
@@ -1757,7 +1787,7 @@ Beinhaltet die E-Mail-Adresse des Vorstands oder derjenigen Person, die Benutzer
 \subsubsection*{\$salt}
 Ein Teil des Salt für das Passwort. Kann beliebiger String sein.
 \subsubsection*{\$alg}
-Ein Teil des Salt für das Passwort. Gibt den Verschlüsselungsalgorithmus an. (siehe Dokumentation der PHP-Funktion crypt())
+Ein Teil des Salt für das Passwort. Gibt den Verschlüsselungsalgorithmus an. (siehe Dokumentation der PHP-Funktion \textit{crypt()})
 \subsubsection*{\$rounds}
 Ein Teil des Salt für das Passwort. Gibt die Anzahl der Runden an, die der Algorithmus laufen soll. Dabei gilt, je größer umso sicherer, aber auch aufwändiger und langsamer.
 \subsubsection*{\$cryptsalt}
@@ -1770,123 +1800,145 @@ Endgültiger Salt. Setzt sich aus \$salt, \$alg und \$rounds zusammen.
 
 % RESTLICHE SEITEN %
 \subsection{akkudaten.php}
+$\rightarrow$ siehe 2.4.15 Akkudaten
 
+<<<<<<< HEAD
 Diese Seite gibt einen Überblick über alle Daten, die die Akkumulatoren betreffen. Zur Anzeige und Visualisierung wurden die unten folgenden Funktion geschaffen. Zum einen regeln sie das Verhalten der Tabelle, z.B. das die aktuellen Werte eingetragen sind und das die Tabelle auf-, bzw. zugeklappt werden kann. Zum anderen auch die Visualisierung der Gesamtspannung als horizontal liegender Ladebalken. Aktualisierungen von Zellspannung, Temperatur und Balancing erfolgen separat. Für Spannung und Balancing wurde dafür eine separate Funktion geschrieben. Die Temperaturaktualisierung wird dabei in der Funktion "executeQuery()" ausgeführt.\\
 
 \textbf{$\rightarrow siehe$ akkudaten\_script.js}\\
 
+=======
+\label{allgemeinefahrzeugdatenphp}
+>>>>>>> 852936732d00e2378542229831b473d4ceb90027
 \subsection{allgemeinefahrzeugdaten.php}
+$\rightarrow$ siehe 2.4.14 Allgemeine Fahrzeugdaten
 
 Diese Seite bietet eine Übersicht über ein Auswahl an Parametern. Näheres dazu im Feinentwurf. Für diese Seite wurde die Funktion toggle\_notaus() geschrieben. Sie regelt, dass das Notausfeld jeweils AN oder AUS anzeigt, bzw. einen roten oder weißen Hintergrund hat. Bis auf die unten genannten Funktionen werden alle weiteren Bearbeitungsschritte direkt in "'exectueQuery()"' ausgeführt. \\
 
 \textbf{$\rightarrow siehe$ allgemeinefahrzeugdaten\_script.js}\\
 
 \subsection{changepassword.php}
-Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwort ändern\grqq (x.y.z)
+Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwort ändern\grqq (2.4.9)
 
 \subsection{dynamischedaten.php}
+$\rightarrow$ siehe 2.4.16 Dynamische Daten
 
 Im Bereich dynamische Daten werden viele Visualisierungen und Veranschaulichungen genutzt. Dazu wurden du nachfolgenden Funktionen definiert, die z.T. auch mehrfach verwendet werden. Hauptaugenmerk sind dabei die als Ladebalken visualisierten Elemente, welche horizontal und auch vertikal angezeigt werden können. Ein weitere, etwa abgewandeltere Funktion wird für die Anzeige des Lenkwinkels genutzt, der statt einem Ladebalken nur einen einzigen Strich als Indikator hat.\\
 
 \textbf{$\rightarrow siehe$ dynamischedaten\_script.js}\\
 
 \subsection{fahrdynamik.php}
+$\rightarrow$ siehe 2.4.17 Fahrdynamik
 
 Da diese Seite nur 3 Werte anzeigen soll und diese sich nicht weiter visualisieren lassen, wurden auch keine weiteren Funktionen an dieser Stelle benötigt. Für weitere Informationen zu dieser Seite, sehen sie im Feinentwurf nach.\\
 
 \textbf{$\rightarrow siehe$ fahrdynamik\_script.js}\\
 
 \subsection{index.php}
-Sie ist die Startseite des System und liefert im ausgeloggten Zustand die Möglichkeit sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Startseite\grqq (x.y.z)
+Sie ist die Startseite des Systems und liefert im ausgeloggten Zustand die Möglichkeit, sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Startseite\grqq (2.4.5)
 
 \subsection{install.php}
-Diese Datei wird nur beim ersten Mal des Aufrufs der Seite gestartet. Sie bietet ein Formular, welches ausgefüllt werden muss und den ersten Benutzer im System erstellt: den Vorstand. Ihre Hauptaufgabe ist vor allem das Aufrufen der Funktion \textit{install\_system()} (siehe x.1.2).
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Installation\grqq (x.y.z)
+Diese Datei wird nur beim ersten Mal des Aufrufs der Seite gestartet. Sie bietet ein Formular, welches ausgefüllt werden muss und den ersten Benutzer im System erstellt: den Vorstand. Ihre Hauptaufgabe ist vor allem das Aufrufen der Funktion \textit{install\_system()} (siehe x.1.2).\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Installation\grqq (2.4.2)
 
 \subsection{login.php}
-Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verfikation ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(x.y.z)
+Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verifikation wird ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. \\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(2.4.7)
 
 \subsection{logout.php}
-Beendet die aktuelle Sitzung, löscht den zum aktiven Nutzer gehörigen Eintrag in der Online-Tabelle und leitet den Nutzer zurück auf die Startseite.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout\grqq (x.y.z)
+Beendet die aktuelle Sitzung, löscht den zum aktiven Nutzer gehörigen Eintrag in der Online-Tabelle und leitet den Nutzer zurück auf die Startseite.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout\grqq (2.4.8)
 
 \subsection{motorundumrichter.php}
+$\rightarrow$ siehe 2.4.18 Motor und Umrichter
 
 Auch auf dieser Seite werden keine anspruchsvollen Visualisierungen benötigt, so dass die Seite ohne weitere Funktionsdefinitionen auskommt.\\
 
 \textbf{$\rightarrow siehe$ motorundumrichter\_script.js}\\
 
 \subsection{register.php}
-Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (x.y.z)
+Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (2.4.6)
 
 \subsection{core/init.php}
-Hierbei handelt es sich um eine Datei die zu Beginn jeder Inhaltsseite eingebunden wird. Sie wird insbesondere im Header eingebunden, welcher wiederum in jeder Inhaltsseite eingebunden wird und sorgt dafür, dass die Sitzung nach ihrer Erzeugung über jeden Seitenwechsel erhalten bleibt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Initialisierung\grqq (x.y.z)
+Hierbei handelt es sich um eine Datei, die zu Beginn jeder Inhaltsseite eingebunden wird. Sie wird insbesondere im Header eingebunden, welcher wiederum in jeder Inhaltsseite eingebunden wird und dafür sorgt, dass die Sitzung nach ihrer Erzeugung über jeden Seitenwechsel erhalten bleibt.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Initialisierung\grqq (2.4.3)
 
 \subsection{core/functions/accept.php}
-Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Daten. Diese werden ausgewertet, d.h. es wird überprüft ob eine ID angegeben wurde und falls ja, diese von der eigenen verschieden ist. Desweiteren wird überprüft ob eine gewünschte Verwaltungsoption ('Löschen' bzw. 'Aktivieren') ausgewählt wurde, an sonsten wir der Nutzer zurück auf die Indexseite weitergeleitet. Abschließend wird noch die übergebene Rechtegruppe in einen Integer umgewandelt und mit den Daten anschließend eine Anfrage auf die Datenbank ausgeführt.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
+Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Daten. Diese werden ausgewertet, d.h. es wird überprüft, ob eine ID angegeben wurde und falls ja, diese von der eigenen verschieden ist. Des weiteren wird überprüft, ob eine gewünschte Verwaltungsoption (,Löschen' bzw. ,Aktivieren') ausgewählt wurde, ansonsten wir der Nutzer zurück auf die Indexseite weitergeleitet. Abschließend wird noch die übergebene Rechtegruppe in einen Integer umgewandelt und mit den Daten anschließend eine Anfrage auf die Datenbank ausgeführt.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (2.4.11)
 
 \subsection{core/functions/akkudaten\_sql.php}
+$\rightarrow$ siehe 2.4.15 Akkudaten
+
+$\rightarrow$ siehe 2.4.15 Akkudaten
 
 Analog wie oben funktioniert auch diese Seite, nur das hier auf die Tabelle "'\$accu\_data"' zugegriffen wird, die in diesem Fall "'akkudaten"' entspricht.\\
 
 
 \subsection{core/functions/allgemeinefahrzeugdaten\_sql.php}
+$\rightarrow$ siehe 2.4.14 Allgemeine Fahrzeugdaten
 
 Auf den Seiten mit dem Zusatz SQL werden die eigentlichen Datenbankoperationen ausgeführt. Dazu wird zu erst die Konfigurationsdatei "'config.php"' eingebunden um die nötigen Zugriffsinformationen zu erhalten. Danach wird mit den in PHP integrierten mySQLi-Methoden auf die Datenbank zugegriffen und der entsprechende Datensatz ausgelesen. In diesem Fall wird aus der Tabelle "'allgemeine\_fahrzeugdaten" gelesen, die in der Variable "'\$general\_data"' aus der Konfigurationsdatei geliefert wurde. Danach wird der Datensatz als JSON, d.h. als Array dekodiert und an die aufrufende Seite zurückgegeben. 
 
 \subsection{core/functions/csvexp\_sql.php}
-Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen welche Checkboxen vor Absenden des Formulars ausgewählt wurden als POST-Variablen. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt sondern als CSV-Datei zum Download angeboten.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
+Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen als POST-Variablen, welche Checkboxen vor Absenden des Formulars ausgewählt wurden. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt, sondern als CSV-Datei zum Download angeboten.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (2.4.10)
 
 \subsection{core/functions/dynamischedaten\_sql.php}
+$\rightarrow$ siehe 2.4.16 Dynamische Daten
 
 Besonderheit bei dieser Seite ist, dass sie von 2 unterschiedlichen Skripten aufgerufen wird, da in dieser Tabelle der Lenkwinkel hinterlegt ist, der auf 2 Seiten dargestellt werden muss. Ansonsten analog wie oben für "'\$dynamic\_data= dynamische Daten."'\\
 
 \subsection{core/functions/fahrdynamik\_sql.php}
+<<<<<<< HEAD
 Analog wie oben für "\$driving\_data=fahrdynamikregelung."'\\
+=======
+$\rightarrow$ siehe 2.4.17 Fahrdynamik
+>>>>>>> 852936732d00e2378542229831b473d4ceb90027
 
 \subsection{core/functions/general.php}
-Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.
-$\rightarrow$ Ausführliche Beschreibung siehe x.1.1
+Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.\\
+$\rightarrow$ Ausführliche Beschreibung siehe 3.4.1
 
 \subsection{core/functions/motorundumrichter\_sql.php}
+$\rightarrow$ siehe 2.4.18 Motor und Umrichter
 
 Analog wie oben für "'\$engine\_data=motor\_umrichterdaten"'\\
 
 \subsection{core/functions/users.php}
-Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.
-$\rightarrow$ Ausführliche Beschreibung siehe x.1.2
+Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.\\
+$\rightarrow$ Ausführliche Beschreibung siehe 3.4.2
 
 \subsection{includes/css/style.css}
-Beinhaltet alle CSS-Formatierungen die auf der kompletten Seiten durchgeführt wurden. Für weitere Informationen siehe Kommentare in der Datei.
+Beinhaltet alle CSS-Formatierungen, die auf der kompletten Seite durchgeführt wurden. Für weitere Informationen siehe Kommentare in der Datei.
 
 \subsection{includes/overall/footer.php}
 Beinhaltet den globalen Footer, der auf jeder Inhaltsseite eingebunden wird.
 
 \subsection{includes/overall/header.php}
-Beinhaltet den globalen Header, der auf jeder Inhaltsseite eingebunden wird. Bindet zeitgleich auch die \textit{core/init.php} und \textit{includes/header.php} für die Darstellung des Menüs eins.
+Beinhaltet den globalen Header, der auf jeder Inhaltsseite eingebunden wird. Bindet zeitgleich auch die \textit{core/init.php} und \textit{includes/header.php} für die Darstellung des Menüs ein.
 
 \subsection{includes/widgets/csvexp.php}
-Hierbei handelt es sich um ein Widget, welches zur Auswahl der verschiedenen Fahrzeugdatentabellen jeweils eine Checkbox liefert und diese Daten nach einem Klick an die \textit{core/functions/csvexp\_sql.php} weiterleitet.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
+Hierbei handelt es sich um ein Widget, welches zur Auswahl der verschiedenen Fahrzeugdatentabellen jeweils eine Checkbox liefert und diese Daten nach einem Klick an die \textit{core/functions/csvexp\_sql.php} weiterleitet.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (2.4.10)
 
 \subsection{includes/widgets/loggedin.php}
-Dies ist kein Widget wie es die anderen Dateien dieses Ordners sind. Es wird stets im Header eingebunden und liefert im eingeloggten Zustand eine namentliche Begrüßung des aktiven Nutzers. Desweiteren liefert es auf den einzeln Inhaltsseiten eine Information über das Alter der Daten. Außerdem gibt es einen Link zur \glqq Passwort ändern\grqq-Funktion sowie zur Startseite.
+Dies ist kein Widget wie es die anderen Dateien dieses Ordners sind. Es wird stets im Header eingebunden und liefert im eingeloggten Zustand eine namentliche Begrüßung des aktiven Nutzers. Desweiteren liefert es auf den einzelnen Inhaltsseiten eine Information über das Alter der Daten. Außerdem gibt es einen Link zur \glqq Passwort ändern\grqq-Funktion sowie zur Startseite.
 
 \subsection{includes/widgets/manageusers.php}
-Dieses Widget erlaubt es im System registrierte Benutzer zu verwalten, d.h. sie zu aktivieren, zu löschen und ihnen eine Rechtegruppe zuzuweisen. Dies geschieht über ein Formular, dessen Daten über POST-Variablen an die \textit{core/functions/accept.php} weitergereicht werden.
-$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
+Dieses Widget erlaubt es im System registrierte Benutzer zu verwalten, d.h. sie zu aktivieren, zu löschen und ihnen eine Rechtegruppe zuzuweisen. Dies geschieht über ein Formular, dessen Daten über POST-Variablen an die \textit{core/functions/accept.php} weitergereicht werden.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (2.4.11)
 
 \subsection{includes/widgets/onlineusers.php}
-Ein weiteres Widget, welches die Benutzer als HTML-Tabelle ausgibt, die sich gerade eingeloggt im Benutzersystem befinden. Hierbei befindet sich bei jedem Nutzereintrag auch eine relative Zeitangabe seiner letzten Aktivität.
+Ein weiteres Widget, welches die Benutzer als HTML-Tabelle ausgibt, die sich gerade eingeloggt im Benutzersystem befinden. Hierbei befindet sich bei jedem Nutzereintrag auch eine relative Zeitangabe zu seiner letzten Aktivität.\\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online-Anzeige der Nutzer\grqq (2.4.12)
 
 \subsection{includes/widgets/userlist.php}
 Dieses Widget liefert über die \textit{includes/widgets/onlineusers.php} hinaus eine Liste aller im System registrierten Benutzer. Neben Vor- und Nachname werden auch E-Mail-Adresse, Rechtegruppe, Kontostatus und Online-Status ausgegeben.
+<<<<<<< HEAD
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online Benutzer\grqq (x.y.z)
 
 
@@ -2099,6 +2151,8 @@ Es wurden keine weiteren Funktionen für diesen Bereich erstellt.
 
 
 
+=======
+>>>>>>> 852936732d00e2378542229831b473d4ceb90027
 
 %----------------------  Abbildungsverzeichnis  --------------------%
 

@@ -1,0 +1,108 @@
+\hypertarget{classdbData}{\section{db\-Data Klassenreferenz}
+\label{classdbData}\index{db\-Data@{db\-Data}}
+}
+
+
+Klasse zum Auslesen der Zugangsdaten für die Datenbank.  
+
+
+
+
+{\ttfamily \#include $<$db\-Data.\-h$>$}
+
+\subsection*{Ã–ffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdbData_a956b366e8ba336b1ce92b7e199297990}{db\-Data} ()
+\item 
+string \hyperlink{classdbData_ace04e0d01cf38795aedd7e45ec55a770}{get\-Host} ()
+\begin{DoxyCompactList}\small\item\em Memberfunktion, die die Hostadresse bereitstellt. \end{DoxyCompactList}\item 
+string \hyperlink{classdbData_ad86749e31e3b786266fb3d10bb8c0b14}{get\-User} ()
+\begin{DoxyCompactList}\small\item\em Memberfunktion, die den Benutzernamen für die Datenbank bereitstellt. \end{DoxyCompactList}\item 
+string \hyperlink{classdbData_ad27f68087763a858073688098717a0c2}{get\-P\-W} ()
+\begin{DoxyCompactList}\small\item\em Memberfunktion, die das Passwort der Datenbank bereitstellt. \end{DoxyCompactList}\item 
+string \hyperlink{classdbData_acbdfb09ee706014a5570638e0301ae85}{get\-D\-B} ()
+\begin{DoxyCompactList}\small\item\em Memberfunktion, die den Namen der Datenbank bereitstellt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{AusfÃ¼hrliche Beschreibung}
+Klasse zum Auslesen der Zugangsdaten für die Datenbank. 
+
+Diese Klasse liest die Zugangsdaten aus einer Textdatei (dbconfig.\-txt) aus und stellt sie über Memberfunktionen bereit. \begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{classInsert}{Insert} 
+\end{DoxySeeAlso}
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classdbData_a956b366e8ba336b1ce92b7e199297990}{\index{db\-Data@{db\-Data}!db\-Data@{db\-Data}}
+\index{db\-Data@{db\-Data}!dbData@{db\-Data}}
+\subsubsection[{db\-Data}]{\setlength{\rightskip}{0pt plus 5cm}db\-Data\-::db\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdbData_a956b366e8ba336b1ce92b7e199297990}
+Konstruktor der Klasse. Hier werden die Zugangsdaten aus der Textdatei in die entsprechenden lokalen Variablen eingelesen. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classdbData_acbdfb09ee706014a5570638e0301ae85}{\index{db\-Data@{db\-Data}!get\-D\-B@{get\-D\-B}}
+\index{get\-D\-B@{get\-D\-B}!dbData@{db\-Data}}
+\subsubsection[{get\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}string db\-Data\-::get\-D\-B (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdbData_acbdfb09ee706014a5570638e0301ae85}
+
+
+Memberfunktion, die den Namen der Datenbank bereitstellt. 
+
+\begin{DoxyReturn}{RÃ¼ckgabe}
+Der Name der Datenbank. 
+\end{DoxyReturn}
+\hypertarget{classdbData_ace04e0d01cf38795aedd7e45ec55a770}{\index{db\-Data@{db\-Data}!get\-Host@{get\-Host}}
+\index{get\-Host@{get\-Host}!dbData@{db\-Data}}
+\subsubsection[{get\-Host}]{\setlength{\rightskip}{0pt plus 5cm}string db\-Data\-::get\-Host (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdbData_ace04e0d01cf38795aedd7e45ec55a770}
+
+
+Memberfunktion, die die Hostadresse bereitstellt. 
+
+Wird von \hyperlink{classInsert}{Insert} aufgerufen. \begin{DoxyReturn}{RÃ¼ckgabe}
+Die Hostadresse. 
+\end{DoxyReturn}
+\hypertarget{classdbData_ad27f68087763a858073688098717a0c2}{\index{db\-Data@{db\-Data}!get\-P\-W@{get\-P\-W}}
+\index{get\-P\-W@{get\-P\-W}!dbData@{db\-Data}}
+\subsubsection[{get\-P\-W}]{\setlength{\rightskip}{0pt plus 5cm}string db\-Data\-::get\-P\-W (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdbData_ad27f68087763a858073688098717a0c2}
+
+
+Memberfunktion, die das Passwort der Datenbank bereitstellt. 
+
+\begin{DoxyReturn}{RÃ¼ckgabe}
+Das Passwort für die Datenbank und den Nutzer. 
+\end{DoxyReturn}
+\hypertarget{classdbData_ad86749e31e3b786266fb3d10bb8c0b14}{\index{db\-Data@{db\-Data}!get\-User@{get\-User}}
+\index{get\-User@{get\-User}!dbData@{db\-Data}}
+\subsubsection[{get\-User}]{\setlength{\rightskip}{0pt plus 5cm}string db\-Data\-::get\-User (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classdbData_ad86749e31e3b786266fb3d10bb8c0b14}
+
+
+Memberfunktion, die den Benutzernamen für die Datenbank bereitstellt. 
+
+\begin{DoxyReturn}{RÃ¼ckgabe}
+Der Nutzername. 
+\end{DoxyReturn}
+
+
+Die Dokumentation fÃ¼r diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+db\-Data.\-h\item 
+db\-Data.\-cpp\end{DoxyCompactItemize}

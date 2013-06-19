@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['getaddress',['getAddress',['../classLocation.html#a8329533f398db18fa528594b76492942',1,'Location']]],
+  ['getdatatype',['getDatatype',['../classData.html#aff1ebaec04ab0e77358900d0e24ca9d1',1,'Data']]],
+  ['getdb',['getDB',['../classdbData.html#acbdfb09ee706014a5570638e0301ae85',1,'dbData']]],
+  ['getforeignaddress',['getForeignAddress',['../classCommunicatingSocket.html#a13f9eca30ef56836cf23c163c848c09e',1,'CommunicatingSocket']]],
+  ['getforeignport',['getForeignPort',['../classCommunicatingSocket.html#a184fbb4775184b87ebd886a5587eb1a3',1,'CommunicatingSocket']]],
+  ['gethost',['getHost',['../classdbData.html#ace04e0d01cf38795aedd7e45ec55a770',1,'dbData']]],
+  ['getlocaladdress',['getLocalAddress',['../classSocket.html#a0fca07bdfa97874fba1a17995ed7cda3',1,'Socket']]],
+  ['getlocalport',['getLocalPort',['../classSocket.html#ae01143b667d69483a2f53d0f4ce7eeed',1,'Socket']]],
+  ['getnextdata',['getNextData',['../classDecoder.html#a822e353ce4fda29290f280d4e3e44305',1,'Decoder']]],
+  ['getnextpackage',['getNextPackage',['../classEncoder.html#aebc183e41020b51fbbd054ecc448e83b',1,'Encoder']]],
+  ['getpackage',['getPackage',['../classEncoder.html#a311f7e2d81ee27cf1c73c62bad1c046b',1,'Encoder']]],
+  ['getpackagenum',['getPackageNum',['../classDecoder.html#a28231d06fe2fd5144a939907d6ee509a',1,'Decoder']]],
+  ['getpackagepos',['getPackagePos',['../classDecoder.html#aca3dc7a7a1982ac07e1a08a0e4c91955',1,'Decoder']]],
+  ['getpackagesize',['getPackageSize',['../classEncoder.html#ac2567f8f3c63f486f82758b4da51b660',1,'Encoder']]],
+  ['getpackagesum',['getPackageSum',['../classEncoder.html#a32406ccfc04e12f876f07be50c5b2c6b',1,'Encoder']]],
+  ['getport',['getPort',['../classLocation.html#a44d22a1daca620ef1b85debcf4e939eb',1,'Location']]],
+  ['getposactualpacket',['getPosActualPacket',['../classDatatypeDaemon.html#adfee8d7c9d970d0c3b5c867465f0a092',1,'DatatypeDaemon']]],
+  ['getposition',['getPosition',['../classData.html#a2979d3d3bddf7bdf68758f940da27ef8',1,'Data']]],
+  ['getpw',['getPW',['../classdbData.html#ad27f68087763a858073688098717a0c2',1,'dbData']]],
+  ['gettime',['getTime',['../classDatatypeDaemon.html#a3ba1b224d6d7287ca57d43d9b2452720',1,'DatatypeDaemon']]],
+  ['getuser',['getUser',['../classdbData.html#ad86749e31e3b786266fb3d10bb8c0b14',1,'dbData']]],
+  ['getvalue',['getValue',['../classData.html#afbb55d5388147259bb016255b0cd9995',1,'Data']]]
+];

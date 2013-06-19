@@ -1,0 +1,96 @@
+\hypertarget{classTCPServerSocket}{\section{T\-C\-P\-Server\-Socket Klassenreferenz}
+\label{classTCPServerSocket}\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}}
+}
+
+
+{\ttfamily \#include $<$Practical\-Socket.\-h$>$}
+
+Klassendiagramm für T\-C\-P\-Server\-Socket\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTCPServerSocket}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTCPServerSocket_ae559a3154527d09fe14a8e5ee1f53d7a}{T\-C\-P\-Server\-Socket} (unsigned short local\-Port, int queue\-Len=5)  throw (\-Socket\-Exception)
+\item 
+\hyperlink{classTCPServerSocket_a3908fecb1b038f7c14fcc7726f54d01d}{T\-C\-P\-Server\-Socket} (const string \&local\-Address, unsigned short local\-Port, int queue\-Len=5)  throw (\-Socket\-Exception)
+\item 
+\hyperlink{classTCPSocket}{T\-C\-P\-Socket} $\ast$ \hyperlink{classTCPServerSocket_a1d161137e1b069de7a7bfc14d3f8212c}{accept} ()  throw (\-Socket\-Exception)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+T\-C\-P-\/\-Socket Klasse f"ur Server. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classTCPServerSocket_ae559a3154527d09fe14a8e5ee1f53d7a}{\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}!T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}}
+\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}!TCPServerSocket@{T\-C\-P\-Server\-Socket}}
+\subsubsection[{T\-C\-P\-Server\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}T\-C\-P\-Server\-Socket\-::\-T\-C\-P\-Server\-Socket (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{local\-Port, }
+\item[{int}]{queue\-Len = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classTCPServerSocket_ae559a3154527d09fe14a8e5ee1f53d7a}
+Erzeugt einen T\-C\-P-\/\-Socket f"ur die Nutzung mit dem Server, welcher zu einer beliebigen Schnittstelle auf dem vereinbarten Port Verbindungen zul"asst. 
+\begin{DoxyParams}{Parameter}
+{\em local\-Port} & Lokaler Port des Server. \\
+\hline
+{\em queue\-Len} & Maximale Warteschlangenl"ange f"ur ausstehende Verbindungsanfragen. (default 5) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls es nicht m"oglich ist einen \hyperlink{classSocket}{Socket} zu erzeugen. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classTCPServerSocket_a3908fecb1b038f7c14fcc7726f54d01d}{\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}!T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}}
+\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}!TCPServerSocket@{T\-C\-P\-Server\-Socket}}
+\subsubsection[{T\-C\-P\-Server\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}T\-C\-P\-Server\-Socket\-::\-T\-C\-P\-Server\-Socket (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{local\-Address, }
+\item[{unsigned short}]{local\-Port, }
+\item[{int}]{queue\-Len = {\ttfamily 5}}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classTCPServerSocket_a3908fecb1b038f7c14fcc7726f54d01d}
+Erzeugt einen T\-C\-P-\/\-Socket f"ur die Nutzung mit dem Server, welcher zu einer beliebigen Schnittstelle zu einer vereinbarten Adresse Verbindungen zul"asst. 
+\begin{DoxyParams}{Parameter}
+{\em local\-Address} & Lokales Interface (Adresse) des Server-\/\-Sockets. \\
+\hline
+{\em local\-Port} & Lokaler Port des Servers. \\
+\hline
+{\em queue\-Len} & Maximale Warteschlangenl"ange f"ur ausstehende Verbindungsanfragen. (default 5) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls es nicht m"oglich ist einen \hyperlink{classSocket}{Socket} zu erzeugen. \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classTCPServerSocket_a1d161137e1b069de7a7bfc14d3f8212c}{\index{T\-C\-P\-Server\-Socket@{T\-C\-P\-Server\-Socket}!accept@{accept}}
+\index{accept@{accept}!TCPServerSocket@{T\-C\-P\-Server\-Socket}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-C\-P\-Socket} $\ast$ T\-C\-P\-Server\-Socket\-::accept (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classTCPServerSocket_a1d161137e1b069de7a7bfc14d3f8212c}
+Blockiert solange bis eine neue Verbindung auf diesem \hyperlink{classSocket}{Socket} etabliert wurde oder ein Fehler auftritt. \begin{DoxyReturn}{Rückgabe}
+Neue Socketverbindung 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls der Versuch eine neue Verbindung zu erzeugen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Practical\-Socket.\-h\item 
+Practical\-Socket.\-cpp\end{DoxyCompactItemize}

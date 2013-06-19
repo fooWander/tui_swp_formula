@@ -1,0 +1,85 @@
+\hypertarget{classDatatypeDaemon}{\section{Datatype\-Daemon Klassenreferenz}
+\label{classDatatypeDaemon}\index{Datatype\-Daemon@{Datatype\-Daemon}}
+}
+
+
+Klasse zum Aufbereiten der Daten.  
+
+
+
+
+{\ttfamily \#include $<$Datatype\-Daemon.\-h$>$}
+
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDatatypeDaemon_ad7a47d928c863d8ba26d840a8c96913f}{Datatype\-Daemon} ()
+\item 
+string \hyperlink{classDatatypeDaemon_a4b664832a3dcb05ad6f7c039573d8327}{parse\-Next\-Value} ()
+\item 
+int \hyperlink{classDatatypeDaemon_adfee8d7c9d970d0c3b5c867465f0a092}{get\-Pos\-Actual\-Packet} ()
+\item 
+int \hyperlink{classDatatypeDaemon_a3ba1b224d6d7287ca57d43d9b2452720}{get\-Time} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Klasse zum Aufbereiten der Daten. 
+
+In dieser Klasse werden die Daten nicht nur in das richtige Format umgewandelt, sondern auch durch eine Zehnerpotenz geteilt, sodass sie wieder ihrem Wert vor der "Ubertragung entsprechen. Es werden weiterhin Zusatzinformationen angeboten, die es sowohl erm"oglichen, die Paketnummer und damit die Tabelle, in die eingef"ugt werden soll, zu ermitteln, als auch den Zeitstempel der Daten einzuf"ugen. Diese Klasse dient also als Schnittstelle f"ur \hyperlink{classDBPacketInsert}{D\-B\-Packet\-Insert} zum \hyperlink{classDecoder}{Decoder}.
+
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{classData}{Data} 
+\end{DoxySeeAlso}
+
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classDatatypeDaemon_ad7a47d928c863d8ba26d840a8c96913f}{\index{Datatype\-Daemon@{Datatype\-Daemon}!Datatype\-Daemon@{Datatype\-Daemon}}
+\index{Datatype\-Daemon@{Datatype\-Daemon}!DatatypeDaemon@{Datatype\-Daemon}}
+\subsubsection[{Datatype\-Daemon}]{\setlength{\rightskip}{0pt plus 5cm}Datatype\-Daemon\-::\-Datatype\-Daemon (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDatatypeDaemon_ad7a47d928c863d8ba26d840a8c96913f}
+Konstruktor der Klasse. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classDatatypeDaemon_adfee8d7c9d970d0c3b5c867465f0a092}{\index{Datatype\-Daemon@{Datatype\-Daemon}!get\-Pos\-Actual\-Packet@{get\-Pos\-Actual\-Packet}}
+\index{get\-Pos\-Actual\-Packet@{get\-Pos\-Actual\-Packet}!DatatypeDaemon@{Datatype\-Daemon}}
+\subsubsection[{get\-Pos\-Actual\-Packet}]{\setlength{\rightskip}{0pt plus 5cm}int Datatype\-Daemon\-::get\-Pos\-Actual\-Packet (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDatatypeDaemon_adfee8d7c9d970d0c3b5c867465f0a092}
+Diese Funktion liefert die Position des jetzigen Datenwerts im "Ubertragungsvektor der Mikro\-Autobox\-I\-I zur"uck.
+
+Dies ist f"ur die Bestimmung des "Ubertragungspakets vom Embedded P\-C wichtig, da darauf basierend die richtige Datenbankanfrage in \hyperlink{classDBPacketInsert}{D\-B\-Packet\-Insert} aufgebaut wird.
+
+\begin{DoxyReturn}{Rückgabe}
+Aus \hyperlink{classData}{Data} extrahierter und aufbereiteter Wert im String-\/\-Format. 
+\end{DoxyReturn}
+\hypertarget{classDatatypeDaemon_a3ba1b224d6d7287ca57d43d9b2452720}{\index{Datatype\-Daemon@{Datatype\-Daemon}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!DatatypeDaemon@{Datatype\-Daemon}}
+\subsubsection[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}int Datatype\-Daemon\-::get\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDatatypeDaemon_a3ba1b224d6d7287ca57d43d9b2452720}
+Diese Memberfunktion gibt den Zeitstempel des aktuellen Pakets zur"uck. \begin{DoxyReturn}{Rückgabe}
+Zeitstempel des Pakets. 
+\end{DoxyReturn}
+\hypertarget{classDatatypeDaemon_a4b664832a3dcb05ad6f7c039573d8327}{\index{Datatype\-Daemon@{Datatype\-Daemon}!parse\-Next\-Value@{parse\-Next\-Value}}
+\index{parse\-Next\-Value@{parse\-Next\-Value}!DatatypeDaemon@{Datatype\-Daemon}}
+\subsubsection[{parse\-Next\-Value}]{\setlength{\rightskip}{0pt plus 5cm}string Datatype\-Daemon\-::parse\-Next\-Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classDatatypeDaemon_a4b664832a3dcb05ad6f7c039573d8327}
+Diese Funktion wird von \hyperlink{classDBPacketInsert}{D\-B\-Packet\-Insert} aufgerufen.
+
+Sie holt sich ein \hyperlink{classData}{Data} Objekt vom \hyperlink{classDecoder}{Decoder} und extrahiert daraus die Nutzdaten und die Position dieser Daten im Paket. Die Position wird dabei in einer Membervariablen zwischengespeichert. Nachdem der Datentyp bestimmt wurde, wird eine Divison durch eine Zehnerpotenz entsprechend dem jetzt erst extrahierten Wert aus \hyperlink{classData}{Data} durchgef"uhrt, um den Wert auf seine urspr"ungliche Gr"o�e zur"uckzubringen. Dies wird jedoch nur ausgef"uhrt, wenn der Wert vor der "Ubertragung ein Gleitkommawert war. Abschlie�end wird der Wert in einen String umgewandelt, der dann an den Aufrufer zur"uckgegeben wird. 
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Datatype\-Daemon.\-h\item 
+Datatype\-Daemon.\-cpp\end{DoxyCompactItemize}

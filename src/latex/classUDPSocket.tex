@@ -1,0 +1,223 @@
+\hypertarget{classUDPSocket}{\section{U\-D\-P\-Socket Klassenreferenz}
+\label{classUDPSocket}\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}}
+}
+
+
+{\ttfamily \#include $<$Practical\-Socket.\-h$>$}
+
+Klassendiagramm für U\-D\-P\-Socket\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classUDPSocket}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classUDPSocket_a4f86f3023f5a08f6355802599a10e100}{U\-D\-P\-Socket} ()  throw (\-Socket\-Exception)
+\item 
+\hyperlink{classUDPSocket_a14dcb55c4b60b12d4a7fff648cbb825f}{U\-D\-P\-Socket} (unsigned short local\-Port)  throw (\-Socket\-Exception)
+\item 
+\hyperlink{classUDPSocket_af19281c523f15ed30d7d78f09033713d}{U\-D\-P\-Socket} (const string \&local\-Address, unsigned short local\-Port)  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classUDPSocket_a7482e8e61cef160e1a7c0d6ac15c01be}{disconnect} ()  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classUDPSocket_a41a3595e226f273953cbd38618af5d5b}{send\-To} (const void $\ast$buffer, int buffer\-Len, const string \&foreign\-Address, unsigned short foreign\-Port)  throw (\-Socket\-Exception)
+\item 
+int \hyperlink{classUDPSocket_abcd5c064e2496bd8b1888fd4e1b68949}{recv\-From} (void $\ast$buffer, int buffer\-Len, string \&source\-Address, unsigned short \&source\-Port)  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classUDPSocket_a4dcfff33b45d1b84b5a602fc6f4a27f8}{set\-Multicast\-T\-T\-L} (unsigned char multicast\-T\-T\-L)  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classUDPSocket_a1b20c1e8bd49a9bd9b53dd4f1c8d4c11}{join\-Group} (const string \&multicast\-Group)  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classUDPSocket_a78835eaeca8a5ac039b4579c795e3640}{leave\-Group} (const string \&multicast\-Group)  throw (\-Socket\-Exception)
+\end{DoxyCompactItemize}
+\subsection*{Weitere Geerbte Elemente}
+
+
+\subsection{Ausführliche Beschreibung}
+U\-D\-P-\/\-Socket Klasse 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classUDPSocket_a4f86f3023f5a08f6355802599a10e100}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!U\-D\-P\-Socket@{U\-D\-P\-Socket}}
+\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{U\-D\-P\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}U\-D\-P\-Socket\-::\-U\-D\-P\-Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_a4f86f3023f5a08f6355802599a10e100}
+Erzeugt einen U\-D\-P-\/\-Socket. 
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls die Erzeugung fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classUDPSocket_a14dcb55c4b60b12d4a7fff648cbb825f}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!U\-D\-P\-Socket@{U\-D\-P\-Socket}}
+\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{U\-D\-P\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}U\-D\-P\-Socket\-::\-U\-D\-P\-Socket (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{local\-Port}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_a14dcb55c4b60b12d4a7fff648cbb825f}
+Erzeugt einen U\-D\-P-\/\-Socket mit einem spezifischen Port. 
+\begin{DoxyParams}{Parameter}
+{\em local\-Port} & Lokaler Port \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls die Erzeugung fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classUDPSocket_af19281c523f15ed30d7d78f09033713d}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!U\-D\-P\-Socket@{U\-D\-P\-Socket}}
+\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{U\-D\-P\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}U\-D\-P\-Socket\-::\-U\-D\-P\-Socket (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{local\-Address, }
+\item[{unsigned short}]{local\-Port}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_af19281c523f15ed30d7d78f09033713d}
+Erzeugt einen U\-D\-P-\/\-Socket mit einer spezifischen Adresse und einem gegebenen Port. 
+\begin{DoxyParams}{Parameter}
+{\em local\-Address} & Lokale Adresse. \\
+\hline
+{\em local\-Port} & Lokaler Port. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls die Erzeugung fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classUDPSocket_a7482e8e61cef160e1a7c0d6ac15c01be}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{disconnect}]{\setlength{\rightskip}{0pt plus 5cm}void U\-D\-P\-Socket\-::disconnect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_a7482e8e61cef160e1a7c0d6ac15c01be}
+Setze Adresse und Port zur"uck. \begin{DoxyReturn}{Rückgabe}
+true falls kein Fehler auftrat. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls eine Trennung fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classUDPSocket_a1b20c1e8bd49a9bd9b53dd4f1c8d4c11}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!join\-Group@{join\-Group}}
+\index{join\-Group@{join\-Group}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{join\-Group}]{\setlength{\rightskip}{0pt plus 5cm}void U\-D\-P\-Socket\-::join\-Group (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{multicast\-Group}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_a1b20c1e8bd49a9bd9b53dd4f1c8d4c11}
+Tritt der angegebenen Multicast-\/\-Gruppe bei. 
+\begin{DoxyParams}{Parameter}
+{\em multicast\-Group} & Adresse der Mutlicast-\/\-Gruppe. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls das Beitreten fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classUDPSocket_a78835eaeca8a5ac039b4579c795e3640}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!leave\-Group@{leave\-Group}}
+\index{leave\-Group@{leave\-Group}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{leave\-Group}]{\setlength{\rightskip}{0pt plus 5cm}void U\-D\-P\-Socket\-::leave\-Group (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{multicast\-Group}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_a78835eaeca8a5ac039b4579c795e3640}
+Verlasse die angegebene Multicast-\/\-Gruppe. 
+\begin{DoxyParams}{Parameter}
+{\em multicast\-Group} & Zu verlassende Multicast-\/\-Gruppe. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls das Verlassen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classUDPSocket_abcd5c064e2496bd8b1888fd4e1b68949}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!recv\-From@{recv\-From}}
+\index{recv\-From@{recv\-From}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{recv\-From}]{\setlength{\rightskip}{0pt plus 5cm}int U\-D\-P\-Socket\-::recv\-From (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buffer, }
+\item[{int}]{buffer\-Len, }
+\item[{string \&}]{source\-Address, }
+\item[{unsigned short \&}]{source\-Port}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_abcd5c064e2496bd8b1888fd4e1b68949}
+Empf"angt eine Nachricht an einem U\-D\-P-\/\-Socket. 
+\begin{DoxyParams}{Parameter}
+{\em buffer} & Buffer, in den gelesen werden soll. \\
+\hline
+{\em buffer\-Len} & Maximale Anzahl an Bytes, die empfangen werden sollen. \\
+\hline
+{\em source\-Address} & Adresse, von der die Nachricht stammt. \\
+\hline
+{\em source\-Port} & Portnummer des Senders. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Anzahl der Bytes die empfangen wurden, -\/1 falls ein Fehler auftrat. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls das Empfangen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classUDPSocket_a41a3595e226f273953cbd38618af5d5b}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!send\-To@{send\-To}}
+\index{send\-To@{send\-To}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{send\-To}]{\setlength{\rightskip}{0pt plus 5cm}void U\-D\-P\-Socket\-::send\-To (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{buffer, }
+\item[{int}]{buffer\-Len, }
+\item[{const string \&}]{foreign\-Address, }
+\item[{unsigned short}]{foreign\-Port}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_a41a3595e226f273953cbd38618af5d5b}
+Sendet einen Buffer als U\-D\-P-\/\-Datagramm an eine bestimmte Adresse und Portnummer. 
+\begin{DoxyParams}{Parameter}
+{\em buffer} & Buffer, der gesendet werden soll. \\
+\hline
+{\em buffer\-Len} & Anzahl der Bytes, die geschrieben werden sollen. \\
+\hline
+{\em foreign\-Address} & Adresse, an die versendet werden soll. \\
+\hline
+{\em foreign\-Port} & Portnummer, an die versendet werden soll. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+true falls Versand geklappt hat. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls, das Senden fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classUDPSocket_a4dcfff33b45d1b84b5a602fc6f4a27f8}{\index{U\-D\-P\-Socket@{U\-D\-P\-Socket}!set\-Multicast\-T\-T\-L@{set\-Multicast\-T\-T\-L}}
+\index{set\-Multicast\-T\-T\-L@{set\-Multicast\-T\-T\-L}!UDPSocket@{U\-D\-P\-Socket}}
+\subsubsection[{set\-Multicast\-T\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}void U\-D\-P\-Socket\-::set\-Multicast\-T\-T\-L (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{multicast\-T\-T\-L}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classUDPSocket_a4dcfff33b45d1b84b5a602fc6f4a27f8}
+Setzt Multicast T\-T\-L. 
+\begin{DoxyParams}{Parameter}
+{\em multicast\-T\-T\-L} & Multicast T\-T\-L. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen, falls das Setzen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Practical\-Socket.\-h\item 
+Practical\-Socket.\-cpp\end{DoxyCompactItemize}

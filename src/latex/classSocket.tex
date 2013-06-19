@@ -1,0 +1,150 @@
+\hypertarget{classSocket}{\section{Socket Klassenreferenz}
+\label{classSocket}\index{Socket@{Socket}}
+}
+
+
+{\ttfamily \#include $<$Practical\-Socket.\-h$>$}
+
+Klassendiagramm für Socket\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classSocket}
+\end{center}
+\end{figure}
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSocket_aeac4eb6379a543d38ed88977d3b6630a}{$\sim$\-Socket} ()
+\item 
+string \hyperlink{classSocket_a0fca07bdfa97874fba1a17995ed7cda3}{get\-Local\-Address} ()  throw (\-Socket\-Exception)
+\item 
+unsigned short \hyperlink{classSocket_ae01143b667d69483a2f53d0f4ce7eeed}{get\-Local\-Port} ()  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classSocket_a773fe4a35146002de76952e16fdebcfa}{set\-Local\-Port} (unsigned short local\-Port)  throw (\-Socket\-Exception)
+\item 
+void \hyperlink{classSocket_aa6b986410bc2e606ba27d01fa7cb8836}{set\-Local\-Address\-And\-Port} (const string \&local\-Address, unsigned short local\-Port=0)  throw (\-Socket\-Exception)
+\end{DoxyCompactItemize}
+\subsection*{Öffentliche, statische Methoden}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned short \hyperlink{classSocket_a982c63b25c5b756321a74074a275adbc}{resolve\-Service} (const string \&service, const string \&protocol=\char`\"{}tcp\char`\"{})
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSocket_a53e00027bab2125a2b407914c6148589}{{\bfseries Socket} (int type, int protocol)  throw (\-Socket\-Exception)}\label{classSocket_a53e00027bab2125a2b407914c6148589}
+
+\item 
+\hypertarget{classSocket_a6a2609eef6559336a595a336f138d395}{{\bfseries Socket} (int sock\-Desc)}\label{classSocket_a6a2609eef6559336a595a336f138d395}
+
+\end{DoxyCompactItemize}
+\subsection*{Geschützte Attribute}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classSocket_ad5704d2fdfb062139e1f88831617bbfb}{int {\bfseries sock\-Desc}}\label{classSocket_ad5704d2fdfb062139e1f88831617bbfb}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Basisklasse, welche den Endpunkt der grundlegenden Kommunikation darstellt. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classSocket_aeac4eb6379a543d38ed88977d3b6630a}{\index{Socket@{Socket}!$\sim$\-Socket@{$\sim$\-Socket}}
+\index{$\sim$\-Socket@{$\sim$\-Socket}!Socket@{Socket}}
+\subsubsection[{$\sim$\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}Socket\-::$\sim$\-Socket (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classSocket_aeac4eb6379a543d38ed88977d3b6630a}
+Schließt und dealloziert diesen \hyperlink{classSocket}{Socket}. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classSocket_a0fca07bdfa97874fba1a17995ed7cda3}{\index{Socket@{Socket}!get\-Local\-Address@{get\-Local\-Address}}
+\index{get\-Local\-Address@{get\-Local\-Address}!Socket@{Socket}}
+\subsubsection[{get\-Local\-Address}]{\setlength{\rightskip}{0pt plus 5cm}string Socket\-::get\-Local\-Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classSocket_a0fca07bdfa97874fba1a17995ed7cda3}
+Holt die lokale Adresse. \begin{DoxyReturn}{Rückgabe}
+local Adresse des Sockets. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em Wirft} & \hyperlink{classSocketException}{Socket\-Exception} falls das Holen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classSocket_ae01143b667d69483a2f53d0f4ce7eeed}{\index{Socket@{Socket}!get\-Local\-Port@{get\-Local\-Port}}
+\index{get\-Local\-Port@{get\-Local\-Port}!Socket@{Socket}}
+\subsubsection[{get\-Local\-Port}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Socket\-::get\-Local\-Port (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classSocket_ae01143b667d69483a2f53d0f4ce7eeed}
+Holt den lokalen Port. \begin{DoxyReturn}{Rückgabe}
+Lokalen Port des Sockets. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls das Holen fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classSocket_a982c63b25c5b756321a74074a275adbc}{\index{Socket@{Socket}!resolve\-Service@{resolve\-Service}}
+\index{resolve\-Service@{resolve\-Service}!Socket@{Socket}}
+\subsubsection[{resolve\-Service}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Socket\-::resolve\-Service (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{service, }
+\item[{const string \&}]{protocol = {\ttfamily \char`\"{}tcp\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classSocket_a982c63b25c5b756321a74074a275adbc}
+Ermittelt den spezifizierten Service f"ur das angegebene Protokoll. 
+\begin{DoxyParams}{Parameter}
+{\em service} & Zu ermittelnde Service (e.\-g., \char`\"{}http\char`\"{}). \\
+\hline
+{\em protocol} & Protokoll des zu ermittelnden Service. Standard ist \char`\"{}tcp\char`\"{}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classSocket_aa6b986410bc2e606ba27d01fa7cb8836}{\index{Socket@{Socket}!set\-Local\-Address\-And\-Port@{set\-Local\-Address\-And\-Port}}
+\index{set\-Local\-Address\-And\-Port@{set\-Local\-Address\-And\-Port}!Socket@{Socket}}
+\subsubsection[{set\-Local\-Address\-And\-Port}]{\setlength{\rightskip}{0pt plus 5cm}void Socket\-::set\-Local\-Address\-And\-Port (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{local\-Address, }
+\item[{unsigned short}]{local\-Port = {\ttfamily 0}}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classSocket_aa6b986410bc2e606ba27d01fa7cb8836}
+Setzt den lokalen Port und die lokale Adresse. Wenn kein Port angegeben wird, wird ein zuf"alliger gew"ahlt. 
+\begin{DoxyParams}{Parameter}
+{\em local\-Address} & Lokale Adresse. \\
+\hline
+{\em local\-Port} & Lokaler Port. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen falls das Setzen des lokalen Ports oder der Adresse fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classSocket_a773fe4a35146002de76952e16fdebcfa}{\index{Socket@{Socket}!set\-Local\-Port@{set\-Local\-Port}}
+\index{set\-Local\-Port@{set\-Local\-Port}!Socket@{Socket}}
+\subsubsection[{set\-Local\-Port}]{\setlength{\rightskip}{0pt plus 5cm}void Socket\-::set\-Local\-Port (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{local\-Port}
+\end{DoxyParamCaption}
+) throw  {\bf Socket\-Exception}) }}\label{classSocket_a773fe4a35146002de76952e16fdebcfa}
+Setzt den lokalen Port zu einem gew"ahlten Port und die lokale Adresse zu einer beliebigen Schnittstelle. 
+\begin{DoxyParams}{Parameter}
+{\em local\-Port} & Lokaler Port \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Ausnahmebehandlung}
+{\em \hyperlink{classSocketException}{Socket\-Exception}} & wird geworfen wenn das Setzen des lokalen Ports fehlschl"agt. \\
+\hline
+\end{DoxyExceptions}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Practical\-Socket.\-h\item 
+Practical\-Socket.\-cpp\end{DoxyCompactItemize}
