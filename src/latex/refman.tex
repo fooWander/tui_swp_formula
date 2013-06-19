@@ -1,5 +1,5 @@
-\documentclass[twoside]{book}
-
+%\documentclass[twoside]{book}
+\documentclass[fontsize = 12pt, paper = a4]{scrreprt}
 % Packages required by doxygen
 \usepackage{calc}
 \usepackage{doxygen}
@@ -10,10 +10,10 @@
 \usepackage{multirow}
 \usepackage{textcomp}
 \usepackage[table]{xcolor}
-
+ 
 % NLS support packages
 \usepackage[ngerman]{babel}
-
+ 
 % Font selection
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
@@ -30,7 +30,7 @@
   \fontseries{bc}\selectfont%
   \color{darkgray}%
 }
-
+ 
 % Page & text layout
 \usepackage{geometry}
 \geometry{%
@@ -58,7 +58,7 @@
   }%
 }
 \makeatother
-
+ 
 % Headers & footers
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
@@ -70,8 +70,8 @@
 \fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[LE]{\fancyplain{}{}}
 \fancyfoot[CE]{\fancyplain{}{}}
-\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 03:26:04 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
-\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 03:26:04 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 01:45:31 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 01:45:31 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -81,14 +81,14 @@
 \renewcommand{\sectionmark}[1]{%
   \markright{\thesection\ #1}%
 }
-
+ 
 % Indices & bibliography
 \usepackage{natbib}
 \usepackage[titles]{tocloft}
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{5}
 \makeindex
-
+ 
 % Hyperlinks (required, but should be loaded last)
 \usepackage{ifpdf}
 \ifpdf
@@ -102,42 +102,66 @@
   citecolor=blue,%
   unicode%
 }
-
+ 
 % Custom commands
 \newcommand{\clearemptydoublepage}{%
   \newpage{\pagestyle{empty}\cleardoublepage}%
 }
-
-
+ 
+ 
 %===== C O N T E N T S =====
-
+ 
 \begin{document}
-
+ 
 % Titlepage & ToC
 \hypersetup{pageanchor=false}
 \pagenumbering{roman}
-\begin{titlepage}
-\vspace*{7cm}
-\begin{center}%
-{\Large Service-\/\-Interface für ein Formula Student Fahrzeug }\\
-\vspace*{1cm}
-{\large Erzeugt von Doxygen 1.8.4}\\
-\vspace*{0.5cm}
-{\small Mit Jun 19 2013 03:26:04}\\
-\end{center}
-\end{titlepage}
+%\begin{titlepage}
+%\vspace*{7cm}
+%\begin{center}%
+%{\Large Service-\/\-Interface für ein Formula Student Fahrzeug }\\
+%Entwicklerdokumentation
+%\vspace*{1cm}
+%{\large Erzeugt von Doxygen 1.8.4}\\
+%\vspace*{0.5cm}
+%{\small Mit Jun 19 2013 01:45:31}\\
+%\end{center}
+%\end{titlepage}
+ 
+\titlehead{\begin{center}
+\textbf{\Huge Entwicklerdokumentation}
+\end{center}}
+                   
+\title{Service-Interface \\ für ein Formula-Student-Fahrzeug}
+ 
+\subtitle{Technische Universität Ilmenau \\
+                  Softwareprojekt SS 2013 \\ Gruppe 19}                
+               
+\author{Christian Boxdörfer \\ Thomas Golda \\ Daniel Häger \\
+                David Kudlek \\  Tom Porzig \\ Tino Tausch \\
+                Tobias Zehner \\ Sebastian Zehnter}
+               
+\date{19.06.2013}        
+         
+\publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
+ 
+\maketitle             
+ 
 \clearemptydoublepage
 \tableofcontents
 \clearemptydoublepage
 \pagenumbering{arabic}
 \hypersetup{pageanchor=true}
-
+ 
 %--- Begin generated contents ---
 \chapter{Hierarchie-\/\-Verzeichnis}
 \input{hierarchy}
 \chapter{Klassen-\/\-Verzeichnis}
 \input{annotated}
 \chapter{Klassen-\/\-Dokumentation}
+ 
+Wir bedienen uns teilweise an der PracticalSocket-Bibliothek um die Socket-Kommunikaton unter C++ zu vereinfachen. Der Quellcode in \texttt{PracticalSocket.h} und \texttt{PracticalSocket.cpp} stammt bis auf ein paar kleinere Änderungen also nicht von uns. Der Quelltext wurde hier entnommen: \url{http://cs.ecs.baylor.edu/~donahoo/practical/CSockets/practical/}
+ 
 \input{classCommunicatingSocket}
 \input{classData}
 \input{classDatatypeDaemon}
@@ -154,11 +178,11 @@
 \input{classTCPSocket}
 \input{classUDPSocket}
 %--- End generated contents ---
-
+ 
 % Index
 \newpage
 \phantomsection
 \addcontentsline{toc}{part}{Index}
 \printindex
-
+ 
 \end{document}
