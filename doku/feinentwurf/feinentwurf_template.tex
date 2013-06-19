@@ -1219,8 +1219,8 @@ Der Nutzer wird nach dem Durchlauf des Skripts aufgefordert ein Formular auszuf�
 
 \newpage
 \subsection{Initialisierung der Seiten}
-Zu Beginn jeder Seite wird die Datei \textit{core/init.php} eingebunden. Diese sorgt dafür, dass zu Beginn der einzelnen Skripte alle Variablen und Funktionen definiert sind, sowie eine neue Sitzung (Session) gestartet wird. Dies wird erreicht, indem die Dateien \textit{include/config.php}, \textit{core/functions/general.php} und \textit{core/functions/users.php} eingebunden werden. Zudem wird für einige Funktionen bereits eine Verbindung zur Datenbank aufgebaut.\\
-Anschließend wird die Funktion \textit{logged\_in()} ausgeführt, diese überprüft ob der Nutzer sich bereits eingeloggt hat. Ist dies nicht der Fall, wird lediglich ein \glqq globales\grqq Array \textit{\$errors[]} erzeugt, indem an vielen Stellen in unterschiedlichen Skripten Fehlermeldungen gesammelt werden können. Hat sich der Benutzer jedoch bereits eingeloggt wird noch geprüft ob der Nutzer bereits aktiviert wurde. Falls nicht, wird die aktuelle Sitzung zerstört, der Benutzer auf die Startseite mittels \textit{header()}-Redirect umgeleitet und das Skript beendet. Ist der Nutzer hingegen bereits aktiviert worden, wird ebenfalls das \glqq globale\grqq Fehlerarray \textit{\$errors[]} angelegt und das Skript beendet.
+Zu Beginn jeder Seite wird die Datei \textit{core/init.php} eingebunden. Diese sorgt dafür, dass zu Beginn der einzelnen Skripte alle Variablen und Funktionen definiert sind sowie eine neue Sitzung (Session) gestartet wird. Dies wird erreicht, indem die Dateien \textit{include/config.php}, \textit{core/functions/general.php} und \textit{core/functions/users.php} eingebunden werden. Zudem wird für einige Funktionen bereits eine Verbindung zur Datenbank aufgebaut.\\
+Anschließend wird die Funktion \textit{logged\_in()} ausgeführt, welche überprüft, ob der Nutzer sich bereits eingeloggt hat. Ist dies nicht der Fall, wird lediglich ein \glqq globales\grqq Array \textit{\$errors[]} erzeugt, indem an vielen Stellen in unterschiedlichen Skripten Fehlermeldungen gesammelt werden können. Hat sich der Benutzer jedoch bereits eingeloggt, wird noch geprüft, ob der Nutzer bereits aktiviert wurde. Falls nicht, wird die aktuelle Sitzung zerstört, der Benutzer auf die Startseite mittels \textit{header()}-Redirect umgeleitet und das Skript beendet. Ist der Nutzer hingegen bereits aktiviert worden, wird ebenfalls das \glqq globale\grqq Fehlerarray \textit{\$errors[]} angelegt und das Skript beendet.
 
 \begin{figure}[h]
 \centering
@@ -1231,9 +1231,7 @@ Anschließend wird die Funktion \textit{logged\_in()} ausgeführt, diese überpr
 
 \newpage
 \subsection{Header}
-Die Datei \textit{includes/header.php} wird von der \textit{includes/overall/header.php} eingebunden. Sie setzt vor allen Ding das Menü um, mittels welchem der Nutzer auf der Seite navigieren kann, insofern er denn eingeloggt ist.\\
-Dabei prüft \textit{header.php} zuerst mittels der Funktion \textit{logged\_in()} ob der Nutzer eingeloggt ist. Ist dem so, so zeigt er sowohl Menü als auch das Widget \textit{includes/widgets/loggedin.php} an, welches den Nutzer mit seinem Namen begrüßt, ihm die Möglichkeit bietet sein Passwort zu ändern oder die Startseite aufzurufen. Außerdem wird auf den einzelnen Seiten die über das Menü aufgerufen werden können, jeweils eine Information eingeblendet, ob die Daten bereits\glqq veraltet\grqq sind.\\
-Desweiteren wird bei Aufruf dieser \textit{header.php} Datei immer der Eintrag in der Online-Nutzer Tabelle aktualisiert, indem die Funktion \textit{refresh()} ausgeführt wird.
+Die Datei \textit{includes/header.php} wird von der \textit{includes/overall/header.php} eingebunden. Sie setzt vor allen Dingen das Menü um, mittels welchem der Nutzer auf der Seite navigieren kann, insofern er denn eingeloggt ist. Dabei prüft \textit{header.php} zuerst mittels der Funktion \textit{logged\_in()} ob der Nutzer eingeloggt ist. Ist dem so, so zeigt er sowohl Menü als auch das Widget \textit{includes/widgets/loggedin.php} an, welches den Nutzer mit seinem Namen begrüßt, ihm die Möglichkeit bietet sein Passwort zu ändern oder die Startseite aufzurufen. Außerdem wird auf den einzelnen Seiten die über das Menü aufgerufen werden können, jeweils eine Information eingeblendet, ob die Daten bereits \glqq veraltet\grqq \ sind. Des Weiteren wird bei Aufruf dieser \textit{header.php} Datei immer der Eintrag in der Online-Nutzer-Tabelle aktualisiert, indem die Funktion \textit{refresh()} ausgeführt wird.
 
 \begin{figure}[h]
 \centering
@@ -1243,17 +1241,18 @@ Desweiteren wird bei Aufruf dieser \textit{header.php} Datei immer der Eintrag i
 \end{figure}
 
 \subsection{Startseite}
-Die Startseite ist wie der Name bereits verrät der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe x.y.z Allgemeiner Seitenaufbau [Davids erster Punkt]) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
-Im Anschluss wird überprüft ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe x.y.z).\\
+Die Startseite ist -- wie der Name bereits verrät -- der Startpunkt jedes Aufrufes des Service Interfaces. Nachdem der Benutzer die Seite aufruft, werden vom \textit{index.php}-Skript alle nötigen Dateien eingebunden. Die logischen und funktionalen Aspekte werden durch Einbinden der \textit{core/init.php} Datei erreicht. Für das Layout und die HTML-Komponenten wird \textit{includes/overall/header.php} eingebunden (siehe x.y.z Allgemeiner Seitenaufbau [Davids erster Punkt]) wo u. a. auch geprüft wird, ob sich der Nutzer eingeloggt hat oder nicht und ggf. auf die Startseite weitergeleitet wird.\\
+Im Anschluss wird überprüft, ob sich der Benutzer bereits eingeloggt hat oder nicht. Für den Fall, dass er noch nicht eingeloggt ist, erscheint ein Formular, in welches er E-Mail-Adresse und Passwort eingeben kann. Diese Daten werden anschließend an das Skript \textit{login.php} mittels \textit{POST}-Request verschickt und anschließend validiert sowie verifiziert (siehe x.y.z).\\
 Alternativ kann sich der Benutzer auch einen neuen Account erstellen. Dies erreicht er durch Auswählen des \glqq Jetzt registrieren\grqq-Links, wodurch er auf die Skript-Seite \textit{register.php} weitergeleitet wird. Der Nutzer erhält erneut ein Formular, welches er für die Registrierung vollständig ausfüllen muss. Diese Daten werden anschließend nach dem Klick auf den Abschicken-Button validiert (siehe x.y.z.).\\
-Hat sich der Nutzer eingeloggt oder war bereits eingeloggt als er die Seite aufrief, werden ihm anstelle des Login-Formulars einige Widgets in Abhängigkeit seiner Rechtegruppe (\textit{isVorstand()}-Aufruf) angezeigt, die da wären
+Hat sich der Nutzer eingeloggt oder war bereits eingeloggt als er die Seite aufrief, werden ihm anstelle des Login-Formulars eine Auswahl aus den nachfolgenden Widgets in Abhängigkeit seiner Rechtegruppe (\textit{isVorstand()}-Aufruf) angezeigt:
 
 \begin{itemize}
  \item Möglichkeit zum Export der in der Datenbank befindlichen Fahrzeugdaten (jeder Nutzer; \textit{includes/widgets/csvexport.php})
  \item Liste der sich aktuell online befindlichen Nutzer (jeder Nutzer;\\ \textit{includes/widgets/onlineusers.php})
  \item Möglichkeit der Verwaltung der Nutzer\\ (nur Vorstand; \textit{includes/widgets/manageusers.php})
  \item Liste der im System registrierten Benutzer (nur Vorstand; \textit{includes/widgets/userlist.php})
-Desweiteren werden ihm nach dem Login auch ein horizontales Menü eingeblendet über welches der Nutzer die Möglichkeit erhält die verschiedenen Unterseiten aufzurufen und sich ggf. wieder auszuloggen.
+ 
+Des Weiteren wird ihm nach dem Login auch ein horizontales Menü eingeblendet, über welches der Nutzer die Möglichkeit erhält die verschiedenen Unterseiten aufzurufen und sich ggf. wieder auszuloggen.
 \end{itemize}
 
 \begin{figure}[h]
@@ -1265,7 +1264,7 @@ Desweiteren werden ihm nach dem Login auch ein horizontales Menü eingeblendet �
 
 \newpage
 \subsection{Registrierung}
-Der Nutzer erreicht über einen Link auf der Startseite das Registrierungsformular. Dieses bindet zu Beginn die gewohnten \textit{includes/overall/header.php} und die \textbf{core/init.php} ein. Anschließend wird geprüft ob der Nutzer sich bereits eingeloggt hat. Falls ja, so wird er auf die Startseite umgeleitet, andernfalls wird ihm das Registrierungsformular angezeigt. Dieses muss er vollständig ausfüllen, damit seine Registrierungsanfrage verarbeitet wird. Die eingegeben Daten werden mittels POST-Request an sich selbst geschickt, validiert und anschließend ein neuer Eintrag in der Benutzertabelle angelegt. Dabei wird der Status des Nutzer standardmäßig auf \textit{0}, d.h. \textit{deaktiv}, gesetzt. Anschließend wird der Nutzer mittels \textit{header()}-Umleitung erneut auf die Registrierungsseite umgeleitet und das vorhergehende Skript durch Aufruf der \textit{exit()}-Funktion beendet.
+Der Nutzer erreicht über einen Link auf der Startseite das Registrierungsformular. Dieses bindet zu Beginn die gewohnten \textit{includes/overall/header.php} und die \textbf{core/init.php} ein. Anschließend wird geprüft, ob der Nutzer sich bereits eingeloggt hat. Falls ja, so wird er auf die Startseite umgeleitet, andernfalls wird ihm das Registrierungsformular angezeigt. Dieses muss er vollständig ausfüllen, damit seine Registrierungsanfrage verarbeitet wird. Die eingegeben Daten werden mittels POST-Request an sich selbst geschickt, validiert und anschließend ein neuer Eintrag in der Benutzertabelle angelegt. Dabei wird der Status des Nutzer standardmäßig auf \textit{0}, d.h. \textit{inaktiv}, gesetzt. Anschließend wird der Nutzer mittels \textit{header()}-Umleitung erneut auf die Registrierungsseite umgeleitet und das vorhergehende Skript durch Aufruf der \textit{exit()}-Funktion beendet.
 
 \begin{figure}[h]
 \centering
@@ -1277,8 +1276,8 @@ Der Nutzer erreicht über einen Link auf der Startseite das Registrierungsformul
 \newpage
 \subsection{Loginvorgang}
 % LOGIN %
-Nach der Eingabe der Login-Daten wird der Nutzer auf die Seite \textit{login.php} weitergeleitet. Das hier ausgeführte Skript bindet wie gewohnt zuerst die allgemeine Initialisierungsdatei \textit{core/init.php} ein, sowie die für das Layout benötigten \textit{includes/overall/header.php} respektive \textit{includes/overall/footer.php} und überprüft ob der Nutzer bereits eingeloggt ist. Ist dies der Fall wird das Skript beendet und er automatisch auf die Startseite weitergeleitet.\\
-An sonsten führt das Skript anhand der als \textit{POST}-Request übermittelten Daten eine Anfrage aus und verifiziert die Login-Daten. Bei erfolgreicher Verifizierung werden die Sessionvariablen \textit{\$\_SESSION['user\_id']} und \textit{\$\_SESSION['time']} (aktueller UNIX-Zeitstempel) gesetzt und anschließend eine Verbindung zur Datenbank erzeugt. Nach der Auswahl der benötigten Datenbank wird ein neuer Eintrag in der Online-Tabelle erzeugt, der sich aus der den beiden Session-Variablen zusammensetzt. Anschließend wird der Nutzer auf die Startseite weitergeleitet und die Ausführung des Skripts mittels \textit{exit()} beendet.\\
+Nach der Eingabe der Login-Daten wird der Nutzer auf die Seite \textit{login.php} weitergeleitet. Das hier ausgeführte Skript bindet wie gewohnt zuerst die allgemeine Initialisierungsdatei \textit{core/init.php} ein, sowie die für das Layout benötigten \textit{includes/overall/header.php} respektive \textit{includes/overall/footer.php} und überprüft, ob der Nutzer bereits eingeloggt ist. Ist dies der Fall, so wird das Skript beendet und er wird automatisch auf die Startseite weitergeleitet.\\
+Ansonsten führt das Skript anhand der als \textit{POST}-Request übermittelten Daten eine Anfrage aus und verifiziert die Login-Daten. Bei erfolgreicher Verifizierung werden die Sessionvariablen \textit{\$\_SESSION['user\_id']} und \textit{\$\_SESSION['time']} (aktueller UNIX-Zeitstempel) gesetzt und anschließend eine Verbindung zur Datenbank erzeugt. Nach der Auswahl der benötigten Datenbank wird ein neuer Eintrag in der Online-Tabelle erzeugt, der sich aus der den beiden Session-Variablen zusammensetzt. Anschließend wird der Nutzer auf die Startseite weitergeleitet und die Ausführung des Skripts mittels \textit{exit()} beendet.\\
 
 \begin{figure}[h]
 \centering
@@ -1290,7 +1289,7 @@ An sonsten führt das Skript anhand der als \textit{POST}-Request übermittelten
 \newpage
 \subsection{Logoutvorgang}
 % LOGOUT %
-Nach Aufruf der \textit{logout.php} Datei wird das \textit{core/init.php} Skript eingebunden, woraufhin es die benötigte Datenbank auswählt und anschließend eine SQL-Anfrage an die MySQL-Datenbank sendet, die den \glqq Online\grqq-Eintrag des aktiven Nutzers löscht. Abschließend wird die aktuelle Sitzung mittels \textit{session\_destroy()} beendet, der Nutzer auf die \textit{index.php} mittels \textit{header()}-Weiterleitung weitergeleitet und das Script beendet.
+Nach dem Aufruf der \textit{logout.php} Datei wird das \textit{core/init.php} Skript eingebunden, woraufhin es die benötigte Datenbank auswählt und anschließend eine SQL-Anfrage an die MySQL-Datenbank sendet, die den \glqq Online\grqq-Eintrag des aktiven Nutzers löscht. Abschließend wird die aktuelle Sitzung mittels \textit{session\_destroy()} beendet, der Nutzer auf die \textit{index.php} mittels \textit{header()}-Weiterleitung weitergeleitet und das Script beendet.
 
 \begin{figure}[h]
 \centering
@@ -1301,7 +1300,7 @@ Nach Aufruf der \textit{logout.php} Datei wird das \textit{core/init.php} Skript
 
 \newpage
 \subsection{Änderung des persönlichen Passworts}
-Das Skript \textit{changepassword.php} bindet nach Aufruf zuerst die allgemeine \textit{core/init.php} Datei, sowie die für das Layout verantwortliche \textit{includes/overall/header.php} und \textit{include/overall/footer.php} ein und überprüft das Skript ob die aufrufende Person bereits eingeloggt ist.\\
+Das Skript \textit{changepassword.php} bindet nach dessen Aufruf zuerst die allgemeine \textit{core/init.php} Datei sowie die für das Layout verantwortliche \textit{includes/overall/header.php} und \textit{include/overall/footer.php} ein und überprüft das Skript ob die aufrufende Person bereits eingeloggt ist.\\
 Der Benutzer kann durch Ausfüllen des ihm an dieser Stelle zur Verfügung gestellten Formulars durch Eingabe seines bisherigen Passworts und seines neuen Passworts (inkl. Wiederholung) ändern. Nach dem Abschicken des Formulars werden die Daten validiert und nach erfolgreicher Validierung durch Aufruf der \textit{change\_password()}-Funktion persistent im System gespeichert. Anschließend wird der Benutzer zurück mittels \textit{header()}-Umleitung auf die \textit{changepassword.php}-Seite geführt.
 
 \begin{figure}[h]
@@ -1313,7 +1312,7 @@ Der Benutzer kann durch Ausfüllen des ihm an dieser Stelle zur Verfügung geste
 
 \newpage
 \subsection{CSV-Exportfunktionalität}
-Wird ebenfalls als Widget für die Startseite angeboten. Dieses stellt eine Liste von Checkboxen zur Verfügung. Durch Auswahl der einzelnen Checkboxen können die zu exportierenden Tabellen gewählt werden. Die Auswahl wird mittels POST-Request an die Datei \textit{core/functions/csvexp\_sql.php} gesendet, welche dann eine Verbindung zum MySQL-Server aufbaut, die Datenbank auswählt und die gewünschte Abfrage ausführt. Anschließend wird die Verbindung geschlossen und dem Benutzer öffnet sich ein Fenster, dass ihm zum Download der nun erstellen CSV-Datei auffordert.
+Diese Funktion wird ebenfalls als Widget für die Startseite angeboten, wobei eine Liste von Checkboxen zur Verfügung gestellt werden. Durch Auswahl dieser einzelnen Checkboxen können die zu exportierenden Tabellen ausgewählt werden. Die Auswahl wird hierbei mittels POST-Request an die Datei \textit{core/functions/csvexp\_sql.php} gesendet, welche dann eine Verbindung zum MySQL-Server aufbaut, die Datenbank auswählt und die gewünschte Abfrage ausführt. Anschließend wird die Verbindung geschlossen und dem Benutzer öffnet sich ein Fenster, dass ihm zum Download der nun erstellen CSV-Datei auffordert.
 
 \begin{figure}[h]
 \centering
@@ -1324,7 +1323,7 @@ Wird ebenfalls als Widget für die Startseite angeboten. Dieses stellt eine List
 
 \newpage
 \subsection{Nutzerverwaltung}
-Hierbei handelt es sich um genau zu sein um zwei Widgets (\textit{includes/widgets/manageusers.php} und \textit{includes/widgets/userlist.php}), welche auf der Startseite für eingeloggte Benutzer eingebunden werden. Dabei stellt \textit{userlist.php} die im System bereits registrierten Nutzer dar. Hierfür baut das Skript eine Verbindung zur Datenbank auf, wählt die Tabelle der registrierten Nutzer aus (ID, Vorname, Nachname, E-Mail-Adresse, Rechtegruppe, Account-Status) und gibt diese als HTML-Tabelle aus. Die zweite Datei, \textit{manageusers.php}, bietet dem Nutzer ein Formular an, das auf Eingabe einer Nutzer-ID (entnehmbar der Nutzerliste, s.o.), der Auswahl ob der Nutzer aktiviert oder gelöscht werden soll, durch Auswählen einer der beiden Radioboxen, sowie der Wahl einer der drei voreingestellten Benutzergruppen mittels einer Dropdown-Box, ein Skript (\textit{core/functions/accept.php}) aufruft, welches die übergebenen Daten validiert und anschließend die Änderungen durch Aufbau einer Verbindung zur Datenbank in der Benutzertabelle persistent speichert. Am Ende des Skripts wird der Nutzer automatisch mittels \textit{header()}-Weiterleitung zurück auf die Startseite befördert.
+Hierbei handelt es sich um genau zu sein um zwei Widgets (\textit{includes/widgets/manageusers.php} und \textit{includes/widgets/userlist.php}), welche auf der Startseite für eingeloggte Benutzer eingebunden werden. Dabei stellt \textit{userlist.php} die im System bereits registrierten Nutzer dar. Hierfür baut das Skript eine Verbindung zur Datenbank auf, wählt die Tabelle der registrierten Nutzer aus (ID, Vorname, Nachname, E-Mail-Adresse, Rechtegruppe, Account-Status) und gibt diese als HTML-Tabelle aus. Die zweite Datei, \textit{manageusers.php}, bietet dem Nutzer ein Formular an, das auf Eingabe einer Nutzer-ID (entnehmbar der Nutzerliste, s.o.), der Auswahl ob der Nutzer aktiviert oder gelöscht werden soll, durch Auswählen einer der beiden Radioboxen sowie der Wahl einer der drei voreingestellten Benutzergruppen mittels einer Dropdown-Box ein Skript (\textit{core/functions/accept.php}) aufruft, welches die übergebenen Daten validiert und anschließend die Änderungen durch Aufbau einer Verbindung zur Datenbank in der Benutzertabelle persistent speichert. Am Ende des Skripts wird der Nutzer automatisch mittels \textit{header()}-Weiterleitung zurück auf die Startseite befördert.
 
 \begin{figure}[h]
 \centering
@@ -1349,8 +1348,8 @@ Hierbei handelt es sich um ein kleines Widget, welches nicht mehr tut, als dass 
 %%%%%%%%%%%%%%%%%%% KUDA FEINENTWURF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Allgemeine Seitenaufbau}
-Im allgemeinen Seitenaufbau geht es um eine Folge von Seitenaufrufen, Funktionen und Einbindevorgänge. Diese sind für die 5 darstellenden Seiten identisch und werden deshalb an dieser Stelle zusammenfassend veranschaulicht.
+\subsection{Allgemeiner Seitenaufbau}
+Im allgemeinen Seitenaufbau geht es um eine Folge von Seitenaufrufen, Funktionen und Einbindevorgänge. Diese sind für die fünf darstellenden Seiten identisch und werden deshalb an dieser Stelle zusammenfassend veranschaulicht.
 \\ \\
 \includegraphics[scale=0.327]{allgemeineSeitenaufbau.png}
 \\ \\
@@ -1765,10 +1764,22 @@ Ein Teil des Salt für das Passwort. Gibt die Anzahl der Runden an, die der Algo
 Endgültiger Salt. Setzt sich aus \$salt, \$alg und \$rounds zusammen.
 
 \newpage
+
+
+
+
 % RESTLICHE SEITEN %
 \subsection{akkudaten.php}
 
+Diese Seite gibt einen Überblick über alle Daten, die die Akkumulatoren betreffen. Zur Anzeige und Visualisierung wurden die unten folgenden Funktion geschaffen. Zum einen regeln sie das Verhalten der Tabelle, z.B. das die aktuellen Werte eingetragen sind und das die Tabelle auf-, bzw. zugeklappt werden kann. Zum anderen auch die Visualisierung der Gesamtspannung als horizontal liegender Ladebalken. Aktualisierungen von Zellspannung, Temperatur und Balancing erfolgen separat. Für Spannung und Balancing wurde dafür eine separate Funktion geschrieben. Die Temperaturaktualisierung wird dabei in der Funktion "executeQuery()" ausgeführt.\\
+
+\textbf{$\rightarrow siehe$ akkudaten\_script.js}\\
+
 \subsection{allgemeinefahrzeugdaten.php}
+
+Diese Seite bietet eine Übersicht über ein Auswahl an Parametern. Näheres dazu im Feinentwurf. Für diese Seite wurde die Funktion toggle\_notaus() geschrieben. Sie regelt, dass das Notausfeld jeweils AN oder AUS anzeigt, bzw. einen roten oder weißen Hintergrund hat. Bis auf die unten genannten Funktionen werden alle weiteren Bearbeitungsschritte direkt in "'exectueQuery()"' ausgeführt. \\
+
+\textbf{$\rightarrow siehe$ allgemeinefahrzeugdaten\_script.js}\\
 
 \subsection{changepassword.php}
 Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.
@@ -1776,7 +1787,15 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwo
 
 \subsection{dynamischedaten.php}
 
+Im Bereich dynamische Daten werden viele Visualisierungen und Veranschaulichungen genutzt. Dazu wurden du nachfolgenden Funktionen definiert, die z.T. auch mehrfach verwendet werden. Hauptaugenmerk sind dabei die als Ladebalken visualisierten Elemente, welche horizontal und auch vertikal angezeigt werden können. Ein weitere, etwa abgewandeltere Funktion wird für die Anzeige des Lenkwinkels genutzt, der statt einem Ladebalken nur einen einzigen Strich als Indikator hat.\\
+
+\textbf{$\rightarrow siehe$ dynamischedaten\_script.js}\\
+
 \subsection{fahrdynamik.php}
+
+Da diese Seite nur 3 Werte anzeigen soll und diese sich nicht weiter visualisieren lassen, wurden auch keine weiteren Funktionen an dieser Stelle benötigt. Für weitere Informationen zu dieser Seite, sehen sie im Feinentwurf nach.\\
+
+\textbf{$\rightarrow siehe$ fahrdynamik\_script.js}\\
 
 \subsection{index.php}
 Sie ist die Startseite des System und liefert im ausgeloggten Zustand die Möglichkeit sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.
@@ -1795,6 +1814,10 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout
 
 \subsection{motorundumrichter.php}
 
+Auch auf dieser Seite werden keine anspruchsvollen Visualisierungen benötigt, so dass die Seite ohne weitere Funktionsdefinitionen auskommt.\\
+
+\textbf{$\rightarrow siehe$ motorundumrichter\_script.js}\\
+
 \subsection{register.php}
 Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (x.y.z)
@@ -1809,7 +1832,12 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutz
 
 \subsection{core/functions/akkudaten\_sql.php}
 
+Analog wie oben funktioniert auch diese Seite, nur das hier auf die Tabelle "'\$accu\_data"' zugegriffen wird, die in diesem Fall "'akkudaten"' entspricht.\\
+
+
 \subsection{core/functions/allgemeinefahrzeugdaten\_sql.php}
+
+Auf den Seiten mit dem Zusatz SQL werden die eigentlichen Datenbankoperationen ausgeführt. Dazu wird zu erst die Konfigurationsdatei "'config.php"' eingebunden um die nötigen Zugriffsinformationen zu erhalten. Danach wird mit den in PHP integrierten mySQLi-Methoden auf die Datenbank zugegriffen und der entsprechende Datensatz ausgelesen. In diesem Fall wird aus der Tabelle "'allgemeine\_fahrzeugdaten" gelesen, die in der Variable "'\$general\_data"' aus der Konfigurationsdatei geliefert wurde. Danach wird der Datensatz als JSON, d.h. als Array dekodiert und an die aufrufende Seite zurückgegeben. 
 
 \subsection{core/functions/csvexp\_sql.php}
 Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen welche Checkboxen vor Absenden des Formulars ausgewählt wurden als POST-Variablen. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt sondern als CSV-Datei zum Download angeboten.
@@ -1817,13 +1845,18 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Ex
 
 \subsection{core/functions/dynamischedaten\_sql.php}
 
+Besonderheit bei dieser Seite ist, dass sie von 2 unterschiedlichen Skripten aufgerufen wird, da in dieser Tabelle der Lenkwinkel hinterlegt ist, der auf 2 Seiten dargestellt werden muss. Ansonsten analog wie oben für "'\$dynamic\_data= dynamische Daten."'\\
+
 \subsection{core/functions/fahrdynamik\_sql.php}
+Analog wie oben für "\$driving\_data=fahrdynamikregelung."'\\
 
 \subsection{core/functions/general.php}
 Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.
 $\rightarrow$ Ausführliche Beschreibung siehe x.1.1
 
 \subsection{core/functions/motorundumrichter\_sql.php}
+
+Analog wie oben für "'\$engine\_data=motor\_umrichterdaten"'\\
 
 \subsection{core/functions/users.php}
 Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.
@@ -1857,6 +1890,205 @@ Dieses Widget liefert über die \textit{includes/widgets/onlineusers.php} hinaus
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online Benutzer\grqq (x.y.z)
 
 
+%%% ENTWURFSDOKUMENT DAVID %%%
+
+\section{Skriptübergreifende Funktionen}
+Um einen Indikator zu haben, wie alt der aktuellste Datensatz aus der Datenbank ist, wurde die Funktion "'age()"' geschrieben. Aus der Differenz der aktuellen Zeit und des Zeitwerts aus der Datenbank ergibt sich die Anzahl an Sekunden, Minuten, bzw. Stunden in denen kein neuer Datensatz in die Datenbank geschrieben wurde. Des weiteren wird hier die Funktion "'executeQuery()"' aufgeführt, die ebenfalls ein Hauptbestandteil ist.
+
+\subsection*{age(param)}
+
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+In dieser Funktion wird mit der aktuellen UNIX Zeit und dem Zeitpunkt der Daten aus der Tabelle errechnet, wie lange die letzte Aktualisierung zurückliegt. Nach 15 Sekunden Verzögerung wird der aktuelle Wert mittig, unterhalb der Navigationsleiste angezeigt. Der Wert wird in Tagen, Stunden, Minuten und Sekunden errechnet. Es werden nur Stunden, Minuten und Sekunden angezeigt. 	
+\subsubsection*{Parameter:}
+\textbf{int param } 
+\hspace{8mm}
+\hangindent+95pt \hangafter=1
+Zeitpunkt, der in der Datenbank gespeichert wurde.\\
+
+\subsection*{executeQuery()}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+In dieser Funktion findet die Aktualisierung sämtlicher Daten statt. In ihr wird ein Array von einen externen Datei angefordert, dann direkt bearbeitet oder es werden Teile der Bearbeitung in separate Funktionen verlagert. Am Ende seiner Ausführung startet sie einen Time-Out, mit der die Funktion exectueQuery nach 1000ms erneut aufgerufen wird. Auf diese Art und Weise wird die Funktion kontinuierlich ausgeführt und realisiert so die selbstständige Aktualisierung. 
+ 	
+\subsubsection*{Parameter:}
+bekommt keine Parameter übergeben
+
+
+
+
+
+
+\section{scripts/allgemeinefahrzeugdaten\_script.js}
+
+
+\subsection*{toggle\_notaus(param)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Diese Funktion bekommt einen String übergeben, der mit einer Folge aus 0 und 1 die Notausschalter kodiert.  	
+\subsubsection*{Parameter:}
+\textbf{char param } 
+\hspace{8mm}
+\hangindent+95pt \hangafter=1
+String aus einer Folge von 0 und 1.\\
+
+
+\section{scripts/akkudaten\_script.js}
+
+
+\subsection*{toggle\_tab(k)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Durch toggle\_tab werden die Untermenüs für die Zellen der Blöcke auf, bzw. zugeklappt. Bei Initialisierung werden sie automatisch geschlossen.	
+\subsubsection*{Parameter:}
+\textbf{int k $\in$ [0,11]} 
+\hspace{3,5mm}
+\hangindent+95pt \hangafter=1
+wählt die richtige Zeile aus, deren Untermenü angezeigt/ausgeblendet werden soll.\\
+
+
+\subsection*{toggle\_arrow(k)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Durch toggle\_arrow wird die Richtung der Abbildung im ersten Tabellenfeld um $180^\circ$ gedreht. Dies dient zur Visualisierung des auf-, bzw. zuklappens der Tabellen mit den Akkuzellen.	
+\subsubsection*{Parameter:}
+\textbf{int k $\in$ [0,11]} 
+\hspace{3,5mm}
+\hangindent+95pt \hangafter=1
+wählt die richtige Zeile aus, deren Abblidung gedreht werden soll.\\
+
+
+\subsection*{kapa(param)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Kapa steht für die Gesamtkapazität. Mit dieser Funktion wird die Visualisierung als horizontaler Ladebalken realisiert. Die Anzeige besteht aus 10 Container, die je nach dem übergebenen Wert, von links beginnend eingefärbt werden. 
+\subsubsection*{Parameter:}
+\textbf{int param $\in$ [0,1000]} \\
+\hangindent+95pt \hangafter=1
+Gibt die aktuelle Gesamtkapazität wieder. Wird durch 100 geteilt, so dass die Anzeige mit 10 farblich veränderbaren Flächen von 0 bis 100\% angezeigt werden kann. Ein Fläche entspricht 10\%, bzw. 100 Volt. \\
+
+
+
+\subsection*{accu\_refresh(data)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Bei dieser Funktion werden alle 144 Zellspannungen ausgelesen und in die entsprechenden Container geschrieben. Weiterhin wird wird für je 12 Zellen die maximale, sowie minimale Spannung ermittelt und in die Spalte des entsprechenden Akkumulator-Blocks geschrieben
+\subsubsection*{Parameter:}
+\textbf{array data } 
+\hspace{7mm}
+\hangindent+95pt \hangafter=1
+Das gesamte JSON-Array, dass aus der Funktion executeQuery geliefert wird \\
+
+
+\subsection*{toggle\_balance(param,offset,offset2)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Dieser Funktion werden 2 Strings übergeben, die jeweils 72 Balancingwerte als Folge von 0 und 1 codiert. Bei 0 ist das Balancing der Zelle aus, bei 1 ist es an. Des weiteren wird für je 12 Werte die Gesamtanzahl an aktiveren Balancings gezählt, und in den entsprechenden Akkublock geschrieben. 
+\subsubsection*{Parameter:}
+\textbf{char param  } 
+\hspace{7mm}
+\hangindent+95pt \hangafter=1
+String als Folge von 0 und 1. \\
+
+\textbf{int offset: 0 oder 72}\\ 
+\hangindent+95pt \hangafter=1
+Offset für die IDs der Zellen, damit alle 144 Zellen abgedeckt werden. \\
+
+\textbf{int offset2: 0 oder 6} \\
+\hangindent+95pt \hangafter=1
+Offset für die IDs der Akkublöcke, damit alle 12 Akkublöcke abgedeckt werden. \\
+
+
+
+
+
+\section{scripts/dynamischedaten\_script.js}
+
+
+\subsection*{winkel(param)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Diese Funktion visualisiert den Lenkwinkel. Dabei wird ein horizontaler Container verwendet, der 181 Abstufungen hat und jede Abstufun $2^\circ$ entspricht. Es wird immer genau eine dieser Abstufung entsprechend dem übergebenen Wert eingefärbt. Die Funktion wird mit jedem Aufruf durch Addition von 90 auf $0^\circ$ justiert, bevor die Berechnung des aktuellen Winkels durchgeführt wird. Die Anzahl der Abstufungen wurde auf 181 begrenzt, um die Serverlast so gering wie möglich zu halten, ohne Verlust der Visualisierung. 	
+\subsubsection*{Parameter:}
+\textbf{int param $\in$ [-180,180]} \\
+\hangindent+95pt \hangafter=1
+Zeigt den aktuellen Lenkwinkel. Wird durch 2 geteilt und dadurch auf die 181 Abstufungen normiert.\\
+
+
+\subsection*{bar\_vertical(param,id)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Aufruf verändert die visuelle Darstellung eines vertikalen stehenden Containers. Dieser enthält 10 Flächen, die eingefärbt werden können. Die Einfärbung beginnt von unten. 0 Federweg entspricht dem voll ausgefülltem Container und 100 dem leeren Container. 	
+\subsubsection*{Parameter:}
+\textbf{int param $\in$ [0,100]}\\
+\hangindent+95pt \hangafter=1
+\begin{itemize}
+\item \textbf{data[18] (vl), data[19] (vr), data[20] (hl), data[21] (hr)}\\
+Übergibt die Federwege im Bereich 0mm bis 100mm. Wird durch 10 geteilt und dadurch auf Skala normiert. \\
+\end{itemize}
+
+\textbf{char id:}
+\begin{itemize}
+\item \textbf{'vl','vr','hl','hr'}\\
+Es wird ein eindeutiger String als Identifikation übermittelt, der zum aktualisieren der Werte benötigt wird. die IDs beschreiben die Achsen: (v)orne, bzw. (h)inten, sowie die Seiten: (l)inks und (r)echts\\
+\end{itemize}
+
+
+\subsection*{bar\_horizontal(param,id,kind)}
+\subsubsection*{Author}
+David Kudlek
+\subsubsection*{Beschreibung}
+Aufruf verändert die visuelle Darstellung eines horizontal liegenden Containers. Dieser enthält 20 Flächen, die eingefärbt werden können. 	
+\subsubsection*{Parameter:}
+\textbf{int param:}
+\begin{itemize}
+
+\item \textbf{ data[22] (gaseins) data[23] (gaszwei), data[17] (bremse), data[16] (bkraft) $\in$ [-100,100]} \\
+Werte haben Bereich von -100\% bis 100\%. Der Wert wird durch 10 geteilt, um ihn auf die vorgegebene Skala zu normieren.
+
+
+\item \textbf{ data[15](+100) $\in$ [0,200]} \\
+Wert hat einen Bereich von 0 bis 200 bar und wird deshalb mit 100 addiert um den korrekten Wertebereich darzustellen. Der Wert wird durch 10 geteilt, um ihn auf die vorgegebene Skala zu normieren.
+
+\item \textbf{ data[13] (wtemp1), data[14] (wtemp2) $\in$ [-100,100]} \\
+Werte haben Bereich von $-100^\circ C $ bis $100^\circ C $. Der Wert wird durch 10 geteilt, um ihn auf die vorgegebene Skala zu normieren.\\
+\end{itemize}
+
+\textbf{char id:}
+\begin{itemize}
+\item \textbf{'gaseins','gaszwei','bremse','bkraft','bdruck','wtemp1'.'wtemp2'}\\
+Es wird ein eindeutiger String als Identifikation übermittelt, der zum aktualisieren der Werte benötigt wird.\\
+\end{itemize}
+
+
+\textbf{int kind $\in$ [1,3]}
+\hangindent+95pt \hangafter=1
+Es wird ein Zahlenwert übermittelt, der die richtige Klasse in der CSS-Datei bestimmt, und so die entsprechende Farbe bestimmt. (1=blau, 2=grün, 3=rot)\\
+
+
+
+
+
+\section{scripts/fahrdynamik\_script.js}
+Es wurden keine weiteren Funktionen für diesen Bereich erstellt.
+
+
+
+
+\section{scripts/motorundumrichter\_script.js}
+Es wurden keine weiteren Funktionen für diesen Bereich erstellt.
+
+
 
   
 
@@ -1882,7 +2114,7 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online
 \addchap{Anhang} 
 \refstepcounter{chapter}
 
-\section{Simulink-Diagramme}
+%\section{Simulink-Diagramme}
 
 \begin{figure}[b]
 \centering
@@ -1990,9 +2222,8 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online
 \label{subembreceive}
 \end{sidewaysfigure}
 
-\newpage
 
-\section{Sequenzdiagramme zur Interaktion der einzelnen Komponenten}
+%\section{Sequenzdiagramme zur Interaktion der einzelnen Komponenten}
 
 \begin{sidewaysfigure}[h]
 \centering

@@ -35,7 +35,7 @@
 \contentsline {subsection}{\numberline {2.4.10}CSV-Exportfunktionalit\IeC {\"a}t}{52}
 \contentsline {subsection}{\numberline {2.4.11}Nutzerverwaltung}{53}
 \contentsline {subsection}{\numberline {2.4.12}Online-Anzeige der Nutzer}{54}
-\contentsline {subsection}{\numberline {2.4.13}Allgemeine Seitenaufbau}{55}
+\contentsline {subsection}{\numberline {2.4.13}Allgemeiner Seitenaufbau}{55}
 \contentsline {subsection}{\numberline {2.4.14}Allgemeine Fahrzeugdaten}{55}
 \contentsline {subsection}{\numberline {2.4.15}Akkudaten}{57}
 \contentsline {subsection}{\numberline {2.4.16}Dynamische Daten}{59}
@@ -53,32 +53,36 @@
 \contentsline {subsection}{\numberline {3.4.5}allgemeinefahrzeugdaten.php}{72}
 \contentsline {subsection}{\numberline {3.4.6}changepassword.php}{72}
 \contentsline {subsection}{\numberline {3.4.7}dynamischedaten.php}{72}
-\contentsline {subsection}{\numberline {3.4.8}fahrdynamik.php}{72}
-\contentsline {subsection}{\numberline {3.4.9}index.php}{72}
-\contentsline {subsection}{\numberline {3.4.10}install.php}{72}
-\contentsline {subsection}{\numberline {3.4.11}login.php}{72}
-\contentsline {subsection}{\numberline {3.4.12}logout.php}{72}
+\contentsline {subsection}{\numberline {3.4.8}fahrdynamik.php}{73}
+\contentsline {subsection}{\numberline {3.4.9}index.php}{73}
+\contentsline {subsection}{\numberline {3.4.10}install.php}{73}
+\contentsline {subsection}{\numberline {3.4.11}login.php}{73}
+\contentsline {subsection}{\numberline {3.4.12}logout.php}{73}
 \contentsline {subsection}{\numberline {3.4.13}motorundumrichter.php}{73}
-\contentsline {subsection}{\numberline {3.4.14}register.php}{73}
-\contentsline {subsection}{\numberline {3.4.15}core/init.php}{73}
-\contentsline {subsection}{\numberline {3.4.16}core/functions/accept.php}{73}
-\contentsline {subsection}{\numberline {3.4.17}core/functions/akkudaten\_sql.php}{73}
-\contentsline {subsection}{\numberline {3.4.18}core/functions/allgemeinefahrzeugdaten\_sql.php}{73}
-\contentsline {subsection}{\numberline {3.4.19}core/functions/csvexp\_sql.php}{73}
-\contentsline {subsection}{\numberline {3.4.20}core/functions/dynamischedaten\_sql.php}{74}
-\contentsline {subsection}{\numberline {3.4.21}core/functions/fahrdynamik\_sql.php}{74}
-\contentsline {subsection}{\numberline {3.4.22}core/functions/general.php}{74}
-\contentsline {subsection}{\numberline {3.4.23}core/functions/motorundumrichter\_sql.php}{74}
-\contentsline {subsection}{\numberline {3.4.24}core/functions/users.php}{74}
-\contentsline {subsection}{\numberline {3.4.25}includes/css/style.css}{74}
-\contentsline {subsection}{\numberline {3.4.26}includes/overall/footer.php}{74}
-\contentsline {subsection}{\numberline {3.4.27}includes/overall/header.php}{74}
-\contentsline {subsection}{\numberline {3.4.28}includes/widgets/csvexp.php}{74}
-\contentsline {subsection}{\numberline {3.4.29}includes/widgets/loggedin.php}{74}
-\contentsline {subsection}{\numberline {3.4.30}includes/widgets/manageusers.php}{75}
-\contentsline {subsection}{\numberline {3.4.31}includes/widgets/onlineusers.php}{75}
-\contentsline {subsection}{\numberline {3.4.32}includes/widgets/userlist.php}{75}
-\contentsline {chapter}{Abbildungsverzeichnis}{77}
-\contentsline {chapter}{Anhang}{78}
-\contentsline {section}{\numberline {A.1}Simulink-Diagramme}{78}
-\contentsline {section}{\numberline {A.2}Sequenzdiagramme zur Interaktion der einzelnen Komponenten}{79}
+\contentsline {subsection}{\numberline {3.4.14}register.php}{74}
+\contentsline {subsection}{\numberline {3.4.15}core/init.php}{74}
+\contentsline {subsection}{\numberline {3.4.16}core/functions/accept.php}{74}
+\contentsline {subsection}{\numberline {3.4.17}core/functions/akkudaten\_sql.php}{74}
+\contentsline {subsection}{\numberline {3.4.18}core/functions/allgemeinefahrzeugdaten\_sql.php}{74}
+\contentsline {subsection}{\numberline {3.4.19}core/functions/csvexp\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.20}core/functions/dynamischedaten\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.21}core/functions/fahrdynamik\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.22}core/functions/general.php}{75}
+\contentsline {subsection}{\numberline {3.4.23}core/functions/motorundumrichter\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.24}core/functions/users.php}{75}
+\contentsline {subsection}{\numberline {3.4.25}includes/css/style.css}{75}
+\contentsline {subsection}{\numberline {3.4.26}includes/overall/footer.php}{75}
+\contentsline {subsection}{\numberline {3.4.27}includes/overall/header.php}{76}
+\contentsline {subsection}{\numberline {3.4.28}includes/widgets/csvexp.php}{76}
+\contentsline {subsection}{\numberline {3.4.29}includes/widgets/loggedin.php}{76}
+\contentsline {subsection}{\numberline {3.4.30}includes/widgets/manageusers.php}{76}
+\contentsline {subsection}{\numberline {3.4.31}includes/widgets/onlineusers.php}{76}
+\contentsline {subsection}{\numberline {3.4.32}includes/widgets/userlist.php}{76}
+\contentsline {section}{\numberline {3.5}Skript\IeC {\"u}bergreifende Funktionen}{76}
+\contentsline {section}{\numberline {3.6}scripts/allgemeinefahrzeugdaten\_script.js}{77}
+\contentsline {section}{\numberline {3.7}scripts/akkudaten\_script.js}{78}
+\contentsline {section}{\numberline {3.8}scripts/dynamischedaten\_script.js}{80}
+\contentsline {section}{\numberline {3.9}scripts/fahrdynamik\_script.js}{82}
+\contentsline {section}{\numberline {3.10}scripts/motorundumrichter\_script.js}{82}
+\contentsline {chapter}{Abbildungsverzeichnis}{84}
+\contentsline {chapter}{Anhang}{85}
