@@ -910,10 +910,10 @@ Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand ein
 \end{figure}
 
 \item[1) - 2)] 
-Der virtuelle Server sowie die MicroAutoBox II sind nach deren Start in einer Art Wartezustand(\texttt{1/2: receive MSG\_READY}) in dem sie auf die Nachricht \texttt{MSG\_READY} des Embedded-PCs warten. Dabei handelt es sich um einen mit einer bestimmten Bitfolge bestückten Bitvektor der Länge ein Byte. (Siehe Abbildung \ref{paketinhalt}) Dieser signalisiert beiden Teilnehmern die Bereitschaft des Embedded-PCs. 
+Der virtuelle Server sowie die MicroAutoBox II sind nach deren Start in einer Art Wartezustand(\texttt{1/2: receive MSG\_READY}), in dem sie auf die Nachricht \texttt{MSG\_READY} des Embedded-PCs warten. Dabei handelt es sich um einen mit einer bestimmten Bitfolge bestückten Bitvektor der Länge ein Byte. (Siehe Abbildung \ref{paketinhalt}) Dieser signalisiert beiden Teilnehmern die Bereitschaft des Embedded-PCs. 
 
 \item [3) - 4)]
-Sobald der Embedded-PC hochgefahren ist, wird die Anwendung \emph{embpc} automatisch ausgeführt. Der PC ist nach fehlerfreiem Start dazu in der Lage sein erstes Paket zu senden und damit seine Bereitschaft mitzuteilen. Das Paket \texttt{MSG\_READY} wird über eine UMTS-Verbindung zunächst an den virtuellen Server gesendet (\texttt{3: send MSG\_READY})und beinhaltet den oben beschriebenen Bitvektor. Nach dem Sendevorgang wartet er auf ein Acknowledgement \texttt{MSG\_READY\_ACK} des vServers (\texttt{4: receive MSG\_READY\_ACK}).
+Sobald der Embedded-PC hochgefahren ist, wird die Anwendung \emph{embpc} automatisch ausgeführt. Der PC ist nach fehlerfreiem Start dazu in der Lage, sein erstes Paket zu senden und damit seine Bereitschaft mitzuteilen. Das Paket \texttt{MSG\_READY} wird über eine UMTS-Verbindung zunächst an den virtuellen Server gesendet (\texttt{3: send MSG\_READY})und beinhaltet den oben beschriebenen Bitvektor. Nach dem Sendevorgang wartet er auf ein Acknowledgement \texttt{MSG\_READY\_ACK} des vServers (\texttt{4: receive MSG\_READY\_ACK}).
 
 
 \item[5) - 7)]
@@ -947,12 +947,12 @@ Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für d
 \end{figure}
 
 \item[1) - 3)]
-Nachdem die MicroAutoBox die Empfangsbestätigung des \texttt{PACKET\_INFO} vom Embedded-PC erhalten hat, beginnt sie nun in einem festen Zeitabstand UDP-Pakete, mit aktuellen Fahrzeugdaten, an den Embedded-PC zu senden (\texttt{3: send DATA}). Dabei wird nicht berücksichtigt, ob die Pakete den Embedded-PC auch tatsächlich erreichen. Die Konfiguration des Zeitabstandes erfolgt im Matlab/Simulink-Programm mit Hilfe einer sogenannten sample-time (optional-clock). Sowohl der Embedded-PC, als auch der vServer warten nun auf ankommende Daten (\texttt{1: receive DATA, 2: receive PACKAGE}).
+Nachdem die MicroAutoBox die Empfangsbestätigung des \texttt{PACKET\_INFO} vom Embedded-PC erhalten hat, beginnt sie nun in einem festen Zeitabstand, UDP-Pakete mit aktuellen Fahrzeugdaten an den Embedded-PC zu senden (\texttt{3: send DATA}). Dabei wird nicht berücksichtigt, ob die Pakete den Embedded-PC auch tatsächlich erreichen. Die Konfiguration des Zeitabstandes erfolgt im Matlab/Simulink-Programm mit Hilfe einer sogenannten sample-time (optional-clock). Sowohl der Embedded-PC, als auch der vServer warten nun auf ankommende Daten (\texttt{1: receive DATA, 2: receive PACKAGE}).
 
 \item[4) - 12)]
 
 Der Embedded-PC nimmt die Fahrzeugdaten entgegen und verarbeitet diese (\texttt{4: encode DATA}). Dabei wird der Datensatz, \texttt{DATA} entsprechend der Informationen in \texttt{VEC\_LAYOUT}, in mehrere Pakete geteilt und mit einem \texttt{HEADER} versehen. Anschließend werden diese Pakete der Reihe nach an den vServer übertragen (\texttt{5,9,...: send PACKAGE 1,...,n}). Dabei wird keine Empfangsbestätigung am Server erzeugt und somit auch keine am Embedded-PC erwartet. 
-Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt, die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen acht Byte Zeitstempel und einer vier Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, daher ist sie also eine Zahl zwischen eins und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf fünf Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
+Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt, die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen acht Byte Zeitstempel und einer vier Byte großen Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, daher ist sie also eine Zahl zwischen eins und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf fünf Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
 Sobald ein Paket den vServer erreicht, wird es zunächst dekodiert (\texttt{6: decode PACKAGE 1}) (wobei \texttt{PACKAGE 1} hier nicht zwangsläufig das erste Paket aus \texttt{DATA} sein muss - Pakete können sich überholen oder verloren gehen). Dabei wird zunächst der \texttt{HEADER} ausgelesen. Der darin enthaltene Zeitstempel wird mit dem lokalen verglichen, ist die Differenz größer als fünf Sekunden, wird das Paket verworfen, ansonsten wird das Paket entsprechend der Daten in \texttt{VEC\_LAYOUT}, \texttt{VEC\_COMMA} und 7\texttt{VEC\_DATATYPES} so bearbeitet, dass der Dekoder einen Fahrzeugwert nach dem anderen an die Datenbank zur Verfügung stellen kann. Wurden alle Fahrzeugdaten aus dem Paket ausgelesen und verarbeitet, wird ein neues Paket empfangen. 
 
 
@@ -1124,18 +1124,15 @@ Zuerst wird ein Objekt von \textit{DBPacketInsert} erzeugt, das wiederum zuerst 
 Klasse \textit{DBPacketInsert}:
 
 Von dieser Klasse soll, wenn das Programm vollständig zusammengebaut ist, einmal ein Objekt erzeugt werden, auf dem dann jeweils nach Erhalt eines Paketes vom Embedded PC die Memberfunktion \textit{db\_insert()} aufgerufen wird. Diese löst dann das Auslesen und Aufbereiten der einzelnen Daten in der Klasse \textit{DatatypeDaemon} aus, setzt die Werte zusammen zu einem SQL-String und übergibt diesen an die Klasse \textit{Insert}. Im Weiteren wird auf diese einzelnen Schritte näher eingegangen.\\
-
 Wie oben bereits geschildert, fragt \textit{DBPacketInsert} zuerst nur einen Wert von \textit{DatatypeDaemon} an und fügt diesen in ein Stringarray ein. Zu diesem Wert lässt es sich außerdem die Stelle im Übertragungspaket der MikroAutoboxII zum Embedded PC übergeben. Dies geschieht zum einen durch den Aufruf von \textit{parseNextValue()} auf \textit{DatatypeDaemon}, zum anderen durch den Aufruf von \textit{getPosActualPacket()} auf derselben Klasse. Danach fragt \textit{DBPacketInsert} über \textit{DatatypeDaemon} die Stelle des Wertes im Übertragungspaket von MikroAutoboxII zum Embedded PC ab, woraus er dann das Übertragungspaket von Embedded PC zum vServer ermittelt. Ein solches Paket beinhaltet alle Daten einer Tabelle auf der Datenbank, er nutzt dazu auch die in einer Enumeration definierten Startpunkte der einzelnen Pakete, die den Stellen im Übertragungspaket der MikroAutoboxII zum Embedded PC entsprechen. Diese Information benötigt die Klasse, um jetzt nur so viele Werte über \textit{DatatypeDaemon} in dem Array, welches schon den einen oben genannten Wert enthält, zu sammeln, wie in einem Übertragungspaket sind. Damit füllt der gesamte Inhalt des Arrays eine Tabelle der Datenbank aus.\\
 Für jede Tabelle gibt es schließlich eine Unterfunktion, die entsprechend dem Aufbau der Datenbank die einzelnen Werte des Arrays zusammensetzt und daraus einen gültigen SQL-String baut. Sobald die Unterfunktion abgeschlossen ist, wird der fertige SQL-String an die Memberfunktion \textit{insertIntoDB(string* anw)} der Klasse \textit{Insert} übergeben.\\
 
-\\
-\\
 Klasse \textit{DatatypeDaemon}:\\
 Diese Klasse stellt die Schnittstelle zum Decoder dar, indem sie dort \textit{Data}-Objekte anfragt. Aus diesen Objekten extrahiert sie dann jeweils den Datenwert als \textit{Unsigned Integer}, die Position dieses Wertes in dem Übertragungspaket der MikroAutoBoxII an den Embedded PC, den Datentyp vor der Übertragung und den Kommasetzwert.\\
 Einerseits stellt \textit{DatatypeDaemon} der Klasse \textit{DBPacketInsert} die Zeit, als auch die Position des aktuellen Wertes bereit, andererseits stellt sie auch den Zeitstempel des Pakets, den die Klasse auch vom \textit{Decoder} erhält, zur Verfügung. Die Position ist dabei über die Memberfunktion \textit{getPosActualPacket()} und der Zeitstempel über \textit{getTime()} abzufragen.\\
 Der Wert hingegen wird von der Klasse zuerst auf seinen Datentyp geprüft, dann gegebenenfalls durch die vom Kommasetzwert vorgegebene Zehnerpotenz geteilt und in den jeweiligen Datentyp verwandelt. Danach wird der Wert unter Verwendung der von der \textit{Boost-Library} angebotenen Funktion \textit{lexical\_cast} in einen \textit{String} konvertiert. Dies geschieht bei Aufruf der Memberfunktion \textit{parseNextValue()}, der aufbereitete und in einen \textit{String} verwandelte Wert bildet dabei den Rückgabewert an den Aufrufer.\\
-\\
-\\
+
+
 Klasse \textit{Insert}:\\
 Diese Klasse übernimmt die Kommunikation mit der Datenbank. Dazu erstellt sie erst ein Objekt der Klasse \textit{dbData}, das über die Memberfunktionen \textit{getHost()}, \textit{getUser()}, \textit{getPW()} und \textit{getDB()} jeweils die Adresse, den Benutzer, das Passwort und den Namen der Datenbank zurückgibt.\\
 Wird von \textit{Insert} die Memberfunktion \textit{instertIntoDB(string* anw)} aufgerufen, so wird zunächst unter Zuhilfenahme des\textit{MySQL-Connector/C++} eine Verbindung mit der Datenbank aufgebaut und an den \textit{Connector} der \textit{String anw} übergeben, der zu diesem Zeitpunkt eine vollständige SQL-Anweisung darstellt. Durch die Übergabe des Strings erfolgt dann das Einfügen der Daten durch den \textit{Connector}.
@@ -1464,9 +1461,9 @@ Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem d
 Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den 12 Akkumulatorblöcken (jeweils 12 Zellen) sollen permanent angezeigt werden und Informationen zu den 12 Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus 2 PHP  und einer JavaScript Komponente, analog wie \ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten   
 
 
-\\ \\
+
 \includegraphics[scale=0.4255]{akkudatenvpp.png}
-\\ \\ 
+
 Die allgemeine Funktionsweise dieser Seite entspricht \textit{\ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten}. Im folgenden wird nur auf Besonderheiten dieser Seite eingegangen.\\
 
 \textbf{accu\_refresh(data)}\\
