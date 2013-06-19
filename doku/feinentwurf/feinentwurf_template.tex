@@ -163,8 +163,8 @@ Jedes dieser drei Kapitel ist dabei weiter unterteilt in die Abschnitte MicroAut
 
 %------------------------- MicroAutoBox II -------------------------%
 
-\section{MicroAutoBox II}
-
+\section{MicroAutoBox II }
+\label{MicroAutoBoxII}
 \subsection{Verwendete Blöcke - Ergänzungen}
 
 Um den späteren Nutzern des Service-Interfaces den Einstieg in das erzeugte Modell in Simulink anhand konkreter Modellausschnitte zu erleichtern, wurden bereits die für den Grobentwurf benötigten Blöcke im Entwurfsdokument unter 3.2.1 vorgestellt. Jedoch ist es aufgrund mehrerer obligatorischer Anpassungen während der Implementierung des Feinentwurfs notwendig geworden, gegenüber dem Grobentwurf auf eine größere Vielfalt an Blöcken zurückzugreifen. Aus diesem Grund wird nun im Folgenden die jeweilige Funktionalität der erstmalig verwendeten Blöcke erläutert.
@@ -890,9 +890,13 @@ Die Umsetzung der bidirektionalen Kommunikation zwischen der MicroAutoBox II und
 
 \section{Embedded PC und virtueller Server}
 
-An der Datenübertragung und Verarbeitung sind drei von uns entworfene Anwendungen beteiligt. Aus dem in Abschnitt 2.1 (VERWEIS) bereits beschriebenen Simulink-Modell wird mithilfe der Entwicklungswerkzeuge von dSPACE automatisch C-Code erzeugt und für die Ausführung auf der MicroAutoBox II kompiliert. Diese Anwendung wird im Folgenden als \textit{mabxii} bezeichnet. Desweiteren wird jeweils eine von uns in C++ implementierte Anwendung auf dem Embedded-PC und vServer laufen welche von nun an \textit{embpc} und \textit{vserver} genannt werden. Bei deren Entwurf wurde insbesondere darauf geachtet, dass beiden Anwendungen eine möglichst große gemeinsame Code-Basis zugrundeliegt. Dadurch soll zum einen die Fehlerwahrscheinlichkeit minimiert werden -- Code-Abschnitte werden häufiger ausgeführt wodurch Fehler eher zutage treten und behoben werden können -- und zum anderen soll dadu noch puurch Zeit bei der Implementierung und dem Testen eingespart werden die letztendlich der Qualität der Software zugute kommt. 
 
-Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand einer schrittweisen Beschreibung eines Kommunikationsverlaufs erläutert. Siehe dazu auch Abbildung (VERWEIS). Eine detaillierte Entwicklerdokumentation befindet sich in einem separaten Dokument. Bei der Implementierung wurde im Übrigen auf eine Bibliothek \emph{PracticalSocket} zurück gegriffen. Diese wurde von uns leicht modifiziert und taucht somit auch in der Entwicklerdokumentation auf.
+An der Datenübertragung und Verarbeitung sind drei von uns entworfene Anwendungen beteiligt. Aus dem in Abschnitt \ref{MicroAutoBoxII} bereits beschriebenen Simulink-Modell wird mithilfe der Entwicklungswerkzeuge von dSPACE automatisch C-Code erzeugt und für die Ausführung auf der MicroAutoBox II kompiliert. Diese Anwendung wird im Folgenden als \textit{mabxii} bezeichnet. Desweiteren wird jeweils eine von uns in C++ implementierte Anwendung auf dem Embedded-PC und auf dem vServer laufen, welche von nun an \textit{embpc} und \textit{vserver} genannt werden. Bei deren Entwurf wurde insbesondere darauf geachtet, dass beiden Anwendungen eine möglichst große gemeinsame Code-Basis zugrundeliegt. Dadurch soll zum einen die Fehlerwahrscheinlichkeit minimiert werden, in dem Code-Abschnitte häufiger ausgeführt werden und dadurch Fehler früher erkannt und behoben werden können.
+Zum anderen soll dadurch Zeit bei der Implementierung und dem Testen eingespart werden, die letztendlich der Qualität der Software zugute kommt. 
+
+Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand einer schrittweisen Beschreibung eines Kommunikationsverlaufs erläutert. Siehe dazu auch Abbildung \ref{inite}.
+
+
 
 \subsection{Initialisierung}
 
@@ -906,30 +910,30 @@ Im Folgenden wird die konkrete Funktionsweise dieser drei Anwendungen anhand ein
 \end{figure}
 
 \item[1) - 2)] 
-Der virtuelle Server sowie die MicroAutoBox sind nach deren Start in einer Art Wartezustand(\texttt{1/2: receive MSG\_READY}) in dem sie auf die Nachricht \texttt{MSG\_READY} des Embedded-PCs warten. Dabei handelt es sich um einen mit einer bestimmten Bitfolge bestückten Bitvektor der Länge 1 Byte. (Siehe Abbildung VERWEIS) Dieser signalisiert beiden Teilnehmern die Bereitschaft des Embedded-PCs. 
+Der virtuelle Server sowie die MicroAutoBox II sind nach deren Start in einer Art Wartezustand(\texttt{1/2: receive MSG\_READY}) in dem sie auf die Nachricht \texttt{MSG\_READY} des Embedded-PCs warten. Dabei handelt es sich um einen mit einer bestimmten Bitfolge bestückten Bitvektor der Länge ein Byte. (Siehe Abbildung \ref{paketinhalt}) Dieser signalisiert beiden Teilnehmern die Bereitschaft des Embedded-PCs. 
 
 \item [3) - 4)]
-Sobald der Embedded-PC hochgefahren ist wird die Anwendung \emph{embpc} automatisch ausgeführt. Der PC ist nach fehlerfreiem Start dazu in der Lage sein erstes Paket zu senden und damit seine Bereitschaft mitzuteilen. Das Paket \texttt{MSG\_READY} wird über eine UMTS-Verbindung zunächst an den virtuellen Server gesendet (\texttt{3: send MSG\_READY})und beinhaltet den oben beschriebenen Bitvektor. Nach dem Sendevorgang wartet er auf ein Acknowledgement \texttt{MSG\_READY\_ACK} des vServers (\texttt{4: receive MSG\_READY\_ACK}).
+Sobald der Embedded-PC hochgefahren ist, wird die Anwendung \emph{embpc} automatisch ausgeführt. Der PC ist nach fehlerfreiem Start dazu in der Lage sein erstes Paket zu senden und damit seine Bereitschaft mitzuteilen. Das Paket \texttt{MSG\_READY} wird über eine UMTS-Verbindung zunächst an den virtuellen Server gesendet (\texttt{3: send MSG\_READY})und beinhaltet den oben beschriebenen Bitvektor. Nach dem Sendevorgang wartet er auf ein Acknowledgement \texttt{MSG\_READY\_ACK} des vServers (\texttt{4: receive MSG\_READY\_ACK}).
 
 
 \item[5) - 7)]
-Hat der virtuelle Server diesen Bitvektor erfolgreich empfangen wird dieser zunächst dekodiert und auf seine Richtig- bzw. Vollständigkeit geprüft (\texttt{5: check MSG\_READY}). Danach sendet dieser dem Embedded-PC eine Empfangsbestätigung (\texttt{6: send MSG\_READY\_ACK}), wieder in Form eines 8 bit großen Bitvektors bestimmter Kodierung (siehe Abbildung VERWEIS). Anschließend wartet der vServer auf ein Paket \texttt{PACKET\_INFO} (\texttt{7: receive PACKET\_INFO}. Wurde nicht der erwartete Bitvektor empfangen wird wieder mit Schritt \texttt{2: receive MSG\_READY} fortgefahren.
+Hat der virtuelle Server diesen Bitvektor erfolgreich empfangen, wird dieser zunächst dekodiert und auf seine Richtig- bzw. Vollständigkeit geprüft (\texttt{5: check MSG\_READY}). Danach sendet dieser dem Embedded-PC eine Empfangsbestätigung (\texttt{6: send MSG\_READY\_ACK}), wieder in Form eines 8 bit großen Bitvektors bestimmter Kodierung (siehe Abbildung VERWEIS). Anschließend wartet der vServer auf ein Paket \texttt{PACKET\_INFO} (\texttt{7: receive PACKET\_INFO}). Falls nicht der erwartete Bitvektor empfangen wurde, wird wieder mit Schritt \texttt{2: receive MSG\_READY} fortgefahren.
 
 \item[8) - 10)]
-Sobald das Paket \texttt{MSG\_READY\_ACK} den Embedded-PC erreicht wird dies wie auf dem vServer zunächst dekodiert und überprüft (\texttt{8: check MSG\_READY\_ACK}). Falls es korrekt empfangen wurde meldet die Anwendung \emph{embpc} nun ihre Bereitschaft an die MicroAutoBox II durch das Senden der Nachricht \texttt{MSG\_READY} (\texttt{9: send MSG\_READY}) und wartet anschließend auf ein Paket (\texttt{10: receive PACKET\_INFO}. Falls jedoch nach 5 Sekunden noch kein Acknowledgement des vServers eingetroffen ist, wird wieder mit Schritt \texttt{3: send MSG\_READY} begonnen.
+Sobald das Paket \texttt{MSG\_READY\_ACK} den Embedded-PC erreicht, wird dieses, wie auf dem vServer, zunächst dekodiert und überprüft (\texttt{8: check MSG\_READY\_ACK}). Falls es korrekt empfangen wurde, meldet die Anwendung \emph{embpc} nun ihre Bereitschaft an die MicroAutoBox II, durch das Senden der Nachricht \texttt{MSG\_READY} (\texttt{9: send MSG\_READY}) und wartet anschließend auf ein Paket (\texttt{10: receive PACKET\_INFO}. Falls jedoch nach 5 Sekunden noch kein Acknowledgement des vServers eingetroffen ist, wird wieder mit Schritt \texttt{3: send MSG\_READY} begonnen.
 
 \item[11)- 13)]
-Hier wird auf der MicroAutoBox II analog zu schritt 5 und 8 verfahren und das ankommende Paket zunächst überprüft (\texttt{11: check MSG\_READY}). Wurde nicht das erwartete Paket empfangen wird mit Schritt 1 fortgefahren. Ansonsten sendet die MicroAutoBox II ein Paket das die Informationen zur Paketaufteilung, der Kommaverschiebung  und Datentypen der einzelnen Werte beinhaltet an den Embedded PC (\texttt{12: send PACKET\_INFO}). Danach wird auf eine Empfangsbestätigung des Embedded-PC gewartet (\texttt{13: receive PACKET\_INFO\_ACK}). Trifft diese nicht innerhalb von 5 Sekunden ein, wird die Nachricht erneut verschickt. 
+Hier wird auf der MicroAutoBox II analog zu schritt 5 und 8 verfahren und das ankommende Paket zunächst überprüft (\texttt{11: check MSG\_READY}). Falls nicht das erwartete Paket empfangen wurde, wird mit Schritt 1 fortgefahren. Ansonsten sendet die MicroAutoBox II ein Paket, das die Informationen zur Paketaufteilung, der Kommaverschiebung  und Datentypen der einzelnen Werte beinhaltet, an den Embedded PC (\texttt{12: send PACKET\_INFO}). Danach wird auf eine Empfangsbestätigung des Embedded-PC gewartet (\texttt{13: receive PACKET\_INFO\_ACK}). Trifft diese nicht innerhalb von 5 Sekunden ein, wird die Nachricht erneut verschickt. 
 
 \item[14) - 17)]
-Nachdem der Embedded-PC das Paket \texttt{PACKET\_INFO} empfangen hat schickt er zunächst eine Empfangsbestätigung an die MicroAutoBox II (\texttt{14: send PACKET\_INFO\_ACK}) und leitet anschließend das Paket an den vServer weiter (\texttt{15: send PACKET\_INFO}). Nun wartet er auf die Empfangsbestätigung des vServers (\texttt{17: receive PACKET\_INFO\_ACK}). Falls innerhalb von 5 Sekunden keine Nachricht eintrifft wird das Paket erneut verschickt.
+Nachdem der Embedded-PC das Paket \texttt{PACKET\_INFO} empfangen hat, schickt er zunächst eine Empfangsbestätigung an die MicroAutoBox II (\texttt{14: send PACKET\_INFO\_ACK}) und leitet anschließend das Paket an den vServer weiter (\texttt{15: send PACKET\_INFO}). Nun wartet er auf die Empfangsbestätigung des vServers (\texttt{17: receive PACKET\_INFO\_ACK}). Falls innerhalb von 5 Sekunden keine Nachricht eintrifft, wird das Paket erneut verschickt.
 
 \item[18) - 20)]
-Sobald der vServer das Paket \texttt{PACKET\_INFO} entgegen nimmt bestätigt er dessen Empfang (\texttt{18: send PACKET\_INFO\_ACK}) und fängt anschließend mit der Dekodierung der Paketinformationen an (\texttt{20: decode PACKET\_INFORMATION}). Dabei werden die einzelnen Daten (Paketaufteilung, Kommaverschiebung und Datentypen) in einer jeweils eigenen Datenstruktur abgelegt (\texttt{VEC\_LAYOUT, VEC\_COMMA, VEC\_DATATYPES}). Auf diese wird im späteren Verlauf zugegriffen um die Fahrzeugdaten korrekt verarbeiten zu können. Der Embedded-PC verfährt nach dem Empfang der Empfangsbestätigung genauso (\texttt{19: decode PACKET\_INFO}).
+Sobald der vServer das Paket \texttt{PACKET\_INFO} entgegen nimmt, bestätigt er dessen Empfang (\texttt{18: send PACKET\_INFO\_ACK}) und fängt anschließend mit der Dekodierung der Paketinformationen an (\texttt{20: decode PACKET\_INFORMATION}). Dabei werden die einzelnen Daten (Paketaufteilung, Kommaverschiebung und Datentypen) in einer jeweils eigenen Datenstruktur abgelegt (\texttt{VEC\_LAYOUT, VEC\_COMMA, VEC\_DATATYPES}). Auf diese wird im späteren Verlauf zugegriffen, um die Fahrzeugdaten korrekt verarbeiten zu können. Der Embedded-PC verfährt nach dem Empfang der Empfangsbestätigung genauso (\texttt{19: decode PACKET\_INFO}).
 
 \end{itemize}
 
-Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für die Verarbeitung der Fahrzeugdaten wichtig ist, dass sowohl der Embedded-PC als auch der vServer über die Paketinformationen verfügen. Durch deren Größe wäre es aufgrund der geringen Bandbreite von UMTS/GPRS keine Option diese mit jedem Datenpaket zu übertragen. Falls sich die bisherige Initialisierung in der Testphase als zu fehleranfällig herausstellen sollte, indem z.B. keine Datenübertragung zustande kommt weil zu viel Paketverlust auftritt, wird dieser Prozess selbstverständlich überarbeitet. Das bisherige Konzept ist also noch nicht endgültig.
+Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für die Verarbeitung der Fahrzeugdaten wichtig ist, dass sowohl der Embedded-PC, als auch der vServer über die Paketinformationen verfügen. Durch deren Größe wäre es aufgrund der geringen Bandbreite von UMTS/GPRS keine Option, diese mit jedem Datenpaket zu übertragen. Falls sich die bisherige Initialisierung in der Testphase als zu fehleranfällig herausstellen sollte, indem z.B. keine Datenübertragung zustande kommt, weil zu viel Paketverlust auftritt, wird dieser Prozess selbstverständlich überarbeitet. Das bisherige Konzept ist also noch nicht endgültig.
 
 \subsection{Datenübertragung und Datenverarbeitung}
 
@@ -943,16 +947,18 @@ Der Grund für diesen ausführlichen Initialisierungsprozess ist, dass es für d
 \end{figure}
 
 \item[1) - 3)]
-Nachdem die MicroAutoBox die Empfangsbestätigung des \texttt{PACKET\_INFO} vom Embedded-PC erhalten hat beginnt sie nun in einem festen Zeitabstand UDP-Pakete mit aktuellen Fahrzeugdaten an den Embedded-PC zu senden (\texttt{3: send DATA}). Dabei wird nicht berücksichtigt ob die Pakete den Embedded-PC auch tatsächlich erreichen. Die Konfiguration des Zeitabstandes erfolgt im Matlab/Simulink-Programm mit Hilfe einer sogenannten sample-time (optional-clock). Sowoh der Embedded-PC als auch der vServer warten nun auf ankommende Daten (\texttt{1: receive DATA, 2: receive PACKAGE}).
+Nachdem die MicroAutoBox die Empfangsbestätigung des \texttt{PACKET\_INFO} vom Embedded-PC erhalten hat, beginnt sie nun in einem festen Zeitabstand UDP-Pakete, mit aktuellen Fahrzeugdaten, an den Embedded-PC zu senden (\texttt{3: send DATA}). Dabei wird nicht berücksichtigt, ob die Pakete den Embedded-PC auch tatsächlich erreichen. Die Konfiguration des Zeitabstandes erfolgt im Matlab/Simulink-Programm mit Hilfe einer sogenannten sample-time (optional-clock). Sowohl der Embedded-PC, als auch der vServer warten nun auf ankommende Daten (\texttt{1: receive DATA, 2: receive PACKAGE}).
 
 \item[4) - 12)]
-Der Embedded-PC nimmt die Fahrzeugdaten entgegen und verarbeitet diese (\texttt{4: encode DATA}). Dabei wird der Datensatz \texttt{DATA} entsprechend der Informationen in \texttt{VEC\_LAYOUT} in mehrere Pakete geteilt und mit einem \texttt{HEADER} versehen. Anschließend werden diese Pakete der Reihe nach an den vServer übertragen (\texttt{5,9,...: send PACKAGE 1,...,n}). Dabei wird keine Empfangsbestätigung am Server erzeugt und somit auch keine am Embedded-PC erwartet. 
-Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen 8 Byte Zeitstempel und einer 4 Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, ist also eine Zahl zwischen 1 und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf fünf Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
-Sobald ein Paket den vServer erreicht wird es zunächst dekodiert (\texttt{6: decode PACKAGE 1}) (wobei \texttt{PACKAGE 1} hier nicht zwangsläufig das erste Paket aus \texttt{DATA} sein muss - Pakete können sich überholen oder verloren gehen). Dabei wird zunächst der \texttt{HEADER} ausgelesen. Der darin enthaltene Zeitstempel wird mit dem lokalen verglichen, ist die Differenz größer als 5 Sekunden wird das Paket verworfen, ansonsten wird das Paket entsprechend der Daten in \texttt{VEC\_LAYOUT}, \texttt{VEC\_COMMA} und 7\texttt{VEC\_DATATYPES} so bearbeitet, dass der Dekoder einen Fahrzeugwert nach dem anderen an die Datenbank zur Verfügung stellen kann. Wurden alle Fahrzeugdaten aus dem Paket ausgelesen und verarbeitet, wird ein neues Paket empfangen. 
+
+Der Embedded-PC nimmt die Fahrzeugdaten entgegen und verarbeitet diese (\texttt{4: encode DATA}). Dabei wird der Datensatz, \texttt{DATA} entsprechend der Informationen in \texttt{VEC\_LAYOUT}, in mehrere Pakete geteilt und mit einem \texttt{HEADER} versehen. Anschließend werden diese Pakete der Reihe nach an den vServer übertragen (\texttt{5,9,...: send PACKAGE 1,...,n}). Dabei wird keine Empfangsbestätigung am Server erzeugt und somit auch keine am Embedded-PC erwartet. 
+Nach Abschluss der Entwurfsphase wurde die Idee umgesetzt, die eingehenden Fahrzeugdaten am Embedded-PC in mehrere Pakete aufzuteilen, um bei eventuell auftretenden Verbindungsproblemen zumindest einzelne Pakete erfolgreich an den virtuellen Server übertragen zu können. Das Programm auf dem PC sorgt dafür, dass jedes Paket vor dem Senden mit einem aktuellen acht Byte Zeitstempel und einer vier Byte Identifikationsnummer (ID) versehen ist (Zeitstempel + ID = \texttt{HEADER}). Zum Erzeugen des Zeitstempels, mit Nanosekunden-Auflösung wird die Echtzeituhr des PCs genutzt (clock\_gettime(CLOCK\_REALTIME, Zeitstempel-Variable)). Die ID repräsentiert die Paketnummer, daher ist sie also eine Zahl zwischen eins und der Anzahl der getrennten Pakete. Standardmäßig wurde diese in Anlehnung an das Pflichtenheft auf fünf Pakete gesetzt, kann aber im mabxii Programm geändert werden. \\
+Sobald ein Paket den vServer erreicht, wird es zunächst dekodiert (\texttt{6: decode PACKAGE 1}) (wobei \texttt{PACKAGE 1} hier nicht zwangsläufig das erste Paket aus \texttt{DATA} sein muss - Pakete können sich überholen oder verloren gehen). Dabei wird zunächst der \texttt{HEADER} ausgelesen. Der darin enthaltene Zeitstempel wird mit dem lokalen verglichen, ist die Differenz größer als fünf Sekunden, wird das Paket verworfen, ansonsten wird das Paket entsprechend der Daten in \texttt{VEC\_LAYOUT}, \texttt{VEC\_COMMA} und 7\texttt{VEC\_DATATYPES} so bearbeitet, dass der Dekoder einen Fahrzeugwert nach dem anderen an die Datenbank zur Verfügung stellen kann. Wurden alle Fahrzeugdaten aus dem Paket ausgelesen und verarbeitet, wird ein neues Paket empfangen. 
+
 
 \end{itemize}
 
-Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server zu dessen Reaktion den aktuellen Kommunikationsvorgang abzubrechen und sich auf einen neuen vorzubereiten -- der Initialsierungsprozess beginnt von neuem. Auch das Senden des Pakets \texttt{MSG\_READY} an die MicroAutoBox II dient dazu einen neuen Kommunikationsvorgang mitzuteilen, denn durch dessen Empfang bricht auch diese den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten des Servers, wird das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. 
+Tritt ein Neustart des Embedded-PCs mitten im Kommunikationsvorgang auf, führt das erneute Senden des Pakets \texttt{MSG\_READY} an den virtuellen Server dazu, dass der aktuelle Kommunikationsvorgang abgebrochen und ein neuer vorbereitet wird -- der Initialsierungsprozess beginnt von neuem. Auch das Senden des Pakets \texttt{MSG\_READY} an die MicroAutoBox II dient dazu, einen neuen Kommunikationsvorgang zu starten, denn durch den Empfang des Pakets bricht auch die MicroAutoBox II den aktuell laufenden Kommunikationsvorgang ab und beginnt einen neuen Vorgang. Ein weiterer kritischer Punkt ist das nicht Empfangen der Fahrzeugdaten auf der Seite des Servers. Wenn das Programm nach einem von uns festgelegten Zeitpunkt (timeout X) keine Pakete empfangen hat, reagiert es durch ein erneutes Senden des Paketes (ready\_2) an den Embedded-PC. Daraufhin sendet der PC nach Empfang des Paketes erneut das Paket (ready\_3), was einen neuen Kommunikationsvorgang auslöst. 
 
 \begin{table}[H]
 \centering
@@ -1014,7 +1020,7 @@ Empfangsbe\-stätigung für PACKET\_INFO \\
 \end{tabular}
 
 \end{table}
-
+\label{paketinhalt}
 \newpage
 
 \begin{table}[H]
@@ -1118,13 +1124,15 @@ Zuerst wird ein Objekt von \textit{DBPacketInsert} erzeugt, das wiederum zuerst 
 Klasse \textit{DBPacketInsert}:
 
 Von dieser Klasse soll, wenn das Programm vollständig zusammengebaut ist, einmal ein Objekt erzeugt werden, auf dem dann jeweils nach Erhalt eines Paketes vom Embedded PC die Memberfunktion \textit{db\_insert()} aufgerufen wird. Diese löst dann das Auslesen und Aufbereiten der einzelnen Daten in der Klasse \textit{DatatypeDaemon} aus, setzt die Werte zusammen zu einem SQL-String und übergibt diesen an die Klasse \textit{Insert}. Im Weiteren wird auf diese einzelnen Schritte näher eingegangen.\\
-Wie oben bereits geschildert, fragt \textit{DBPacketInsert} zuerst nur einen Wert von \textit{DatatypeDaemon} an und fügt diesen in ein Stringarray ein. Zu diesem Wert lässt es sich außerdem die Stelle im Übertragungspaket der MikroAutoboxII zum Embedded PC übergeben. Dies geschieht zum einen durch den Aufruf von \textit{parseNextValue()} auf \textit{DatatypeDaemon}, zum anderen durch den Aufruf von \textit{getPosActualPacket()} auf derselben Klasse. Danach fragt \textit{DBPacketInsert} über \textit{DatatypeDaemon} die Stelle des Wertes im Übertragungspaket von MikroAutoboxII zum Embedded PC ab, woraus er dann das Übertragungspaket von Embedded PC zum vServer ermittelt. Ein solches Paket beinhaltet alle Daten einer Tabelle auf der Datenbank, er nutzt dazu auch die in einer Enumeration definierten Startpunkte der einzelnen Pakete, die den Stellen im Übertragunspaket der MikroAutoboxII zum Embedded PC entsprechen. Diese Information benötigt die Klasse, um jetzt nur so viele Werte über \textit{DatatypeDaemon} in dem Array, welches schon den einen oben genannten Wert enthält, zu sammeln, wie in einem Übertragungspaket sind. Damit füllt der gesamte Inhalt des Arrays eine Tabelle der Datenbank aus. Anschließend fragt das Objekt noch den Zeitstempel des Pakets mit \textit{getTime()} ab.\\
-Für jede Tabelle gibt es schließlich eine Unterfunktion, die entsprechend dem Aufbau der Datenbank die einzelnen Werte des Arrays zusammensetzt und daraus zusammen mit dem Zeitstempel des Pakets einen gültigen SQL-String baut. Sobald die Unterfunktion abgeschlossen ist, wird der fertige SQL-String an die Memberfunktion \textit{insertIntoDB(string* anw)} der Klasse \textit{Insert} übergeben.\\
+
+Wie oben bereits geschildert, fragt \textit{DBPacketInsert} zuerst nur einen Wert von \textit{DatatypeDaemon} an und fügt diesen in ein Stringarray ein. Zu diesem Wert lässt es sich außerdem die Stelle im Übertragungspaket der MikroAutoboxII zum Embedded PC übergeben. Dies geschieht zum einen durch den Aufruf von \textit{parseNextValue()} auf \textit{DatatypeDaemon}, zum anderen durch den Aufruf von \textit{getPosActualPacket()} auf derselben Klasse. Danach fragt \textit{DBPacketInsert} über \textit{DatatypeDaemon} die Stelle des Wertes im Übertragungspaket von MikroAutoboxII zum Embedded PC ab, woraus er dann das Übertragungspaket von Embedded PC zum vServer ermittelt. Ein solches Paket beinhaltet alle Daten einer Tabelle auf der Datenbank, er nutzt dazu auch die in einer Enumeration definierten Startpunkte der einzelnen Pakete, die den Stellen im Übertragungspaket der MikroAutoboxII zum Embedded PC entsprechen. Diese Information benötigt die Klasse, um jetzt nur so viele Werte über \textit{DatatypeDaemon} in dem Array, welches schon den einen oben genannten Wert enthält, zu sammeln, wie in einem Übertragungspaket sind. Damit füllt der gesamte Inhalt des Arrays eine Tabelle der Datenbank aus.\\
+Für jede Tabelle gibt es schließlich eine Unterfunktion, die entsprechend dem Aufbau der Datenbank die einzelnen Werte des Arrays zusammensetzt und daraus einen gültigen SQL-String baut. Sobald die Unterfunktion abgeschlossen ist, wird der fertige SQL-String an die Memberfunktion \textit{insertIntoDB(string* anw)} der Klasse \textit{Insert} übergeben.\\
+
 \\
 \\
 Klasse \textit{DatatypeDaemon}:\\
 Diese Klasse stellt die Schnittstelle zum Decoder dar, indem sie dort \textit{Data}-Objekte anfragt. Aus diesen Objekten extrahiert sie dann jeweils den Datenwert als \textit{Unsigned Integer}, die Position dieses Wertes in dem Übertragungspaket der MikroAutoBoxII an den Embedded PC, den Datentyp vor der Übertragung und den Kommasetzwert.\\
-Einerseits stellt \textit{DatatypeDaemon} der Klasse \textit{DBPacketInsert} die Zeit als auch die Position des aktuellen Wertes bereit, andererseits stellt sie auch den Zeitstempel des Pakets, den die Klasse auch vom \textit{Decoder} erhält, zur Verfügung. Die Position ist dabei über die Memberfunktion \textit{getPosActualPacket()}, der Zeitstempel über \textit{getTime()} abzufragen.\\
+Einerseits stellt \textit{DatatypeDaemon} der Klasse \textit{DBPacketInsert} die Zeit, als auch die Position des aktuellen Wertes bereit, andererseits stellt sie auch den Zeitstempel des Pakets, den die Klasse auch vom \textit{Decoder} erhält, zur Verfügung. Die Position ist dabei über die Memberfunktion \textit{getPosActualPacket()} und der Zeitstempel über \textit{getTime()} abzufragen.\\
 Der Wert hingegen wird von der Klasse zuerst auf seinen Datentyp geprüft, dann gegebenenfalls durch die vom Kommasetzwert vorgegebene Zehnerpotenz geteilt und in den jeweiligen Datentyp verwandelt. Danach wird der Wert unter Verwendung der von der \textit{Boost-Library} angebotenen Funktion \textit{lexical\_cast} in einen \textit{String} konvertiert. Dies geschieht bei Aufruf der Memberfunktion \textit{parseNextValue()}, der aufbereitete und in einen \textit{String} verwandelte Wert bildet dabei den Rückgabewert an den Aufrufer.\\
 \\
 \\
@@ -1370,9 +1378,12 @@ Beinhaltet die Navigationsleiste am Kopf der Seite, die auf allen Seiten präsen
 
 
 
-
+\label{AllgemeineFahrzeugdatenpage}
 \subsection{Allgemeine Fahrzeugdaten}
-Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält drei wesentliche Dateien: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
+
+Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält 3 wesentliche Datein: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (\ref{allgemeinefahrzeugdatenphp} ), das Javascript was in die Seite eingebunden und ausgeführt wird (\ref{allgemeinefahrzeugdatenjs}), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (\ref{allgemeinefahrzeugdatensql}). 
+\\ \\
+
 
 \includegraphics[scale=0.452]{allgemeinefahrzeugdaten.png}
 
@@ -1437,13 +1448,16 @@ Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem d
 
 
 
+\label{akkudatenpage}
 \subsection{Akkudaten}
 
-Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-, bzw. ausgeblendet werden können. Informationen zu den zwölf Akkumulatorblöcken (jeweils zwölf Zellen) sollen permanent angezeigt werden und Informationen zu den zwölf Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus zwei PHP  und einer JavaScript Komponente, analog wie \textit{ 1.1.2.Allgemeine Fahrzeugdaten} (s.o.)  
+Auf dieser Seite werden alle Spannungen, Stromstärken und Temperaturen bezüglich der Akkumulatoren angezeigt. Dabei entsprechen die dargestellten Daten denen, die im Pflichtenheft vereinbart wurden. Hauptaugenmerk  ist die Tabellendarstellung, bei der bestimmte Tabellenspalten ein-,bzw. ausgeblendet werden können. Informationen zu den 12 Akkumulatorblöcken (jeweils 12 Zellen) sollen permanent angezeigt werden und Informationen zu den 12 Zellen eines Blocks nur auf Wunsch. Des weiteren erfolgt die Anzeige der Gesamtspannung über alle Akkumulatorzellen als Ladebalken im Querformat. Die Seite besteht wieder aus 2 PHP  und einer JavaScript Komponente, analog wie \ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten   
+
+
 \\ \\
 \includegraphics[scale=0.4255]{akkudatenvpp.png}
 \\ \\ 
-Die allgemeine Funktionsweise dieser Seite entspricht \textit{1.1.2. Allgemeine Fahrzeugdaten}. Im folgenden wird nur auf Besonderheiten dieser Seite eingegangen.\\
+Die allgemeine Funktionsweise dieser Seite entspricht \textit{\ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten}. Im folgenden wird nur auf Besonderheiten dieser Seite eingegangen.\\
 
 \textbf{accu\_refresh(data)}\\
 
@@ -1468,11 +1482,11 @@ Dies ist eine Funktion, die "'toggle\_tab()"' zugeordnet ist. Sie sorgt dafür, 
 
 \textbf{toggle\_balance(), removeClass/addClass}\\
 \hangindent+95pt \hangafter=1 
-Analog wie in "'toggle\_notaus"' \textit{1.1.2. Allgemeine Fahrzeugdaten}. Hier wird der Ablauf für zwei Strings durchgeführt, die Balancing-Werte enthalten und bei Aktivität blau eingefärbt werden. Des weiteren wird an dieser Stelle auch gezählt, wie viele Zellen den Status "'AN"' haben. Die Anzahl wird in die Spalte des entsprechenden Akkublocks geschrieben und wenn diese größer als 0 ist ebenfalls blau hinterlegt.\\
+Analog wie in "'toggle\_notaus"' \textit{\ref{AllgemeineFahrzeugdatenpage} Allgemeine Fahrzeugdaten}. Hier wird der Ablauf für zwei Strings durchgeführt, die Balancing-Werte enthalten und bei Aktivität blau eingefärbt werden. Des weiteren wird an dieser Stelle auch gezählt, wie viele Zellen den Status "'AN"' haben. Die Anzahl wird in die Spalte des entsprechenden Akkublocks geschrieben und wenn diese größer als 0 ist ebenfalls blau hinterlegt.\\
 
 
 
-
+\label{dynamischedatenpage}
 \subsection{Dynamische Daten}
 Der Aufbau ist wieder analog den vorherigen zwei Seiten. Auf dieser Seite wird folgendes visualisiert: 
 
@@ -1506,6 +1520,9 @@ Rechnet den übergebenen Wert vom Wertebereich -180 bis +180 in den Wertebereich
 
 \newpage
 
+\newpage
+
+
 \subsection{Fahrdynamik}
 Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf zwei Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus vier Komponenten.\\ \\
 
@@ -1513,6 +1530,7 @@ Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf d
 \includegraphics[scale=0.42]{fahrdynamik.png}
 \\ \\
 Funktionserklärung siehe vorhergegangene Seiten.\\
+
 
 \newpage
 
@@ -1770,6 +1788,7 @@ Endgültiger Salt. Setzt sich aus \$salt, \$alg und \$rounds zusammen.
 \subsection{akkudaten.php}
 $\rightarrow$ siehe 2.4.15 Akkudaten
 
+\label{allgemeinefahrzeugdatenphp}
 \subsection{allgemeinefahrzeugdaten.php}
 $\rightarrow$ siehe 2.4.14 Allgemeine Fahrzeugdaten
 
@@ -1815,6 +1834,8 @@ Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Da
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (2.4.11)
 
 \subsection{core/functions/akkudaten\_sql.php}
+$\rightarrow$ siehe 2.4.15 Akkudaten
+
 $\rightarrow$ siehe 2.4.15 Akkudaten
 
 \subsection{core/functions/allgemeinefahrzeugdaten\_sql.php}
