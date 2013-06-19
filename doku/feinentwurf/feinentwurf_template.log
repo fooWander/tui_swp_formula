@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  19 JUN 2013 04:52
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  19 JUN 2013 05:02
 entering extended mode
 **feinentwurf_template.tex
 
@@ -1395,25 +1395,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 1137--1141
 
  []
 
-<resizeDBSequenz.png, id=193, 569.12625pt x 493.845pt>
+[40] <resizeDBSequenz.png, id=196, 569.12625pt x 493.845pt>
 File: resizeDBSequenz.png Graphic file (type png)
 
 <use resizeDBSequenz.png>
-Package pdftex.def Info: resizeDBSequenz.png used on input line 1158.
+Package pdftex.def Info: resizeDBSequenz.png used on input line 1159.
 (pdftex.def)             Requested size: 426.84364pt x 370.38283pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[40] [41 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/res
-izeDBSequenz.png (PNG copy)>] <resizeDB.png, id=200, 200.24812pt x 132.495pt>
+ [41 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/resizeD
+BSequenz.png (PNG copy)>]
+<resizeDB.png, id=200, 200.24812pt x 132.495pt>
 File: resizeDB.png Graphic file (type png)
-
-<use resizeDB.png>
-Package pdftex.def Info: resizeDB.png used on input line 1173.
+ <use resizeDB.png>
+Package pdftex.def Info: resizeDB.png used on input line 1174.
 (pdftex.def)             Requested size: 150.18571pt x 99.37099pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1178--1191
+Underfull \hbox (badness 10000) in paragraph at lines 1179--1192
 
  []
 
@@ -1422,14 +1418,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 1178--1191
 File: webseite.pdf Graphic file (type pdf)
 
 <use webseite.pdf>
-Package pdftex.def Info: webseite.pdf used on input line 1212.
+Package pdftex.def Info: webseite.pdf used on input line 1213.
 (pdftex.def)             Requested size: 422.69173pt x 390.57228pt.
  [43 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/webseit
 e.pdf>] <installation.pdf, id=2188, 719.48799pt x 309.958pt>
 File: installation.pdf Graphic file (type pdf)
 
 <use installation.pdf>
-Package pdftex.def Info: installation.pdf used on input line 1224.
+Package pdftex.def Info: installation.pdf used on input line 1225.
 (pdftex.def)             Requested size: 431.69612pt x 185.97623pt.
  [44 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/install
 ation.pdf>]
@@ -1437,18 +1433,18 @@ ation.pdf>]
 File: initialisierung.pdf Graphic file (type pdf)
 
 <use initialisierung.pdf>
-Package pdftex.def Info: initialisierung.pdf used on input line 1236.
+Package pdftex.def Info: initialisierung.pdf used on input line 1237.
 (pdftex.def)             Requested size: 405.87761pt x 329.47191pt.
  [45 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/initial
 isierung.pdf>]
 <header.pdf, id=2743, 355.72899pt x 213.598pt>
 File: header.pdf Graphic file (type pdf)
  <use header.pdf>
-Package pdftex.def Info: header.pdf used on input line 1247.
+Package pdftex.def Info: header.pdf used on input line 1248.
 (pdftex.def)             Requested size: 355.72812pt x 213.59747pt.
  [46 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/header.
 pdf>]
-Overfull \hbox (9.62141pt too wide) in paragraph at lines 1264--1265
+Overfull \hbox (9.62141pt too wide) in paragraph at lines 1265--1266
 []\OT1/cmr/m/n/12 (-20) Liste der im Sys-tem re-gis-trier-ten Be-nut-zer (nur V
 or-stand; \OT1/cmr/m/it/12 (-20) in-clu-des/widgets/userlist.php\OT1/cmr/m/n/12
  (-20) ) 
@@ -1457,7 +1453,7 @@ or-stand; \OT1/cmr/m/it/12 (-20) in-clu-des/widgets/userlist.php\OT1/cmr/m/n/12
 <startseite.pdf, id=2854, 1404.44695pt x 703.428pt>
 File: startseite.pdf Graphic file (type pdf)
  <use startseite.pdf>
-Package pdftex.def Info: startseite.pdf used on input line 1271.
+Package pdftex.def Info: startseite.pdf used on input line 1272.
 (pdftex.def)             Requested size: 442.40314pt x 221.581pt.
 
 [47 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/startsei
@@ -1465,43 +1461,43 @@ te.pdf>] <registrierung.pdf, id=3286, 556.47902pt x 309.958pt>
 File: registrierung.pdf Graphic file (type pdf)
 
 <use registrierung.pdf>
-Package pdftex.def Info: registrierung.pdf used on input line 1282.
+Package pdftex.def Info: registrierung.pdf used on input line 1283.
 (pdftex.def)             Requested size: 417.35825pt x 232.46791pt.
  [48 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/registr
 ierung.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 1290--1292
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1293
 
  []
 
 <login.pdf, id=3505, 806.212pt x 277.83798pt>
 File: login.pdf Graphic file (type pdf)
  <use login.pdf>
-Package pdftex.def Info: login.pdf used on input line 1295.
+Package pdftex.def Info: login.pdf used on input line 1296.
 (pdftex.def)             Requested size: 403.10501pt x 138.91864pt.
  [49 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/login.p
 df>]
 <logout.pdf, id=3728, 525.16202pt x 269.80798pt>
 File: logout.pdf Graphic file (type pdf)
  <use logout.pdf>
-Package pdftex.def Info: logout.pdf used on input line 1307.
+Package pdftex.def Info: logout.pdf used on input line 1308.
 (pdftex.def)             Requested size: 367.6109pt x 188.8643pt.
  [50 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/logout.
 pdf>]
 <passwort.pdf, id=3890, 703.428pt x 301.928pt>
 File: passwort.pdf Graphic file (type pdf)
  <use passwort.pdf>
-Package pdftex.def Info: passwort.pdf used on input line 1319.
+Package pdftex.def Info: passwort.pdf used on input line 1320.
 (pdftex.def)             Requested size: 422.06006pt x 181.15819pt.
  [51 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/passwor
 t.pdf>]
 <csvexport.pdf, id=4115, 611.083pt x 382.22798pt>
 File: csvexport.pdf Graphic file (type pdf)
  <use csvexport.pdf>
-Package pdftex.def Info: csvexport.pdf used on input line 1330.
+Package pdftex.def Info: csvexport.pdf used on input line 1331.
 (pdftex.def)             Requested size: 366.65262pt x 229.33856pt.
  [52 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/csvexpo
 rt.pdf>]
-Overfull \hbox (8.99712pt too wide) in paragraph at lines 1337--1338
+Overfull \hbox (8.99712pt too wide) in paragraph at lines 1338--1339
 \OT1/cmr/m/n/12 (-20) Hierbei han-delt es sich um ge-nau zu sein um zwei Wid-ge
 ts (\OT1/cmr/m/it/12 (-20) in-clu-des/widgets/manageusers.php
  []
@@ -1509,14 +1505,14 @@ ts (\OT1/cmr/m/it/12 (-20) in-clu-des/widgets/manageusers.php
 <usermgmt.pdf, id=4346, 819.86299pt x 462.52798pt>
 File: usermgmt.pdf Graphic file (type pdf)
  <use usermgmt.pdf>
-Package pdftex.def Info: usermgmt.pdf used on input line 1341.
+Package pdftex.def Info: usermgmt.pdf used on input line 1342.
 (pdftex.def)             Requested size: 409.9305pt x 231.26341pt.
  [53 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/usermgm
 t.pdf>]
 <online.pdf, id=4661, 514.72299pt x 261.77798pt>
 File: online.pdf Graphic file (type pdf)
  <use online.pdf>
-Package pdftex.def Info: online.pdf used on input line 1352.
+Package pdftex.def Info: online.pdf used on input line 1353.
 (pdftex.def)             Requested size: 411.77895pt x 209.42267pt.
  [54 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/online.
 pdf>]
@@ -1524,45 +1520,45 @@ pdf>]
 File: allgemeineSeitenaufbau.png Graphic file (type png)
 
 <use allgemeineSeitenaufbau.png>
-Package pdftex.def Info: allgemeineSeitenaufbau.png used on input line 1366.
+Package pdftex.def Info: allgemeineSeitenaufbau.png used on input line 1367.
 (pdftex.def)             Requested size: 451.96071pt x 154.09988pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1364--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1365--1369
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1364--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1365--1369
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1364--1368
+Underfull \hbox (badness 10000) in paragraph at lines 1365--1369
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1369--1372
+Underfull \hbox (badness 10000) in paragraph at lines 1370--1373
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1374--1376
+Underfull \hbox (badness 10000) in paragraph at lines 1375--1377
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1377--1378
+Underfull \hbox (badness 10000) in paragraph at lines 1378--1379
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1390--1392
+Underfull \hbox (badness 10000) in paragraph at lines 1391--1393
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1390--1392
+Underfull \hbox (badness 10000) in paragraph at lines 1391--1393
 
  []
 
@@ -1570,79 +1566,79 @@ Underfull \hbox (badness 10000) in paragraph at lines 1390--1392
 File: allgemeinefahrzeugdaten.png Graphic file (type png)
 
 <use allgemeinefahrzeugdaten.png>
-Package pdftex.def Info: allgemeinefahrzeugdaten.png used on input line 1394.
+Package pdftex.def Info: allgemeinefahrzeugdaten.png used on input line 1395.
 (pdftex.def)             Requested size: 454.25682pt x 264.04741pt.
  [55 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/allgeme
 ineSeitenaufbau.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1397--1400
+Underfull \hbox (badness 10000) in paragraph at lines 1398--1401
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1402--1405
+Underfull \hbox (badness 10000) in paragraph at lines 1403--1406
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1407--1410
+Underfull \hbox (badness 10000) in paragraph at lines 1408--1411
 
  []
 
 
-Overfull \hbox (15.63283pt too wide) in paragraph at lines 1412--1416
+Overfull \hbox (15.63283pt too wide) in paragraph at lines 1413--1417
 []\OT1/cmr/bx/n/12 justGage()   \OT1/cmr/m/n/12 (-20) In-itia-li-siert die halb
 -run-de Ge-schwin-dig-keits-an-zei-ge, die durch \OT1/cmr/bx/n/12 \g.refresh()\
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1412--1416
+Underfull \hbox (badness 10000) in paragraph at lines 1413--1417
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1418--1421
+Underfull \hbox (badness 10000) in paragraph at lines 1419--1422
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1423--1426
+Underfull \hbox (badness 10000) in paragraph at lines 1424--1427
 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 1428.
+(Font)              Font shape `OMS/cmsy/b/n' tried instead on input line 1429.
 
 
-Overfull \hbox (10.55739pt too wide) in paragraph at lines 1428--1431
+Overfull \hbox (10.55739pt too wide) in paragraph at lines 1429--1432
 []\OT1/cmr/bx/n/12 $.post('allgemeinefahrzeugdaten[]sql.php',\OMS/cmsy/b/n/12 f
 \OT1/cmr/bx/n/12 permission:"true"\OMS/cmsy/b/n/12 g\OT1/cmr/bx/n/12 ,function(
 data)\OMS/cmsy/b/n/12 fg
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1428--1431
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1432
 
  []
 
 [56 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/allgemei
 nefahrzeugdaten.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1433--1436
+Underfull \hbox (badness 10000) in paragraph at lines 1434--1437
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1438--1441
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1443--1446
+Underfull \hbox (badness 10000) in paragraph at lines 1444--1447
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1448--1452
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1453
 
  []
 
@@ -1650,41 +1646,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 1448--1452
 File: akkudatenvpp.png Graphic file (type png)
 
 <use akkudatenvpp.png>
-Package pdftex.def Info: akkudatenvpp.png used on input line 1463.
+Package pdftex.def Info: akkudatenvpp.png used on input line 1464.
 (pdftex.def)             Requested size: 451.33919pt x 303.02829pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1466--1467
+Underfull \hbox (badness 10000) in paragraph at lines 1467--1468
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1468--1469
+Underfull \hbox (badness 10000) in paragraph at lines 1469--1470
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1471--1472
+Underfull \hbox (badness 10000) in paragraph at lines 1472--1473
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1474--1477
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1478--1482
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1478
 
  []
 
 [58 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/akkudate
 nvpp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1483--1487
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1483
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1489--1492
+Underfull \hbox (badness 10000) in paragraph at lines 1484--1488
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1490--1493
 
  []
 
@@ -1692,67 +1688,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 1489--1492
 File: dynamischedaten.png Graphic file (type png)
 
 <use dynamischedaten.png>
-Package pdftex.def Info: dynamischedaten.png used on input line 1508.
+Package pdftex.def Info: dynamischedaten.png used on input line 1509.
 (pdftex.def)             Requested size: 454.93158pt x 312.53726pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1506--1511
+Underfull \hbox (badness 10000) in paragraph at lines 1507--1512
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1506--1511
+Underfull \hbox (badness 10000) in paragraph at lines 1507--1512
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1506--1511
+Underfull \hbox (badness 10000) in paragraph at lines 1507--1512
 
  []
 
 [59]
-Underfull \hbox (badness 10000) in paragraph at lines 1513--1516
+Underfull \hbox (badness 10000) in paragraph at lines 1514--1517
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1518--1521
+Underfull \hbox (badness 10000) in paragraph at lines 1519--1522
 
  []
 
 [60 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/dynamisc
 hedaten.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1533--1534
+Underfull \hbox (badness 10000) in paragraph at lines 1534--1535
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1533--1534
+Underfull \hbox (badness 10000) in paragraph at lines 1534--1535
 
  []
 
 <fahrdynamik.png, id=4860, 1083.29718pt x 682.04813pt>
 File: fahrdynamik.png Graphic file (type png)
  <use fahrdynamik.png>
-Package pdftex.def Info: fahrdynamik.png used on input line 1536.
+Package pdftex.def Info: fahrdynamik.png used on input line 1537.
 (pdftex.def)             Requested size: 454.98172pt x 286.45825pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1536--1539
+Underfull \hbox (badness 10000) in paragraph at lines 1537--1540
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1536--1539
+Underfull \hbox (badness 10000) in paragraph at lines 1537--1540
 
  []
 
 [61 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/fahrdyna
 mik.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1547
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1547
 
  []
 
@@ -1760,15 +1756,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1545--1546
 File: motorundumrichter.png Graphic file (type png)
 
 <use motorundumrichter.png>
-Package pdftex.def Info: motorundumrichter.png used on input line 1549.
+Package pdftex.def Info: motorundumrichter.png used on input line 1550.
 (pdftex.def)             Requested size: 458.08528pt x 268.7534pt.
 
-Overfull \hbox (2.84111pt too wide) in paragraph at lines 1549--1552
+Overfull \hbox (2.84111pt too wide) in paragraph at lines 1550--1553
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1549--1552
+Underfull \hbox (badness 10000) in paragraph at lines 1550--1553
 
  []
 
@@ -1778,7 +1774,7 @@ Kapitel 3.
 [63
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1587--1588
+Underfull \hbox (badness 10000) in paragraph at lines 1588--1589
 
  []
 
@@ -1786,21 +1782,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 1587--1588
 File: userdata.png Graphic file (type png)
 
 <use userdata.png>
-Package pdftex.def Info: userdata.png used on input line 1674.
+Package pdftex.def Info: userdata.png used on input line 1676.
 (pdftex.def)             Requested size: 439.21916pt x 102.75847pt.
  [67 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/doku/feinentwurf/userdat
 a.png>] [68] [69] [70] [71]
-Underfull \hbox (badness 10000) in paragraph at lines 1802--1803
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 1804--1805
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1813--1814
+Underfull \hbox (badness 10000) in paragraph at lines 1806--1807
 
  []
 
@@ -1810,7 +1801,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1815--1816
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1824--1825
+Underfull \hbox (badness 10000) in paragraph at lines 1817--1818
 
  []
 
@@ -1819,18 +1810,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 1826--1827
 
  []
 
-[72]
-Underfull \hbox (badness 10000) in paragraph at lines 1831--1832
+
+Underfull \hbox (badness 10000) in paragraph at lines 1828--1829
 
  []
 
-
+[72]
 Underfull \hbox (badness 10000) in paragraph at lines 1833--1834
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1854--1855
+Underfull \hbox (badness 10000) in paragraph at lines 1835--1836
 
  []
 
@@ -1839,99 +1830,104 @@ Underfull \hbox (badness 10000) in paragraph at lines 1856--1857
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 1858--1859
+
+ []
+
 [73]
-Underfull \hbox (badness 10000) in paragraph at lines 1873--1874
+Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
 
  []
 
 [74]
-Underfull \hbox (badness 10000) in paragraph at lines 1888--1889
+Underfull \hbox (badness 10000) in paragraph at lines 1890--1891
 
  []
 
 [75] [76]
-Underfull \hbox (badness 10000) in paragraph at lines 1952--1956
+Underfull \hbox (badness 10000) in paragraph at lines 1954--1958
 
  []
 
 [77]
-Underfull \hbox (badness 10000) in paragraph at lines 1980--1984
+Underfull \hbox (badness 10000) in paragraph at lines 1982--1986
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1996--2000
+Underfull \hbox (badness 10000) in paragraph at lines 1998--2002
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2008--2012
+Underfull \hbox (badness 10000) in paragraph at lines 2010--2014
 
  []
 
 [78]
-Underfull \hbox (badness 10000) in paragraph at lines 2020--2023
+Underfull \hbox (badness 10000) in paragraph at lines 2022--2025
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2032--2036
+Underfull \hbox (badness 10000) in paragraph at lines 2034--2038
 
  []
 
 [79]
-Underfull \hbox (badness 10000) in paragraph at lines 2044--2048
+Underfull \hbox (badness 10000) in paragraph at lines 2046--2050
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2049--2052
+Underfull \hbox (badness 10000) in paragraph at lines 2051--2054
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2053--2056
+Underfull \hbox (badness 10000) in paragraph at lines 2055--2058
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2070--2073
+Underfull \hbox (badness 10000) in paragraph at lines 2072--2075
 
  []
 
 [80]
-Underfull \hbox (badness 10000) in paragraph at lines 2081--2084
+Underfull \hbox (badness 10000) in paragraph at lines 2084--2087
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2084--2086
+Underfull \hbox (badness 10000) in paragraph at lines 2087--2089
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2090--2092
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2111--2113
+Underfull \hbox (badness 10000) in paragraph at lines 2093--2095
 
  []
 
 [81]
-Underfull \hbox (badness 10000) in paragraph at lines 2117--2119
+Underfull \hbox (badness 10000) in paragraph at lines 2114--2116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2122--2125
+Underfull \hbox (badness 10000) in paragraph at lines 2120--2122
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2125--2128
 
  []
 
 [82]
 Package tocbasic Info: character protrusion at lof deactivated on input line 21
-43.
+46.
 
 (C:\Users\Zehner\Documents\GitHub\tui_swp_formula\doku\feinentwurf\feinentwurf_
 template.lof [83
@@ -1953,7 +1949,7 @@ en Mi-cro-Au-to-Box II und Embedded-
  [84] <akkudaten.png, id=4941, 479.54156pt x 529.98pt>
 File: akkudaten.png Graphic file (type png)
  <use akkudaten.png>
-Package pdftex.def Info: akkudaten.png used on input line 2159.
+Package pdftex.def Info: akkudaten.png used on input line 2162.
 (pdftex.def)             Requested size: 383.63377pt x 423.98456pt.
 
 [85
@@ -1961,7 +1957,7 @@ Package pdftex.def Info: akkudaten.png used on input line 2159.
 ] <zelldaten.png, id=4946, 845.40843pt x 617.30624pt>
 File: zelldaten.png Graphic file (type png)
  <use zelldaten.png>
-Package pdftex.def Info: zelldaten.png used on input line 2168.
+Package pdftex.def Info: zelldaten.png used on input line 2171.
 (pdftex.def)             Requested size: 549.50896pt x 401.24431pt.
 
 
@@ -1970,7 +1966,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <dyndaten.png, id=4947, 398.23781pt x 611.28375pt>
 File: dyndaten.png Graphic file (type png)
  <use dyndaten.png>
-Package pdftex.def Info: dyndaten.png used on input line 2176.
+Package pdftex.def Info: dyndaten.png used on input line 2179.
 (pdftex.def)             Requested size: 338.50372pt x 519.59364pt.
 
 
@@ -1980,7 +1976,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: submotordaten.png Graphic file (type png)
 
 <use submotordaten.png>
-Package pdftex.def Info: submotordaten.png used on input line 2185.
+Package pdftex.def Info: submotordaten.png used on input line 2188.
 (pdftex.def)             Requested size: 447.92233pt x 618.81036pt.
 
 
@@ -1990,7 +1986,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: subsignalkollektor.png Graphic file (type png)
 
 <use subsignalkollektor.png>
-Package pdftex.def Info: subsignalkollektor.png used on input line 2194.
+Package pdftex.def Info: subsignalkollektor.png used on input line 2197.
 (pdftex.def)             Requested size: 620.69684pt x 292.4314pt.
 
 
@@ -2000,7 +1996,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_notaus.png Graphic file (type png)
 
 <use sc_daten_notaus.png>
-Package pdftex.def Info: sc_daten_notaus.png used on input line 2203.
+Package pdftex.def Info: sc_daten_notaus.png used on input line 2206.
 (pdftex.def)             Requested size: 636.60834pt x 273.04185pt.
 
 
@@ -2011,7 +2007,7 @@ File: sc_daten_temperatur_allgemein.png Graphic file (type png)
 
 <use sc_daten_temperatur_allgemein.png>
 Package pdftex.def Info: sc_daten_temperatur_allgemein.png used on input line 2
-212.
+215.
 (pdftex.def)             Requested size: 645.41615pt x 243.19318pt.
 
 
@@ -2021,7 +2017,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_zellenpack.png Graphic file (type png)
 
 <use sc_daten_zellenpack.png>
-Package pdftex.def Info: sc_daten_zellenpack.png used on input line 2221.
+Package pdftex.def Info: sc_daten_zellenpack.png used on input line 2224.
 (pdftex.def)             Requested size: 436.63184pt x 481.80064pt.
 
 
@@ -2031,7 +2027,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_zelldaten.png Graphic file (type png)
 
 <use sc_daten_zelldaten.png>
-Package pdftex.def Info: sc_daten_zelldaten.png used on input line 2231.
+Package pdftex.def Info: sc_daten_zelldaten.png used on input line 2234.
 (pdftex.def)             Requested size: 423.60959pt x 534.31119pt.
 
 
@@ -2041,10 +2037,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: sc_daten_dynamisch.png Graphic file (type png)
 
 <use sc_daten_dynamisch.png>
-Package pdftex.def Info: sc_daten_dynamisch.png used on input line 2240.
+Package pdftex.def Info: sc_daten_dynamisch.png used on input line 2243.
 (pdftex.def)             Requested size: 456.77792pt x 455.03891pt.
 
-Overfull \hbox (1.53375pt too wide) in paragraph at lines 2240--2241
+Overfull \hbox (1.53375pt too wide) in paragraph at lines 2243--2244
  [][] 
  []
 
@@ -2055,10 +2051,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: subsignaltransmitter.png Graphic file (type png)
 
 <use subsignaltransmitter.png>
-Package pdftex.def Info: subsignaltransmitter.png used on input line 2249.
+Package pdftex.def Info: subsignaltransmitter.png used on input line 2252.
 (pdftex.def)             Requested size: 674.51836pt x 251.81516pt.
 
-Overfull \hbox (5.45467pt too wide) in paragraph at lines 2249--2250
+Overfull \hbox (5.45467pt too wide) in paragraph at lines 2252--2253
  [][] 
  []
 
@@ -2069,10 +2065,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: subembreceive.png Graphic file (type png)
 
 <use subembreceive.png>
-Package pdftex.def Info: subembreceive.png used on input line 2258.
+Package pdftex.def Info: subembreceive.png used on input line 2261.
 (pdftex.def)             Requested size: 684.76353pt x 211.84306pt.
 
-Overfull \hbox (15.69984pt too wide) in paragraph at lines 2258--2259
+Overfull \hbox (15.69984pt too wide) in paragraph at lines 2261--2262
  [][] 
  []
 
@@ -2083,7 +2079,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Kommunikationsaufbau_1.png Graphic file (type png)
 
 <use Kommunikationsaufbau_1.png>
-Package pdftex.def Info: Kommunikationsaufbau_1.png used on input line 2268.
+Package pdftex.def Info: Kommunikationsaufbau_1.png used on input line 2271.
 (pdftex.def)             Requested size: 667.10855pt x 428.64297pt.
 
 
@@ -2093,7 +2089,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Kommunikationsaufbau_2.png Graphic file (type png)
 
 <use Kommunikationsaufbau_2.png>
-Package pdftex.def Info: Kommunikationsaufbau_2.png used on input line 2277.
+Package pdftex.def Info: Kommunikationsaufbau_2.png used on input line 2280.
 (pdftex.def)             Requested size: 635.18346pt x 428.64297pt.
 
 
@@ -2104,7 +2100,7 @@ File: DatenUebertragung_Verarbeitung.png Graphic file (type png)
 
 <use DatenUebertragung_Verarbeitung.png>
 Package pdftex.def Info: DatenUebertragung_Verarbeitung.png used on input line 
-2284.
+2287.
 (pdftex.def)             Requested size: 344.48746pt x 350.26907pt.
 
 
@@ -2114,7 +2110,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: PracticalSocket.png Graphic file (type png)
 
 <use PracticalSocket.png>
-Package pdftex.def Info: PracticalSocket.png used on input line 2295.
+Package pdftex.def Info: PracticalSocket.png used on input line 2298.
 (pdftex.def)             Requested size: 396.52193pt x 454.33801pt.
 
 
@@ -2170,7 +2166,7 @@ ublic/amsfonts/cm/cmsy10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmti12.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmtt12.pfb>
-Output written on feinentwurf_template.pdf (101 pages, 5009702 bytes).
+Output written on feinentwurf_template.pdf (101 pages, 5009645 bytes).
 PDF statistics:
  5079 PDF objects out of 5155 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -1150,6 +1150,7 @@ Wird von \textit{Insert} die Memberfunktion \textit{instertIntoDB(string* anw)} 
 
 
 %--------------------------   vServer   ----------------------------%
+\newpage
 
 \section{vServer}
 
@@ -1451,7 +1452,7 @@ Mit dieser Funktion wird der Wert "'val"' an die Stelle im Dokument geschrieben,
 Die Funktion age() dient dazu, die Zeit anzuzeigen, die vergangen ist, seitdem die letzte Aktualisierung in der Datenbank verzeichnet wurde. Dabei wird die UNIX Zeit als Referenzzeit genutzt und auf Sekunden normiert. Der Zeitpunkt in der Tabelle nutzt ebenfalls Zeiteinheit Sekunden. Die Differenz beider Werte gibt die Zeit an, die seit dem letzten Datenbankeintrag vergangen ist. Danach wird diese Zahl in Tage, Stunden, Minuten und Sekunden umgerechnet. Es werden aber aus Platzgründen in der Anzeigefläche nur Stunden, Minuten und Sekunden angezeigt. Die Zeitangabe erscheint genau dann, wenn mehr als 15 Sekunden verstrichen sind und nur die Zeiteinheiten, die tatsächlich mit Werten belegt werden. Ist mehr als eine Stunden vergangen, werden Stunden, Minuten und Sekunden angezeigt. ist weniger als eine Minute vergangen, werden nur die vergangen Sekunden angezeigt.\\ 
 
 
-
+\newpage
 
 
 \label{akkudatenpage}
@@ -1603,6 +1604,7 @@ Thomas Golda
 \subsubsection*{Beschreibung}
 Dieser Funktion werden keine Parameter übergeben. Sie verwendet hierbei die Nutzerfunktion \textit{logged\_in()} und leitet einen Nutzer auf die Startseite weiter, wenn er bereits eingeloggt ist. Sie ist insbesondere dann nützlich, wenn man Seiten vor einem unsinnigen Zugriff des Nutzers schützen möchte. So macht es als eingeloggter Benutzer beispielsweise keinen Sinn das Registrierungsformular aufzurufen.
 
+\newpage
 
 \subsection*{protect\_page()}
 \subsubsection*{Author}
@@ -2069,8 +2071,9 @@ Diese Funktion visualisiert den Lenkwinkel. Dabei wird ein horizontaler Containe
 \subsubsection*{Parameter:}
 \textbf{int param $\in$ [-180,180]} \\
 \hangindent+95pt \hangafter=1
-Zeigt den aktuellen Lenkwinkel. Wird durch 2 geteilt und dadurch auf die 181 Abstufungen normiert.\\
+Zeigt den aktuellen Lenkwinkel. Wird durch zwei geteilt und dadurch auf die 181 Abstufungen normiert.\\
 
+\newpage
 
 \subsection*{bar\_vertical(param,id)}
 \subsubsection*{Author}
