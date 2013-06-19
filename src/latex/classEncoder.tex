@@ -21,7 +21,7 @@ unsigned int \hyperlink{classEncoder_a32406ccfc04e12f876f07be50c5b2c6b}{get\-Pac
 
 
 \subsection{Ausführliche Beschreibung}
-Service der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt und komprimiert. Die Komprimierung ist noch nicht implementiert. 
+Service, der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt und komprimiert. Die Komprimierung ist noch nicht implementiert. 
 
 \subsection{Beschreibung der Konstruktoren und Destruktoren}
 \hypertarget{classEncoder_ac957151409a5f04f3d3065d730decbed}{\index{Encoder@{Encoder}!Encoder@{Encoder}}
@@ -40,16 +40,16 @@ Erzeugt einen \hyperlink{classEncoder}{Encoder}.
 
 
 \begin{DoxyParams}{Parameter}
-{\em buffer} & Die zu bearbeitenden Daten. Dabei muss es sich um einen Datenstrom handeln in dem jeweils 2 Byte einen Fahrzeugwert entsprechen. \\
+{\em buffer} & Die zu bearbeitenden Daten. Dabei muss es sich um einen Datenstrom handeln, in dem jeweils 2 Byte einen Fahrzeugwert entsprechen. \\
 \hline
 {\em bufferlen} & Die Länge der zu bearbeitenden Daten. \\
 \hline
-{\em vec\-Layout} & Gibt an wie die Daten geteilt werden sollen. \par
+{\em vec\-Layout} & Gibt an, wie die Daten geteilt werden sollen. \par
  \mbox{[}Anfangsbyte Paket 1, Anfangsbyte Paket 2, ..., Anfangsbyte Paket n\mbox{]} \\
 \hline
 {\em vec\-Layoutlen} & Die Länge von {\itshape vec\-Layout}. \\
 \hline
-{\em vec\-Datatypes} & Gibt an um welchen Datentyp es sich jeweils handelt. \\
+{\em vec\-Datatypes} & Gibt an, um welchen Datentyp es sich jeweils handelt. \\
 \hline
 {\em vec\-Datatypeslen} & Die Länge von {\itshape vec\-Datatypes}. \\
 \hline

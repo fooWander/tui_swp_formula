@@ -1,5 +1,5 @@
-%\documentclass[twoside]{book}
-\documentclass[fontsize = 12pt, paper = a4]{scrreprt}
+\documentclass[twoside]{book}
+
 % Packages required by doxygen
 \usepackage{calc}
 \usepackage{doxygen}
@@ -70,8 +70,8 @@
 \fancyhead[RO]{\fancyplain{}{\bfseries\thepage}}
 \fancyfoot[LE]{\fancyplain{}{}}
 \fancyfoot[CE]{\fancyplain{}{}}
-\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 01:45:31 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
-\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 01:45:31 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
+\fancyfoot[RE]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 03:17:56 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
+\fancyfoot[LO]{\fancyplain{}{\bfseries\scriptsize Erzeugt am Mit Jun 19 2013 03:17:56 für Service-Interface für ein Formula Student Fahrzeug von Doxygen }}
 \fancyfoot[CO]{\fancyplain{}{}}
 \fancyfoot[RO]{\fancyplain{}{}}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -116,37 +116,16 @@
 % Titlepage & ToC
 \hypersetup{pageanchor=false}
 \pagenumbering{roman}
-%\begin{titlepage}
-%\vspace*{7cm}
-%\begin{center}%
-%{\Large Service-\/\-Interface für ein Formula Student Fahrzeug }\\
-%Entwicklerdokumentation
-%\vspace*{1cm}
-%{\large Erzeugt von Doxygen 1.8.4}\\
-%\vspace*{0.5cm}
-%{\small Mit Jun 19 2013 01:45:31}\\
-%\end{center}
-%\end{titlepage}
-
-\titlehead{\begin{center}
-\textbf{\Huge Entwicklerdokumentation}
-\end{center}}
-		   
-\title{Service-Interface \\ für ein Formula-Student-Fahrzeug}
-
-\subtitle{Technische Universität Ilmenau \\
-		  Softwareprojekt SS 2013 \\ Gruppe 19}			
-		
-\author{Christian Boxdörfer \\ Thomas Golda \\ Daniel Häger \\ 
-		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
-		Tobias Zehner \\ Sebastian Zehnter}
-		
-\date{19.06.2013}	 
-	  
-\publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
-
-\maketitle		
-
+\begin{titlepage}
+\vspace*{7cm}
+\begin{center}%
+{\Large Service-\/\-Interface für ein Formula Student Fahrzeug }\\
+\vspace*{1cm}
+{\large Erzeugt von Doxygen 1.8.4}\\
+\vspace*{0.5cm}
+{\small Mit Jun 19 2013 03:17:56}\\
+\end{center}
+\end{titlepage}
 \clearemptydoublepage
 \tableofcontents
 \clearemptydoublepage
@@ -159,9 +138,6 @@
 \chapter{Klassen-\/\-Verzeichnis}
 \input{annotated}
 \chapter{Klassen-\/\-Dokumentation}
-
-Wir bedienen uns teilweise an der PracticalSocket-Bibliothek um die Socket-Kommunikaton unter C++ zu vereinfachen. Der Quellcode in \texttt{PracticalSocket.h} und \texttt{PracticalSocket.cpp} stammt bis auf ein paar kleinere Änderungen also nicht von uns. Der Quelltext wurde hier entnommen: \url{http://cs.ecs.baylor.edu/~donahoo/practical/CSockets/practical/}
-
 \input{classCommunicatingSocket}
 \input{classData}
 \input{classDatatypeDaemon}
