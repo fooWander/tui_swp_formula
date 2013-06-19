@@ -39,6 +39,7 @@
 \contentsline {subsection}{\numberline {2.4.14}Allgemeine Seitenaufbau}{55}
 \contentsline {subsection}{\numberline {2.4.15}Allgemeine Fahrzeugdaten}{55}
 \contentsline {subsection}{\numberline {2.4.16}Akkudaten}{58}
+<<<<<<< HEAD
 \contentsline {subsection}{\numberline {2.4.17}Dynamische Daten}{60}
 \contentsline {subsection}{\numberline {2.4.18}Fahrdynamik}{62}
 \contentsline {subsection}{\numberline {2.4.19}Motor und Umrichter}{63}
@@ -87,3 +88,53 @@
 \contentsline {section}{\numberline {3.10}scripts/motorundumrichter\_script.js}{83}
 \contentsline {chapter}{Abbildungsverzeichnis}{85}
 \contentsline {chapter}{Anhang}{86}
+=======
+\contentsline {subsection}{\numberline {2.4.17}Dynamische Daten}{59}
+\contentsline {subsection}{\numberline {2.4.18}Fahrdynamik}{61}
+\contentsline {subsection}{\numberline {2.4.19}Motor und Umrichter}{62}
+\contentsline {chapter}{\numberline {3}Entwicklerdokumentation}{63}
+\contentsline {section}{\numberline {3.1}MicroAutoBox II}{63}
+\contentsline {section}{\numberline {3.2}Embedded PC}{63}
+\contentsline {section}{\numberline {3.3}vServer}{63}
+\contentsline {section}{\numberline {3.4}Webseite}{64}
+\contentsline {subsection}{\numberline {3.4.1}Allgemeine Funktionen (general.php)}{64}
+\contentsline {subsection}{\numberline {3.4.2}Nutzerfunktionen (users.php)}{66}
+\contentsline {subsection}{\numberline {3.4.3}Konfigurationsdatei (config.php)}{70}
+\contentsline {subsection}{\numberline {3.4.4}akkudaten.php}{72}
+\contentsline {subsection}{\numberline {3.4.5}allgemeinefahrzeugdaten.php}{72}
+\contentsline {subsection}{\numberline {3.4.6}changepassword.php}{72}
+\contentsline {subsection}{\numberline {3.4.7}dynamischedaten.php}{72}
+\contentsline {subsection}{\numberline {3.4.8}fahrdynamik.php}{73}
+\contentsline {subsection}{\numberline {3.4.9}index.php}{73}
+\contentsline {subsection}{\numberline {3.4.10}install.php}{73}
+\contentsline {subsection}{\numberline {3.4.11}login.php}{73}
+\contentsline {subsection}{\numberline {3.4.12}logout.php}{73}
+\contentsline {subsection}{\numberline {3.4.13}motorundumrichter.php}{73}
+\contentsline {subsection}{\numberline {3.4.14}register.php}{74}
+\contentsline {subsection}{\numberline {3.4.15}core/init.php}{74}
+\contentsline {subsection}{\numberline {3.4.16}core/functions/accept.php}{74}
+\contentsline {subsection}{\numberline {3.4.17}core/functions/akkudaten\_sql.php}{74}
+\contentsline {subsection}{\numberline {3.4.18}core/functions/allgemeinefahrzeugdaten\_sql.php}{74}
+\contentsline {subsection}{\numberline {3.4.19}core/functions/csvexp\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.20}core/functions/dynamischedaten\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.21}core/functions/fahrdynamik\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.22}core/functions/general.php}{75}
+\contentsline {subsection}{\numberline {3.4.23}core/functions/motorundumrichter\_sql.php}{75}
+\contentsline {subsection}{\numberline {3.4.24}core/functions/users.php}{75}
+\contentsline {subsection}{\numberline {3.4.25}includes/css/style.css}{76}
+\contentsline {subsection}{\numberline {3.4.26}includes/overall/footer.php}{76}
+\contentsline {subsection}{\numberline {3.4.27}includes/overall/header.php}{76}
+\contentsline {subsection}{\numberline {3.4.28}includes/widgets/csvexp.php}{76}
+\contentsline {subsection}{\numberline {3.4.29}includes/widgets/loggedin.php}{76}
+\contentsline {subsection}{\numberline {3.4.30}includes/widgets/manageusers.php}{76}
+\contentsline {subsection}{\numberline {3.4.31}includes/widgets/onlineusers.php}{76}
+\contentsline {subsection}{\numberline {3.4.32}includes/widgets/userlist.php}{77}
+\contentsline {section}{\numberline {3.5}Skript\IeC {\"u}bergreifende Funktionen}{77}
+\contentsline {section}{\numberline {3.6}scripts/allgemeinefahrzeugdaten\_script.js}{78}
+\contentsline {section}{\numberline {3.7}scripts/akkudaten\_script.js}{78}
+\contentsline {section}{\numberline {3.8}scripts/dynamischedaten\_script.js}{80}
+\contentsline {section}{\numberline {3.9}scripts/fahrdynamik\_script.js}{82}
+\contentsline {section}{\numberline {3.10}scripts/motorundumrichter\_script.js}{82}
+\contentsline {chapter}{Abbildungsverzeichnis}{84}
+\contentsline {chapter}{Anhang}{85}
+>>>>>>> 036308c2cdf0cd3d9a7f05f92e9ab57e561294b9
