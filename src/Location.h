@@ -23,7 +23,7 @@
 #include <string>
 
 /**
- *	Datenstruktur die Netzwerkdaten bestimmter Teilnehmer speichert.
+ *	Datenstruktur, die Netzwerkdaten bestimmter Teilnehmer speichert.
  */
 
 class Location

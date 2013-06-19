@@ -11,7 +11,7 @@ using namespace boost;
 
 	/*! \brief Klasse zum Aufbereiten der Daten.
 	*
-	*	In dieser Klasse werden Die Daten nicht nur in das richtige Format umgewandelt,
+	*	In dieser Klasse werden die Daten nicht nur in das richtige Format umgewandelt,
 	*	sondern auch durch eine Zehnerpotenz geteilt, sodass sie wieder ihrem Wert vor
 	*	der \"Ubertragung entsprechen.
 	*	Es werden weiterhin Zusatzinformationen angeboten, die es sowohl erm\"oglichen, die
@@ -41,7 +41,7 @@ using namespace boost;
 			*/
 			string parseNextValue();
 			/*! Diese Funktion liefert die Position des jetzigen Datenwerts im \"Ubertragungsvektor
-				der MikroAutoBoxII zur\"uck.
+				der MikroAutoboxII zur\"uck.
 			*
 			*	Dies ist f\"ur die Bestimmung des \"Ubertragungspakets vom Embedded PC wichtig, da
 			*	darauf basierend die richtige Datenbankanfrage in DBPacketInsert aufgebaut wird.

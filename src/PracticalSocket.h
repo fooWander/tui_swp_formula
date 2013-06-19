@@ -147,7 +147,7 @@ public:
     void send(const void *buffer, int bufferLen) throw(SocketException);
 
     /**
-     *   Ließt eine Nachricht in den \"ubergebenen Buffer ein.
+     *   Liest eine Nachricht in den \"ubergebenen Buffer ein.
      *   connect() muss vorher aufgerufen werden.
      *   @param buffer Speicher in den die Nachricht geschrieben werden soll.
      *   @param bufferLen Maximale Anzahl an Bytes die empfangen werden sollen.
@@ -222,7 +222,7 @@ public:
      *   @param localAddress Lokales Interface (Adresse) des Server-Sockets.
      *   @param localPort Lokaler Port des Servers.
      *   @param queueLen Maximale Warteschlangenl\"ange f\"ur ausstehende Verbindungsanfragen. (default 5)
-     *   @exception SocketException wird geworfen falls es nicht m\"oglich ist einen Socket zu erzeugen.
+     *   @exception SocketException wird geworfen, falls es nicht m\"oglich ist einen Socket zu erzeugen.
      */
     TCPServerSocket(const string &localAddress, unsigned short localPort,
             int queueLen = 5) throw(SocketException);
@@ -246,14 +246,14 @@ class UDPSocket : public CommunicatingSocket {
 public:
     /**
      *   Erzeugt einen UDP-Socket.
-     *   @exception SocketException wird geworfen falls die Erzeugung fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls die Erzeugung fehlschl\"agt.
      */
     UDPSocket() throw(SocketException);
 
     /**
      *   Erzeugt einen UDP-Socket mit einem spezifischen Port.
      *   @param localPort Lokaler Port
-     *   @exception SocketException wird geworfen falls die Erzeugung fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls die Erzeugung fehlschl\"agt.
      */
     UDPSocket(unsigned short localPort) throw(SocketException);
 
@@ -261,7 +261,7 @@ public:
      *   Erzeugt einen UDP-Socket mit einer spezifischen Adresse und einem gegebenen Port.
      *   @param localAddress Lokale Adresse.
      *   @param localPort Lokaler Port.
-     *   @exception SocketException wird geworfen falls die Erzeugung fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls die Erzeugung fehlschl\"agt.
      */
     UDPSocket(const string &localAddress, unsigned short localPort) 
             throw(SocketException);
@@ -269,30 +269,30 @@ public:
     /**
      *   Setze Adresse und Port zur\"uck.
      *   @return true falls kein Fehler auftrat.
-     *   @exception SocketException wird geworfen falls eine Trennung fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls eine Trennung fehlschl\"agt.
      */
     void disconnect() throw(SocketException);
 
     /**
      *   Sendet einen Buffer als UDP-Datagramm an eine bestimmte Adresse und Portnummer.
-     *   @param buffer Buffer der gesendet werden soll.
-     *   @param bufferLen Anzahl der Bytes die geschrieben werden sollen.
-     *   @param foreignAddress Adresse an die versendet werden soll.
-     *   @param foreignPort Portnummer an die versendet werden soll.
-     *   @return true falls Versandt geklappt hat.
-     *   @exception SocketException wird geworfen falls das Senden fehlschl\"agt.
+     *   @param buffer Buffer, der gesendet werden soll.
+     *   @param bufferLen Anzahl der Bytes, die geschrieben werden sollen.
+     *   @param foreignAddress Adresse, an die versendet werden soll.
+     *   @param foreignPort Portnummer, an die versendet werden soll.
+     *   @return true falls Versand geklappt hat.
+     *   @exception SocketException wird geworfen falls, das Senden fehlschl\"agt.
      */
     void sendTo(const void *buffer, int bufferLen, const string &foreignAddress,
                         unsigned short foreignPort) throw(SocketException);
 
     /**
      *   Empf\"angt eine Nachricht an einem UDP-Socket.
-     *   @param buffer Buffer in den gelesen werden soll.
-     *   @param bufferLen Maximale Anzahl an Bytes die empfangen werden sollen.
-     *   @param sourceAddress Adresse von der die Nachricht stammt.
+     *   @param buffer Buffer, in den gelesen werden soll.
+     *   @param bufferLen Maximale Anzahl an Bytes, die empfangen werden sollen.
+     *   @param sourceAddress Adresse, von der die Nachricht stammt.
      *   @param sourcePort Portnummer des Senders.
      *   @return Anzahl der Bytes die empfangen wurden, -1 falls ein Fehler auftrat.
-     *   @exception SocketException wird geworfen falls das Empfangen fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls das Empfangen fehlschl\"agt.
      */
     int recvFrom(void *buffer, int bufferLen, string &sourceAddress, 
                              unsigned short &sourcePort) throw(SocketException);
@@ -300,21 +300,21 @@ public:
     /**
      *   Setzt Multicast TTL.
      *   @param multicastTTL Multicast TTL.
-     *   @exception SocketException wird geworfen falls das Setzen fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls das Setzen fehlschl\"agt.
      */
     void setMulticastTTL(unsigned char multicastTTL) throw(SocketException);
 
     /**
      *   Tritt der angegebenen Multicast-Gruppe bei.
      *   @param multicastGroup Adresse der Mutlicast-Gruppe.
-     *   @exception SocketException wird geworfen falls das Beitreten fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls das Beitreten fehlschl\"agt.
      */
     void joinGroup(const string &multicastGroup) throw(SocketException);
 
     /**
      *   Verlasse die angegebene Multicast-Gruppe.
      *   @param multicastGroup Zu verlassende Multicast-Gruppe.
-     *   @exception SocketException wird geworfen falls das Verlassen fehlschl\"agt.
+     *   @exception SocketException wird geworfen, falls das Verlassen fehlschl\"agt.
      */
     void leaveGroup(const string &multicastGroup) throw(SocketException);
 

@@ -21,7 +21,7 @@
 #define __DATA_H_INCLUDED__
 
 /**
- *  Datenstruktur die einen Fahrzeugwert und die dazugehörigen Daten
+ *  Datenstruktur, die einen Fahrzeugwert und die dazugehörigen Daten
  *  speichert.
  */
 

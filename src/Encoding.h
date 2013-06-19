@@ -42,7 +42,7 @@ extern unsigned int TIME_THRESHOLD; //###
 extern int64_t LOCAL_TIMESTAMP;
 
 /**
- *  Service der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt
+ *  Service, der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt
  *  und komprimiert. Die Komprimierung ist noch nicht implementiert.
  */ 
 
@@ -54,12 +54,12 @@ public:
      *  Erzeugt einen Encoder.
      *  
      *  \param buffer Die zu bearbeitenden Daten. Dabei muss es sich um einen Datenstrom
-     *  handeln in dem jeweils 2 Byte einen Fahrzeugwert entsprechen.
+     *  handeln, in dem jeweils 2 Byte einen Fahrzeugwert entsprechen.
      *  \param bufferlen Die Länge der zu bearbeitenden Daten.
-     *  \param vecLayout Gibt an wie die Daten geteilt werden sollen. 
+     *  \param vecLayout Gibt an, wie die Daten geteilt werden sollen. 
      *  \n [Anfangsbyte Paket 1, Anfangsbyte Paket 2, ..., Anfangsbyte Paket n]
      *  \param vecLayoutlen Die Länge von @a vecLayout.
-     *  \param vecDatatypes Gibt an um welchen Datentyp es sich jeweils handelt.
+     *  \param vecDatatypes Gibt an, um welchen Datentyp es sich jeweils handelt.
      *  \param vecDatatypeslen Die Länge von @a vecDatatypes.
      */
 
@@ -171,8 +171,8 @@ class Decoder
 public:
     
     /**
-     *  Erzeugt einen Dekoder der zum dekodieren der Paketinformation dient.
-     *  \param buffer Speicher der die Paketinformationen enthält.
+     *  Erzeugt einen Dekoder, der zum Dekodieren der Paketinformation dient.
+     *  \param buffer Speicher, der die Paketinformationen enthält.
      *  [Layout,Datentypen,Kommasetzung]
      *  \param bufferlen Länge von @a buffer.
      */
@@ -184,7 +184,7 @@ public:
      *  dekodiert.
      *  \param buffer Speicher des Datenpakets.
      *  \param buffernlen Länge von @a buffer.
-     *  \param vecLayout Aufteilung des ursprünglichen Datenstroms die aus den Paketinformationen
+     *  \param vecLayout Aufteilung des ursprünglichen Datenstroms, die aus den Paketinformationen
      *  dekodiert wurden. Dient zur Ermittlung der konkreten Datensätze.
      *  \param vecLayoutlen Länge von @a vecLayout.
      *  \param vecDatatypes Beinhaltet die Informationen zu den Datentypen der jeweiligen
