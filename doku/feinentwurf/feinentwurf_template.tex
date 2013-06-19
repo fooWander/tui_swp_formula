@@ -1374,9 +1374,7 @@ Beinhaltet die Navigationsleiste am Kopf der Seite, die auf allen Seiten präsen
 \subsection{Allgemeine Fahrzeugdaten}
 Auf dieser Seite werden die im Pflichtenheft vereinbarten allgemeinen Daten dargestellt. Darunter fällt die Geschwindigkeit, die als Halbkreis-Diagramm mittels der JavaScripte justGage und raphael realisiert wird. Die Notausschalter werden als Tabelle dargestellt , wobei ein aktivierter Schalter farblich in rot hinterlegt wird. Die Seite enthält drei wesentliche Dateien: Die PHP-Seite, die den strukturellen Aufbau beinhaltet (allgemeinefahrzeugdaten.php), das Javascript was in die Seite eingebunden und ausgeführt wird (allgemeinefahrzeugdaten\_script.js), sowie eine PHP-Seite, die die MySQL Anfrage für die Seite realisiert (allgemeinefahrzeugdaten\_sql.php). 
 
-\\ \\
 \includegraphics[scale=0.452]{allgemeinefahrzeugdaten.png}
-\\ \\
 
 
 \textbf{protect\_page()}
@@ -1506,7 +1504,7 @@ Analog wie "'bar\_horizontal()"', nur das die Einfärbung der Flächen vertikal 
 \hangindent+95pt \hangafter=1
 Rechnet den übergebenen Wert vom Wertebereich -180 bis +180 in den Wertebereich -90 bis +90. Danach wird genau eine Fläche eingefärbt, um den Grad des Lenkwinkels darzustellen.
 
-
+\newpage
 
 \subsection{Fahrdynamik}
 Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf der Seite ist nur, dass sie auf zwei Tabellen in der Datenbank zugreifen muss. Der Lenkwinkel ist nur in der Tabelle für dynamische Daten vorhanden, und muss deshalb extra abgefragt werden. Somit besteht die Seite im Prinzip aus vier Komponenten.\\ \\
@@ -1516,12 +1514,11 @@ Aufbau der Seiten ist wieder analog den vorhergegangenen. Als Besonderheit auf d
 \\ \\
 Funktionserklärung siehe vorhergegangene Seiten.\\
 
-
+\newpage
 
 \subsection{Motor und Umrichter}
 
 Diese Seite enthält die Daten, die im Pflichtenheft dafür vereinbart wurden und besteht wieder aus drei Komponenten. Die acht Motortemperaturen werden als Tabelle dargestellt. Es gibt keine weiteren besonderen Merkmale auf dieser Seite.\\ \\
->>>>>>> TZ_Merging_for_Thomas
 
 
 
@@ -1560,12 +1557,7 @@ Da sich eine eigenständige Entwicklerdokumentation mittels doxygen oder anderen
 \newpage
 
 \section{Webseite}
-
-<<<<<<< HEAD
-Das Benutzersystem ermöglicht es nur bestimmten Personen den Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit, sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
-=======
 Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Administrator) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
->>>>>>> TZ_Merging_for_Thomas
 
 Im Folgenden sollen nun Funktionen und Variablen erläutert werden, sowie die Funktionalität der einzelnen Skripte des Systems.
 
