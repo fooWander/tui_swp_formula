@@ -26,7 +26,7 @@ int \hyperlink{classDatatypeDaemon_a3ba1b224d6d7287ca57d43d9b2452720}{get\-Time}
 \subsection{Ausführliche Beschreibung}
 Klasse zum Aufbereiten der Daten. 
 
-In dieser Klasse werden die Daten nicht nur in das richtige Format umgewandelt, sondern auch durch eine Zehnerpotenz geteilt, sodass sie wieder ihrem Wert vor der "Ubertragung entsprechen. Es werden weiterhin Zusatzinformationen angeboten, die es sowohl erm"oglichen, die Paketnummer und damit die Tabelle, in die eingef"ugt werden soll, zu ermitteln, als auch den Zeitstempel der Daten einzuf"ugen. Diese Klasse dient also als Schnittstelle f"ur \hyperlink{classDBPacketInsert}{D\-B\-Packet\-Insert} zum \hyperlink{classDecoder}{Decoder}.
+In dieser Klasse werden die Daten nicht nur in das richtige Format umgewandelt, sondern auch durch eine Zehnerpotenz geteilt, sodass sie wieder ihrem Wert vor der \"Ubertragung entsprechen. Es werden weiterhin Zusatzinformationen angeboten, die es sowohl erm\"oglichen, die Paketnummer und damit die Tabelle, in die eingef\"ugt werden soll, zu ermitteln, als auch den Zeitstempel der Daten einzuf"ugen. Diese Klasse dient also als Schnittstelle f"ur \hyperlink{classDBPacketInsert}{D\-B\-Packet\-Insert} zum \hyperlink{classDecoder}{Decoder}.
 
 \begin{DoxySeeAlso}{Siehe auch}
 \hyperlink{classData}{Data} 
@@ -77,7 +77,7 @@ Zeitstempel des Pakets.
 )}}\label{classDatatypeDaemon_a4b664832a3dcb05ad6f7c039573d8327}
 Diese Funktion wird von \hyperlink{classDBPacketInsert}{D\-B\-Packet\-Insert} aufgerufen.
 
-Sie holt sich ein \hyperlink{classData}{Data} Objekt vom \hyperlink{classDecoder}{Decoder} und extrahiert daraus die Nutzdaten und die Position dieser Daten im Paket. Die Position wird dabei in einer Membervariablen zwischengespeichert. Nachdem der Datentyp bestimmt wurde, wird eine Divison durch eine Zehnerpotenz entsprechend dem jetzt erst extrahierten Wert aus \hyperlink{classData}{Data} durchgef"uhrt, um den Wert auf seine urspr"ungliche Gr"o�e zur"uckzubringen. Dies wird jedoch nur ausgef"uhrt, wenn der Wert vor der "Ubertragung ein Gleitkommawert war. Abschlie�end wird der Wert in einen String umgewandelt, der dann an den Aufrufer zur"uckgegeben wird. 
+Sie holt sich ein \hyperlink{classData}{Data} Objekt vom \hyperlink{classDecoder}{Decoder} und extrahiert daraus die Nutzdaten und die Position dieser Daten im Paket. Die Position wird dabei in einer Membervariablen zwischengespeichert. Nachdem der Datentyp bestimmt wurde, wird eine Divison durch eine Zehnerpotenz entsprechend dem jetzt erst extrahierten Wert aus \hyperlink{classData}{Data} durchgef"uhrt, um den Wert auf seine urspr"ungliche Gr"oße zur"uckzubringen. Dies wird jedoch nur ausgef"uhrt, wenn der Wert vor der \"Ubertragung ein Gleitkommawert war. Abschließend wird der Wert in einen String umgewandelt, der dann an den Aufrufer zur"uckgegeben wird. 
 
 Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
 \item 
