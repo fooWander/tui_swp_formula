@@ -1,0 +1,58 @@
+\hypertarget{classInsert}{\section{Insert Klassenreferenz}
+\label{classInsert}\index{Insert@{Insert}}
+}
+
+
+Klasse zum Aufbauen einer Verbindung zur Datenbank und Einf"ugen von Daten.  
+
+
+
+
+{\ttfamily \#include $<$Insert.\-h$>$}
+
+\subsection*{Öffentliche Methoden}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classInsert_ae754e1358992deff83985ea0606370ab}{Insert} ()
+\item 
+int \hyperlink{classInsert_a51bc43a360a90b172483a67dfa78f621}{insert\-Into\-D\-B} (string $\ast$anw)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Klasse zum Aufbauen einer Verbindung zur Datenbank und Einf"ugen von Daten. 
+
+In dieser Klasse wird die eigentliche Kommunikation mit der My\-S\-Q\-L-\/\-Datenbank realisiert. Hierzu wird der My\-S\-Q\-L Connector/\-C++ benutzt. Die Zugangsdaten werden daf"ur mit Hilfe einer anderen Klasse aus einer Textdatei ausgelesen. 
+
+\subsection{Beschreibung der Konstruktoren und Destruktoren}
+\hypertarget{classInsert_ae754e1358992deff83985ea0606370ab}{\index{Insert@{Insert}!Insert@{Insert}}
+\index{Insert@{Insert}!Insert@{Insert}}
+\subsubsection[{Insert}]{\setlength{\rightskip}{0pt plus 5cm}Insert\-::\-Insert (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classInsert_ae754e1358992deff83985ea0606370ab}
+Konstruktor der Klasse. Hier werden die Verbindungsdaten ermittelt. 
+
+\subsection{Dokumentation der Elementfunktionen}
+\hypertarget{classInsert_a51bc43a360a90b172483a67dfa78f621}{\index{Insert@{Insert}!insert\-Into\-D\-B@{insert\-Into\-D\-B}}
+\index{insert\-Into\-D\-B@{insert\-Into\-D\-B}!Insert@{Insert}}
+\subsubsection[{insert\-Into\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}int Insert\-::insert\-Into\-D\-B (
+\begin{DoxyParamCaption}
+\item[{string $\ast$}]{anw}
+\end{DoxyParamCaption}
+)}}\label{classInsert_a51bc43a360a90b172483a67dfa78f621}
+Verbindung aufbauen und My\-S\-Q\-L-\/\-String an die Datenbank schicken. Diese f"uhrt ihn dann aus. 
+\begin{DoxyParams}{Parameter}
+{\em anw} & ist ein Zeiger auf einen in \hyperlink{classDBPacketInsert}{D\-B\-Packet\-Insert} aufgebauten S\-Q\-L-\/\-String, der an diese Funktion "ubergeben wird. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Integerwert, der aber nicht verwendet wird. 
+\end{DoxyReturn}
+
+
+Die Dokumentation für diese Klasse wurde erzeugt aufgrund der Dateien\-:\begin{DoxyCompactItemize}
+\item 
+Insert.\-h\item 
+Insert.\-cpp\end{DoxyCompactItemize}

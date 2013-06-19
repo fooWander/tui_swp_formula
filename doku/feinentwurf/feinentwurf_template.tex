@@ -128,7 +128,7 @@
 		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
 		Tobias Zehner \\ Sebastian Zehnter}
 		
-\date{Hier Datum einfügen.}	 
+\date{19.06.2013}	 
 	  
 \publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
 
@@ -1561,7 +1561,7 @@ Da sich eine eigenständige Entwicklerdokumentation mittels doxygen oder anderen
 
 \section{Webseite}
 
-Das Benutzersystem ermöglicht es nur bestimmten Personen auf Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
+Das Benutzersystem ermöglicht es nur bestimmten Personen den Zugriff zur Seite zu gewähren. Hierbei gibt es die Möglichkeit, sich persönlich zu registrieren und anschließend nach der Verifikation und Freischaltung durch den Vorstand (= Admin) sich auch einzuloggen. Im eingeloggten Zustand stehen dann Seiten zur Verfügung, die als nicht eingeloggter Benutzer nicht ersichtlich sind.\\
 
 Im Folgenden sollen nun Funktionen und Variablen erläutert werden, sowie die Funktionalität der einzelnen Skripte des Systems.
 
@@ -1571,7 +1571,7 @@ In dieser Datei befinden sich Funktionen, die nicht direkt mit dem aktiven Nutze
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion dient dem Erstellen aller wichtigen Datenbanken, Tabellen und dem Anlegen eines Vorstand-Accounts, sowie dem Einrichten der Benutzergruppen 'Vorstand', 'Beobachter' und 'Techniker'. Das übergebene Array beinhaltet hierbei die für die Einrichtung des Vorstand-Accounts nötigen Benutzerinformationen.
+Diese Funktion dient dem Erstellen aller wichtigen Datenbanken, Tabellen und dem Anlegen eines Vorstand-Accounts, sowie dem Einrichten der Benutzergruppen ,Vorstand', ,Beobachter' und ,Techniker'. Das übergebene Array beinhaltet hierbei die für die Einrichtung des Vorstand-Accounts nötigen Benutzerinformationen.
 
 
 \subsection*{logged\_in\_redirect()}
@@ -1607,19 +1607,19 @@ String.
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion gibt alle auf einer Seite gesammelten benutzerdefinierten Fehlermeldungen in strukturierter Art und Weise wieder aus und weist den Benutzer somit darauf hin, dass ein Fehler (höchstwahrscheinlich) durch sein Verschulden entstanden ist. Er erhält auch zeitgleich eine Fehlermeldung die ihn darauf hinweist, wo sein Fehler liegt kann.
+Diese Funktion gibt alle auf einer Seite gesammelten benutzerdefinierten Fehlermeldungen in strukturierter Art und Weise wieder aus und weist den Benutzer somit darauf hin, dass ein Fehler (höchstwahrscheinlich) durch sein Verschulden entstanden ist. Er erhält auch zeitgleich eine Fehlermeldung, die ihn darauf hinweist, wo sein Fehler liegt kann.
 
 \newpage
 
 % NUTZER FUNKTIONEN %
 
 \subsection{Nutzerfunktionen (users.php)}
-Die Funktionen in dieser Datei beziehen sich vorrangig auf den aktiven Benutzer und stellen Möglichkeiten dar auf seine Daten zuzugreifen oder mit diesen zu arbeiten.
+Die Funktionen in dieser Datei beziehen sich vorrangig auf den aktiven Benutzer und stellen Möglichkeiten dar, auf seine Daten zuzugreifen oder mit diesen zu arbeiten.
 \subsection*{change\_password(int \$user\_id, string \$password)}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wird verschlüsselt und anschließend in der MySQL-Datenbank der Eintrag mit der ID \textit{\$user\_id} in der Benutzertabelle ermittelt. Für diesen Eintrag wird das alte Passwort durch das neue Passwort ersetzt.
+Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wird verschlüsselt und anschließend in der MySQL-Datenbank der Eintrag mit der ID \textit{\$user\_id} in der Benutzertabelle ermittelt. Für diesen Eintrag wird das alte Passwort durch das neue ersetzt.
 
 
 \subsection*{register\_user(array \$register\_data)}
@@ -1627,7 +1627,7 @@ Bekommt eine Nutzer-ID und einen String (= Passwort) übergeben. Das Passwort wi
 Thomas Golda
 \subsubsection*{Beschreibung}
 Diese Funktion bekommt ein Array von Strings übergeben und legt einen neuen Datenbankeintrag in der Tabelle für die Benutzer an.
-Der neu angelegte Nutzer ist standardmäßig deaktiviert, hat somit nicht das Recht sich einzuloggen.
+Der neu angelegte Nutzer ist standardmäßig deaktiviert und hat somit nicht das Recht sich einzuloggen.
 
 
 \subsection*{user\_count()}
@@ -1642,7 +1642,7 @@ Bestimmt die Anzahl der im System registrierten Benutzer. Nicht mit einberechnet
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktion erfordert mindestens ein Argument und zwar die ID eines Nutzers. Wird sie mit mehr als diesem Parameter aufgerufen, so 
+Diese Funktion erfordert mindestens ein Argument, welches die ID eines Nutzers ist. Wird sie mit mehr als diesem Parameter aufgerufen, so 
 behandelt sich alle folgenden Parameter (vorzugsweise Strings) als gewünschte auszugebende Parameter.
 
 % HIER SOLL DSA BILD REIN %
@@ -1653,35 +1653,35 @@ behandelt sich alle folgenden Parameter (vorzugsweise Strings) als gewünschte a
 \label{Quellcodeauszug aus core/init.php}
 \end{figure}
 
-Die Funktion selbst bestimmt zur übergebenen ID die weiterhin angegebenen Parameter und gibt diese als Array aus. So gibt die aus dem Bild ersichtliche aufgerufene Funktion, die zur ID gehörigen Daten wie Vor- und Nachname, E-Mail-Adresse, Rechtegruppe und das (verschlüsselte) Passwort.
+Die Funktion selbst bestimmt zur übergebenen ID die weiterhin angegebenen Parameter und gibt diese als Array aus. So gibt die aus dem Bild ersichtliche aufgerufene Funktion die zur ID gehörigen Daten wie Vor- und Nachname, E-Mail-Adresse, Rechtegruppe und das (verschlüsselte) Passwort.
 
 
 \subsection*{isVorstand()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Vorstand' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Vorstand' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{isTechniker()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Techniker' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Techniker' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{isBeobachter()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Prüft ob der aktuell aktive Benutzer zur Rechtegruppe 'Beobachter' gehört oder nicht und gibt entweder \textit{true} oder \textit{false} zurück.
+Prüft, ob der aktuell aktive Benutzer zur Rechtegruppe ,Beobachter' zugehörig ist und gibt entweder \textit{true} oder \textit{false} zurück, wenn er es nicht ist.
 
 
 \subsection*{timeout()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Überprüft ob der in der Session-Variable \textit{\$\_SESSION['time']} befindliche UNIX-Zeitstempel älter als \textit{\$time} Minuten ist. Standardwert: \textit{\$time} = 60.
+Überprüft, ob der in der Session-Variable \textit{\$\_SESSION['time']} befindliche UNIX-Zeitstempel älter als \textit{\$time} Minuten ist. Standardwert: \textit{\$time} = 60.
 Gibt \textit{true} zurück, falls der Zeitstempel nicht älter als \textit{\$time} Minuten ist, \textit{false} andernfalls.
 
 
@@ -1689,21 +1689,21 @@ Gibt \textit{true} zurück, falls der Zeitstempel nicht älter als \textit{\$tim
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Gibt zurück, ob der aktive Nutzer eingeloggt ist oder nicht. Dies impliziert auch eine Überprüfung ob seine letzte Aktivität weiter als eine in der Funktion \textit{timeout()} festgelegte Zeitspanne zurück liegt.
+Gibt zurück, ob der aktive Nutzer eingeloggt ist oder nicht. Dies impliziert auch eine Überprüfung, ob seine letzte Aktivität weiter als eine in der Funktion \textit{timeout()} festgelegte Zeitspanne zurück liegt.
 Setzt zudem nach dieser Prüfung den Zeitstempel in der Sessionvariable \textit{\$\_SESSION['time']} auf einen aktuellen Zeitwert.
 
 \subsection*{refresh()}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Diese Funktioniert aktualisiert den Zeitwert in der Tabelle der Nutzer die sich zum aktuellen Zeitpunkt online befinden. Zudem werden alle veraltete Einträge unabhängig des Benutzers gelöscht.
+Diese Funktion aktualisiert den Zeitwert in der Tabelle der Nutzer die sich zum aktuellen Zeitpunkt online befinden. Zudem werden alle veraltete Einträge unabhängig des Benutzers gelöscht.
 
 
 \subsection*{user\_exists(string \$mail)}
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Ermittelt mittels einer SQL-Anfrage ob der Benutzer der zur übermittelten E-Mail-Adresse \textit{\$mail} existiert oder nicht. Gibt im Erfolgsfall \textit{true}, sonst \textit{false} zurück.
+Ermittelt mittels einer SQL-Anfrage, ob der Benutzer der zur übermittelten E-Mail-Adresse \textit{\$mail} existiert oder nicht. Gibt im Erfolgsfall \textit{true}, sonst \textit{false} zurück.
 
 
 \subsection*{user\_active(string \$mail)}
@@ -1717,7 +1717,7 @@ Gibt \textit{true} zurück, wenn der Nutzer mit der E-Mail-Adresse \textit{\$mai
 \subsubsection*{Author}
 Thomas Golda
 \subsubsection*{Beschreibung}
-Bekommt als Argument einen String \textit{\$mail} (= E-Mail-Adresse). Ermittelt mittels einer SQL-Anfrage anschließend die ID des dazugehörigen Nutzers.
+Bekommt als Argument einen String \textit{\$mail} (= E-Mail-Adresse) und ermittelt mittels einer SQL-Anfrage anschließend die ID des dazugehörigen Nutzers.
 
 
 \subsection*{login(string \$mail, string \$password)}
@@ -1728,9 +1728,9 @@ Gibt bei Erfolg die Nutzer-ID des zugehörigen Nutzers zurück. Existiert kein N
 
 \newpage
 \subsection{Konfigurationsdatei (config.php)}
-Die Konfigurationsdatei wird stets in der core/init.php eingebunden und ist somit auf jeder Seite verfügbar, auf der auch init.php eingebunden wird. Inbesondere liefert sie die Zugangsdaten für den Zugriff auf die MySQL-Datenbanken und speichert auch die Namen der einzelnen Tabellen, sowohl für die Fahrzeugdaten, als auch für die Nutzerdaten.
+Die Konfigurationsdatei wird stets in der core/init.php eingebunden und ist somit auf jeder Seite verfügbar, auf der auch init.php eingebunden wird. Inbesondere liefert sie die Zugangsdaten für den Zugriff auf die MySQL-Datenbanken und speichert auch die Namen der einzelnen Tabellen, sowohl für die Fahrzeugdaten als auch für die Nutzerdaten.
 \subsubsection*{\$dbhost}
-Hier kann der Hostname des MySQL-Servers festgelegt werden. Er wird meist vom Hoster mitgeteilt und lautet in den meisten Fällen 'localhost'.
+Hier kann der Hostname des MySQL-Servers festgelegt werden. Er wird meist vom Hoster mitgeteilt und lautet in den meisten Fällen ,localhost'.
 \subsubsection*{\$dbuname}
 Hierbei handelt es sich um den Login-Namen der Zugangsdaten zum Datenbankserver. Diesen erhalten Sie ebenfalls von Ihrem Hoster.
 \subsubsection*{\$dbpass}
@@ -1760,7 +1760,7 @@ Beinhaltet die E-Mail-Adresse des Vorstands oder derjenigen Person, die Benutzer
 \subsubsection*{\$salt}
 Ein Teil des Salt für das Passwort. Kann beliebiger String sein.
 \subsubsection*{\$alg}
-Ein Teil des Salt für das Passwort. Gibt den Verschlüsselungsalgorithmus an. (siehe Dokumentation der PHP-Funktion crypt())
+Ein Teil des Salt für das Passwort. Gibt den Verschlüsselungsalgorithmus an. (siehe Dokumentation der PHP-Funktion \textit{crypt()})
 \subsubsection*{\$rounds}
 Ein Teil des Salt für das Passwort. Gibt die Anzahl der Runden an, die der Algorithmus laufen soll. Dabei gilt, je größer umso sicherer, aber auch aufwändiger und langsamer.
 \subsubsection*{\$cryptsalt}
@@ -1773,7 +1773,7 @@ Endgültiger Salt. Setzt sich aus \$salt, \$alg und \$rounds zusammen.
 \subsection{allgemeinefahrzeugdaten.php}
 
 \subsection{changepassword.php}
-Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.
+Hierbei handelt es sich um eine Seite, die es dem Nutzer ermöglicht sein Passwort zu ändern. Durch Eingabe seines aktuellen Passwortes und der doppelten Eingabe seines neuen Passwortes wird eine SQL-Anfrage ausgeführt, die das alte Passwort in der Datenbank durch das neue Passwort überschreibt.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwort ändern\grqq (x.y.z)
 
 \subsection{dynamischedaten.php}
@@ -1781,32 +1781,33 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Passwo
 \subsection{fahrdynamik.php}
 
 \subsection{index.php}
-Sie ist die Startseite des System und liefert im ausgeloggten Zustand die Möglichkeit sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.
+Sie ist die Startseite des Systems und liefert im ausgeloggten Zustand die Möglichkeit, sich mittels eines HTML-Formulares anzumelden bzw. im bereits eingeloggten Zustand sich verschiedene Widgets anzeigen zu lassen.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Startseite\grqq (x.y.z)
 
 \subsection{install.php}
-Diese Datei wird nur beim ersten Mal des Aufrufs der Seite gestartet. Sie bietet ein Formular, welches ausgefüllt werden muss und den ersten Benutzer im System erstellt: den Vorstand. Ihre Hauptaufgabe ist vor allem das Aufrufen der Funktion \textit{install\_system()} (siehe x.1.2).
+Diese Datei wird nur beim ersten Mal des Aufrufs der Seite gestartet. Sie bietet ein Formular, welches ausgefüllt werden muss und den ersten Benutzer im System erstellt: den Vorstand. Ihre Hauptaufgabe ist vor allem das Aufrufen der Funktion \textit{install\_system()} (siehe x.1.2).\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Installation\grqq (x.y.z)
 
 \subsection{login.php}
-Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verfikation ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(x.y.z)
+Bekommt Daten vom Formular der Startseite mittels POST-Request übermittelt. Diese werden verifiziert und nach erfolgreicher Verifikation wird ein Eintrag für die Online-Tabelle erstellt. Im Fehlerfall erhält der Nutzer eine Ausgabe über falsche bzw. fehlende Zugangsdaten. \\
+$\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Login\grqq(x.y.z)
 
 \subsection{logout.php}
-Beendet die aktuelle Sitzung, löscht den zum aktiven Nutzer gehörigen Eintrag in der Online-Tabelle und leitet den Nutzer zurück auf die Startseite.
+Beendet die aktuelle Sitzung, löscht den zum aktiven Nutzer gehörigen Eintrag in der Online-Tabelle und leitet den Nutzer zurück auf die Startseite.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Logout\grqq (x.y.z)
 
 \subsection{motorundumrichter.php}
 
 \subsection{register.php}
-Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.
+Überprüft die bei der Registrierung eingegeben Daten und schreibt diese nach der Validierung in die Benutzertabelle der Datenbank. Das Passwort wird dabei verschlüsselt und gesalzen (Salt = \$cryptsalt siehe x.1.3) um es sicher zu speichern. Außerdem wird nach der Registrierung der Status des Accounts auf 0 gesetzt, d.h. er muss anschließend manuell aktiviert werden.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Registrierung\grqq (x.y.z)
 
 \subsection{core/init.php}
-Hierbei handelt es sich um eine Datei die zu Beginn jeder Inhaltsseite eingebunden wird. Sie wird insbesondere im Header eingebunden, welcher wiederum in jeder Inhaltsseite eingebunden wird und sorgt dafür, dass die Sitzung nach ihrer Erzeugung über jeden Seitenwechsel erhalten bleibt.
+Hierbei handelt es sich um eine Datei, die zu Beginn jeder Inhaltsseite eingebunden wird. Sie wird insbesondere im Header eingebunden, welcher wiederum in jeder Inhaltsseite eingebunden wird und dafür sorgt, dass die Sitzung nach ihrer Erzeugung über jeden Seitenwechsel erhalten bleibt.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Initialisierung\grqq (x.y.z)
 
 \subsection{core/functions/accept.php}
-Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Daten. Diese werden ausgewertet, d.h. es wird überprüft ob eine ID angegeben wurde und falls ja, diese von der eigenen verschieden ist. Desweiteren wird überprüft ob eine gewünschte Verwaltungsoption ('Löschen' bzw. 'Aktivieren') ausgewählt wurde, an sonsten wir der Nutzer zurück auf die Indexseite weitergeleitet. Abschließend wird noch die übergebene Rechtegruppe in einen Integer umgewandelt und mit den Daten anschließend eine Anfrage auf die Datenbank ausgeführt.
+Erhält vom Widget \textit{includes/widgets/manageusers.php} per POST-Request Daten. Diese werden ausgewertet, d.h. es wird überprüft, ob eine ID angegeben wurde und falls ja, diese von der eigenen verschieden ist. Des weiteren wird überprüft, ob eine gewünschte Verwaltungsoption (,Löschen' bzw. ,Aktivieren') ausgewählt wurde, ansonsten wir der Nutzer zurück auf die Indexseite weitergeleitet. Abschließend wird noch die übergebene Rechtegruppe in einen Integer umgewandelt und mit den Daten anschließend eine Anfrage auf die Datenbank ausgeführt.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
 
 \subsection{core/functions/akkudaten\_sql.php}
@@ -1814,7 +1815,7 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutz
 \subsection{core/functions/allgemeinefahrzeugdaten\_sql.php}
 
 \subsection{core/functions/csvexp\_sql.php}
-Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen welche Checkboxen vor Absenden des Formulars ausgewählt wurden als POST-Variablen. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt sondern als CSV-Datei zum Download angeboten.
+Erhält vom Widget \textit{includes/widgets/csvexp.php} die Informationen als POST-Variablen, welche Checkboxen vor Absenden des Formulars ausgewählt wurden. Diese Informationen werden ausgewertet und anschließend in eine SQL-Anfrage übersetzt die dann die gewünschten Daten ausgibt. Diese Daten werden dem Nutzer jedoch nicht im Browser dargestellt, sondern als CSV-Datei zum Download angeboten.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
 
 \subsection{core/functions/dynamischedaten\_sql.php}
@@ -1822,40 +1823,40 @@ $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Ex
 \subsection{core/functions/fahrdynamik\_sql.php}
 
 \subsection{core/functions/general.php}
-Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.
+Beinhaltet allgemeine (Hilfs-)Funktionen für das Benutzersystem.\\
 $\rightarrow$ Ausführliche Beschreibung siehe x.1.1
 
 \subsection{core/functions/motorundumrichter\_sql.php}
 
 \subsection{core/functions/users.php}
-Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.
+Beinhaltet benutzerbezogene (Hilfs-)Funktionen für das Benutzersystem.\\
 $\rightarrow$ Ausführliche Beschreibung siehe x.1.2
 
 \subsection{includes/css/style.css}
-Beinhaltet alle CSS-Formatierungen die auf der kompletten Seiten durchgeführt wurden. Für weitere Informationen siehe Kommentare in der Datei.
+Beinhaltet alle CSS-Formatierungen, die auf der kompletten Seite durchgeführt wurden. Für weitere Informationen siehe Kommentare in der Datei.
 
 \subsection{includes/overall/footer.php}
 Beinhaltet den globalen Footer, der auf jeder Inhaltsseite eingebunden wird.
 
 \subsection{includes/overall/header.php}
-Beinhaltet den globalen Header, der auf jeder Inhaltsseite eingebunden wird. Bindet zeitgleich auch die \textit{core/init.php} und \textit{includes/header.php} für die Darstellung des Menüs eins.
+Beinhaltet den globalen Header, der auf jeder Inhaltsseite eingebunden wird. Bindet zeitgleich auch die \textit{core/init.php} und \textit{includes/header.php} für die Darstellung des Menüs ein.
 
 \subsection{includes/widgets/csvexp.php}
-Hierbei handelt es sich um ein Widget, welches zur Auswahl der verschiedenen Fahrzeugdatentabellen jeweils eine Checkbox liefert und diese Daten nach einem Klick an die \textit{core/functions/csvexp\_sql.php} weiterleitet.
+Hierbei handelt es sich um ein Widget, welches zur Auswahl der verschiedenen Fahrzeugdatentabellen jeweils eine Checkbox liefert und diese Daten nach einem Klick an die \textit{core/functions/csvexp\_sql.php} weiterleitet.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq CSV Export\grqq (x.y.z)
 
 \subsection{includes/widgets/loggedin.php}
-Dies ist kein Widget wie es die anderen Dateien dieses Ordners sind. Es wird stets im Header eingebunden und liefert im eingeloggten Zustand eine namentliche Begrüßung des aktiven Nutzers. Desweiteren liefert es auf den einzeln Inhaltsseiten eine Information über das Alter der Daten. Außerdem gibt es einen Link zur \glqq Passwort ändern\grqq-Funktion sowie zur Startseite.
+Dies ist kein Widget wie es die anderen Dateien dieses Ordners sind. Es wird stets im Header eingebunden und liefert im eingeloggten Zustand eine namentliche Begrüßung des aktiven Nutzers. Desweiteren liefert es auf den einzelnen Inhaltsseiten eine Information über das Alter der Daten. Außerdem gibt es einen Link zur \glqq Passwort ändern\grqq-Funktion sowie zur Startseite.
 
 \subsection{includes/widgets/manageusers.php}
-Dieses Widget erlaubt es im System registrierte Benutzer zu verwalten, d.h. sie zu aktivieren, zu löschen und ihnen eine Rechtegruppe zuzuweisen. Dies geschieht über ein Formular, dessen Daten über POST-Variablen an die \textit{core/functions/accept.php} weitergereicht werden.
+Dieses Widget erlaubt es im System registrierte Benutzer zu verwalten, d.h. sie zu aktivieren, zu löschen und ihnen eine Rechtegruppe zuzuweisen. Dies geschieht über ein Formular, dessen Daten über POST-Variablen an die \textit{core/functions/accept.php} weitergereicht werden.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Benutzerverwaltung\grqq (x.y.z)
 
 \subsection{includes/widgets/onlineusers.php}
-Ein weiteres Widget, welches die Benutzer als HTML-Tabelle ausgibt, die sich gerade eingeloggt im Benutzersystem befinden. Hierbei befindet sich bei jedem Nutzereintrag auch eine relative Zeitangabe seiner letzten Aktivität.
+Ein weiteres Widget, welches die Benutzer als HTML-Tabelle ausgibt, die sich gerade eingeloggt im Benutzersystem befinden. Hierbei befindet sich bei jedem Nutzereintrag auch eine relative Zeitangabe zu seiner letzten Aktivität.
 
 \subsection{includes/widgets/userlist.php}
-Dieses Widget liefert über die \textit{includes/widgets/onlineusers.php} hinaus eine Liste aller im System registrierten Benutzer. Neben Vor- und Nachname werden auch E-Mail-Adresse, Rechtegruppe, Kontostatus und Online-Status ausgegeben.
+Dieses Widget liefert über die \textit{includes/widgets/onlineusers.php} hinaus eine Liste aller im System registrierten Benutzer. Neben Vor- und Nachname werden auch E-Mail-Adresse, Rechtegruppe, Kontostatus und Online-Status ausgegeben.\\
 $\rightarrow$ Für weitere Informationen siehe Feinentwurfsdokument \glqq Online Benutzer\grqq (x.y.z)
 
 

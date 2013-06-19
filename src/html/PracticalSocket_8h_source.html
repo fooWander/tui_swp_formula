@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.4"/>
+<title>Service-Interface für ein Formula Student Fahrzeug: PracticalSocket.h Quellcode</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Service-Interface für ein Formula Student Fahrzeug
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.4 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="annotated.html"><span>Klassen</span></a></li>
+      <li class="current"><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Auflistung&#160;der&#160;Dateien</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Klassen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funktionen</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">PracticalSocket.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *   C++ sockets on Unix and Windows</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *   Copyright (C) 2002</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *   This program is free software; you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *   it under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *   the Free Software Foundation; either version 2 of the License, or</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *   (at your option) any later version.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *   This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *   but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *   GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *   You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *   along with this program; if not, write to the Free Software</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifndef __PRACTICALSOCKET_INCLUDED__</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define __PRACTICALSOCKET_INCLUDED__</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span>            <span class="comment">// For string</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span>         <span class="comment">// For exception class</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;common.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="classSocketException.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSocketException.html">SocketException</a> : <span class="keyword">public</span> exception {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classSocketException.html">SocketException</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;message, <span class="keywordtype">bool</span> inclSysMsg = <span class="keyword">false</span>) <span class="keywordflow">throw</span>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ~<a class="code" href="classSocketException.html">SocketException</a>() <span class="keywordflow">throw</span>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *what() <span class="keyword">const</span> <span class="keywordflow">throw</span>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">string</span> userMessage;  <span class="comment">// Exception message</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classSocket.html">   60</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSocket.html">Socket</a> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ~<a class="code" href="classSocket.html">Socket</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">string</span> getLocalAddress() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> getLocalPort() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> setLocalPort(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> localPort) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> setLocalAddressAndPort(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;localAddress, </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> localPort = 0) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> resolveService(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;service,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                                                             <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;protocol = <span class="stringliteral">&quot;tcp&quot;</span>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">// Prevent the user from trying to use value semantics on this object</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="classSocket.html">Socket</a>(<span class="keyword">const</span> <a class="code" href="classSocket.html">Socket</a> &amp;sock);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="classSocket.html">Socket</a> &amp;sock);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">int</span> sockDesc;              <span class="comment">// Socket descriptor</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="classSocket.html">Socket</a>(<span class="keywordtype">int</span> type, <span class="keywordtype">int</span> protocol) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="classSocket.html">Socket</a>(<span class="keywordtype">int</span> sockDesc);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="code" href="classCommunicatingSocket.html">  121</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCommunicatingSocket.html">CommunicatingSocket</a> : <span class="keyword">public</span> <a class="code" href="classSocket.html">Socket</a> {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> connect(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;foreignAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> foreignPort)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> send(<span class="keyword">const</span> <span class="keywordtype">void</span> *buffer, <span class="keywordtype">int</span> bufferLen) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">int</span> recv(<span class="keywordtype">void</span> *buffer, <span class="keywordtype">int</span> bufferLen) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">string</span> getForeignAddress() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> getForeignPort() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="classCommunicatingSocket.html">CommunicatingSocket</a>(<span class="keywordtype">int</span> type, <span class="keywordtype">int</span> protocol) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="classCommunicatingSocket.html">CommunicatingSocket</a>(<span class="keywordtype">int</span> newConnSD);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;};</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="code" href="classTCPSocket.html">  173</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTCPSocket.html">TCPSocket</a> : <span class="keyword">public</span> <a class="code" href="classCommunicatingSocket.html">CommunicatingSocket</a> {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <a class="code" href="classTCPSocket.html">TCPSocket</a>() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="classTCPSocket.html">TCPSocket</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;foreignAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> foreignPort) </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">// Access for TCPServerSocket::accept() connection creation</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classTCPServerSocket.html">TCPServerSocket</a>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <a class="code" href="classTCPSocket.html">TCPSocket</a>(<span class="keywordtype">int</span> newConnSD);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;};</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="code" href="classTCPServerSocket.html">  199</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTCPServerSocket.html">TCPServerSocket</a> : <span class="keyword">public</span> <a class="code" href="classSocket.html">Socket</a> {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="classTCPServerSocket.html">TCPServerSocket</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> localPort, <span class="keywordtype">int</span> queueLen = 5) </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <a class="code" href="classTCPServerSocket.html">TCPServerSocket</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;localAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> localPort,</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            <span class="keywordtype">int</span> queueLen = 5) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="classTCPSocket.html">TCPSocket</a> *accept() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">void</span> setListen(<span class="keywordtype">int</span> queueLen) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;};</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="code" href="classUDPSocket.html">  237</a></span>&#160;<span class="keyword">class </span><a class="code" href="classUDPSocket.html">UDPSocket</a> : <span class="keyword">public</span> <a class="code" href="classCommunicatingSocket.html">CommunicatingSocket</a> {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <a class="code" href="classUDPSocket.html">UDPSocket</a>() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <a class="code" href="classUDPSocket.html">UDPSocket</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> localPort) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <a class="code" href="classUDPSocket.html">UDPSocket</a>(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;localAddress, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> localPort) </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">void</span> disconnect() <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordtype">void</span> sendTo(<span class="keyword">const</span> <span class="keywordtype">void</span> *buffer, <span class="keywordtype">int</span> bufferLen, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;foreignAddress,</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                        <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> foreignPort) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">int</span> recvFrom(<span class="keywordtype">void</span> *buffer, <span class="keywordtype">int</span> bufferLen, <span class="keywordtype">string</span> &amp;sourceAddress, </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;                             <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> &amp;sourcePort) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordtype">void</span> setMulticastTTL(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> multicastTTL) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordtype">void</span> joinGroup(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;multicastGroup) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keywordtype">void</span> leaveGroup(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;multicastGroup) <span class="keywordflow">throw</span>(<a class="code" href="classSocketException.html">SocketException</a>);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordtype">void</span> setBroadcast();</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordtype">void</span> setTimeout();</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;};</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Erzeugt am Die Jun 18 2013 18:27:13 für Service-Interface für ein Formula Student Fahrzeug von &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.4
+</small></address>
+</body>
+</html>
