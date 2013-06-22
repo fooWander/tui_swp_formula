@@ -25,6 +25,7 @@
 #include "Data.h"
 #include "Encoding.h"
 #include "PracticalSocket.h"
+#include "common.h"
 #include <string>
 #include <stdio.h>
 #include <cstring>
@@ -36,25 +37,22 @@
 //#include "cstring.h"
 
 char MSG_INFO_REQUEST[] = {96};
-char MSG_READY[] ="144"; //={144}
+char MSG_READY[] ={144}; //={144}
 char MSG_ACK[] = {1};
 
-int LOCALPORT = 5001;
+int LOCALPORT = VSERVER_PORT;
 
-Location HOST_EMBPC("127.0.0.1",(short)5000);
-Location HOST_MABXII("127.0.0.1",(short)5002);
-Location HOST_VSERVER("127.0.0.1",(short)5001);
-
-const int PACKAGESIZE_MAX = 1000;
-const int ACK_SIZE_MAX = 20;
+Location HOST_EMBPC(EMBPC_IP,EMBPC_PORT);
+Location HOST_MABXII(MABXII_IP,MABXII_PORT);
+Location HOST_VSERVER(VSERVER_IP,VSERVER_PORT);
 
 char DATA_ACK[ACK_SIZE_MAX];
 char DATA_ACK_SIZE;
-char DATA_PACKAGE[PACKAGESIZE_MAX];
-int DATA_PACKAGE_SIZE = PACKAGESIZE_MAX;
-char DATA_PACKAGE_INFO[PACKAGESIZE_MAX];
+char DATA_PACKAGE[PACKAGE_SIZE_MAX];
+int DATA_PACKAGE_SIZE = PACKAGE_SIZE_MAX;
+char DATA_PACKAGE_INFO[PACKAGE_SIZE_MAX];
 int DATA_PACKAGE_INFO_SIZE;
-char VEC_COMMAS[PACKAGESIZE_MAX];
+char VEC_COMMAS[PACKAGE_SIZE_MAX];
 int VEC_COMMAS_SIZE;
 
 //char DATA_SEND[1000];
@@ -99,7 +97,7 @@ void initalize()
         DATA_ACK_SIZE = receivePackage(HOST_EMBPC, DATA_ACK, ACK_SIZE_MAX);
         std::cout << DATA_ACK_SIZE << std::endl;
         bool equal = true;
-        for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < DATA_ACK_SIZE; ++i) {
             if(MSG_READY[i] != DATA_ACK[i]) {
                 equal = false;
             }
@@ -110,7 +108,7 @@ void initalize()
         }
 
         std::cout << "Wrong Message received:";
-        for (int i = 0; i < 3; ++i) {
+        for (int i = 0; i < DATA_ACK_SIZE; ++i) {
                 //std::cout << MSG_READY[i];
                 std::cout << DATA_ACK[i];
         }
@@ -136,7 +134,7 @@ void initalize()
 int receiveData()
 {
     int recvMsgSize;
-    DATA_PACKAGE_SIZE = PACKAGESIZE_MAX;
+    DATA_PACKAGE_SIZE = PACKAGE_SIZE_MAX;
     recvMsgSize = receivePackage(HOST_EMBPC, DATA_PACKAGE, DATA_PACKAGE_SIZE);
     std::cout << recvMsgSize << std::endl;
     return recvMsgSize;

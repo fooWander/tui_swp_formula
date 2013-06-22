@@ -21,6 +21,7 @@
 #include "Data.h"
 #include "Encoding.h"
 #include "PracticalSocket.h"
+#include "common.h"
 #include <string>
 #include <stdio.h>
 #include <cstring>
@@ -32,22 +33,22 @@
 //#include "cstring.h"
 
 char MSG_INFO_REQUEST[] = {96};
-char MSG_READY[] ="144"; //={144}
+char MSG_READY[] ={144}; //={144}
 
-int LOCALPORT = 5000;
+int LOCALPORT = EMBPC_PORT;
 
-Location HOST_EMBPC("10.42.0.55",(short)5000);
-Location HOST_MABXII("10.42.0.42",(short)5002);
-Location HOST_VSERVER("127.0.0.1",(short)5001);
+Location HOST_EMBPC(EMBPC_IP,EMBPC_PORT);
+Location HOST_MABXII(MABXII_IP,MABXII_PORT);
+Location HOST_VSERVER(VSERVER_IP,VSERVER_PORT);
 
-//const int PACKAGESIZE_MAX = 100;
+//const int PACKAGE_SIZE_MAX = 100;
 
 char DATA_ACK_VSERVER_RECV[1]; 
 char DATA_ACK_VSERVER[] = {1};
-char DATA_PACKAGE[1000];
+char DATA_PACKAGE[PACKAGE_SIZE_MAX];
 char DATA_PACKAGE_INFO[] = {1};
-char DATA_SEND[1000];
-int DATA_SEND_SIZE = 1000;
+char DATA_SEND[PACKAGE_SIZE_MAX];
+int DATA_SEND_SIZE = PACKAGE_SIZE_MAX;
 
 /**
  *  Sendet ein Paket an einen bestimmten Teilnehmer.
@@ -95,17 +96,7 @@ void initialize()
             break;
         }       
     }
-    /*
-    while(true) {
-        std::cout << "Sending READY..." << std::endl;
-        sendPackage(HOST_MABXII, MSG_INFO_REQUEST);
-        std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_MABXII, DATA_PACKAGE_INFO)) {
-            // TODO: process/check package information??
-            break;
-        }
-    }
-    */
+    
     while(true) {
         std::cout << "Sending DATA_PACKAGE_INFO..." << std::endl;
         sendPackage(HOST_VSERVER, DATA_PACKAGE_INFO, sizeof(DATA_PACKAGE_INFO));
@@ -179,14 +170,11 @@ int main(/*int argc, char const *argv[]*/)
     initialize();
     int i = 0;
     while (true) {
-        //std::cout << "Receiving data..." << std::endl;
-        //int recv;
-        //recv = receiveData();
-        //std::cout << "Encoding..." << std::endl;
         Encoder enc = processData();
         std::cout << "Sending data... " << i << std::endl;
         i++;
-        sendData(enc);
+        return 1;
+        //sendData(enc);
         
     }
     

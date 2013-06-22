@@ -98,7 +98,7 @@ public:
      *  Gibt die Anzahl der Pakete zurück.
      *  \return Anzahl der Pakete.
      */
-    unsigned int getPackageSum();
+    int getPackageSum();
 
 private:
 
@@ -137,13 +137,13 @@ private:
      *  Speichert die Postion der einzelnen Pakete in @a myPackages.
      */
 
-    unsigned short myPackagePos[1000];
+    short myPackagePos[1000];
     
     /**
      *  Speichert die Anzahl der Pakete.
      */
 
-    unsigned short myPackageSum;
+    short myPackageSum;
     
     /**
      *  Zeiger der für die Ermittlung der Paketpostion verwendet wird.

@@ -33,6 +33,7 @@ int VEC_LAYOUT_SIZE = 10;
 int PACKAGE_COUNTER = 80;
 unsigned int TIME_THRESHOLD=5000000;
 int64_t LOCAL_TIMESTAMP;
+int HEADER_SIZE = 12;
 
 
 
@@ -79,23 +80,28 @@ int64_t getTimestamp()
 
 
 Encoder::Encoder(const char * buffer, size_t bufferlen, const char * vecLayout, size_t vecLayoutlen,
-                const char * vecDatatypes, size_t vecDatatypeslen) 
+                 const char * vecDatatypes, size_t vecDatatypeslen) 
     : myPackageSum(0), myPackagePointer(0), myPackageNum(1)
 {
-    myPackageSum = vecLayoutlen/2;
-    //myPackagePos[myPackageSum];
-    for (int i = 0; i < 100; ++i)
-    {
-        myPackagePos[i] = 0;
+    if (vecLayoutlen % sizeof(int16_t) != 0) {
+        /*
+            vecLayoutlen muss Vielfaches von 2 sein, da jeder Fahrzeugwert 2 Bytes groß ist.
+            Falls nicht: Exception werfen??
+        */
     }
-    //std::cout << "Spliting data..." << std::endl;
+    myPackageSum = vecLayoutlen/sizeof(int16_t);
+    for (int i = 0; i < sizeof(myPackagePos)/sizeof(int16_t); ++i) {
+        myPackagePos[i] = -1;
+    }
     splitData(buffer, bufferlen,vecLayout, vecLayoutlen);
-    //std::cout << "Data splitted..." << std::endl;
     //compressData();
 }
 
-unsigned int Encoder::getPackageSum()
+int Encoder::getPackageSum()
 {
+    if (myPackageSum < 1) {
+        return -1;
+    }
     return myPackageSum;
 }
 
@@ -103,11 +109,11 @@ unsigned int Encoder::getPackageSum()
 
 int Encoder::getPackageSize(unsigned short packageNumber)
 {
-    if (packageNumber == 1)
-    {
-        return (myPackagePos[0] - 1);
+    if (packageNumber < 1) {
+        return -1;
     } else {
-        return ((myPackagePos[packageNumber - 1] - myPackagePos[packageNumber - 2]) - 1);
+        return ((myPackagePos[packageNumber] 
+                - myPackagePos[packageNumber - 1]) + HEADER_SIZE);
     }
 }
 
@@ -115,8 +121,7 @@ int Encoder::getPackage(char * package, size_t len, unsigned short packageNumber
 {
     std::cout << "packageNumber = " << packageNumber << std::endl;
     std::cout << "==========myPackages===========" << std::endl;
-    for (int i = 0; i < 100; ++i)
-    {
+    for (int i = 0; i < 100; ++i) {
         std::cout << myPackages[i];
     }
     std::cout << "==========/myPackages===========" << std::endl;
@@ -128,9 +133,6 @@ int Encoder::getPackage(char * package, size_t len, unsigned short packageNumber
     if (dataSize > len) {
         return -1;
     }
-
-    std::cout << "len2: " << dataSize << std::endl;
-    std::cout << "len: " << getPackageSize(packageNumber) << std::endl;
 
     for (int i = 0; i < dataSize; ++i)
     {
@@ -164,30 +166,14 @@ void Encoder::createHeader()
     myPackages[myPackagePointer+1] = (timestamp >> 48) & 0xff;
     myPackages[myPackagePointer] = (timestamp >> 56) & 0xff;
     
-    for (int i = 0; i < 8; ++i)
-    {
-        std::cout << myPackages[myPackagePointer+7-i] << std::endl;
-    }
-
     myPackagePointer += 8;
-    std::cout << myPackagePointer << std::endl;
 
-    // create ID
-    /*
-    myPackages[myPackagePointer+3] = 1212696648 & 0xff;
-    myPackages[myPackagePointer+2] = (1212696648 >> 8) & 0xff;
-    myPackages[myPackagePointer+1] = (1212696648 >> 16) & 0xff;
-    myPackages[myPackagePointer] = (1212696648 >> 24) & 0xff;
-    */
     myPackages[myPackagePointer+3] = myPackageNum & 0xff;
     myPackages[myPackagePointer+2] = (myPackageNum >> 8) & 0xff;
     myPackages[myPackagePointer+1] = (myPackageNum >> 16) & 0xff;
     myPackages[myPackagePointer] = (myPackageNum >> 24) & 0xff;
     myPackagePointer += 4;
     myPackageNum++;
-    std::cout << myPackagePointer << std::endl;
-    std::cout << "myPackageNum encoded: " << myPackageNum << std::endl;
-
 }
 
 // Bitte lager mich aus
@@ -216,8 +202,6 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
 
     for (int i = 0; i < vecLayoutlen; i=i+2) {
         myPackagePos[pointer] = myPackagePointer;
-        std::cout << "myPackagePos: " << myPackagePos[pointer] << std::endl;
-        std::cout << "pointer: " << pointer << std::endl;
         createHeader();
 
         
@@ -237,15 +221,6 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
         pointer++;
     }
     myPackagePos[pointer] = myPackagePointer;
-    //std::cout << pointer << std::endl;
-    std::cout << "myPackagesPos: " << myPackagePos[pointer] << std::endl;
-    std::cout << "=====================" << std::endl;
-    for (int i = 0; i < 5; ++i)
-    {
-        std::cout << myPackagePos[i] << " ";
-
-    }
-    std::cout << std::endl << "=====================" << std::endl;
 }
 
 /*void Encoder::compressData()
