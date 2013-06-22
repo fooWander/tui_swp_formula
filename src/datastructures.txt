@@ -1,0 +1,15 @@
+myPackage: [HEADER_i,DATA_i]
+myPackages: 	[HEADER_00,DATA_00,HEADER_01,DATA_01,...,HEADER_N,DATA_N]
+myPackgePos:	[STARTPOS_00,STARTPOS_01,...,STARTPOS_N]	
+
+
+
+
+
+
+
+
+
+
+
+STARTPOS_XX: starting position of a package (incl. header) in myPackages

@@ -38,7 +38,7 @@ int LOCALPORT = 5000;
 
 Location HOST_EMBPC("10.42.0.55",(short)5000);
 Location HOST_MABXII("10.42.0.42",(short)5002);
-Location HOST_VSERVER("87.106.17.165",(short)5001);
+Location HOST_VSERVER("127.0.0.1",(short)5001);
 
 //const int PACKAGESIZE_MAX = 100;
 
@@ -47,6 +47,7 @@ char DATA_ACK_VSERVER[] = {1};
 char DATA_PACKAGE[1000];
 char DATA_PACKAGE_INFO[] = {1};
 char DATA_SEND[1000];
+int DATA_SEND_SIZE = 1000;
 
 /**
  *  Sendet ein Paket an einen bestimmten Teilnehmer.
@@ -115,7 +116,7 @@ void initialize()
         }      
     }
     std::cout << "Decoding..." << std::endl;
-    Decoder dec(DATA_PACKAGE_INFO,sizeof(DATA_PACKAGE_INFO));
+    //Decoder dec(DATA_PACKAGE_INFO,sizeof(DATA_PACKAGE_INFO));
 }
 
 int receiveData()
@@ -127,7 +128,7 @@ int receiveData()
 void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
     for (int i = 0; i < packageSum; ++i) {
-        int size = enc.getPackage(DATA_SEND,i);
+        int size = enc.getPackage(DATA_SEND,sizeof(DATA_SEND),i);
         std::cout << std::endl;
         std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
         for (int j = 0; j < size; ++j)

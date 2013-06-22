@@ -63,8 +63,8 @@ public:
      *  \param vecDatatypeslen Die Länge von @a vecDatatypes.
      */
 
-    Encoder(const char *buffer, const int bufferlen, const char *vecLayout, const int vecLayoutlen,
-            const char *vecDatatypes, const int vecDatatypeslen);
+    Encoder(const char *buffer, size_t bufferlen, const char *vecLayout, size_t vecLayoutlen,
+            const char *vecDatatypes, size_t vecDatatypeslen);
     //~Encoder();
     /**
      *  Holt ein Paket mit einer speziellen Paketnummer.
@@ -118,8 +118,8 @@ private:
      *  \param vecLayoutlen Länge von @a vecLayout.
      */
 
-    void splitData(const char * buffer, const int bufferlen,
-			const char * vecLayout, const int vecLayoutlen);
+    void splitData(const char * buffer, size_t bufferlen,
+			const char * vecLayout, size_t vecLayoutlen);
     
     /**
      *  Komprimiert ein Paket. (bisher noch nicht implementiert)
@@ -177,7 +177,7 @@ public:
      *  \param bufferlen Länge von @a buffer.
      */
 
-    Decoder(char *buffer, const int bufferlen);
+    Decoder(char *buffer, size_t bufferlen);
     
     /**
      *  Erzeugt einen Dekoder der ein Datenpaket anhand der übergebenen Informationen
@@ -194,8 +194,8 @@ public:
      *  \param vecCommalen Länge von @a vecComma. 
      */
 
-    Decoder(char *buffer, const int bufferlen, char *vecLayout, const int vecLayoutlen, 
-            char *vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen);
+    Decoder(char *buffer, size_t bufferlen, char *vecLayout, size_t vecLayoutlen, 
+            char *vecDatatypes, size_t vecDatatypeslen, char *vecComma, size_t vecCommalen);
     //~Decoder();
     
     /**
@@ -220,7 +220,7 @@ public:
      *  \param vecLayoutlen Länge von @a vecLayout.
      */
 
-    unsigned int getPackagePos(char * vecLayout, const int vecLayoutlen);
+    unsigned int getPackagePos(char * vecLayout, size_t vecLayoutlen);
 
 private:
     unsigned int myDataLength;

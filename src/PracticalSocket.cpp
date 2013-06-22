@@ -157,14 +157,6 @@ void Socket::setLocalAddressAndPort(const string &localAddress,
     }
 }
 
-void Socket::cleanUp() throw(SocketException) {
-    #ifdef WIN32
-        if (WSACleanup() != 0) {
-            throw SocketException("WSACleanup() failed");
-        }
-    #endif
-}
-
 unsigned short Socket::resolveService(const string &service,
                                                                             const string &protocol) {
     struct servent *serv;        /* Structure containing service information */
