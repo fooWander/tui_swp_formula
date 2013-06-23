@@ -64,6 +64,7 @@
 			 */
 			if (isset($_GET['success']) && empty($_GET['success'])) {
 				echo '<p><center>Ihre Registrierung wurde verschickt. Nachdem die Daten überprüft wurden, erhalten Sie Zugang zum Service Interface.</center></p>';
+				include 'mail.php';
 			} else {	
 		
 				/**
