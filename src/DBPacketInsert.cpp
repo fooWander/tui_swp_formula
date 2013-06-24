@@ -4,8 +4,9 @@
 
 using namespace boost;
 
-DBPacketInsert::DBPacketInsert()
+DBPacketInsert::DBPacketInsert(Decoder& dec)
 {
+	myDec = dec;
 	sql_anw = "";
 }
 

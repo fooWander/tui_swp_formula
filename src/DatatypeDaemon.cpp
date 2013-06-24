@@ -4,8 +4,9 @@
 
 Decoder decode;
 
-DatatypeDaemon::DatatypeDaemon()
+DatatypeDaemon::DatatypeDaemon(Decoder& dec)
 {
+	myDec = dec;
 	dataType = 20;	//Default-Wert f\"ur Fehlerausgabe
 }
 
@@ -13,7 +14,7 @@ string DatatypeDaemon::parseNextValue()
 {
 	//Daten umwandeln direkt in Strings:
 	string rueckgabe = "";
-	Data dat = decode.getNextData();
+	Data dat = dec.getNextData();
 	int type = dat.getDatatype();
 	pos = dat.getPosition();
 	//Datentyp ist Boolean oder (Unsigned) Integer:

@@ -183,6 +183,8 @@ int main(int argc, char const *argv[])
         for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
         {
             Data dat = dec.getNextData();
+            DBPacketInsert insertion(dec);
+            insertion.db_insert();
             std::cout << &dat << std::endl;
             std::cout << "Wert: " << dat.getValue() << std::endl;
             std::cout << "Datentyp: " << dat.getDatatype() << std::endl;

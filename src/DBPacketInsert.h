@@ -19,7 +19,7 @@ using namespace std;
 class DBPacketInsert{
 	public:
 		//! Konstruktor der Klasse.
-		DBPacketInsert();
+		DBPacketInsert(Decoder& dec);
 		/** Memberfunktion zum Aufruf aus anderen Klassen.
 		*
 		*	Diese Funktion l\"ost den Aufruf von Unterfunktionen aus, die dann
@@ -52,8 +52,10 @@ class DBPacketInsert{
 		string wertStuecke[341];
 		//! Zeitstempel des Pakets.
 		int time;
+		//! Dekoder der die Datensätze bereitstellt
+		Decoder myDec;
 		//! Objekt zum Abholen und Aufbereiten der einzuf\"ugenden Werte.
-		DatatypeDaemon slave;
+		DatatypeDaemon slave(myDec);
 		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'akkudaten' auf.
 		void insert_akkudaten();
 		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'allgemeine_fahrzeugdaten' auf.

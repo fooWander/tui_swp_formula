@@ -26,7 +26,7 @@ using namespace boost;
 			/*! Konstruktor der Klasse.
 			*
 			*/
-			DatatypeDaemon();
+			DatatypeDaemon(Decoder& dec);
 			/*! Diese Funktion wird von DBPacketInsert aufgerufen.
 			*
 			*	Sie holt sich ein Data Objekt vom Decoder und extrahiert daraus
@@ -56,6 +56,7 @@ using namespace boost;
 		private:
 			unsigned int dataType;	//!< Datentyp des aktuellen Werts.
 			int pos;				//!< Position des Werts im \"Ubertragungsvektor der MikroAutoBoxII.
+			Decoder myDec;
 	};
 
 #endif
