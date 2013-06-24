@@ -91,8 +91,6 @@ void initalize()
     std::cout << "Initializing..." << std::endl;
 
     while(true) {
-        //sendPackage(HOST_VSERVER, MSG_READY);
-        //std::cout << "Receiving ready..." << std::endl;
         std::cout << "Receiving MSG_READY..." << std::endl;
         DATA_ACK_SIZE = receivePackage(HOST_EMBPC, DATA_ACK, ACK_SIZE_MAX);
         std::cout << DATA_ACK_SIZE << std::endl;

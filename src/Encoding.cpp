@@ -99,8 +99,8 @@ Encoder::Encoder(const char * buffer, size_t bufferlen, const char * vecLayout, 
 
 int Encoder::getPackageSum()
 {
-    if (myPackageSum < 1) {
-        return -1;
+    if (myPackageSum < 1) 
+{        return -1;
     }
     return myPackageSum;
 }
