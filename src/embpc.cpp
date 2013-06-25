@@ -74,8 +74,10 @@ int receivePackage(Location remote, void * buffer)
     //http://www.beej.us/guide/bgnet/output/html/multipage/pollman.html 
     //fuer Polling, gez.Tino
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
+    std::cout << "receiving..." << std::endl;
     recvMsgSize = sock.recvFrom(buffer, 100, 
                                 sourceAddress, sourcePort);
+    std::cout << "received something..." << std::endl;
     return recvMsgSize;
 }
 
@@ -87,24 +89,11 @@ void initialize()
     */
     
     while(true) {
-        std::cout << "Sending READY..." << std::endl;
-        sendPackage(HOST_VSERVER, MSG_READY, 3);
-        std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER_RECV)) {
+        if(receivePackage(HOST_MABXII, DATA_PACKAGE_INFO)) {
             std::cout << "received ACK" << std::endl;
             // TODO: process/check acknowledgement??
             break;
         }       
-    }
-    
-    while(true) {
-        std::cout << "Sending DATA_PACKAGE_INFO..." << std::endl;
-        sendPackage(HOST_VSERVER, DATA_PACKAGE_INFO, sizeof(DATA_PACKAGE_INFO));
-        std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER_RECV)) {
-            // TODO: process/check acknowledgement??
-            break;
-        }      
     }
     std::cout << "Decoding..." << std::endl;
     //Decoder dec(DATA_PACKAGE_INFO,sizeof(DATA_PACKAGE_INFO));
@@ -167,18 +156,25 @@ int main(/*int argc, char const *argv[]*/)
         DATA_PACKAGE[i] = rand() % 100;
         //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
     }
-
-    std::cout << "Initializing..." << std::endl;
-    initialize();
-    int i = 0;
     while (true) {
-        Encoder enc = processData();
-        std::cout << "Sending data... " << i << std::endl;
-        i++;
-        //return 1;
-        sendData(enc);
-        
+        std::cout << "Initializing..." << std::endl;
+        initialize();
+        int i = 0;
+        while (true) {
+            timeDiff = getTimestamp() - timestamp_0;
+            if (timeDiff > timeThreshold) {
+                sendPackage(HOST_VSERVER,DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE)
+            }
+            if (receiveData() < 0) {
+                break;
+            }
+            Encoder enc = processData();
+            std::cout << "Sending data... " << i << std::endl;
+            i++;
+            sendData(enc);
+        }
     }
+    
     
     return(-1);
 }

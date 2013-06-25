@@ -77,9 +77,10 @@ int receivePackage(Location remote, void * buffer, int buffersize)
     //fuer Polling, gez.Tino
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
     //std::cout << "called recvFrom" << std::endl;
+    std::cout << "receiving..." << std::endl;
     recvMsgSize = sock.recvFrom(buffer, buffersize, 
                                 sourceAddress, sourcePort);
-    //std::cout << "recvMsgsize: " << recvMsgSize  << std::endl;
+    std::cout << "recvMsgsize: " << recvMsgSize  << std::endl;
     return recvMsgSize;
 }
 void initalize()
@@ -90,42 +91,11 @@ void initalize()
     */
     std::cout << "Initializing..." << std::endl;
 
-    while(true) {
-        std::cout << "Receiving MSG_READY..." << std::endl;
-        DATA_ACK_SIZE = receivePackage(HOST_EMBPC, DATA_ACK, ACK_SIZE_MAX);
-        std::cout << DATA_ACK_SIZE << std::endl;
-        bool equal = true;
-        for (int i = 0; i < DATA_ACK_SIZE; ++i) {
-            if(MSG_READY[i] != DATA_ACK[i]) {
-                equal = false;
-            }
-        }
-        if (equal == true) {
-            std::cout << "Message correctly received." << std::endl;
-            break;
-        }
-
-        std::cout << "Wrong Message received:";
-        for (int i = 0; i < DATA_ACK_SIZE; ++i) {
-                //std::cout << MSG_READY[i];
-                std::cout << DATA_ACK[i];
-        }
-        std::cout <<  "trying again..." << std::endl;        
+    if(receivePackage(HOST_EMBPC, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX)) {
+        std::cout << "Packageinfo received..." << std::cout;
     }
-
-    while(true) {
-        std::cout << "Sending ACK..." << std::endl;
-        sendPackage(HOST_EMBPC, MSG_ACK);
-        std::cout << "Receiving package info..." << std::endl;
-        if(receivePackage(HOST_EMBPC, DATA_PACKAGE_INFO, 1)) {
-            std::cout << "Packageinfo received..." << std::cout;
-            break;
-        }
-        std::cout << "trying again..." << std::endl;
-    }
-    std::cout << "sending ACK..." << std::endl;
-    sendPackage(HOST_EMBPC, MSG_ACK);
-    std::cout << "Decoding..." << std::endl;
+    std::cout << "trying again..." << std::endl;
+    //bla
     //Decoder dec(DATA_PACKAGE_INFO,100);
 }
 
@@ -155,52 +125,24 @@ Decoder processData()
 
 int main(int argc, char const *argv[])
 {
-    initalize();
-    std::cout << "init done." << std::endl;
     while (true) {
-        /*
-            TODO: add timeout
-        */
-        //std::cout << "receiving data..." << std::endl;
+        initalize();
+        std::cout << "init done." << std::endl;
+
         while (true) {
             DATA_PACKAGE_SIZE = receiveData();
+            if (DATA_PACKAGE_SIZE < 0) {
+                break;
+            }
             Decoder dec = processData();
             if (dec.getTimestampStatus() < 0) {
                 std::cout << "Paket zu alt!" << std::endl;
                 continue;
             }
-            break;
+            usleep(250000);
+            //sendData(dec);
+            std::cout << "Paket verarbeitet!!!!!" << std::endl;
         }
-        std::cout << "Paket verarbeitet!!!!!" << std::endl;
-        //DATA_PACKAGE_SIZE = receiveData();
-        //td::cout << "==========RECEIVED DATA==========" << std::endl;
-        //std::cout << "SIZE: " << DATA_PACKAGE_SIZE << std::endl;
-        /*
-            TODO: add timeout
-        */
-        //processData();
-        //for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
-        {
-            //std::cout << DATA_PACKAGE[i];
-        }
-        //std::cout << std::endl;
-        //std::cout << "=================================" << std::endl;
-        //std::cout << std::endl;
-        //std::cout << "Decoding data... " << std::endl << std::endl;
-        //Decoder dec = processData();
         
-        /*for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
-        {
-            Data dat = dec.getNextData();
-            //std::cout << &dat << std::endl;
-            //std::cout << "Wert: " << dat.getValue() << std::endl;
-            std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
-            std::cout << "Position: " << dat.getPosition() << std::endl;
-        }
-        std::cout << "=============DONE================" << std::endl;
-        */
-        usleep(250000);
-        //return 1;
-        //sendData(enc);
     }
 }
