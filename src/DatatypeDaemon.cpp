@@ -14,7 +14,7 @@ string DatatypeDaemon::parseNextValue()
 {
 	//Daten umwandeln direkt in Strings:
 	string rueckgabe = "";
-	Data dat = dec.getNextData();
+	Data dat = myDec.getNextData();
 	int type = dat.getDatatype();
 	pos = dat.getPosition();
 	//Datentyp ist Boolean oder (Unsigned) Integer:
