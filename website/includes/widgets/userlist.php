@@ -21,7 +21,7 @@ if (!defined('ACCESS')) { die("Sie haben nicht die nötigen Befugnisse diese Seit
 		<?php 	
 			// Ausgabe der Tabelle mit allen Daten, ohne Passwörter
 			$connection = mysqli_connect("$dbhost", "$dbuname" , "$dbpass") or die("<tr><td colspan=\"7\">Verbindung zur Datenbank konnte nicht hergestellt werde</td></tr>");
-			$query = "SELECT DISTINCT benutzerdaten.id, vorname, nachname, email, rechte, status, zeitpunkt FROM $user LEFT OUTER JOIN $online ON $user.id = $online.id";
+			$query = "SELECT DISTINCT benutzerdaten.id, vorname, nachname, email, rechte, status, zeitpunkt FROM $user LEFT OUTER JOIN $online ON $user.id = $online.id ORDER BY benutzerdaten.id ASC";
 			mysqli_select_db($connection,$dbname_ud) or die ("<tr><td colspan=\"7\">Die Datenbank konnte nicht ausgewählt werden</td></tr>");
 			$result = mysqli_query($connection,$query);
 			
