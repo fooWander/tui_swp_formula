@@ -156,6 +156,8 @@ private:
      */
 
     int myPackageNum;
+
+    
     /*
     char myBuffer;
     int myBufferlen;
@@ -222,12 +224,19 @@ public:
 
     unsigned int getPackagePos(char * vecLayout, size_t vecLayoutlen);
 
+    /**
+     *  Gibt Auskunft über die Aktualität eines Pakets.
+     *  \return -1 falls veraltet, sonst aktuell.
+     */
+     int getTimestampStatus();
+
 private:
     unsigned int myDataLength;
     int64_t myTimestamp;
 	//unsigned int TIME_THRESHOLD=5;
     char * myPackage;
     unsigned int myPackagelen;
+    int myTimestampStatus = -1;
 
     /*
         Number of currently processed package.

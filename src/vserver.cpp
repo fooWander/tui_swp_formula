@@ -76,10 +76,10 @@ int receivePackage(Location remote, void * buffer, int buffersize)
     //http://www.beej.us/guide/bgnet/output/html/multipage/pollman.html 
     //fuer Polling, gez.Tino
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
-    std::cout << "called recvFrom" << std::endl;
+    //std::cout << "called recvFrom" << std::endl;
     recvMsgSize = sock.recvFrom(buffer, buffersize, 
                                 sourceAddress, sourcePort);
-    std::cout << "recvMsgsize: " << recvMsgSize  << std::endl;
+    //std::cout << "recvMsgsize: " << recvMsgSize  << std::endl;
     return recvMsgSize;
 }
 void initalize()
@@ -162,15 +162,24 @@ int main(int argc, char const *argv[])
             TODO: add timeout
         */
         //std::cout << "receiving data..." << std::endl;
-        
-        DATA_PACKAGE_SIZE = receiveData();
+        while (true) {
+            DATA_PACKAGE_SIZE = receiveData();
+            Decoder dec = processData();
+            if (dec.getTimestampStatus() < 0) {
+                std::cout << "Paket zu alt!" << std::endl;
+                continue;
+            }
+            break;
+        }
+        std::cout << "Paket verarbeitet!!!!!" << std::endl;
+        //DATA_PACKAGE_SIZE = receiveData();
         //td::cout << "==========RECEIVED DATA==========" << std::endl;
         //std::cout << "SIZE: " << DATA_PACKAGE_SIZE << std::endl;
         /*
             TODO: add timeout
         */
         //processData();
-        for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
+        //for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
         {
             //std::cout << DATA_PACKAGE[i];
         }
@@ -178,18 +187,18 @@ int main(int argc, char const *argv[])
         //std::cout << "=================================" << std::endl;
         //std::cout << std::endl;
         //std::cout << "Decoding data... " << std::endl << std::endl;
-        Decoder dec = processData();
+        //Decoder dec = processData();
         
-        for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
+        /*for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
         {
             Data dat = dec.getNextData();
-            std::cout << &dat << std::endl;
-            std::cout << "Wert: " << dat.getValue() << std::endl;
+            //std::cout << &dat << std::endl;
+            //std::cout << "Wert: " << dat.getValue() << std::endl;
             std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
             std::cout << "Position: " << dat.getPosition() << std::endl;
         }
         std::cout << "=============DONE================" << std::endl;
-        
+        */
         usleep(250000);
         //return 1;
         //sendData(enc);

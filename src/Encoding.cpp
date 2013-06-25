@@ -31,7 +31,7 @@ char VEC_LAYOUT[] = {0,0, 0,20, 0,25, 0,30, 0,100};
 int VEC_LAYOUT_SIZE = 10;
 
 int PACKAGE_COUNTER = 80;
-unsigned int TIME_THRESHOLD=5000000;
+unsigned int TIME_THRESHOLD=5000000000;
 int64_t LOCAL_TIMESTAMP;
 int HEADER_SIZE = 12;
 
@@ -120,11 +120,11 @@ int Encoder::getPackageSize(unsigned short packageNumber)
 int Encoder::getPackage(char * package, size_t len, unsigned short packageNumber)
 {
     std::cout << "packageNumber = " << packageNumber << std::endl;
-    std::cout << "==========myPackages===========" << std::endl;
+    //std::cout << "==========myPackages===========" << std::endl;
     for (int i = 0; i < 100; ++i) {
-        std::cout << myPackages[i];
+        //std::cout << myPackages[i];
     }
-    std::cout << "==========/myPackages===========" << std::endl;
+    //std::cout << "==========/myPackages===========" << std::endl;
     
     int dataSize;
     dataSize = myPackagePos[packageNumber+1] - myPackagePos[packageNumber];
@@ -154,9 +154,9 @@ int Encoder::getNextPackage(char * package, size_t len)
 
 void Encoder::createHeader()
 {
-    std::cout << "================Creating header ================" << std::endl;
+    //std::cout << "================Creating header ================" << std::endl;
     int64_t timestamp = getTimestamp();
-    std::cout << "Zeistempel: " << timestamp << std::endl;
+    //std::cout << "Zeistempel: " << timestamp << std::endl;
     myPackages[myPackagePointer+7] = timestamp & 0xff;
     myPackages[myPackagePointer+6] = (timestamp >> 8) & 0xff;
     myPackages[myPackagePointer+5] = (timestamp >> 16) & 0xff;
@@ -212,7 +212,7 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
             endPos = joinUnsigShort(vecLayout[i+2], vecLayout[i+3]);
         }
         
-        std::cout << "myPackagePointer " << myPackagePointer << std::endl;
+        //std::cout << "myPackagePointer " << myPackagePointer << std::endl;
         for (int j = startPos; j < endPos; ++j) {
             myPackages[myPackagePointer] = buffer[j];
             myPackagePointer++;
@@ -306,7 +306,7 @@ void Decoder::decodeHeader()
                 + (((int64_t)myPackage[2] << 40) & 0xff0000000000)
                 + (((int64_t)myPackage[1] << 48) & 0xff000000000000)
                 + (((int64_t)myPackage[0] << 56) & 0xff00000000000000));
-    std::cout << myTimestamp << std::endl;
+    //std::cout << myTimestamp << std::endl;
 
     myPackageNum = (myPackage[11] & 0xff)  
                 + ((myPackage[10] << 8) & 0xff00)
@@ -325,8 +325,10 @@ void Decoder::checkTimestamp()
     int64_t diff = LOCAL_TIMESTAMP - myTimestamp;
     std::cout << "Zeitdifferenz: " << (double)diff/1000000 << "ms" << std::endl;
     if (diff > TIME_THRESHOLD) {  //###
-        //getNextPackage();   Fuktion muss noch definiert werden
+        myTimestampStatus = -1;
+        return;
     } else {
+        myTimestampStatus = 1;
         return;
     }
 }
@@ -367,5 +369,10 @@ Data Decoder::getNextData()
     Data dat(value,datatype,pos);
     myDataPos++;
     return dat;
+}
+
+int Decoder::getTimestampStatus() 
+{
+    return myTimestampStatus;
 }
 

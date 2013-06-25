@@ -120,8 +120,9 @@ void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
     for (int i = 0; i < packageSum; ++i) {
         int size = enc.getPackage(DATA_SEND,sizeof(DATA_SEND),i);
-        std::cout << std::endl;
-        std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
+        //std::cout << std::endl;
+        //std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
+        /*
         for (int j = 0; j < size; ++j)
         {
             if (j % 25 == 0)
@@ -133,6 +134,7 @@ void sendData(Encoder enc) {
         std::cout << std::endl;
         std::cout << "========END_PACKAGE=========" << std::endl;
         std::cout << std::endl << std::endl << std::endl << std::endl; 
+        */
         sendPackage(HOST_VSERVER,DATA_SEND,size);
         usleep(250000);
     }
@@ -157,13 +159,13 @@ int main(/*int argc, char const *argv[]*/)
             DATA_PACKAGE[i] = 80;
         }
         //VEC_DATATYPES[i] = 1;
-        std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
+        //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
     }
     for (int i = 20; i < 802; ++i)
     {
         //VEC_DATATYPES[i] = 4;
         DATA_PACKAGE[i] = rand() % 100;
-        std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
+        //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
     }
 
     std::cout << "Initializing..." << std::endl;
@@ -173,8 +175,8 @@ int main(/*int argc, char const *argv[]*/)
         Encoder enc = processData();
         std::cout << "Sending data... " << i << std::endl;
         i++;
-        return 1;
-        //sendData(enc);
+        //return 1;
+        sendData(enc);
         
     }
     
