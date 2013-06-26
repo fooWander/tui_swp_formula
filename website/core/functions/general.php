@@ -3,6 +3,23 @@
 include 'includes/config.php';
 
 /**
+ * Erzeugt einen beliebigen zufälligen String der aus zehn Zeichen besteht. Diese Länge ist der Standardwert.
+ * Durch Aufruf der Funktion mit einem Integer als Parameter kann die Länge manuell angepasst werden.
+ * @param number $length
+ * @return string
+ */
+function generateRandomString($length = 10) {
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"§$%&/()=?+*#-_^';
+	$randomString = '';
+
+	for ($i = 0; $i < $length; $i++) {
+		$randomString .= $characters[rand(0, strlen($characters) - 1)];
+	}
+
+	return $randomString;
+}
+
+/**
  * Erstellt alle wichtigen Datenbanken, Tabellen, legt einen Vorstand mit den übegebenen Daten an
  * und richtet die Benutzergruppen 'Vorstand', 'Beobachter' und 'Techniker' an
  * @param array $register_data
