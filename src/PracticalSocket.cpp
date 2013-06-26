@@ -282,12 +282,14 @@ UDPSocket::UDPSocket() throw(SocketException) : CommunicatingSocket(SOCK_DGRAM,
 UDPSocket::UDPSocket(unsigned short localPort)  throw(SocketException) : 
         CommunicatingSocket(SOCK_DGRAM, IPPROTO_UDP) {
     setLocalPort(localPort);
+    setTimeout();
     setBroadcast();
 }
 
 UDPSocket::UDPSocket(const string &localAddress, unsigned short localPort) 
          throw(SocketException) : CommunicatingSocket(SOCK_DGRAM, IPPROTO_UDP) {
     setLocalAddressAndPort(localAddress, localPort);
+    setTimeout();
     setBroadcast();
 }
 
