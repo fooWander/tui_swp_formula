@@ -2,10 +2,16 @@
 \contentsline {chapter}{\numberline {1}Einleitung}{3}
 \contentsline {chapter}{\numberline {2}Installation und Konfiguration des Service Interfaces}{4}
 \contentsline {section}{\numberline {2.1}MicroAutoBox II}{4}
-\contentsline {section}{\numberline {2.2}Embedded-PC}{4}
-\contentsline {section}{\numberline {2.3}vServer}{4}
-\contentsline {section}{\numberline {2.4}Datenbanken}{4}
-\contentsline {subsection}{\numberline {2.4.1}Fahrzeugdatenbank}{4}
-\contentsline {subsection}{\numberline {2.4.2}Benutzerdatenbank}{4}
-\contentsline {section}{\numberline {2.5}Webseite}{4}
-\contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{5}
+\contentsline {subsection}{\numberline {2.1.1}Konfiguration der Ethernet-Schnittstelle}{5}
+\contentsline {subsection}{\numberline {2.1.2}Konfiguration der Matlabfiles \textit {signalgenerator\_microautobox.m} und \textit {config\_datenpaket.m}}{5}
+\contentsline {subsection}{\numberline {2.1.3}Testen des Simulink-Modells durch den Signalgenerator}{5}
+\contentsline {subsection}{\numberline {2.1.4}Anschluss des Simulink-Modells des Formula-Student-Fahrzeuges an das Simulink-Modell des Service Interfaces}{5}
+\contentsline {subsection}{\numberline {2.1.5}Implementierung des Modells auf der MicroAutoBox II}{5}
+\contentsline {subsection}{\numberline {2.1.6}Appendix: Hinzuf\IeC {\"u}gen, Entfernen oder Modifizieren von Signalen}{5}
+\contentsline {section}{\numberline {2.2}Embedded-PC}{5}
+\contentsline {section}{\numberline {2.3}vServer}{5}
+\contentsline {section}{\numberline {2.4}Datenbanken}{5}
+\contentsline {subsection}{\numberline {2.4.1}Fahrzeugdatenbank}{5}
+\contentsline {subsection}{\numberline {2.4.2}Benutzerdatenbank}{5}
+\contentsline {section}{\numberline {2.5}Webseite}{5}
+\contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{6}

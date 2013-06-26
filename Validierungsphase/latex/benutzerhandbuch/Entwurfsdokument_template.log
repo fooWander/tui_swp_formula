@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.7.29)  26 JUN 2013 14:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.7.29)  27 JUN 2013 00:25
 entering extended mode
 **Entwurfsdokument_template.tex
 
@@ -734,32 +734,58 @@ Kapitel 1.
 
 ]
 Kapitel 2.
-[4
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 164.
 
-]
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
+
+<topmodell.png, id=17, 682.80093pt x 306.39468pt>
+File: topmodell.png Graphic file (type png)
+ <use topmodell.png>
+Package pdftex.def Info: topmodell.png used on input line 176.
+(pdftex.def)             Requested size: 443.81534pt x 199.15417pt.
+ [4
+
+ <C:/Users/Sebastian Zehnter/Documents/tui_swp_formula/Validierungsphase/latex/
+benutzerhandbuch/topmodell.png>]
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 189.
+
+[5]
 Kapitel 3.
-[5
+[6
 
 ]
 ("C:\Users\Sebastian Zehnter\Documents\tui_swp_formula\Validierungsphase\latex\
-benutzerhandbuch\Entwurfsdokument_template.aux") ) 
+benutzerhandbuch\Entwurfsdokument_template.aux")
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 7699 strings out of 493921
- 116331 string characters out of 3147246
- 241644 words of memory out of 3000000
- 10845 multiletter control sequences out of 15000+200000
- 13334 words of font info for 57 fonts, out of 3000000 for 9000
+ 7775 strings out of 493921
+ 117314 string characters out of 3147246
+ 242654 words of memory out of 3000000
+ 10884 multiletter control sequences out of 15000+200000
+ 15084 words of font info for 74 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 40i,10n,46p,286b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-sbx10.pfb>
-Output written on Entwurfsdokument_template.pdf (5 pages, 76162 bytes).
+ 40i,10n,46p,515b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmt
+i12.pfb>
+Output written on Entwurfsdokument_template.pdf (6 pages, 140255 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 12801 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 15366 words of extra memory for PDF output out of 17280 (max. 10000000)
 

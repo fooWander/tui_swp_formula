@@ -151,7 +151,65 @@
 
 \chapter{Installation und Konfiguration des Service Interfaces}
 
+
+%-------------------------------------------------------------------%
+%-------------------------------------------------------------------%
+
 \section{MicroAutoBox II}
+
+Für eine erfolgreiche Installation und Konfiguration der MicroAutoBox II müssen zu Beginn der Installation neben dieser Hardwarekomponente folgende Dateien in MATLAB und Modelle in Simulink vorliegen:
+
+\begin{itemize}
+
+\item \textit{udp\_final.mdl}: Diese Datei beinhaltet das von uns bereitgestellte Simulink-Modell für das Service Interface.
+
+\item \textit{config\_datenpaket.m} Dieses *.m - File enthält die zur Konfiguration des Datenpaketes notwendigen Vektoren, welche je nach Art des Datenpaketes an dieses angepasst werden können und Informationen über dessen Attribute und Zusammensetzung beinhalten (Verweis ED).
+
+\item \textit{signalgenerator\_microautobox.m} Dieses optionale *.m - File dient dazu, den Signalgenerator im Simulink-Modell zu Simulationszwecken mit generierten Testdaten auszustatten, um bei Veränderungen des Simulink-Modells oder bei einer Modifizierung der   auf dem Embedded-PC oder dem virtuellen Server implementierten *.cpp - Dateien eine Verifizierung des Service Interfaces anhand dieser bekannten Testdaten durchführen zu können (Verweis ED).
+
+\end{itemize} 
+
+Falls diese Dateien alle zur Verfügung stehen sollten, ist in einem ersten Schritt das Simulink-Modell \textit{udp\_final.mdl} durch das Programm MATLAB zu öffnen, wonach sich in Simulink auf der obersten Modellebene  folgende Subsysteme befinden (s. Abb. \ref{topmodell}):
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.65]{topmodell}
+\caption[Gesamtaufbau Simulink-Modell]{Gesamtaufbau des Simulink-Modells auf höchster Modellebene}
+\label{topmodell}
+\end{figure} 
+
+\newpage
+
+%-------------------------------------------------------------------%
+
+\subsection{Konfiguration der Ethernet-Schnittstelle}
+
+%-------------------------------------------------------------------%
+
+\subsection{Konfiguration der Matlabfiles \textit{signalgenerator\_microautobox.m} und \textit{config\_datenpaket.m}}
+
+%-------------------------------------------------------------------%
+
+Abhängig von den weiteren Absichten des Benutzers werden im Folgenden nun für diese Ziele die jeweiligen Vorgehensweisen ausführlich erläutert. 
+
+\subsection{Testen des Simulink-Modells durch den Signalgenerator}
+
+%-------------------------------------------------------------------%
+
+
+\subsection{Anschluss des Simulink-Modells des Formula-Student-Fahrzeuges an das Simulink-Modell des Service Interfaces}
+
+%-------------------------------------------------------------------%
+
+\subsection{Implementierung des Modells auf der MicroAutoBox II}
+
+%-------------------------------------------------------------------%
+
+\subsection{Appendix: Hinzufügen, Entfernen oder Modifizieren von Signalen}
+
+%-------------------------------------------------------------------%
+
+
 
 
 \section{Embedded-PC}
