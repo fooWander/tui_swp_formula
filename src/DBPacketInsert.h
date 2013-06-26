@@ -6,13 +6,15 @@
 #include "Insert.h"
 #include "DBPacketInsert.h"
 #include "DatatypeDaemon.h"
+#include "logData.h"
 
 using namespace std;
 
 /*!	Klasse zum Aufbau eines SQL-Strings.
 *
-*	Diese Klasse baut einen SQL-String mit Hilfe anderer Klassen auf, mit dem
-*	schließlich die Daten in die Datenbank geschrieben werden.
+*	Diese Klasse baut einen SQL-String mit Hilfe anderer Funktionen auf, mit dem
+*	schließlich die Daten in die Datenbank geschrieben werden. Gleichzeitig findet eine
+*	Wertebereichspruefung der Daten statt.
 *	\sa DatatypeDaemon
 *	\sa Insert
 */
@@ -54,16 +56,16 @@ class DBPacketInsert{
 		int time;
 		//! Objekt zum Abholen und Aufbereiten der einzuf\"ugenden Werte.
 		DatatypeDaemon slave;
-		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'akkudaten' auf.
-		void insert_akkudaten();
-		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'allgemeine_fahrzeugdaten' auf.
-		void insert_allgemeineFahrzeugdaten();
-		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'dynamische_daten' auf.
-		void insert_dynamischeDaten();
-		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'fahrdynamikregelung' auf.
-		void insert_fahrdynamikregelung();
-		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'motor_umrichterdaten' auf.
-		void insert_motorUmrichterdaten();
+		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'akkudaten' auf und prueft die Wertebereiche der Daten. Bei Fehlern wird false zurueckgegeben, anderenfalls true.
+		bool insert_akkudaten();
+		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'allgemeine_fahrzeugdaten' auf und prueft ebenfalls den Wertebereich.
+		bool insert_allgemeineFahrzeugdaten();
+		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'dynamische_daten' auf und prueft ebenfalls den Wertebereich.
+		bool insert_dynamischeDaten();
+		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'fahrdynamikregelung' auf und prueft ebenfalls den Wertebereich.
+		bool insert_fahrdynamikregelung();
+		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'motor_umrichterdaten' auf und prueft ebenfalls den Wertebereich.
+		bool insert_motorUmrichterdaten();
 };
 
 #endif
