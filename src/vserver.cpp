@@ -78,8 +78,15 @@ int receivePackage(Location remote, void * buffer, int buffersize)
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
     //std::cout << "called recvFrom" << std::endl;
     std::cout << "receiving..." << std::endl;
+    //try
+    //{
     recvMsgSize = sock.recvFrom(buffer, buffersize, 
                                 sourceAddress, sourcePort);
+    //}
+    //catch(SocketException ex)
+    //{
+    //    std::cout << "Exception geworfen" << std::endl;
+    //}
     std::cout << "recvMsgsize: " << recvMsgSize  << std::endl;
     return recvMsgSize;
 }
@@ -126,11 +133,19 @@ Decoder processData()
 int main(int argc, char const *argv[])
 {
     while (true) {
-        initalize();
+        //initalize();
         std::cout << "init done." << std::endl;
 
         while (true) {
-            DATA_PACKAGE_SIZE = receiveData();
+            try
+            {
+                DATA_PACKAGE_SIZE = receiveData();
+            }
+            catch(SocketException ex)
+            {
+                std::cout << "Exception thrown." << std::endl;
+                break;
+            }
             if (DATA_PACKAGE_SIZE < 0) {
                 break;
             }

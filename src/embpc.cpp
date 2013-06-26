@@ -161,10 +161,11 @@ int main(/*int argc, char const *argv[]*/)
         initialize();
         int i = 0;
         while (true) {
-            timeDiff = getTimestamp() - timestamp_0;
+            /*timeDiff = getTimestamp() - timestamp_0;
             if (timeDiff > timeThreshold) {
                 sendPackage(HOST_VSERVER,DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE)
             }
+            */
             if (receiveData() < 0) {
                 break;
             }

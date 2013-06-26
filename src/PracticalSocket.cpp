@@ -304,11 +304,11 @@ void UDPSocket::setBroadcast() {
 void UDPSocket::setTimeout() {
     struct timeval tv;
 
-    tv.tv_sec = 10;  /* 10 Secs Timeout */
+    tv.tv_sec = 3;  /* 10 Secs Timeout */
     tv.tv_usec = 0;  // Not init'ing this can cause strange errors
-    int nTimeout = 3000;
+    //int nTimeout = 3;
 
-    setsockopt(sockDesc, SOL_SOCKET, SO_RCVTIMEO, (const char *)&nTimeout,sizeof(int));
+    setsockopt(sockDesc, SOL_SOCKET, SO_RCVTIMEO, (const char *)&tv,sizeof(tv));
 }
 
 void UDPSocket::disconnect() throw(SocketException) {
