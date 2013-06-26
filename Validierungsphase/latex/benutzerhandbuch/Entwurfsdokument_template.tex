@@ -1,0 +1,173 @@
+\documentclass[fontsize = 12pt, paper = a4]{scrreprt} 
+
+\setlength{\parindent}{0pt}
+\usepackage[english,ngerman]{babel}
+\usepackage[utf8]{inputenc} 
+\usepackage{enumerate}
+\usepackage{amssymb,amsmath}
+
+%------------ Überschriften verkleinern und hochsetzen ----------%
+
+%\makeatlettern
+%\renewcommand*\@makechapterhead[1]{%
+%{\parindent \z@ \raggedright \normalfont
+%\LARGE\bfseries
+%\ifnum \c@secnumdepth >\m@ne
+%\thechapter\space
+%\fi
+%#1\par\nobreak
+%\vskip 20\p@
+%}} 
+
+% ------------------------ Blattlayout- -------------------------%
+
+\usepackage {geometry}   
+\geometry   {left     = 2.5cm,
+             right    = 2.5cm, 
+             top      = 1.5cm,
+             bottom   = 1.5cm,
+             includehead, includefoot}
+             
+% ------------------------ Seitenstil ---------------------------%           
+
+% Umdefinieren von Befehlen zur Vermeidung von Bugs:
+
+\renewcommand*{\chapterpagestyle}{scrheadings} 
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
+
+% Gestaltung der Kopf- und Fußzeile:
+
+\pagenumbering{arabic}
+            
+\usepackage[automark]{scrpage2}
+\automark[chapter]{section}
+\pagestyle{scrheadings} 
+\ohead[\pagemark]{\pagemark}
+\setlength{\footskip}{5mm} 
+
+\clearscrheadfoot
+\lohead{Benutzerhandbuch}
+\rohead{\headmark}
+\lofoot{Softwareprojekt TU Ilmenau SS 2013}
+\rofoot{\pagemark}
+
+% Kopf- und Fußzeilenlinie:
+
+\setheadsepline{.6pt} % Linie für Kopfzeile
+\setfootsepline{.6pt} % Linie für Fußzeile 
+
+% Für Unterstreichungen:
+
+\usepackage[normalem]{ulem}
+
+% Buchstabenglättung am Rand:
+  
+\usepackage {microtype} 
+
+% Bildunterschriften zentrieren:
+
+%\usepackage{caption}
+%\captionsetup{margin=10pt,font=small,labelfont=bf, justification = centering}
+
+%-------------------------------------------------------------------%
+
+% Für die Einbindung von Bildern:
+
+\usepackage[pdftex]{graphicx} % .pdf, .png oder .jpg möglich!
+\usepackage{rotating}         % Grafiken rotieren
+
+% Nutzung in drei Umgebungen möglich:
+
+% (1) \begin{turn}{Winkel} ...  \end{turn}
+% (2) \begin{sideways} ... \end{sideways} 90° im math. pos. Sinn
+% (3) \begin{rotate}{Winkel} ... \end{rotate} 
+%     ---> 90° im math. pos. Sinn, allerdings keine Platzreservierung 
+
+\usepackage{wrapfig}
+%\usepackage{picins}   % Textumflossene Grafiken
+\usepackage{subfigure}
+\usepackage{floatflt}
+\usepackage[justification=centering]{caption}
+
+%-------------------------------------------------------------------%
+ 
+% Packete für Tabellen:
+
+\usepackage{booktabs}
+\usepackage{array}    % optional
+\usepackage{tabularx} % optional
+
+\usepackage[font=footnotesize,labelfont=bf,singlelinecheck=false,
+            format=plain,,justification=justified,indention=0cm]                     {caption} 
+
+\usepackage{setspace}
+
+%----------------  Anfang des Dokuments ------------------%
+
+\begin{document}
+
+%*******************************************************************%
+
+% Entwurf Titelseite:
+
+\titlehead{\begin{center}
+\textbf{\Huge Entwurfsdokument}
+\end{center}}
+		   
+\title{Service-Interface \\ für ein Formula-Student-Fahrzeug}
+
+\subtitle{Technische Universität Ilmenau \\
+		  Softwareprojekt SS 2013 \\ Gruppe 19}			
+		
+\author{Christian Boxdörfer \\ Thomas Golda \\ Daniel Häger \\ 
+		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
+		Tobias Zehner \\ Sebastian Zehnter}
+		
+\date{Hier Datum einfügen}	 
+	  
+\publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
+
+\maketitle		
+
+%*******************************************************************%
+
+% --------------------- Inhaltsverzeichnis -----------------------%
+
+\begin{spacing}{0.86} 
+\tableofcontents
+%\setcounter{secnumdepth}{4} % Tiefere Gliederungsebene  
+\setcounter{tocdepth}{4} % Anzeige bis Gliederungsstufe 4
+%\addtocontents{toc}{\protect\enlargethispage{2\baselineskip}} 
+\end{spacing}
+
+
+\newpage % Seitenumbruch
+
+%--------------------------  Einleitung  ---------------------------%
+
+\chapter{Einleitung}
+
+%----- Installation und Konfiguration des Service Interfaces -------%
+
+\chapter{Installation und Konfiguration des Service Interfaces}
+
+\section{MicroAutoBox II}
+
+\section{Embedded-PC}
+
+\section{vServer}
+
+\section{Datenbanken}
+
+\subsection{Fahrzeugdatenbank}
+
+\subsection{Benutzerdatenbank}
+
+\section{Webseite}
+
+%----------------- Bedienung des Service-Interfaces ----------------%
+
+\chapter{Bedienung des Service-Interfaces}
+
+
+\end{document}
