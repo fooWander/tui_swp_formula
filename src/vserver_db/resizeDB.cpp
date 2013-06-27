@@ -67,7 +67,7 @@ using namespace boost;
  */
 
   int main(){
-	/*! Ablauf:
+
 	dbData db; /*!< Erstellung des dbData-Objektes um Zugriff auf die Datenbankdaten zu erhalten. */
         
 	string url = db.getHost(); /*!< Auslesen des Hostnamen der MySQL-Datenbank. */
