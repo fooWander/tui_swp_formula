@@ -184,6 +184,41 @@ Falls diese Dateien alle zur Verfügung stehen sollten, ist in einem ersten Schr
 
 \subsection{Konfiguration der Ethernet-Schnittstelle}
 
+Daraufhin ist bei der weiteren Vorgehensweise anschließend die Konfiguration der Ethernet-Schnittstelle vorzunehmen. Hierzu öffnet man durch einen Doppelklick den in Abb. \ref{topmodell} zu sehenden Block \textit{"`Ethernet UDP Setup"} ein Fenster, in welchem nun die Möglichkeit besteht, zwischen den beiden Reitern \textit{"`Unit"} und \textit{"`Options"} zu navigieren (Verweis dSPACE Doku) und dort bei den jeweiligen Einstellungen Modifikationen vorzunehmen. Im Folgenden werden obligatorische Änderungen durch ein (*) am jeweiligen Parameter gekennzeichnet. \\
+
+\textbf{Reiter "`Unit"} 
+
+\begin{itemize}
+
+\item \textit{Interface Name}: Hier kann ein selbst gewählter Name für die Schnittstelle festgelegt werden.
+
+\item \textit{$Board \ Type \ ^{(*)}$}: Bei Verwendung der MicroAutoBox II ist dort die Option \\ "`ETH Type 1"\ auszuwählen.
+
+\item \textit{Module number}: Der dortige Wert ist auf "`1" vorkonfiguriert und kann auch so belassen werden.
+
+\item \textit{$Local \ IP \ adress \ ^{(*)}$}: Hier ist die lokale IP-Adresse der MicroAutoBox II in Abhängigkeit vom gewählten Subnetz  anzugeben (z.B. 192.X oder 10.X).
+
+\end{itemize}
+
+\textbf{Reiter "`Options"} \\
+
+In diesem Reiter können anhand nachfolgender Einstellungen bis zu vier verschiedene Sockets innerhalb des Modells definiert werden. Der Socket 1 ist hierbei für das Datenpaket mit den Fahrzeugdaten und Socket 2 für das Datenpaket mit den Paketinformationen vorgesehen. Darüber hinaus stehen bei beabsichtigten Erweiterungen des Modells Socket 3 und 4 zur freien Verfügung.
+
+\begin{itemize}
+
+\item \textit{$Enable \ ^{(*)}$}: Ein gesetztes Häkchen entscheidet bei diesem Parameter darüber, ob der jeweilige Socket aktiviert oder deaktiviert wird. Es ist notwendig, die Sockets 1 und 2 zu aktivieren, um den Transport der Datenpakete an den Embedded-PC zu ermöglichen (s. o.). Darüber hinaus sollten die Sockets 3 und 4, falls diese nicht anderweitig verwendet werden, deaktiviert werden.  
+
+\item \textit{$Local \ Port \ Number \ [0 \ ... \ 65535] \ ^{(*)}$}: In diesem Feld ist die Nummer des lokalen Ports der MicroAutoBox II einzutragen. 
+
+\item \textit{$Remote \ Port \ Number \ [0 \ ... \ 65535] \ ^{(*)}$}:
+Dort muss die Nummer des externen Ports -- also der gewünschte Port des Embedded-PCs -- eingetragen werden. \\ Anmerkung: Um Verwechslungen beim Eintragen der Portnummern o.ä. zu vermeiden, ist es empfehlenswert, für beide Ports die selbe Nummer zu vergeben. 
+
+\end{itemize} 
+
+Nachdem alle obligatorischen Änderungen vorgenommen wurden, muss in einem nächsten Schritt innerhalb der Subsysteme \textit{UDP\_DATEN} und \textit{UDP\_PAKETINFORMATIONEN} die Blöcke "`ETHERNET\_UDP\_TX\_BL1"\ und "`ETHERNET\_UDP\_TX\_BL2"\ angepasst werden.
+
+\newpage
+
 %-------------------------------------------------------------------%
 
 \subsection{Konfiguration der Matlabfiles \textit{signalgenerator\_microautobox.m} und \textit{config\_datenpaket.m}}
