@@ -102,6 +102,8 @@
 
 \usepackage{setspace}
 
+\usepackage{enumitem} 
+
 %----------------  Anfang des Dokuments ------------------%
 
 \begin{document}
@@ -196,13 +198,13 @@ Daraufhin ist bei der weiteren Vorgehensweise anschließend die Konfiguration de
 
 \item \textit{Module number}: Der dortige Wert ist auf "`1" vorkonfiguriert und kann auch so belassen werden.
 
-\item \textit{$Local \ IP \ adress \ ^{(*)}$}: Hier ist die lokale IP-Adresse der MicroAutoBox II in Abhängigkeit vom gewählten Subnetz  anzugeben (z.B. 192.X oder 10.X).
+\item \textit{$Local \ IP \ adress \ ^{(*)}$}: Hier ist die lokale IP-Adresse der MicroAutoBox II in Abhängigkeit des gewählten Subnetzes  anzugeben (z.B. 192.X oder 10.X).
 
 \end{itemize}
 
 \textbf{Reiter "`Options"} \\
 
-In diesem Reiter können anhand nachfolgender Einstellungen bis zu vier verschiedene Sockets innerhalb des Modells definiert werden. Der Socket 1 ist hierbei für das Datenpaket mit den Fahrzeugdaten und Socket 2 für das Datenpaket mit den Paketinformationen vorgesehen. Darüber hinaus stehen bei beabsichtigten Erweiterungen des Modells Socket 3 und 4 zur freien Verfügung.
+In diesem Reiter können anhand nachfolgender Einstellungen bis zu vier verschiedene Sockets innerhalb des Modells definiert werden. Der Socket 1 ist hierbei für das Datenpaket mit den Fahrzeugdaten und der Socket 2 für das Datenpaket mit den Paketinformationen vorgesehen. Darüber hinaus stehen bei beabsichtigten Erweiterungen des Modells Socket 3 und 4 zur freien Verfügung.
 
 \begin{itemize}
 
@@ -211,13 +213,17 @@ In diesem Reiter können anhand nachfolgender Einstellungen bis zu vier verschie
 \item \textit{$Local \ Port \ Number \ [0 \ ... \ 65535] \ ^{(*)}$}: In diesem Feld ist die Nummer des lokalen Ports der MicroAutoBox II einzutragen. 
 
 \item \textit{$Remote \ Port \ Number \ [0 \ ... \ 65535] \ ^{(*)}$}:
-Dort muss die Nummer des externen Ports -- also der gewünschte Port des Embedded-PCs -- eingetragen werden. \\ Anmerkung: Um Verwechslungen beim Eintragen der Portnummern o.ä. zu vermeiden, ist es empfehlenswert, für beide Ports die selbe Nummer zu vergeben. 
+Dort muss die Nummer des externen Ports -- also der gewünschte Port des Embedded-PCs -- eingetragen werden. \\ 
+
+\textbf{Anmerkung:} Um Verwechslungen beim Eintragen der Portnummern o.ä. zu vermeiden, ist es empfehlenswert, für beide Ports die selbe Nummer zu vergeben. 
 
 \end{itemize} 
 
+\newpage
+
 Nachdem alle obligatorischen Änderungen vorgenommen wurden, muss in einem nächsten Schritt innerhalb der Subsysteme \textit{UDP\_DATEN} und \textit{UDP\_PAKETINFORMATIONEN} die Blöcke "`ETHERNET\_UDP\_TX\_BL1"\ und "`ETHERNET\_UDP\_TX\_BL2"\ angepasst werden.
 
-\newpage
+
 
 %-------------------------------------------------------------------%
 
@@ -257,11 +263,122 @@ Abhängig von den weiteren Absichten des Benutzers werden im Folgenden nun für 
 
 \subsection{Benutzerdatenbank}
 
+
+
+\newpage
+
+% Text von Thomas eingepflegt, gez. Sebastian
+
 \section{Webseite}
+
+Zur uneingeschränkten Nutzung der Software müssen einige Voraussetzungen erfüllt sein: 
+
+\begin{itemize}
+
+\item Webserver 
+
+\begin{itemize}
+
+\item PHP Version 5.3 oder höher
+\item mindestens eine (idealerweise zwei) MySQL-Datenbank (MySQL Version 5.3 oder höher)
+\item SMTP-Server mit Authentifizierung
+\item X MB freien Speicherplatz für Webseite
+
+\end{itemize}
+
+\end{itemize}
+
+Im Folgenden werden alle nötigen Installationsschritte für die gesamte Software sowie die entsprechenden Konfigurationseinstellungen erläutert, welche zu Beginn getroffen werden müssen. \\
+
+\textit{Webseite - Konfiguration} \\
+
+Alle ausgelieferten Verzeichnisse und Dateien müssen in das Stammverzeichnis (s. Beschreibung Ihres Hostingangebotes) hochgeladen werden. Bevor Sie dies jedoch tun, müssen sie die Datei \textit{includes/config.php} anpassen. \\ 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.50]{website_config}
+\caption[Auschnitt aus der config.php - Datei]{Auschnitt aus der config.php - Datei}
+\label{websiteconfig}
+\end{figure} 
+
+\newpage
+
+Für Sie sind lediglich sechs Zeilen wichtig: 
+
+\begin{itemize}[leftmargin=*]
+
+\item \textit{\$dbhost}: Diese Einstellung ist auf "`localhost"\ gestellt. In den meisten Fällen ist dies die Standardeinstellung. Sollten Sie von Ihrem Provider explizit andere Angaben erhalten haben, dann ändern Sie dieses Feld. Sollten Sie keine Informationen erhalten haben, wird mit hoher Wahrscheinlichkeit "`localhost"\ die richtige Wahl sein. Sollte es zu Problemen kommen, setzen Sie sich bitte mit Ihrem Provider in Verbindung.
+
+
+\item \textit{\$dbuname}: Hier fügen Sie in einfachen Anführungszeichen den Ihnen vom Provider mitgeteilte Zugangsnamen für den Datenbankserver ein.
+
+
+\item \textit{\$dbpass}: Hier fügen Sie entsprechend das an Sie vergebene Passwort für die Datenbank ein.
+
+\item \textit{\$dbname\_fd}: Sollten Sie vom Provider bereits eine Datenbank erhalten haben, so fügen Sie hier den Namen der Datenbank ein. Wenn Sie vollen Zugriff auf den Datenbankserver haben und selber Datenbanken anlegen können, so steht es Ihnen frei, wie Sie die Datenbank der Fahrzeugdaten bezeichnen möchten.
+
+
+\item \textit{\$dbname\_ud}: Sollten Sie vom Provider bereits eine Datenbank erhalten haben, so fügen Sie hier den Namen der Datenbank ein. Wenn Sie vollen Zugriff auf den Datenbankserver haben und selber Datenbanken anlegen können, so steht Ihnen die Wahl frei, wie Sie die Datenbank der Nutzerdaten bezeichnen möchten.
+
+\textbf{Anmerkung:} Beide Datenbanknamen können identisch sein, z.B. wenn Sie von Ihrem Provider nur eine erhalten haben sollten. 
+
+\item \textit{\$mail}: Hier tragen Sie bitte die E-Mail-Adresse des Vorstandes ein. Alle eingehenden Registrierungsanfragen werden an diese E-Mail-Adresse weitergeleitet. Diese kann auch nach der Installtion noch angepasst werden. Alle anderen Werte müssen ab dem Beenden der Installation unverändert bleiben um die volle Funktionsfähigkeit gewährleisten zu können.
+
+\end{itemize}
+
+\newpage
+
+
+\textit{Webseite - Installation} \\
+
+Nachdem die Konfiguration erfolgreich durchgeführt wurde, führen Sie auf dem Server die Datei \textit{install.php} im Hauptverzeichnis aus und füllen das entsprechende Formular aus und schicken dieses ab. Anschließend werden alle nötigen Datenbanken und Tabellen erzeugt, sowie die Nutzergruppen und der Vorstandsaccount eingerichtet.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.50]{install}
+\caption[Einrichtung des Vorstand - Accounts]{Einrichtung des Vorstand - Accounts}
+\label{installvorstand}
+\end{figure} 
+
+
+Sollten Sie von Ihrem Provider bereits Datenbanken erhalten haben, tritt nach der Installation ein Fehler mit der Meldung auf, dass die zu erstellende Datenbank bereits existiert. Dies ist normal und kein Grund zur Sorge. \\ \\
+
+Die Installation ist nun vollständig. Bitte löschen Sie die \textit{install.php} unverzüglich vom Server um Missbrauch zu vermeiden. Sie können Sich nun mit den angegeben Zugangsdaten einloggen.
+
+
+
 
 %----------------- Bedienung des Service-Interfaces ----------------%
 
 \chapter{Bedienung des Service-Interfaces}
 
+\section{Startseite / Verwaltung}
+
+Über die Startseite loggen Sie sich mit den Zugangsdaten mit denen Sie sich registriert haben an. Ob Ihr Account bereits freigeschaltet wurde, erfahren Sie vom Vorstand. Nach dem Einloggen werden hier allgemeine Informationen dargestellt, wie z.B. eine Liste der sich zur Zeit online befindlichen Nutzer und eine Exportfunktion zum Extrahieren der Fahrzeugdaten aus der Datenbank. Als Vorstand erhalten Sie zudem noch eine Liste sämtlicher registrierter Nutzer und eine Möglichkeit Nutzer freizuschalten bzw. zu löschen und Rechtegruppen zu vergeben oder zu ändern.
+
+\section{Nutzerverwaltung (Vorstand)}
+
+Wenn Sie einen Nutzer bearbeiten wollen, muss stets eine der beiden Radioboxen aktiviert sein und im Textfeld seine ID-Nummer eingetragen werden. Möchten Sie einen Nutzer löschen, so wählen sie "`Löschen"\ , möchten Sie ihn jedoch aktivieren oder bearbeiten, so wählen Sie "`Aktivieren"\ aus. Mittels des Dropdown-Menüs können Sie dem Benutzer eine Rechtegruppe zuweisen. \\ \\
+\textbf{Achtung:} Sie können sich nicht selbst löschen, dies muss ein anderer Nutzer mit Vorstandsrechten für Sie erledigen!
+
+\section{CSV-Export}
+
+Durch Auswahl einzelner Chechboxen können Sie sich die Daten des Fahrzeugs als \\ CSV-Datei herunterladen. Aus technischen Gründen kann es beim Auswählen mehrerer Boxen dazu kommen, dass Datensätze fehlen. Dies können Sie vermeiden, indem sie die Tabellen einzeln exportieren.
+
+\section{Passwort ändern}
+
+Diese Seite ermöglicht es Ihnen Ihr Passwort - beispielsweise nach einem Reset - zu ändern. Sie erreichen diese über die unter dem Hauptmenü befindlichen Link "`Passwort ändern".
+
+\section{Passwort vergessen}
+
+Auf der Startseite befindet sich ein Link "`Passwort vergessen". Klicken Sie auf ihn und geben Sie ihre Emailadresse ein. Bei erfolgreicher Änderung des Passworts erhalten Sie das neue Passwort per Mail zugeschickt. Andernfalls erscheint eine Fehlermeldung.
+
+\newpage
+
+\section{Menüleiste}
+
+Über die Menüleiste können Sie die einzelnen Unterseiten aufrufen. Jede Unterseite stellt eine andere Gruppe von Fahrzeuginformationen dar (s. Pflichtenheft). \\ \\
+
+Es ist zu Empfehlen sich nach jedem Besuch der Seite wieder auszuloggen.
 
 \end{document}

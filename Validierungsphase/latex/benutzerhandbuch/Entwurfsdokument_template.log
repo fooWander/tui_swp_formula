@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.7.29)  28 JUN 2013 14:29
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.7.29)  28 JUN 2013 17:52
 entering extended mode
 **Entwurfsdokument_template.tex
 
@@ -622,20 +622,28 @@ Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip62
+\enit@outerparindent=\dimen165
+\enit@toks=\toks32
+\enit@inbox=\box37
+\enitdp@description=\count127
+)
 ("C:\Users\Sebastian Zehnter\Documents\tui_swp_formula\Validierungsphase\latex\
 benutzerhandbuch\Entwurfsdokument_template.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
-LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
+LaTeX Font Info:    ... okay on input line 109.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -671,7 +679,7 @@ LaTeX Font Info:    ... okay on input line 107.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 107.
+LaTeX Info: Redefining \microtypecontext on input line 109.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -687,28 +695,28 @@ File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count127
-\scratchdimen=\dimen165
-\scratchbox=\box37
-\nofMPsegments=\count128
-\nofMParguments=\count129
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count130
-\MPscratchDim=\dimen166
-\MPnumerator=\count131
-\makeMPintoPDFobject=\count132
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count128
+\scratchdimen=\dimen166
+\scratchbox=\box38
+\nofMPsegments=\count129
+\nofMParguments=\count130
+\everyMPshowfont=\toks33
+\MPscratchCnt=\count131
+\MPscratchDim=\dimen167
+\MPnumerator=\count132
+\makeMPintoPDFobject=\count133
+\everyMPtoPDFconversion=\toks34
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 131.
+LaTeX Font Info:    Try loading font information for U+msa on input line 133.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 131.
+LaTeX Font Info:    Try loading font information for U+msb on input line 133.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -721,7 +729,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Package tocbasic Info: character protrusion at toc deactivated on input line 13
-7.
+9.
 
 ("C:\Users\Sebastian Zehnter\Documents\tui_swp_formula\Validierungsphase\latex\
 benutzerhandbuch\Entwurfsdokument_template.toc")
@@ -734,48 +742,116 @@ Kapitel 1.
 
 ]
 Kapitel 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 164.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 166.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
 
 <topmodell.png, id=17, 682.80093pt x 306.39468pt>
 File: topmodell.png Graphic file (type png)
  <use topmodell.png>
-Package pdftex.def Info: topmodell.png used on input line 176.
+Package pdftex.def Info: topmodell.png used on input line 178.
 (pdftex.def)             Requested size: 443.81534pt x 199.15417pt.
  [4
 
  <C:/Users/Sebastian Zehnter/Documents/tui_swp_formula/Validierungsphase/latex/
 benutzerhandbuch/topmodell.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
 
  []
 
 
-Overfull \hbox (8.41891pt too wide) in paragraph at lines 199--200
+Overfull \hbox (8.41891pt too wide) in paragraph at lines 201--202
 []$\OML/cmm/m/it/12 Local IP adress []$\OT1/cmr/m/n/12 (-20) : Hier ist die lo-
 ka-le IP-Adresse der Mi-cro-Au-to-Box II in Abh[]angigkeit
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
 [5]
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
-(Font)              using `OT1/cmss/bx/n' instead on input line 224.
+(Font)              using `OT1/cmss/bx/n' instead on input line 230.
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
+
+ []
+
+<website_config.png, id=35, 925.95938pt x 460.72125pt>
+File: website_config.png Graphic file (type png)
+
+<use website_config.png>
+Package pdftex.def Info: website_config.png used on input line 299.
+(pdftex.def)             Requested size: 462.97856pt x 230.36006pt.
+
+Overfull \hbox (7.73439pt too wide) in paragraph at lines 299--300
+ [][] 
+ []
+
+[7 <C:/Users/Sebastian Zehnter/Documents/tui_swp_formula/Validierungsphase/late
+x/benutzerhandbuch/website_config.png>] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 332--333
+
+ []
+
+<install.png, id=44, 764.8575pt x 400.49625pt>
+File: install.png Graphic file (type png)
+ <use install.png>
+Package pdftex.def Info: install.png used on input line 338.
+(pdftex.def)             Requested size: 382.42781pt x 200.24763pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--345
+
+ []
+
+[9 <C:/Users/Sebastian Zehnter/Documents/tui_swp_formula/Validierungsphase/late
+x/benutzerhandbuch/install.png>]
 Kapitel 3.
-[7
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--363
+
+ []
+
+[10
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 380--381
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 380--381
+
+ []
+
+[11]
 ("C:\Users\Sebastian Zehnter\Documents\tui_swp_formula\Validierungsphase\latex\
 benutzerhandbuch\Entwurfsdokument_template.aux")
 
@@ -783,13 +859,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 7791 strings out of 493921
- 117489 string characters out of 3147246
- 244654 words of memory out of 3000000
- 10890 multiletter control sequences out of 15000+200000
- 15449 words of font info for 79 fonts, out of 3000000 for 9000
+ 8140 strings out of 493921
+ 122972 string characters out of 3147246
+ 251039 words of memory out of 3000000
+ 11183 multiletter control sequences out of 15000+200000
+ 17244 words of font info for 104 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 40i,10n,46p,627b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,11n,46p,627b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
@@ -801,9 +877,9 @@ msfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Entwurfsdokument_template.pdf (7 pages, 182650 bytes).
+Output written on Entwurfsdokument_template.pdf (11 pages, 256577 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 15366 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 15376 words of extra memory for PDF output out of 17280 (max. 10000000)
 
