@@ -221,7 +221,24 @@ Dort muss die Nummer des externen Ports -- also der gewünschte Port des Embedde
 
 \newpage
 
-Nachdem alle obligatorischen Änderungen vorgenommen wurden, muss in einem nächsten Schritt innerhalb der Subsysteme \textit{UDP\_DATEN} und \textit{UDP\_PAKETINFORMATIONEN} die Blöcke "`ETHERNET\_UDP\_TX\_BL1"\ und "`ETHERNET\_UDP\_TX\_BL2"\ angepasst werden.
+Nachdem alle obligatorischen Änderungen vorgenommen wurden, muss in einem nächsten Schritt innerhalb der Subsysteme \textit{UDP\_DATEN} und \textit{UDP\_PAKETINFORMATIONEN} die Blöcke "`ETHERNET\_UDP\_TX\_BL1"\ und "`ETHERNET\_UDP\_TX\_BL2"\ angepasst werden. Um zu diesen Blöcken zu gelangen, verfolgt man in bekannter Weise durch Doppelklicks auf der obersten Modellebene die folgenden Pfade im Modell: 
+
+\begin{itemize}[leftmargin=*]
+
+\item "`ETHERNET\_UDP\_TX\_BL1"\ : \\ Signaltransmitter\_Embedded\_PC $\rightarrow$ UDP\_DATEN 
+
+\item "`ETHERNET\_UDP\_TX\_BL2"\ : \\ Signaltransmitter\_Embedded\_PC $\rightarrow$ UDP\_PAKETINFORMATIONEN
+
+\end{itemize}
+
+Nach dem Öffnen der Einstellungen der beiden Blöcke muss bei dem Parameter "`Maximum Message Size"\ der gleiche Wert eingetragen werden, der auch am Port "`Message Size"\ am jeweiligen Block anliegt. Sollten diese Werte nicht bekannt sein, so können diese an den beiden Displays "`DISPLAY\_MSGSIZE\_DATEN"\ und "`DISPLAY\_MSGSIZE\_PAKETINFO"\ abgelesen werden. Falls dies nach dem Starten der Simulation aufgrund von Fehlermeldungen nicht der Fall sein sollte, müssen die beiden Subsysteme UDP\_DATEN und UDP\_PAKETINFORMATIONEN kurzzeitig vom restlichen Modell abgetrennt / entfernt werden und die ehemals hinführenden Leitungen durch Terminatoren abgeschlossen werden. Anschließend kann der Wert bei Simulationsbeginn abgelesen, die neu eingefügten Terminatoren nach Beenden der Simulation wieder entfernt und die beiden Subsysteme erneut an das restliche Modell an den vorherigen Stellen angeschlossen werden. \\ 
+
+Falls jedoch die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paketinformationen bekannt sein sollte, kann die Größe der "`Maximum Message Size"\ auf elegantere Weise ermittelt werden. Da die Werte der Fahrzeugdaten den Datentyp \textit{int16} aufweisen und die Paketdaten den Datentyp \textit{uint8} besitzen, müssen die jeweiligen Signalbreiten nur mit 2 bzw. 1 (Byte) multipliziert werden, um den gesuchten Wert korrekt zu ermitteln \\ (s. die Subsysteme MSGSIZE\_DATEN und MSGSIZE\_PAKETINFO). \\  
+
+\textbf{Anmerkung}: Für weiterführende Informationen und Hinweise empfiehlt es sich, die Dokumentation der Firma dSPACE bzgl. des RTI Ethernet (UDP) Blocksets aufmerksam zu studieren. 
+
+\newpage
+
 
 
 
