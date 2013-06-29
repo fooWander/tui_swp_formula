@@ -10,7 +10,7 @@ $email->SMTPAuth = true;                               	// Enable SMTP authentic
 $email->Username = 'Telemetrie@s16929463.onlinehome-server.info';                            // SMTP username
 $email->Password = 'e]jm&fNJz9';                        // SMTP password
 //$email->Username = 'golda@gmx.net';                            // SMTP username
-//$email->Password = 'win91ter';                        // SMTP password
+//$email->Password = '';                        // SMTP password
 $email->SMTPSecure = 'tls';                            	// Enable encryption, 'ssl' also accepted
 
 $email->From = 'noreply@teamstarcraft.de';
