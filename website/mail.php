@@ -1,7 +1,7 @@
 <?php
 require 'includes/phpmailer/class.phpmailer.php';
 
-$mail = 'thomas.golda@tu-ilmenau.de';
+//$mail = 'thomas.golda@tu-ilmenau.de';
 
 $email = new PHPMailer;
 
@@ -21,7 +21,7 @@ $email->WordWrap = 50;                                 	// Set word wrap to 50 c
 $email->IsHTML(true);                                  	// Set email format to HTML
 
 $email->Subject = 'Neue Registrierung im Service Interface';
-$email->Body    = "Sehr geehrter Vorstand,<br><br>ein neuer Benutzer hat sich im System registriert. Bitte loggen Sie sich im Service Interface ein und überprüfen Sie seine Berechtigungen. Dort können Sie ihn auch freischalten.<br><br>Besten Dank!<br><br>(Diese E-Mail wurde automatisch generiert.)";
+$email->Body    = "Sehr geehrter Vorstand,<br><br>ein neuer Benutzer <b>(" . $register_data['email'] . ")</b> hat sich im System registriert. Bitte loggen Sie sich im Service Interface ein und überprüfen Sie seine Berechtigungen. Dort können Sie ihn auch freischalten.<br><br>Besten Dank!<br><br>(Diese E-Mail wurde automatisch generiert.)";
 $email->AltBody = "Sehr geehrter Vorstand,\n\nein neuer Benutzer hat sich im System registriert. Bitte loggen Sie sich im Service Interface ein und überprüfen Sie seine Berechtigungen. Dort können Sie ihn auch freischalten.\n\nBesten Dank! (Diese E-Mail wurde automatisch generiert.)";
 
 if(!$email->Send()) {
