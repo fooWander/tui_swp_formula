@@ -17,6 +17,7 @@ function recover($mail) {
 	
 	$email = new PHPMailer;
 	
+	// E-Mail-Verbindungsaufbau und -Versenden
 	$email->IsSMTP();                                      // Set mailer to use SMTP
 	$email->Host = 's16929463.onlinehome-server.info';  // Specify main and backup server
 	$email->SMTPAuth = true;                               // Enable SMTP authentication
@@ -34,8 +35,6 @@ function recover($mail) {
 	$email->Subject = 'Ihr neues Passwort';
 	$email->Body    = 'Sehr geehrter Nutzer,<br><br>Ihr Passwort wurde erfolgreich zurückgesetzt. Das neue Passwort lautet <b>' . $new_password  .  '</b>. Bitte ändern Sie dieses nach Ihrem Login schnellstmöglich wieder!<br> Vielen Dank!<br>Team Starcraft e. V.';
 	$email->AltBody = "Sehr geehrter Nutzer,\n\nIhr Passwort wurde erfolgreich zurückgesetzt. Das neue Passwort lautet " . $new_password  .  ". Bitte ändern Sie dieses nach Ihrem Login schnellstmöglich wieder! Vielen Dank! \n Team Starcraft e. V.";
-
-	//echo $new_password;
 	
 	if(!$email->Send()) {
 		echo "Mailer Error: " . $email->ErrorInfo;
