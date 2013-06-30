@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <boost/lexical_cast.hpp>
+#include "logData.h"
 
 using namespace std;
 

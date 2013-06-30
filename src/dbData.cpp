@@ -67,11 +67,14 @@ using namespace boost;
                 getline(file, value, '\n');
                 MSG_READY_2 = lexical_cast<int>(value);
 		
-          }else if(parameter != ""){	//Fehlerausgabe
-              cout << "Zeile mit folgendem Wert uebersprungen: " << parameter << endl;
+          }else if(parameter.length() >  0){	//Fehlerausgabe, Leerzeilen und mit # beginnende weglassen
+	        if (parameter[0] != '#'){
+		  logData log;
+                  string msg = "dbData: Fehler beim Einlesen der Konfiguratiosdatei. Zeile mit folgendem Wert uebersprungen: " + lexical_cast<string>(parameter);
+		  log.logWrite(5, msg);
+		}
           }
-        }
-		
+        }	
   }
 
 
