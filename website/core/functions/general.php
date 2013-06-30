@@ -236,7 +236,7 @@ function install_system($register_data) {
 						  `Zelltemperatur46` DECIMAL(4,1) NULL ,
 						  `Zelltemperatur47` DECIMAL(4,1) NULL ,
 						  `Zelltemperatur48` DECIMAL(4,1) NULL ,
-						  `Zeitpunkt` INT(8) NOT NULL ,							  
+						  `Zeitpunkt` INT(19) NOT NULL ,							  
 						  `AkkuFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	
@@ -251,7 +251,7 @@ function install_system($register_data) {
 						  `Gaswert02` DECIMAL(4,1) NULL ,
 						  `AkkuGesamtspannung` DECIMAL(5,1) NULL ,
 						  `AktuelleFahrzeugzeit` INT(10) NULL ,
-						  `Zeitpunkt` INT(8) NOT NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `AllgFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	
@@ -282,7 +282,7 @@ function install_system($register_data) {
 						  `Gaspedalstellung01` DECIMAL(4,1) NULL ,
 						  `Gaspedalstellung02` DECIMAL(4,1) NULL ,
 						  `Lenkwinkel` SMALLINT(3) NULL ,
-						  `Zeitpunkt` INT(8) NOT NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `DynFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	
@@ -304,7 +304,7 @@ function install_system($register_data) {
 						  `Lüfter` DECIMAL(4,1) NULL ,
 						  `Pumpe` DECIMAL(4,1) NULL ,
 						  `Wassertemperatur` DECIMAL(4,1) NULL ,
-						  `Zeitpunkt` INT(8) NOT NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `MotorFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";	
 	
@@ -312,7 +312,7 @@ function install_system($register_data) {
 	$query_driving_data = "CREATE  TABLE IF NOT EXISTS $dbname_fd.$driving_data(
 						  `Antriebschlupfregelung` DECIMAL(4,3) NULL ,
 						  `TorqueVectoring` DECIMAL(4,3) NULL ,
-						  `Zeitpunkt` INT(8) NOT NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `FahrdynFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	
