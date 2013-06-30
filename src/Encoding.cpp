@@ -249,17 +249,17 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
     std::cout << VEC_COMMA_SIZE << std::endl;
 
     //int border_0 = 6 + 2*(VEC_DATATYPES_SIZE);
-    int border_0 = (VEC_DATATYPES_SIZE) + 3;
+    int border_0 = (VEC_DATATYPES_SIZE) + 6;
     int border_1 = border_0 + (2 * VEC_LAYOUT_SIZE);
     int border_2 = border_1 + (VEC_COMMA_SIZE);
 
     int j = 0;
 
-    for (int i = 3; i < border_0; ++i) {
+    for (int i = 6; i < border_0; ++i) {
         VEC_DATATYPES[j] = buffer[i];
         //std::cout << "VEC_DATATYPES" << std::endl;
-        //std::cout << (int)VEC_DATATYPES[i] << std::endl;
-        j++;
+        std::cout << (int)VEC_DATATYPES[j] << std::endl;
+        j = j+2;
     }
 
     j = 0;
@@ -268,22 +268,22 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
         //std::cout << "TEST" << std::endl;
         VEC_LAYOUT[j] = buffer[i];
         //std::cout << "VEC_LAYOUT" << std::endl;
-        std::cout << "TEST" << std::endl;
-        std::cout << VEC_LAYOUT[j] << std::endl;
+        //std::cout << "TEST" << std::endl;
+        //std::cout << VEC_LAYOUT[j] << std::endl;
         j++;
     }
 
     for (int i = 0; i < 2*VEC_LAYOUT_SIZE; i=i+2)
     {
-        std::cout << joinUnsigShort(VEC_LAYOUT[i],VEC_LAYOUT[i+1]) << std::endl;
+        std::cout << joinUnsigShort(VEC_LAYOUT[i+1],VEC_LAYOUT[i]) << std::endl;
     }
     j = 0;
 
     for (int i= border_1;i < border_2; ++i) {
         VEC_COMMA[j] = buffer[i];
         //std::cout << "VEC_COMMA" << std::endl;
-        //std::cout << (int)VEC_COMMA[i] << std::endl;
-        j++;
+        std::cout << (int)VEC_COMMA[i] << std::endl;
+        j = j+2;
     }
 }
 
