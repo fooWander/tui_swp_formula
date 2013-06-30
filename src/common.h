@@ -35,9 +35,12 @@
 /**
  *	Portnummern der Teilnehmer.
  */
-#define EMBPC_PORT		5000
-#define MABXII_PORT		5002
-#define VSERVER_PORT 	5001
+#define MABXII_PORT			5000
+#define MABXII_INFO_PORT	5001
+#define EMBPC_PORT			5002
+#define EMBPC_INFO_PORT		5003
+#define VSERVER_PORT 		5004
+#define VSERVER_INFO_PORT	5005
 
 /**
  *	Inhalte bestimmter Pakete.

@@ -87,12 +87,12 @@ void initialize()
         try
         {
             receivePackage(HOST_MABXII, DATA_PACKAGE_INFO);
-            std::cout << "received ACK" << std::endl;
+            std::cout << "received something" << std::endl;
             break;
         }
         catch(SocketException ex)
         {
-            std::cout << "SocketException thrown..." << std::endl;
+            std::cout << "SocketException thrown." << std::endl;
             continue;
         }       
     }
@@ -148,28 +148,20 @@ int main(/*int argc, char const *argv[]*/)
         } else {
             DATA_PACKAGE[i] = 80;
         }
-        //VEC_DATATYPES[i] = 1;
-        //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
     }
     for (int i = 20; i < 802; ++i)
     {
-        //VEC_DATATYPES[i] = 4;
         DATA_PACKAGE[i] = rand() % 100;
         //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
     }
     while (true) {
         std::cout << "Initializing..." << std::endl;
-        initialize();
+        //initialize();
         int i = 0;
-            /*timeDiff = getTimestamp() - timestamp_0;
-            if (timeDiff > timeThreshold) {
-                sendPackage(HOST_VSERVER,DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE)
-            }
-            */
         while (true) {
             try
             {
-                receiveData();
+                //receiveData();
             }
             catch(SocketException ex)
             {

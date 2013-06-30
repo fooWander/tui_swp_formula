@@ -91,13 +91,22 @@ void initalize()
         TODO: do-while-loops are probably better
     */
     std::cout << "Initializing..." << std::endl;
-
-    if(receivePackage(HOST_EMBPC, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX)) {
-        std::cout << "Packageinfo received..." << std::cout;
+    while (true) {
+        try
+        {
+            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_EMBPC, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
+            std::cout << "Packageinfo received..." << std::cout;
+            break;
+        }
+        catch (SocketException ex)
+        {
+            std::cout << "SocketException thrown." << std::endl;
+            std::cout << "trying again..." << std::endl;
+            continue;
+        }
     }
-    std::cout << "trying again..." << std::endl;
-    //bla
-    //Decoder dec(DATA_PACKAGE_INFO,100);
+
+    Decoder dec(DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE);
 }
 
 int receiveData()
@@ -127,7 +136,7 @@ Decoder processData()
 int main(int argc, char const *argv[])
 {
     while (true) {
-        //initalize();
+        initalize();
         std::cout << "init done." << std::endl;
 
         while (true) {

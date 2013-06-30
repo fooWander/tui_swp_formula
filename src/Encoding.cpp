@@ -156,7 +156,7 @@ void Encoder::createHeader()
 {
     //std::cout << "================Creating header ================" << std::endl;
     int64_t timestamp = getTimestamp();
-    //std::cout << "Zeistempel: " << timestamp << std::endl;
+    std::cout << "Zeistempel: " << timestamp << std::endl;
     myPackages[myPackagePointer+7] = timestamp & 0xff;
     myPackages[myPackagePointer+6] = (timestamp >> 8) & 0xff;
     myPackages[myPackagePointer+5] = (timestamp >> 16) & 0xff;
