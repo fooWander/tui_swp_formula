@@ -31,7 +31,7 @@ char VEC_LAYOUT[] = {0,0, 0,20, 0,25, 0,30, 0,100};
 int VEC_LAYOUT_SIZE = 10;
 
 int PACKAGE_COUNTER = 80;
-unsigned int TIME_THRESHOLD=5000000000;
+int64_t TIME_THRESHOLD=5000000000;
 int64_t LOCAL_TIMESTAMP;
 int HEADER_SIZE = 12;
 
@@ -73,7 +73,10 @@ int64_t getTimestamp()
 {
     int64_t result;
     struct timespec timestamp;
+    //int test;
+    //std::cout << "VLAL" << std::endl;
     clock_gettime(CLOCK_REALTIME, &timestamp);
+    //std::cout << "TIME: " << test << std::endl;
     result = TO_NANO_SEC(&timestamp);
     return result;
 }
@@ -94,6 +97,7 @@ Encoder::Encoder(const char * buffer, size_t bufferlen, const char * vecLayout, 
         myPackagePos[i] = -1;
     }
     splitData(buffer, bufferlen,vecLayout, vecLayoutlen);
+    std::cout << "TEST" << std::endl;
     //compressData();
 }
 
@@ -156,7 +160,7 @@ void Encoder::createHeader()
 {
     //std::cout << "================Creating header ================" << std::endl;
     int64_t timestamp = getTimestamp();
-    std::cout << "Zeistempel: " << timestamp << std::endl;
+    //std::cout << "Zeistempel: " << timestamp << std::endl;
     myPackages[myPackagePointer+7] = timestamp & 0xff;
     myPackages[myPackagePointer+6] = (timestamp >> 8) & 0xff;
     myPackages[myPackagePointer+5] = (timestamp >> 16) & 0xff;
@@ -165,7 +169,6 @@ void Encoder::createHeader()
     myPackages[myPackagePointer+2] = (timestamp >> 40) & 0xff;
     myPackages[myPackagePointer+1] = (timestamp >> 48) & 0xff;
     myPackages[myPackagePointer] = (timestamp >> 56) & 0xff;
-    
     myPackagePointer += 8;
 
     myPackages[myPackagePointer+3] = myPackageNum & 0xff;
@@ -205,11 +208,13 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
         createHeader();
 
         
-        startPos = joinUnsigShort(vecLayout[i],vecLayout[i+1]);
+        startPos = joinUnsigShort(vecLayout[i+1],vecLayout[i]);
+        //std::cout << "STARTPOS: " << startPos << std::endl;
+        std::cout << "TEST" << std::endl;
         if (i+2 > vecLayoutlen || i+3 > vecLayoutlen) {
             endPos = bufferlen;
         } else {
-            endPos = joinUnsigShort(vecLayout[i+2], vecLayout[i+3]);
+            endPos = joinUnsigShort(vecLayout[i+3], vecLayout[i+2]);
         }
         
         //std::cout << "myPackagePointer " << myPackagePointer << std::endl;
@@ -241,7 +246,7 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
     VEC_COMMA_SIZE = joinUnsigShort(buffer[4],buffer[5]);
 
     VEC_DATATYPES_SIZE = 401;
-    VEC_LAYOUT_SIZE = 4;
+    VEC_LAYOUT_SIZE = 5;
     VEC_COMMA_SIZE = 401;
 
     std::cout << VEC_DATATYPES_SIZE << std::endl;
@@ -258,7 +263,7 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
     for (int i = 6; i < border_0; ++i) {
         VEC_DATATYPES[j] = buffer[i];
         //std::cout << "VEC_DATATYPES" << std::endl;
-        std::cout << (int)VEC_DATATYPES[j] << std::endl;
+        //std::cout << (int)VEC_DATATYPES[j] << std::endl;
         j = j+2;
     }
 
@@ -282,7 +287,7 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
     for (int i= border_1;i < border_2; ++i) {
         VEC_COMMA[j] = buffer[i];
         //std::cout << "VEC_COMMA" << std::endl;
-        std::cout << (int)VEC_COMMA[i] << std::endl;
+        //std::cout << (int)VEC_COMMA[i] << std::endl;
         j = j+2;
     }
 }

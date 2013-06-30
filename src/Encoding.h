@@ -38,7 +38,7 @@ extern char VEC_LAYOUT[100];
 extern int VEC_LAYOUT_SIZE;
  
 extern int PACKAGE_COUNTER;
-extern unsigned int TIME_THRESHOLD; //###
+extern int64_t TIME_THRESHOLD; //###
 extern int64_t LOCAL_TIMESTAMP;
 
 /**

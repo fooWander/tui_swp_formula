@@ -76,6 +76,7 @@ int receivePackage(Location remote, void * buffer, int bufferLen)
     //fuer Polling, gez.Tino)
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
     std::cout << "receiving..." << std::endl;
+    std::cout << "BLALALA" << std::endl;
     recvMsgSize = sock.recvFrom(buffer, bufferLen, 
                                 sourceAddress, sourcePort);
     std::cout << "received something..." << std::endl;
@@ -94,6 +95,7 @@ void initialize()
         {
             std::cout << sizeof(DATA_PACKAGE_INFO) << std::endl;
             DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_VSERVER_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
+            /*
             for (int i = 0; i < DATA_PACKAGE_INFO_SIZE; ++i)
             {
                 std::cout << DATA_PACKAGE_INFO[i] << " ";
@@ -101,6 +103,7 @@ void initialize()
             std::cout << std::endl;
             std::cout << "received something" << std::endl;
             std::cout << "length: " << DATA_PACKAGE_INFO_SIZE << std::endl;
+            */
             break;
         }
         catch(SocketException ex)
@@ -123,21 +126,22 @@ void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
     for (int i = 0; i < packageSum; ++i) {
         int size = enc.getPackage(DATA_SEND,sizeof(DATA_SEND),i);
-        //std::cout << std::endl;
-        //std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
-        /*
+        
+        std::cout << std::endl;
+        std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
+        
         for (int j = 0; j < size; ++j)
         {
             if (j % 25 == 0)
             {
-                //std::cout << std::endl;
+                std::cout << std::endl;
             }
             std::cout << DATA_SEND[j];
         }
         std::cout << std::endl;
         std::cout << "========END_PACKAGE=========" << std::endl;
-        std::cout << std::endl << std::endl << std::endl << std::endl; 
-        */
+        //std::cout << std::endl << std::endl << std::endl << std::endl; 
+        
         sendPackage(HOST_VSERVER,DATA_SEND,size);
         usleep(250000);
     }
@@ -170,7 +174,7 @@ int main(int argc, char const *argv[])
     while (true) {
         std::cout << "Initializing..." << std::endl;
         initialize();
-        int i = 0;
+        //int i = 0;
         while (true) {
             try
             {
@@ -178,6 +182,13 @@ int main(int argc, char const *argv[])
                 std::cout << DATA_PACKAGE_SIZE << std::endl;
                 DATA_PACKAGE_SIZE = receiveData();
                 std::cout << DATA_PACKAGE_SIZE << std::endl;
+                
+                for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
+                {
+                    std::cout << DATA_PACKAGE[i];
+                }
+                std::cout << std::endl;
+                
             }
             catch(SocketException ex)
             {
@@ -186,8 +197,8 @@ int main(int argc, char const *argv[])
             }
             
             Encoder enc = processData();
-            std::cout << "Sending data... " << i << std::endl;
-            i++;
+            //std::cout << "Sending data... " << i << std::endl;
+            //i++;
             sendData(enc);
         }
         
