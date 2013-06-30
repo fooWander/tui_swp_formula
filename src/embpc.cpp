@@ -32,9 +32,6 @@
 //extern char VEC_LAYOUT[];
 //#include "cstring.h"
 
-char MSG_INFO_REQUEST[] = {96};
-char MSG_READY[] ={144}; //={144}
-
 int LOCALPORT = EMBPC_PORT;
 
 Location HOST_EMBPC(EMBPC_IP,EMBPC_PORT);
@@ -43,8 +40,6 @@ Location HOST_VSERVER(VSERVER_IP,VSERVER_PORT);
 
 //const int PACKAGE_SIZE_MAX = 100;
 
-char DATA_ACK_VSERVER_RECV[1]; 
-char DATA_ACK_VSERVER[] = {1};
 char DATA_PACKAGE[PACKAGE_SIZE_MAX];
 char DATA_PACKAGE_INFO[] = {1};
 char DATA_SEND[PACKAGE_SIZE_MAX];
@@ -89,10 +84,16 @@ void initialize()
     */
     
     while(true) {
-        if(receivePackage(HOST_MABXII, DATA_PACKAGE_INFO)) {
+        try
+        {
+            receivePackage(HOST_MABXII, DATA_PACKAGE_INFO);
             std::cout << "received ACK" << std::endl;
-            // TODO: process/check acknowledgement??
             break;
+        }
+        catch(SocketException ex)
+        {
+            std::cout << "SocketException thrown..." << std::endl;
+            continue;
         }       
     }
     std::cout << "Decoding..." << std::endl;
@@ -160,22 +161,28 @@ int main(/*int argc, char const *argv[]*/)
         std::cout << "Initializing..." << std::endl;
         initialize();
         int i = 0;
-        while (true) {
             /*timeDiff = getTimestamp() - timestamp_0;
             if (timeDiff > timeThreshold) {
                 sendPackage(HOST_VSERVER,DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE)
             }
             */
-            if (receiveData() < 0) {
+        while (true) {
+            try
+            {
+                receiveData();
+            }
+            catch(SocketException ex)
+            {
+                std::cout << "SocketException thrown." << std::endl;
                 break;
             }
+            
             Encoder enc = processData();
             std::cout << "Sending data... " << i << std::endl;
             i++;
             sendData(enc);
         }
+        
     }
-    
-    
     return(-1);
 }

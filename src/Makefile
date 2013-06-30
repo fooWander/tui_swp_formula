@@ -27,34 +27,6 @@ endif
 all: TCPEchoClient TCPEchoServer UDPEchoClient UDPEchoServer TCPEchoServer-Thread \
 BroadcastSender BroadcastReceiver MulticastSender MulticastReceiver
 
-TCPEchoClient: TCPEchoClient.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o TCPEchoClient TCPEchoClient.cpp PracticalSocket.cpp $(LIBS)
-
-TCPEchoServer: TCPEchoServer.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o TCPEchoServer TCPEchoServer.cpp PracticalSocket.cpp $(LIBS)
-
-UDPEchoClient: UDPEchoClient.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o UDPEchoClient UDPEchoClient.cpp PracticalSocket.cpp $(LIBS)
-
-UDPEchoServer: UDPEchoServer.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o UDPEchoServer UDPEchoServer.cpp PracticalSocket.cpp $(LIBS)
-
-TCPEchoServer-Thread: TCPEchoServer-Thread.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) -D_GNU_SOURCE -o TCPEchoServer-Thread TCPEchoServer-Thread.cpp PracticalSocket.cpp $(LIBS) -lpthread
-
-BroadcastSender: BroadcastSender.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o BroadcastSender BroadcastSender.cpp PracticalSocket.cpp $(LIBS)
-
-BroadcastReceiver: BroadcastReceiver.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o BroadcastReceiver BroadcastReceiver.cpp PracticalSocket.cpp $(LIBS)
-
-MulticastSender: MulticastSender.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o MulticastSender MulticastSender.cpp PracticalSocket.cpp $(LIBS)
-
-MulticastReceiver: MulticastReceiver.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o MulticastReceiver MulticastReceiver.cpp PracticalSocket.cpp $(LIBS)
-test: test2.cpp PracticalSocket.cpp PracticalSocket.h
-	$(CXX) $(CXXFLAGS) -o test2 test2.cpp PracticalSocket.cpp $(LIBS)
 embpc: embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
 	$(CXX) $(CXXFLAGS) -o embpc embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
 vserver: vserver.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
