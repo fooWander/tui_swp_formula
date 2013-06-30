@@ -35,13 +35,19 @@
 int LOCALPORT = EMBPC_PORT;
 
 Location HOST_EMBPC(EMBPC_IP,EMBPC_PORT);
+Location HOST_EMBPC_INFO(EMBPC_IP, EMBPC_INFO_PORT);
 Location HOST_MABXII(MABXII_IP,MABXII_PORT);
+Location HOST_MABXII_INFO(MABXII_IP,MABXII_INFO_PORT);
 Location HOST_VSERVER(VSERVER_IP,VSERVER_PORT);
+Location HOST_VSERVER_INFO(VSERVER_IP,VSERVER_INFO_PORT);
+
 
 //const int PACKAGE_SIZE_MAX = 100;
 
 char DATA_PACKAGE[PACKAGE_SIZE_MAX];
-char DATA_PACKAGE_INFO[] = {1};
+int DATA_PACKAGE_SIZE = PACKAGE_SIZE_MAX;
+char DATA_PACKAGE_INFO[PACKAGE_SIZE_MAX];
+int DATA_PACKAGE_INFO_SIZE = PACKAGE_SIZE_MAX;
 char DATA_SEND[PACKAGE_SIZE_MAX];
 int DATA_SEND_SIZE = PACKAGE_SIZE_MAX;
 
@@ -60,17 +66,17 @@ void sendPackage(Location remote, char * msg, int msgSize)
     sock.sendTo(msg, msgSize, remoteAddress, remotePort);
 }
 
-int receivePackage(Location remote, void * buffer)
+int receivePackage(Location remote, void * buffer, int bufferLen)
 {
-    UDPSocket sock(LOCALPORT);
+    UDPSocket sock(remote.getPort());
     int recvMsgSize;
     string sourceAddress;
     unsigned short sourcePort;
     //http://www.beej.us/guide/bgnet/output/html/multipage/pollman.html 
-    //fuer Polling, gez.Tino
+    //fuer Polling, gez.Tino)
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
     std::cout << "receiving..." << std::endl;
-    recvMsgSize = sock.recvFrom(buffer, 100, 
+    recvMsgSize = sock.recvFrom(buffer, bufferLen, 
                                 sourceAddress, sourcePort);
     std::cout << "received something..." << std::endl;
     return recvMsgSize;
@@ -86,8 +92,15 @@ void initialize()
     while(true) {
         try
         {
-            receivePackage(HOST_MABXII, DATA_PACKAGE_INFO);
+            std::cout << sizeof(DATA_PACKAGE_INFO) << std::endl;
+            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_VSERVER_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
+            for (int i = 0; i < DATA_PACKAGE_INFO_SIZE; ++i)
+            {
+                std::cout << DATA_PACKAGE_INFO[i] << " ";
+            }
+            std::cout << std::endl;
             std::cout << "received something" << std::endl;
+            std::cout << "length: " << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;
         }
         catch(SocketException ex)
@@ -97,12 +110,12 @@ void initialize()
         }       
     }
     std::cout << "Decoding..." << std::endl;
-    //Decoder dec(DATA_PACKAGE_INFO,sizeof(DATA_PACKAGE_INFO));
+    Decoder dec(DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE);
 }
 
 int receiveData()
 {
-    int recv = receivePackage(HOST_MABXII, DATA_PACKAGE);
+    int recv = receivePackage(HOST_MABXII, DATA_PACKAGE, PACKAGE_SIZE_MAX);
     return recv;
 }
 
@@ -136,7 +149,7 @@ Encoder  processData()
     return enc;
 }
 
-int main(/*int argc, char const *argv[]*/)
+int main(int argc, char const *argv[])
 {
     std::cout << "Generating test data..." << std::endl;
 
@@ -156,12 +169,15 @@ int main(/*int argc, char const *argv[]*/)
     }
     while (true) {
         std::cout << "Initializing..." << std::endl;
-        //initialize();
+        initialize();
         int i = 0;
         while (true) {
             try
             {
-                //receiveData();
+                std::cout << "receiving data..." << std::endl;
+                std::cout << DATA_PACKAGE_SIZE << std::endl;
+                DATA_PACKAGE_SIZE = receiveData();
+                std::cout << DATA_PACKAGE_SIZE << std::endl;
             }
             catch(SocketException ex)
             {

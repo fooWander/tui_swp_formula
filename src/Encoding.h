@@ -30,11 +30,11 @@
 
 //extern const int PACKAGESIZE_MAX;
 
-extern char VEC_COMMA[100];
+extern char VEC_COMMA[401];
 extern int VEC_COMMA_SIZE;
-extern char VEC_DATATYPES[100];
+extern char VEC_DATATYPES[401];
 extern int VEC_DATATYPES_SIZE;
-extern char VEC_LAYOUT[10];
+extern char VEC_LAYOUT[100];
 extern int VEC_LAYOUT_SIZE;
  
 extern int PACKAGE_COUNTER;

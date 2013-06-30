@@ -7,7 +7,7 @@
 /**
  *	Maximale Paketgröße die zu erwarten ist.
  */
-#define PACKAGE_SIZE_MAX 	1000
+#define PACKAGE_SIZE_MAX 	2000
 
 /**
  *	Maximale Paketgröße eines Acknowledgements.
@@ -37,10 +37,10 @@
  */
 #define MABXII_PORT			5000
 #define MABXII_INFO_PORT	5001
-#define EMBPC_PORT			5002
-#define EMBPC_INFO_PORT		5003
-#define VSERVER_PORT 		5004
-#define VSERVER_INFO_PORT	5005
+#define EMBPC_PORT			5000
+#define EMBPC_INFO_PORT		5001
+#define VSERVER_PORT 		5000
+#define VSERVER_INFO_PORT	5001																																																																																																																																																																																																																																																																																																																																																																		
 
 /**
  *	Inhalte bestimmter Pakete.

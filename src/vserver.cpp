@@ -96,6 +96,7 @@ void initalize()
         {
             DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_EMBPC, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
             std::cout << "Packageinfo received..." << std::cout;
+            std::cout << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;
         }
         catch (SocketException ex)
