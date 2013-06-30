@@ -1,0 +1,1 @@
+g++ StartResizeDB.cpp logData.cpp dbData.cpp resizeDB.cpp -o StartResizeDB -lmysqlcppconn
