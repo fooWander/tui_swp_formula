@@ -137,6 +137,12 @@ using namespace std;
           */
       int getMSG_READY_2();
 
+          //! Memberfunktion, welche die Anzahl der mindestens in der DB zu speichernden Werte angibt.
+          /*!
+	  * \return NORM_DB.
+	  */
+      int getNORM_DB();
+
 
     private:
       string host;	//!< speichert die Hostadresse zwischen.
@@ -162,6 +168,7 @@ using namespace std;
       int VSERVER_INFO_PORT;
       int MSG_READY_1;
       int MSG_READY_2;
+      int NORM_DB;
 
       string parameter;	//!< Hilfsvariable fuer ganze Zeilen aus der Konfigurationsdatei
       string value;	//!< Hilfsvariable fuer die zugehoerigen Werte aus der Konfigurationsdatei

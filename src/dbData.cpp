@@ -66,7 +66,10 @@ using namespace boost;
           }else if(parameter == "#MSG_READY_2"){
                 getline(file, value, '\n');
                 MSG_READY_2 = lexical_cast<int>(value);
-		
+          }else if(parameter == "#NORM_DB"){
+                getline(file, value, '\n');
+                NORM_DB = lexical_cast<int>(value);		
+
           }else if(parameter.length() >  0){	//Fehlerausgabe, Leerzeilen und mit # beginnende weglassen
 	        if (parameter[0] != '#'){
 		  logData log;
@@ -173,5 +176,8 @@ using namespace boost;
         return MSG_READY_2;
   }
 
-
+  int dbData::getNORM_DB()
+  {
+	return NORM_DB;
+  }
 

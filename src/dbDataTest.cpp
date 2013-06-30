@@ -10,7 +10,7 @@ using namespace std;
     cout << "Host= " << db.getHost() << " User = " << db.getUser() << " PW= " << db.getPW() << " DB= " << db.getDB() << endl;
 
     cout << "ServerIP= " << db.getVSERVER_IP() << "  EMBPC-Port= " << db.getEMBPC_PORT() << endl;
-
+	cout << "Norm-DB= " << db.getNORM_DB();
     return 0;
   }
 

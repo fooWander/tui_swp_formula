@@ -1,2 +1,6 @@
 Sun Jun 30 16:41:04 2013
   dbData: Fehler beim Einlesen der Konfiguratiosdatei. Zeile mit folgendem Wert uebersprungen: falscher einträad:) (Loglevel: 5)
+Sun Jun 30 17:14:41 2013
+  dbData: Fehler beim Einlesen der Konfiguratiosdatei. Zeile mit folgendem Wert uebersprungen: falscher einträad:) (Loglevel: 5)
+Sun Jun 30 17:44:13 2013
+  Es sind Fehler beim leeren der Datenbank aufgetreten (Loglevel: 6)
