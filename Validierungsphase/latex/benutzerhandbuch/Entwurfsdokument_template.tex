@@ -235,7 +235,11 @@ Nach dem Öffnen der Einstellungen der beiden Blöcke muss bei dem Parameter "`M
 
 Falls jedoch die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paketinformationen bekannt sein sollte, kann die Größe der "`Maximum Message Size"\ auf elegantere Weise ermittelt werden. Da die Werte der Fahrzeugdaten den Datentyp \textit{int16} aufweisen und die Paketdaten den Datentyp \textit{uint8} besitzen, müssen die jeweiligen Signalbreiten nur mit 2 bzw. 1 (Byte) multipliziert werden, um den gesuchten Wert korrekt zu ermitteln \\ (s. die Subsysteme MSGSIZE\_DATEN und MSGSIZE\_PAKETINFO). \\  
 
-\textbf{Anmerkung}: Für weiterführende Informationen und Hinweise empfiehlt es sich, die Dokumentation der Firma dSPACE bzgl. des RTI Ethernet (UDP) Blocksets aufmerksam zu studieren. 
+\textbf{Anmerkung}: Für weiterführende Informationen und Hinweise empfiehlt es sich, die Dokumentation der Firma dSPACE bzgl. des RTI Ethernet (UDP) Blocksets aufmerksam zu studieren. \\
+
+\textbf{ANMERKUNG: nach Christians Ändeurngen muss dieser Abschnitt nochmals überarbeitet werden!!!}
+
+
 
 \newpage
 
@@ -245,6 +249,36 @@ Falls jedoch die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paket
 %-------------------------------------------------------------------%
 
 \subsection{Konfiguration der Matlabfiles \textit{signalgenerator\_microautobox.m} und \textit{config\_datenpaket.m}}
+
+Die Konfiguration der beiden Configdateien in MATLAB ist entsprechend des Entwurfsdokumentes vorzunehmen, in dem dies ausführlich beschrieben wurde (s. Entwurfsdokument Punkt 2.1.2). Nachdem dies geschehen ist, müssen die Parameter der beiden Dateien noch vor dem Implementieren des Simulink-Modells auf der MicroAutoBox II in den Workspace von MATLAB geladen werden. Hierzu wechselt man in das Verzeichnis, in welchem die sich die Configfiles befinden (s. Abb. \ref{configfilespfad}). In diesem Fall wäre es der Pfad \\ \textit{C:\textbackslash Users \textbackslash Sebastian Zehnter \textbackslash Documents \textbackslash Beispiel}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.65]{configfilespfad}
+\caption[Verzeichniswechsel in MATLAB]{Verzeichniswechsel in MATLAB}
+\label{configfilespfad}
+\end{figure} 
+
+Anschließend bewirkt die Eingabe von \textit{"`signalgenerator\_microautobox"} und \textit{"`config\_datenpaket"} im "Command Window", dass die Parameter der beiden Dateien in den Workspace von MATLAB geladen werden. Falls keine Tippfehler o.ä. aufgetreten sind, sollte nun im Workspace folgendes zu sehen sein: 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.65]{configfilesworkspace}
+\caption[Parameter im Workspace]{Im Workspace enthaltene Parameter nach der Ausführung der beiden *.m-Files}
+\label{configfilesworkspace}
+\end{figure}  
+
+\newpage
+
+\textbf{Anmerkung:} Die Parameter "`Datentypen"\ , "`Kommasetzung"\ und "`Paketteilung" wurden nachträglich eingefügt, um den \textit{Encode32} - Block beim Enkodieren die korrekte Reihenfolge der Datentypen bei den zu übertragenden Paketinformationen mitzuteilen. Dies wird im Enkoder durch folgenden Vektor bei \textit{Datatype} vorgenommen: 
+
+\begin{center}
+$[ 4, \ 4, \ 4, \ Datentypen, \ Paketteilung, \ Kommasetzung ]$ 
+\end{center}
+
+
+ 
+
 
 %-------------------------------------------------------------------%
 
@@ -257,28 +291,108 @@ Abhängig von den weiteren Absichten des Benutzers werden im Folgenden nun für 
 
 \subsection{Anschluss des Simulink-Modells des Formula-Student-Fahrzeuges an das Simulink-Modell des Service Interfaces}
 
+Um das Simulink-Modell des Formaula-Student-Fahrzeuges mit dem Simulink-Modell des Service Interfaces zu verbinden, sind folgende Schritte notwendig: \\
+
+Zu Beginn muss als Vorbereitung das Subsystem \textit{Signalgenrator} vom Subsystem \textit{Signalcollector\_Embedded\_PC} getrennt und aus dem Modell entfernt werden. Des Weiteren empfiehlt es sich, die einzelnen Signale des Modells von Team StarCraft e.V. zu einem einzelnen Busarray zusammenzufassen und erst dann mit dem Busarray des Subsystems \textit{Signalcollector\_Embedded\_PC} zu verbinden.
+Hierbei ist die Reihenfolge der im Pflichtenheft festgelegten Fahrzeugdaten einzuhalten (s. Abb. \ref{anschlussbus}) , um mögliche Fehler zu vermeiden. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.45]{anschlussbus}
+\caption[Einstellungen des Bus Creators]{Einstellungen des Bus Creators, um eine Verbindung der beiden Simulink-Modelle vorzunehmen}
+\label{anschlussbus}
+\end{figure} 
+
+Wurde das Verbinden der beiden Modelle über ein Busarray korrekt durchgeführt, kann nunmehr mit Punkt 2.1.5 fortgefahren werden.
+
+
 %-------------------------------------------------------------------%
 
 \subsection{Implementierung des Modells auf der MicroAutoBox II}
 
+Um das Simulink-Modell auf die MicroAutoBox II zu überspielen, müssen neben dem Modell auch die folgenden Dateien der Firma dSPACE in einem gemeinsamen Ordner liegen: 
+
+\begin{itemize}
+
+\item ds32encode.m
+\item ds867c\_eth\_bit\_encoder\_sfcn.c
+\item ds867c\_eth\_bit\_encoder\_sfcn.mexw32
+\item ds867c\_eth\_encode32\_sfcn.c
+\item ds867c\_eth\_encode32\_sfcn.mexw32
+
+\end{itemize}
+
+\textbf{Anmerkung:} Falls in einer späteren Erweiterung des Modells der UDP-Receive-Block benutzt werden sollte (dies wurde als alternatives Modell entworfen, aber aus Gründen der Robustheit wurde entgegen dem Feinentwurf auf eine bidirektionale Kommunikation verzichtet), so müssen darüber hinaus noch folgende Dateien dem Ordner hinzugefügt werden:
+
+\begin{itemize}
+
+% decoder *m. - file?
+
+\item ds867c\_eth\_bit\_decoder\_sfcn.c
+\item ds867c\_eth\_bit\_decoder\_sfcn.mexw32
+
+\end{itemize}
+
+Ist diese Voraussetzung erfüllt, so kann innerhalb von Simulink durch den Aufruf \\ \textit{Tools $\rightarrow$ Real-Time Workshop $\rightarrow$ Build Model} oder alternativ durch die Tastenkombination  \\ \textit{Strg + B} das Modell kompiliert und auf die MicroAutoBox II überspielt werden, was durchaus ein bis zwei Minuten in Anspruch nehmen kann. \\
+
+\textbf{Anmerkung:} Sollten während des Kompilierens unerwartete Fehler wie z.B. folgende Meldung (s. Abb. ) auftreten, so liegt dies höchstwahrscheinlich an einer falsch eingestellten Message Size in den beiden UDP-Send-Blöcken \textit{ETHERNET\_UDP\_TX\_BL1} und \textit{ETHERNET\_UDP\_TX\_BL2} der Subsysteme \textit{UDP\_DATEN} und \textit{UDP\_PAKETINFORMATIONEN} (s. hierzu Punkt 2.1.1).
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.48]{fehlermsgsize}
+\caption[Fehlermeldung bei falsch konfigurierter Message Size]{Fehlermeldung bei falsch konfigurierter Message Size}
+\label{fehlermsgsize}
+\end{figure} 
+
+\newpage
+
 %-------------------------------------------------------------------%
 
-\subsection{Appendix: Hinzufügen, Entfernen oder Modifizieren von Signalen}
+\subsection{Appendix: Wichtige Hinweise zu dem Hinzufügen, Entfernen oder Modifizieren von Signalen}
+
+Dieser Abschnitt soll dem späteren Nutzer wichtige Hinweise geben, an welchen Stellen Änderungen notwendig werden, sobald das Modell durch das Hinzufügen, Entfernen oder Modifizieren von Signalen verändert werden sollte. \\
+
+Es empfiehlt sich, die folgende Checkliste abzuarbeiten, um mögliche Fehler beim Kompilieren einzugrenzen:
+
+\begin{itemize}
+
+\item Ist das Simulink-Modell korrekt an den Signalkollektor angeschlossen, d.h. die festgelegt Reihenfolge im Pflichtenheft eingehalten?
+
+\item Wurden alle bereitgestellten Signale des Signalkollektors genutzt und falls nicht, wurden diese durch Terminatoren abgeschlossen oder durch vorher definierte Constant-Blöcke belegt?
+
+\item Wurde für das Signal die richtige Verstärkung gewählt?
+
+\item Liegen am Encoder-Block notwendigerweise die Daten im Datentyp \textit{double} vor?
+
+\item Wurden die Signale im Encoder-Block korrekt in die entsprechenden Datentypen gewandelt (s. S.8 oben)?
+
+\item Wurden in der *.m - File \textit{config\_datenpaket.m} die Vektoren korrekt an die Änderungen angepasst?
+
+\item Wurde bei den UDP-Send-Blöcken die korrekte Message Size eingetragen?
+
+\item Wurden bei den Einstellungen der Ethernet-Schnittstelle die korrekten Werte für die Remote IP etc. eingetragen?
+
+\end{itemize}
+
+\newpage
 
 %-------------------------------------------------------------------%
-
-
-
 
 \section{Embedded-PC}
 
+%-------------------------------------------------------------------%
+
 \section{vServer}
+
+%-------------------------------------------------------------------%
 
 \section{Datenbanken}
 
 \subsection{Fahrzeugdatenbank}
 
 \subsection{Benutzerdatenbank}
+
+%-------------------------------------------------------------------%
 
 
 
@@ -397,5 +511,13 @@ Auf der Startseite befindet sich ein Link "`Passwort vergessen". Klicken Sie auf
 Über die Menüleiste können Sie die einzelnen Unterseiten aufrufen. Jede Unterseite stellt eine andere Gruppe von Fahrzeuginformationen dar (s. Pflichtenheft). \\ \\
 
 Es ist zu Empfehlen sich nach jedem Besuch der Seite wieder auszuloggen.
+
+
+%----------------------  Abbildungsverzeichnis  --------------------%
+
+\listoffigures
+
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
 
 \end{document}
