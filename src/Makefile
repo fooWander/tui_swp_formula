@@ -18,7 +18,7 @@
 #
 
 CXX = g++
-CXXFLAGS = -Wall -ansi -pedantic -g
+CXXFLAGS = -Wall -ansi -pedantic -g -Wno-long-long -Wno-sign-compare
 
 ifeq ($(shell uname),SunOS)
   LIBS = -lsocket -lnsl

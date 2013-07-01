@@ -210,7 +210,7 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
         
         startPos = joinUnsigShort(vecLayout[i+1],vecLayout[i]);
         //std::cout << "STARTPOS: " << startPos << std::endl;
-        std::cout << "TEST" << std::endl;
+        //std::cout << "TEST" << std::endl;
         if (i+2 > vecLayoutlen || i+3 > vecLayoutlen) {
             endPos = bufferlen;
         } else {
@@ -297,6 +297,7 @@ Decoder::Decoder(char * buffer, size_t bufferlen, char * vecLayout, size_t vecLa
     : /*myDataPos(8),myPackagePos(0),myTimestamp(0),*/myDataLength(0)
 {
     myDataPos = 12;
+    myTimestampStatus = 1;
     myPackage = buffer;
     myPackagelen = bufferlen;
     //std::cout << "Decoding header..." << std::endl;

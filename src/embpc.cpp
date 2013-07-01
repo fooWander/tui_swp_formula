@@ -76,7 +76,7 @@ int receivePackage(Location remote, void * buffer, int bufferLen)
     //fuer Polling, gez.Tino)
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
     std::cout << "receiving..." << std::endl;
-    std::cout << "BLALALA" << std::endl;
+    //std::cout << "BLALALA" << std::endl;
     recvMsgSize = sock.recvFrom(buffer, bufferLen, 
                                 sourceAddress, sourcePort);
     std::cout << "received something..." << std::endl;
@@ -126,7 +126,7 @@ void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
     for (int i = 0; i < packageSum; ++i) {
         int size = enc.getPackage(DATA_SEND,sizeof(DATA_SEND),i);
-        
+        /*
         std::cout << std::endl;
         std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
         
@@ -141,7 +141,7 @@ void sendData(Encoder enc) {
         std::cout << std::endl;
         std::cout << "========END_PACKAGE=========" << std::endl;
         //std::cout << std::endl << std::endl << std::endl << std::endl; 
-        
+        */
         sendPackage(HOST_VSERVER,DATA_SEND,size);
         usleep(250000);
     }
@@ -155,53 +155,61 @@ Encoder  processData()
 
 int main(int argc, char const *argv[])
 {
-    std::cout << "Generating test data..." << std::endl;
+    try
+    {
+        std::cout << "Generating test data..." << std::endl;
 
-    for (int i = 0; i < 20; ++i)
-    {
-        if (i % 2 == 0)
+        for (int i = 0; i < 20; ++i)
         {
-            DATA_PACKAGE[i] = 80;
-        } else {
-            DATA_PACKAGE[i] = 80;
-        }
-    }
-    for (int i = 20; i < 802; ++i)
-    {
-        DATA_PACKAGE[i] = rand() % 100;
-        //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
-    }
-    while (true) {
-        std::cout << "Initializing..." << std::endl;
-        initialize();
-        //int i = 0;
-        while (true) {
-            try
+            if (i % 2 == 0)
             {
-                std::cout << "receiving data..." << std::endl;
-                std::cout << DATA_PACKAGE_SIZE << std::endl;
-                DATA_PACKAGE_SIZE = receiveData();
-                std::cout << DATA_PACKAGE_SIZE << std::endl;
-                
-                for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
-                {
-                    std::cout << DATA_PACKAGE[i];
-                }
-                std::cout << std::endl;
-                
+                DATA_PACKAGE[i] = 80;
+            } else {
+                DATA_PACKAGE[i] = 80;
             }
-            catch(SocketException ex)
-            {
-                std::cout << "SocketException thrown." << std::endl;
-                break;
+        }
+        for (int i = 20; i < 802; ++i)
+        {
+            DATA_PACKAGE[i] = rand() % 100;
+            //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
+        }
+        while (true) {
+            std::cout << "Initializing..." << std::endl;
+            initialize();
+            int i = 0;
+            while (true) {
+                try
+                {
+                    std::cout << "receiving data..." << std::endl;
+                    std::cout << DATA_PACKAGE_SIZE << std::endl;
+                    DATA_PACKAGE_SIZE = receiveData();
+                    std::cout << DATA_PACKAGE_SIZE << std::endl;
+                    
+                    for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
+                    {
+                        std::cout << DATA_PACKAGE[i];
+                    }
+                    std::cout << std::endl;
+                    
+                }
+                catch(SocketException ex)
+                {
+                    std::cout << "SocketException thrown." << std::endl;
+                    break;
+                }
+                
+                Encoder enc = processData();
+                std::cout << "Sending data... " << i << std::endl;
+                i++;
+                sendData(enc);
             }
             
-            Encoder enc = processData();
-            //std::cout << "Sending data... " << i << std::endl;
-            //i++;
-            sendData(enc);
         }
-        
+        return(-1);
     }
-    return(-1);
+    catch (...)
+    {
+        std::cout << "Exception thrown." << std::endl;
+        return -1;
+    }
 }

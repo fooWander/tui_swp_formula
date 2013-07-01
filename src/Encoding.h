@@ -236,7 +236,7 @@ private:
 	//unsigned int TIME_THRESHOLD=5;
     char * myPackage;
     unsigned int myPackagelen;
-    int myTimestampStatus = -1;
+    int myTimestampStatus;
 
     /*
         Number of currently processed package.
