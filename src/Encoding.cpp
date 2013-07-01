@@ -121,7 +121,7 @@ int Encoder::getPackageSize(unsigned short packageNumber)
     }
 }
 
-int Encoder::getPackage(char * package, size_t len, unsigned short packageNumber)
+int Encoder::getPackage(char * package, int len, unsigned short packageNumber)
 {
     std::cout << "packageNumber = " << packageNumber << std::endl;
     //std::cout << "==========myPackages===========" << std::endl;
@@ -131,7 +131,7 @@ int Encoder::getPackage(char * package, size_t len, unsigned short packageNumber
     //std::cout << "==========/myPackages===========" << std::endl;
     
     int dataSize;
-    dataSize = myPackagePos[packageNumber+1] - myPackagePos[packageNumber];
+    dataSize = myPackagePos[packageNumber+1] - myPackagePos[packageNumber] + 8;
     //dataSize = getPackageSize(packageNumber);
 
     if (dataSize > len) {
@@ -145,7 +145,7 @@ int Encoder::getPackage(char * package, size_t len, unsigned short packageNumber
     return dataSize;
 }
 
-int Encoder::getNextPackage(char * package, size_t len)
+int Encoder::getNextPackage(char * package, int len)
 {
     if (myPackageNum == myPackageSum) {
         int myPackageNumTemp = myPackageNum;
@@ -193,39 +193,51 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
     unsigned short startPos = 0;
     unsigned short endPos = 0;
     /*
-    for (int i = 0; i < bufferlen; ++i)
-    {
-        std::cout << buffer[i];
-        if (i % 25 == 0)
+    for (int j = 0; j < bufferlen; j=j+2)
         {
-            std::cout << "|" << std::endl << "|";
+            if (j % 25 == 0)
+            {
+                std::cout << std::endl;
+            }
+            //std::cout << (int)DATA_SEN D[j] << " ";
+            std::cout << joinUnsigShort(buffer[j+1],buffer[j]) << " ";
         }
-    }
+    
+    std::cout << "bufferlen: " << bufferlen << std::endl;
     */
-
     for (int i = 0; i < vecLayoutlen; i=i+2) {
         myPackagePos[pointer] = myPackagePointer;
+        std::cout << "MYPOINTER = " << myPackagePointer << std::endl;
         createHeader();
 
         
-        startPos = joinUnsigShort(vecLayout[i+1],vecLayout[i]);
-        //std::cout << "STARTPOS: " << startPos << std::endl;
+        startPos = joinUnsigShort(vecLayout[i+1],vecLayout[i]) - 1;
+        std::cout << "STARTPOS: " << startPos << std::endl;
         //std::cout << "TEST" << std::endl;
+        
         if (i+2 > vecLayoutlen || i+3 > vecLayoutlen) {
             endPos = bufferlen;
         } else {
-            endPos = joinUnsigShort(vecLayout[i+3], vecLayout[i+2]);
+            endPos = joinUnsigShort(vecLayout[i+3], vecLayout[i+2]) -1;
         }
+
+        std::cout << "ENDPOS: " << endPos << std::endl;
         
         //std::cout << "myPackagePointer " << myPackagePointer << std::endl;
         for (int j = startPos; j < endPos; ++j) {
             myPackages[myPackagePointer] = buffer[j];
+            //std::cout << buffer[j] << std::endl;
             myPackagePointer++;
         }
         
         pointer++;
     }
     myPackagePos[pointer] = myPackagePointer;
+
+    for (int i = 0; i < 802; i=i+2)
+    {
+        std::cout << joinUnsigShort(myPackages[i+1],myPackages[i]) << " ";
+    }
 }
 
 /*void Encoder::compressData()

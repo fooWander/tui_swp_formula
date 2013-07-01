@@ -41,6 +41,8 @@ extern int PACKAGE_COUNTER;
 extern int64_t TIME_THRESHOLD; //###
 extern int64_t LOCAL_TIMESTAMP;
 
+
+unsigned short joinUnsigShort(unsigned char a,unsigned char b);
 /**
  *  Service, der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt
  *  und komprimiert. Die Komprimierung ist noch nicht implementiert.
@@ -75,7 +77,7 @@ public:
      *  nicht vorhanden oder @a len zu klein.
      */
 
-    int getPackage(char * package, size_t len, unsigned short packageNumber);
+    int getPackage(char * package, int len, unsigned short packageNumber);
     
     /**
      *  Holt das jeweils nächste Paket. (1,2,...,n,1,2,...)
@@ -84,7 +86,7 @@ public:
      *  \return Die Länge des Pakets oder -1 falls @a len zu klein.
      */
 
-    int getNextPackage(char * package, size_t len);
+    int getNextPackage(char * package, int len);
     
     /**
      *  Gibt die Paketgröße eines speziellen Pakets zurück.
