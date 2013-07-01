@@ -125,13 +125,14 @@ int receiveData()
 
 void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
+    std::cout << "SUMME: " << packageSum << std::endl;
     for (int i = 0; i < packageSum; ++i) {
         int size = enc.getPackage(DATA_SEND,DATA_SEND_SIZE,i);
         
         std::cout << "SIZE: " << size << std::endl;
         std::cout << std::endl;
         std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
-
+        
         for (int j = 0; j < size; j=j+2)
         {
             if (j % 25 == 0)
@@ -145,6 +146,7 @@ void sendData(Encoder enc) {
         std::cout << "========END_PACKAGE=========" << std::endl;
         std::cout << std::endl << std::endl << std::endl << std::endl; 
         
+        std::cout << "SEND" << std::endl;
         sendPackage(HOST_VSERVER,DATA_SEND,size);
         usleep(250000);
     }
@@ -152,7 +154,7 @@ void sendData(Encoder enc) {
 
 Encoder  processData()
 {
-    Encoder enc(DATA_PACKAGE, DATA_PACKAGE_SIZE, VEC_LAYOUT, 10,VEC_DATATYPES, 100);
+    Encoder enc(DATA_PACKAGE, PACKAGE_SIZE_MAX, VEC_LAYOUT, 10,VEC_DATATYPES, 100);
     return enc;
 }
 
