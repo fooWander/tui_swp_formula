@@ -113,7 +113,7 @@
 % Entwurf Titelseite:
 
 \titlehead{\begin{center}
-\textbf{\Huge Entwurfsdokument}
+\textbf{\Huge Benutzerhandbuch}
 \end{center}}
 		   
 \title{Service-Interface \\ für ein Formula-Student-Fahrzeug}
@@ -285,6 +285,28 @@ $[ 4, \ 4, \ 4, \ Datentypen, \ Paketteilung, \ Kommasetzung ]$
 Abhängig von den weiteren Absichten des Benutzers werden im Folgenden nun für diese Ziele die jeweiligen Vorgehensweisen ausführlich erläutert. 
 
 \subsection{Testen des Simulink-Modells durch den Signalgenerator}
+
+Mittels des Simulink-Subsystems des Signalgenerators können dem Simulink-Modell beliebige, virtuell simulierte Werte zur Verfügung gestellt werden. Vor allem zur Validierung des Systems ist dies sehr sinnvoll, da es nicht nötig ist, die MicroAutoBox II in das Fahrzeug einzubauen bzw. Peripherie(Sensoren etc.) daran anzuschließen. Auch trägt dieser Simulink-Block stark zur Erweiterbarkeit und Wartbarkeit des Modells bei.  
+
+\subsubsection{Modifizieren der Simulationswerte}
+
+Um die vorhandenen Simulationswerte zu verändern gibt es zwei Möglichkeiten. Als erste Option steht eine direkte Änderung der Werte  der Parameter in den jeweiligen Source-Blöcken zur Verfügung. Die Anordnung der Blöcke ist im Implementierungsdokument genau erläutert und richtet sich nach den Vorgaben des Lastenheftes. Die zweite Möglichkeit wäre die gewünschten Werte im *.m-File signalgenerator\_microautobox.m über die dazugehörigen Parameter zu verändern. Der Aufbau und Funktion dieses Files wurden hinreichend im Implementierungsdokument sowie im vorherigen Abschnitt beschrieben.
+
+
+\subsubsection{Veränderungen am Modell} 
+
+Bei Veränderungen des Simulink-Modells, um z.B. neue Sensorwerte aufzunehmen oder nicht mehr benötigte zu entfernen, bietet es sich an den Signalgenerator zu modifizieren und für Testzwecke zu verwenden. Dazu müssen die jeweiligen Werte aus dem Modell einschließlich des Signalgenerators entfernt oder hinzugefügt werden. Wichtig dabei ist, dass dies im kompletten Simulink-Model vorgenommen wird, da es sonst zu Fehlern kommt (s. hierzu Punkt 2.1.6). 
+
+
+\subsubsection{Anschließen des Signalgenerator-Blockes an das Modell}
+
+Falls sich im restlichen Modell keine Änderungen ergeben haben, stellt das erneute Anschließen des Signalgenerators kein großes Problem dar. Dieser muss einfach über eine Leitung mit dem Signalkollektor verbunden werden.  Liegen jedoch Veränderungen vor, müssen diese, wie gerade erwähnt, komplett im Modell beachtet und bearbeitet werden. Dabei ist es wichtig, dass die Reihenfolge der Signale im Busarray analog zum Pflichtenheft erhalten bleibt (s. 2.1.4). Dabei spielt die Reihenfolge, in welche die Signale über einen Bus-Creator gebündelt bzw. über einen Bus-Selector aufgespalten werden eine große Rolle. Die Signalreihenfolge kann innerhalb dieser Blöcke eingesehen und bearbeitet werden. 
+
+
+\subsubsection{Verwenden des Signalgenerator-Blockes zu Testzwecken}
+
+Ist das Modell nun komplett eingerichtet und mit dem Signalgenerator-Subsystem verbunden, ist es wichtig, dass das dazugehörige Datei signalgenerator\_microautobox.m ausgeführt wurde, damit die Parameterwerte der Signale MATLAB bekannt sind. Nach der Implementierung des Modells (s. 2.1.5) liegen die gewünschten Werte am Ausgang der MicroAutoBox II an und können an den Embedded-PC zur anschließenden Weiterverarbeitung der Fahrzeugdaten übertragen werden.
+
 
 %-------------------------------------------------------------------%
 
