@@ -7,7 +7,7 @@
 /**
  *	Maximale Paketgröße die zu erwarten ist.
  */
-#define PACKAGE_SIZE_MAX 	2000
+#define PACKAGE_SIZE_MAX 	1472
 
 /**
  *	Maximale Paketgröße eines Acknowledgements.

@@ -241,14 +241,14 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
 
 Decoder::Decoder(char * buffer, size_t bufferlen)
 {
-    VEC_DATATYPES_SIZE = joinUnsigShort(buffer[0],buffer[1]);
-    VEC_LAYOUT_SIZE = joinUnsigShort(buffer[2],buffer[3]);
-    VEC_COMMA_SIZE = joinUnsigShort(buffer[4],buffer[5]);
-
+    VEC_DATATYPES_SIZE = joinUnsigShort(buffer[1],buffer[0]);
+    VEC_LAYOUT_SIZE = joinUnsigShort(buffer[3],buffer[2]);
+    VEC_COMMA_SIZE = joinUnsigShort(buffer[5],buffer[4]);
+    /*
     VEC_DATATYPES_SIZE = 401;
     VEC_LAYOUT_SIZE = 5;
     VEC_COMMA_SIZE = 401;
-
+    */
     std::cout << VEC_DATATYPES_SIZE << std::endl;
     std::cout << VEC_LAYOUT_SIZE << std::endl;
     std::cout << VEC_COMMA_SIZE << std::endl;
@@ -260,10 +260,14 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
 
     int j = 0;
 
+    std::cout << "=========VEC_DATATYPES==========" << std::endl;
     for (int i = 6; i < border_0; ++i) {
         VEC_DATATYPES[j] = buffer[i];
-        //std::cout << "VEC_DATATYPES" << std::endl;
-        //std::cout << (int)VEC_DATATYPES[j] << std::endl;
+        std::cout << (int)VEC_DATATYPES[j] << " ";
+        if (j % 32 == 0 && j != 0)
+        {
+            std::cout << std::endl;
+        }
         j = j+2;
     }
 
@@ -272,24 +276,34 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
     for (int i = border_0 ;i < border_1; ++i) {
         //std::cout << "TEST" << std::endl;
         VEC_LAYOUT[j] = buffer[i];
-        //std::cout << "VEC_LAYOUT" << std::endl;
+        
         //std::cout << "TEST" << std::endl;
         //std::cout << VEC_LAYOUT[j] << std::endl;
         j++;
     }
-
+    std::cout << "=========VEC_LAYOUT=============" << std::endl;
     for (int i = 0; i < 2*VEC_LAYOUT_SIZE; i=i+2)
     {
-        std::cout << joinUnsigShort(VEC_LAYOUT[i+1],VEC_LAYOUT[i]) << std::endl;
+        std::cout << joinUnsigShort(VEC_LAYOUT[i+1],VEC_LAYOUT[i]) << " ";
+        if (i % 32 == 0 && i != 0)
+        {
+            std::cout << std::endl;
+        }
     }
     j = 0;
-
+    
+    std::cout << std::endl << "=========VEC_COMMA==============" << std::endl;
     for (int i= border_1;i < border_2; ++i) {
         VEC_COMMA[j] = buffer[i];
-        //std::cout << "VEC_COMMA" << std::endl;
-        //std::cout << (int)VEC_COMMA[i] << std::endl;
+        std::cout << (int)VEC_COMMA[j] << " ";
+        if (j % 32 == 0 && j != 0)
+        {
+            std::cout << std::endl;
+        }
         j = j+2;
     }
+
+    std::cout << "TEST" << std::endl;
 }
 
 Decoder::Decoder(char * buffer, size_t bufferlen, char * vecLayout, size_t vecLayoutlen,

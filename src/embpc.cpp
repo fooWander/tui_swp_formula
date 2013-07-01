@@ -28,7 +28,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "unistd.h"
-
+#include <vector>
 //extern char VEC_LAYOUT[];
 //#include "cstring.h"
 
@@ -44,11 +44,12 @@ Location HOST_VSERVER_INFO(VSERVER_IP,VSERVER_INFO_PORT);
 
 //const int PACKAGE_SIZE_MAX = 100;
 
-char DATA_PACKAGE[PACKAGE_SIZE_MAX];
+
+char DATA_PACKAGE[PACKAGE_SIZE_MAX] = {};
 int DATA_PACKAGE_SIZE = PACKAGE_SIZE_MAX;
-char DATA_PACKAGE_INFO[PACKAGE_SIZE_MAX];
+char DATA_PACKAGE_INFO[PACKAGE_SIZE_MAX] = {};
 int DATA_PACKAGE_INFO_SIZE = PACKAGE_SIZE_MAX;
-char DATA_SEND[PACKAGE_SIZE_MAX];
+char DATA_SEND[PACKAGE_SIZE_MAX] = {};
 int DATA_SEND_SIZE = PACKAGE_SIZE_MAX;
 
 /**
@@ -102,8 +103,8 @@ void initialize()
             }
             std::cout << std::endl;
             std::cout << "received something" << std::endl;
-            std::cout << "length: " << DATA_PACKAGE_INFO_SIZE << std::endl;
             */
+            std::cout << "length: " << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;
         }
         catch(SocketException ex)
@@ -184,11 +185,12 @@ int main(int argc, char const *argv[])
                     std::cout << DATA_PACKAGE_SIZE << std::endl;
                     DATA_PACKAGE_SIZE = receiveData();
                     std::cout << DATA_PACKAGE_SIZE << std::endl;
-                    
+                    /*
                     for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
                     {
-                        std::cout << DATA_PACKAGE[i];
+                        std::cout << (int)DATA_PACKAGE[i] << " ";
                     }
+                    */
                     std::cout << std::endl;
                     
                 }
