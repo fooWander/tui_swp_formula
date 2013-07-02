@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  3 JUL 2013 01:45
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  3 JUL 2013 01:56
 entering extended mode
 **Entwurfsdokument_template.tex
 
@@ -1282,10 +1282,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10751 strings out of 493921
- 155087 string characters out of 3152893
+ 10750 strings out of 493921
+ 155072 string characters out of 3152893
  366499 words of memory out of 3000000
- 13723 multiletter control sequences out of 15000+200000
+ 13722 multiletter control sequences out of 15000+200000
  19897 words of font info for 128 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  40i,12n,46p,698b,1681s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1300,7 +1300,7 @@ type1/public/amsfonts/cm/cmr8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.
 pfb>
-Output written on Entwurfsdokument_template.pdf (31 pages, 502241 bytes).
+Output written on Entwurfsdokument_template.pdf (31 pages, 502258 bytes).
 PDF statistics:
  172 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
