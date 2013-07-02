@@ -27,6 +27,7 @@
 #include <iostream>
 #include <time.h>
 #include <unistd.h>
+#include "common.h"
 
 //extern const int PACKAGESIZE_MAX;
 
@@ -133,7 +134,7 @@ private:
      *  Speichert die geteilten Pakete und deren Header.
      */
 
-    char myPackages[1000];
+    char myPackages[PACKAGE_SIZE_MAX];
     
     /**
      *  Speichert die Postion der einzelnen Pakete in @a myPackages.

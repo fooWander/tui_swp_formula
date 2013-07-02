@@ -94,7 +94,6 @@ void initialize()
     while(true) {
         try
         {
-            std::cout << sizeof(DATA_PACKAGE_INFO) << std::endl;
             DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_VSERVER_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
             /*
             for (int i = 0; i < DATA_PACKAGE_INFO_SIZE; ++i)
@@ -154,7 +153,7 @@ void sendData(Encoder enc) {
 
 Encoder  processData()
 {
-    Encoder enc(DATA_PACKAGE, PACKAGE_SIZE_MAX, VEC_LAYOUT, 10,VEC_DATATYPES, 100);
+    Encoder enc(DATA_PACKAGE, PACKAGE_SIZE_MAX, VEC_LAYOUT, VEC_LAYOUT_SIZE,VEC_DATATYPES, 100);
     return enc;
 }
 

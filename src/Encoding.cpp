@@ -193,40 +193,20 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
                         const char *vecLayout, size_t vecLayoutlen)
 {
     int pointer = 0;
-    //int k = 0;;
-    unsigned short startPos = 0;
-    unsigned short endPos = 0;
+    int startPos = 0;
+    int endPos = 0;
+
     std::cout << "vecLAYOUT: " << std::endl;
-    for (int j = 0; j < vecLayoutlen; j=j+2)
-        {
-            if (j % 25 == 0)
-            {
-                std::cout << std::endl;
-            }
-            //std::cout << (int)DATA_SEN D[j] << " ";
-            std::cout << joinUnsigShort(vecLayout[j+1],vecLayout[j]) << " ";
+    for (int j = 0; j < vecLayoutlen; j=j+2) {
+        if (j % 25 == 0) {
+            std::cout << std::endl;
         }
-    std::cout << std::endl;
-    /*
-    std::cout << "BUFFER: " << std::endl;
-    for (int j = 0; j < bufferlen; j=j+2)
-        {
-            if (j % 25 == 0)
-            {
-                std::cout << std::endl;
-            }
-            //std::cout << (int)DATA_SEN D[j] << " ";
-            std::cout << joinUnsigShort(buffer[j+1],buffer[j]) << " ";
-        }
+        std::cout << joinUnsigShort(vecLayout[j+1],vecLayout[j]) << " ";
+    }
     std::cout << std::endl;
 
-
-    std::cout << "bufferlen: " << bufferlen << std::endl;
-    
-    std::cout << "LAYOUTLEN: " << vecLayoutlen << std::endl;
-    */
     for (int i = 0; i < vecLayoutlen; i=i+2) {
-        if (pointer >= 802)
+        if (pointer >= ((vecLayoutlen/2 * 12) + bufferlen))
         {
             break;
         }
@@ -295,7 +275,7 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
 Decoder::Decoder(char * buffer, size_t bufferlen)
 {
     VEC_DATATYPES_SIZE = joinUnsigShort(buffer[1],buffer[0]);
-    VEC_LAYOUT_SIZE = joinUnsigShort(buffer[3],buffer[2]);
+    VEC_LAYOUT_SIZE = joinUnsigShort(buffer[3],buffer[2]) * 2;
     VEC_COMMA_SIZE = joinUnsigShort(buffer[5],buffer[4]);
     /*
     VEC_DATATYPES_SIZE = 401;
@@ -335,7 +315,7 @@ Decoder::Decoder(char * buffer, size_t bufferlen)
         j++;
     }
     std::cout << "=========VEC_LAYOUT=============" << std::endl;
-    for (int i = 0; i < 2*VEC_LAYOUT_SIZE; i=i+2)
+    for (int i = 0; i < VEC_LAYOUT_SIZE; i=i+2)
     {
         std::cout << joinUnsigShort(VEC_LAYOUT[i+1],VEC_LAYOUT[i]) << " ";
         if (i % 32 == 0 && i != 0)
