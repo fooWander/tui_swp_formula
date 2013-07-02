@@ -1156,16 +1156,17 @@ Wird von \textit{Insert} die Memberfunktion \textit{instertIntoDB(string* anw)} 
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale = 0.75]{resizeDBSequenz}
-\caption[Sequenzdiagramm des virtuellen Servers]{Sequenzdiagramm des virtuellen Servers}
+\includegraphics[scale = 0.60]{StartResizeDBsequenz}
+\caption[Sequenzdiagramm des Programmes StartResizeDB auf dem vServer]{Sequenzdiagramm des Programmes StartResizeDB auf dem vServer}
 \label{resizeDBSequenz}
 \end{figure} 
 
-Dieses Sequenzdiagramm beschreibt den Ablauf des Programmes \textit{sizeDB} auf dem virtuellem Server.\\
-Direkt nach dem Aufruf des Programmes wird die Klasse \textit{dbData} erzeugt, welche wiederum die Datei \textit{dbconfig} einliest. \\
+Dieses Sequenzdiagramm beschreibt den Ablauf des Programmes \textit{StartResizeDB} auf dem virtuellem Server. Direkt nach dem Aufruf des Programmes wird die Klasse \textit{resizeDB} erzeugt, welche wiederum über die Klasse \textit{dbData} die Datei \textit{Konfiguration.conf} und somit die Datenbankzugangsdaten einliest. \\
 Anschließend fragt \textit{resizeDB} von \textit{dbData} die Zugangsdaten zur Datenbank ab und mit Hilfe dieser Daten wird nun eine Verbindung zum MySQL-Server aufgebaut.\\
-Nachfolgend wird für jede Tabelle die aktuelle Anzahl an Datensätzen abgefragt, sollten mehr Einträge als vorgesehen in der Tabelle liegen, werden sie anschließend über ein weiteres MySQL-Statement aus der Datenbank gelöscht.\\
-Da es auch möglich sein soll, dieses Programm von der Kommandozeile auszuführen, erfolgt zum Schluss eine Ausgabe über die durchgeführten Arbeitsschritte.
+Nachfolgend wird von \textit{resizeDB} für jede Tabelle die aktuelle Anzahl an Datensätzen abgefragt, sollten mehr Einträge als vorgesehen in der Tabelle liegen, werden sie anschließend über ein weiteres MySQL-Statement aus der Datenbank gelöscht.
+\textit{resizeDB} gibt nun über die Klasse \textit{logData} in einen Logeintrag in der Datei \textit{log.txt} an, wie viele Datensätze gelöscht wurden.
+Falls der Datenbankzugriff fehlschlägt gibt \textit{resizeDB} über seinen Rückgabewert an, dass Fehler aufgetreten sind.
+\textit{StartResizeDB} veranlasst nun ebenfalls über die Loggingklasse \textit{logData} eine Ausgabe entsprechender Fehler in der Logdatei.
 
 \newpage
 
