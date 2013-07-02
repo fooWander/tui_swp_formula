@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  3 JUL 2013 01:13
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  3 JUL 2013 01:30
 entering extended mode
 **Entwurfsdokument_template.tex
 
@@ -1280,9 +1280,6 @@ zerhandbuch\Entwurfsdokument_template.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  10751 strings out of 493921
@@ -1303,7 +1300,7 @@ type1/public/amsfonts/cm/cmr8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.
 pfb>
-Output written on Entwurfsdokument_template.pdf (31 pages, 501098 bytes).
+Output written on Entwurfsdokument_template.pdf (31 pages, 501356 bytes).
 PDF statistics:
  172 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
