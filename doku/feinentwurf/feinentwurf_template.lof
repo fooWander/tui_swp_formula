@@ -32,35 +32,35 @@
 \contentsline {figure}{\numberline {2.29}{\ignorespaces Sequenzdiagramm zum Einf\IeC {\"u}gen in die Datenbank}}{37}
 \contentsline {figure}{\numberline {2.30}{\ignorespaces Klassendiagramm des virtuellen Servers}}{39}
 \contentsline {figure}{\numberline {2.31}{\ignorespaces Sequenzdiagramm des Programmes StartResizeDB auf dem vServer}}{41}
-\contentsline {figure}{\numberline {2.32}{\ignorespaces Klassendiagramm des virtuellen Servers}}{42}
-\contentsline {figure}{\numberline {2.33}{\ignorespaces Komponentendiagramm der Webseite}}{43}
-\contentsline {figure}{\numberline {2.34}{\ignorespaces Sequenzdiagramm f\"{u}r den Installationsprozess}}{44}
-\contentsline {figure}{\numberline {2.35}{\ignorespaces Sequenzdiagramm f\"{u}r die Initialisierung}}{45}
-\contentsline {figure}{\numberline {2.36}{\ignorespaces Sequenzdiagramm der Headerdatei}}{46}
-\contentsline {figure}{\numberline {2.37}{\ignorespaces Sequenzdiagramm der Startseite}}{47}
-\contentsline {figure}{\numberline {2.38}{\ignorespaces Sequenzdiagramm des Registriervorgangs}}{48}
-\contentsline {figure}{\numberline {2.39}{\ignorespaces Sequenzdiagramm des Loginvorgangs}}{49}
-\contentsline {figure}{\numberline {2.40}{\ignorespaces Sequenzdiagramm des Logoutvorgangs}}{50}
-\contentsline {figure}{\numberline {2.41}{\ignorespaces Sequenzdiagramm der Passwort\"{a}nderungsfunktion}}{51}
-\contentsline {figure}{\numberline {2.42}{\ignorespaces Sequenzdiagramm des CSV-Export}}{52}
-\contentsline {figure}{\numberline {2.43}{\ignorespaces Sequenzdiagramm der Benutzerverwaltung}}{53}
-\contentsline {figure}{\numberline {2.44}{\ignorespaces Sequenzdiagramm der Onlineanzeige}}{54}
+\contentsline {figure}{\numberline {2.32}{\ignorespaces Klassendiagramm des Programmes StartResizeDB auf dem vServer}}{42}
+\contentsline {figure}{\numberline {2.33}{\ignorespaces Komponentendiagramm der Webseite}}{45}
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Sequenzdiagramm f\"{u}r den Installationsprozess}}{46}
+\contentsline {figure}{\numberline {2.35}{\ignorespaces Sequenzdiagramm f\"{u}r die Initialisierung}}{47}
+\contentsline {figure}{\numberline {2.36}{\ignorespaces Sequenzdiagramm der Headerdatei}}{48}
+\contentsline {figure}{\numberline {2.37}{\ignorespaces Sequenzdiagramm der Startseite}}{49}
+\contentsline {figure}{\numberline {2.38}{\ignorespaces Sequenzdiagramm des Registriervorgangs}}{50}
+\contentsline {figure}{\numberline {2.39}{\ignorespaces Sequenzdiagramm des Loginvorgangs}}{51}
+\contentsline {figure}{\numberline {2.40}{\ignorespaces Sequenzdiagramm des Logoutvorgangs}}{52}
+\contentsline {figure}{\numberline {2.41}{\ignorespaces Sequenzdiagramm der Passwort\"{a}nderungsfunktion}}{53}
+\contentsline {figure}{\numberline {2.42}{\ignorespaces Sequenzdiagramm des CSV-Export}}{54}
+\contentsline {figure}{\numberline {2.43}{\ignorespaces Sequenzdiagramm der Benutzerverwaltung}}{55}
+\contentsline {figure}{\numberline {2.44}{\ignorespaces Sequenzdiagramm der Onlineanzeige}}{56}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces user\_data() Funktion}}{67}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces user\_data() Funktion}}{69}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Subsystem Akkudaten}}{86}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Subsystem Zelldaten}}{87}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Subsystem Dynamische Daten}}{88}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Subsystem Motor- und Umrichterdaten}}{89}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem Signalkollektor}}{90}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_notaus"\ im Subsystem Allgemeine Fahrzeugdaten im Signalkollektor}}{91}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_temperatur\_allgemein"\ im Subsystem Allgemeine Fahrzeugdaten im Signalkollektor}}{92}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_zellenpack\_01"\ im Subsystem "`daten\_zelldaten" im Signalkollektor}}{93}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_zelldaten"\ im Subsystem "`daten\_akku"\ im Signalkollektor}}{94}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_dynamisch"\ im Signalkollektor}}{95}
-\contentsline {figure}{\numberline {A.11}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem Signaltransmitter}}{96}
-\contentsline {figure}{\numberline {A.12}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`EMB\_RECEIVE"\ im Signaltransmitter}}{97}
-\contentsline {figure}{\numberline {A.13}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die Kommunikation zwischen MicroAutoBox II und Embedded-PC}}{98}
-\contentsline {figure}{\numberline {A.14}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die Kommunikation zwischen Embedded-PC und virtuellem Server}}{99}
-\contentsline {figure}{\numberline {A.15}{\ignorespaces Klassendiagramm \IeC {\"u}ber Daten\IeC {\"u}bertragung und Verarbeitung}}{100}
-\contentsline {figure}{\numberline {A.16}{\ignorespaces Klassendiagramm \IeC {\"u}ber Socketerstellung und -benutzung}}{101}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Subsystem Akkudaten}}{88}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Subsystem Zelldaten}}{89}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Subsystem Dynamische Daten}}{90}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Subsystem Motor- und Umrichterdaten}}{91}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem Signalkollektor}}{92}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_notaus"\ im Subsystem Allgemeine Fahrzeugdaten im Signalkollektor}}{93}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_temperatur\_allgemein"\ im Subsystem Allgemeine Fahrzeugdaten im Signalkollektor}}{94}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_zellenpack\_01"\ im Subsystem "`daten\_zelldaten" im Signalkollektor}}{95}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_zelldaten"\ im Subsystem "`daten\_akku"\ im Signalkollektor}}{96}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`daten\_dynamisch"\ im Signalkollektor}}{97}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem Signaltransmitter}}{98}
+\contentsline {figure}{\numberline {A.12}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber das Subsystem "`EMB\_RECEIVE"\ im Signaltransmitter}}{99}
+\contentsline {figure}{\numberline {A.13}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die Kommunikation zwischen MicroAutoBox II und Embedded-PC}}{100}
+\contentsline {figure}{\numberline {A.14}{\ignorespaces \IeC {\"U}bersicht \IeC {\"u}ber die Kommunikation zwischen Embedded-PC und virtuellem Server}}{101}
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Klassendiagramm \IeC {\"u}ber Daten\IeC {\"u}bertragung und Verarbeitung}}{102}
+\contentsline {figure}{\numberline {A.16}{\ignorespaces Klassendiagramm \IeC {\"u}ber Socketerstellung und -benutzung}}{103}

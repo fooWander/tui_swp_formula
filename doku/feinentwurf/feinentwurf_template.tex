@@ -1161,8 +1161,8 @@ Wird von \textit{Insert} die Memberfunktion \textit{instertIntoDB(string* anw)} 
 \label{resizeDBSequenz}
 \end{figure} 
 
-Dieses Sequenzdiagramm beschreibt den Ablauf des Programmes \textit{StartResizeDB} auf dem virtuellem Server. Direkt nach dem Aufruf des Programmes wird die Klasse \textit{resizeDB} erzeugt, welche wiederum über die Klasse \textit{dbData} die Datei \textit{Konfiguration.conf} und somit die Datenbankzugangsdaten einliest. \\
-Anschließend fragt \textit{resizeDB} von \textit{dbData} die Zugangsdaten zur Datenbank ab und mit Hilfe dieser Daten wird nun eine Verbindung zum MySQL-Server aufgebaut.\\
+Dieses Sequenzdiagramm beschreibt den Ablauf des Programmes \textit{StartResizeDB} auf dem virtuellem Server. Direkt nach dem Aufruf des Programmes wird die Klasse \textit{resizeDB} erzeugt, welche wiederum über die Klasse \textit{dbData} die Datei \textit{Konfiguration.conf} und somit die Datenbankzugangsdaten einliest.
+Mit Hilfe dieser Daten wird nun eine Verbindung zur Datenbank auf dem MySQL-Server aufgebaut.\\
 Nachfolgend wird von \textit{resizeDB} für jede Tabelle die aktuelle Anzahl an Datensätzen abgefragt, sollten mehr Einträge als vorgesehen in der Tabelle liegen, werden sie anschließend über ein weiteres MySQL-Statement aus der Datenbank gelöscht.
 \textit{resizeDB} gibt nun über die Klasse \textit{logData} in einen Logeintrag in der Datei \textit{log.txt} an, wie viele Datensätze gelöscht wurden.
 Falls der Datenbankzugriff fehlschlägt gibt \textit{resizeDB} über seinen Rückgabewert an, dass Fehler aufgetreten sind.
@@ -1172,25 +1172,62 @@ Falls der Datenbankzugriff fehlschlägt gibt \textit{resizeDB} über seinen Rüc
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale = 0.75]{resizeDB}
-\caption[Klassendiagramm des virtuellen Servers]{Klassendiagramm des virtuellen Servers}
+\includegraphics[scale = 0.75]{StartResizeDB}
+\caption[Klassendiagramm des Programmes StartResizeDB auf dem vServer]{Klassendiagramm des Programmes StartResizeDB auf dem vServer}
 \label{resizeDB}
 \end{figure}
 
+
+Klasse \textit{StartResizeDB}:\\
+\textit{StartResizeDB} stellt ein eigenständiges Programm dar, welches die Fahrzeugdaten-Tabellen der MySQL-Datenbank auf die Anzahl ihrer Einträge überprüft, bei Überschreiten einer vordefinierten Anzahl an Einträgen (regulär 36000, wird aus der Datei \textit{Konfiguration.conf} geladen) werden die überflüssigen ältesten Einträge automatisch gelöscht.\\
+Dieses Programm wird im Produktiveinsatz periodisch mittels eines vorher definierten \textit{Cronjobs} (also eine periodisch ausgeführte Aufgabe zur Pflege der Daten) aufgerufen und ist unabhängig von den anderen auf dem virtuellen Server laufenden Programmen.
+Es ruft die Funktion \textit{resDB()} der Klasse \textit{resizeDB} auf, wodurch die Datenbank bereinigt wird.
+Sollte bei der Datenbankverbindung ein Zugriffsfehler auftreten wird über die Klasse \textit{logData} eine Fehlermeldung in die Loggingdatei \textit{log.txt} geschrieben.\\
+
+\newpage
+
 Klasse \textit{resizeDB}:\\
-\textit{resizeDB} stellt ein eigenständiges Programm dar, welches die Fahrzeugdaten-Tabellen der MySQL-Datenbank auf die Anzahl ihrer Einträge überprüft, bei Überschreiten einer vordefinierten Anzahl an Einträgen (regulär 36000) werden die überflüssigen ältesten Einträge automatisch gelöscht.\\
-Dieses Programm wird im Produktiveinsatz periodisch mittels eines vorher definierten \textit{Cronjobs} (also eine periodisch ausgeführte Aufgabe zur Pflege der Daten) aufgerufen und ist unabhängig von den anderen auf dem virtuellen Server laufenden Programmen.\\
-Beim Start werden über die Klasse \textit{dbData} die Zugangsdaten für den MySQL-Server abgerufen und anschließend eine Verbindung zur Datenbank mittels des \textit{MySQL Connector/C++} aufgebaut.
-War der Verbindungsaufbau erfolgreich, werden die entsprechenden Tabellen mit den Fahrzeugdaten nacheinander überprüft, dazu wird die aktuelle Anzahl an Datensätzen in der Tabelle über ein MySQL-Statement ermittelt und mit der Norm verglichen.
+\textit{resizeDB} wird von der Klasse \textit{StartResizeDB} aufgerufen.
+Über die Klasse \textit{dbData} werden die Zugangsdaten für den MySQL-Server abgerufen und anschließend eine Verbindung zur Datenbank mittels des \textit{MySQL Connector/C++} aufgebaut.
+War der Verbindungsaufbau erfolgreich, werden die entsprechenden Tabellen mit den Fahrzeugdaten nacheinander überprüft, dazu wird die aktuelle Anzahl an Datensätzen in der Tabelle über ein MySQL-Statement ermittelt und mit der Norm (ebenfalls ein Parameter von \textit{dbData}) verglichen.
 Sollten mehr Einträge als vorgesehen in einer Tabelle vorhanden sein, wird diese mit einem weiterem MySQL-Statement nach ihrem Zeitstempel sortiert und die ältesten Einträge werden entfernt.
 Die Anzahl der gelöschten Einträge richtet sich hierbei nach der Differenz der Anzahl der aktuellen Einträge und dem Referenzwert.\\
-Da dieses Programm auch manuell von der Kommandozeile ausführbar sein soll, etwa um zu Überprüfen ob die Verbindung mit der MySQL-Datenbank erfolgreich ist, erfolgen Ausgaben über den aktuellen Bearbeitungsstand des Programmes.\\
+Dieses Programm ist auch von der Kommandozeile manuell ausführbar, etwa um zu Überprüfen ob die Verbindung mit der MySQL-Datenbank erfolgreich hergestellt wird.
+Die Ausgaben über den aktuellen Bearbeitungsstand des Programmes erfolgen via \textit{dbData} in die Logdatei \textit{Konfiguration.conf}.\\
 \\
-Klasse \textit{dbData}:\\
-Die Klasse \textit{dbData} wird verwendet um die Zugangsdaten für die MySQL-Datenbank aus einer einfachen Textdatei (siehe \textit{dbconfig.txt}) auszulesen.\\
-Um die Werte zu speichern werden die \textit{String}-Variablen \textit{host}, \textit{user}, \textit{pw} und \textit{db} angelegt. Der Konstruktor öffnet bei der Erzeugung eines Objektes dieser Klasse die Datei \textit{dbconfig.txt} aus dem  gleichem Verzeichnis und schreibt die Werte der einzelnen Zeilen in die zugehörigen Variablen.
-Der Zugriff erfolgt mithilfe der vier Memberfunktionen \textit{getHost()}, \textit{getUser()}, \textit{getPW()} und \textit{getDB()}, welche als Rückgabewert den entsprechenden \textit{String} liefern.
 
+Klasse \textit{dbData}:\\
+Die Klasse \textit{dbData} wird verwendet um die Zugangsdaten für die MySQL-Datenbank und weitere Programmparameter aus einer Konfigurationsdatei (siehe \textit{Konfiguration.conf}) auszulesen.
+Um die Werte zu speichern werden für jeden Parameter entsprechende Variablen angelegt.
+Der Konstruktor öffnet bei der Erzeugung eines Objektes dieser Klasse die Datei \textit{Konfiguration.conf} aus dem  gleichem Verzeichnis und durchsucht alle Zeilen nach vordefinierten Schlüsselwörtern.
+Wird ein Schlüsselwort gefunden, wird die entsprechende Variable mit dem Inhalt der nächsten Zeile (ggf. in einem anderen Datentyp konvertiert) belegt.
+Sollte das Programm eine Zeile nicht deuten können, wird über die Klasse \textit{logData} in der Logdatei ein entsprechender Eintrag angelegt.
+Des weiteren stellt diese Klasse Get-Memberfunktionen zum Abrufen der einzelnen Parameter bereit.\\
+\\
+
+Konfigurationsdatei \textit{Konfiguration.conf}:\\
+Diese Datei bietet die Möglichkeit, Programmparameter nach der Kompilierung des Programms und ggf. auch während der Laufzeit zu verändern.
+Dazu wird sie von der Klasse \textit{dbData} ausgelesen. Da diese Datei auch das Datenbankzugangspasswort enthält ist darauf zu achten, dass sie nur für autorisierte Benutzer einsehbar ist.\\
+\\
+
+Klasse \textit{logData}:\\
+Die Klasse \textit{logData} stellt für andere Klassen eine gemeinsame Loggingfunktion in die Datei \textit{log.txt} zur Verfügung.
+Rudimentär ist ebenfalls eine Loglevelfunktionalität enthalten.
+Wird die Funktion ohne Loglevelangabe aufgerufen, wird hierfür automatisch das Loglevel sechs festgelegt.
+Nur Mitteilungen mit einem Loglevel das größer ist als der vordefinierte Schwellwert drei werden in die Logdatei geschrieben.
+Dazu wird die Datei \textit{log.txt} geöffnet und die erhaltene \textit{String}-Nachricht, mit einem Zeitstempel versehen, hineingeschrieben. Sollte die Datei noch nicht existieren wird sie automatisch erstellt.\\
+\\
+
+Logdatei \textit{log.txt}:\\
+In der Datei textit{log.txt} werden Ausgaben der Klassen \textit{dbData}, \textit{resizeDB}, \textit{StartResizeDB} und \textit{DBPacketInsert} durch die Klasse \textit{logData} gespeichert.
+Diese Datei ist für den korrekten Ablauf des Programms nicht notwendig.\\
+\\
+
+ 
+ 
+
+
+ 
 
 \newpage
 
