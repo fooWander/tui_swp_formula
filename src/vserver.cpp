@@ -21,10 +21,11 @@
 //#include "common.h"
 //#include "vserver.h"
 
-#include "Location.h"
-#include "Data.h"
-#include "Encoding.h"
-#include "PracticalSocket.h"
+#include "classes/Location.h"
+#include "classes/Data.h"
+#include "classes/Encoding.h"
+#include "classes/PracticalSocket.h"
+#include "classes/DBPacketInsert.h"
 #include "common.h"
 #include <string>
 #include <stdio.h>
@@ -32,6 +33,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "unistd.h"
+//#include "DBPacketInsert.h"
 
 //extern char VEC_LAYOUT[];
 //#include "cstring.h"
@@ -167,12 +169,14 @@ int main(int argc, char const *argv[])
             for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
             {
                 //Data dat = dec.getNextData();
-                DBPacketInsert insertion(dec);
-                insertion.db_insert();
-                std::cout << &dat << std::endl;
+                //DBPacketInsert insertion(dec);
+                //insertion.db_insert();
+                //std::cout << &dat << std::endl;
+                /*
                 std::cout << "Wert: " << dat.getValue() << std::endl;
                 std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
                 std::cout << "Position: " << dat.getPosition() << std::endl;
+                */
             }
             usleep(250000);
             //sendData(dec);

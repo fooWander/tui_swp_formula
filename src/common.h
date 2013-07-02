@@ -45,8 +45,8 @@
 /**
  *	Inhalte bestimmter Pakete.
  */
-#define MSG_READY_1	{96}
-#define MSG_READY_2 {97}
+//#define MSG_READY_1	{96}
+//#define MSG_READY_2 {97}
 
 
 

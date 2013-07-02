@@ -17,10 +17,10 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "Location.h"
-#include "Data.h"
-#include "Encoding.h"
-#include "PracticalSocket.h"
+#include "classes/Location.h"
+#include "classes/Data.h"
+#include "classes/Encoding.h"
+#include "classes/PracticalSocket.h"
 #include "common.h"
 #include <string>
 #include <stdio.h>

@@ -18,7 +18,7 @@
 #
 
 CXX = g++
-CXXFLAGS = -Wall -ansi -pedantic -g -Wno-long-long -Wno-sign-compare
+CXXFLAGS = -Wall -ansi -pedantic -g -Wno-long-long -Wno-sign-compare 
 
 ifeq ($(shell uname),SunOS)
   LIBS = -lsocket -lnsl
@@ -27,10 +27,10 @@ endif
 all: TCPEchoClient TCPEchoServer UDPEchoClient UDPEchoServer TCPEchoServer-Thread \
 BroadcastSender BroadcastReceiver MulticastSender MulticastReceiver
 
-embpc: embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
-	$(CXX) $(CXXFLAGS) -o embpc embpc.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
-vserver: vserver.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
-	$(CXX) $(CXXFLAGS) -o vserver vserver.cpp PracticalSocket.cpp PracticalSocket.h Encoding.cpp Encoding.h Data.cpp Data.h Location.cpp Location.h
+embpc: embpc.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h ./classes/Location.cpp ./classes/Location.h
+	$(CXX) $(CXXFLAGS) -o ../bin/embpc embpc.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h ./classes/Location.cpp ./classes/Location.h
+vserver: vserver.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h ./classes/Location.cpp ./classes/Location.h ./classes/Insert.cpp ./classes/DBPacketInsert.cpp ./classes/DatatypeDaemon.cpp
+	$(CXX) $(CXXFLAGS) -I/usr/include/cppconn -o ../bin/vserver vserver.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h ./classes/Location.cpp ./classes/Location.h  ./classes/Insert.cpp ./classes/DBPacketInsert.cpp ./classes/DatatypeDaemon.cpp -lmysqlcppconn
 
 clean:
 	$(RM) TCPEchoClient TCPEchoServer UDPEchoClient UDPEchoServer TCPEchoServer-Thread \
