@@ -250,7 +250,7 @@ Falls jedoch die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paket
 
 \subsection{Konfiguration der Matlabfiles \textit{signalgenerator\_microautobox.m} und \textit{config\_datenpaket.m}}
 
-Die Konfiguration der beiden Configdateien in MATLAB ist entsprechend des Entwurfsdokumentes vorzunehmen, in dem dies ausführlich beschrieben wurde (s. Entwurfsdokument Punkt 2.1.2). Nachdem dies geschehen ist, müssen die Parameter der beiden Dateien noch vor dem Implementieren des Simulink-Modells auf der MicroAutoBox II in den Workspace von MATLAB geladen werden. Hierzu wechselt man in das Verzeichnis, in welchem die sich die Configfiles befinden (s. Abb. \ref{configfilespfad}). In diesem Fall wäre es der Pfad \\ \textit{C:\textbackslash Users \textbackslash Sebastian Zehnter \textbackslash Documents \textbackslash Beispiel}
+Die Konfiguration der beiden Configdateien in MATLAB ist entsprechend des Entwurfsdokumentes vorzunehmen, in dem dies ausführlich beschrieben wurde (s. Entwurfsdokument Punkt 2.1.2). Nachdem dies geschehen ist, müssen die Parameter der beiden Dateien noch vor dem Implementieren des Simulink-Modells auf der MicroAutoBox II in den Workspace von MATLAB geladen werden. Hierzu wechselt man in das Verzeichnis, in welchem sich die Configfiles befinden (s. Abb. \ref{configfilespfad}). In diesem Fall wäre es der Pfad \\ \textit{C:\textbackslash Users \textbackslash Sebastian Zehnter \textbackslash Documents \textbackslash Beispiel}
 
 \begin{figure}[h]
 \centering
@@ -286,11 +286,15 @@ Abhängig von den weiteren Absichten des Benutzers werden im Folgenden nun für 
 
 \subsection{Testen des Simulink-Modells durch den Signalgenerator}
 
-Mittels des Simulink-Subsystems des Signalgenerators können dem Simulink-Modell beliebige, virtuell simulierte Werte zur Verfügung gestellt werden. Vor allem zur Validierung des Systems ist dies sehr sinnvoll, da es nicht nötig ist, die MicroAutoBox II in das Fahrzeug einzubauen bzw. Peripherie(Sensoren etc.) daran anzuschließen. Auch trägt dieser Simulink-Block stark zur Erweiterbarkeit und Wartbarkeit des Modells bei.  
+Mittels des Simulink-Subsystems des Signalgenerators können dem Simulink-Modell beliebige, virtuell simulierte Werte zur Verfügung gestellt werden. Vor allem zur Validierung des Systems ist dies sehr sinnvoll, da es nicht nötig ist, die MicroAutoBox II in das Fahrzeug einzubauen bzw. Peripherie (Sensoren etc.) daran anzuschließen. Auch trägt dieser Simulink-Block stark zur Erweiterbarkeit und Wartbarkeit des Modells bei.  
 
 \subsubsection{Modifizieren der Simulationswerte}
 
-Um die vorhandenen Simulationswerte zu verändern gibt es zwei Möglichkeiten. Als erste Option steht eine direkte Änderung der Werte  der Parameter in den jeweiligen Source-Blöcken zur Verfügung. Die Anordnung der Blöcke ist im Implementierungsdokument genau erläutert und richtet sich nach den Vorgaben des Lastenheftes. Die zweite Möglichkeit wäre die gewünschten Werte im *.m-File signalgenerator\_microautobox.m über die dazugehörigen Parameter zu verändern. Der Aufbau und Funktion dieses Files wurden hinreichend im Implementierungsdokument sowie im vorherigen Abschnitt beschrieben.
+Um die vorhandenen Simulationswerte zu verändern gibt es zwei Möglichkeiten. 
+Als erste Option steht eine direkte Änderung der Werte  der Parameter in den jeweiligen Source-Blöcken zur Verfügung. 
+Die Anordnung der Blöcke ist im Entwurfsdokument genau erläutert. 
+Die zweite Möglichkeit wäre die gewünschten Werte im \textit{*.m}-File \textit{signalgenerator\_microautobox.m} über die dazugehörigen Parameter zu verändern. 
+Der Aufbau und Funktion dieses Files wurden hinreichend im Entwurfsdokument sowie im vorherigen Abschnitt beschrieben.
 
 
 \subsubsection{Veränderungen am Modell} 
@@ -300,7 +304,12 @@ Bei Veränderungen des Simulink-Modells, um z.B. neue Sensorwerte aufzunehmen od
 
 \subsubsection{Anschließen des Signalgenerator-Blockes an das Modell}
 
-Falls sich im restlichen Modell keine Änderungen ergeben haben, stellt das erneute Anschließen des Signalgenerators kein großes Problem dar. Dieser muss einfach über eine Leitung mit dem Signalkollektor verbunden werden.  Liegen jedoch Veränderungen vor, müssen diese, wie gerade erwähnt, komplett im Modell beachtet und bearbeitet werden. Dabei ist es wichtig, dass die Reihenfolge der Signale im Busarray analog zum Pflichtenheft erhalten bleibt (s. 2.1.4). Dabei spielt die Reihenfolge, in welche die Signale über einen Bus-Creator gebündelt bzw. über einen Bus-Selector aufgespalten werden eine große Rolle. Die Signalreihenfolge kann innerhalb dieser Blöcke eingesehen und bearbeitet werden. 
+Falls sich im restlichen Modell keine Änderungen ergeben haben, stellt das erneute Anschließen des Signalgenerators kein großes Problem dar. 
+Dieser muss einfach über eine Leitung mit dem Signalkollektor verbunden werden.  
+Liegen jedoch Veränderungen vor, müssen diese, wie gerade erwähnt, komplett im Modell beachtet und bearbeitet werden. 
+Dabei ist es wichtig, dass die Reihenfolge der Signale im Busarray analog zum Pflichtenheft erhalten bleibt (s. 2.1.4). 
+Dabei spielt die Reihenfolge, in welcher die Signale über einen Bus-Creator gebündelt bzw. über einen Bus-Selector aufgespalten werden eine große Rolle. 
+Die Signalreihenfolge kann innerhalb dieser Blöcke eingesehen und bearbeitet werden. 
 
 
 \subsubsection{Verwenden des Signalgenerator-Blockes zu Testzwecken}
@@ -570,7 +579,7 @@ Für Sie sind lediglich sechs Zeilen wichtig:
 
 \item \textit{\$dbname\_ud}: Sollten Sie vom Provider bereits eine Datenbank erhalten haben, so fügen Sie hier den Namen der Datenbank ein. Wenn Sie vollen Zugriff auf den Datenbankserver haben und selber Datenbanken anlegen können, so steht Ihnen die Wahl frei, wie Sie die Datenbank der Nutzerdaten bezeichnen möchten.
 
-\textbf{Anmerkung:} Beide Datenbanknamen können identisch sein, z.B. wenn Sie von Ihrem Provider nur eine erhalten haben sollten. 
+\textbf{Anmerkung:} Beide Datenbanknamen können identisch sein, z.B. wenn Sie von Ihrem Provider nur eine Datenbank erhalten haben sollten. 
 
 \item \textit{\$mail}: Hier tragen Sie bitte die E-Mail-Adresse des Vorstandes ein. Alle eingehenden Registrierungsanfragen werden an diese E-Mail-Adresse weitergeleitet. Diese kann auch nach der Installtion noch angepasst werden. Alle anderen Werte müssen ab dem Beenden der Installation unverändert bleiben um die volle Funktionsfähigkeit gewährleisten zu können.
 
@@ -581,7 +590,10 @@ Für Sie sind lediglich sechs Zeilen wichtig:
 
 \textit{Webseite - Installation} \\
 
-Nachdem die Konfiguration erfolgreich durchgeführt wurde, führen Sie auf dem Server die Datei \textit{install.php} im Hauptverzeichnis aus und füllen das entsprechende Formular aus und schicken dieses ab. Anschließend werden alle nötigen Datenbanken und Tabellen erzeugt, sowie die Nutzergruppen und der Vorstandsaccount eingerichtet.
+Nachdem die Konfiguration erfolgreich durchgeführt wurde, öffnen Sie die Webseite in einem Browser und geben manuell den Pfad \textit{,,install.php"} zusätzlich zur Adresse der Webseite in die Suchleiste ein.\\
+Pfadbeispiel: \textit{team-starcraft.de/swp\_formula\_student/install.php} - dabei ist \textit{swp\_formula\_student} das Hauptverzeichnis der Webseite. \\
+ Danach füllen Sie das entsprechende Formular aus und schicken dieses ab. 
+ Anschließend werden alle nötigen Datenbanken und Tabellen erzeugt, sowie die Nutzergruppen und der Vorstandsaccount eingerichtet.
 
 \begin{figure}[h]
 \centering
@@ -604,7 +616,10 @@ Die Installation ist nun vollständig. Bitte löschen Sie die \textit{install.ph
 
 \section{Startseite / Verwaltung}
 
-Über die Startseite loggen Sie sich mit den Zugangsdaten mit denen Sie sich registriert haben an. Ob Ihr Account bereits freigeschaltet wurde, erfahren Sie vom Vorstand. Nach dem Einloggen werden hier allgemeine Informationen dargestellt, wie z.B. eine Liste der sich zur Zeit online befindlichen Nutzer und eine Exportfunktion zum Extrahieren der Fahrzeugdaten aus der Datenbank. Als Vorstand erhalten Sie zudem noch eine Liste sämtlicher registrierter Nutzer und eine Möglichkeit Nutzer freizuschalten bzw. zu löschen und Rechtegruppen zu vergeben oder zu ändern. \\
+Über die Startseite loggen Sie sich mit den Zugangsdaten mit denen Sie sich registriert haben ein. 
+Ob Ihr Account bereits freigeschaltet wurde, erfahren Sie vom Vorstand. 
+Nach dem Einloggen werden hier allgemeine Informationen dargestellt, wie z.B. eine Liste der sich zur Zeit online befindlichen Nutzer und eine Exportfunktion zum Extrahieren der Fahrzeugdaten aus der Datenbank. 
+Als Vorstand erhalten Sie zudem noch eine Liste sämtlicher registrierter Nutzer und eine Möglichkeit Nutzer freizuschalten bzw. zu löschen und Rechtegruppen zu vergeben oder zu ändern. \\
 
 \textbf{Anmerkung:} Bitte verwenden Sie für die Registrierung im Service Interface entweder Ihre E-Mail-Adresse vom Team Starcraft, eine TU Ilmenau E-Mail-Adresse oder eine 1und1-Adresse um möglichen Problemen aus dem Weg zu gehen.
 
