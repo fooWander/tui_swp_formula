@@ -8,7 +8,7 @@ using namespace std;
       //Logdatei oeffnen und Nachricht schreiben:
       ofstream log("log.txt", ios::out|ios::app);
       if (log.is_open()){
-        log << ctime(&now) << "  "  << msg << " (Loglevel: " << loglevel << ")" << endl;
+        log << ctime(&now) << "  "  << msg << " (Loglevel: " << loglevel << ")\n" << endl;
       }
       log.close();
     }
