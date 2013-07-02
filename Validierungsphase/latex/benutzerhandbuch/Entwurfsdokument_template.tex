@@ -429,10 +429,12 @@ Anschließend kann der aktuelle Quellcode bezogen werden:\\
   bzr branch lp:~mysql/mysql-connector-cpp/trunk ./mysql-connector-cpp \\
 
 In das soeben Verzeichnis wechseln und die Makefile erstellen:\\
+%1337 bitte Nachfolgendes als Konsolentext markieren:
   cd mysql-connector-cpp \\
   cmake . \\
 
 Erstellung der Bibliotheken und Installation der Header-Dateien: \\
+%1337 bitte Nachfolgendes als Konsolentext markieren:
   make clean \\
   make \\
   make install \\
@@ -440,6 +442,39 @@ Erstellung der Bibliotheken und Installation der Header-Dateien: \\
 Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation:
 
  http://dev.mysql.com/doc/refman/5.1/en/connector-cpp-installation-source-unix.html
+ 
+ \subsection{Installation des auf dem vServer laufenden Programms}
+ 
+ %Text hier: (Absprache mit Team C++ nötig)
+ 
+ \subsection{Einstellungen über die Konfigurationsdatei}
+ %Achtung, noch nicht final?
+Die Konfigurationsdatei \textit{Konfiguration.conf} befindet sich im Installationsverzeichnis. Sie wird von dem Programm während der Laufzeit ausgewertet, damit können Programmparameter geändert werden, ohne das Programm neu kompilieren zu müssen.\\
+In dieser Konfigurationsdatei werden die Zugangsdaten für die Datenbank, die Anzahl der in der Datenbank zu haltenden Datensätze sowie interne Parameter des Programms (IP-Adressen, Portnummern) festgesetzt.
+Sollten Änderungen an diesen Parametern (beispielsweise bei der Anzahl) nötig sein, ist darauf zu achten, dass der Syntax der Datei erhalten bleibt und die Änderungen sowohl auf dem vServer als auch auf dem Embedded-PC eingepflegt werden.
+Der jeweilige Parameter wird aus der auf die Beschreibung bzw. Nennung des Parameters folgenden Zeile ausgelesen. 
+Diese darf nicht leer sein, auf Leerzeichen und zusätzliche Zeilenumbrüche sollte verzichtet werden.
+Alle Zeilen, die mit einem Doppelkreuz (\#) beginnen, dürfen nicht verändert werden, da sonst das Programm die Parameter nicht mehr erkennt.
+
+Beispielhafter Ausschnitt aus der Konfigurationsdatei:\\
+%1337 bitte Nachfolgendes als Konsolentext markieren (und zwar alles):
+
+    \#Hostadresse der Datenbank\\
+    localhost\\
+
+    \#Name des Datenbankbenutzers\\
+    telemetrie\\
+
+    \#Passwort des Datenbankbenutzers\\
+    fakePW\\
+
+    \#Datenbankname\\
+    telemetrie\\
+
+\textit{Wichige Anmerkungen:}\\
+Stellen Sie sicher das alle Parameter korrekt gesetzt sind! Ansonsten kann ein störungsfreier Betrieb des Programms nicht gewährleistet werden!\\
+Des weiteren ist darauf zu achten, das nur befugte Personen diese Datei einsehen können, da sie das Zugangspasswort zur Datenbank enthält!\\
+Bei Fehler kann gegebenenfalls die Logdatei (log.txt im Installationsverzeichnis) nach Informationen durchsucht werden.
 
 
 %-------------------------------------------------------------------%

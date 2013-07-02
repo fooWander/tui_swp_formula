@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  2 JUL 2013 22:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  2 JUL 2013 22:24
 entering extended mode
 **Entwurfsdokument_template.tex
 
@@ -873,95 +873,120 @@ Underfull \hbox (badness 10000) in paragraph at lines 427--430
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--434
+Underfull \hbox (badness 10000) in paragraph at lines 431--435
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--439
+Underfull \hbox (badness 10000) in paragraph at lines 436--441
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 480--481
+Underfull \hbox (badness 10000) in paragraph at lines 459--461
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--483
+Underfull \hbox (badness 10000) in paragraph at lines 462--464
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
+Underfull \hbox (badness 10000) in paragraph at lines 465--467
 
  []
 
-<website_config.png, id=61, 925.95938pt x 460.72125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 468--470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--473
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
+
+ []
+
+<website_config.png, id=65, 925.95938pt x 460.72125pt>
 File: website_config.png Graphic file (type png)
 
 <use website_config.png>
-Package pdftex.def Info: website_config.png used on input line 488.
+Package pdftex.def Info: website_config.png used on input line 523.
 (pdftex.def)             Requested size: 462.97856pt x 230.36006pt.
 
-Overfull \hbox (7.73439pt too wide) in paragraph at lines 488--489
+Overfull \hbox (7.73439pt too wide) in paragraph at lines 523--524
  [][] 
  []
 
-[13 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
-enutzerhandbuch/website_config.png>] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
+[14 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
+enutzerhandbuch/website_config.png>] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
 
  []
 
-<install.png, id=70, 764.8575pt x 400.49625pt>
+<install.png, id=73, 764.8575pt x 400.49625pt>
 File: install.png Graphic file (type png)
  <use install.png>
-Package pdftex.def Info: install.png used on input line 527.
+Package pdftex.def Info: install.png used on input line 562.
 (pdftex.def)             Requested size: 382.42781pt x 200.24763pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--534
+Underfull \hbox (badness 10000) in paragraph at lines 568--569
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 533--534
+Underfull \hbox (badness 10000) in paragraph at lines 568--569
 
  []
 
-[15 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
+[16 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
 enutzerhandbuch/install.png>]
 Kapitel 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 546--547
+Underfull \hbox (badness 10000) in paragraph at lines 581--582
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 552--554
+Underfull \hbox (badness 10000) in paragraph at lines 587--589
 
  []
 
-[16
+[17
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 569--570
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
 
  []
 
-[17]
-Package tocbasic Info: character protrusion at lof deactivated on input line 57
-6.
+[18]
+Package tocbasic Info: character protrusion at lof deactivated on input line 61
+1.
 
 (C:\Users\Zehner\Documents\GitHub\tui_swp_formula\Validierungsphase\latex\benut
 zerhandbuch\Entwurfsdokument_template.lof)
 \tf@lof=\write4
- [18
+ [19
 
 ]
 (C:\Users\Zehner\Documents\GitHub\tui_swp_formula\Validierungsphase\latex\benut
@@ -971,11 +996,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 8308 strings out of 493921
- 124212 string characters out of 3152893
+ 8314 strings out of 493921
+ 124256 string characters out of 3152893
  257502 words of memory out of 3000000
  11325 multiletter control sequences out of 15000+200000
- 17756 words of font info for 112 fonts, out of 3000000 for 9000
+ 17963 words of font info for 115 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  40i,10n,46p,975b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MiKTeX 2.9/fonts
@@ -987,9 +1012,9 @@ ic/amsfonts/cm/cmr17.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
 type1/public/amsfonts/cm/cmssbx10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Entwurfsdokument_template.pdf (18 pages, 431790 bytes).
+Output written on Entwurfsdokument_template.pdf (19 pages, 435200 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
+ 126 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  15396 words of extra memory for PDF output out of 17280 (max. 10000000)
 
