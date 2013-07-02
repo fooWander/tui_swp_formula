@@ -168,7 +168,7 @@
 		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
 		Tobias Zehner \\ Sebastian Zehnter}
 		
-\date{Hier Datum einfügen}	 
+\date{3.7.2013}	 
 	  
 \publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
 
@@ -240,7 +240,7 @@ Falls diese Dateien alle zur Verfügung stehen sollten, ist in einem ersten Schr
 
 \subsection{Konfiguration der Ethernet-Schnittstelle}
 
-Daraufhin ist bei der weiteren Vorgehensweise anschließend die Konfiguration der Ethernet-Schnittstelle vorzunehmen. Hierzu öffnet man durch einen Doppelklick den in Abb. \ref{topmodell} zu sehenden Block \textit{"`Ethernet UDP Setup"} ein Fenster, in welchem nun die Möglichkeit besteht, zwischen den beiden Reitern \textit{"`Unit"} und \textit{"`Options"} zu navigieren (Verweis dSPACE Doku) und dort bei den jeweiligen Einstellungen Modifikationen vorzunehmen. Im Folgenden werden obligatorische Änderungen durch ein (*) am jeweiligen Parameter gekennzeichnet. \\
+Daraufhin ist bei der weiteren Vorgehensweise anschließend die Konfiguration der Ethernet-Schnittstelle vorzunehmen. Hierzu öffnet man durch einen Doppelklick den in Abb. \ref{topmodell} zu sehenden Block \textit{"`Ethernet UDP Setup"} ein Fenster, in welchem nun die Möglichkeit besteht, zwischen den beiden Reitern \textit{"`Unit"} und \textit{"`Options"} zu navigieren (siehe dSPACE Dokumentation) und dort bei den jeweiligen Einstellungen Modifikationen vorzunehmen. Im Folgenden werden obligatorische Änderungen durch ein (*) am jeweiligen Parameter gekennzeichnet. \\
 
 \textbf{Reiter "`Unit"} 
 
@@ -285,10 +285,10 @@ Nachdem alle obligatorischen Änderungen vorgenommen wurden, muss in einem näch
 
 \end{itemize}
 
-Nach dem Öffnen der Einstellungen der beiden Blöcke muss bei dem Parameter "`Maximum Message Size"\ der gleiche Wert eingetragen werden, der auch am Port "`Message Size"\ am jeweiligen Block anliegt. Ist die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paketinformationen bekannt, so kann die Größe der "`Maximum Message Size"\ auf folgende Weise ermittelt werden: \\
+Nach dem Öffnen der Einstellungen der beiden Blöcke muss bei dem Parameter \textit{"`Maximum Message Size"\ }der gleiche Wert eingetragen werden, der auch am Port \textit{"`Message Size"\ }am jeweiligen Block anliegt. Ist die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paketinformationen bekannt, so kann die Größe der \textit{"`Maximum Message Size"\ }auf folgende Weise ermittelt werden: \\
 
 
-Da die Werte der Fahrzeugdaten nur den Datentyp \textit{int16}  aufweisen und die Paketdaten nur die Datentypen \textit{int16}  und \textit{uint8} besitzen, muss bei den Fahrzeugdaten die  Signalbreite nur mit 2 Byte multipliziert werden, um den gesuchten Wert korrekt zu ermitteln. (s. das Subsysteme MSGSIZE\_DATEN). Im Falle der Paketdaten kann diese durch den Vektor im Feld \textit{Datatype} im \textit{Encode32} - Block berechnet werden (s. hierzu Seite 8 und die Kodierung der Datentypen im *.m - File config\_datenpaket.m). \\  
+Da die Werte der Fahrzeugdaten nur den Datentyp \textit{int16}  aufweisen und die Paketdaten nur die Datentypen \textit{int16}  und \textit{uint8} besitzen, muss bei den Fahrzeugdaten die  Signalbreite nur mit 2 Byte multipliziert werden, um den gesuchten Wert korrekt zu ermitteln. (s. das Subsysteme MSGSIZE\_DATEN). Im Falle der Paketdaten kann diese durch den Vektor im Feld \textit{Datatype} im \textit{Encode32} - Block berechnet werden (s. hierzu Seite 8 und die Kodierung der Datentypen im \textit{*.m} - File \textit{config\_datenpaket.m}). \\  
 
 \textbf{Anmerkung}: Für weiterführende Informationen und Hinweise empfiehlt es sich, die Dokumentation der Firma dSPACE bzgl. des RTI Ethernet (UDP) Blocksets aufmerksam zu studieren. \\
 
