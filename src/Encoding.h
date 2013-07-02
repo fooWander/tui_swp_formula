@@ -27,20 +27,23 @@
 #include <iostream>
 #include <time.h>
 #include <unistd.h>
+#include "common.h"
 
 //extern const int PACKAGESIZE_MAX;
 
-extern char VEC_COMMA[100];
+extern char VEC_COMMA[401];
 extern int VEC_COMMA_SIZE;
-extern char VEC_DATATYPES[100];
+extern char VEC_DATATYPES[401];
 extern int VEC_DATATYPES_SIZE;
-extern char VEC_LAYOUT[10];
+extern char VEC_LAYOUT[100];
 extern int VEC_LAYOUT_SIZE;
  
 extern int PACKAGE_COUNTER;
-extern unsigned int TIME_THRESHOLD; //###
+extern int64_t TIME_THRESHOLD; //###
 extern int64_t LOCAL_TIMESTAMP;
 
+
+unsigned short joinUnsigShort(unsigned char a,unsigned char b);
 /**
  *  Service, der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt
  *  und komprimiert. Die Komprimierung ist noch nicht implementiert.
@@ -63,8 +66,8 @@ public:
      *  \param vecDatatypeslen Die Länge von @a vecDatatypes.
      */
 
-    Encoder(const char *buffer, const int bufferlen, const char *vecLayout, const int vecLayoutlen,
-            const char *vecDatatypes, const int vecDatatypeslen);
+    Encoder(const char *buffer, size_t bufferlen, const char *vecLayout, size_t vecLayoutlen,
+            const char *vecDatatypes, size_t vecDatatypeslen);
     //~Encoder();
     /**
      *  Holt ein Paket mit einer speziellen Paketnummer.
@@ -75,7 +78,7 @@ public:
      *  nicht vorhanden oder @a len zu klein.
      */
 
-    int getPackage(char * package, size_t len, unsigned short packageNumber);
+    int getPackage(char * package, int len, unsigned short packageNumber);
     
     /**
      *  Holt das jeweils nächste Paket. (1,2,...,n,1,2,...)
@@ -84,7 +87,7 @@ public:
      *  \return Die Länge des Pakets oder -1 falls @a len zu klein.
      */
 
-    int getNextPackage(char * package, size_t len);
+    int getNextPackage(char * package, int len);
     
     /**
      *  Gibt die Paketgröße eines speziellen Pakets zurück.
@@ -98,7 +101,7 @@ public:
      *  Gibt die Anzahl der Pakete zurück.
      *  \return Anzahl der Pakete.
      */
-    unsigned int getPackageSum();
+    int getPackageSum();
 
 private:
 
@@ -118,8 +121,8 @@ private:
      *  \param vecLayoutlen Länge von @a vecLayout.
      */
 
-    void splitData(const char * buffer, const int bufferlen,
-			const char * vecLayout, const int vecLayoutlen);
+    void splitData(const char * buffer, size_t bufferlen,
+			const char * vecLayout, size_t vecLayoutlen);
     
     /**
      *  Komprimiert ein Paket. (bisher noch nicht implementiert)
@@ -131,19 +134,19 @@ private:
      *  Speichert die geteilten Pakete und deren Header.
      */
 
-    char myPackages[1000];
+    char myPackages[PACKAGE_SIZE_MAX];
     
     /**
      *  Speichert die Postion der einzelnen Pakete in @a myPackages.
      */
 
-    unsigned short myPackagePos[1000];
+    short myPackagePos[1000];
     
     /**
      *  Speichert die Anzahl der Pakete.
      */
 
-    unsigned short myPackageSum;
+    short myPackageSum;
     
     /**
      *  Zeiger der für die Ermittlung der Paketpostion verwendet wird.
@@ -156,6 +159,8 @@ private:
      */
 
     int myPackageNum;
+
+    
     /*
     char myBuffer;
     int myBufferlen;
@@ -177,7 +182,7 @@ public:
      *  \param bufferlen Länge von @a buffer.
      */
 
-    Decoder(char *buffer, const int bufferlen);
+    Decoder(char *buffer, size_t bufferlen);
     
     /**
      *  Erzeugt einen Dekoder der ein Datenpaket anhand der übergebenen Informationen
@@ -194,8 +199,8 @@ public:
      *  \param vecCommalen Länge von @a vecComma. 
      */
 
-    Decoder(char *buffer, const int bufferlen, char *vecLayout, const int vecLayoutlen, 
-            char *vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen);
+    Decoder(char *buffer, size_t bufferlen, char *vecLayout, size_t vecLayoutlen, 
+            char *vecDatatypes, size_t vecDatatypeslen, char *vecComma, size_t vecCommalen);
     //~Decoder();
     
     /**
@@ -220,7 +225,13 @@ public:
      *  \param vecLayoutlen Länge von @a vecLayout.
      */
 
-    unsigned int getPackagePos(char * vecLayout, const int vecLayoutlen);
+    unsigned int getPackagePos(char * vecLayout, size_t vecLayoutlen);
+
+    /**
+     *  Gibt Auskunft über die Aktualität eines Pakets.
+     *  \return -1 falls veraltet, sonst aktuell.
+     */
+     int getTimestampStatus();
 
 private:
     unsigned int myDataLength;
@@ -228,6 +239,7 @@ private:
 	//unsigned int TIME_THRESHOLD=5;
     char * myPackage;
     unsigned int myPackagelen;
+    int myTimestampStatus;
 
     /*
         Number of currently processed package.

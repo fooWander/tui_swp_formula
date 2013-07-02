@@ -27,12 +27,13 @@ char VEC_COMMA[];
 int VEC_COMMA_SIZE;
 char VEC_DATATYPES[];
 int VEC_DATATYPES_SIZE;
-char VEC_LAYOUT[] = {0,0, 0,20, 0,25, 0,30, 0,100};
+char VEC_LAYOUT[] = {0,0, 20, 0, 25, 0, 30,0, 100,0};
 int VEC_LAYOUT_SIZE = 10;
 
 int PACKAGE_COUNTER = 80;
-unsigned int TIME_THRESHOLD=5000000;
+int64_t TIME_THRESHOLD=50000000000;
 int64_t LOCAL_TIMESTAMP;
+int HEADER_SIZE = 12;
 
 
 
@@ -72,89 +73,101 @@ int64_t getTimestamp()
 {
     int64_t result;
     struct timespec timestamp;
+    //int test;
+    //std::cout << "VLAL" << std::endl;
     clock_gettime(CLOCK_REALTIME, &timestamp);
+    //std::cout << "TIME: " << test << std::endl;
     result = TO_NANO_SEC(&timestamp);
     return result;
 }
 
 
-Encoder::Encoder(const char * buffer, const int bufferlen, const char * vecLayout, const int vecLayoutlen,
-                const char * vecDatatypes, const int vecDatatypeslen) 
+Encoder::Encoder(const char * buffer, size_t bufferlen, const char * vecLayout, size_t vecLayoutlen,
+                 const char * vecDatatypes, size_t vecDatatypeslen) 
     : myPackageSum(0), myPackagePointer(0), myPackageNum(1)
 {
-    myPackageSum = vecLayoutlen/2;
-    //myPackagePos[myPackageSum];
-    for (int i = 0; i < 100; ++i)
-    {
-        myPackagePos[i] = 0;
+    if (vecLayoutlen % sizeof(int16_t) != 0) {
+        /*
+            vecLayoutlen muss Vielfaches von 2 sein, da jeder Fahrzeugwert 2 Bytes groß ist.
+            Falls nicht: Exception werfen??
+        */
     }
-    //std::cout << "Spliting data..." << std::endl;
+    myPackageSum = vecLayoutlen/sizeof(int16_t);
+    std::cout << "SUMME_1 " << myPackageSum << std::endl;
+    for (int i = 0; i < sizeof(myPackagePos)/sizeof(int16_t); ++i) {
+        myPackagePos[i] = -1;
+    }
     splitData(buffer, bufferlen,vecLayout, vecLayoutlen);
-    //std::cout << "Data splitted..." << std::endl;
+    std::cout << "TEST" << std::endl;
     //compressData();
+    
 }
 
-unsigned int Encoder::getPackageSum()
+int Encoder::getPackageSum()
 {
+    std::cout << "getPackageSum called: " << myPackageSum << std::endl;
+    if (myPackageSum < 1) {
+            return -1;
+    }
     return myPackageSum;
 }
 
 
 
-unsigned int Encoder::getPackageSize(unsigned short packageNumber)
+int Encoder::getPackageSize(unsigned short packageNumber)
 {
-    if (packageNumber == 1)
-    {
-        return (myPackagePos[0] - 1);
+    if (packageNumber < 1) {
+        return -1;
     } else {
-        return ((myPackagePos[packageNumber - 1] - myPackagePos[packageNumber - 2]) - 1);
+        return ((myPackagePos[packageNumber] 
+                - myPackagePos[packageNumber - 1]) + HEADER_SIZE);
     }
 }
 
-int Encoder::getPackage(char * package, unsigned short packageNumber)
+int Encoder::getPackage(char * package, int len, unsigned short packageNumber)
 {
     std::cout << "packageNumber = " << packageNumber << std::endl;
-    std::cout << "==========myPackages===========" << std::endl;
-    for (int i = 0; i < 100; ++i)
-    {
-        std::cout << myPackages[i];
+    //std::cout << "==========myPackages===========" << std::endl;
+    for (int i = 0; i < 100; ++i) {
+        //std::cout << myPackages[i];
     }
-    std::cout << "==========/myPackages===========" << std::endl;
-    int len;
-    /*
-    if (packageNumber == 0)
-    {
-        len = myPackagePos[packageNumber+1] - 1;
-    } else {
-        len = myPackagePos[packageNumber+1] - myPackagePos[packageNumber-1];
-    }
-    */
-    len = myPackagePos[packageNumber+1] - myPackagePos[packageNumber];
-    std::cout << "len: " << len << std::endl;
+    //std::cout << "==========/myPackages===========" << std::endl;
+    
+    int dataSize;
+    
+    dataSize = myPackagePos[packageNumber+1] - myPackagePos[packageNumber];
+    //dataSize = getPackageSize(packageNumber);
+    std::cout << myPackagePos[packageNumber + 1] << std::endl;
+    std::cout << myPackagePos[packageNumber] << std::endl;
+    std::cout << "DATASIZE:" << dataSize << std::endl;
 
-    for (int i = 0; i < len; ++i)
+    if (dataSize > len) {
+        return -1;
+    }
+
+    for (int i = 0; i < dataSize; ++i)
     {
         package[i] = myPackages[myPackagePos[packageNumber] + i];
     }
-    return len;
+    return dataSize;
 }
 
-int Encoder::getNextPackage(char * package)
+int Encoder::getNextPackage(char * package, int len)
 {
     if (myPackageNum == myPackageSum) {
-        int len = getPackage(package,myPackageNum);
+        int myPackageNumTemp = myPackageNum;
         myPackageNum = 1;
-        return len;
+        return getPackage(package, len, myPackageNumTemp);
     }
-    return getPackage(package, myPackageNum++);
+    return getPackage(package, len, myPackageNum++);
 
 }
 
 void Encoder::createHeader()
 {
-    std::cout << "================Creating header ================" << std::endl;
+    //std::cout << "================Creating header ================" << std::endl;
     int64_t timestamp = getTimestamp();
-    std::cout << "Zeistempel: " << timestamp << std::endl;
+    //std::cout << "Zeistempel: " << timestamp << std::endl;
     myPackages[myPackagePointer+7] = timestamp & 0xff;
     myPackages[myPackagePointer+6] = (timestamp >> 8) & 0xff;
     myPackages[myPackagePointer+5] = (timestamp >> 16) & 0xff;
@@ -163,31 +176,14 @@ void Encoder::createHeader()
     myPackages[myPackagePointer+2] = (timestamp >> 40) & 0xff;
     myPackages[myPackagePointer+1] = (timestamp >> 48) & 0xff;
     myPackages[myPackagePointer] = (timestamp >> 56) & 0xff;
-    
-    for (int i = 0; i < 8; ++i)
-    {
-        std::cout << myPackages[myPackagePointer+7-i] << std::endl;
-    }
-
     myPackagePointer += 8;
-    std::cout << myPackagePointer << std::endl;
 
-    // create ID
-    /*
-    myPackages[myPackagePointer+3] = 1212696648 & 0xff;
-    myPackages[myPackagePointer+2] = (1212696648 >> 8) & 0xff;
-    myPackages[myPackagePointer+1] = (1212696648 >> 16) & 0xff;
-    myPackages[myPackagePointer] = (1212696648 >> 24) & 0xff;
-    */
     myPackages[myPackagePointer+3] = myPackageNum & 0xff;
     myPackages[myPackagePointer+2] = (myPackageNum >> 8) & 0xff;
     myPackages[myPackagePointer+1] = (myPackageNum >> 16) & 0xff;
     myPackages[myPackagePointer] = (myPackageNum >> 24) & 0xff;
     myPackagePointer += 4;
     myPackageNum++;
-    std::cout << myPackagePointer << std::endl;
-    std::cout << "myPackageNum encoded: " << myPackageNum << std::endl;
-
 }
 
 // Bitte lager mich aus
@@ -196,56 +192,89 @@ unsigned short joinUnsigShort(unsigned char a,unsigned char b)
     return (a<<8) + b;
 }
 
-void Encoder::splitData(const char *buffer, const int bufferlen, 
-                        const char *vecLayout, const int vecLayoutlen)
+void Encoder::splitData(const char *buffer, size_t bufferlen, 
+                        const char *vecLayout, size_t vecLayoutlen)
 {
     int pointer = 0;
-    //int k = 0;;
-    unsigned short startPos = 0;
-    unsigned short endPos = 0;
+    int startPos = 0;
+    int endPos = 0;
     /*
-    for (int i = 0; i < bufferlen; ++i)
-    {
-        std::cout << buffer[i];
-        if (i % 25 == 0)
-        {
-            std::cout << "|" << std::endl << "|";
+    std::cout << "vecLAYOUT: " << std::endl;
+    for (int j = 0; j < vecLayoutlen; j=j+2) {
+        if (j % 25 == 0) {
+            std::cout << std::endl;
         }
+        std::cout << joinUnsigShort(vecLayout[j+1],vecLayout[j]) << " ";
     }
+    std::cout << std::endl;
     */
-
     for (int i = 0; i < vecLayoutlen; i=i+2) {
+        if (pointer >= ((vecLayoutlen/2 * 12) + bufferlen))
+        {
+            break;
+        }
         myPackagePos[pointer] = myPackagePointer;
-        std::cout << "myPackagePos: " << myPackagePos[pointer] << std::endl;
-        std::cout << "pointer: " << pointer << std::endl;
+
+        //std::cout << "myPackagePointer: " << myPackagePointer << std::endl;
+        //std::cout << "pointer: " << pointer << std::endl;
+
         createHeader();
 
-        
-        startPos = joinUnsigShort(vecLayout[i],vecLayout[i+1]);
-        if (i+2 > vecLayoutlen || i+3 > vecLayoutlen) {
-            endPos = bufferlen;
-        } else {
-            endPos = joinUnsigShort(vecLayout[i+2], vecLayout[i+3]);
-        }
-        
-        std::cout << "myPackagePointer " << myPackagePointer << std::endl;
-        for (int j = startPos; j < endPos; ++j) {
-            myPackages[myPackagePointer] = buffer[j];
-            myPackagePointer++;
-        }
-        
-        pointer++;
-    }
-    myPackagePos[pointer] = myPackagePointer;
-    //std::cout << pointer << std::endl;
-    std::cout << "myPackagesPos: " << myPackagePos[pointer] << std::endl;
-    std::cout << "=====================" << std::endl;
-    for (int i = 0; i < 5; ++i)
-    {
-        std::cout << myPackagePos[i] << " ";
+        startPos = joinUnsigShort(vecLayout[i+1],vecLayout[i]);
 
+        if (startPos >= bufferlen) {
+            std::cout << "ERROR" << std::endl;
+        }
+
+        //std::cout << "STARTPOS: " << startPos << std::endl;
+        if (i+2 > vecLayoutlen || i+3 > vecLayoutlen) {
+            endPos = 401;
+        } else {
+            endPos = joinUnsigShort(vecLayout[i+3], vecLayout[i+2]);
+            std::cout << "ENDPOS: " << endPos << std::endl;
+        }
+
+        if (endPos >= bufferlen) {
+            std::cout << "ERROR" << std::endl;;
+        }
+
+        
+        //std::cout << "myPackagePointer " << myPackagePointer << std::endl;
+        for (int j = 2*startPos; j < 2*endPos; ++j) {
+            myPackages[myPackagePointer] = buffer[j];
+            //std::cout << "POS: " << myPackagePos[pointer] << ":" << pointer << ":" << j << std::endl;
+            //std::cout << j << std::endl;
+            //std::cout << "POINTER: " << myPackagePointer << std::endl;
+            //std::cout << joinUnsigShort(myPackages[myPackagePointer+1],myPackages[myPackagePointer]) << std::endl;
+            
+            myPackagePointer++;
+        }  
+        pointer++;
+        //std::cout << "SUM: " << myPackageSum << std::endl;    
     }
-    std::cout << std::endl << "=====================" << std::endl;
+    std::cout << "POINTER: " << myPackagePointer << std::endl;
+    myPackagePos[pointer] = myPackagePointer;
+    /*
+    std::cout << "PACKAGES: " << std::endl;
+    for (int j = 0; j < bufferlen; j=j+2)
+        {
+            if (j % 25 == 0)
+            {
+                std::cout << std::endl;
+            }
+            //std::cout << (int)DATA_SEN D[j] << " ";
+            std::cout << joinUnsigShort(myPackages[j+1],myPackages[j]) << " ";
+        }
+    std::cout << std::endl;
+    */
+    /*
+    std::cout << "==========PACKAGESPOS===========" << std::endl;
+    for (int i = 0; i < pointer; ++i)
+    {
+        std::cout << myPackagePos[i] << std::endl;
+    }
+    std::cout << "==========PACKAGEPOS END============" << std::endl;
+    */
 }
 
 /*void Encoder::compressData()
@@ -259,53 +288,87 @@ void Encoder::splitData(const char *buffer, const int bufferlen,
     }
 }*/
 
-Decoder::Decoder(char * buffer, const int bufferlen)
+Decoder::Decoder(char * buffer, size_t bufferlen)
 {
-    VEC_DATATYPES_SIZE = joinUnsigShort(buffer[0],buffer[1]);
-    VEC_LAYOUT_SIZE = joinUnsigShort(buffer[2],buffer[3]);
-    VEC_COMMA_SIZE = joinUnsigShort(buffer[4],buffer[5]);
+    VEC_DATATYPES_SIZE = joinUnsigShort(buffer[1],buffer[0]);
+    VEC_LAYOUT_SIZE = joinUnsigShort(buffer[3],buffer[2]) * 2;
+    VEC_COMMA_SIZE = joinUnsigShort(buffer[5],buffer[4]);
+    /*
+    VEC_DATATYPES_SIZE = 401;
+    VEC_LAYOUT_SIZE = 5;
+    VEC_COMMA_SIZE = 401;
+    */
+    std::cout << VEC_DATATYPES_SIZE << std::endl;
+    std::cout << VEC_LAYOUT_SIZE << std::endl;
+    std::cout << VEC_COMMA_SIZE << std::endl;
 
-    int border_0 = 6 + 2*(VEC_DATATYPES_SIZE);
-    int border_1 = border_0 + 2*(VEC_LAYOUT_SIZE);
-    int border_2 = border_1 + 2*(VEC_COMMA_SIZE);
+    //int border_0 = 6 + 2*(VEC_DATATYPES_SIZE);
+    int border_0 = (VEC_DATATYPES_SIZE) + 6;
+    int border_1 = border_0 + (2 * VEC_LAYOUT_SIZE);
+    int border_2 = border_1 + (VEC_COMMA_SIZE);
 
     int j = 0;
-    for (int i = 6; i < border_0; i=i+2) {
-        VEC_DATATYPES[j] = joinUnsigShort(buffer[i],buffer[i+1]);
-        //std::cout << "VEC_DATATYPES" << std::endl;
-        //std::cout << VEC_DATATYPES[j] << std::endl;
-        j++;
+
+    std::cout << "=========VEC_DATATYPES==========" << std::endl;
+    for (int i = 6; i < border_0; ++i) {
+        VEC_DATATYPES[j] = buffer[i];
+        std::cout << (int)VEC_DATATYPES[j] << " ";
+        if (j % 32 == 0 && j != 0)
+        {
+            std::cout << std::endl;
+        }
+        j = j+2;
     }
-    
+
     j = 0;
-    for (int i = border_0 ;i < border_1; i=i+2) {
-        VEC_LAYOUT[j] = joinUnsigShort(buffer[i],buffer[i+1]);
-        //std::cout << "VEC_LAYOUT" << std::endl;
+
+    for (int i = border_0 ;i < border_1; ++i) {
+        //std::cout << "TEST" << std::endl;
+        VEC_LAYOUT[j] = buffer[i];
+        
+        //std::cout << "TEST" << std::endl;
         //std::cout << VEC_LAYOUT[j] << std::endl;
         j++;
     }
-
-    j = 0;
-    for (int i= border_1;i < border_2; i=i+2) {
-        VEC_COMMA[j] = joinUnsigShort(buffer[i],buffer[i+1]);
-        //std::cout << "VEC_COMMA" << std::endl;
-        //std::cout << VEC_COMMA[j] << std::endl;
-        j++;
+    std::cout << "=========VEC_LAYOUT=============" << std::endl;
+    for (int i = 0; i < VEC_LAYOUT_SIZE; i=i+2)
+    {
+        std::cout << joinUnsigShort(VEC_LAYOUT[i+1],VEC_LAYOUT[i]) << " ";
+        if (i % 32 == 0 && i != 0)
+        {
+            std::cout << std::endl;
+        }
     }
+    j = 0;
+    
+    std::cout << std::endl << "=========VEC_COMMA==============" << std::endl;
+    for (int i= border_1 -10;i < border_2-10; ++i) {
+        VEC_COMMA[j] = buffer[i];
+        std::cout << (int)VEC_COMMA[j] << " ";
+        if (j % 32 == 0 && j != 0)
+        {
+            std::cout << std::endl;
+        }
+        j = j+2;
+    }
+
+    std::cout << "TEST" << std::endl;
 }
 
-Decoder::Decoder(char * buffer, const int bufferlen, char * vecLayout, const int vecLayoutlen,
-                char * vecDatatypes, const int vecDatatypeslen, char *vecComma, const int vecCommalen)
+Decoder::Decoder(char * buffer, size_t bufferlen, char * vecLayout, size_t vecLayoutlen,
+                char * vecDatatypes, size_t vecDatatypeslen, char *vecComma, size_t vecCommalen)
     : /*myDataPos(8),myPackagePos(0),myTimestamp(0),*/myDataLength(0)
 {
     myDataPos = 12;
+    myTimestampStatus = 1;
     myPackage = buffer;
     myPackagelen = bufferlen;
-    //std::cout << "Decoding header..." << std::endl;
+    std::cout << "Decoding header..." << std::endl;
     decodeHeader();
-    //std::cout << "Checking timestamp..." << std::endl;
+    std::cout << "Checking timestamp..." << std::endl;
     checkTimestamp();
-    //std::cout << "Decode package positions..." << std::endl;
+    std::cout << "Decode package positions..." << std::endl;
+    std::cout << myPackageNum << std::endl;
     myPackagePos = getPackagePos(vecLayout, vecLayoutlen);
     //std::cout << "myPackagePos: " << myPackagePos << std::endl;
     //decompress();
@@ -331,7 +394,7 @@ void Decoder::decodeHeader()
                 + (((int64_t)myPackage[2] << 40) & 0xff0000000000)
                 + (((int64_t)myPackage[1] << 48) & 0xff000000000000)
                 + (((int64_t)myPackage[0] << 56) & 0xff00000000000000));
-    std::cout << myTimestamp << std::endl;
+    //std::cout << myTimestamp << std::endl;
 
     myPackageNum = (myPackage[11] & 0xff)  
                 + ((myPackage[10] << 8) & 0xff00)
@@ -350,13 +413,15 @@ void Decoder::checkTimestamp()
     int64_t diff = LOCAL_TIMESTAMP - myTimestamp;
     std::cout << "Zeitdifferenz: " << (double)diff/1000000 << "ms" << std::endl;
     if (diff > TIME_THRESHOLD) {  //###
-        //getNextPackage();   Fuktion muss noch definiert werden
+        myTimestampStatus = -1;
+        return;
     } else {
+        myTimestampStatus = 1;
         return;
     }
 }
 
-unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
+unsigned int Decoder::getPackagePos(char * vecLayout, size_t vecLayoutlen)
 {
     //std::cout << exp2(3) << exp2(0) << std::endl;
     //std::cout << "myPackageNum: " << myPackageNum << std::endl;
@@ -368,8 +433,8 @@ unsigned int Decoder::getPackagePos(char * vecLayout, const int vecLayoutlen)
         std::cout << VEC_LAYOUT[i] << std::endl;
     }
     */
-    myPackagePos = joinUnsigShort(vecLayout[(2 * myPackageNum)],
-                                    vecLayout[(2 * myPackageNum)-1]);
+    myPackagePos = joinUnsigShort(vecLayout[(2 * myPackageNum)+1],
+                                    vecLayout[(2 * myPackageNum)]);
     //std::cout << "getPackagePos: " << myPackagePos << std::endl;
     return(myPackagePos);
 }
@@ -392,5 +457,10 @@ Data Decoder::getNextData()
     Data dat(value,datatype,pos);
     myDataPos++;
     return dat;
+}
+
+int Decoder::getTimestampStatus() 
+{
+    return myTimestampStatus;
 }
 

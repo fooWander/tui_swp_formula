@@ -35,9 +35,9 @@
 #endif
 #include <cstring>
 #include <cstdlib>
-
+#include <stdio.h>
 #include <errno.h>             // For errno
-
+#include <iostream>
 using namespace std;
 
 #ifdef WIN32
@@ -155,14 +155,6 @@ void Socket::setLocalAddressAndPort(const string &localAddress,
     if (bind(sockDesc, (sockaddr *) &localAddr, sizeof(sockaddr_in)) < 0) {
         throw SocketException("Set of local address and port failed (bind())", true);
     }
-}
-
-void Socket::cleanUp() throw(SocketException) {
-    #ifdef WIN32
-        if (WSACleanup() != 0) {
-            throw SocketException("WSACleanup() failed");
-        }
-    #endif
 }
 
 unsigned short Socket::resolveService(const string &service,
@@ -290,12 +282,14 @@ UDPSocket::UDPSocket() throw(SocketException) : CommunicatingSocket(SOCK_DGRAM,
 UDPSocket::UDPSocket(unsigned short localPort)  throw(SocketException) : 
         CommunicatingSocket(SOCK_DGRAM, IPPROTO_UDP) {
     setLocalPort(localPort);
+    setTimeout();
     setBroadcast();
 }
 
 UDPSocket::UDPSocket(const string &localAddress, unsigned short localPort) 
          throw(SocketException) : CommunicatingSocket(SOCK_DGRAM, IPPROTO_UDP) {
     setLocalAddressAndPort(localAddress, localPort);
+    setTimeout();
     setBroadcast();
 }
 
@@ -310,10 +304,11 @@ void UDPSocket::setBroadcast() {
 void UDPSocket::setTimeout() {
     struct timeval tv;
 
-    tv.tv_sec = 10;  /* 10 Secs Timeout */
+    tv.tv_sec = 3;  /* 10 Secs Timeout */
     tv.tv_usec = 0;  // Not init'ing this can cause strange errors
+    //int nTimeout = 3;
 
-    setsockopt(sockDesc, SOL_SOCKET, SO_RCVTIMEO, (char *)&tv,sizeof(struct timeval));
+    setsockopt(sockDesc, SOL_SOCKET, SO_RCVTIMEO, (const char *)&tv,sizeof(tv));
 }
 
 void UDPSocket::disconnect() throw(SocketException) {
@@ -349,6 +344,7 @@ void UDPSocket::sendTo(const void *buffer, int bufferLen,
 int UDPSocket::recvFrom(void *buffer, int bufferLen, string &sourceAddress,
         unsigned short &sourcePort) throw(SocketException) {
     sockaddr_in clntAddr;
+    //std::cout << "PS: " << bufferLen << std::endl;
     socklen_t addrLen = sizeof(clntAddr);
     int rtn;
     if ((rtn = recvfrom(sockDesc, (raw_type *) buffer, bufferLen, 0, 

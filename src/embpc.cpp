@@ -21,32 +21,36 @@
 #include "Data.h"
 #include "Encoding.h"
 #include "PracticalSocket.h"
+#include "common.h"
 #include <string>
 #include <stdio.h>
 #include <cstring>
 #include <cstdlib>
 #include <iostream>
 #include "unistd.h"
-
+#include <vector>
 //extern char VEC_LAYOUT[];
 //#include "cstring.h"
 
-char MSG_INFO_REQUEST[] = {96};
-char MSG_READY[] ="144"; //={144}
+int LOCALPORT = EMBPC_PORT;
 
-int LOCALPORT = 5000;
+Location HOST_EMBPC(EMBPC_IP,EMBPC_PORT);
+Location HOST_EMBPC_INFO(EMBPC_IP, EMBPC_INFO_PORT);
+Location HOST_MABXII(MABXII_IP,MABXII_PORT);
+Location HOST_MABXII_INFO(MABXII_IP,MABXII_INFO_PORT);
+Location HOST_VSERVER(VSERVER_IP,VSERVER_PORT);
+Location HOST_VSERVER_INFO(VSERVER_IP,VSERVER_INFO_PORT);
 
-Location HOST_EMBPC("10.42.0.55",(short)5000);
-Location HOST_MABXII("10.42.0.42",(short)5002);
-Location HOST_VSERVER("87.106.17.165",(short)5001);
 
-//const int PACKAGESIZE_MAX = 100;
+//const int PACKAGE_SIZE_MAX = 100;
 
-char DATA_ACK_VSERVER_RECV[1]; 
-char DATA_ACK_VSERVER[] = {1};
-char DATA_PACKAGE[1000];
-char DATA_PACKAGE_INFO[] = {1};
-char DATA_SEND[1000];
+
+char DATA_PACKAGE[PACKAGE_SIZE_MAX] = {};
+int DATA_PACKAGE_SIZE = PACKAGE_SIZE_MAX;
+char DATA_PACKAGE_INFO[PACKAGE_SIZE_MAX] = {};
+int DATA_PACKAGE_INFO_SIZE = PACKAGE_SIZE_MAX;
+char DATA_SEND[PACKAGE_SIZE_MAX] = {};
+int DATA_SEND_SIZE = PACKAGE_SIZE_MAX;
 
 /**
  *  Sendet ein Paket an einen bestimmten Teilnehmer.
@@ -60,20 +64,24 @@ void sendPackage(Location remote, char * msg, int msgSize)
     UDPSocket sock;
     std::string remoteAddress = remote.getAddress();
     unsigned short remotePort = remote.getPort();
+    std::cout << remoteAddress << std::endl;
     sock.sendTo(msg, msgSize, remoteAddress, remotePort);
 }
 
-int receivePackage(Location remote, void * buffer)
+int receivePackage(Location remote, void * buffer, int bufferLen)
 {
-    UDPSocket sock(LOCALPORT);
+    UDPSocket sock(remote.getPort());
     int recvMsgSize;
     string sourceAddress;
     unsigned short sourcePort;
     //http://www.beej.us/guide/bgnet/output/html/multipage/pollman.html 
-    //fuer Polling, gez.Tino
+    //fuer Polling, gez.Tino)
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
-    recvMsgSize = sock.recvFrom(buffer, 100, 
+    std::cout << "receiving..." << std::endl;
+    //std::cout << "BLALALA" << std::endl;
+    recvMsgSize = sock.recvFrom(buffer, bufferLen, 
                                 sourceAddress, sourcePort);
+    std::cout << "received something..." << std::endl;
     return recvMsgSize;
 }
 
@@ -85,109 +93,135 @@ void initialize()
     */
     
     while(true) {
-        std::cout << "Sending READY..." << std::endl;
-        sendPackage(HOST_VSERVER, MSG_READY, 3);
-        std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER_RECV)) {
-            std::cout << "received ACK" << std::endl;
-            // TODO: process/check acknowledgement??
-            break;
-        }       
-    }
-    /*
-    while(true) {
-        std::cout << "Sending READY..." << std::endl;
-        sendPackage(HOST_MABXII, MSG_INFO_REQUEST);
-        std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_MABXII, DATA_PACKAGE_INFO)) {
-            // TODO: process/check package information??
+        try
+        {
+            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_MABXII_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
+            
+            for (int i = 0; i < DATA_PACKAGE_INFO_SIZE; ++i)
+            {
+                std::cout << (int)DATA_PACKAGE_INFO[i] << " ";
+            }
+            std::cout << std::endl;
+            std::cout << "received something" << std::endl;
+            
+            std::cout << "length: " << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;
         }
-    }
-    */
-    while(true) {
-        std::cout << "Sending DATA_PACKAGE_INFO..." << std::endl;
-        sendPackage(HOST_VSERVER, DATA_PACKAGE_INFO, sizeof(DATA_PACKAGE_INFO));
-        std::cout << "Receiving ACK..." << std::endl;
-        if(receivePackage(HOST_VSERVER, DATA_ACK_VSERVER_RECV)) {
-            // TODO: process/check acknowledgement??
-            break;
-        }      
+        catch(SocketException ex)
+        {
+            std::cout << "SocketException thrown." << std::endl;
+            continue;
+        }       
     }
     std::cout << "Decoding..." << std::endl;
-    Decoder dec(DATA_PACKAGE_INFO,sizeof(DATA_PACKAGE_INFO));
+    Decoder dec(DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE);
 }
 
 int receiveData()
 {
-    int recv = receivePackage(HOST_MABXII, DATA_PACKAGE);
+    int recv = receivePackage(HOST_MABXII, DATA_PACKAGE, PACKAGE_SIZE_MAX);
     return recv;
 }
 
 void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
+    std::cout << "SUMME: " << packageSum << std::endl;
     for (int i = 0; i < packageSum; ++i) {
-        int size = enc.getPackage(DATA_SEND,i);
+        usleep(250000);
+        int size = enc.getPackage(DATA_SEND,DATA_SEND_SIZE,i);
+        
+        std::cout << "SIZE: " << size << std::endl;
         std::cout << std::endl;
         std::cout << "======START_PACKAGE " << i << "=======" << std::endl;
-        for (int j = 0; j < size; ++j)
+        
+        for (int j = 0; j < size; j=j+2)
         {
             if (j % 25 == 0)
             {
-                //std::cout << std::endl;
+                std::cout << std::endl;
             }
-            std::cout << DATA_SEND[j];
+            //std::cout << (int)DATA_SEN D[j] << " ";
+            std::cout << joinUnsigShort(DATA_SEND[j+1],DATA_SEND[j]) << " ";
         }
         std::cout << std::endl;
         std::cout << "========END_PACKAGE=========" << std::endl;
         std::cout << std::endl << std::endl << std::endl << std::endl; 
+        
+        std::cout << "SEND" << std::endl;
         sendPackage(HOST_VSERVER,DATA_SEND,size);
-        usleep(250000);
     }
 }
 
 Encoder  processData()
 {
-    Encoder enc(DATA_PACKAGE, 802, VEC_LAYOUT, 10,VEC_DATATYPES, 100);
+    Encoder enc(DATA_PACKAGE, PACKAGE_SIZE_MAX, VEC_LAYOUT, VEC_LAYOUT_SIZE,VEC_DATATYPES, 100);
     return enc;
 }
 
-int main(/*int argc, char const *argv[]*/)
+int main(int argc, char const *argv[])
 {
-    std::cout << "Generating test data..." << std::endl;
-
-    for (int i = 0; i < 20; ++i)
+    try
     {
-        if (i % 2 == 0)
+        std::cout << "Generating test data..." << std::endl;
+
+        for (int i = 0; i < 40; ++i)
         {
-            DATA_PACKAGE[i] = 80;
-        } else {
-            DATA_PACKAGE[i] = 80;
+            if (i % 2 == 0)
+            {
+                DATA_PACKAGE[i] = 1;
+            } else {
+                DATA_PACKAGE[i] = 0;
+            }
         }
-        //VEC_DATATYPES[i] = 1;
-        std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
-    }
-    for (int i = 20; i < 802; ++i)
-    {
-        //VEC_DATATYPES[i] = 4;
-        DATA_PACKAGE[i] = rand() % 100;
-        std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
-    }
+        for (int i = 40; i < 802; ++i)
+        {
+            DATA_PACKAGE[i] = rand() % 100;
+            //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
+        }
+        while (true) {
+            std::cout << "Initializing..." << std::endl;
+            initialize();
+            sendPackage(HOST_VSERVER_INFO,DATA_PACKAGE_INFO,DATA_PACKAGE_SIZE);
+            int i = 0;
+            while (true) {
+                try
+                {
+                    std::cout << "receiving data..." << std::endl;
+                    std::cout << DATA_PACKAGE_SIZE << std::endl;
+                    DATA_PACKAGE_SIZE = receiveData();
+                    //DATA_PACKAGE_SIZE = 802;
+                    std::cout << DATA_PACKAGE_SIZE << std::endl;
+                    /*
+                    for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
+                    {
+                        std::cout << (int)DATA_PACKAGE[i] << " ";
+                    }
+                    */
+                    std::cout << std::endl;
+                    
+                }
+                catch(SocketException ex)
+                {
+                    std::cout << "SocketException thrown." << std::endl;
+                    break;
+                }
+                
+                if (i == 20) {
+                    sendPackage(HOST_VSERVER_INFO,DATA_PACKAGE_INFO,DATA_PACKAGE_SIZE);
+                    i = 0;
+                }
 
-    std::cout << "Initializing..." << std::endl;
-    initialize();
-    int i = 0;
-    while (true) {
-        //std::cout << "Receiving data..." << std::endl;
-        //int recv;
-        //recv = receiveData();
-        //std::cout << "Encoding..." << std::endl;
-        Encoder enc = processData();
-        std::cout << "Sending data... " << i << std::endl;
-        i++;
-        sendData(enc);
-        
+                Encoder enc = processData();
+                sendData(enc);
+                i++;
+            }
+            
+        }
+        return(-1);
     }
-    
-    return(-1);
+    catch (...)
+    {
+        std::cout << "Exception thrown." << std::endl;
+        return -1;
+    }
 }
