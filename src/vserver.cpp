@@ -96,7 +96,7 @@ void initalize()
     while (true) {
         try
         {
-            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_VSERVER_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
+            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_EMBPC_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
             std::cout << "Packageinfo received..." << std::cout;
             std::cout << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;

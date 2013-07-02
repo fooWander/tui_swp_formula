@@ -64,6 +64,7 @@ void sendPackage(Location remote, char * msg, int msgSize)
     UDPSocket sock;
     std::string remoteAddress = remote.getAddress();
     unsigned short remotePort = remote.getPort();
+    std::cout << remoteAddress << std::endl;
     sock.sendTo(msg, msgSize, remoteAddress, remotePort);
 }
 
@@ -126,6 +127,7 @@ void sendData(Encoder enc) {
     int packageSum = enc.getPackageSum();
     std::cout << "SUMME: " << packageSum << std::endl;
     for (int i = 0; i < packageSum; ++i) {
+        usleep(250000);
         int size = enc.getPackage(DATA_SEND,DATA_SEND_SIZE,i);
         
         std::cout << "SIZE: " << size << std::endl;
@@ -147,7 +149,6 @@ void sendData(Encoder enc) {
         
         std::cout << "SEND" << std::endl;
         sendPackage(HOST_VSERVER,DATA_SEND,size);
-        usleep(250000);
     }
 }
 
@@ -180,6 +181,7 @@ int main(int argc, char const *argv[])
         while (true) {
             std::cout << "Initializing..." << std::endl;
             initialize();
+            sendPackage(HOST_VSERVER_INFO,DATA_PACKAGE_INFO,DATA_PACKAGE_SIZE);
             int i = 0;
             while (true) {
                 try
@@ -204,11 +206,11 @@ int main(int argc, char const *argv[])
                     break;
                 }
                 
-                if (i == 50) {
+                if (i == 20) {
                     sendPackage(HOST_VSERVER_INFO,DATA_PACKAGE_INFO,DATA_PACKAGE_SIZE);
                     i = 0;
                 }
-                
+
                 Encoder enc = processData();
                 sendData(enc);
                 i++;
