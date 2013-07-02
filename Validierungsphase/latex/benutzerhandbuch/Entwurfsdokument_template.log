@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  2 JUL 2013 22:24
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  2 JUL 2013 22:36
 entering extended mode
 **Entwurfsdokument_template.tex
 
@@ -903,90 +903,129 @@ Underfull \hbox (badness 10000) in paragraph at lines 468--470
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--473
+Underfull \hbox (badness 10000) in paragraph at lines 471--474
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--484
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 488--489
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 515--516
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
+
+ []
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 498.
+
+("C:\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
+File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 498.
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
+
+ []
+
+LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <12> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 502.
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 541--542
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 517--518
+Underfull \hbox (badness 10000) in paragraph at lines 543--544
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--520
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
 
  []
 
-<website_config.png, id=65, 925.95938pt x 460.72125pt>
+<website_config.png, id=68, 925.95938pt x 460.72125pt>
 File: website_config.png Graphic file (type png)
 
 <use website_config.png>
-Package pdftex.def Info: website_config.png used on input line 523.
+Package pdftex.def Info: website_config.png used on input line 549.
 (pdftex.def)             Requested size: 462.97856pt x 230.36006pt.
 
-Overfull \hbox (7.73439pt too wide) in paragraph at lines 523--524
+Overfull \hbox (7.73439pt too wide) in paragraph at lines 549--550
  [][] 
  []
 
-[14 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
-enutzerhandbuch/website_config.png>] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 556--557
+[15 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
+enutzerhandbuch/website_config.png>] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 582--583
 
  []
 
-<install.png, id=73, 764.8575pt x 400.49625pt>
+<install.png, id=76, 764.8575pt x 400.49625pt>
 File: install.png Graphic file (type png)
  <use install.png>
-Package pdftex.def Info: install.png used on input line 562.
+Package pdftex.def Info: install.png used on input line 588.
 (pdftex.def)             Requested size: 382.42781pt x 200.24763pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--569
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--569
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
 
  []
 
-[16 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
+[17 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
 enutzerhandbuch/install.png>]
 Kapitel 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--582
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 587--589
+Underfull \hbox (badness 10000) in paragraph at lines 613--615
 
  []
 
-[17
+[18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 604--605
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--605
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
 
  []
 
-[18]
-Package tocbasic Info: character protrusion at lof deactivated on input line 61
-1.
+[19]
+Package tocbasic Info: character protrusion at lof deactivated on input line 63
+7.
 
 (C:\Users\Zehner\Documents\GitHub\tui_swp_formula\Validierungsphase\latex\benut
 zerhandbuch\Entwurfsdokument_template.lof)
 \tf@lof=\write4
- [19
+ [20
 
 ]
 (C:\Users\Zehner\Documents\GitHub\tui_swp_formula\Validierungsphase\latex\benut
@@ -996,13 +1035,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 8314 strings out of 493921
- 124256 string characters out of 3152893
+ 8344 strings out of 493921
+ 124676 string characters out of 3152893
  257502 words of memory out of 3000000
- 11325 multiletter control sequences out of 15000+200000
- 17963 words of font info for 115 fonts, out of 3000000 for 9000
+ 11344 multiletter control sequences out of 15000+200000
+ 18339 words of font info for 119 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 40i,10n,46p,975b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,11n,46p,975b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmbx12.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmmi12.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/MiKT
@@ -1012,9 +1051,9 @@ ic/amsfonts/cm/cmr17.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
 type1/public/amsfonts/cm/cmssbx10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Entwurfsdokument_template.pdf (19 pages, 435200 bytes).
+Output written on Entwurfsdokument_template.pdf (20 pages, 439261 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
+ 129 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  15396 words of extra memory for PDF output out of 17280 (max. 10000000)
 

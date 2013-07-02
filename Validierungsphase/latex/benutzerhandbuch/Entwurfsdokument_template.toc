@@ -18,15 +18,16 @@
 \contentsline {subsection}{\numberline {2.3.2}Installation des MySQL-Connector/C++}{12}
 \contentsline {subsection}{\numberline {2.3.3}Installation des auf dem vServer laufenden Programms}{12}
 \contentsline {subsection}{\numberline {2.3.4}Einstellungen \IeC {\"u}ber die Konfigurationsdatei}{12}
-\contentsline {section}{\numberline {2.4}Datenbanken}{13}
-\contentsline {subsection}{\numberline {2.4.1}Fahrzeugdatenbank}{13}
-\contentsline {subsection}{\numberline {2.4.2}Benutzerdatenbank}{13}
-\contentsline {section}{\numberline {2.5}Webseite}{14}
-\contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{17}
-\contentsline {section}{\numberline {3.1}Startseite / Verwaltung}{17}
-\contentsline {section}{\numberline {3.2}Nutzerverwaltung (Vorstand)}{17}
-\contentsline {section}{\numberline {3.3}CSV-Export}{17}
-\contentsline {section}{\numberline {3.4}Passwort \IeC {\"a}ndern}{17}
-\contentsline {section}{\numberline {3.5}Passwort vergessen}{18}
-\contentsline {section}{\numberline {3.6}Men\IeC {\"u}leiste}{18}
-\contentsline {chapter}{Abbildungsverzeichnis}{19}
+\contentsline {subsection}{\numberline {2.3.5}Installation des Cronjobs}{13}
+\contentsline {section}{\numberline {2.4}Datenbanken}{14}
+\contentsline {subsection}{\numberline {2.4.1}Fahrzeugdatenbank}{14}
+\contentsline {subsection}{\numberline {2.4.2}Benutzerdatenbank}{14}
+\contentsline {section}{\numberline {2.5}Webseite}{15}
+\contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{18}
+\contentsline {section}{\numberline {3.1}Startseite / Verwaltung}{18}
+\contentsline {section}{\numberline {3.2}Nutzerverwaltung (Vorstand)}{18}
+\contentsline {section}{\numberline {3.3}CSV-Export}{18}
+\contentsline {section}{\numberline {3.4}Passwort \IeC {\"a}ndern}{18}
+\contentsline {section}{\numberline {3.5}Passwort vergessen}{19}
+\contentsline {section}{\numberline {3.6}Men\IeC {\"u}leiste}{19}
+\contentsline {chapter}{Abbildungsverzeichnis}{20}
