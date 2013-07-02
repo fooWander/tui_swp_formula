@@ -406,6 +406,42 @@ Es empfiehlt sich, die folgende Checkliste abzuarbeiten, um mögliche Fehler bei
 
 \section{vServer}
 
+%Kurze Komponentenbeschreibung...
+
+\subsection{Installation der Boost-Bibliotheken}
+
+Boost stellt C++-Bibliotheken zur Verfügung, welche auf dem vServer zwingend benötigt werden.
+Dazu muss auf beiden Systemen der folgende Befehl erfolgreich ausgeführt werden:
+%1337 bitte Nachfolgendes als Konsolentext markieren:
+    yum install boost boost-devel -y
+    
+Zur Installation über die Kommandozeile werden Administratorrechte benötigt.
+
+\subsection{Installation des MySQL-Connector/C++}
+
+Der MySQL Connector/C++ ist zwingend erforderlich, damit das C++-Programm des virtuellen Servers auf die Datenbank zugreifen kann. Für die Installation benötigen Sie root-Rechte, die folgenden Befehle werden in die Kommandozeile eingegeben.
+Zuerst einmal muss sichergestellt werden dass alle im weiteren Verlauf verwendeten Programme vorhanden sind:\\
+%1337 bitte Nachfolgendes als Konsolentext markieren:
+  yum install bzr boost\_devel cmake mysql-devel –y \\
+
+Anschließend kann der aktuelle Quellcode bezogen werden:\\
+%1337 bitte Nachfolgendes als Konsolentext markieren:
+  bzr branch lp:~mysql/mysql-connector-cpp/trunk ./mysql-connector-cpp \\
+
+In das soeben Verzeichnis wechseln und die Makefile erstellen:\\
+  cd mysql-connector-cpp \\
+  cmake . \\
+
+Erstellung der Bibliotheken und Installation der Header-Dateien: \\
+  make clean \\
+  make \\
+  make install \\
+
+Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation:
+
+ http://dev.mysql.com/doc/refman/5.1/en/connector-cpp-installation-source-unix.html
+
+
 %-------------------------------------------------------------------%
 
 \section{Datenbanken}
