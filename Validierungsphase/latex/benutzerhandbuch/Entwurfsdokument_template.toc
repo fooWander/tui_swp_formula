@@ -13,21 +13,31 @@
 \contentsline {subsection}{\numberline {2.1.5}Implementierung des Modells auf der MicroAutoBox II}{10}
 \contentsline {subsection}{\numberline {2.1.6}Appendix: Wichtige Hinweise zu dem Hinzuf\IeC {\"u}gen, Entfernen oder Modifizieren von Signalen}{11}
 \contentsline {section}{\numberline {2.2}Embedded-PC}{12}
-\contentsline {section}{\numberline {2.3}vServer}{12}
-\contentsline {subsection}{\numberline {2.3.1}Installation der Boost-Bibliotheken}{12}
-\contentsline {subsection}{\numberline {2.3.2}Installation des MySQL-Connector/C++}{12}
-\contentsline {subsection}{\numberline {2.3.3}Installation des auf dem vServer laufenden Programms}{13}
-\contentsline {subsection}{\numberline {2.3.4}Einstellungen \IeC {\"u}ber die Konfigurationsdatei}{13}
-\contentsline {subsection}{\numberline {2.3.5}Installation des Cronjobs}{13}
-\contentsline {section}{\numberline {2.4}Datenbanken}{14}
-\contentsline {subsection}{\numberline {2.4.1}Fahrzeugdatenbank}{14}
-\contentsline {subsection}{\numberline {2.4.2}Benutzerdatenbank}{14}
-\contentsline {section}{\numberline {2.5}Webseite}{15}
-\contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{18}
-\contentsline {section}{\numberline {3.1}Startseite / Verwaltung}{18}
-\contentsline {section}{\numberline {3.2}Nutzerverwaltung (Vorstand)}{18}
-\contentsline {section}{\numberline {3.3}CSV-Export}{18}
-\contentsline {section}{\numberline {3.4}Passwort \IeC {\"a}ndern}{18}
-\contentsline {section}{\numberline {3.5}Passwort vergessen}{19}
-\contentsline {section}{\numberline {3.6}Men\IeC {\"u}leiste}{19}
-\contentsline {chapter}{Abbildungsverzeichnis}{20}
+\contentsline {subsection}{\numberline {2.2.1}Netzwerkanpassungen des Programms}{12}
+\contentsline {subsection}{\numberline {2.2.2}Vorbereitung bei einer Neuinstallation eines Betriebssystems}{15}
+\contentsline {section}{\numberline {2.3}vServer}{17}
+\contentsline {subsection}{\numberline {2.3.1}Installation der Boost-Bibliotheken}{17}
+\contentsline {subsection}{\numberline {2.3.2}Installation des MySQL-Connector/C++}{17}
+\contentsline {subsection}{\numberline {2.3.3}Installation des auf dem vServer laufenden Programms}{18}
+\contentsline {subsection}{\numberline {2.3.4}Einstellungen \IeC {\"u}ber die Konfigurationsdatei}{18}
+\contentsline {subsection}{\numberline {2.3.5}Installation des Cronjobs}{19}
+\contentsline {subsection}{\numberline {2.3.6}Netzwerkanpassungen des Programms}{20}
+\contentsline {subsection}{\numberline {2.3.7}Installation und Einrichtung der ben\IeC {\"o}tigten Komponenten bei Verwendung eines neuen Betriebssystems}{20}
+\contentsline {section}{\numberline {2.4}Datenbanken}{23}
+\contentsline {subsection}{\numberline {2.4.1}Fahrzeugdatenbank}{23}
+\contentsline {subsection}{\numberline {2.4.2}Benutzerdatenbank}{23}
+\contentsline {section}{\numberline {2.5}Webseite}{24}
+\contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{27}
+\contentsline {section}{\numberline {3.1}Embedded-PC}{27}
+\contentsline {subsection}{\numberline {3.1.1}Zugriff auf den Embedded-PC}{27}
+\contentsline {section}{\numberline {3.2}vServer}{28}
+\contentsline {subsection}{\numberline {3.2.1}Zugriff auf den virtuellen Server}{28}
+\contentsline {subsection}{\numberline {3.2.2}Installation von Programmupdates}{29}
+\contentsline {section}{\numberline {3.3}Webseite}{29}
+\contentsline {subsection}{\numberline {3.3.1}Startseite / Verwaltung}{29}
+\contentsline {subsection}{\numberline {3.3.2}Nutzerverwaltung (Vorstand)}{30}
+\contentsline {subsection}{\numberline {3.3.3}CSV-Export}{30}
+\contentsline {subsection}{\numberline {3.3.4}Passwort \IeC {\"a}ndern}{30}
+\contentsline {subsection}{\numberline {3.3.5}Passwort vergessen}{30}
+\contentsline {subsection}{\numberline {3.3.6}Men\IeC {\"u}leiste}{30}
+\contentsline {chapter}{Abbildungsverzeichnis}{31}
