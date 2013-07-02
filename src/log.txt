@@ -196,3 +196,202 @@ Tue Jul  2 13:25:01 2013
   resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
 Tue Jul  2 13:25:01 2013
   Es sind keine Fehler beim leeren der Datenbank aufgetreten (Loglevel: 4)
+Tue Jul  2 13:26:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:26:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:26:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:26:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:26:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:26:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten (Loglevel: 4)
+Tue Jul  2 13:27:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:27:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:27:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:27:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:27:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:27:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten (Loglevel: 4)
+Tue Jul  2 13:28:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:28:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:28:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:28:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:28:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:28:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten (Loglevel: 4)
+Tue Jul  2 13:29:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:29:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:29:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:29:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:29:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:29:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten (Loglevel: 4)
+Tue Jul  2 13:30:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:30:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:30:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:30:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:30:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:30:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten.'
+' (Loglevel: 4)
+Tue Jul  2 13:31:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:31:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:31:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:31:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:31:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:31:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten.'
+' (Loglevel: 4)
+Tue Jul  2 13:32:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:32:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:32:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:32:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:32:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:32:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:33:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:33:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:33:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:33:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:33:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:33:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:34:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:34:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:34:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:34:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:34:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:34:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:35:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:35:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:35:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:35:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10 (Loglevel: 5)
+Tue Jul  2 13:35:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:35:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:35:38 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:35:38 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:35:46 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:35:46 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:36:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:36:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:37:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0 (Loglevel: 5)
+Tue Jul  2 13:37:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:37:26 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+ (Loglevel: 5)
+Tue Jul  2 13:37:26 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:38:02 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+ (Loglevel: 5)
+Tue Jul  2 13:38:02 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:39:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+ (Loglevel: 5)
+Tue Jul  2 13:39:01 2013
+  Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:39:15 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+ (Loglevel: 5)
+Tue Jul  2 13:39:15 2013
+  StartResizeDB: Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)
+Tue Jul  2 13:40:01 2013
+  resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: 0
+  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: 10
+  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: 0
+ (Loglevel: 5)
+Tue Jul  2 13:40:01 2013
+  StartResizeDB: Es sind keine Fehler beim leeren der Datenbank aufgetreten. (Loglevel: 4)

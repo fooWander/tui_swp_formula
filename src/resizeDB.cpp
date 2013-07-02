@@ -41,7 +41,6 @@
             {
               msg = "resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
 	    }
-	    lg.logWrite(5, msg);
 
 	/**
 	 * Tabelle  allgemeine_fahrzeugdaten limitieren.
@@ -53,13 +52,12 @@
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM allgemeine_fahrzeugdaten ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-	      msg =  "resizeDB: Datensaetze aus Tabelle allgemeine_fahrzeugdaten geloescht: " + lexical_cast<string>(diff);
+	      msg +=  "\n  resizeDB: Datensaetze aus Tabelle allgemeine_fahrzeugdaten geloescht: " + lexical_cast<string>(diff);
             }
             else
             {
-              msg =  "resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
             }
-            lg.logWrite(5, msg);
 
 
 	/**
@@ -73,13 +71,12 @@
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM dynamische_daten ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              msg =  "resizeDB: Datensaetze aus Tabelle dynamische_daten geloescht: " + lexical_cast<string>(diff);
+              msg +=  "\n  resizeDB: Datensaetze aus Tabelle dynamische_daten geloescht: " + lexical_cast<string>(diff);
             }
             else
             {
-              msg =  "resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
             }
-            lg.logWrite(5, msg);
 
 	/**
 	 * Tabelle fahrdynamikregelung limitieren.
@@ -92,13 +89,12 @@
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM fahrdynamikregelung ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              msg =  "resizeDB: Datensaetze aus Tabelle fahrdynamikregelung geloescht: " + lexical_cast<string>(diff);
+              msg +=  "\n  resizeDB: Datensaetze aus Tabelle fahrdynamikregelung geloescht: " + lexical_cast<string>(diff);
             }
             else
             {
-              msg =  "resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
             }
-            lg.logWrite(5, msg);
 
 	/**
 	 * Tabelle motor_umrichterdaten limitieren.
@@ -111,11 +107,11 @@
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM motor_umrichterdaten ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              msg =  "resizeDB: Datensaetze aus Tabelle motor_umrichterdaten geloescht: " + lexical_cast<string>(diff);
+              msg +=  "\n  resizeDB: Datensaetze aus Tabelle motor_umrichterdaten geloescht: " + lexical_cast<string>(diff) + '\n';
             }
             else
             {
-              msg =  "resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur) +'\n' ;
             }
             lg.logWrite(5, msg);
 
