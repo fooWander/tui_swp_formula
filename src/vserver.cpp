@@ -39,8 +39,10 @@
 int LOCALPORT = VSERVER_PORT;
 
 Location HOST_EMBPC(EMBPC_IP,EMBPC_PORT);
+Location HOST_EMBPC_INFO(EMBPC_IP,EMBPC_INFO_PORT);
 Location HOST_MABXII(MABXII_IP,MABXII_PORT);
 Location HOST_VSERVER(VSERVER_IP,VSERVER_PORT);
+Location HOST_VSERVER_INFO(VSERVER_IP,VSERVER_INFO_PORT);
 
 char DATA_PACKAGE[PACKAGE_SIZE_MAX];
 int DATA_PACKAGE_SIZE = PACKAGE_SIZE_MAX;
@@ -63,7 +65,7 @@ void sendPackage(Location remote, char * msg)
 
 int receivePackage(Location remote, void * buffer, int buffersize)
 {
-    UDPSocket sock(LOCALPORT);
+    UDPSocket sock(remote.getPort());
     int recvMsgSize;
     string sourceAddress;
     unsigned short sourcePort;
@@ -94,7 +96,7 @@ void initalize()
     while (true) {
         try
         {
-            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_EMBPC, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
+            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_VSERVER_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
             std::cout << "Packageinfo received..." << std::cout;
             std::cout << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;
@@ -108,6 +110,7 @@ void initalize()
     }
 
     Decoder dec(DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE);
+    std::cout << "DECODED PACKAGE INFO" << std::endl;
 }
 
 int receiveData()
@@ -129,7 +132,7 @@ Decoder processData()
     }
     */
     std::cout << std::endl;
-    Decoder dec(DATA_PACKAGE, DATA_PACKAGE_SIZE, VEC_LAYOUT, VEC_LAYOUT_SIZE, 
+    Decoder dec(DATA_PACKAGE, DATA_PACKAGE_SIZE, VEC_LAYOUT, 10, 
                 VEC_DATATYPES, VEC_DATATYPES_SIZE, VEC_COMMAS, VEC_COMMAS_SIZE);
     return dec;
 }
@@ -153,7 +156,9 @@ int main(int argc, char const *argv[])
             if (DATA_PACKAGE_SIZE < 0) {
                 break;
             }
+            std::cout << "Decoding data..." << std::endl;
             Decoder dec = processData();
+            std::cout << "Data decoded." << std::endl;
             if (dec.getTimestampStatus() < 0) {
                 std::cout << "Paket zu alt!" << std::endl;
                 continue;

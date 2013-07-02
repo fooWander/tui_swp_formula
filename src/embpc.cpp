@@ -94,15 +94,15 @@ void initialize()
     while(true) {
         try
         {
-            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_VSERVER_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
-            /*
+            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_MABXII_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
+            
             for (int i = 0; i < DATA_PACKAGE_INFO_SIZE; ++i)
             {
-                std::cout << DATA_PACKAGE_INFO[i] << " ";
+                std::cout << (int)DATA_PACKAGE_INFO[i] << " ";
             }
             std::cout << std::endl;
             std::cout << "received something" << std::endl;
-            */
+            
             std::cout << "length: " << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;
         }
@@ -139,7 +139,7 @@ void sendData(Encoder enc) {
                 std::cout << std::endl;
             }
             //std::cout << (int)DATA_SEN D[j] << " ";
-            std::cout << joinUnsigShort(DATA_SEND[j],DATA_SEND[j+1]) << " ";
+            std::cout << joinUnsigShort(DATA_SEND[j+1],DATA_SEND[j]) << " ";
         }
         std::cout << std::endl;
         std::cout << "========END_PACKAGE=========" << std::endl;
@@ -163,16 +163,16 @@ int main(int argc, char const *argv[])
     {
         std::cout << "Generating test data..." << std::endl;
 
-        for (int i = 0; i < 20; ++i)
+        for (int i = 0; i < 40; ++i)
         {
             if (i % 2 == 0)
             {
-                DATA_PACKAGE[i] = 80;
+                DATA_PACKAGE[i] = 1;
             } else {
-                DATA_PACKAGE[i] = 80;
+                DATA_PACKAGE[i] = 0;
             }
         }
-        for (int i = 20; i < 802; ++i)
+        for (int i = 40; i < 802; ++i)
         {
             DATA_PACKAGE[i] = rand() % 100;
             //std::cout << "Value " << i << ": " << DATA_PACKAGE[i] << std::endl;
@@ -187,6 +187,7 @@ int main(int argc, char const *argv[])
                     std::cout << "receiving data..." << std::endl;
                     std::cout << DATA_PACKAGE_SIZE << std::endl;
                     DATA_PACKAGE_SIZE = receiveData();
+                    //DATA_PACKAGE_SIZE = 802;
                     std::cout << DATA_PACKAGE_SIZE << std::endl;
                     /*
                     for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
@@ -203,10 +204,14 @@ int main(int argc, char const *argv[])
                     break;
                 }
                 
+                if (i == 50) {
+                    sendPackage(HOST_VSERVER_INFO,DATA_PACKAGE_INFO,DATA_PACKAGE_SIZE);
+                    i = 0;
+                }
+                
                 Encoder enc = processData();
-                std::cout << "Sending data... " << i << std::endl;
-                i++;
                 sendData(enc);
+                i++;
             }
             
         }
