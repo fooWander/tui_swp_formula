@@ -1,0 +1,28 @@
+\select@language {ngerman}
+\contentsline {chapter}{\numberline {1}Einleitung}{3}
+\contentsline {chapter}{\numberline {2}Installation und Konfiguration des Service Interfaces}{4}
+\contentsline {section}{\numberline {2.1}MicroAutoBox II}{4}
+\contentsline {subsection}{\numberline {2.1.1}Konfiguration der Ethernet-Schnittstelle}{5}
+\contentsline {subsection}{\numberline {2.1.2}Konfiguration der Matlabfiles \textit {signalgenerator\_microautobox.m} und \textit {config\_datenpaket.m}}{7}
+\contentsline {subsection}{\numberline {2.1.3}Testen des Simulink-Modells durch den Signalgenerator}{8}
+\contentsline {subsubsection}{Modifizieren der Simulationswerte}{8}
+\contentsline {subsubsection}{Ver\IeC {\"a}nderungen am Modell}{8}
+\contentsline {subsubsection}{Anschlie\IeC {\ss }en des Signalgenerator-Blockes an das Modell}{8}
+\contentsline {subsubsection}{Verwenden des Signalgenerator-Blockes zu Testzwecken}{9}
+\contentsline {subsection}{\numberline {2.1.4}Anschluss des Simulink-Modells des Formula-Student-Fahrzeuges an das Simulink-Modell des Service Interfaces}{9}
+\contentsline {subsection}{\numberline {2.1.5}Implementierung des Modells auf der MicroAutoBox II}{10}
+\contentsline {subsection}{\numberline {2.1.6}Appendix: Wichtige Hinweise zu dem Hinzuf\IeC {\"u}gen, Entfernen oder Modifizieren von Signalen}{11}
+\contentsline {section}{\numberline {2.2}Embedded-PC}{12}
+\contentsline {section}{\numberline {2.3}vServer}{12}
+\contentsline {section}{\numberline {2.4}Datenbanken}{12}
+\contentsline {subsection}{\numberline {2.4.1}Fahrzeugdatenbank}{12}
+\contentsline {subsection}{\numberline {2.4.2}Benutzerdatenbank}{12}
+\contentsline {section}{\numberline {2.5}Webseite}{13}
+\contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{16}
+\contentsline {section}{\numberline {3.1}Startseite / Verwaltung}{16}
+\contentsline {section}{\numberline {3.2}Nutzerverwaltung (Vorstand)}{16}
+\contentsline {section}{\numberline {3.3}CSV-Export}{16}
+\contentsline {section}{\numberline {3.4}Passwort \IeC {\"a}ndern}{16}
+\contentsline {section}{\numberline {3.5}Passwort vergessen}{17}
+\contentsline {section}{\numberline {3.6}Men\IeC {\"u}leiste}{17}
+\contentsline {chapter}{Abbildungsverzeichnis}{18}

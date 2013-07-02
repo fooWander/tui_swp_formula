@@ -564,15 +564,7 @@ nav ul li a:not(.active):hover {
 	float:left;
 }
 
-
-.fhz_pedalindica2{				/* Pedal Indikatorbalken grün */
-	width:10px;
-	height:100%;
-	background-color: #3cb371;
-	float:left;
-}
-
-.fhz_pedalindica3{				/* Pedal Indikatorbalken rot */
+.fhz_pedalindica2{				/* Pedal Indikatorbalken rot */
 	width:10px;
 	height:100%;
 	background-color: #ff4500;

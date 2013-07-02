@@ -27,6 +27,7 @@
 						<input type="submit" value="Einloggen">
 					</li>
 					<li>Jetzt <a href="register.php">registrieren</a>!</li>
+					<li><a href="passwordforgotten.php">Passwort vergessen</a>?</li>
 				</ul>
 			</form>
 		</div>
@@ -36,7 +37,7 @@
 ?>
 	<div class="content">
 		<?php
-		// Einbinden der unterschiedlichen Widgets wie Online-Nutzerliste oder CSV-Export und setzen einer globalen Konstante
+		// Einbinden der unterschiedlichen Widgets wie Online-Nutzerliste oder CSV-Export und setzen einer globalen Konstante zum Schutz der Widgets vor unbefugtem äußeren Zugriff
 		define('ACCESS',"Pickachu");
 		if(isVorstand()) {include 'includes/widgets/userlist.php';}
 		include 'includes/widgets/csvexp.php';

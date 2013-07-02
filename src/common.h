@@ -30,14 +30,17 @@
  */
 #define EMBPC_IP	"127.0.0.1"
 #define MABXII_IP	"127.0.0.1"
-#define VSERVER_IP	"127.0.0.1"
+#define VSERVER_IP	"87.106.17.165"
 
 /**
  *	Portnummern der Teilnehmer.
  */
-#define EMBPC_PORT		5000
-#define MABXII_PORT		5002
-#define VSERVER_PORT 	5001
+#define MABXII_PORT			5000
+#define MABXII_INFO_PORT	5001
+#define EMBPC_PORT			5000
+#define EMBPC_INFO_PORT		5001
+#define VSERVER_PORT 		5000
+#define VSERVER_INFO_PORT	5001																																																																																																																																																																																																																																																																																																																																																																		
 
 /**
  *	Inhalte bestimmter Pakete.

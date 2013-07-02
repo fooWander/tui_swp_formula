@@ -36,18 +36,14 @@
 //extern char VEC_LAYOUT[];
 //#include "cstring.h"
 
-char MSG_INFO_REQUEST[] = {96};
-char MSG_READY[] ={144}; //={144}
-char MSG_ACK[] = {1};
-
 int LOCALPORT = VSERVER_PORT;
 
 Location HOST_EMBPC(EMBPC_IP,EMBPC_PORT);
+Location HOST_EMBPC_INFO(EMBPC_IP,EMBPC_INFO_PORT);
 Location HOST_MABXII(MABXII_IP,MABXII_PORT);
 Location HOST_VSERVER(VSERVER_IP,VSERVER_PORT);
+Location HOST_VSERVER_INFO(VSERVER_IP,VSERVER_INFO_PORT);
 
-char DATA_ACK[ACK_SIZE_MAX];
-char DATA_ACK_SIZE;
 char DATA_PACKAGE[PACKAGE_SIZE_MAX];
 int DATA_PACKAGE_SIZE = PACKAGE_SIZE_MAX;
 char DATA_PACKAGE_INFO[PACKAGE_SIZE_MAX];
@@ -69,16 +65,24 @@ void sendPackage(Location remote, char * msg)
 
 int receivePackage(Location remote, void * buffer, int buffersize)
 {
-    UDPSocket sock(LOCALPORT);
+    UDPSocket sock(remote.getPort());
     int recvMsgSize;
     string sourceAddress;
     unsigned short sourcePort;
     //http://www.beej.us/guide/bgnet/output/html/multipage/pollman.html 
     //fuer Polling, gez.Tino
     // TODO: recvFrom() needs to set flag MSG_DONTWAIT to prevent blocking
-    std::cout << "called recvFrom" << std::endl;
+    //std::cout << "called recvFrom" << std::endl;
+    std::cout << "receiving..." << std::endl;
+    //try
+    //{
     recvMsgSize = sock.recvFrom(buffer, buffersize, 
                                 sourceAddress, sourcePort);
+    //}
+    //catch(SocketException ex)
+    //{
+    //    std::cout << "Exception geworfen" << std::endl;
+    //}
     std::cout << "recvMsgsize: " << recvMsgSize  << std::endl;
     return recvMsgSize;
 }
@@ -89,44 +93,24 @@ void initalize()
         TODO: do-while-loops are probably better
     */
     std::cout << "Initializing..." << std::endl;
-
-    while(true) {
-        std::cout << "Receiving MSG_READY..." << std::endl;
-        DATA_ACK_SIZE = receivePackage(HOST_EMBPC, DATA_ACK, ACK_SIZE_MAX);
-        std::cout << DATA_ACK_SIZE << std::endl;
-        bool equal = true;
-        for (int i = 0; i < DATA_ACK_SIZE; ++i) {
-            if(MSG_READY[i] != DATA_ACK[i]) {
-                equal = false;
-            }
-        }
-        if (equal == true) {
-            std::cout << "Message correctly received." << std::endl;
-            break;
-        }
-
-        std::cout << "Wrong Message received:";
-        for (int i = 0; i < DATA_ACK_SIZE; ++i) {
-                //std::cout << MSG_READY[i];
-                std::cout << DATA_ACK[i];
-        }
-        std::cout <<  "trying again..." << std::endl;        
-    }
-
-    while(true) {
-        std::cout << "Sending ACK..." << std::endl;
-        sendPackage(HOST_EMBPC, MSG_ACK);
-        std::cout << "Receiving package info..." << std::endl;
-        if(receivePackage(HOST_EMBPC, DATA_PACKAGE_INFO, 1)) {
+    while (true) {
+        try
+        {
+            DATA_PACKAGE_INFO_SIZE = receivePackage(HOST_EMBPC_INFO, DATA_PACKAGE_INFO, PACKAGE_SIZE_MAX);
             std::cout << "Packageinfo received..." << std::cout;
+            std::cout << DATA_PACKAGE_INFO_SIZE << std::endl;
             break;
         }
-        std::cout << "trying again..." << std::endl;
+        catch (SocketException ex)
+        {
+            std::cout << "SocketException thrown." << std::endl;
+            std::cout << "trying again..." << std::endl;
+            continue;
+        }
     }
-    std::cout << "sending ACK..." << std::endl;
-    sendPackage(HOST_EMBPC, MSG_ACK);
-    std::cout << "Decoding..." << std::endl;
-    //Decoder dec(DATA_PACKAGE_INFO,100);
+
+    Decoder dec(DATA_PACKAGE_INFO,DATA_PACKAGE_INFO_SIZE);
+    std::cout << "DECODED PACKAGE INFO" << std::endl;
 }
 
 int receiveData()
@@ -148,52 +132,52 @@ Decoder processData()
     }
     */
     std::cout << std::endl;
-    Decoder dec(DATA_PACKAGE, DATA_PACKAGE_SIZE, VEC_LAYOUT, VEC_LAYOUT_SIZE, 
+    Decoder dec(DATA_PACKAGE, DATA_PACKAGE_SIZE, VEC_LAYOUT, 10, 
                 VEC_DATATYPES, VEC_DATATYPES_SIZE, VEC_COMMAS, VEC_COMMAS_SIZE);
     return dec;
 }
 
 int main(int argc, char const *argv[])
 {
-    initalize();
-    std::cout << "init done." << std::endl;
     while (true) {
-        /*
-            TODO: add timeout
-        */
-        //std::cout << "receiving data..." << std::endl;
-        
-        DATA_PACKAGE_SIZE = receiveData();
-        //td::cout << "==========RECEIVED DATA==========" << std::endl;
-        //std::cout << "SIZE: " << DATA_PACKAGE_SIZE << std::endl;
-        /*
-            TODO: add timeout
-        */
-        //processData();
-        for (int i = 0; i < DATA_PACKAGE_SIZE; ++i)
-        {
-            //std::cout << DATA_PACKAGE[i];
+        initalize();
+        std::cout << "init done." << std::endl;
+
+        while (true) {
+            try
+            {
+                DATA_PACKAGE_SIZE = receiveData();
+            }
+            catch(SocketException ex)
+            {
+                std::cout << "Exception thrown." << std::endl;
+                break;
+            }
+            if (DATA_PACKAGE_SIZE < 0) {
+                break;
+            }
+            std::cout << "Decoding data..." << std::endl;
+            Decoder dec = processData();
+            std::cout << "Data decoded." << std::endl;
+            if (dec.getTimestampStatus() < 0) {
+                std::cout << "Paket zu alt!" << std::endl;
+                continue;
+            }
+
+            for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
+            {
+                //Data dat = dec.getNextData();
+                DBPacketInsert insertion(dec);
+                insertion.db_insert();
+                std::cout << &dat << std::endl;
+                std::cout << "Wert: " << dat.getValue() << std::endl;
+                std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
+                std::cout << "Position: " << dat.getPosition() << std::endl;
+            }
+            usleep(250000);
+            //sendData(dec);
+            std::cout << "Paket verarbeitet!!!!!" << std::endl;
         }
-        //std::cout << std::endl;
-        //std::cout << "=================================" << std::endl;
-        //std::cout << std::endl;
-        //std::cout << "Decoding data... " << std::endl << std::endl;
-        Decoder dec = processData();
         
-        for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
-        {
-            //Data dat = dec.getNextData();
-            DBPacketInsert insertion(dec);
-            insertion.db_insert();
-            std::cout << &dat << std::endl;
-            std::cout << "Wert: " << dat.getValue() << std::endl;
-            std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
-            std::cout << "Position: " << dat.getPosition() << std::endl;
-        }
-        std::cout << "=============DONE================" << std::endl;
-        
-        usleep(250000);
-        //return 1;
-        //sendData(enc);
     }
 }

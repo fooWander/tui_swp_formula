@@ -65,7 +65,7 @@
 						(
 							"<tr>"+
 								"<td  class='akkubutton' id='akku"+j+"'>"+
-									"<img id='arrow"+j+"' class='akkubutton2' src='pfeil.svg' height='10' width='15' >"+
+									"<img id='arrow"+j+"' class='akkubutton2' src='pfeil.png' height='10' width='15' >"+
 								"</td>"+
 								"<td >#"+(j+1)+"</td>"+
 								"<td></td>"+

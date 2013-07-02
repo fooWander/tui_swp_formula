@@ -3,6 +3,45 @@
 include 'includes/config.php';
 
 /**
+ * Setzt das bestehende Passwort zurück und erzeugt ein zufälliges neues Passwort, welches dem Nutzer per Mail zugeschickt wird.
+ * @param string $mail
+ */
+function recover($mail) {
+	sanitize($mail);
+	
+	$user_data = user_data(user_id_from_mail($mail), 'id');
+	$new_password = generateRandomString();
+	change_password($user_data['id'], $new_password);	
+	
+	require 'includes/phpmailer/class.phpmailer.php';
+	
+	$email = new PHPMailer;
+	
+	// E-Mail-Verbindungsaufbau und -Versenden
+	$email->IsSMTP();                                      // Set mailer to use SMTP
+	$email->Host = 's16929463.onlinehome-server.info';  // Specify main and backup server
+	$email->SMTPAuth = true;                               // Enable SMTP authentication
+	$email->Username = 'Telemetrie@s16929463.onlinehome-server.info';                            // SMTP username
+	$email->Password = 'e]jm&fNJz9';                           // SMTP password
+	$email->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+	
+	$email->From = 'noreply@teamstarcraft.de';
+	$email->FromName = 'Team Starcraft e. V.';
+	$email->AddAddress($mail);  // Add a recipient
+	
+	$email->WordWrap = 50;                                 // Set word wrap to 50 characters
+	$email->IsHTML(true);                                  // Set email format to HTML
+	
+	$email->Subject = 'Ihr neues Passwort';
+	$email->Body    = 'Sehr geehrter Nutzer,<br><br>Ihr Passwort wurde erfolgreich zurückgesetzt. Das neue Passwort lautet <b>' . $new_password  .  '</b>. Bitte ändern Sie dieses nach Ihrem Login schnellstmöglich wieder!<br> Vielen Dank!<br>Team Starcraft e. V.';
+	$email->AltBody = "Sehr geehrter Nutzer,\n\nIhr Passwort wurde erfolgreich zurückgesetzt. Das neue Passwort lautet " . $new_password  .  ". Bitte ändern Sie dieses nach Ihrem Login schnellstmöglich wieder! Vielen Dank! \n Team Starcraft e. V.";
+	
+	if(!$email->Send()) {
+		echo "Mailer Error: " . $email->ErrorInfo;
+	}
+}
+
+/**
  * Bekommt eine ID und einen String übergeben und ändert das zur ID gehörende Passwort in der Datenbank
  * @param int $user_id
  * @param string $password
@@ -121,9 +160,10 @@ function logged_in() {
  */
 function refresh() {
 	global $connect, $dbname_ud, $online;
+	$time = 60;
 	mysqli_select_db($connect,$dbname_ud);
 	mysqli_query($connect, "UPDATE `" . $online . "` SET zeitpunkt = " . $_SESSION['time'] . " WHERE id = " . $_SESSION['user_id']);
-	$tmpVar = time() - (60*60);
+	$tmpVar = time() - ($time*60);
 	mysqli_query($connect, "DELETE FROM `" . $online . "` WHERE zeitpunkt < " . $tmpVar);
 	mysqli_close($connect);	
 }
@@ -182,7 +222,7 @@ function login($mail, $password) {
 	global $connect, $user, $cryptsalt;
 	$user_id = user_id_from_mail($mail);
 	$mail = sanitize($mail);
-	$password = crypt($password, $cryptsalt); // lieber password_hash() verwenden !!!
+	$password = crypt($password, $cryptsalt); 
 	$query = mysqli_query($connect,"SELECT `id` FROM `" . $user . "` WHERE email = '" . $mail . "' AND passwort = '" . $password . "'");
 	
 	return (mysqli_num_rows($query) == 1) ? $user_id : false ;

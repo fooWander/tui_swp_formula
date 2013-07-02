@@ -1,84 +1,22 @@
+#include "resizeDB.h"
 
-/*
- *  Service Interface for Formula Student Car.
- *  Copyright (C) 2013
- *
- *  This program is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU General Public License
- *  as published by the Free Software Foundation; either version 2
- *  of the License, or (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+  bool resizeDB::resDB(){
+    dbData db;
+    return resDB(db.getNORM_DB());
+  }
 
-#include <stdlib.h>
-#include <iostream>
-#include <sstream>
-#include <stdexcept>
+  bool resizeDB::resDB(int norm){
 
-#include "mysql_connection.h"
-//Einbindung des MySQL Connector/C++
-#include <cppconn/driver.h>
-#include <cppconn/exception.h>
-#include <cppconn/resultset.h>
-#include <cppconn/statement.h>
-#include <cppconn/prepared_statement.h>
-#include <string>
-//Einbindung von boost
-#include <boost/lexical_cast.hpp>
-
-#include "dbData.h"
-
-
-using namespace std;
-using namespace sql::mysql;
-using namespace boost;
-
-/** Programm zum Loeschen veralteter Daten aus der Datenbank.
- *
- * Dieses Programm loggt sich in die Datenbank ein und ueberprueft die Tabellen auf die Anzahl ihrer
- * Eintraege. Sind mehr Datensaetze vorhanden als benoetigt, werden die
- * aeltesten automatisch geloescht.
- *
- * Das Programm ist so konzipiert, das es mittels eines Cronjobs periodisch aufgerufen
- * werden kann. Dieses Programm ist unabhaegig von den anderen auf dem virtuellem Server
- * laufenden Programmen, benoetigt jedoch die Datei dbconfig.txt um die Datenbank-
- * Zugriffsdaten auszulesen sowie den MySQL Connector/C++ und eine boost-Bibliothek.
- *
- * Beim Programmstart werden ueber die Klasse dbData die Zugangsdaten fuer die Datenbank bezogen und anschliessend eine
- * Verbindung zur Datenbank hergestellt.
- *
- * Ueber die Verbindung wird nun mittels eines MySQL-Statements (SELECT COUNT(*) FROM tabelle;) die Anzahl der Datensaetze
- * in der jeweiligen Tabelle ermittelt und mit dem Referenzwert verglichen.
- * Sind mehr Datensaetze in der Tabelle als vorgesehen, werden die aeltesten Eintraege mithilfe eines 
- * MySQL-Statements (DELETE FROM tabelle ORDER BY Zeitstempel LIMIT diff) geloescht.
- * Die Anzahl der geloeschten Eintraege richtet sich dabei nach der Differenz zwischen der aktuellen Datensatzanzahl
- * und dem Referenzwert.
- * Gemaess der Dokumentation des MySQL Connector/C++ werden auftretende Fehler abgefangen.
- * Damit das Programm auch sinnvoll von der Kommandozeile ausgefuehrt werden kann, etwa um die Datenbankverbindung zu testen, erfolgen
- * Ausgaben ueber den Bearbeitungsstand.
- */
-
-  int main(){
-	/*! Ablauf:
-	dbData db; /*!< Erstellung des dbData-Objektes um Zugriff auf die Datenbankdaten zu erhalten. */
+	dbData db; 		/*!< Erstellung des dbData-Objektes um Zugriff auf die Datenbankdaten zu erhalten. */
         
-	string url = db.getHost(); /*!< Auslesen des Hostnamen der MySQL-Datenbank. */
-        string user = db.getUser(); /*!< Auslesen des Benutzername fuer die MySQL-Datenbank. */
-        string pass = db.getPW(); /*!< Auslesen des Passwortes fuer den Benutzer der MySQL-Datenbank. */
-        string database = db.getDB(); /*!< Auslesen des Namen der verwendeten MySQL-Datenbank. */
-
-	int cur; /*!< Integervariable fuer die aktuelle Anzahl an Datensaetzen in der jeweiligen Tabelle. */ 
-	int norm = 36000; /*!< Anzahl der in der Tabelle zu haltenden Datensaetze. */
-	int diff; /*!< Anzahl zu loeschender Eintraege als die jeweilige Differenz zwischen der aktuellen Datensatzanzahl und dem Sollwert. */ 
-		
+	logData lg; 		/*!< Erstellen eines Logging-Objektes. */ 
+	url = db.getHost(); 	/*!< Auslesen des Hostnamen der MySQL-Datenbank. */
+        user = db.getUser(); 	/*!< Auslesen des Benutzername fuer die MySQL-Datenbank. */
+        pass = db.getPW();	/*!< Auslesen des Passwortes fuer den Benutzer der MySQL-Datenbank. */
+        database = db.getDB();	/*!< Auslesen des Namen der verwendeten MySQL-Datenbank. */
+ 	
+	error = false;
+	
 	try{
           sql::Driver* driver = get_driver_instance(); /*!< Initialisierung der Datenbankverbindung. */
           std::auto_ptr<sql::Connection> con(driver->connect(url, user, pass )); /*!< Herstellung der Verbindung zum Datenbankserver mittels Hostname, DB-Benutzer und Passwort. */
@@ -97,11 +35,11 @@ using namespace boost;
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM akkudaten ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              cout << "Datensaetze aus Tabelle akkudaten geloescht: " << diff << endl;
+              msg =  "resizeDB: Datensaetze aus Tabelle akkudaten geloescht: " + lexical_cast<string>(diff);
             }
             else
             {
-              cout << "Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: " << cur << endl;
+              msg = "resizeDB: Keine Datensaetze in der Tabelle akkudaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
 	    }
 
 	/**
@@ -114,12 +52,13 @@ using namespace boost;
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM allgemeine_fahrzeugdaten ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              cout << "Datensaetze aus Tabelle allgemeine_fahrzeugdaten geloescht: " << diff << endl;
+	      msg +=  "\n  resizeDB: Datensaetze aus Tabelle allgemeine_fahrzeugdaten geloescht: " + lexical_cast<string>(diff);
             }
             else
             {
-              cout << "Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: " << cur << endl;
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle allgemeine_fahrzeugdaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
             }
+
 
 	/**
 	 * Tabelle dynamische_daten limitieren.
@@ -132,11 +71,11 @@ using namespace boost;
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM dynamische_daten ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              cout << "Datensaetze aus Tabelle dynamische_daten geloescht: " << diff << endl;
+              msg +=  "\n  resizeDB: Datensaetze aus Tabelle dynamische_daten geloescht: " + lexical_cast<string>(diff);
             }
             else
             {
-              cout << "Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: " << cur << endl;
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle dynamische_daten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
             }
 
 	/**
@@ -150,11 +89,11 @@ using namespace boost;
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM fahrdynamikregelung ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              cout << "Datensaetze aus Tabelle fahrdynamikregelung geloescht: " << diff << endl;
+              msg +=  "\n  resizeDB: Datensaetze aus Tabelle fahrdynamikregelung geloescht: " + lexical_cast<string>(diff);
             }
             else
             {
-              cout << "Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: " << cur << endl;
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle fahrdynamikregelung geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur);
             }
 
 	/**
@@ -168,12 +107,13 @@ using namespace boost;
             if (cur > norm){ /*!< Pruefung ob mehr Datensaetze als vorgesehen vorhanden sind. */
               diff = cur - norm; /*!< Berechnung ueberfluessiger Datensaetze. */
               stmt->execute("DELETE FROM motor_umrichterdaten ORDER BY Zeitpunkt LIMIT " + lexical_cast<string>(diff) + ";"); /*!< Loeschen ueberfluessiger Datensaetze. */
-              cout << "Datensaetze aus Tabelle motor_umrichterdaten geloescht: " << diff << endl;
+              msg +=  "\n  resizeDB: Datensaetze aus Tabelle motor_umrichterdaten geloescht: " + lexical_cast<string>(diff) + '\n';
             }
             else
             {
-              cout << "Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: " << cur << endl;
+              msg +=  "\n  resizeDB: Keine Datensaetze in der Tabelle motor_umrichterdaten geloescht. Aktuelle Anzahl an Eintraegen: "  + lexical_cast<string>(cur) +'\n' ;
             }
+            lg.logWrite(5, msg);
 
 
 	}
@@ -189,7 +129,7 @@ using namespace boost;
           cout << "# ERR: " << e.what();
           cout << " (MySQL error code: " << e.getErrorCode();
           cout << ", SQLState: " << e.getSQLState() << " )" << endl;
-          return EXIT_FAILURE;
+          error = true;
 	}
-  return 0;
+  return error;
 }

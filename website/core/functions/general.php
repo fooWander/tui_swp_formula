@@ -3,6 +3,23 @@
 include 'includes/config.php';
 
 /**
+ * Erzeugt einen beliebigen zufälligen String der aus zehn Zeichen besteht. Diese Länge ist der Standardwert.
+ * Durch Aufruf der Funktion mit einem Integer als Parameter kann die Länge manuell angepasst werden.
+ * @param number $length
+ * @return string
+ */
+function generateRandomString($length = 10) {
+	$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"§$%&/()=?+*#-_^';
+	$randomString = '';
+
+	for ($i = 0; $i < $length; $i++) {
+		$randomString .= $characters[rand(0, strlen($characters) - 1)];
+	}
+
+	return $randomString;
+}
+
+/**
  * Erstellt alle wichtigen Datenbanken, Tabellen, legt einen Vorstand mit den übegebenen Daten an
  * und richtet die Benutzergruppen 'Vorstand', 'Beobachter' und 'Techniker' an
  * @param array $register_data
@@ -219,7 +236,7 @@ function install_system($register_data) {
 						  `Zelltemperatur46` DECIMAL(4,1) NULL ,
 						  `Zelltemperatur47` DECIMAL(4,1) NULL ,
 						  `Zelltemperatur48` DECIMAL(4,1) NULL ,
-						  `Zeitpunkt` INT(8) NULL ,							  
+						  `Zeitpunkt` INT(19) NOT NULL ,							  
 						  `AkkuFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	
@@ -234,7 +251,7 @@ function install_system($register_data) {
 						  `Gaswert02` DECIMAL(4,1) NULL ,
 						  `AkkuGesamtspannung` DECIMAL(5,1) NULL ,
 						  `AktuelleFahrzeugzeit` INT(10) NULL ,
-						  `Zeitpunkt` INT(8) NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `AllgFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	
@@ -265,7 +282,7 @@ function install_system($register_data) {
 						  `Gaspedalstellung01` DECIMAL(4,1) NULL ,
 						  `Gaspedalstellung02` DECIMAL(4,1) NULL ,
 						  `Lenkwinkel` SMALLINT(3) NULL ,
-						  `Zeitpunkt` INT(8) NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `DynFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	
@@ -287,7 +304,7 @@ function install_system($register_data) {
 						  `Lüfter` DECIMAL(4,1) NULL ,
 						  `Pumpe` DECIMAL(4,1) NULL ,
 						  `Wassertemperatur` DECIMAL(4,1) NULL ,
-						  `Zeitpunkt` INT(8) NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `MotorFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";	
 	
@@ -295,7 +312,7 @@ function install_system($register_data) {
 	$query_driving_data = "CREATE  TABLE IF NOT EXISTS $dbname_fd.$driving_data(
 						  `Antriebschlupfregelung` DECIMAL(4,3) NULL ,
 						  `TorqueVectoring` DECIMAL(4,3) NULL ,
-						  `Zeitpunkt` INT(8) NULL ,
+						  `Zeitpunkt` INT(19) NOT NULL ,
 						  `FahrdynFehlerFeld` VARCHAR(45) NULL,
 						  PRIMARY KEY (`Zeitpunkt`) )";
 	

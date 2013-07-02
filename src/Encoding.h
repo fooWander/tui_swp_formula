@@ -27,20 +27,23 @@
 #include <iostream>
 #include <time.h>
 #include <unistd.h>
+#include "common.h"
 
 //extern const int PACKAGESIZE_MAX;
 
-extern char VEC_COMMA[100];
+extern char VEC_COMMA[401];
 extern int VEC_COMMA_SIZE;
-extern char VEC_DATATYPES[100];
+extern char VEC_DATATYPES[401];
 extern int VEC_DATATYPES_SIZE;
-extern char VEC_LAYOUT[10];
+extern char VEC_LAYOUT[100];
 extern int VEC_LAYOUT_SIZE;
  
 extern int PACKAGE_COUNTER;
-extern unsigned int TIME_THRESHOLD; //###
+extern int64_t TIME_THRESHOLD; //###
 extern int64_t LOCAL_TIMESTAMP;
 
+
+unsigned short joinUnsigShort(unsigned char a,unsigned char b);
 /**
  *  Service, der aus einem kompletten Satz Fahrzeugdaten mehrere Pakete erzeugt
  *  und komprimiert. Die Komprimierung ist noch nicht implementiert.
@@ -75,7 +78,7 @@ public:
      *  nicht vorhanden oder @a len zu klein.
      */
 
-    int getPackage(char * package, size_t len, unsigned short packageNumber);
+    int getPackage(char * package, int len, unsigned short packageNumber);
     
     /**
      *  Holt das jeweils nächste Paket. (1,2,...,n,1,2,...)
@@ -84,7 +87,7 @@ public:
      *  \return Die Länge des Pakets oder -1 falls @a len zu klein.
      */
 
-    int getNextPackage(char * package, size_t len);
+    int getNextPackage(char * package, int len);
     
     /**
      *  Gibt die Paketgröße eines speziellen Pakets zurück.
@@ -131,7 +134,7 @@ private:
      *  Speichert die geteilten Pakete und deren Header.
      */
 
-    char myPackages[1000];
+    char myPackages[PACKAGE_SIZE_MAX];
     
     /**
      *  Speichert die Postion der einzelnen Pakete in @a myPackages.
@@ -156,6 +159,8 @@ private:
      */
 
     int myPackageNum;
+
+    
     /*
     char myBuffer;
     int myBufferlen;
@@ -222,12 +227,19 @@ public:
 
     unsigned int getPackagePos(char * vecLayout, size_t vecLayoutlen);
 
+    /**
+     *  Gibt Auskunft über die Aktualität eines Pakets.
+     *  \return -1 falls veraltet, sonst aktuell.
+     */
+     int getTimestampStatus();
+
 private:
     unsigned int myDataLength;
     int64_t myTimestamp;
 	//unsigned int TIME_THRESHOLD=5;
     char * myPackage;
     unsigned int myPackagelen;
+    int myTimestampStatus;
 
     /*
         Number of currently processed package.
