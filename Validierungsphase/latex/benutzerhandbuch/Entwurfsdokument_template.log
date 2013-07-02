@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  2 JUL 2013 22:59
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.5.14)  2 JUL 2013 23:15
 entering extended mode
 **Entwurfsdokument_template.tex
 
@@ -863,101 +863,101 @@ Underfull \hbox (badness 10000) in paragraph at lines 384--385
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 431--435
+Underfull \hbox (badness 10000) in paragraph at lines 432--436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--439
+Underfull \hbox (badness 10000) in paragraph at lines 437--440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--444
+Underfull \hbox (badness 10000) in paragraph at lines 441--445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--450
+Underfull \hbox (badness 10000) in paragraph at lines 446--451
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 468--470
+Underfull \hbox (badness 10000) in paragraph at lines 469--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 471--473
+Underfull \hbox (badness 10000) in paragraph at lines 472--474
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--476
+Underfull \hbox (badness 10000) in paragraph at lines 475--477
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 477--479
+Underfull \hbox (badness 10000) in paragraph at lines 478--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--483
+Underfull \hbox (badness 10000) in paragraph at lines 481--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 491--493
+Underfull \hbox (badness 10000) in paragraph at lines 492--494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 497--498
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 504--505
+Underfull \hbox (badness 10000) in paragraph at lines 498--499
 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 507.
+
+Underfull \hbox (badness 10000) in paragraph at lines 500--501
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--506
+
+ []
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 508.
 
 ("C:\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 507.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 508.
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--508
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
 
  []
 
 LaTeX Font Info:    Font shape `OML/cmr/m/it' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 511.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 512.
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 550--551
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 552--553
+Underfull \hbox (badness 10000) in paragraph at lines 553--554
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--555
+Underfull \hbox (badness 10000) in paragraph at lines 555--556
 
  []
 
@@ -965,21 +965,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 554--555
 File: website_config.png Graphic file (type png)
 
 <use website_config.png>
-Package pdftex.def Info: website_config.png used on input line 558.
+Package pdftex.def Info: website_config.png used on input line 559.
 (pdftex.def)             Requested size: 462.97856pt x 230.36006pt.
 
-Overfull \hbox (7.73439pt too wide) in paragraph at lines 558--559
+Overfull \hbox (7.73439pt too wide) in paragraph at lines 559--560
  [][] 
  []
 
 [15 <C:/Users/Zehner/Documents/GitHub/tui_swp_formula/Validierungsphase/latex/b
 enutzerhandbuch/website_config.png>] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 591--592
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
 
  []
 
 
-Overfull \hbox (17.2804pt too wide) in paragraph at lines 593--597
+Overfull \hbox (17.2804pt too wide) in paragraph at lines 594--598
 \OT1/cmr/m/n/12 (-20) Pfadbeispiel: \OT1/cmr/m/it/12 (-20) team-starcraft.de/sw
 p[]formula[]student/install.php \OT1/cmr/m/n/12 (-20) - da-bei ist \OT1/cmr/m/i
 t/12 (-20) swp[]formula[]student
@@ -988,15 +988,15 @@ t/12 (-20) swp[]formula[]student
 <install.png, id=76, 764.8575pt x 400.49625pt>
 File: install.png Graphic file (type png)
  <use install.png>
-Package pdftex.def Info: install.png used on input line 600.
+Package pdftex.def Info: install.png used on input line 601.
 (pdftex.def)             Requested size: 382.42781pt x 200.24763pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--607
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--607
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
 
  []
 
@@ -1004,30 +1004,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 606--607
 enutzerhandbuch/install.png>]
 Kapitel 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 619--623
+Underfull \hbox (badness 10000) in paragraph at lines 620--624
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 628--630
+Underfull \hbox (badness 10000) in paragraph at lines 629--631
 
  []
 
 [18
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 645--646
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--646
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
 
  []
 
 [19]
 Package tocbasic Info: character protrusion at lof deactivated on input line 65
-2.
+3.
 
 (C:\Users\Zehner\Documents\GitHub\tui_swp_formula\Validierungsphase\latex\benut
 zerhandbuch\Entwurfsdokument_template.lof)
@@ -1048,7 +1048,7 @@ Here is how much of TeX's memory you used:
  11344 multiletter control sequences out of 15000+200000
  18388 words of font info for 120 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 40i,11n,46p,975b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,10n,46p,975b,346s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmbx12.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmmi12.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/MiKT
@@ -1058,7 +1058,7 @@ ic/amsfonts/cm/cmr17.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
 type1/public/amsfonts/cm/cmssbx10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmsy10.pfb><C:/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Entwurfsdokument_template.pdf (20 pages, 440100 bytes).
+Output written on Entwurfsdokument_template.pdf (20 pages, 440388 bytes).
 PDF statistics:
  129 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
