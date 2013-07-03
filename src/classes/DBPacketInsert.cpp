@@ -33,6 +33,7 @@ void DBPacketInsert::db_insert()
 	    //Über Anzahl aller Werte dieses Pakets:
 	    for(int i=1; i<(akkudaten - allgemeineFahrzeugdaten); i++){
 	        //Werte einlesen
+	        //std::cout << "ALFJALFJA: " << akkudaten-allgemeineFahrzeugdaten << std::endl;
 	        wertStuecke[i] = slave.parseNextValue();
 	    }
 	    //Insert-Routine aufrufen

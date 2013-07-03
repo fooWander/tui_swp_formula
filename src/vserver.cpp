@@ -169,8 +169,8 @@ int main(int argc, char const *argv[])
                 continue;
             }
 
-            for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
-            {
+            //for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
+            //{
                 //Data dat = dec.getNextData();
                 DBPacketInsert insertion;
                 insertion.db_insert();
@@ -180,7 +180,7 @@ int main(int argc, char const *argv[])
                 std::cout << "Datentyp: " << dat.getDatatype() << std::endl;
                 std::cout << "Position: " << dat.getPosition() << std::endl;
                 */
-            }
+            //}
             usleep(250000);
             //sendData(dec);
             std::cout << "Paket verarbeitet!!!!!" << std::endl;
