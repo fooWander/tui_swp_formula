@@ -570,7 +570,7 @@ Baud = 460800
 \end{lstlisting} 
 \vspace*{-2mm}
 
-Um eventuelle Probleme mit dem SIM-Karten-Pin auszuschließen, deaktivieren Sie zuvor die Pinabfrage mit Hilfe eines Mobiltelefons. Andernfalls wird das Hinzufügen der nachfolgend aufgeführten Zeilen, in der Konfigurationsdatei \textit{wvdial.conf} nach den Standardeinstellungen notwendig. Der Platzhalter \textit{abcd} steht hierbei für Ihre Pinziffern und muss durch diese ersetzt werden.
+Um eventuelle Probleme mit dem SIM-Karten-Pin auszuschließen, deaktivieren Sie zuvor die Pinabfrage mit Hilfe eines Mobiltelefons. Andernfalls wird das Hinzufügen der nachfolgend aufgeführten Zeilen in der Konfigurationsdatei \textit{wvdial.conf} nach den Standardeinstellungen notwendig. Der Platzhalter \textit{abcd} steht hierbei für Ihre Pinziffern und muss durch diese ersetzt werden.
 
 \newpage
 
@@ -581,7 +581,7 @@ Init4 = AT+CPIN="abcd"
 \end{lstlisting} 
 \vspace*{-2mm}
 
-Im Anschluss an die Konfiguration sollte der Embedded-PC neu gestartet werden. Der Befehl dazu befindet sich unter Punkt a). \\
+Im Anschluss an die Konfiguration sollte der Embedded-PC neu gestartet werden. Der Befehl dazu befindet sich unter Punkt 5). \\
 
 \textbf{Punkt 4)} \\
 
@@ -695,7 +695,7 @@ date
 
 \textbf{Punkt 8)} \\
 
-Um eine UMTS-Konfigurationsdatei zu erzeugen benutzen Sie das nachfolgende Kommando:
+Um eine UMTS-Konfigurationsdatei zu erzeugen, benutzen Sie das nachfolgende Kommando:
 
 \vspace*{3mm}
 \begin{lstlisting}[frame=single]
@@ -703,7 +703,7 @@ wvdialconf /etc/wvdial.conf
 \end{lstlisting} 
 \vspace*{-2mm}
 
-Die erstellte Konfigurationsdatei ist entsprechend Punkt 5) anzupassen.
+Die erstellte Konfigurationsdatei ist entsprechend Punkt 3) anzupassen.
 
 \newpage
 
@@ -735,7 +735,7 @@ Standardmäßig wird die UMTS-Verbindung automatisch beim Start des PCs über ei
 
 \textbf{Punkt 11)} \\
 
-Vorgehensweise um die UMTS-Verbindung automatisch bei Systemstart herzustellen:
+Um die UMTS-Verbindung automatisch bei Systemstart herzustellen, muss wie folgt vorgegangen werden:
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -755,7 +755,7 @@ Standardmäßig wird das Programm automatisch beim Start des PCs gestartet. Die 
 
 \textbf{Punkt 13)} \\
 
-Vorgehensweise um das Programm automatisch bei Systemstart auszuführen:
+Um das Programm automatisch bei Systemstart auszuführen, muss auch hier folgendes in die Konsole eingegeben werden:
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -782,7 +782,7 @@ Fügen Sie folgende Zeile an das Ende der Einstellung hinzu:
 \end{lstlisting} 
 \vspace*{-2mm}
 
-Nachfolgend notwendige Tastatureingaben: \\
+Notwendige Tastatureingaben: \\
 
 Verwenden Sie zum Speichern der Datei die Tastenkombination \textit{STRG + o} und bestätigen Sie danach mit \textit{ENTER}. Mit der Tastenkombination \textit{STRG + x} schließen Sie die Datei. 
 
