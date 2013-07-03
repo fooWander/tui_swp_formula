@@ -13,7 +13,9 @@ string DatatypeDaemon::parseNextValue()
 	string rueckgabe = "";
 	Data dat = DECODER.getNextData();
 	int type = dat.getDatatype();
+	std::cout << "TYP: " << type << std::endl;
 	pos = dat.getPosition();
+	std::cout << "POS: " << pos << std::endl;
 	//Datentyp ist Boolean oder (Unsigned) Integer:
 	if(type>=0 && type<=7){
 		int temp = dat.getValue();
