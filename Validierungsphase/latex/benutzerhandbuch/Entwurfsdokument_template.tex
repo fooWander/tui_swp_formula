@@ -104,9 +104,52 @@
 
 \usepackage{enumitem} 
 
+% Für Codesnippets:
+
+\usepackage{listings}
+
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+%  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+%  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+
+
+
+
 %----------------  Anfang des Dokuments ------------------%
 
 \begin{document}
+%\lstset{language= C++}  
 
 %*******************************************************************%
 
@@ -125,7 +168,7 @@
 		David Kudlek \\  Tom Porzig \\ Tino Tausch \\ 
 		Tobias Zehner \\ Sebastian Zehnter}
 		
-\date{Hier Datum einfügen}	 
+\date{3.7.2013}	 
 	  
 \publishers{betreut durch \\ \vspace{1cm} Dr. Heinz-Dietrich Wuttke, TU Ilmenau \\ Oliver Dittrich, fachlicher Betreuer Team StarCraft e.V.}
 
@@ -176,9 +219,9 @@ Für eine erfolgreiche Installation und Konfiguration der MicroAutoBox II müsse
 
 \item \textit{udp\_final.mdl}: Diese Datei beinhaltet das von uns bereitgestellte Simulink-Modell für das Service Interface.
 
-\item \textit{config\_datenpaket.m} Dieses *.m - File enthält die zur Konfiguration des Datenpaketes notwendigen Vektoren, welche je nach Art des Datenpaketes an dieses angepasst werden können und Informationen über dessen Attribute und Zusammensetzung beinhalten (Verweis ED).
+\item \textit{config\_datenpaket.m} Dieses \textit{*.m} - File enthält die zur Konfiguration des Datenpaketes notwendigen Vektoren, welche je nach Art des Datenpaketes an dieses angepasst werden können und Informationen über dessen Attribute und Zusammensetzung beinhalten (siehe Entwurfsdokument).
 
-\item \textit{signalgenerator\_microautobox.m} Dieses optionale *.m - File dient dazu, den Signalgenerator im Simulink-Modell zu Simulationszwecken mit generierten Testdaten auszustatten, um bei Veränderungen des Simulink-Modells oder bei einer Modifizierung der   auf dem Embedded-PC oder dem virtuellen Server implementierten *.cpp - Dateien eine Verifizierung des Service Interfaces anhand dieser bekannten Testdaten durchführen zu können (Verweis ED).
+\item \textit{signalgenerator\_microautobox.m} Dieses optionale \textit{*.m} - File dient dazu, den Signalgenerator im Simulink-Modell zu Simulationszwecken mit generierten Testdaten auszustatten, um bei Veränderungen des Simulink-Modells oder bei einer Modifizierung der   auf dem Embedded-PC oder dem virtuellen Server implementierten \textit{*.cpp} - Dateien eine Verifizierung des Service Interfaces anhand dieser bekannten Testdaten durchführen zu können (siehe Entwurfsdokument).
 
 \end{itemize} 
 
@@ -197,7 +240,7 @@ Falls diese Dateien alle zur Verfügung stehen sollten, ist in einem ersten Schr
 
 \subsection{Konfiguration der Ethernet-Schnittstelle}
 
-Daraufhin ist bei der weiteren Vorgehensweise anschließend die Konfiguration der Ethernet-Schnittstelle vorzunehmen. Hierzu öffnet man durch einen Doppelklick den in Abb. \ref{topmodell} zu sehenden Block \textit{"`Ethernet UDP Setup"} ein Fenster, in welchem nun die Möglichkeit besteht, zwischen den beiden Reitern \textit{"`Unit"} und \textit{"`Options"} zu navigieren (Verweis dSPACE Doku) und dort bei den jeweiligen Einstellungen Modifikationen vorzunehmen. Im Folgenden werden obligatorische Änderungen durch ein (*) am jeweiligen Parameter gekennzeichnet. \\
+Daraufhin ist bei der weiteren Vorgehensweise anschließend die Konfiguration der Ethernet-Schnittstelle vorzunehmen. Hierzu öffnet man durch einen Doppelklick den in Abb. \ref{topmodell} zu sehenden Block \textit{"`Ethernet UDP Setup"} ein Fenster, in welchem nun die Möglichkeit besteht, zwischen den beiden Reitern \textit{"`Unit"} und \textit{"`Options"} zu navigieren (siehe dSPACE Dokumentation) und dort bei den jeweiligen Einstellungen Modifikationen vorzunehmen. Im Folgenden werden obligatorische Änderungen durch ein (*) am jeweiligen Parameter gekennzeichnet. \\
 
 \textbf{Reiter "`Unit"} 
 
@@ -242,15 +285,12 @@ Nachdem alle obligatorischen Änderungen vorgenommen wurden, muss in einem näch
 
 \end{itemize}
 
-Nach dem Öffnen der Einstellungen der beiden Blöcke muss bei dem Parameter "`Maximum Message Size"\ der gleiche Wert eingetragen werden, der auch am Port "`Message Size"\ am jeweiligen Block anliegt. Sollten diese Werte nicht bekannt sein, so können diese an den beiden Displays "`DISPLAY\_MSGSIZE\_DATEN"\ und "`DISPLAY\_MSGSIZE\_PAKETINFO"\ abgelesen werden. Falls dies nach dem Starten der Simulation aufgrund von Fehlermeldungen nicht der Fall sein sollte, müssen die beiden Subsysteme UDP\_DATEN und UDP\_PAKETINFORMATIONEN kurzzeitig vom restlichen Modell abgetrennt / entfernt werden und die ehemals hinführenden Leitungen durch Terminatoren abgeschlossen werden. Anschließend kann der Wert bei Simulationsbeginn abgelesen, die neu eingefügten Terminatoren nach Beenden der Simulation wieder entfernt und die beiden Subsysteme erneut an das restliche Modell an den vorherigen Stellen angeschlossen werden. \\ 
+Nach dem Öffnen der Einstellungen der beiden Blöcke muss bei dem Parameter \textit{"`Maximum Message Size"\ }der gleiche Wert eingetragen werden, der auch am Port \textit{"`Message Size"\ }am jeweiligen Block anliegt. Ist die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paketinformationen bekannt, so kann die Größe der \textit{"`Maximum Message Size"\ }auf folgende Weise ermittelt werden: \\
 
-Falls jedoch die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paketinformationen bekannt sein sollte, kann die Größe der "`Maximum Message Size"\ auf elegantere Weise ermittelt werden. Da die Werte der Fahrzeugdaten den Datentyp \textit{int16} aufweisen und die Paketdaten den Datentyp \textit{uint8} besitzen, müssen die jeweiligen Signalbreiten nur mit 2 bzw. 1 (Byte) multipliziert werden, um den gesuchten Wert korrekt zu ermitteln \\ (s. die Subsysteme MSGSIZE\_DATEN und MSGSIZE\_PAKETINFO). \\  
+
+Da die Werte der Fahrzeugdaten nur den Datentyp \textit{int16}  aufweisen und die Paketdaten nur die Datentypen \textit{int16}  und \textit{uint8} besitzen, muss bei den Fahrzeugdaten die  Signalbreite nur mit 2 Byte multipliziert werden, um den gesuchten Wert korrekt zu ermitteln. (s. das Subsysteme MSGSIZE\_DATEN). Im Falle der Paketdaten kann diese durch den Vektor im Feld \textit{Datatype} im \textit{Encode32} - Block berechnet werden (s. hierzu Seite 8 und die Kodierung der Datentypen im \textit{*.m} - File \textit{config\_datenpaket.m}). \\  
 
 \textbf{Anmerkung}: Für weiterführende Informationen und Hinweise empfiehlt es sich, die Dokumentation der Firma dSPACE bzgl. des RTI Ethernet (UDP) Blocksets aufmerksam zu studieren. \\
-
-\textbf{ANMERKUNG: nach Christians Ändeurngen muss dieser Abschnitt nochmals überarbeitet werden!!!}
-
-
 
 \newpage
 
@@ -261,7 +301,8 @@ Falls jedoch die genaue Anzahl / die Signalbreite an Fahrzeugdaten bzw. an Paket
 
 \subsection{Konfiguration der Matlabfiles \textit{signalgenerator\_microautobox.m} und \textit{config\_datenpaket.m}}
 
-Die Konfiguration der beiden Configdateien in MATLAB ist entsprechend des Entwurfsdokumentes vorzunehmen, in dem dies ausführlich beschrieben wurde (s. Entwurfsdokument Punkt 2.1.2). Nachdem dies geschehen ist, müssen die Parameter der beiden Dateien noch vor dem Implementieren des Simulink-Modells auf der MicroAutoBox II in den Workspace von MATLAB geladen werden. Hierzu wechselt man in das Verzeichnis, in welchem sich die Configfiles befinden (s. Abb. \ref{configfilespfad}). In diesem Fall wäre es der Pfad \\ \textit{C:\textbackslash Users \textbackslash Sebastian Zehnter \textbackslash Documents \textbackslash Beispiel}
+Die Konfiguration der beiden Configdateien in MATLAB ist entsprechend des Entwurfsdokumentes vorzunehmen, in dem dies ausführlich beschrieben wurde (s. Entwurfsdokument Punkt 2.1.2). Nachdem dies geschehen ist, müssen die Parameter der beiden Dateien noch vor dem Implementieren des Simulink-Modells auf der MicroAutoBox II in den Workspace von MATLAB geladen werden. Hierzu wechselt man in das Verzeichnis, in welchem die sich die Configfiles befinden (s. Abb. \ref{configfilespfad}). In diesem Fall wäre es der Pfad \\ \textit{C:\textbackslash Users \textbackslash Max Mustermann \textbackslash Eigene Dokumente \textbackslash Beispiel}
+
 
 \begin{figure}[h]
 \centering
@@ -270,7 +311,7 @@ Die Konfiguration der beiden Configdateien in MATLAB ist entsprechend des Entwur
 \label{configfilespfad}
 \end{figure} 
 
-Anschließend bewirkt die Eingabe von \textit{"`signalgenerator\_microautobox"} und \textit{"`config\_datenpaket"} im "Command Window", dass die Parameter der beiden Dateien in den Workspace von MATLAB geladen werden. Falls keine Tippfehler o.ä. aufgetreten sind, sollte nun im Workspace folgendes zu sehen sein: 
+Anschließend bewirkt die Eingabe von \textit{"`signalgenerator\_microautobox"} und \textit{"`config\_datenpaket"} im "`Command Window", dass die Parameter der beiden Dateien in den Workspace von MATLAB geladen werden. Falls keine Tippfehler o.ä. aufgetreten sind, sollte nun im Workspace folgendes zu sehen sein: 
 
 \begin{figure}[h]
 \centering
@@ -310,7 +351,7 @@ Der Aufbau und Funktion dieses Files wurden hinreichend im Entwurfsdokument sowi
 
 \subsubsection{Veränderungen am Modell} 
 
-Bei Veränderungen des Simulink-Modells, um z.B. neue Sensorwerte aufzunehmen oder nicht mehr benötigte zu entfernen, bietet es sich an den Signalgenerator zu modifizieren und für Testzwecke zu verwenden. Dazu müssen die jeweiligen Werte aus dem Modell einschließlich des Signalgenerators entfernt oder hinzugefügt werden. Wichtig dabei ist, dass dies im kompletten Simulink-Model vorgenommen wird, da es sonst zu Fehlern kommt (s. hierzu Punkt 2.1.6). 
+Bei Veränderungen des Simulink-Modells, beispielsweise um neue Sensorwerte aufzunehmen oder nicht mehr benötigte zu entfernen, bietet es sich an, den Signalgenerator zu modifizieren und für Testzwecke zu verwenden. Dazu müssen die jeweiligen Werte aus dem Modell einschließlich des Signalgenerators entfernt oder hinzugefügt werden. Wichtig dabei ist, dass dies im kompletten Simulink-Model vorgenommen wird, da es sonst zu Fehlern kommt (s. Punkt 2.1.6). 
 
 
 \subsubsection{Anschließen des Signalgenerator-Blockes an das Modell}
@@ -318,14 +359,13 @@ Bei Veränderungen des Simulink-Modells, um z.B. neue Sensorwerte aufzunehmen od
 Falls sich im restlichen Modell keine Änderungen ergeben haben, stellt das erneute Anschließen des Signalgenerators kein großes Problem dar. 
 Dieser muss einfach über eine Leitung mit dem Signalkollektor verbunden werden.  
 Liegen jedoch Veränderungen vor, müssen diese, wie gerade erwähnt, komplett im Modell beachtet und bearbeitet werden. 
-Dabei ist es wichtig, dass die Reihenfolge der Signale im Busarray analog zum Pflichtenheft erhalten bleibt (s. 2.1.4). 
-Dabei spielt die Reihenfolge, in welcher die Signale über einen Bus-Creator gebündelt bzw. über einen Bus-Selector aufgespalten werden eine große Rolle. 
+Dabei ist es wichtig, dass die Reihenfolge der Signale im Busarray analog zum Pflichtenheft erhalten bleibt (siehe 2.1.4), denn die Reihenfolge, in welcher die Signale über einen Bus-Creator gebündelt bzw. über einen Bus-Selector aufgespalten werden, spielt eine große Rolle. 
 Die Signalreihenfolge kann innerhalb dieser Blöcke eingesehen und bearbeitet werden. 
 
 
 \subsubsection{Verwenden des Signalgenerator-Blockes zu Testzwecken}
 
-Ist das Modell nun komplett eingerichtet und mit dem Signalgenerator-Subsystem verbunden, ist es wichtig, dass das dazugehörige Datei signalgenerator\_microautobox.m ausgeführt wurde, damit die Parameterwerte der Signale MATLAB bekannt sind. Nach der Implementierung des Modells (s. 2.1.5) liegen die gewünschten Werte am Ausgang der MicroAutoBox II an und können an den Embedded-PC zur anschließenden Weiterverarbeitung der Fahrzeugdaten übertragen werden.
+Ist das Modell nun komplett eingerichtet und mit dem Signalgenerator-Subsystem verbunden, ist es wichtig, dass die dazugehörige Datei \textit{signalgenerator\_microautobox.m} ausgeführt wurde, damit die Parameterwerte der Signale MATLAB bekannt sind. Nach der Implementierung des Modells (siehe 2.1.5) liegen die gewünschten Werte am Ausgang der MicroAutoBox II an und können an den Embedded-PC zur anschließenden Weiterverarbeitung der Fahrzeugdaten übertragen werden.
 
 
 %-------------------------------------------------------------------%
@@ -335,8 +375,8 @@ Ist das Modell nun komplett eingerichtet und mit dem Signalgenerator-Subsystem v
 
 Um das Simulink-Modell des Formaula-Student-Fahrzeuges mit dem Simulink-Modell des Service Interfaces zu verbinden, sind folgende Schritte notwendig: \\
 
-Zu Beginn muss als Vorbereitung das Subsystem \textit{Signalgenrator} vom Subsystem \textit{Signalcollector\_Embedded\_PC} getrennt und aus dem Modell entfernt werden. Des Weiteren empfiehlt es sich, die einzelnen Signale des Modells von Team StarCraft e.V. zu einem einzelnen Busarray zusammenzufassen und erst dann mit dem Busarray des Subsystems \textit{Signalcollector\_Embedded\_PC} zu verbinden.
-Hierbei ist die Reihenfolge der im Pflichtenheft festgelegten Fahrzeugdaten einzuhalten (s. Abb. \ref{anschlussbus}) , um mögliche Fehler zu vermeiden. 
+Zu Beginn muss als Vorbereitung das Subsystem \textit{Signalgenerator} vom Subsystem \textit{Signalcollector\_Embedded\_PC} getrennt und aus dem Modell entfernt werden. Des Weiteren empfiehlt es sich, die einzelnen Signale des Modells von Team StarCraft e.V. zu einem einzelnen Busarray zusammenzufassen und erst dann mit dem Busarray des Subsystems \textit{Signalcollector\_Embedded\_PC} zu verbinden.
+Hierbei ist die Reihenfolge der im Pflichtenheft festgelegten Fahrzeugdaten einzuhalten (siehe Abb. \ref{anschlussbus}) , um mögliche Fehler zu vermeiden. 
 
 \begin{figure}[h]
 \centering
@@ -398,7 +438,7 @@ Es empfiehlt sich, die folgende Checkliste abzuarbeiten, um mögliche Fehler bei
 
 \begin{itemize}
 
-\item Ist das Simulink-Modell korrekt an den Signalkollektor angeschlossen, d.h. die festgelegt Reihenfolge im Pflichtenheft eingehalten?
+\item Ist das Simulink-Modell korrekt an den Signalkollektor angeschlossen, d.h. die festgelegte Reihenfolge im Pflichtenheft eingehalten?
 
 \item Wurden alle bereitgestellten Signale des Signalkollektors genutzt und falls nicht, wurden diese durch Terminatoren abgeschlossen oder durch vorher definierte Constant-Blöcke belegt?
 
@@ -408,7 +448,7 @@ Es empfiehlt sich, die folgende Checkliste abzuarbeiten, um mögliche Fehler bei
 
 \item Wurden die Signale im Encoder-Block korrekt in die entsprechenden Datentypen gewandelt (s. S.8 oben)?
 
-\item Wurden in der *.m - File \textit{config\_datenpaket.m} die Vektoren korrekt an die Änderungen angepasst?
+\item Wurden in der \textit{*.m} - File \textit{config\_datenpaket.m} die Vektoren korrekt an die Änderungen angepasst?
 
 \item Wurde bei den UDP-Send-Blöcken die korrekte Message Size eingetragen?
 
@@ -422,9 +462,336 @@ Es empfiehlt sich, die folgende Checkliste abzuarbeiten, um mögliche Fehler bei
 
 \section{Embedded-PC}
 
+Folgen Sie den Anweisungen im Benutzerhandbuch  um auf den Embedded PC zuzugreifen. Im ausgelieferten Zustand ist der Embedded-PC bereits funktionstüchtig. Eine Änderung der Konfiguration ist unter Umständen nur notwendig bei Modifikationen an der MicroAutoBox II oder des virtuellen Servers. Eine jederzeit aktuelle Installations- bzw. Konfigurationsanleitung finden Sie unter:
+
+\vspace*{4mm}
+
+ \begin{lstlisting}[frame=single]
+ https://github.com/fooWander/tui_swp_formula.git 
+ \end{lstlisting}
+
+\vspace*{-2mm} 
+
+\textbf{Punkt R)} \\
+
+Standardmäßig wird die UMTS-Verbindung und das Programm automatisch beim Start des PCs gestartet.
+Dies erfolgt über zwei Einträge in der Datei \textit{rc.local}.
+Die Datei \textit{rc.local} befindet sich unter folgendem Verzeichnis:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt 8)} \\
+
+Das erwähnte Programm heißt \textit{embpc} und liegt ausgehend vom Rootnutzer im nachfolgenden Verzeichnis:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+~/tui_swp_formula/bin
+\end{lstlisting} 
+\vspace*{-2mm}
+
+
+\subsection{Netzwerkanpassungen des Programms}
+
+\textbf{Punkt 8)} \\
+
+Änderungen von IP-Adressen oder Portnummern können Sie wie folgt durchführen:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+cd ~/tui_swp_formula/src
+
+nano common.h
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Die nun dargestellte Datei editieren Sie entsprechend Ihren Änderungen. Genauere Anweisungen hierzu finden Sie als Kommentare vor.
+Nachfolgend notwendige Tastatureingaben:
+Verwenden Sie zum Speichern der Datei die Tastenkombination \textit{STRG + o} und bestätigen Sie danach mit \textit{ENTER}. Mit der Tastenkombination \textit{STRG + x} schließen Sie die Datei.
+Um das Programm nach vorgenommenen Netzwerk-Änderungen neu zu starten ist folgende Vorgehensweise einzuhalten.
+
+\newpage
+
+%\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+killall embpc
+
+cd ~/tui_swp_formula/src
+	
+make embpc %*-B*)
+
+~/tui_swp_formula/bin/embpc 1>/dev/null &
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt 5)} \\	
+
+Die Konfigurationsdatei für UMTS-Einstellungen befindet sich unter dem Verzeichnispfad:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/wvdial.conf
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Sie können die SIM-Karten Einstellungen für die UMTS-Verbindung durch folgenden Befehl aufrufen und ändern:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+nano /etc/wvdial.conf
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Nachfolgend notwendige Tastatureingaben: \\
+
+Verwenden Sie zum Speichern der Datei die Tastenkombination \textit{STRG + o} und bestätigen Sie danach mit \textit{ENTER}. Mit der Tastenkombination \textit{STRG + x} schließen Sie die Datei. \\
+
+Die Standardeinstellung der Konfigurationsdatei \textit{wvdial.conf} lautet:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+[Dialer netzclub]
+Init1 = ATZ
+Init2 = AT&F
+Init3 = ATQ0 V1 E1 S0=0 &C1 &D2 +FCLASS=0
+Init4 = AT+CGDCONT=1,"IP","pinternet.interkom.de"
+Stupid Mode = 1
+Modem Type = Analog Modem
+ISDN = 0
+Phone = *99***1#
+Modem = /dev/ttyUSB3
+Username = netzclub
+Password = netzclub
+Baud = 460800
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Um eventuelle Probleme mit dem SIM-Karten-Pin auszuschließen, deaktivieren Sie zuvor die Pinabfrage mit Hilfe eines Mobiltelefons. Andernfalls wird das Hinzufügen der nachfolgend aufgeführten Zeilen, in der Konfigurationsdatei \textit{wvdial.conf} nach den Standardeinstellungen notwendig. Der Platzhalter \textit{abcd} steht hierbei für Ihre Pinziffern und muss durch diese ersetzt werden.
+
+\newpage
+
+%\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+[Dialer PIN]
+Init4 = AT+CPIN="abcd"
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Im Anschluss an die Konfiguration sollte der Embedded-PC neu gestartet werden. Der Befehl dazu befindet sich unter Punkt a). \\
+
+\textbf{Punkt X)} \\
+
+Bei Problemen kann die UMTS Verbindung nach einem Neustart der Netzwerkverbindungen manuell gestartet werden.
+Dazu geben Sie zuerst folgenden Befehl für den Neustart der Netzwerkverbindungen ein:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/rc.d/init.d/network restart 
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Nach diesem Befehl können Sie die UMTS-Verbindung über einen der folgenden Befehle manuell starten:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+pppd call gsm   
+\end{lstlisting} 
+\vspace*{-2mm}
+
+oder
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+wvdial netzclub 
+\end{lstlisting} 
+\vspace*{-2mm}
+
+oder 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+cd ~/tui_swp_formula
+
+source startUMTS.sh	
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt a)} \\
+	
+Der Embedded-PC kann durch den folgenden Befehl neu gestartet werden:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+shutdown -r now
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Um den PC herunterzufahren wird der nachstehende Befehl genutzt:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+shutdown -h now	
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\newpage
+
+\subsection{Vorbereitung bei einer Neuinstallation eines Betriebssystems}
+
+\textbf{Punkt 6)} \\
+
+Bei einer Neuinstallation des Systems ist folgende Befehlsfolge einzuhalten um die erforderlichen Komponenten zu installieren (RPM basierte Distribution z.B. Fedora, Cent OS, etc.):
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+yum update
+
+yum install wvdial usb-modeswitch ntp git ssh nano
+
+yum groupinstall "Development Tools"
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Bei anderen Distributionen ist die Befehlsfolge an den entsprechenden Paketmanager und die Paketnamen anzupassen. \\
+
+\textbf{Punkt \_)} \\
+
+Eine Zeitsynchronisation ist wie folgt durchzuführen:
+Den NTP-Dienst aktivieren Sie mit: 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+chkconfig ntpd on
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Die Zeit können Sie nun mit dem Zeitserver \textit{0.europe.pool.ntp.org} wie folgt synchronisieren:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+ntpdate 0.europe.pool.ntp.org
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Zuletzt wird der NTP-Dienst über folgende Eingabe gestartet: 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/init.d/ntpd start
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Die Zeit kann über nachfolgenden Befehl kontrolliert werden:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+date
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt o)} \\
+
+Um eine UMTS-Konfigurationsdatei zu erzeugen benutzen Sie das nachfolgende Kommando:
+
+\vspace*{3mm}
+\begin{lstlisting}[frame=single]
+wvdialconf /etc/wvdial.conf
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Die erstellte Konfigurationsdatei ist entsprechend Punkt 5) anzupassen.
+
+\newpage
+
+\textbf{Punkt L)} \\
+
+Die aktuelle Programmversion können Sie wie folgt über eine bestehende Internetverbindung herunterladen und installieren:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+cd ~/
+ 
+git clone git://github.com/fooWander/tui_swp_formula.git
+
+cd tu-ilmenau/src/
+
+make embpc %*-B*)
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt R)} \\
+
+Standardmäßig wird die UMTS-Verbindung automatisch beim Start des PCs über ein Skript hergestellt. Das erwähnte Skript heißt \textit{startUMTS.sh} welches in der Datei  \textit{rc.local } eingetragen ist. Die Datei \textit{rc.local} befindet sich unter folgendem Verzeichnis:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt Z)} \\
+
+Vorgehensweise um die UMTS-Verbindung automatisch bei Systemstart herzustellen:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+echo ~/tui_swp_formula/startUMTS.sh >> /etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt W)} \\
+
+Standardmäßig wird das Programm automatisch beim Start des PCs gestartet. Die Datei \textit{rc.local} befindet sich unter folgendem Verzeichnis:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt U)} \\
+
+Vorgehensweise um das Programm automatisch bei Systemstart auszuführen:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+echo ~/tui_swp_formula/bin/embpc >> /etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt k)} \\
+
+Nachfolgend sind die Befehle für die notwendige Konfiguration der Firewall beschrieben: \\
+Öffnen Sie die Firewall-Einstellung:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+nano /etc/sysconfig/iptables
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Fügen Sie folgende Zeile an das Ende der Einstellung hinzu:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+-A INPUT -p udp --dport 5000:5001 -j ACCEPT
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Nachfolgend notwendige Tastatureingaben: \\
+
+Verwenden Sie zum Speichern der Datei die Tastenkombination \textit{STRG + o} und bestätigen Sie danach mit \textit{ENTER}. Mit der Tastenkombination \textit{STRG + x} schließen Sie die Datei. 
+
+
+
 %-------------------------------------------------------------------%
 
 \section{vServer}
+
 
 Die nachfolgenden Komponenten sorgen einerseits für den Empfang und die Dekodierung der Datenpakete vom Embedded-PC, als auch für das Einfügen dieser Pakete in die Datenbank sowie das Löschen veralteter Datensätze aus dieser. \\
 Nachfolgend wird die korrekte Einrichtung dieser Komponenten erläutert.
@@ -433,34 +800,61 @@ Nachfolgend wird die korrekte Einrichtung dieser Komponenten erläutert.
 
 Boost stellt C++-Bibliotheken zur Verfügung, welche auf dem vServer zwingend benötigt werden.
 Dazu muss auf beiden Systemen der folgende Befehl erfolgreich ausgeführt werden:
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-    yum install boost boost-devel -y
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+yum install boost boost-devel %*-y*)
+\end{lstlisting} 
+\vspace*{-2mm}
+    
     
 Zur Installation über die Kommandozeile werden \textit{Administratorrechte} benötigt.
 
 \subsection{Installation des MySQL-Connector/C++}
 
 Der MySQL Connector/C++ ist zwingend erforderlich, damit das C++-Programm des virtuellen Servers auf die Datenbank zugreifen kann. Für die Installation benötigen Sie \textit{root}-Rechte, die folgenden Befehle werden in die Kommandozeile eingegeben.
-Zuerst einmal muss sichergestellt werden dass alle im weiteren Verlauf verwendeten Programme vorhanden sind:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  yum install bzr boost\_devel cmake mysql-devel –y \\
+Zuerst einmal muss sichergestellt werden dass alle im weiteren Verlauf verwendeten Programme vorhanden sind:
 
-Anschließend kann der aktuelle Quellcode bezogen werden:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  bzr branch lp:~mysql/mysql-connector-cpp/trunk ./mysql-connector-cpp \\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+yum install bzr boost\_devel cmake mysql-devel %*–y*)
+\end{lstlisting} 
+\vspace*{-2mm}
 
-In das soeben Verzeichnis wechseln und die Makefile erstellen:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  cd mysql-connector-cpp \\
-  cmake . \\
+Anschließend kann der aktuelle Quellcode bezogen werden:
 
-Erstellung der Bibliotheken und Installation der Header-Dateien: \\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  make clean \\
-  make \\
-  make install \\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+%*bzr branch lp:~mysql/mysql-connector-cpp/trunk ./mysql-connector-cpp*) 
+\end{lstlisting} 
+\vspace*{-2mm}
 
-Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation:
+
+In das soeben Verzeichnis wechseln und die Makefile erstellen:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+cd mysql-connector-cpp
+
+cmake . 
+\end{lstlisting} 
+\vspace*{-2mm}
+  
+
+Erstellung der Bibliotheken und Installation der Header-Dateien: 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+make clean 
+
+make 
+
+make install  
+\end{lstlisting} 
+\vspace*{-2mm}
+  
+
+Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation: \\
 
  http://dev.mysql.com/doc/refman/5.1/en/connector-cpp-installation-source-unix.html
  
@@ -475,25 +869,30 @@ In dieser Konfigurationsdatei werden die Zugangsdaten für die Datenbank, die An
 Sollten Änderungen an diesen Parametern (beispielsweise bei der Anzahl) nötig sein, ist darauf zu achten, dass der Syntax der Datei erhalten bleibt und die Änderungen sowohl auf dem vServer als auch auf dem Embedded-PC eingepflegt werden.
 Der jeweilige Parameter wird aus der auf die Beschreibung bzw. Nennung des Parameters folgenden Zeile ausgelesen. 
 Diese darf nicht leer sein, auf Leerzeichen und zusätzliche Zeilenumbrüche sollte verzichtet werden.
-Alle Zeilen, die mit einem Doppelkreuz (\#) beginnen, dürfen nicht verändert werden, da sonst das Programm die Parameter nicht mehr erkennt.
+Alle Zeilen, die mit einem Doppelkreuz (\#) beginnen, dürfen nicht verändert werden, da sonst das Programm die Parameter nicht mehr erkennt. \\
 
 Beispielhafter Ausschnitt aus der Konfigurationsdatei:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren (und zwar alles...):
 
-    \#Hostadresse der Datenbank\\
-    localhost\\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+\#Hostadresse der Datenbank
+localhost
 
-    \#Name des Datenbankbenutzers\\
-    telemetrie\\
+\#Name des Datenbankbenutzers
+telemetrie
 
-    \#Passwort des Datenbankbenutzers\\
-    fakePW\\
+\#Passwort des Datenbankbenutzers
+fakePW
 
-    \#Datenbankname\\
-    telemetrie\\
-%(... bis hier hin)
+\#Datenbankname
+telemetrie 
+\end{lstlisting} 
+\vspace*{-2mm}
 
-\textit{Wichige Anmerkungen:}\\
+    
+
+
+\textit{Wichige Anmerkungen:} \\ \\
 Stellen Sie sicher das alle Parameter korrekt gesetzt sind! Ansonsten kann ein störungsfreier Betrieb des Programms nicht gewährleistet werden!\\
 Des weiteren ist darauf zu achten, das nur befugte Personen diese Datei einsehen können, da sie das Zugangspasswort zur Datenbank enthält!\\
 Bei Fehler kann gegebenenfalls die Logdatei (log.txt im Installationsverzeichnis) nach Informationen durchsucht werden.
@@ -505,24 +904,193 @@ Die Einrichtung des Cronjobs erfolgt manuell über die Kommandozeile des virtuel
 
 Öffnen der Datei \textit{/ect/crontab} mit einem Editor (zum Bsp: \textit{nano}, \textit{vi}):\\
 
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  vi /etc/crontab    \\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+ vi /etc/crontab  
+\end{lstlisting} 
+\vspace*{-2mm}
+   
 
-Hier muss zuerst die Umgebungsvariable \textit{,,HOME"} gesetzt werden, damit das Programm nicht unter dem Wurzelverzeichnis ausgeführt wird. Der anzugebende Pfad ist abhängig vom Installationsverzeichnis und sollte auf den Überordner des Programms \textit{StartResizeDB} verweisen.\\
+Hier muss zuerst die Umgebungsvariable \textit{,,HOME"} gesetzt werden, damit das Programm nicht unter dem Wurzelverzeichnis ausgeführt wird. Der anzugebende Pfad ist abhängig vom Installationsverzeichnis und sollte auf den Überordner des Programms \textit{StartResizeDB} verweisen.
  
- %1337 bitte Nachfolgendes als Konsolentext markieren:
-  HOME=/Pfad/zum/Installationsverzeichnis/
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+HOME=/Pfad/zum/Installationsverzeichnis/ 
+\end{lstlisting} 
+\vspace*{-2mm}
 
-Nun wird an das Ende der Datei folgende Zeile hinzugefügt, wobei der Pfad zu ersetzen ist:\\
 
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  0 * * * * root /Pfad/zur/StartResizeDB 2\textgreater\&1 \\
+Nun wird an das Ende der Datei folgende Zeile hinzugefügt, wobei der Pfad zu ersetzen ist:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+0 * * * * root /Pfad/zur/StartResizeDB 2\textgreater\&1 
+\end{lstlisting} 
+\vspace*{-2mm}
+
 
 Der anzugebende Pfad ist abhängig vom Installationsverzeichnis und sollte auf die Datei \textit{StartResizeDB} verweisen.
 Damit wird das angegebene Programm zu jeder vollen Stunde ausgeführt, \textit{,,root"} ist hier der ausführende Benutzer. Der angegebene Benutzer sollte Rechte zum Lesen und Schreiben auf alle Projektdateien besitzen.\\
-\textit{,,2\textgreater\&1"} bedeutet, dass die Cron-Standardausgabe benutzt wird.
+\textit{"`2 \textgreater \& 1"} bedeutet, dass die Cron-Standardausgabe benutzt wird.
 Es ist auf genaue Einhaltung des Syntax zu achten.\\
 Beim anschließenden Speichern und Schreiben der Datei wird der Cronjob automatisch installiert.
+
+
+
+
+Folgen Sie den Anweisungen im Benutzerhandbuch  um auf den virtuellen Server zuzugreifen.
+
+Im derzeitigen Zustand ist das Programm sowie dessen Interaktion mit der Datenbank und der Webseite auf dem virtuellen Server bereits funktionstüchtig. Eine Änderung der Konfiguration ist unter Umständen nur notwendig bei Modifikationen an der MicroAutoBox II oder des Embedded-PCs. Eine jederzeit aktuelle Installations- bzw. Konfigurationsanleitung finden Sie unter:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+https://github.com/fooWander/tui_swp_formula.git
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt R)} \\
+
+Standardmäßig wird das Programm automatisch beim Start des PCs gestartet.Dies erfolgt über einen Eintrag in der Datei \textit{rc.local}.
+Die Datei \textit{rc.local} befindet sich unter folgendem Verzeichnis:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt 8)} \\
+
+Das erwähnte Programm heißt \textit{vserver} und liegt ausgehend vom Rootnutzer im nachfolgenden Verzeichnis:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+~/tui_swp_formula/bin
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\subsection{Netzwerkanpassungen des Programms}
+
+\textbf{Punkt 8)} \\
+
+Änderungen von IP-Adressen oder Portnummern können Sie wie folgt durchführen:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+cd ~/tui_swp_formula/src
+
+nano common.h
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Die nun dargestellte Datei editieren Sie entsprechend Ihren Änderungen. Genauere Anweisungen hierzu finden Sie als Kommentare vor.
+
+Nachfolgend notwendige Tastatureingaben: \\
+
+Verwenden Sie zum Speichern der Datei die Tastenkombination \textit{STRG + o} und bestätigen Sie danach mit \textit{ENTER}. Mit der Tastenkombination \textit{STRG + x} schließen Sie die Datei. 
+
+Um das Programm nach vorgenommenen Netzwerk-Änderungen neu zu starten ist folgende Vorgehensweise einzuhalten:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+killall vserver
+
+cd ~/tui_swp_formula/src
+	
+make vserver %*–B*)
+
+~/tui_swp_formula/bin/vserver 1>/dev/null &
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\subsection{Installation und Einrichtung der benötigten Komponenten bei Verwendung eines neuen Betriebssystems}
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+yum update
+
+yum install ntp git ssh nano
+
+yum groupinstall "Development Tools"
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt \_)} \\
+
+Eine Zeitsynchronisation ist wie folgt durchzuführen: \\
+Den NTP-Dienst aktivieren Sie mit: 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+chkconfig ntpd on
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\newpage
+
+Die Zeit können Sie nun mit dem Zeitserver \textit{0.europe.pool.ntp.org} wie folgt synchronisieren:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+ntpdate 0.europe.pool.ntp.org
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Zuletzt wird der NTP-Dienst über folgende Eingabe gestartet: 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/init.d/ntpd start
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Die Zeit kann über nachfolgenden Befehl kontrolliert werden:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+date
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt L)} \\
+
+Die aktuelle Programmversion können Sie wie folgt über eine bestehende Internetverbindung herunterladen und installieren:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+cd ~/
+ 
+git clone git://github.com/fooWander/tui_swp_formula.git
+
+cd tu-ilmenau/src/
+
+make vserver %*-B*)
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt W)} \\
+
+Standardmäßig wird das Programm automatisch beim Start des PCs gestartet. Die Datei \textit{rc.local} befindet sich unter folgendem Verzeichnis:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+/etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt U)} \\
+
+Vorgehensweise um das Programm automatisch bei Systemstart auszuführen:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+echo ~/tui_swp_formula/bin/vserver >> /etc/rc.local
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\newpage
+
+
 
 %-------------------------------------------------------------------%
 
@@ -626,7 +1194,188 @@ Die Installation ist nun vollständig. Bitte löschen Sie die \textit{install.ph
 
 \chapter{Bedienung des Service-Interfaces}
 
-\section{Startseite / Verwaltung}
+\section{Embedded-PC}
+
+\subsection{Zugriff auf den Embedded-PC}
+
+\textbf{Punkt x)} \\
+
+\textit{Lokaler Zugriff} \\
+
+Bei Anschluss der Stromversorgung startet der PC automatisch.
+Nach erfolgreichem Start werden Sie gebeten folgende Daten einzugeben:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+Benutzername:		root
+
+Passwort:		    swp2013
+
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Das Root-Passwort kann durch den nachstehenden Befehl geändert werden:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+passwd
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt x)} \\
+
+Remotezugriff (SSH/SFTP-Verbindung) \\
+
+Der Embedded-PC ist über eine SSH-Verbindung zu erreichen. 
+Benutzername und Passwort sind unter Punkt x zu entnehmen. 
+Die Verbindungsinformationen dazu sind:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+%*Port:  		22 *)
+%*IP-Adresse: 	192.168.0.2 (bzw. siehe Punkt y bei Zugriff über eine öffentliche IP)*)
+
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Der konkrete Befehl in einem Terminal lautet mit den Beispieldaten:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+%*ssh root@192.168.0.2 –p22*)
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt y)} \\
+
+Die öffentliche IP-Adresse ermitteln Sie z.B. durch den Befehl:	
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+%*curl http://ip.skittel.de*)
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\newpage
+
+\textbf{Punkt q)} \\
+
+\textit{Installation von Programmupdates} \\
+
+Updates werden vorerst manuell mittels des Versionsverwaltungstools Git bezogen. Dazu gehen Sie folgendermaßen vor:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+killall embpc
+
+cd ~/tui_swp_formula
+
+git pull && cd src
+
+make embpc %*–B*)
+
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt n)} \\
+
+\textit{Starten bzw. Neustarten des Programms} 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+killall embpc
+
+~/tui_swp_formula/bin/embpc 1>/dev/null &
+\end{lstlisting} 
+\vspace*{-2mm}
+
+
+
+
+
+\section{vServer}
+
+\subsection{Zugriff auf den virtuellen Server}		
+
+\textit{Remotezugriff (SSH/SFTP-Verbindung)} \\
+
+Der virtuelle Server ist über eine SSH-Verbindung zu erreichen. \\
+(Servername: \textit{s16929463.onlinehome-server.info}) \\
+Die Verbindungsinformationen dazu sind:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+%*Port:  		22*)
+
+%*IP-Adresse: 	87.106.17.165*) 
+
+%*Benutzername:		root*)
+
+%*Passwort:			aYYKn9Td*)
+\end{lstlisting} 
+\vspace*{-2mm}
+
+Das Root-Passwort kann durch den nachstehenden Befehl geändert werden:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+passwd
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\newpage
+
+Der konkrete Befehl in einem Terminal lautet mit den Beispieldaten:	
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+%*ssh root@87.106.17.165  –p22*)
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\subsection{Installation von Programmupdates}
+
+Updates werden vorerst manuell mittels des Versionsverwaltungstools Git bezogen. Dazu gehen Sie folgendermaßen vor:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+killall vserver
+
+cd ~/tui_swp_formula
+
+git pull && cd src
+
+make vserver %*–B*)
+\end{lstlisting} 
+\vspace*{-2mm}
+
+\textbf{Punkt n)} \\
+
+\textit{Starten bzw. Neustarten des Programms}
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+killall vserver
+
+~/tui_swp_formula/bin/vserver 1>/dev/null &
+\end{lstlisting} 
+\vspace*{-2mm}
+
+%\newpage
+
+
+
+
+
+
+
+
+
+
+
+\section{Webseite}
+
+\subsection{Startseite / Verwaltung}
 
 Über die Startseite loggen Sie sich mit den Zugangsdaten mit denen Sie sich registriert haben ein. 
 Ob Ihr Account bereits freigeschaltet wurde, erfahren Sie vom Vorstand. 
@@ -635,24 +1384,24 @@ Als Vorstand erhalten Sie zudem noch eine Liste sämtlicher registrierter Nutzer
 
 \textbf{Anmerkung:} Bitte verwenden Sie für die Registrierung im Service Interface entweder Ihre E-Mail-Adresse vom Team Starcraft, eine TU Ilmenau E-Mail-Adresse oder eine 1und1-Adresse um möglichen Problemen aus dem Weg zu gehen.
 
-\section{Nutzerverwaltung (Vorstand)}
+\subsection{Nutzerverwaltung (Vorstand)}
 
 Wenn Sie einen Nutzer bearbeiten wollen, muss stets eine der beiden Radioboxen aktiviert sein und im Textfeld seine ID-Nummer eingetragen werden. Möchten Sie einen Nutzer löschen, so wählen sie "`Löschen"\ , möchten Sie ihn jedoch aktivieren oder bearbeiten, so wählen Sie "`Aktivieren"\ aus. Mittels des Dropdown-Menüs können Sie dem Benutzer eine Rechtegruppe zuweisen. \\ \\
 \textbf{Achtung:} Sie können sich nicht selbst löschen, dies muss ein anderer Nutzer mit Vorstandsrechten für Sie erledigen!
 
-\section{CSV-Export}
+\subsection{CSV-Export}
 
 Durch Auswahl einzelner Checkboxen können Sie sich die Daten des Fahrzeugs als \\ CSV-Datei herunterladen. Aus technischen Gründen kann es beim Auswählen mehrerer Boxen dazu kommen, dass Datensätze fehlen. Dies können Sie vermeiden, indem sie die Tabellen einzeln exportieren.
 
-\section{Passwort ändern}
+\subsection{Passwort ändern}
 
 Diese Seite ermöglicht es Ihnen Ihr Passwort - beispielsweise nach einem Reset - zu ändern. Sie erreichen diese über die unter dem Hauptmenü befindlichen Link "`Passwort ändern".
 
-\section{Passwort vergessen}
+\subsection{Passwort vergessen}
 
 Auf der Startseite befindet sich ein Link "`Passwort vergessen". Klicken Sie auf ihn und geben Sie ihre Emailadresse ein. Bei erfolgreicher Änderung des Passworts erhalten Sie das neue Passwort per Mail zugeschickt. Andernfalls erscheint eine Fehlermeldung.
 
-\section{Menüleiste}
+\subsection{Menüleiste}
 
 Über die Menüleiste können Sie die einzelnen Unterseiten aufrufen. Jede Unterseite stellt eine andere Gruppe von Fahrzeuginformationen dar (s. Pflichtenheft). \\ \\
 
