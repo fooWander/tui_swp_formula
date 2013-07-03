@@ -56,7 +56,7 @@ class DBPacketInsert{
 		//! Zeitstempel des Pakets.
 		int time;
 		//! Objekt zum Abholen und Aufbereiten der einzuf\"ugenden Werte.
-		DatatypeDaemon slave();
+		DatatypeDaemon slave;
 		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'akkudaten' auf und prueft die Wertebereiche der Daten. Bei Fehlern wird false zurueckgegeben, anderenfalls true.
 		bool insert_akkudaten();
 		//! Diese Funktion baut die SQL-Anweisung f\"ur die Tabelle 'allgemeine_fahrzeugdaten' auf und prueft ebenfalls den Wertebereich.

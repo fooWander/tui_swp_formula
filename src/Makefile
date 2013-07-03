@@ -32,7 +32,7 @@ embpc: embpc.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./cla
 						./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h 
 						./classes/Location.cpp ./classes/Location.h
 vserver: vserver.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h ./classes/Location.cpp ./classes/Location.h ./classes/Insert.cpp ./classes/DBPacketInsert.cpp ./classes/DatatypeDaemon.cpp
-	$(CXX) $(CXXFLAGS) -I/usr/include/cppconn -o ../bin/vserver vserver.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h ./classes/Location.cpp ./classes/Location.h  ./classes/dbData.cpp ./classes/Insert.cpp ./classes/DBPacketInsert.cpp ./classes/DatatypeDaemon.cpp -lmysqlcppconn
+	$(CXX) $(CXXFLAGS) -I/usr/include/cppconn -o ../bin/vserver vserver.cpp ./classes/PracticalSocket.cpp ./classes/PracticalSocket.h ./classes/Encoding.cpp ./classes/Encoding.h ./classes/Data.cpp ./classes/Data.h ./classes/Location.cpp ./classes/Location.h  ./classes/dbData.cpp ./classes/Insert.cpp ./classes/DatatypeDaemon.cpp ./classes/DBPacketInsert.cpp ./classes/logData.cpp -lmysqlcppconn
 
 clean:
 	$(RM) TCPEchoClient TCPEchoServer UDPEchoClient UDPEchoServer TCPEchoServer-Thread \

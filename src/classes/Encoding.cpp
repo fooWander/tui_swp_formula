@@ -288,6 +288,11 @@ void Encoder::splitData(const char *buffer, size_t bufferlen,
     }
 }*/
 
+Decoder::Decoder() 
+{
+
+}
+
 Decoder::Decoder(char * buffer, size_t bufferlen)
 {
     VEC_DATATYPES_SIZE = joinUnsigShort(buffer[1],buffer[0]);

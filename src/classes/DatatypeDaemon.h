@@ -57,7 +57,6 @@ using namespace boost;
 		private:
 			unsigned int dataType;	//!< Datentyp des aktuellen Werts.
 			int pos;				//!< Position des Werts im \"Ubertragungsvektor der MikroAutoBoxII.
-			Decoder myDec;
 	};
 
 #endif
