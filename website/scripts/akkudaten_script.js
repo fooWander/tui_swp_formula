@@ -103,20 +103,25 @@ function toggle_tab(k)
  
 function kapa(param)
 {	
-	var temp= parseInt((parseInt(param))/100); 
-	for(i=0;i<temp;i++)
-	{
-		if($('#akkuide'+i).attr('class')=='akku_indica')
-		{
-			$('#akkuide'+i).removeClass('akku_indica');
-			$('#akkuide'+i).addClass('akku_indica1');
-		}
-	};
-	for(j=temp;j<10;j++)
-	{
-		$('#akkuide'+j).removeClass('akku_indica1');
-		$('#akkuide'+j).addClass('akku_indica');
-	};
+	if(param<=1000 && param>=0.0){
+		var temp= parseInt((parseInt(param))/100);
+		for(i=0;i<temp;i++){
+			if($('#akkuide'+i).attr('class')=='akku_indica'){
+				$('#akkuide'+i).removeClass('akku_indica');
+				$('#akkuide'+i).addClass('akku_indica1');
+			}
+		};
+		for(j=temp;j<10;j++){
+			$('#akkuide'+j).removeClass('akku_indica1');
+			$('#akkuide'+j).addClass('akku_indica');
+		};
+	}
+	else{
+		for(i=0;i<10;i++){
+			$('#akkuide'+i).removeClass('akku_indica1');
+			$('#akkuide'+i).addClass('akku_indica');
+		};
+	}
 };
 
 /**
