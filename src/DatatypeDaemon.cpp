@@ -19,12 +19,18 @@ string DatatypeDaemon::parseNextValue()
 	//Datentyp ist Boolean oder (Unsigned) Integer:
 	if(type>=0 && type<=7){
 		int temp = dat.getValue();
+		if(temp > 32767){
+			temp = 32767 - temp;
+		}
 		rueckgabe = lexical_cast<string>(temp);
 	}
 	//Datentyp ist float oder double:
 	if(type==8 || type==9){
 	    double temp = (double)dat.getValue();
 	    int temp2 = dat.getDecPointValue();
+		if(temp > 32767){
+			temp = 32767 - temp;
+		}
 	    temp = temp/pow(10.0, temp2);
 		rueckgabe = lexical_cast<string>(temp);
 	}
