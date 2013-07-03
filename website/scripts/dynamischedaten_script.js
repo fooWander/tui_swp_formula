@@ -277,7 +277,7 @@ function executeQuery()
 		$('#bremsposition')	.html(data[17]+" %");			// Bremsposition
 		bar_horizontal(data[13],'wtemp1',1);				// Wassertemperatur 1	(graphic)
 		bar_horizontal(data[14],'wtemp2',1);				// Wassertemperatur 2	(graphic)
-		bar_horizontal((data[15]+100),'bdruck',2)			// Wertkorrektur um +100, um Funktion bar_horizontal zu nutzen	
+		bar_horizontal((data[15]-100),'bdruck',2)			// Wertkorrektur um , um Funktion bar_horizontal zu nutzen	
 		bar_horizontal(data[16],'bkraft',2);				// Bremskraft	(graphic)
 		bar_horizontal(data[17],'bremse',2);				// Bremsposition	(graphic)
 		$('#federweg01')	.html(data[18]+" mm");			// Federweg vorne links
