@@ -33,13 +33,14 @@ $(document).ready(function()
 /**
  *
  *	Berechne die letzte Aktualisierung. date() übergibt UNIX Zeit in millisekunden und wird daher durch 1000 geteilt
- *	und auf Sekunden normiert. Die Differenz von time() und param wird in Tage, Minuten, Stunden und Sekunden
- *	umgerechnet. Die Ausgabe erfolgt selektiv. Ab dem größten verfügbaren Wert wird angezeigt. Ist "$days" größer als
- *	0 werden alle Werte angezeit. Sind nur Sekunden verfügbar, dann werden nur Sekunden angezeigt. Wenn der der Sekunden-
- *	wert als einziges verfügbar ist, und dieser kleiner als 15 ist, wird nichts angezeigt 
+ *	und auf Sekunden normiert. Param ist in Nanosekunden und wird deshalb durch 1.000.000.000 dividiert und so auf Sekunden
+ *	normiert. Die Differenz von time() und param wird in Tage, Minuten, Stunden und Sekunden umgerechnet. Die Ausgabe erfolgt 
+ *	selektiv. Ab dem größten verfügbaren Wert wird angezeigt. Ist "$days" größer als 0 werden alle Werte angezeit. Sind nur 
+ *	Sekunden verfügbar, dann werden nur Sekunden angezeigt. Wenn der der Sekundenwert als einziges verfügbar ist, und dieser 
+ *	kleiner als 15 ist, wird nichts angezeigt 
  *
  *	@param: param (int)
- *	data[25] (Zeitpunkt), als wert in Sekunden 
+ *	data[16] (Zeitpunkt), als wert in Nanosekunden 
  *
  */
 
@@ -48,7 +49,7 @@ function age(param){
 	$days=0;
 	$hours=0;
 	$minutes=0;
-	$seconds=parseInt(($d.getTime()/1000)-param);
+	$seconds=parseInt(($d.getTime()/1000)-(param/1000000000));
 	if($seconds>=86400){							// Tage: werden nicht angezeigt
 		$days=parseInt($seconds/86400);
 		$seconds=$seconds-$days*86400;
