@@ -132,7 +132,7 @@ function winkel(param)
 
 function bar_horizontal(param,id,kind)
 {	
-	var temp= parseInt(param)/10+10; 
+	var temp= parseInt(parseInt(param)/10+10); 
 	for(i=0;i<temp;i++)
 	{
 		if($('#'+id+'id'+i).attr('class')=='fhz_pedalindica')
@@ -143,10 +143,10 @@ function bar_horizontal(param,id,kind)
 	};
 	for(j=temp;j<20;j++)
 	{
-		if($('#'+id+'id'+i).attr('class')!='fhz_pedalindica')
+		if($('#'+id+'id'+j).attr('class')!='fhz_pedalindica')
 		{
-			$('#'+id+'id'+i).removeClass('fhz_pedalindica'+kind);
-			$('#'+id+'id'+i).addClass('fhz_pedalindica');
+			$('#'+id+'id'+j).removeClass('fhz_pedalindica'+kind);
+			$('#'+id+'id'+j).addClass('fhz_pedalindica');
 		}
 	};
 };
@@ -167,7 +167,7 @@ function bar_horizontal(param,id,kind)
 
 function bar_vertical(param,id)		
 {
-	var temp= 10-parseInt(param)/10; 	// bilde das Inverse
+	var temp= parseInt(10-parseInt(param)/10); 	// bilde das Inverse
 	for(i=0;i<temp;i++)					// markiere alle Zellen blau, die die Feder "eingedrückt" ist
 	{
 		if($('#feder'+id+i).attr('class')=='fhz_federindi2')
@@ -178,10 +178,10 @@ function bar_vertical(param,id)
 	};
 	for(j=temp+1;j<50;j++)				// markiere alle restlichen zellen weiß
 	{
-		if($('#feder'+id+i).attr('class')!='fhz_federindi2')
+		if($('#feder'+id+j).attr('class')!='fhz_federindi2')
 		{
-			$('#feder'+id+i).removeClass("fhz_federindi");
-			$('#feder'+id+i).addClass("fhz_federindi2");
+			$('#feder'+id+j).removeClass("fhz_federindi");
+			$('#feder'+id+j).addClass("fhz_federindi2");
 		}
 	};
 };
