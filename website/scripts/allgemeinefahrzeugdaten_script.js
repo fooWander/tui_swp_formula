@@ -133,7 +133,7 @@ function toggle_notaus(param){
 
 $(document).ready(function() 
 { 
-	setTimeout(executeQuery, 1000);	
+	setTimeout(executeQuery, 0);	
 });
 
 /**

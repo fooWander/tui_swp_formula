@@ -27,7 +27,7 @@ document.getElementById("allgdata_header")	.setAttribute("class", "inactive");
 
 $(document).ready(function() 
 {
-	setTimeout(executeQuery, 1000);
+	setTimeout(executeQuery, 0);
 });
 
 /**
