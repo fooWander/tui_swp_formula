@@ -359,14 +359,13 @@ Bei Veränderungen des Simulink-Modells, beispielsweise um neue Sensorwerte aufz
 Falls sich im restlichen Modell keine Änderungen ergeben haben, stellt das erneute Anschließen des Signalgenerators kein großes Problem dar. 
 Dieser muss einfach über eine Leitung mit dem Signalkollektor verbunden werden.  
 Liegen jedoch Veränderungen vor, müssen diese, wie gerade erwähnt, komplett im Modell beachtet und bearbeitet werden. 
-Dabei ist es wichtig, dass die Reihenfolge der Signale im Busarray analog zum Pflichtenheft erhalten bleibt (s. 2.1.4). 
-Dabei spielt die Reihenfolge, in welcher die Signale über einen Bus-Creator gebündelt bzw. über einen Bus-Selector aufgespalten werden eine große Rolle. 
+Dabei ist es wichtig, dass die Reihenfolge der Signale im Busarray analog zum Pflichtenheft erhalten bleibt (siehe 2.1.4), denn die Reihenfolge, in welcher die Signale über einen Bus-Creator gebündelt bzw. über einen Bus-Selector aufgespalten werden, spielt eine große Rolle. 
 Die Signalreihenfolge kann innerhalb dieser Blöcke eingesehen und bearbeitet werden. 
 
 
 \subsubsection{Verwenden des Signalgenerator-Blockes zu Testzwecken}
 
-Ist das Modell nun komplett eingerichtet und mit dem Signalgenerator-Subsystem verbunden, ist es wichtig, dass das dazugehörige Datei signalgenerator\_microautobox.m ausgeführt wurde, damit die Parameterwerte der Signale MATLAB bekannt sind. Nach der Implementierung des Modells (s. 2.1.5) liegen die gewünschten Werte am Ausgang der MicroAutoBox II an und können an den Embedded-PC zur anschließenden Weiterverarbeitung der Fahrzeugdaten übertragen werden.
+Ist das Modell nun komplett eingerichtet und mit dem Signalgenerator-Subsystem verbunden, ist es wichtig, dass die dazugehörige Datei \textit{signalgenerator\_microautobox.m} ausgeführt wurde, damit die Parameterwerte der Signale MATLAB bekannt sind. Nach der Implementierung des Modells (siehe 2.1.5) liegen die gewünschten Werte am Ausgang der MicroAutoBox II an und können an den Embedded-PC zur anschließenden Weiterverarbeitung der Fahrzeugdaten übertragen werden.
 
 
 %-------------------------------------------------------------------%
@@ -376,8 +375,8 @@ Ist das Modell nun komplett eingerichtet und mit dem Signalgenerator-Subsystem v
 
 Um das Simulink-Modell des Formaula-Student-Fahrzeuges mit dem Simulink-Modell des Service Interfaces zu verbinden, sind folgende Schritte notwendig: \\
 
-Zu Beginn muss als Vorbereitung das Subsystem \textit{Signalgenrator} vom Subsystem \textit{Signalcollector\_Embedded\_PC} getrennt und aus dem Modell entfernt werden. Des Weiteren empfiehlt es sich, die einzelnen Signale des Modells von Team StarCraft e.V. zu einem einzelnen Busarray zusammenzufassen und erst dann mit dem Busarray des Subsystems \textit{Signalcollector\_Embedded\_PC} zu verbinden.
-Hierbei ist die Reihenfolge der im Pflichtenheft festgelegten Fahrzeugdaten einzuhalten (s. Abb. \ref{anschlussbus}) , um mögliche Fehler zu vermeiden. 
+Zu Beginn muss als Vorbereitung das Subsystem \textit{Signalgenerator} vom Subsystem \textit{Signalcollector\_Embedded\_PC} getrennt und aus dem Modell entfernt werden. Des Weiteren empfiehlt es sich, die einzelnen Signale des Modells von Team StarCraft e.V. zu einem einzelnen Busarray zusammenzufassen und erst dann mit dem Busarray des Subsystems \textit{Signalcollector\_Embedded\_PC} zu verbinden.
+Hierbei ist die Reihenfolge der im Pflichtenheft festgelegten Fahrzeugdaten einzuhalten (siehe Abb. \ref{anschlussbus}) , um mögliche Fehler zu vermeiden. 
 
 \begin{figure}[h]
 \centering
@@ -439,7 +438,7 @@ Es empfiehlt sich, die folgende Checkliste abzuarbeiten, um mögliche Fehler bei
 
 \begin{itemize}
 
-\item Ist das Simulink-Modell korrekt an den Signalkollektor angeschlossen, d.h. die festgelegt Reihenfolge im Pflichtenheft eingehalten?
+\item Ist das Simulink-Modell korrekt an den Signalkollektor angeschlossen, d.h. die festgelegte Reihenfolge im Pflichtenheft eingehalten?
 
 \item Wurden alle bereitgestellten Signale des Signalkollektors genutzt und falls nicht, wurden diese durch Terminatoren abgeschlossen oder durch vorher definierte Constant-Blöcke belegt?
 
@@ -449,7 +448,7 @@ Es empfiehlt sich, die folgende Checkliste abzuarbeiten, um mögliche Fehler bei
 
 \item Wurden die Signale im Encoder-Block korrekt in die entsprechenden Datentypen gewandelt (s. S.8 oben)?
 
-\item Wurden in der *.m - File \textit{config\_datenpaket.m} die Vektoren korrekt an die Änderungen angepasst?
+\item Wurden in der \textit{*.m} - File \textit{config\_datenpaket.m} die Vektoren korrekt an die Änderungen angepasst?
 
 \item Wurde bei den UDP-Send-Blöcken die korrekte Message Size eingetragen?
 
