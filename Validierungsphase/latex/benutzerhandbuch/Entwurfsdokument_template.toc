@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {2}Installation und Konfiguration des Service Interfaces}{4}
 \contentsline {section}{\numberline {2.1}MicroAutoBox II}{4}
 \contentsline {subsection}{\numberline {2.1.1}Konfiguration der Ethernet-Schnittstelle}{5}
-\contentsline {subsection}{\numberline {2.1.2}Konfiguration der Matlabfiles \textit {signalgenerator\_microautobox.m} und \textit {config\_datenpaket.m}}{7}
+\contentsline {subsection}{\numberline {2.1.2}Konfiguration der MATLAB - Dateien \textit {signalgenerator\_microautobox.m} und \textit {config\_datenpaket.m}}{7}
 \contentsline {subsection}{\numberline {2.1.3}Testen des Simulink-Modells durch den Signalgenerator}{8}
 \contentsline {subsubsection}{Modifizieren der Simulationswerte}{8}
 \contentsline {subsubsection}{Ver\IeC {\"a}nderungen am Modell}{8}
@@ -17,11 +17,11 @@
 \contentsline {subsection}{\numberline {2.2.2}Vorbereitung bei einer Neuinstallation eines Betriebssystems}{15}
 \contentsline {section}{\numberline {2.3}vServer}{17}
 \contentsline {subsection}{\numberline {2.3.1}Netzwerkanpassungen des Programms}{18}
-\contentsline {subsection}{\numberline {2.3.2}Installation und Einrichtung der ben\IeC {\"o}tigten Komponenten bei Verwendung eines neuen Betriebssystems}{18}
-\contentsline {subsection}{\numberline {2.3.3}Installation der Boost-Bibliotheken}{21}
-\contentsline {subsection}{\numberline {2.3.4}Installation des MySQL-Connector/C++}{21}
-\contentsline {subsection}{\numberline {2.3.5}Einstellungen \IeC {\"u}ber die Konfigurationsdatei}{22}
-\contentsline {subsection}{\numberline {2.3.6}Installation des Cronjobs}{23}
+\contentsline {subsection}{\numberline {2.3.2}Installation und Einrichtung der ben\IeC {\"o}tigten Komponenten bei Verwendung eines neuen Betriebssystems}{19}
+\contentsline {subsection}{\numberline {2.3.3}Installation der Boost-Bibliotheken}{20}
+\contentsline {subsection}{\numberline {2.3.4}Installation des MySQL-Connector/C++}{20}
+\contentsline {subsection}{\numberline {2.3.5}Einstellungen \IeC {\"u}ber die Konfigurationsdatei}{21}
+\contentsline {subsection}{\numberline {2.3.6}Installation des Cronjobs}{22}
 \contentsline {section}{\numberline {2.4}Datenbanken}{23}
 \contentsline {section}{\numberline {2.5}Webseite}{24}
 \contentsline {chapter}{\numberline {3}Bedienung des Service-Interfaces}{27}
@@ -32,7 +32,7 @@
 \contentsline {subsection}{\numberline {3.2.2}Installation von Programmupdates}{29}
 \contentsline {section}{\numberline {3.3}Webseite}{29}
 \contentsline {subsection}{\numberline {3.3.1}Startseite / Verwaltung}{29}
-\contentsline {subsection}{\numberline {3.3.2}Nutzerverwaltung (Vorstand)}{29}
+\contentsline {subsection}{\numberline {3.3.2}Nutzerverwaltung (Vorstand)}{30}
 \contentsline {subsection}{\numberline {3.3.3}CSV-Export}{30}
 \contentsline {subsection}{\numberline {3.3.4}Passwort \IeC {\"a}ndern}{30}
 \contentsline {subsection}{\numberline {3.3.5}Passwort vergessen}{30}

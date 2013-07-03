@@ -195,8 +195,9 @@
 Dieses Dokument wird Sie durch die Installation der 
 einzelnen Komponenten führen, dabei werden Ihnen ausführlich 
 die einzelnen Schritte aufgeführt, wie Sie die Komponenten 
-auf der MicroAutoboxII, dem Embedded-PC und dem vServer 
-einrichten. \\
+auf der MicroAutobox II, dem Embedded-PC und dem vServer 
+einrichten. \\ 
+
 Dazu orientiert sich das Dokument am Fluss der 
 Daten von MicroAutobox II zur Webseite und geht nacheinander 
 auf die Zwischenstationen Embedded-PC, vServer, Cronjob, 
@@ -299,7 +300,7 @@ Da die Werte der Fahrzeugdaten nur den Datentyp \textit{int16}  aufweisen und di
 
 %-------------------------------------------------------------------%
 
-\subsection{Konfiguration der Matlabfiles \textit{signalgenerator\_microautobox.m} und \textit{config\_datenpaket.m}}
+\subsection{Konfiguration der MATLAB - Dateien \textit{signalgenerator\_microautobox.m} und \textit{config\_datenpaket.m}}
 
 Die Konfiguration der beiden Configdateien in MATLAB ist entsprechend des Entwurfsdokumentes vorzunehmen, in dem dies ausführlich beschrieben wurde (s. Entwurfsdokument Punkt 2.1.2). Nachdem dies geschehen ist, müssen die Parameter der beiden Dateien noch vor dem Implementieren des Simulink-Modells auf der MicroAutoBox II in den Workspace von MATLAB geladen werden. Hierzu wechselt man in das Verzeichnis, in welchem die sich die Configfiles befinden (s. Abb. \ref{configfilespfad}). In diesem Fall wäre es der Pfad \\ \textit{C:\textbackslash Users \textbackslash Max Mustermann \textbackslash Eigene Dokumente \textbackslash Beispiel}
 
@@ -763,6 +764,8 @@ echo ~/tui_swp_formula/bin/embpc >> /etc/rc.local
 \end{lstlisting} 
 \vspace*{-2mm}
 
+\newpage
+
 \textbf{Punkt 14)} \\
 
 Nachfolgend sind die Befehle für die notwendige Konfiguration der Firewall beschrieben: \\
@@ -795,9 +798,7 @@ Verwenden Sie zum Speichern der Datei die Tastenkombination \textit{STRG + o} un
 \section{vServer}
 
 
-Folgen Sie den Anweisungen im Benutzerhandbuch, um auf den virtuellen Server zuzugreifen.
-
-Im derzeitigen Zustand ist das Programm sowie dessen Interaktion mit der Datenbank und der Webseite auf dem virtuellen Server bereits funktionstüchtig. Eine Änderung der Konfiguration ist unter Umständen nur notwendig bei Modifikationen an der MicroAutoBox II oder des Embedded-PCs. Eine jederzeit aktuelle Installations- bzw. Konfigurationsanleitung finden Sie unter:
+Folgen Sie den Anweisungen im Benutzerhandbuch, um auf den virtuellen Server zuzugreifen. Im derzeitigen Zustand ist das Programm sowie dessen Interaktion mit der Datenbank und der Webseite auf dem virtuellen Server bereits funktionstüchtig. Eine Änderung der Konfiguration ist unter Umständen nur notwendig bei Modifikationen an der MicroAutoBox II oder des Embedded-PCs. Eine jederzeit aktuelle Installations- bzw. Konfigurationsanleitung finden Sie unter:
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -807,7 +808,7 @@ https://github.com/fooWander/tui_swp_formula.git
 
 \textbf{Punkt 1)} \\
 
-Standardmäßig wird das Programm automatisch beim Start des PCs gestartet.Dies erfolgt über einen Eintrag in der Datei \textit{rc.local}.
+Standardmäßig wird das Programm automatisch beim Start des PCs gestartet. Dies erfolgt über einen Eintrag in der Datei \textit{rc.local}.
 Die Datei \textit{rc.local} befindet sich unter folgendem Verzeichnis:
 
 \vspace*{4mm}
@@ -815,6 +816,8 @@ Die Datei \textit{rc.local} befindet sich unter folgendem Verzeichnis:
 /etc/rc.local
 \end{lstlisting} 
 \vspace*{-2mm}
+
+\newpage
 
 \textbf{Punkt 2)} \\
 
@@ -860,6 +863,8 @@ make vserver %*–B*)
 \end{lstlisting} 
 \vspace*{-2mm}
 
+\newpage
+
 \subsection{Installation und Einrichtung der benötigten Komponenten bei Verwendung eines neuen Betriebssystems}
 
 \vspace*{4mm}
@@ -883,7 +888,7 @@ chkconfig ntpd on
 \end{lstlisting} 
 \vspace*{-2mm}
 
-\newpage
+%\newpage
 
 Die Zeit können Sie nun mit dem Zeitserver \textit{0.europe.pool.ntp.org} wie folgt synchronisieren:
 
@@ -944,8 +949,8 @@ Das Programm wird automatisch bei Systemstart ausgeführt, wenn Sie folgende Vor
 echo ~/tui_swp_formula/bin/vserver >> /etc/rc.local
 \end{lstlisting} 
 \vspace*{-2mm}
-
-\newpage
+%
+%\newpage
 
 
 
@@ -993,6 +998,8 @@ Anschließend kann der aktuelle Quellcode bezogen werden:
 \end{lstlisting} 
 \vspace*{-2mm}
 
+\newpage
+
 
 In das soeben Verzeichnis wechseln und die Makefile erstellen:
 
@@ -1018,7 +1025,7 @@ make install
 \vspace*{-2mm}
   
 
-Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation: \\
+Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation: 
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -1028,14 +1035,17 @@ Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weit
  
  \subsection{Einstellungen über die Konfigurationsdatei}
  %Achtung, noch nicht final?
-Die Konfigurationsdatei \textit{Konfiguration.conf} befindet sich im Installationsverzeichnis. Sie wird von dem Programm während der Laufzeit ausgewertet, damit Programmparameter geändert werden können, ohne das Programm neu kompilieren zu müssen.\\
+Die Konfigurationsdatei \textit{Konfiguration.conf} befindet sich im Installationsverzeichnis. Sie wird von dem Programm während der Laufzeit ausgewertet, damit Programmparameter geändert werden können ohne das Programm neu kompilieren zu müssen.\\ 
+
 In dieser Konfigurationsdatei werden die Zugangsdaten für die Datenbank, die Anzahl der in der Datenbank zu haltenden Datensätze sowie interne Parameter des Programms (IP-Adressen, Portnummern) festgesetzt.
 Sollten Änderungen an diesen Parametern (beispielsweise bei der Anzahl) nötig sein, ist darauf zu achten, dass der Syntax der Datei erhalten bleibt und die Änderungen sowohl auf dem vServer als auch auf dem Embedded-PC eingepflegt werden.
 Der jeweilige Parameter wird aus der auf die Beschreibung bzw. Nennung des Parameters folgenden Zeile ausgelesen. 
 Diese darf nicht leer sein, auf Leerzeichen und zusätzliche Zeilenumbrüche sollte verzichtet werden.
 Alle Zeilen, die mit einem Doppelkreuz (\#) beginnen, dürfen nicht verändert werden, da sonst das Programm die Parameter nicht mehr erkennt. \\
 
-Beispielhafter Ausschnitt aus der Konfigurationsdatei:\\
+\newpage
+
+Beispielhafter Ausschnitt aus der Konfigurationsdatei:
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -1066,7 +1076,7 @@ Bei Fehler kann gegebenenfalls die Logdatei (log.txt im Installationsverzeichnis
 Um die Datenbank in regelmäßigen Abständen auf ihre Größe zu prüfen und gegebenenfalls das Löschen von Einträgen zu veranlassen, wird ein Cronjob angelegt, durch den das eigenständige Programm \textit{StartResizeDB} in periodischen Zeitintervallen vom System aufgerufen wird.
 Die Einrichtung des Cronjobs erfolgt manuell über die Kommandozeile des virtuellen Servers. Hierzu werden \textit{root}-Rechte benötigt.\\
 
-Öffnen der Datei \textit{/ect/crontab} mit einem Editor (zum Bsp: \textit{nano}, \textit{vi}):\\
+Öffnen der Datei \textit{/ect/crontab} mit einem Editor (zum Bsp: \textit{nano}, \textit{vi}): 
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -1082,6 +1092,8 @@ Hier muss zuerst die Umgebungsvariable \textit{,,HOME"} gesetzt werden, damit da
 HOME=/Pfad/zum/Installationsverzeichnis/ 
 \end{lstlisting} 
 \vspace*{-2mm}
+
+\newpage
 
 
 Nun wird an das Ende der Datei folgende Zeile hinzugefügt, wobei der Pfad zu ersetzen ist:
@@ -1377,14 +1389,6 @@ killall vserver
 
 
 
-
-
-
-
-
-
-
-
 \section{Webseite}
 
 \subsection{Startseite / Verwaltung}
@@ -1395,6 +1399,8 @@ Nach dem Einloggen werden hier allgemeine Informationen dargestellt, wie z.B. ei
 Als Vorstand erhalten Sie zudem noch eine Liste sämtlicher registrierter Nutzer und eine Möglichkeit, Nutzer freizuschalten bzw. zu löschen und Rechtegruppen zu vergeben oder zu ändern. \\
 
 \textbf{Anmerkung:} Bitte verwenden Sie für die Registrierung im Service Interface entweder Ihre E-Mail-Adresse vom Team Starcraft, eine TU Ilmenau E-Mail-Adresse oder eine 1\&1-Adresse, um möglichen Problemen aus dem Weg zu gehen.
+
+\newpage
 
 \subsection{Nutzerverwaltung (Vorstand)}
 
