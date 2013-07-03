@@ -801,34 +801,61 @@ Nachfolgend wird die korrekte Einrichtung dieser Komponenten erläutert.
 
 Boost stellt C++-Bibliotheken zur Verfügung, welche auf dem vServer zwingend benötigt werden.
 Dazu muss auf beiden Systemen der folgende Befehl erfolgreich ausgeführt werden:
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-    yum install boost boost-devel -y
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+yum install boost boost-devel %*-y*)
+\end{lstlisting} 
+\vspace*{-2mm}
+    
     
 Zur Installation über die Kommandozeile werden \textit{Administratorrechte} benötigt.
 
 \subsection{Installation des MySQL-Connector/C++}
 
 Der MySQL Connector/C++ ist zwingend erforderlich, damit das C++-Programm des virtuellen Servers auf die Datenbank zugreifen kann. Für die Installation benötigen Sie \textit{root}-Rechte, die folgenden Befehle werden in die Kommandozeile eingegeben.
-Zuerst einmal muss sichergestellt werden dass alle im weiteren Verlauf verwendeten Programme vorhanden sind:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  yum install bzr boost\_devel cmake mysql-devel –y \\
+Zuerst einmal muss sichergestellt werden dass alle im weiteren Verlauf verwendeten Programme vorhanden sind:
 
-Anschließend kann der aktuelle Quellcode bezogen werden:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  bzr branch lp:~mysql/mysql-connector-cpp/trunk ./mysql-connector-cpp \\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+yum install bzr boost\_devel cmake mysql-devel %*–y*)
+\end{lstlisting} 
+\vspace*{-2mm}
 
-In das soeben Verzeichnis wechseln und die Makefile erstellen:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  cd mysql-connector-cpp \\
-  cmake . \\
+Anschließend kann der aktuelle Quellcode bezogen werden:
 
-Erstellung der Bibliotheken und Installation der Header-Dateien: \\
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  make clean \\
-  make \\
-  make install \\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+%*bzr branch lp:~mysql/mysql-connector-cpp/trunk ./mysql-connector-cpp*) 
+\end{lstlisting} 
+\vspace*{-2mm}
 
-Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation:
+
+In das soeben Verzeichnis wechseln und die Makefile erstellen:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+cd mysql-connector-cpp
+
+cmake . 
+\end{lstlisting} 
+\vspace*{-2mm}
+  
+
+Erstellung der Bibliotheken und Installation der Header-Dateien: 
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+make clean 
+
+make 
+
+make install  
+\end{lstlisting} 
+\vspace*{-2mm}
+  
+
+Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation: \\
 
  http://dev.mysql.com/doc/refman/5.1/en/connector-cpp-installation-source-unix.html
  
@@ -843,25 +870,30 @@ In dieser Konfigurationsdatei werden die Zugangsdaten für die Datenbank, die An
 Sollten Änderungen an diesen Parametern (beispielsweise bei der Anzahl) nötig sein, ist darauf zu achten, dass der Syntax der Datei erhalten bleibt und die Änderungen sowohl auf dem vServer als auch auf dem Embedded-PC eingepflegt werden.
 Der jeweilige Parameter wird aus der auf die Beschreibung bzw. Nennung des Parameters folgenden Zeile ausgelesen. 
 Diese darf nicht leer sein, auf Leerzeichen und zusätzliche Zeilenumbrüche sollte verzichtet werden.
-Alle Zeilen, die mit einem Doppelkreuz (\#) beginnen, dürfen nicht verändert werden, da sonst das Programm die Parameter nicht mehr erkennt.
+Alle Zeilen, die mit einem Doppelkreuz (\#) beginnen, dürfen nicht verändert werden, da sonst das Programm die Parameter nicht mehr erkennt. \\
 
 Beispielhafter Ausschnitt aus der Konfigurationsdatei:\\
-%1337 bitte Nachfolgendes als Konsolentext markieren (und zwar alles...):
 
-    \#Hostadresse der Datenbank\\
-    localhost\\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+\#Hostadresse der Datenbank
+localhost
 
-    \#Name des Datenbankbenutzers\\
-    telemetrie\\
+\#Name des Datenbankbenutzers
+telemetrie
 
-    \#Passwort des Datenbankbenutzers\\
-    fakePW\\
+\#Passwort des Datenbankbenutzers
+fakePW
 
-    \#Datenbankname\\
-    telemetrie\\
-%(... bis hier hin)
+\#Datenbankname
+telemetrie 
+\end{lstlisting} 
+\vspace*{-2mm}
 
-\textit{Wichige Anmerkungen:}\\
+    
+
+
+\textit{Wichige Anmerkungen:} \\ \\
 Stellen Sie sicher das alle Parameter korrekt gesetzt sind! Ansonsten kann ein störungsfreier Betrieb des Programms nicht gewährleistet werden!\\
 Des weiteren ist darauf zu achten, das nur befugte Personen diese Datei einsehen können, da sie das Zugangspasswort zur Datenbank enthält!\\
 Bei Fehler kann gegebenenfalls die Logdatei (log.txt im Installationsverzeichnis) nach Informationen durchsucht werden.
@@ -873,22 +905,34 @@ Die Einrichtung des Cronjobs erfolgt manuell über die Kommandozeile des virtuel
 
 Öffnen der Datei \textit{/ect/crontab} mit einem Editor (zum Bsp: \textit{nano}, \textit{vi}):\\
 
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  vi /etc/crontab    \\
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+ vi /etc/crontab  
+\end{lstlisting} 
+\vspace*{-2mm}
+   
 
-Hier muss zuerst die Umgebungsvariable \textit{,,HOME"} gesetzt werden, damit das Programm nicht unter dem Wurzelverzeichnis ausgeführt wird. Der anzugebende Pfad ist abhängig vom Installationsverzeichnis und sollte auf den Überordner des Programms \textit{StartResizeDB} verweisen.\\
+Hier muss zuerst die Umgebungsvariable \textit{,,HOME"} gesetzt werden, damit das Programm nicht unter dem Wurzelverzeichnis ausgeführt wird. Der anzugebende Pfad ist abhängig vom Installationsverzeichnis und sollte auf den Überordner des Programms \textit{StartResizeDB} verweisen.
  
- %1337 bitte Nachfolgendes als Konsolentext markieren:
-  HOME=/Pfad/zum/Installationsverzeichnis/
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+HOME=/Pfad/zum/Installationsverzeichnis/ 
+\end{lstlisting} 
+\vspace*{-2mm}
 
-Nun wird an das Ende der Datei folgende Zeile hinzugefügt, wobei der Pfad zu ersetzen ist:\\
 
-%1337 bitte Nachfolgendes als Konsolentext markieren:
-  0 * * * * root /Pfad/zur/StartResizeDB 2\textgreater\&1 \\
+Nun wird an das Ende der Datei folgende Zeile hinzugefügt, wobei der Pfad zu ersetzen ist:
+
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
+0 * * * * root /Pfad/zur/StartResizeDB 2\textgreater\&1 
+\end{lstlisting} 
+\vspace*{-2mm}
+
 
 Der anzugebende Pfad ist abhängig vom Installationsverzeichnis und sollte auf die Datei \textit{StartResizeDB} verweisen.
 Damit wird das angegebene Programm zu jeder vollen Stunde ausgeführt, \textit{,,root"} ist hier der ausführende Benutzer. Der angegebene Benutzer sollte Rechte zum Lesen und Schreiben auf alle Projektdateien besitzen.\\
-\textit{,,2\textgreater\&1"} bedeutet, dass die Cron-Standardausgabe benutzt wird.
+\textit{"`2 \textgreater \& 1"} bedeutet, dass die Cron-Standardausgabe benutzt wird.
 Es ist auf genaue Einhaltung des Syntax zu achten.\\
 Beim anschließenden Speichern und Schreiben der Datei wird der Cronjob automatisch installiert.
 
