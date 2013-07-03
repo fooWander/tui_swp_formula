@@ -68,7 +68,7 @@ $(document).ready(function()
 	$days=0;
 	$hours=0;
 	$minutes=0;
-	$seconds=parseInt(($d.getTime()/1000)-(param/1000000000));
+	$seconds=parseInt(($d.getTime()/1000)-(param/1000));
 	if($seconds>=86400){							// Tage: werden nicht angezeigt
 		$days=parseInt($seconds/86400);
 		$seconds=$seconds-$days*86400;
