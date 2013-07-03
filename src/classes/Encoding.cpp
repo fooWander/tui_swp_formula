@@ -451,14 +451,14 @@ Data Decoder::getNextData()
     double value = joinUnsigShort(myPackage[myDataPos+1],myPackage[myDataPos]);
 
     //int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
-    int myPackageLen = 
+    //int myPackageLen = 
 
     int datatype = 0;
 
     int pos = myDataPos;
     int comma = 0;
     std::cout << value << std::endl;
-    std::cout << myPackageSum << std::endl;
+    //std::cout << myPackageSum << std::endl;
     std::cout << myPackageNum << std::endl;
     //std::cout << myPackageLen << std::endl;
 
