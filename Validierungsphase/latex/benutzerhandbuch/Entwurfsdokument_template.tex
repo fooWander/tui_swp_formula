@@ -793,7 +793,7 @@ Verwenden Sie zum Speichern der Datei die Tastenkombination \textit{STRG + o} un
 \section{vServer}
 
 
-Folgen Sie den Anweisungen im Benutzerhandbuch  um auf den virtuellen Server zuzugreifen.
+Folgen Sie den Anweisungen im Benutzerhandbuch, um auf den virtuellen Server zuzugreifen.
 
 Im derzeitigen Zustand ist das Programm sowie dessen Interaktion mit der Datenbank und der Webseite auf dem virtuellen Server bereits funktionstüchtig. Eine Änderung der Konfiguration ist unter Umständen nur notwendig bei Modifikationen an der MicroAutoBox II oder des Embedded-PCs. Eine jederzeit aktuelle Installations- bzw. Konfigurationsanleitung finden Sie unter:
 
@@ -838,7 +838,7 @@ nano common.h
 \end{lstlisting} 
 \vspace*{-2mm}
 
-Die nun dargestellte Datei editieren Sie entsprechend Ihren Änderungen. Genauere Anweisungen hierzu finden Sie als Kommentare vor.
+Die nun dargestellte Datei editieren Sie entsprechend Ihren Änderungen. Genauere Anweisungen hierzu finden Sie als Kommentare vor.\\
 
 Nachfolgend notwendige Tastatureingaben: \\
 
@@ -935,7 +935,7 @@ Standardmäßig wird das Programm automatisch beim Start des PCs gestartet. Die 
 
 \textbf{Punkt 4)} \\
 
-Vorgehensweise um das Programm automatisch bei Systemstart auszuführen:
+Das Programm wird automatisch bei Systemstart ausgeführt, wenn Sie folgende Vorgehensweise beachten:
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -975,7 +975,7 @@ Zur Installation über die Kommandozeile werden \textit{Administratorrechte} ben
 \subsection{Installation des MySQL-Connector/C++}
 
 Der MySQL Connector/C++ ist zwingend erforderlich, damit das C++-Programm des virtuellen Servers auf die Datenbank zugreifen kann. Für die Installation benötigen Sie \textit{root}-Rechte, die folgenden Befehle werden in die Kommandozeile eingegeben.
-Zuerst einmal muss sichergestellt werden dass alle im weiteren Verlauf verwendeten Programme vorhanden sind:
+Zuerst einmal muss sichergestellt werden, dass alle im weiteren Verlauf verwendeten Programme vorhanden sind:
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
@@ -1018,15 +1018,15 @@ make install
 
 Die Kompilierung des Programms kann einige Minuten in Anspruch nehmen. Für weitere Informationen, Testanleitungen und ggf. Fehlerbehandlung verweisen wir auf die MySQL-Dokumentation: \\
 
+\vspace*{4mm}
+\begin{lstlisting}[frame=single]
  http://dev.mysql.com/doc/refman/5.1/en/connector-cpp-installation-source-unix.html
- 
- \subsection{Installation des auf dem vServer laufenden Programms}
- 
- %Text hier: (Absprache mit Team C++ nötig)
+ \end{lstlisting} 
+\vspace*{-2mm}
  
  \subsection{Einstellungen über die Konfigurationsdatei}
  %Achtung, noch nicht final?
-Die Konfigurationsdatei \textit{Konfiguration.conf} befindet sich im Installationsverzeichnis. Sie wird von dem Programm während der Laufzeit ausgewertet, damit können Programmparameter geändert werden, ohne das Programm neu kompilieren zu müssen.\\
+Die Konfigurationsdatei \textit{Konfiguration.conf} befindet sich im Installationsverzeichnis. Sie wird von dem Programm während der Laufzeit ausgewertet, damit Programmparameter geändert werden können, ohne das Programm neu kompilieren zu müssen.\\
 In dieser Konfigurationsdatei werden die Zugangsdaten für die Datenbank, die Anzahl der in der Datenbank zu haltenden Datensätze sowie interne Parameter des Programms (IP-Adressen, Portnummern) festgesetzt.
 Sollten Änderungen an diesen Parametern (beispielsweise bei der Anzahl) nötig sein, ist darauf zu achten, dass der Syntax der Datei erhalten bleibt und die Änderungen sowohl auf dem vServer als auch auf dem Embedded-PC eingepflegt werden.
 Der jeweilige Parameter wird aus der auf die Beschreibung bzw. Nennung des Parameters folgenden Zeile ausgelesen. 
@@ -1056,7 +1056,7 @@ telemetrie
 
 \textit{Wichige Anmerkungen:} \\ \\
 Stellen Sie sicher das alle Parameter korrekt gesetzt sind! Ansonsten kann ein störungsfreier Betrieb des Programms nicht gewährleistet werden!\\
-Des weiteren ist darauf zu achten, das nur befugte Personen diese Datei einsehen können, da sie das Zugangspasswort zur Datenbank enthält!\\
+Des Weiteren ist darauf zu achten, das nur befugte Personen diese Datei einsehen können, da sie das Zugangspasswort zur Datenbank enthält!\\
 Bei Fehler kann gegebenenfalls die Logdatei (log.txt im Installationsverzeichnis) nach Informationen durchsucht werden.
 
 \subsection{Installation des Cronjobs}
@@ -1086,7 +1086,7 @@ Nun wird an das Ende der Datei folgende Zeile hinzugefügt, wobei der Pfad zu er
 
 \vspace*{4mm}
 \begin{lstlisting}[frame=single]
-0 * * * * root /Pfad/zur/StartResizeDB 2\textgreater\&1 
+0 * * * * root /Pfad/zur/StartResizeDB 2>&1 
 \end{lstlisting} 
 \vspace*{-2mm}
 
@@ -1108,9 +1108,7 @@ Beim anschließenden Speichern und Schreiben der Datei wird der Cronjob automati
 
 \section{Datenbanken}
 
-\subsection{Fahrzeugdatenbank}
-
-\subsection{Benutzerdatenbank}
+Auf die Installation der Datenbanken wird im nachfolgenden Kapitel eingegangen. Hierzu werden bestimmte Skripte ausgeführt, die genaue Verwendung davon dort, wenn sie den Einrichtungsanweisungen der Webseite folgen.
 
 %-------------------------------------------------------------------%
 
