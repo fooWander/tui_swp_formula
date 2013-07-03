@@ -108,7 +108,7 @@ bool DBPacketInsert::insert_allgemeineFahrzeugdaten()
 	//Zeitpunkt einfügen:
 	sql_anw += "Zeitpunkt, ";
 	//Fehlerfeld einfügen:
-	sql_anw += "Fehlerfeld)";
+	sql_anw += "AllgFehlerfeld)";
 
 	//Daten einfügen:
 	//Notausfunktionen einfügen:
@@ -212,7 +212,7 @@ bool DBPacketInsert::insert_akkudaten()
 	}
 	//Zeitpunkt & FehlerFeld einfügen:
 	sql_anw += "Zeitpunkt, ";
-	sql_anw += "Fehlerfeld)";
+	sql_anw += "AkkuFehlerfeld)";
 
 	//Daten einfügen:
 	sql_anw += " VALUES (";
@@ -326,7 +326,7 @@ bool DBPacketInsert::insert_dynamischeDaten()
 	//Zeitpunkt einfügen:
 	sql_anw += "Zeitpunkt, ";
 	//FehlerFeld einfügen:
-	sql_anw += "Fehlerfeld)";
+	sql_anw += "DynFehlerfeld)";
 
 	//Daten einfügen:
 	sql_anw += " VALUES (";
@@ -457,7 +457,7 @@ bool DBPacketInsert::insert_fahrdynamikregelung()
 	//Zeitpunkt einfügen:
 	sql_anw += "Zeitpunkt, ";
 	//Fehlerfeld einfügen:
-	sql_anw += "Fehlerfeld)";
+	sql_anw += "FahrdynFehlerfeld)";
 
 	//Daten einfügen:
 	sql_anw += " VALUES (";
@@ -523,7 +523,7 @@ bool DBPacketInsert::insert_motorUmrichterdaten()
 	//Zeitpunkt einfügen:
 	sql_anw += "Zeitpunkt, ";
 	//FehlerFeld einfügen:
-	sql_anw += "Fehlerfeld)";
+	sql_anw += "MotorFehlerfeld)";
 
 	//Daten einfügen:
 	sql_anw += " VALUES (";
