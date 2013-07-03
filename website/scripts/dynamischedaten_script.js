@@ -93,7 +93,7 @@ $(document).ready(function()	// Initialisierung der Anzeigen
 
 function winkel(param)
 {	
-	temp=parseInt(param)/2+90;
+	temp=parseInt(parseInt(param)/2+90);
 	for(j=0;j<181;j++)
 	{
 		if($('#lenkwinkelid'+j).attr('class')=='fhz_lenkindica'){
@@ -238,7 +238,7 @@ function age(param){
  */
  
 $(document).ready(function() 
-	{setTimeout(executeQuery, 1000);
+	{setTimeout(executeQuery, 0);
 });
 
 /**
