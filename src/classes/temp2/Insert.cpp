@@ -40,5 +40,5 @@ using namespace sql::mysql;
 
 		cout << "MySQL-Anweisung abgelaufen." << endl;
 		return EXIT_SUCCESS;
-	}
+	};
 

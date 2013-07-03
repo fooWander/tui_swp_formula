@@ -69,8 +69,7 @@ using namespace boost;
                 getline(file, value, '\n');
                 MSG_READY_2 = lexical_cast<int>(value);
           }
-  */
-          else if(parameter == "#NORM_DB"){
+          */else if(parameter == "#NORM_DB"){
                 getline(file, value, '\n');
                 NORM_DB = lexical_cast<int>(value);		
 
@@ -104,7 +103,7 @@ using namespace boost;
   {
         return db;
   }
-  /*
+
   int dbData::getPACKAGE_SIZE_MAX()
   {
         return PACKAGE_SIZE_MAX;
@@ -179,7 +178,7 @@ using namespace boost;
   {
         return MSG_READY_2;
   }
-  */
+
   int dbData::getNORM_DB()
   {
 	return NORM_DB;

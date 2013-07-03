@@ -448,14 +448,13 @@ Data Decoder::getNextData()
     //int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
     int datatype = 0;
     int pos = myDataPos;
-    int comma = 0;
     
     if ((myDataPos + 1) == myPackagelen) //###   --> Vergleich bufferlen muss unsigned int sein
     {
-       Data datEnd(-1.0,-1,-1,-1); //###
+       Data datEnd(-1.0,-1,-1); //###
         return datEnd;
     }
-    Data dat(value,datatype,pos,comma);
+    Data dat(value,datatype,pos);
     myDataPos++;
     return dat;
 }

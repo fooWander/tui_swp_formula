@@ -26,7 +26,7 @@ using namespace boost;
 			/*! Konstruktor der Klasse.
 			*
 			*/
-			DatatypeDaemon(Decoder* dec);
+			DatatypeDaemon(Decoder& dec);
 			/*! Diese Funktion wird von DBPacketInsert aufgerufen.
 			*
 			*	Sie holt sich ein Data Objekt vom Decoder und extrahiert daraus

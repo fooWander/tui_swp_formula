@@ -1,10 +1,12 @@
 #include "DatatypeDaemon.h"
 #include "Data.h"
-//#include "Encoding.h"
+#include "Encoding.h"
 
-DatatypeDaemon::DatatypeDaemon(Decoder* dec)
+Decoder decode;
+
+DatatypeDaemon::DatatypeDaemon()
 {
-	myDec = dec;
+	//myDec = dec;
 	dataType = 20;	//Default-Wert f\"ur Fehlerausgabe
 }
 
@@ -40,6 +42,6 @@ int DatatypeDaemon::getPosActualPacket()
 int DatatypeDaemon::getTime()
 {
 	//Zeitstempel von Decoder holen:
-	int timestamp = (int)myDec.getTimestamp();
+	int timestamp = (int)decode.getTimestamp();
 	return timestamp;
 }

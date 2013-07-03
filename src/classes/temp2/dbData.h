@@ -150,7 +150,7 @@ using namespace std;
       string pw;	//!< speichert das Passwort zwischen.
       string db;	//!< speichert den Namen der Datenbank zwischen.
 
-      /*
+/*
       int PACKAGE_SIZE_MAX;
       int ACK_SIZE_MAX;
       int DATA_NUM;
