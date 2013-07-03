@@ -33,6 +33,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "unistd.h"
+#include "classes/global.h"
 //#include "DBPacketInsert.h"
 
 //extern char VEC_LAYOUT[];
@@ -52,6 +53,8 @@ char DATA_PACKAGE_INFO[PACKAGE_SIZE_MAX];
 int DATA_PACKAGE_INFO_SIZE;
 char VEC_COMMAS[PACKAGE_SIZE_MAX];
 int VEC_COMMAS_SIZE;
+
+//Decoder DECODER;
 
 //char DATA_SEND[1000];
 
@@ -159,9 +162,9 @@ int main(int argc, char const *argv[])
                 break;
             }
             std::cout << "Decoding data..." << std::endl;
-            Decoder dec = processData();
+            DECODER = processData();
             std::cout << "Data decoded." << std::endl;
-            if (dec.getTimestampStatus() < 0) {
+            if (DECODER.getTimestampStatus() < 0) {
                 std::cout << "Paket zu alt!" << std::endl;
                 continue;
             }
@@ -169,7 +172,7 @@ int main(int argc, char const *argv[])
             for (int i = 0; i < DATA_PACKAGE_SIZE - 12 - 1; ++i)
             {
                 //Data dat = dec.getNextData();
-                DBPacketInsert insertion(&dec);
+                DBPacketInsert insertion;
                 insertion.db_insert();
                 //std::cout << &dat << std::endl;
                 /*

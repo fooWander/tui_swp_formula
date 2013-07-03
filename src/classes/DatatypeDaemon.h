@@ -5,7 +5,8 @@
 #include <string>
 #include <boost/lexical_cast.hpp>
 #include "Data.h"
-#include "Encoding.h"
+#include "global.h"
+//#include "../vserver.cpp"
 using namespace std;
 using namespace boost;
 
@@ -26,7 +27,7 @@ using namespace boost;
 			/*! Konstruktor der Klasse.
 			*
 			*/
-			DatatypeDaemon(Decoder* dec);
+			DatatypeDaemon();
 			/*! Diese Funktion wird von DBPacketInsert aufgerufen.
 			*
 			*	Sie holt sich ein Data Objekt vom Decoder und extrahiert daraus

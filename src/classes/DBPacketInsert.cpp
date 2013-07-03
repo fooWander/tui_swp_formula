@@ -5,9 +5,8 @@
 using namespace std;
 using namespace boost;
 
-DBPacketInsert::DBPacketInsert(Decoder* dec)
+DBPacketInsert::DBPacketInsert()
 {
-	myDec = dec;
 	sql_anw = "";
 }
 

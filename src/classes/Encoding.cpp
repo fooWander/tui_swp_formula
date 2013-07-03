@@ -460,6 +460,10 @@ Data Decoder::getNextData()
     return dat;
 }
 
+int64_t Decoder::getDataTimestamp() {
+    return getTimestamp();
+}
+
 int Decoder::getTimestampStatus() 
 {
     return myTimestampStatus;

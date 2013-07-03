@@ -181,9 +181,12 @@ public:
      *  [Layout,Datentypen,Kommasetzung]
      *  \param bufferlen Länge von @a buffer.
      */
+    Decoder();
 
     Decoder(char *buffer, size_t bufferlen);
     
+    Decoder(const Decoder& decCopy);
+
     /**
      *  Erzeugt einen Dekoder der ein Datenpaket anhand der übergebenen Informationen
      *  dekodiert.
@@ -233,6 +236,8 @@ public:
      */
      int getTimestampStatus();
 
+     int64_t getDataTimestamp();
+
 private:
     unsigned int myDataLength;
     int64_t myTimestamp;
@@ -251,6 +256,7 @@ private:
     unsigned int myPackagePos; 	//### =0
     unsigned int myDataPos; 	//### =8
     void checkTimestamp();
+
     void decodeHeader();
 };
 

@@ -2,9 +2,8 @@
 #include "Data.h"
 //#include "Encoding.h"
 
-DatatypeDaemon::DatatypeDaemon(Decoder* dec)
+DatatypeDaemon::DatatypeDaemon()
 {
-	myDec = dec;
 	dataType = 20;	//Default-Wert f\"ur Fehlerausgabe
 }
 
@@ -12,7 +11,7 @@ string DatatypeDaemon::parseNextValue()
 {
 	//Daten umwandeln direkt in Strings:
 	string rueckgabe = "";
-	Data dat = myDec.getNextData();
+	Data dat = DECODER.getNextData();
 	int type = dat.getDatatype();
 	pos = dat.getPosition();
 	//Datentyp ist Boolean oder (Unsigned) Integer:
@@ -40,6 +39,6 @@ int DatatypeDaemon::getPosActualPacket()
 int DatatypeDaemon::getTime()
 {
 	//Zeitstempel von Decoder holen:
-	int timestamp = (int)myDec.getTimestamp();
+	int timestamp = (int)DECODER.getDataTimestamp();
 	return timestamp;
 }
