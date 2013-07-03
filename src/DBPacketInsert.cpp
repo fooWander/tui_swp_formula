@@ -2,6 +2,7 @@
 #include "Insert.h"
 #include <boost/lexical_cast.hpp>
 
+using namespace std;
 using namespace boost;
 
 DBPacketInsert::DBPacketInsert()
@@ -18,7 +19,7 @@ void DBPacketInsert::db_insert()
 
 	//Fehlervariable initialisieren
 	bool error = false;
-		
+
 	//Zeitstempel holen:
 	time = slave.getTime();
 	//Erstes Element eines neuen Pakets holen:
@@ -28,7 +29,7 @@ void DBPacketInsert::db_insert()
 	//durch Position bestimmen, welches Paket jetzt kommt,
 	//dementsprechend die Insert-Routine aufrufen:
 	switch(nowPos){
-	case allgemeineFahrzeugdaten: 
+	case allgemeineFahrzeugdaten:
 	    //Über Anzahl aller Werte dieses Pakets:
 	    for(int i=1; i<(akkudaten - allgemeineFahrzeugdaten); i++){
 	        //Werte einlesen
@@ -63,7 +64,7 @@ void DBPacketInsert::db_insert()
 	    error = insert_motorUmrichterdaten();
 	    break;
 	}
-	
+
 	//Daten in DB schreiben lassen:
 	//(falls keine Fehler aufgetreten sind)
 	if (!error){
@@ -83,14 +84,14 @@ void DBPacketInsert::db_insert()
 bool DBPacketInsert::insert_allgemeineFahrzeugdaten()
 {
     /*sql_anw ist immer gleich aufgebaut:
-		"INSERT INTO [tabellenname] ([Auswahl der Spalten]) 
+		"INSERT INTO [tabellenname] ([Auswahl der Spalten])
 			VALUES ([Werte])"
 	*/
 	bool error = false;
 	sql_anw = "";
 	//Start der Anfrage:
 	sql_anw += "INSERT INTO allgemeine_fahrzeugdaten (";
-	
+
 	//Auswahl der Spalten:
 	//StatusNotaus einfügen:
 	sql_anw += "StatusNotaus, ";
@@ -115,7 +116,7 @@ bool DBPacketInsert::insert_allgemeineFahrzeugdaten()
 	for(int i=0; i<10; i++){
 		sql_anw += wertStuecke[i];
 		//Fehlerueberpruefung
-		if ((wertStuecke[i] < 0) || (wertStuecke[i] > 1)){
+		if ((lexical_cast<int>(wertStuecke[i]) < 0) || (lexical_cast<int>(wertStuecke[i]) > 1)){
 		  error = true;
 		}
 	}
@@ -124,31 +125,31 @@ bool DBPacketInsert::insert_allgemeineFahrzeugdaten()
 	for(int i=10; i<13; i++){
 		sql_anw += wertStuecke[i] + ", ";
                 //Fehlerueberpruefung
-		if ((wertStuecke[i] < -999.9) || (wertStuecke[i] > 999.9)){
+		if ((lexical_cast<int>(wertStuecke[i]) < -999.9) || (lexical_cast<int>(wertStuecke[i]) > 999.9)){
                   error = true;
                 }
 	}
 	//Geschwindigkeit einfügen:
 	sql_anw += wertStuecke[13] + ", ";
 		//Fehlerueberpruefung
-                if ((wertStuecke[13] < -200.0) || (wertStuecke[13] > 200.0)){
+                if ((lexical_cast<int>(wertStuecke[13]) < -200.0) || (lexical_cast<int>(wertStuecke[13]) > 200.0)){
                   error = true;
                 }
 	//Gaswerte 1&2 einfügen:
 	sql_anw += wertStuecke[14] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[14] < -100.0) || (wertStuecke[14] > 100.0)){
+                if ((lexical_cast<int>(wertStuecke[14]) < -100.0) || (lexical_cast<int>(wertStuecke[14]) > 100.0)){
                   error = true;
                 }
 	sql_anw += wertStuecke[15] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[15] < -100.0) || (wertStuecke[15] > 100.0)){
+                if ((lexical_cast<int>(wertStuecke[15]) < -100.0) || (lexical_cast<int>(wertStuecke[15]) > 100.0)){
                   error = true;
                 }
 	//AkkuGesamtspannung einfügen:
 	sql_anw += wertStuecke[16] + ", ";
                 //Fehlerueberpruefung
-		if ((wertStuecke[16] < 0.0) || (wertStuecke[16] > 1000.0)){
+		if ((lexical_cast<int>(wertStuecke[16]) < 0.0) || (lexical_cast<int>(wertStuecke[16]) > 1000.0)){
                   error = true;
                 }
 	//Aktuelle Fahrzeugzeit einfügen:
@@ -158,7 +159,7 @@ bool DBPacketInsert::insert_allgemeineFahrzeugdaten()
 	sql_anw += lexical_cast<string>(time) + ", ";
 	//Fehlerfeld füllen:
 	sql_anw += "'NARF')";
-	
+
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
 
 	//Fehlerausgabe in Logdatei:
@@ -175,7 +176,7 @@ bool DBPacketInsert::insert_akkudaten()
 	//Errorvariable
 	bool error = false;
 	sql_anw = "";
-	//Start der Anfrage:	
+	//Start der Anfrage:
 	sql_anw += "INSERT INTO akkudaten (";
 
 	//Auswahl der Spalten:
@@ -219,43 +220,43 @@ bool DBPacketInsert::insert_akkudaten()
 	for(int i=0; i<144; i++){
 		sql_anw += wertStuecke[i] + ", ";
 		//Fehlerueberpruefung
-                if ((wertStuecke[i] < 0.0) || (wertStuecke[i] > 5.0)){
+                if ((lexical_cast<int>(wertStuecke[i]) < 0.0) || (lexical_cast<int>(wertStuecke[i]) > 5.0)){
                   error = true;
                 }
 	}
 	//MaxZellspannung & MinZellspannung einfügen:
 	sql_anw += wertStuecke[192] + ", ";
 		//Fehlerueberpruefung
-		 if ((wertStuecke[192] < 0.0) || (wertStuecke[192] > 5.0)){
+		 if ((lexical_cast<int>(wertStuecke[192]) < 0.0) || (lexical_cast<int>(wertStuecke[192]) > 5.0)){
                   error = true;
-                }	
+                }
 	sql_anw += wertStuecke[193] + ", ";
                 //Fehlerueberpruefung
-                 if ((wertStuecke[193] < 0.0) || (wertStuecke[193] > 5.0)){
+                 if ((lexical_cast<int>(wertStuecke[193]) < 0.0) || (lexical_cast<int>(wertStuecke[193]) > 5.0)){
                   error = true;
                 }
 	//Gesamtspannung einfügen:
 	sql_anw += wertStuecke[194] + ", ";
                 //Fehlerueberpruefung
-                 if ((wertStuecke[194] < 0.0) || (wertStuecke[194] > 1000.0)){
+                 if ((lexical_cast<int>(wertStuecke[194]) < 0.0) || (lexical_cast<int>(wertStuecke[194]) > 1000.0)){
                   error = true;
                 }
 	//Stromladegerät und SpannungLadegerät einfügen:
 	sql_anw += wertStuecke[195] + ", ";
                 //Fehlerueberpruefung
-                 if ((wertStuecke[195] < -100.0) || (wertStuecke[195] > 100.0)){
+                 if ((lexical_cast<int>(wertStuecke[195]) < -100.0) || (lexical_cast<int>(wertStuecke[195]) > 100.0)){
                   error = true;
                 }
 	sql_anw += wertStuecke[196] + ", ";
                 //Fehlerueberpruefung
-                 if ((wertStuecke[196] < -1000.0) || (wertStuecke[196] > 1000.0)){
+                 if ((lexical_cast<int>(wertStuecke[196]) < -1000.0) || (lexical_cast<int>(wertStuecke[196]) > 1000.0)){
                   error = true;
                 }
 	//Balancing einfügen:
 	for(int i=197; i<269; i++){
 		sql_anw += wertStuecke[i];
                 //Fehlerueberpruefung
-                 if ((wertStuecke[i] < 0.0) || (wertStuecke[i] > 1.0)){
+                 if ((lexical_cast<int>(wertStuecke[i]) < 0.0) || (lexical_cast<int>(wertStuecke[i]) > 1.0)){
                   error = true;
                 }
 	}
@@ -264,7 +265,7 @@ bool DBPacketInsert::insert_akkudaten()
 	for(int i=269; i<341; i++){
 		sql_anw += wertStuecke[i];
                 //Fehlerueberpruefung
-                 if ((wertStuecke[i] < 0.0) || (wertStuecke[i] > 1.0)){
+                 if ((lexical_cast<int>(wertStuecke[i]) < 0.0) || (lexical_cast<int>(wertStuecke[i]) > 1.0)){
                   error = true;
                 }
 	}
@@ -273,7 +274,7 @@ bool DBPacketInsert::insert_akkudaten()
 	for(int i=144; i<192; i++){
 		sql_anw += wertStuecke[i] + ", ";
                 //Fehlerueberpruefung
-                 if ((wertStuecke[i] < -100.0) || (wertStuecke[i] > 200.0)){
+                 if ((lexical_cast<int>(wertStuecke[i]) < -100.0) || (lexical_cast<int>(wertStuecke[i]) > 200.0)){
                   error = true;
                 }
 	}
@@ -285,7 +286,7 @@ bool DBPacketInsert::insert_akkudaten()
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
 	cout << "insert_akkudaten abgelaufen." << endl;
-        
+
 	//Fehlerausgabe in Logdatei:
 	if (error){
           logData lg;
@@ -317,7 +318,7 @@ bool DBPacketInsert::insert_dynamischeDaten()
 	//Bremsdruck, -kraft & -position einfügen:
 	sql_anw += "Bremsdruck, Bremskraft, Bremsposition, ";
 	//Federweg einfügen:
-	sql_anw += "Federweg01, Federweg02, Federweg03, Federweg04, "; 
+	sql_anw += "Federweg01, Federweg02, Federweg03, Federweg04, ";
 	//Gaspedalstellungen einfügen:
 	sql_anw += "Gaspedalstellung01, Gaspedalstellung02, ";
 	//Lenkwinkel einfügen:
@@ -333,7 +334,7 @@ bool DBPacketInsert::insert_dynamischeDaten()
 	for(int i=0; i<3; i++){
 		sql_anw += wertStuecke[i] + ", ";
 		//Fehlerueberpruefung
-		if ((wertStuecke[i] < -200.0) || (wertStuecke[i] > 200.0)){
+		if ((lexical_cast<int>(wertStuecke[i]) < -200.0) || (lexical_cast<int>(wertStuecke[i]) > 200.0)){
                   error = true;
                 }
 	}
@@ -341,7 +342,7 @@ bool DBPacketInsert::insert_dynamischeDaten()
 	for(int i=3; i<6; i++){
 		sql_anw += wertStuecke[i] + ", ";
 		//Fehlerueberpruefung
-                if ((wertStuecke[i] < -200.0) || (wertStuecke[i] > 200.0)){
+                if ((lexical_cast<int>(wertStuecke[i]) < -200.0) || (lexical_cast<int>(wertStuecke[i]) > 200.0)){
                   error = true;
                 }
 	}
@@ -349,7 +350,7 @@ bool DBPacketInsert::insert_dynamischeDaten()
 	for(int i=6; i<9; i++){
 		sql_anw += wertStuecke[i] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[i] < -760.0) || (wertStuecke[i] > 760.0)){
+                if ((lexical_cast<int>(wertStuecke[i]) < -760.0) || (lexical_cast<int>(wertStuecke[i]) > 760.0)){
                   error = true;
                 }
 	}
@@ -357,62 +358,62 @@ bool DBPacketInsert::insert_dynamischeDaten()
 	for(int i=9; i<13; i++){
 		sql_anw += wertStuecke[i] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[i] < -2000.0) || (wertStuecke[i] > 2000.0)){
+                if ((lexical_cast<int>(wertStuecke[i]) < -2000.0) || (lexical_cast<int>(wertStuecke[i]) > 2000.0)){
                   error = true;
                 }
 	}
 	//Wassertemperaturen 1&2 einfügen:
 	sql_anw += wertStuecke[13] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[13] < -999.9) || (wertStuecke[13] > 999.9)){
+                if ((lexical_cast<int>(wertStuecke[13]) < -999.9) || (lexical_cast<int>(wertStuecke[13]) > 999.9)){
                   error = true;
                 }
 	sql_anw += wertStuecke[14] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[14] < -999.9) || (wertStuecke[14] > 999.9)){
+                if ((lexical_cast<int>(wertStuecke[14]) < -999.9) || (lexical_cast<int>(wertStuecke[14]) > 999.9)){
                   error = true;
                 }
 	//Bremsdruck einfügen:
 	sql_anw += wertStuecke[15] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[15] < -200.0) || (wertStuecke[15] > 200.0)){
+                if ((lexical_cast<int>(wertStuecke[15]) < -200.0) || (lexical_cast<int>(wertStuecke[15]) > 200.0)){
                   error = true;
                 }
 	//Bremskraft einfügen:
 	sql_anw += wertStuecke[16] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[16] < -100.0) || (wertStuecke[16] > 100.0)){
+                if ((lexical_cast<int>(wertStuecke[16]) < -100.0) || (lexical_cast<int>(wertStuecke[16]) > 100.0)){
                   error = true;
                 }
 	//Bremsposition einfügen:
 	sql_anw += wertStuecke[17] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[17] < -100.0) || (wertStuecke[17] > 100.0)){
+                if ((lexical_cast<int>(wertStuecke[17]) < -100.0) || (lexical_cast<int>(wertStuecke[17]) > 100.0)){
                   error = true;
                 }
 	//Federwege 1-4 einfügen:
 	for(int i=18; i<22; i++){
 		sql_anw += wertStuecke[i] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[i] < 0.0) || (wertStuecke[i] > 100.0)){
+                if ((lexical_cast<int>(wertStuecke[i]) < 0.0) || (lexical_cast<int>(wertStuecke[i]) > 100.0)){
                   error = true;
                 }
 	}
 	//Gaspedalstellung 1&2 einfügen:
 	sql_anw += wertStuecke[22] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[22] < -100.0) || (wertStuecke[22] > 100.0)){
+                if ((lexical_cast<int>(wertStuecke[22]) < -100.0) || (lexical_cast<int>(wertStuecke[22]) > 100.0)){
                   error = true;
                 }
 	sql_anw += wertStuecke[23] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[23] < -100.0) || (wertStuecke[23] > 100.0)){
+                if ((lexical_cast<int>(wertStuecke[23]) < -100.0) || (lexical_cast<int>(wertStuecke[23]) > 100.0)){
                   error = true;
                 }
 	//Lenkwinkel einfügen:
 	sql_anw += wertStuecke[24] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[24] < -180.0) || (wertStuecke[24] > 180.0)){
+                if ((lexical_cast<int>(wertStuecke[24]) < -180.0) || (lexical_cast<int>(wertStuecke[24]) > 180.0)){
                   error = true;
                 }
 	//Zeitpunkt einfügen:
@@ -463,13 +464,13 @@ bool DBPacketInsert::insert_fahrdynamikregelung()
 	//Antriebschlupfregelung einfügen:
 	sql_anw += wertStuecke[0] + ", ";
 		//Fehlerueberpruefung
-		if ((wertStuecke[0] < 0.0) || (wertStuecke[0] > 1.0)){
+		if ((lexical_cast<int>(wertStuecke[0]) < 0.0) || (lexical_cast<int>(wertStuecke[0]) > 1.0)){
                   error = true;
                 }
 	//TorqueVectoring einfügen:
 	sql_anw += wertStuecke[1] + ", ";
 		//Fehlerueberpruefung
-		if ((wertStuecke[1] < 0.0) || (wertStuecke[1] > 1.0)){
+		if ((lexical_cast<int>(wertStuecke[1]) < 0.0) || (lexical_cast<int>(wertStuecke[1]) > 1.0)){
                   error = true;
                 }
 	//Zeitpunkt einfügen:
@@ -480,7 +481,7 @@ bool DBPacketInsert::insert_fahrdynamikregelung()
 
 	//cout << "SQL-Anweisung: " << sql_anw << endl;
 	cout << "insert_fahrdynamikregelung abgelaufen." << endl;
-	
+
 	//Fehlerausgabe in Logdatei:
 	if (error){
           logData lg;
@@ -529,57 +530,57 @@ bool DBPacketInsert::insert_motorUmrichterdaten()
 	//DCStrom einfügen:
 	sql_anw += wertStuecke[0] + ", ";
 		//Fehlerueberpruefung
-		if ((wertStuecke[0] < -200.0) || (wertStuecke[0] > 200.0)){
+		if ((lexical_cast<int>(wertStuecke[0]) < -200.0) || (lexical_cast<int>(wertStuecke[0]) > 200.0)){
                   error = true;
                 }
 	//DCSpannung einfügen:
 	sql_anw += wertStuecke[1] + ", ";
                 //Fehlerueberpruefung
-		if ((wertStuecke[1] < 0.0) || (wertStuecke[1] > 1000.0)){
+		if ((lexical_cast<int>(wertStuecke[1]) < 0.0) || (lexical_cast<int>(wertStuecke[1]) > 1000.0)){
                   error = true;
-                }               
+                }
 	//Motortemperaturen 1-8 einfügen:
 	for(int i=2; i<10; i++){
 		sql_anw += wertStuecke[i] + ", ";
                 //Fehlerueberpruefung
-       		if ((wertStuecke[i] < -999.9) || (wertStuecke[i] > 999.9)){
+       		if ((lexical_cast<int>(wertStuecke[i]) < -999.9) || (lexical_cast<int>(wertStuecke[i]) > 999.9)){
                   error = true;
-                }         
+                }
 	}
 	//Stromgrenze einfügen:
 	sql_anw += wertStuecke[10] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[10] < 0.0) || (wertStuecke[10] > 1.0)){
+                if ((lexical_cast<int>(wertStuecke[10]) < 0.0) || (lexical_cast<int>(wertStuecke[10]) > 1.0)){
                   error = true;
                 }
 	//Maximalleistung einfügen:
 	sql_anw += wertStuecke[11] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[11] < 0.0) || (wertStuecke[11] > 1.0)){
+                if ((lexical_cast<int>(wertStuecke[11]) < 0.0) || (lexical_cast<int>(wertStuecke[11]) > 1.0)){
                   error = true;
                 }
 	//Lüfterdrehzahl einfügen:
 	sql_anw += wertStuecke[12] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[12] < -999.9) || (wertStuecke[12] > 999.9)){
+                if ((lexical_cast<int>(wertStuecke[12]) < -999.9) || (lexical_cast<int>(wertStuecke[12]) > 999.9)){
                   error = true;
                 }
 	//Lüfter einfügen:
 	sql_anw += wertStuecke[13] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[13] < 0.0) || (wertStuecke[13] > 1.0)){
+                if ((lexical_cast<int>(wertStuecke[13]) < 0.0) || (lexical_cast<int>(wertStuecke[13]) > 1.0)){
                   error = true;
                 }
 	//Pumpe einfügen:
 	sql_anw += wertStuecke[14] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[14] < 0.0) || (wertStuecke[14] > 1.0)){
+                if ((lexical_cast<int>(wertStuecke[14]) < 0.0) || (lexical_cast<int>(wertStuecke[14]) > 1.0)){
                   error = true;
                 }
 	//Wassertemperatur einfügen:
 	sql_anw += wertStuecke[15] + ", ";
                 //Fehlerueberpruefung
-                if ((wertStuecke[15] < -999.9) || (wertStuecke[15] > 999.9)){
+                if ((lexical_cast<int>(wertStuecke[15]) < -999.9) || (lexical_cast<int>(wertStuecke[15]) > 999.9)){
                   error = true;
                 }
 	//Zeitpunkt einfügen:

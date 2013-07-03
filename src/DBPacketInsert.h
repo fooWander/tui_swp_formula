@@ -8,7 +8,7 @@
 #include "DatatypeDaemon.h"
 #include "logData.h"
 
-using namespace std;
+//using namespace std;
 
 /*!	Klasse zum Aufbau eines SQL-Strings.
 *
