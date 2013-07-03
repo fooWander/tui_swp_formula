@@ -448,14 +448,16 @@ Data Decoder::getNextData()
 {
     //std::cout << myPackage[myDataPos] << std::endl;
     //std::cout << myPackagelen << std::endl;
-    double value = joinUnsigShort(myPackage[myDataPos],myPackage[myDataPos+1]);
+    double value = joinUnsigShort(myPackage[myDataPos+1],myPackage[myDataPos]);
 
     //int datatype = joinUnsigShort(VEC_DATATYPES[myDataPos],VEC_DATATYPES[myDataPos+1]);
     int datatype = 0;
     int pos = myDataPos;
     int comma = 0;
-    
-    if ((myDataPos + 1) == myPackagelen) //###   --> Vergleich bufferlen muss unsigned int sein
+    std::cout << value << std::endl;
+    std::cout << myPackageLen << std::endl;
+
+    if ((myDataPos) == myPackagelen) //###   --> Vergleich bufferlen muss unsigned int sein
     {
        Data datEnd(-1.0,-1,-1,-1); //###
         return datEnd;
