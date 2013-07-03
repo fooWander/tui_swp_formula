@@ -87,7 +87,7 @@ function executeQuery()
 	},"JSON");
 	$.post('core/functions/dynamischedaten_sql.php',{permission:"true"},function(data)
 	{
-		$('#lenkwinkel').html(data[24]+" %");	// Lenkwinkel			
+		$('#lenkwinkel').html(data[24]+" °");	// Lenkwinkel			
 	},"JSON");
 	
 
